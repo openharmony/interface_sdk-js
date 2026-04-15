@@ -422,7 +422,7 @@ export interface ArcSliderOptionsConstructorOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * Enlarged type changging triggers the callback.
+   * Enlarged type changing triggers the callback.
    *
    * @type { ?ArcSliderEnlargeHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -501,7 +501,7 @@ export declare class ArcSliderOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * Enlarged type changging triggers the callback.
+   * Enlarged type changing triggers the callback.
    *
    * @type { ?ArcSliderEnlargeHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle

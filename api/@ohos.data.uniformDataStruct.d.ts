@@ -112,7 +112,7 @@ declare namespace uniformDataStruct {
      */
     readonly uniformDataType: 'general.hyperlink';
     /**
-     * Indicates the url of of the Hyperlink.
+     * Indicates the url of the Hyperlink.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -360,7 +360,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the app name of content form.
      *
-     * @type { appName }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -370,7 +370,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the link url of content form.
      *
-     * @type { linkUri }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static

@@ -172,7 +172,7 @@ declare namespace errorManager {
   function off(type: 'error', observerId: number): Promise<void>;
 
   /**
-   * Register loop observer. This function can only by called from main thread,
+   * Register loop observer. This function can only be called from main thread,
    * and if call this function multiple times, the last
    * modification will overwrite the previous one.
    *
@@ -186,7 +186,7 @@ declare namespace errorManager {
    * @since 12
    */
   /**
-   * Register loop observer. This function can only by called from main thread,
+   * Register loop observer. This function can only be called from main thread,
    * and if call this function multiple times, the last
    * modification will overwrite the previous one.
    *
@@ -266,7 +266,6 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
    */
@@ -307,7 +306,6 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } [observer] - the registered observer
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
@@ -391,7 +389,7 @@ declare namespace errorManager {
   export type UnhandledRejectionObserver = (reason: Error | Any, promise: Promise<Any>) => void;
 
   /**
-   * Register a rejection observer for all VM instances include worker and taskpool.
+   * Register a rejection observer for all VM instances including worker and taskpool.
    * @param { 'globalUnhandledRejectionDetected'} type - globalUnhandledRejectionDetected.
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -404,7 +402,7 @@ declare namespace errorManager {
   function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
 
   /**
-   * Unregister the rejection observer for all VM instance include worker and taskpool.
+   * Unregister the rejection observer for all VM instances including worker and taskpool.
    * @param { 'globalUnhandledRejectionDetected'} type - globalUnhandledRejectionDetected.
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -419,7 +417,7 @@ declare namespace errorManager {
 
   /**
    * The observer will be called by system when an error or unhandled rejection occurs
-   *     from all VM instances include worker and taskpool.
+   *     from all VM instances including worker and taskpool.
    *
    * @typedef { function }
    *     { GlobalError } reason - the reason of the error or rejection.
@@ -454,13 +452,14 @@ declare namespace errorManager {
    * @param { FreezeObserver } observer - The freeze event observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
    */
   function onFreeze(observer: FreezeObserver): void;
 
   /**
-   * Register an error observer for all VM instances include worker and taskpool.
+   * Register an error observer for all VM instances including worker and taskpool.
    * @param { 'globalErrorOccurred'} type - globalErrorOccurred
    * @param { GlobalObserver } observer - The global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -642,14 +641,15 @@ declare namespace errorManager {
    * @param { FreezeObserver } [observer] - The freeze event observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16300004 - If the observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
    */
   function offFreeze(observer?: FreezeObserver): void;
 
   /**
-   * Unregister the error observer for all VM instance include worker and taskpool.
+   * Unregister the error observer for all VM instances including worker and taskpool.
    * @param { 'globalErrorOccurred'} type - globalErrorOccurred.
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -691,6 +691,22 @@ declare namespace errorManager {
    * @since 24 dynamic&static
    */
   function setDefaultResourceUsageObserver(defaultObserver?: ResourceUsageObserver): ResourceUsageObserver;
+
+  /**
+   * Set the default freeze observer, This function will be executed right after the callback function registered
+   * through errorManager.on is executed. You can use it to implement chain calls instead of errorManager.on.
+   * If an empty observer is set for a certain module, it will cause the call chain to be interrupted.
+   * This API must be called in the main thread.
+   *
+   * @param { FreezeObserver } [defaultObserver] - The default freeze observer.
+   * @returns { FreezeObserver } - Returns the original default freeze observer.
+   * @throws { BusinessError } 16000205 - The API is not called on the main thread.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function setDefaultFreezeObserver(defaultObserver?: FreezeObserver) : FreezeObserver;
 
   /**
    * The ErrorHandler will be called when the ArkTS runtime throws an exception that is not caught by the user.

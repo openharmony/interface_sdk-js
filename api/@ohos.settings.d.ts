@@ -1640,7 +1640,7 @@ declare namespace settings {
    * @StageModelOnly
    * @since 26.0.0 dynamic&static
    */
-  function openAppDetailSettings(context: Context, bundleName: string, appIndex?: int): void;
+  function openAppDetailSettingsPage(context: Context, bundleName: string, appIndex?: int): void;
 
   /**
    * 1. Opens the settings page for double-pressing the Down key.

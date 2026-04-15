@@ -963,6 +963,55 @@ declare namespace cloudData {
       mode: relationalStore.SyncMode,
       progress: Callback<relationalStore.ProgressDetails>
     ): Promise<void>;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { BundleInfo } bundleInfo -  BundleInfo configuration.
+     * <br>the instance object of {@link BundleInfo}
+     * @param { relationalStore.CloudSyncConfig } config -  Indicates cloud sync configuration.
+     * <br>the instance object of {@link relationalStore.CloudSyncConfig}
+     * @param { Callback<relationalStore.ProgressDetails> } progress - the specified sync condition by
+     *     <br>the instance object of {@link ProgressDetails}.
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed,
+     *     <br>usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application is not a system application.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static cloudSync(
+        bundleInfo: BundleInfo,
+        config: relationalStore.CloudSyncConfig,
+        progress: Callback<relationalStore.ProgressDetails>
+    ): Promise<void>;
+
+    /**
+     * Stops syncing data to the cloud.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed,
+     *     <br>usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
+     *     application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
+     *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static stopCloudSync(bundleInfos: Array<BundleInfo>): Promise<void>;
   }
 
   /**
@@ -1847,6 +1896,100 @@ declare namespace cloudData {
      */
     function changeConfirmation(sharingResource: string, state: State): Promise<Result<void>>;
   }
+
+  /**
+   * Indicates automatic synchronization triggering method for Device-Cloud data.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AutoSyncTriggerMode {
+    /**
+     * Indicates account login trigger method.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ACCOUNT_LOGIN = 0,
+
+    /**
+     * Indicates the synchronization switch trigger mode.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CLOUD_SWITCH_ON = 1,
+
+    /**
+     * Indicates the trigger mode for network reconnection after recovery.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    NETWORK_RECOVER = 2,
+
+    /**
+     * Indicates the cloud-side data change trigger mode.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CLOUD_DATA_CHANGE = 3,
+
+    /**
+     * Indicates the user change trigger method.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    USER_CHANGE = 4
+  }
+
+  /**
+   * Describes information about the automatic synchronization trigger mode.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AutoSyncTriggerInfo {
+    /**
+     * Describes the automatic synchronization triggering mode.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    mode: AutoSyncTriggerMode;
+  }
+
+  /**
+   * Describes the triggering method for automatic device-cloud synchronization subscription.
+   *
+   * @param { Callback<AutoSyncTriggerInfo> } observer - Callback for automatic synchronization trigger interception.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onAutoSyncTrigger(observer: Callback<AutoSyncTriggerInfo>): void;
+
+  /**
+   * Describes unsubscribing from the device-cloud automatic synchronization trigger mode.
+   *
+   * @param { Callback<AutoSyncTriggerInfo> } [observer] - Callback for automatic synchronization trigger interception.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offAutoSyncTrigger(observer?: Callback<AutoSyncTriggerInfo>): void;
 }
 
 export default cloudData;

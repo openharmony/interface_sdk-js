@@ -92,7 +92,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * Indicated delay get UnifiedData
+   * Indicates a callback for getting UnifiedData with delay.
    *
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
@@ -237,7 +237,7 @@ declare namespace unifiedDataChannel {
     shareOptions?: ShareOptions;
 
     /**
-     * Indicated delay get UnifiedData.
+     * Indicates a callback for getting UnifiedData with delay.
      * @type { ?GetDelayData }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
@@ -2464,6 +2464,7 @@ declare namespace unifiedDataChannel {
      * @returns { string } the id of app icon
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     get appIconId(): string;
@@ -2488,6 +2489,7 @@ declare namespace unifiedDataChannel {
      * @param { string } the id of app icon
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     set appIconId(value: string);
@@ -2512,6 +2514,7 @@ declare namespace unifiedDataChannel {
      * @returns { string } the id of app label
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     get appLabelId(): string;
@@ -2536,6 +2539,7 @@ declare namespace unifiedDataChannel {
      * @param { string } the id of app label
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     set appLabelId(value: string);

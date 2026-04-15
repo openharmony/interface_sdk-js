@@ -236,6 +236,31 @@ declare namespace media {
   function createAudioRecorder(): AudioRecorder;
 
   /**
+   * Creates a media source from file descriptor.
+   *
+   * @param { AVFileDescriptor } fdSrc - file descriptor handler.
+   *     <br>file descriptor handler.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource | undefined;
+
+  /**
+   * Creates a media source from a custom data source.
+   *
+   * @param { AVDataSrcDescriptor } dataSrc - Interface definition for obtaining media data.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithDataSource(dataSrc: AVDataSrcDescriptor): MediaSource | undefined;
+
+  /**
    * Create MediaSource from url.
    * @param { string } url : The location for the media source.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
@@ -250,7 +275,7 @@ declare namespace media {
    * Creates a media source for streaming media to be pre-downloaded.
    * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
    *  HTTP-FLV, DASH, and HTTPS.
-   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @param { Record<string, string> } [headers] : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -295,6 +320,65 @@ declare namespace media {
    * @since 23 static
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource | undefined;
+
+ /** Interface for defining time base metadata
+  *
+  * @syscap SystemCapability.Multimedia.Media.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  interface AVTimedMetaData {
+    /**
+     * Defines the unique token of the time base metadata,
+     * The tag must be unique in other time metadata of the video source.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    id?: string;
+
+    /**
+     * The classification label of the time base metadata,
+     * For example, "com.apple.hls.interstitial", indicates an advertisement.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    classify?: string;
+
+    /**
+     * Defines the offset value of the time primitive information relative to the start time of the entire media.
+     * The value should be an integer.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    start: int;
+
+    /**
+     * Duration of the time primitive information
+     * The value should be an integer.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    duration: int;
+
+    /**
+     * Key-value pair set corresponding to time primitive information
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    contents: Record<string, object>;
+  }
 
   /**
    * Creates an VideoPlayer instance.
@@ -2579,28 +2663,32 @@ declare namespace media {
   }
 
   /**
-   * Describe video dimensions.
+   * Describes the video Dimensions.
    * 
-   * @typedef VideoSize
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 24 dynamic&static
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
   interface VideoSize {
     /**
      * width of the video resolution.
-     * The value must be a positive integer (greater than 0).
-     * @type { ?int }
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Pixel.
+     * 
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     width?: int;
 
     /**
      * height of the video resolution.
-     * The value must be a positive integer (greater than 0).
-     * @type { ?int }
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Pixel.
+     * 
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     height?: int;
   }
@@ -2653,132 +2741,153 @@ declare namespace media {
   /**
    * Describes the filter conditions for track selection.
    * 
-   * @typedef TrackSelectionFilter
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 24 dynamic&static
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
   interface TrackSelectionFilter {
     /**
-     * Maximum allowed video bitrate in bits per second.
-     * The value must be a positive integer (greater than 0).
+     * Maximum allowed video bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Bits/sec.Default value:If this parameter is not specified, the maximum video bitrate is not limited.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     maxVideoBitrate?: int;
 
     /**
-     * Minimum allowed video bitrate in bits per second.
-     * The value must be a positive integer (greater than 0).
+     * Minimum allowed video bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Bits/sec.Default value:If no value is assigned, the minimum video bitrate is not limited.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     minVideoBitrate?: int;
 
     /**
-     * Maximum allowed video frame rate in hertz.
-     * The value must be a positive integer (greater than 0).
+     * Maximum allowed video frame rate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:frame/sec.Default value:If not specified, the maximum video frame rate is not limited.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     maxVideoFrameRate?: int;
 
     /**
-     * Minimum allowed video frame rate in hertz.
-     * The value must be a positive integer (greater than 0).
+     * Minimum allowed video frame rate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:frame/sec.Default value:If not specified, the minimum frame rate is not specified.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     minVideoFrameRate?: int;
 
     /**
      * Maximum allowed video resolution.
+     * <br>Default value:If not specified, the maximum video resolution is not limited.
      * 
-     * @type { ?VideoSize }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     maxVideoResolution?: VideoSize;
 
     /**
      * Minimum allowed video resolution.
+     * <br>Default value:If not specified, the minimum video resolution is not limited.
      * 
-     * @type { ?VideoSize }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     minVideoResolution?: VideoSize;
 
     /**
-     * The preferred sample MIME types for video tracks in order of preference, or an empty list for no preference.
+     * The preferred sample MIME types for video tracks in order of preference,
+     * Multiple MIMEs are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:Format as a MIME string or a codec string in HLS or DASH.
+     * <br>Default value:If not specified or an empty array is set, the Mime type is not limited.
      * 
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     preferredVideoMimeTypes?: Array<string>;
 
     /**
-     * Maximum allowed audio bitrate in bits per second.
-     * The value must be a positive integer (greater than 0).
+     * Maximum allowed audio bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer (greater than 0).
+     * <br>Unit:bit/s.Default value:If this parameter is not set, the maximum audio bitrate is not limited.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     maxAudioBitrate?: int;
 
     /**
-     * Minimum allowed audio bitrate in bits per second.
-     * The value must be a positive integer (greater than 0).
+     * Minimum allowed audio bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Bits/sec.Default value:If this parameter is not set, the minimum audio bitate is not limited.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     minAudioBitrate?: int;
 
     /**
      * Maximum allowed audio channel count.
-     * The value must be a positive integer (greater than 0).
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Default value:If this parameter is not specified, the number of audio channels is not limited.
      * 
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     maxAudioChannels?: int;
 
     /**
-     * The preferred sample MIME types for audio tracks in order of preference, or an empty list for no preference.
+     * Indicates the preferred encoding MIME type of the audio track.
+     * Multiple MIMEs are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:Format as a MIME string or a codec string in HLS or DASH.
+     * <br>Default value:If not specified or an empty array is set, the MIME type of the audio is not restricted.
      * 
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     preferredAudioMimeTypes?: Array<string>;
 
     /**
-     * The preferred languages for audio tracks as IETF BCP 47-conforming tags in order of preference.
+     * The preferred languages for audio tracks.
+     * Multiple languages are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:Language strings comply with the IETF BCP 47 definition.
+     * <br>Default value:If this parameter is not specified or the array is empty, the audio language is not restricted.
      * 
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     preferredAudioLanguages?: Array<string>;
 
     /**
-     * The preferred languages for subtitle tracks as IETF BCP 47-conforming tags in order of preference.
+     * Preferred language set for subtitles.
+     * Multiple languages are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:The language string complies with the IETF BCP 47 definition.
+     * <br>Default value:If this parameter is not specified or the array is empty, the subtitle language is not restricted.
      * 
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     preferredSubtitleLanguages?: Array<string>;
   }
@@ -3384,12 +3493,14 @@ declare namespace media {
      * 
      * @param { int } timeMs - Playback position to jump, should be in [0, duration].
      *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     *     The value should be an integer.
      * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
      *     Set this parameter only for video playback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     seek(timeMs: int, mode?: SeekMode): void;
 
@@ -3500,17 +3611,21 @@ declare namespace media {
      * @since 23 static
      */
     /**
-     * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
-     * This API uses a promise to return the result.
+     * Allows users to switch to a specified track in a specified mode to continue playing.
      * 
-     * @param { int } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
-     * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
+     * @param { int } index - Specifies the track index of the switching target.
+     *     The value should be an integer.Value constraint:
+     *     Extract the value of MD_KEY_TRACK_INDEX using the getTrackDescription().
+     * @param { SwitchMode } [mode] - Sets the mode for rail switching.
+     *     <br>Value constraint:This mode applies only to video track switching.
+     *     <br>Default value:SMOOTH: Switches at the end of a segment to ensure video continuity.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     selectTrack(index: int, mode?: SwitchMode): Promise<void>;
 
@@ -3547,10 +3662,12 @@ declare namespace media {
 
     /**
      * Get the track selection filter currently configured for the player.
+     * 
      * @returns { Promise<TrackSelectionFilter> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     getTrackSelectionFilter(): Promise<TrackSelectionFilter>;
 
@@ -3558,12 +3675,12 @@ declare namespace media {
      * Set the media track filter to the player,
      * and the player uses the filter to select available tracks for rendering.
      * 
-     * @param { TrackSelectionFilter } filter - Source of the streaming media to pre-download.
-     *     Track Selection Condition Filter
+     * @param { TrackSelectionFilter } filter - Track selection filter object assigned to the player.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     setTrackSelectionFilter(filter : TrackSelectionFilter): Promise<void>;
 
@@ -3620,7 +3737,8 @@ declare namespace media {
      * @returns { Promise<Array<Range>> } return the currently loaded time ranges of the player,
      *     expressed as [start, end] positions on the playback timeline in milliseconds.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     getLoadedTimeRanges(): Promise<Array<Range>>;
 
@@ -3633,7 +3751,7 @@ declare namespace media {
      *     expressed as [start, end] positions on the playback timeline in milliseconds.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getSeekableTimeRanges(): Promise<Array<Range>>;
 
@@ -3641,9 +3759,11 @@ declare namespace media {
      * Seek to the default access point of the playback source.
      * for live streaming it's the currently recommended new access point,
      * and for video-on-demand it usually corresponds to the beginning of the video, similar to seek(0).
+     * 
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 24 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     seekToDefaultPosition(): void;
 
@@ -3786,6 +3906,114 @@ declare namespace media {
     setVideoWindowSize(width: int, height: int) : Promise<void>;
 
     /**
+     * Ends playback of the current mediasource and starts playback of the next mediasource in the mediasource list.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed . Return by promise.
+	   * @throws { BusinessError } 5400108 - The previous mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToNextMediaSource() : Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the previous mediasource in the mediasource list.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+	   * @throws { BusinessError } 5400108 - The next mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToPrevMediaSource(): Promise<void>;
+
+    /**
+     * Return the current mediasource.
+     *
+     * @returns { MediaSource | undefined } current mediasource if the operation is successful; returns null otherwise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getCurrentMediaSource(): MediaSource | undefined;
+
+    /**
+     * Add a new playback source to the player's playlist.
+     *
+     * @param { MediaSource } src - Playback source to be added to the playlist.
+     * @param { string } [id] - Indicates the ID of a media source in the playlist.
+     *     The newly added media source is inserted before the specified media source.
+     *     <br>Default value:if empty, it means adding to the end of the list
+     * @returns { Promise<string> } Promise used to return the result,
+     *     if success, a unique ID corresponding to the media resource will be returned.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    addPlaybackMediaSource(src: MediaSource, id?: string): Promise<string>;
+
+    /**
+     * Removes the specified playback media source from the player's playlist.
+     * If the id does not exist in the current playlist, the method returns immediately.
+     *
+     * @param { string } id - ID returned after a media source is added to the playlist.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    removePlaybackMediaSource(id: string): Promise<void>;
+
+    /**
+     * Clears all the items in the player's playlist. Currently playing media will be terminated immediately.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed or no next mediasource in the list. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    clearPlaybackList(): Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the specified mediasource in the mediasource list.
+     *
+     * @param { string } id - Indicates the ID of the media source to play.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToMediaSource(id: string): Promise<void>;
+
+    /**
+     * Return the array of mediasources in the playlist.
+     *
+     * @returns { Array<MediaSource | undefined> } array of mediasources in the playlist.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getMediaSources(): Array<MediaSource | undefined>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3896,6 +4124,17 @@ declare namespace media {
      * @since 23 static
      */
     loop: boolean;
+
+    /**
+     * Set the loopmode when playing the media source playlist.
+     * <br>Default value:PLAYLIST_LOOP_MODE_ALL, which means loops all items in the playlist.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    playlistLoopMode?: PlaylistLoopMode;
 
     /**
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
@@ -5698,6 +5937,105 @@ declare namespace media {
      * @since 23 static
      */
     offSeiMessageReceived(payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
+
+    /**
+     * Registers a listener to detect when the playback content has changed.
+     * The value carried in the callback function is the ID of the media source that is being played in the playlist.
+     *
+     * @param { Callback<string> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onPlaybackContentChanged(callback: Callback<string>):void;
+
+    /**
+     * Unregisters listener to detect when changes occur in the playback content.
+     *
+     * @param { Callback<string> } [callback] - Callback invoked when the event is triggered.
+     *     <br>Default value:If this parameter is not specified, all callback functions for the event are unsubscribed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offPlaybackContentChanged(callback?: Callback<string>):void;
+
+    /**
+     * Register listener to detect time-based metadata,
+     * Currently, only the #EXT-X-DATERANGE data of HLS and the Event Streams information of DASH are supported.
+     *
+     * @param { Callback<AVTimedMetaData> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onTimedMetaData(callback: Callback<AVTimedMetaData>): void;
+
+    /**
+     * Unregister listener to detect time-based metadata,
+     * Currently, only the #EXT-X-DATERANGE data of HLS and the Event Streams information of DASH are supported.
+     *
+     * @param { Callback<AVTimedMetaData> } [callback] - Callback invoked when the event is triggered.
+     *     <br>Default value:If this parameter is not specified, all callback functions for the event are unsubscribed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offTimedMetaData(callback?: Callback<AVTimedMetaData>): void;
+  }
+
+  /**
+   * Enumerates loop mode keys for playback.
+   *
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum PlaylistLoopMode {  
+    /**
+     * loops all items in the playlist
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ALL = 1,
+ 
+    /**
+     * Loops a single playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ONE = 2,
+
+    /**
+     * Loops shuffle playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_SHUFFLE = 3,
+  
+    /**
+     * No looping
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_NONE = 4
   }
 
   /**
@@ -6381,6 +6719,18 @@ declare namespace media {
      * @since 23 static
      */
     setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
+
+    /**
+     * Gets the identifier of the media source.
+     *
+     * @returns { string } Identifier of the media source.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getID(): string;
   }
 
   /**
@@ -7528,7 +7878,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400108 - Parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 26.0.0 dynamic & static
+     * @since 26.0.0 dynamic&static
      * @example
      * let meta: Record<string, string> = {
      *   'com.openharmony.userdefine': '10',
@@ -11983,6 +12333,38 @@ declare namespace media {
      * @since 23 static
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
+    /**
+     * Screen capture paused by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_USER = 11,
+    /**
+     * Screen capture resumed by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_USER = 12,
+    /**
+     * Screen capture paused by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_APP = 13,
+    /**
+     * Screen capture resumed by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_APP = 14,
   }
 
   /**
@@ -12037,6 +12419,14 @@ declare namespace media {
      * @since 23 dynamic&static
      */
     privacyMaskMode?: int;
+
+    /**
+     * Enable pausing the screen capture. The default value is false.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePause?: boolean;
   }
 
   /**
@@ -12218,6 +12608,46 @@ declare namespace media {
      * })
      */
     stopRecording(): Promise<void>;
+
+    /**
+     * Pause screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * avScreenCaptureRecorder.pauseRecording().then(() => {
+     *     console.info('Succeeded in pausing avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to pause avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    pauseRecording(): Promise<void>;
+
+    /**
+     * Resume screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * avScreenCaptureRecorder.resumeRecording().then(() => {
+     *     console.info('Succeeded in resuming avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to resume avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    resumeRecording(): Promise<void>;
 
     /**
      * During screen capture, the application can exempt its privacy windows from security purposes.

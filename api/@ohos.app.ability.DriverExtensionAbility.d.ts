@@ -33,7 +33,9 @@ import _DriverExtensionContext from './application/DriverExtensionContext';
 export type DriverExtensionContext = _DriverExtensionContext;
 
 /**
- * class of driver extension ability.
+ * The **DriverExtensionAbility** module provides the ExtensionAbility related to drivers. It provides lifecycle
+ * callbacks to be invoked when a driver is created, destroyed, connected, or disconnected.
+ *
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
  * @since 10 dynamic
@@ -41,9 +43,8 @@ export type DriverExtensionContext = _DriverExtensionContext;
  */
 declare class DriverExtensionAbility {
   /**
-   * Indicates driver extension ability context.
-   * 
-   * @type { DriverExtensionContext }
+   * Context of the **DriverExtension**. This context is inherited from **ExtensionContext**.
+   *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -52,8 +53,10 @@ declare class DriverExtensionAbility {
   context: DriverExtensionContext;
 
   /**
-   * Called back when a driver extension is started for initialization.
-   * @param { Want } want - Indicates the want of created driver extension.
+   * Called when a DriverExtensionAbility is created to initialize the service logic.
+   *
+   * @param { Want } want - Want information related to this DriverExtensionAbility, including the ability name and bundle
+   *     name.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -62,7 +65,8 @@ declare class DriverExtensionAbility {
   onInit(want: Want): void;
 
   /**
-   * Called back before a driver extension is destroyed.
+   * Called when this DriverExtensionAbility is destroyed to clear resources.
+   *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -71,9 +75,13 @@ declare class DriverExtensionAbility {
   onRelease(): void;
 
   /**
-   * Called back when a driver extension is first connected to an ability.
-   * @param { Want } want - Indicates connection information about the Driver ability.
-   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } Rpc remoteObject.
+   * Called following **onCreate()** when a DriverExtensionAbility is started by calling **connectAbility()**. A
+   * **RemoteObject** object is returned for communication between the server and client.
+   *
+   * @param { Want } want - Want information related to this DriverExtensionAbility, including the ability name and
+   *     bundle name.
+   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } **RemoteObject** object used for communication between
+   *     the server and client, or promise used to return the value.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -82,9 +90,11 @@ declare class DriverExtensionAbility {
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
   /**
-   * Called back when all abilities connected to a driver extension are disconnected.
-   * @param { Want } want - Indicates disconnection information about the driver extension.
-   * @returns { void | Promise<void> }
+   * Called when a client is disconnected from this DriverExtensionAbility.
+   *
+   * @param { Want } want - Want information related to this DriverExtensionAbility, including the ability name and
+   *     bundle name.
+   * @returns { void | Promise<void> } Empty value, or promise used to return the value.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10
@@ -102,10 +112,10 @@ declare class DriverExtensionAbility {
   onDisconnect(want: Want): undefined | Promise<void>;
 
   /**
-   * Called when dump client information is required.
-   * It is recommended that developers don't DUMP sensitive information.
-   * @param { Array<string> } params - Indicates th e params from command.
-   * @returns { Array<string> } The dump info array.
+   * Dumps client information. It is recommended that developers don't DUMP sensitive information.
+   *
+   * @param { Array<string> } params - Parameters in the form of a command.
+   * @returns { Array<string> } String array used to dump client information.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic

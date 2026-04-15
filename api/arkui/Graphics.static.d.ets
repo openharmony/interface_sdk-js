@@ -18,9 +18,9 @@
  * @file
  * @kit ArkUI
  */
-import drawing from '@ohos.graphics.drawing';
-import type common2D from '@ohos.graphics.common2D';
-import { Resource } from 'global.resource';
+import drawing from '../@ohos.graphics.drawing';
+import type common2D from '../@ohos.graphics.common2D';
+import { Resource } from '../global/resource';
 import { ResourceColor } from '@ohos.arkui.component';
 import { BorderStyle } from '@ohos.arkui.component';
 import { ColorSpace } from '@ohos.arkui.component';
@@ -179,7 +179,56 @@ export interface Vector3 {
 }
 
 /**
- * It's a 4x4 matrix, represent by double[].
+ * Defined a vector with four number values.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface Vector4 {
+  /**
+   * Value for x-axis of the vector.
+   * Value range:(-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: double;
+
+  /**
+   * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: double;
+
+  /**
+   * Value for z-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  z: double;
+
+  /**
+   * Value for w-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  w: double;
+}
+
+/**
+ * It's a 4x4 matrix, represent by number[].
  *
  * @typedef { [double, double, double, double, double, double, double, double, double, double, double, double, double,
  *     double, double, double] } Matrix4
@@ -965,16 +1014,17 @@ export declare class ColorMetrics {
 /**
  * Defines the Corner property.
  *
- * @interface Corners
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-interface Corners<T> {
+export interface Corners<T> {
   /**
    * TopLeft property.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   topLeft: T;
@@ -984,6 +1034,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   topRight: T;
@@ -993,6 +1044,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   bottomLeft: T;
@@ -1002,6 +1054,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   bottomRight: T;

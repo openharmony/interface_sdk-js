@@ -22,7 +22,7 @@ import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
 import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { LevelOrder, ImmersiveMode, LevelMode } from '../../@ohos.promptAction';
 import { DismissDialogAction } from './actionSheet';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
 /**
  * The alignment of dialog,
  *
@@ -539,6 +539,19 @@ export declare interface AlertDialogParam {
      * @since 23 static
      */
     levelOrder?: LevelOrder;
+    /**
+     * Set system-styled materials for dialog. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of dialog.
+     * 
+     * Device Behavior Differences:The effect of same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the AlertDialog with confirm button.

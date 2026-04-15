@@ -408,7 +408,17 @@ declare namespace cloudSyncManager {
      * @since 20 dynamic
      * @since 23 static
      */
-    STOPPED = 2
+    STOPPED = 2,
+
+    /**
+     * Indicates that the download task is missing.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MISSING = 3
   }
 
   /**
@@ -422,6 +432,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located in the cloud.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -431,6 +444,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -440,6 +455,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located locally.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -449,6 +467,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located locally, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -458,6 +478,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located both locally and in the cloud.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -467,6 +490,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located both locally and in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -494,6 +519,9 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that downloaded successfully
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -503,6 +531,9 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that fail to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -512,6 +543,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of all files to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -521,6 +555,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of downloaded files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -530,6 +566,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of all files to be downloaded.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -639,6 +677,25 @@ declare namespace cloudSyncManager {
      */
     stopDownload(): Promise<void>;
   }
+
+/**
+   * Supports querying the execution status of full data download tasks for integrated cloud drive applications.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { Array<string> } bundleNames - array of bundleName.
+   * @returns { Promise<Array<DownloadProgress>> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13900010 - Try again.
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+   *     <br>1.Mandatory parameter are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+   *     <br>3.The input parameter contains an invalid bundleName.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getDowngradeDownloadTaskState(bundleNames: Array<string>): Promise<Array<DownloadProgress>>;
 
   /**
    * The existence status of files

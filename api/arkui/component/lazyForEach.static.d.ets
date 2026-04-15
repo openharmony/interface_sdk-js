@@ -407,6 +407,7 @@ export interface DataChangeListener {
      *
      * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataChange(index: int): void;
@@ -415,6 +416,7 @@ export interface DataChangeListener {
      *
      * @param { Array<DataOperation> } dataOperations
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDatasetChange(dataOperations: Array<DataOperation>): void;
@@ -464,7 +466,7 @@ export interface IDataSource<T> {
 }
 
 /**
- * Declare LazyForEachAttribute
+ * Declare LazyForEachAttribute.
  *
  * @extends DynamicNode
  * @interface LazyForEachAttribute
@@ -503,7 +505,7 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
- * @returns {string} Character string generated based on item and index
+ * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */

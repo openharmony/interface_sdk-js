@@ -443,7 +443,7 @@ declare namespace webview {
      */
     interface PdfConfiguration {
         /**
-         * Number of the width.
+         * Number of the width. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -452,7 +452,7 @@ declare namespace webview {
         width: double;
 
         /**
-         * Number of the height.
+         * Number of the height. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -461,7 +461,7 @@ declare namespace webview {
         height: double;
 
         /**
-         * Number of the marginTop.
+         * Number of the marginTop. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -470,7 +470,7 @@ declare namespace webview {
         marginTop: double;
 
         /**
-         * Number of the marginBottom.
+         * Number of the marginBottom. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -479,7 +479,7 @@ declare namespace webview {
         marginBottom: double;
 
         /**
-         * Number of the marginRight.
+         * Number of the marginRight. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -488,7 +488,7 @@ declare namespace webview {
         marginRight: double;
 
         /**
-         * Number of the marginLeft.
+         * Number of the marginLeft. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -4918,6 +4918,26 @@ declare namespace webview {
          * @since 23 static
          */
         getSuggestedFileName(): string;
+
+        /**
+         * Get the original url of the web download.
+         *
+         * @returns { string } - Returns the original url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Get the referrer url of the web download.
+         *
+         * @returns { string } - Returns the referrer url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getReferrerUrl(): string;
 
         /**
          * Start the web download.

@@ -372,6 +372,50 @@ declare namespace power {
   function unregisterShutdownCallback(callback?: Callback<void>): void;
 
   /**
+   * Query the power configuration value for a given scene name.
+   *
+   * @permission ohos.permission.POWER_CONFIG
+   * @param { string } sceneName - Indicates the scene name of the power configuration.
+   *     sceneName parameter must be a string and its length cannot exceed 128 bytes.
+   * @returns { string } Returns the power configuration value on success.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
+   *     1. The length of sceneName parameter exceeds 128 bytes.
+   * @throws { BusinessError } 4900501 - Failed to read the power configuration value.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getPowerConfig(sceneName: string): string;
+
+  /**
+   * Update the power configuration value for a given scene name.
+   *
+   * @permission ohos.permission.POWER_CONFIG
+   * @param { string } sceneName - Indicates the scene name of the power configuration.
+   *     sceneName parameter must be a string and its length cannot exceed 128 bytes.
+   * @param { string } value - Indicates the power configuration value. value parameter must be a string and
+   *     its length cannot exceed 4096 bytes.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
+   *     1. The length of sceneName parameter exceeds 128 bytes;
+   *     2. The length of value parameter exceeds 4096 bytes.
+   * @throws { BusinessError } 4900601 - Failed to write the power configuration value.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setPowerConfig(sceneName: string, value: string): void;
+
+  /**
    * Power mode of a device.
    *
    * @enum { int }

@@ -31,7 +31,7 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  */
 declare class FormEditExtensionAbility extends UIExtensionAbility {
 /**
-   * Indicates configuration infomation about an form edit extension ability context.
+   * Indicates configuration information about a form edit extension ability context.
    *
    * @type { FormEditExtensionContext }
    * @syscap SystemCapability.Ability.Form

@@ -42,7 +42,7 @@ import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin, Coordinate2D } from "./units";
 import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, GestureCollectIntervention, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction } from "./enums";
+import { AccessibilityHoverType, GestureCollectIntervention, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction, UIMaterialAnimationMode } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -293,16 +293,6 @@ export declare interface ReuseOptions {
  * @since 23 static
  */
 export type Context = OriginalContext;
-/**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare function postCardAction(component: Object, action: Object): void;
 /**
  * Defines the data type of the interface restriction.
  *
@@ -2487,7 +2477,19 @@ export declare class DrawModifier {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-     drawFront(drawContext: DrawContext): void;
+    drawFront(drawContext: DrawContext): void;
+
+    /**
+     * drawforeground Method. This method is executed after drawing the associated Node and its children.
+     * It allows you to perform additional drawing operations on top of the already rendered content.
+     * This can be useful for adding visual elements that should appear above the main content.
+     *
+     * @param { DrawContext } drawContext - The drawContext used to draw.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    drawForeground(drawContext: DrawContext): void;
 
     /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
@@ -3236,6 +3238,33 @@ export declare enum ThemeColorMode {
      * @since 23 static
      */
     DARK = 2
+}
+
+/**
+ * enum color mode of pointing popup
+
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum AnchoredColorMode {
+    /**
+     * Defines the mode which is follow up with system.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_SYSTEM = 0,
+    /**
+     * Defines the mode which is follow up with target.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_TARGET = 1
 }
 
 /**
@@ -7438,12 +7467,21 @@ export declare interface PopupCommonOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
+    /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -7570,6 +7608,15 @@ export declare interface TipsOptions {
      * @since 23 static
      */
     showAtAnchor?: TipsAnchorType;
+    /**
+     * Set system-styled materials for tips. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of tips.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the popup button.
@@ -7867,14 +7914,22 @@ export declare interface PopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -8212,14 +8267,22 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -8809,7 +8872,16 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     anchorPosition?: Position;
-
+    /**
+ 	 * Define the menu theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Determine the mode of menu how to avoid keyboard.
      *
@@ -8865,6 +8937,16 @@ export declare interface ContextMenuOptions {
      * @since 26.0.0 static
      */
     maxHeight?: LengthMetrics;
+    /**
+     * Sets the animation effect mode of the menu with the new material;
+     *
+     * @type { ?UIMaterialAnimationMode }
+     * @default UIMaterialAnimationMode.IMMERSIVE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    uiMaterialAnimationMode?: UIMaterialAnimationMode;
 }
 /**
  * Defines the menu options.
@@ -14801,16 +14883,11 @@ export declare interface InputEventInterceptResult {
 /**
  * Defines the input event monitor identifier.
  *
- * **Important Notes**:
+ * Important Notes:
  * - This object is created and returned by the system as a unique identifier for the listener.
  * - The object is an empty object with no accessible members.
  * - Developers cannot actively construct this object, it can only be obtained through the registration interface.
  * - Used for subsequent unregistration to verify identity.
- *
- * **Design Purpose**:
- * - Prevents accidental deletion of listeners registered by other modules.
- * - Object references are unique and cannot be forged.
- * - Avoids abuse issues that may be caused by using number type IDs.
  *
  * @interface InputEventMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14825,13 +14902,6 @@ export declare interface InputEventMonitor {
 /**
  * Defines the raw input event wrapper.
  *
- * Provides a unified interface to access different types of input events, ensuring type safety and backward compatibility.
- * This class encapsulates raw MouseEvent, TouchEvent, or KeyEvent objects and provides access through type-safe methods.
- *
- * **Important Notes**: This class is an abstract class, developers cannot create instances by themselves.
- * The system automatically creates instances when triggering listener callbacks.
- *
- * @class RawInputEventWrapper
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -14839,9 +14909,6 @@ export declare interface InputEventMonitor {
 export declare abstract class RawInputEventWrapper {
   /**
    * Constructor (internal use).
-   *
-   * Since this class is abstract, developers cannot directly call the constructor to create instances.
-   * The system automatically creates instances when input event listeners are triggered.
    *
    * @param { MouseEvent | TouchEvent | KeyEvent } event - The raw input event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14920,24 +14987,8 @@ export declare abstract class RawInputEventWrapper {
 /**
  * Defines the input event listener callback function type.
  *
- * Parameters:
- * - event: Input event wrapper (automatically created and passed by the system, developers do not need to manually create).
- *
- * Returns:
- * - InputEventInterceptResult: Event intercept result.
- *
- * **Abstract Class Notes**: RawInputEventWrapper is an abstract class, developers cannot use the `new` operator to create instances.
- * The system automatically creates instances and passes them as parameters to callback functions when events are triggered.
- *
- * **Type Safety**: RawInputEventWrapper provides type-safe access methods.
- *
- * **Compatibility Notes**:
- * - Currently supports: MouseEvent, TouchEvent, KeyEvent
- * - Future extensions: AxisEvent, GamepadEvent, etc.
- * - RawInputEventWrapper will automatically support new types without modifying interface definitions
- * - Existing code does not need to be modified to be compatible with new types
- *
- * **Performance Warning**: Do not perform time-consuming operations in the callback, otherwise it may cause the application to freeze\!
+ * Performance Warning: Do not perform time-consuming operations in the callback, otherwise it may cause
+ * the application to freeze.
  *
  * The listener executes synchronously in the UI thread and will directly block the event processing flow.
  * It is recommended to only perform simple judgments and calculations, avoiding:
@@ -14946,9 +14997,9 @@ export declare abstract class RawInputEventWrapper {
  * - Network requests
  * - Massive log output
  *
- * If you need to perform time-consuming operations, please use asynchronous tasks or worker threads.
- *
- * @type { InputEventListener }
+ * @typedef { function }
+ * @param { RawInputEventWrapper } event - Input event wrapper
+ * @returns { InputEventInterceptResult } - Event intercept result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static

@@ -121,7 +121,7 @@ export default class EnterpriseAdminExtensionAbility {
   onAppStop(bundleName: string): void;
 
   /**
-   * Called back when a system version need to update. 
+   * Called back when a system version needs to update. 
    *
    * @param { systemManager.SystemUpdateInfo } systemUpdateInfo - the information of the system version.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

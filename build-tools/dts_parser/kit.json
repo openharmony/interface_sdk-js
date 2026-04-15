@@ -238,6 +238,7 @@
     { "filePath": "@ohos.app.ability.Want.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.wantAgent.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.wantConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "@ohos.app.agent.agentConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.appstartup.StartupListener.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.businessAbilityRouter.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.form.formAgent.d.ts", "kitName": "FormKit", "subSystem": "元能力" },
