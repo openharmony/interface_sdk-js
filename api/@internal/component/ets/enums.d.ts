@@ -2811,7 +2811,7 @@ declare enum KeyType {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  CANCEL = 3,
+  CANCEL = 3
 }
 
 /**
@@ -11823,7 +11823,7 @@ declare enum InputEventInterceptAction {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  CONTINUE,
+  CONTINUE = 0,
 
   /**
    * Block the event from being delivered to the UI framework.
@@ -11834,7 +11834,7 @@ declare enum InputEventInterceptAction {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  BLOCK
+  BLOCK = 1
 }
   /**
    * Defines whether a competition for gesture recognition results should occur between the event injector and the

@@ -35713,16 +35713,11 @@ declare interface InputEventInterceptResult {
 /**
  * Defines the input event monitor identifier.
  *
- * **Important Notes**:
+ * Important Notes:
  * - This object is created and returned by the system as a unique identifier for the listener.
  * - The object is an empty object with no accessible members.
  * - Developers cannot actively construct this object, it can only be obtained through the registration interface.
  * - Used for subsequent unregistration to verify identity.
- *
- * **Design Purpose**:
- * - Prevents accidental deletion of listeners registered by other modules.
- * - Object references are unique and cannot be forged.
- * - Avoids abuse issues that may be caused by using number type IDs.
  *
  * @interface InputEventMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35739,13 +35734,6 @@ declare interface InputEventMonitor {
 /**
  * Defines the raw input event wrapper.
  *
- * Provides a unified interface to access different types of input events, ensuring type safety and backward compatibility.
- * This class encapsulates raw MouseEvent, TouchEvent, or KeyEvent objects and provides access through type-safe methods.
- *
- * **Important Notes**: This class is an abstract class, developers cannot create instances by themselves.
- * The system automatically creates instances when triggering listener callbacks.
- *
- * @class RawInputEventWrapper
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -35755,9 +35743,6 @@ declare interface InputEventMonitor {
 declare abstract class RawInputEventWrapper {
   /**
    * Constructor (internal use).
-   *
-   * Since this class is abstract, developers cannot directly call the constructor to create instances.
-   * The system automatically creates instances when input event listeners are triggered.
    *
    * @param { MouseEvent | TouchEvent | KeyEvent } event - The raw input event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35850,24 +35835,8 @@ declare abstract class RawInputEventWrapper {
 /**
  * Defines the input event listener callback function type.
  *
- * Parameters:
- * - event: Input event wrapper (automatically created and passed by the system, developers do not need to manually create).
- *
- * Returns:
- * - InputEventInterceptResult: Event intercept result.
- *
- * **Abstract Class Notes**: RawInputEventWrapper is an abstract class, developers cannot use the `new` operator to create instances.
- * The system automatically creates instances and passes them as parameters to callback functions when events are triggered.
- *
- * **Type Safety**: RawInputEventWrapper provides type-safe access methods.
- *
- * **Compatibility Notes**:
- * - Currently supports: MouseEvent, TouchEvent, KeyEvent
- * - Future extensions: AxisEvent, GamepadEvent, etc.
- * - RawInputEventWrapper will automatically support new types without modifying interface definitions
- * - Existing code does not need to be modified to be compatible with new types
- *
- * **Performance Warning**: Do not perform time-consuming operations in the callback, otherwise it may cause the application to freeze\!
+ * Performance Warning: Do not perform time-consuming operations in the callback, otherwise it may cause
+ * the application to freeze.
  *
  * The listener executes synchronously in the UI thread and will directly block the event processing flow.
  * It is recommended to only perform simple judgments and calculations, avoiding:
@@ -35876,9 +35845,9 @@ declare abstract class RawInputEventWrapper {
  * - Network requests
  * - Massive log output
  *
- * If you need to perform time-consuming operations, please use asynchronous tasks or worker threads.
- *
- * @type { InputEventListener }
+ * @typedef { function }
+ * @param { RawInputEventWrapper } event - Input event wrapper
+ * @returns { InputEventInterceptResult } - Event intercept result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
