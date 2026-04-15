@@ -34,27 +34,25 @@ import { NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput } from './notification/notificationUserInput';
 
 /**
- * The **Notification** module provides notification management capabilities, covering notifications, notification slots
- * , notification subscription, notification enabled status, and notification badge status.
+ * 本模块提供通知管理的能力，包括发布、取消发布通知，创建、获取、移除通知通道，订阅、取消订阅通知，获取通知的使能状态、角标使能状态，获取通知的相关信息等。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The APIs of this module are deprecated since API version 9. You are advised to use 
- * > [@ohos.notificationManager]{@link @ohos.notificationManager:notificationManager} instead.
+ * > 从API version 9开始，该模块不再维护，建议使用[@ohos.notificationManager]{@link @ohos.notificationManager:notificationManager}替代。
  * >
- * > Notification subscription and unsubscription APIs are available only to system applications.
+ * > 通知订阅和取消订阅仅对系统应用开放。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  * @deprecated since 9
- * @useinstead @ohos.notificationManager:notificationManager
+ * @useinstead ohos.notificationManager/notificationManager and ohos.notificationSubscribe/notificationSubscribe
  */
 declare namespace notification {
   /**
-   * Publishes a notification. This API uses an asynchronous callback to return the result.
+   * 发布通知（callback形式）。
    *
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { AsyncCallback<void> } callback - 发布通知的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -63,10 +61,10 @@ declare namespace notification {
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a notification. This API uses a promise to return the result.
+   * 发布通知（Promise形式）。
    *
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -75,12 +73,12 @@ declare namespace notification {
   function publish(request: NotificationRequest): Promise<void>;
 
   /**
-   * Publishes a notification to a specified user. This API uses an asynchronous callback to return the result.
+   * 发布通知给指定的用户。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { number } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { number } userId - 用户ID。
+   * @param { AsyncCallback<void> } callback - 被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -90,12 +88,12 @@ declare namespace notification {
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a notification to a specified user. This API uses a promise to return the result.
+   * 发布通知给指定的用户。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { number } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { number } userId - 用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -105,10 +103,10 @@ declare namespace notification {
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
   /**
-   * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
+   * 取消与指定通知ID相匹配的已发布通知（callback形式）。
    *
-   * @param { number } id - Notification ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } id - 通知ID。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -117,12 +115,11 @@ declare namespace notification {
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified ID and label. This API uses an asynchronous callback to return the 
-   * result.
+   * 通过通知ID和通知标签取消已发布的通知（callback形式）。
    *
-   * @param { number } id - Notification ID.
-   * @param { string } label - Notification label.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } id - 通知ID。
+   * @param { string } label - 通知标签。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -131,11 +128,11 @@ declare namespace notification {
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified ID and optional label. This API uses a promise to return the result.
+   * 取消与指定通知ID相匹配的已发布通知，label可以指定也可以不指定（Promise形式）。
    *
-   * @param { number } id - Notification ID.
-   * @param { string } [label] - Notification label. This parameter is left empty by default.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } id - 通知ID。
+   * @param { string } [label] - 通知标签，默认为空。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -144,9 +141,9 @@ declare namespace notification {
   function cancel(id: number, label?: string): Promise<void>;
 
   /**
-   * Cancels all notifications. This API uses an asynchronous callback to return the result.
+   * 取消所有已发布的通知（callback形式）。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -155,9 +152,9 @@ declare namespace notification {
   function cancelAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels all notifications. This API uses a promise to return the result.
+   * 取消所有已发布的通知（Promise形式）。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -166,11 +163,11 @@ declare namespace notification {
   function cancelAll(): Promise<void>;
 
   /**
-   * Adds a notification slot. This API uses an asynchronous callback to return the result.
+   * 创建通知渠道。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSlot } slot - Notification slot to add.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSlot } slot - 要创建的通知渠道对象。
+   * @param { AsyncCallback<void> } callback - 表示被指定通道的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -180,11 +177,11 @@ declare namespace notification {
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a notification slot. This API uses a promise to return the result.
+   * 创建通知渠道。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSlot } slot - Notification slot to add.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSlot } slot - 要创建的通知渠道对象。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -194,10 +191,10 @@ declare namespace notification {
   function addSlot(slot: NotificationSlot): Promise<void>;
 
   /**
-   * Adds a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 创建指定类型的通知通道（callback形式）。
    *
-   * @param { SlotType } type - Type of the notification slot to add.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { SlotType } type - 要创建的通知通道的类型。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -206,10 +203,10 @@ declare namespace notification {
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a notification slot of a specified type. This API uses a promise to return the result.
+   * 创建指定类型的通知通道（Promise形式）。
    *
-   * @param { SlotType } type - Type of the notification slot to add.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { SlotType } type - 要创建的通知通道的类型。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -218,11 +215,11 @@ declare namespace notification {
   function addSlot(type: SlotType): Promise<void>;
 
   /**
-   * Adds an array of notification slots. This API uses an asynchronous callback to return the result.
+   * 创建多个通知渠道。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots - Notification slots to add.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Array<NotificationSlot> } slots - 要创建的通知渠道对象数组。数组中的元素个数为0~5。
+   * @param { AsyncCallback<void> } callback - 表示被指定通道的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -232,11 +229,11 @@ declare namespace notification {
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds an array of notification slots. This API uses a promise to return the result.
+   * 创建多个通知渠道。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots - Notification slots to add.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<NotificationSlot> } slots - 要创建的通知渠道对象数组。数组中的元素个数为0~5。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -246,11 +243,10 @@ declare namespace notification {
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
   /**
-   * Obtains a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 获取一个指定类型的通知通道（callback形式）。
    *
-   * @param { SlotType } slotType - Type of the notification slot, which can be used for social communication, service
-   *     information, content consultation, and other purposes.
-   * @param { AsyncCallback<NotificationSlot> } callback - Callback used to return the result.
+   * @param { SlotType } slotType - 通知渠道类型，目前分为社交通信、服务提醒、内容咨询和其他类型。
+   * @param { AsyncCallback<NotificationSlot> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -259,11 +255,10 @@ declare namespace notification {
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
   /**
-   * Obtains a notification slot of a specified type. This API uses a promise to return the result.
+   * 获取一个指定类型的通知通道（Promise形式）。
    *
-   * @param { SlotType } slotType - Type of the notification slot, which can be used for social communication, service
-   *     information, content consultation, and other purposes.
-   * @returns { Promise<NotificationSlot> } Promise used to return the result.
+   * @param { SlotType } slotType - 通知渠道类型，目前分为社交通信、服务提醒、内容咨询和其他类型。
+   * @returns { Promise<NotificationSlot> } 以Promise形式返回获取一个通知通道。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -272,9 +267,9 @@ declare namespace notification {
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
   /**
-   * Obtains all notification slots. This API uses an asynchronous callback to return the result.
+   * 获取此应用程序的所有通知通道（callback形式）。
    *
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - 以callback形式返回获取此应用程序的所有通知通道的结果。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -283,9 +278,9 @@ declare namespace notification {
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
   /**
-   * Obtains all notification slots of this application. This API uses a promise to return the result.
+   * 获取此应用程序的所有通知通道（Promise形式）。
    *
-   * @returns { Promise<Array<NotificationSlot>> } Promise used to return the result.
+   * @returns { Promise<Array<NotificationSlot>> } 以Promise形式返回获取此应用程序的所有通知通道的结果。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -294,11 +289,10 @@ declare namespace notification {
   function getSlots(): Promise<Array<NotificationSlot>>;
 
   /**
-   * Removes a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 删除指定类型的通知通道（callback形式）。
    *
-   * @param { SlotType } slotType - Type of the notification slot, which can be used for social communication, service
-   *     information, content consultation, and other purposes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { SlotType } slotType - 通知渠道类型,目前分为社交通信、服务提醒、内容咨询和其他类型。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -307,11 +301,10 @@ declare namespace notification {
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a notification slot of a specified type. This API uses a promise to return the result.
+   * 删除指定类型的通知通道（Promise形式）。
    *
-   * @param { SlotType } slotType - Type of the notification slot, which can be used for social communication, service
-   *     information, content consultation, and other purposes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { SlotType } slotType - 通知渠道类型,目前分为社交通信、服务提醒、内容咨询和其他类型。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -320,9 +313,9 @@ declare namespace notification {
   function removeSlot(slotType: SlotType): Promise<void>;
 
   /**
-   * Removes all notification slots. This API uses an asynchronous callback to return the result.
+   * 删除所有通知通道（callback形式）。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -331,9 +324,9 @@ declare namespace notification {
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notification slots. This API uses a promise to return the result.
+   * 删除所有通知通道（Promise形式）。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -342,7 +335,7 @@ declare namespace notification {
   function removeAllSlots(): Promise<void>;
 
   /**
-   * Enumerates the notification slot types.
+   * 通知渠道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7
@@ -351,7 +344,7 @@ declare namespace notification {
    */
   export enum SlotType {
     /**
-     * Unknown type.
+     * 未知类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -361,7 +354,7 @@ declare namespace notification {
     UNKNOWN_TYPE = 0,
 
     /**
-     * Notification slot for social communication.
+     * 社交类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -371,7 +364,7 @@ declare namespace notification {
     SOCIAL_COMMUNICATION = 1,
 
     /**
-     * Notification slot for service information.
+     * 服务类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -381,7 +374,7 @@ declare namespace notification {
     SERVICE_INFORMATION = 2,
 
     /**
-     * Notification slot for content consultation.
+     * 内容类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -391,7 +384,7 @@ declare namespace notification {
     CONTENT_INFORMATION = 3,
 
     /**
-     * Notification slot for other purposes.
+     * 其他类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -402,16 +395,16 @@ declare namespace notification {
   }
 
   /**
-   * Enumerates the notification content types.
+   * 通知内容类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager/notificationManager.SlotType#ContentType
+   * @useinstead ohos.notificationManager/notificationManager#ContentType
    */
   export enum ContentType {
     /**
-     * Normal text notification.
+     * 普通类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -421,7 +414,7 @@ declare namespace notification {
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
     /**
-     * Long text notification.
+     * 长文本类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -431,7 +424,7 @@ declare namespace notification {
     NOTIFICATION_CONTENT_LONG_TEXT,
 
     /**
-     * Picture-attached notification.
+     * 图片类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -441,7 +434,7 @@ declare namespace notification {
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
-     * Conversation notification.
+     * 社交类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -451,7 +444,7 @@ declare namespace notification {
     NOTIFICATION_CONTENT_CONVERSATION,
 
     /**
-     * Multi-line text notification.
+     * 多行文本类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -462,8 +455,8 @@ declare namespace notification {
   }
 
   /**
-   * Enumerates the notification level.
-   *
+   * 通知级别。
+   * 
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -471,7 +464,7 @@ declare namespace notification {
    */
   export enum SlotLevel {
     /**
-     * The notification function is disabled.
+     * 表示关闭通知功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -481,8 +474,7 @@ declare namespace notification {
     LEVEL_NONE = 0,
 
     /**
-     * The notification function is enabled, but the notification icon is not displayed in the status bar, with no 
-     * banner or alert tone.
+     * 表示通知功能已启用，但状态栏中不显示通知图标，且没有横幅或提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -492,8 +484,7 @@ declare namespace notification {
     LEVEL_MIN = 1,
 
     /**
-     * The notification function is enabled, and the notification icon is displayed in the status bar, with no banner or
-     * alert tone.
+     * 表示通知功能已启用，且状态栏中显示通知图标，但没有横幅或提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -503,8 +494,7 @@ declare namespace notification {
     LEVEL_LOW = 2,
 
     /**
-     * The notification feature is enabled, and the notification icon is displayed in the status bar, with an alert tone
-     * but no banner.
+     * 表示通知功能已启用，状态栏中显示通知图标，没有横幅但有提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -514,8 +504,7 @@ declare namespace notification {
     LEVEL_DEFAULT = 3,
 
     /**
-     * The notification feature is enabled, and the notification icon is displayed in the status bar, with an alert tone
-     * and banner.
+     * 表示通知功能已启用，状态栏中显示通知图标，有横幅和提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -526,12 +515,11 @@ declare namespace notification {
   }
 
   /**
-   * Subscribes to notifications of all applications under this user.
-   * This API uses an asynchronous callback to return the result.
+   * 订阅当前用户下所有应用的通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { AsyncCallback<void> } callback - 订阅动作回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -541,13 +529,12 @@ declare namespace notification {
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
   /**
-   * Subscribes to a notification with the subscription information specified.
-   * This API uses an asynchronous callback to return the result.
+   * 订阅通知并指定订阅信息。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { NotificationSubscribeInfo } info - Notification subscription information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { NotificationSubscribeInfo } info - 通知订阅信息。
+   * @param { AsyncCallback<void> } callback - 订阅动作回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -561,14 +548,13 @@ declare namespace notification {
   ): void;
 
   /**
-   * Subscribes to a notification with the subscription information specified.
-   * This API uses a promise to return the result.
+   * 订阅通知并指定订阅信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { NotificationSubscribeInfo } [info] - Notification subscription information.
-   * This parameter is left empty by default.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { NotificationSubscribeInfo } [info] - 通知订阅信息，
+   * 默认为空（当为空时，表示订阅当前用户下所有应用的通知，否则表示订阅通知并指定订阅信息）。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -578,11 +564,11 @@ declare namespace notification {
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
   /**
-   * Unsubscribes from a notification. This API uses an asynchronous callback to return the result.
+   * 取消订阅（callbcak形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { AsyncCallback<void> } callback - 取消订阅动作回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -592,11 +578,11 @@ declare namespace notification {
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
   /**
-   * Unsubscribes from a notification. This API uses a promise to return the result.
+   * 取消订阅（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -606,13 +592,12 @@ declare namespace notification {
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Sets whether to enable notification for a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 设定指定应用的通知使能状态（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态。
+   * @param { AsyncCallback<void> } callback - 设定通知使能回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -622,12 +607,12 @@ declare namespace notification {
   function enableNotification(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable notification for a specified application. This API uses a promise to return the result.
+   * 设定指定应用的通知使能状态（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -637,12 +622,11 @@ declare namespace notification {
   function enableNotification(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
-   * Checks whether notification is enabled for a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 获取指定应用的通知使能状态（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<boolean> } callback - 获取通知使能状态回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -652,11 +636,11 @@ declare namespace notification {
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether notification is enabled for a specified application. This API uses a promise to return the result.
+   * 获取指定应用的通知使能状态（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<boolean> } 以Promise形式返回获取指定应用的通知使能状态的结果。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -666,11 +650,10 @@ declare namespace notification {
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Checks whether notification is enabled for this application.
-   * This API uses an asynchronous callback to return the result.
+   * 获取通知使能状态（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - 获取通知使能状态回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -680,10 +663,10 @@ declare namespace notification {
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether notification is enabled for this application. This API uses a promise to return the result.
+   * 获取通知使能状态（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @returns { Promise<boolean> } 以Promise形式返回获取通知使能状态的结果。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -693,13 +676,11 @@ declare namespace notification {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
-   * Checks whether notification is enabled for a specified user.
-   * This API uses an asynchronous callback to return the result.
+   * 获取指定用户ID下的通知使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - User ID.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-   * The value **true** means that the notification is enabled, and **false** means the opposite.
+   * @param { number } userId - 指定的用户ID。
+   * @param { AsyncCallback<boolean> } callback - 获取通知使能状态回调函数（true：使能，false：禁止）。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -709,12 +690,11 @@ declare namespace notification {
   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether notification is enabled for a specified user. This API uses a promise to return the result.
+   * 获取指定用户下的通知使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - User ID.
-   * @returns { Promise<boolean> } Promise used to return the result.
-   * The value **true** means that the notification is enabled, and **false** means the opposite.
+   * @param { number } userId - 指定的用户ID。
+   * @returns { Promise<boolean> } 以Promise形式返回获取通知使能状态的结果（true：使能，false：禁止）。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -724,13 +704,12 @@ declare namespace notification {
   function isNotificationEnabled(userId: number): Promise<boolean>;
 
   /**
-   * Sets whether to enable the notification badge for a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 设定指定应用的角标使能状态（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态。
+   * @param { AsyncCallback<void> } callback - 设定角标使能回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -740,13 +719,12 @@ declare namespace notification {
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable the notification badge for a specified application.
-   * This API uses a promise to return the result.
+   * 设定指定应用的角标使能状态（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -756,12 +734,11 @@ declare namespace notification {
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
-   * Checks whether the notification badge is enabled for a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 获取指定应用的角标使能状态（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<boolean> } callback - 获取角标使能状态回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -771,12 +748,11 @@ declare namespace notification {
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the notification badge is enabled for a specified application.
-   * This API uses a promise to return the result.
+   * 获取指定应用的角标使能状态（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<boolean> } 以Promise形式返回获取指定应用的角标使能状态。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -786,13 +762,12 @@ declare namespace notification {
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Sets the notification slot for a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 设定指定应用的通知通道（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationSlot } slot - Notification slot.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationSlot } slot - 通知通道。
+   * @param { AsyncCallback<void> } callback - 设定通知通道回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -802,12 +777,12 @@ declare namespace notification {
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the notification slot for a specified application. This API uses a promise to return the result.
+   * 设定指定应用的通知通道（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationSlot } slot - Notification slot.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationSlot } slot - 通知通道。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -817,12 +792,11 @@ declare namespace notification {
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
   /**
-   * Obtains the notification slots of a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 获取指定应用的所有通知通道（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - 获取通知通道回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -832,11 +806,11 @@ declare namespace notification {
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
   /**
-   * Obtains the notification slots of a specified application. This API uses a promise to return the result.
+   * 获取指定应用的所有通知通道（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<Array<NotificationSlot>> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<Array<NotificationSlot>> } 以Promise形式返回获取指定应用的通知通道。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -846,12 +820,11 @@ declare namespace notification {
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
   /**
-   * Obtains the number of notification slots of a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 获取指定应用的通知通道数量（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<number> } callback - 获取通知通道数量回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -861,12 +834,11 @@ declare namespace notification {
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of notification slots of a specified application. This API uses a promise to return the result.
-
+   * 获取指定应用的通知通道数量（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<number> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<number> } 以Promise形式返回获取指定应用的通知通道数量。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -876,13 +848,13 @@ declare namespace notification {
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
   /**
-   * Removes a notification for a specified bundle. This API uses an asynchronous callback to return the result.
+   * 删除指定通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationKey } notificationKey - Notification key.
-   * @param { RemoveReason } reason - Reason for deleting a notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationKey } notificationKey - 通知键值。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @param { AsyncCallback<void> } callback - 删除指定通知回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -897,13 +869,13 @@ declare namespace notification {
   ): void;
 
   /**
-   * Removes a notification for a specified bundle. This API uses a promise to return the result.
+   * 删除指定通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationKey } notificationKey - Notification key.
-   * @param { RemoveReason } reason - Reason for deleting a notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationKey } notificationKey - 通知键值。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -913,15 +885,15 @@ declare namespace notification {
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
   /**
-   * Removes a notification for a specified bundle. This API uses an asynchronous callback to return the result.
+   * 删除指定通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - Unique notification ID. It is the value of **hashCode**
-   * in the [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
-   * [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
-   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
-   * @param { RemoveReason } reason - Reason for deleting a notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } hashCode - 通知唯一ID。可以通过[onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}
+   * 回调的入参[SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData}获取其内部
+   * [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象中的hashCode。
+
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @param { AsyncCallback<void> } callback - 删除指定通知回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -931,12 +903,12 @@ declare namespace notification {
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a notification for a specified bundle. This API uses a promise to return the result.
+   * 删除指定通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - Unique notification ID.
-   * @param { RemoveReason } reason - Reason for deleting a notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } hashCode - 通知唯一ID。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -946,11 +918,11 @@ declare namespace notification {
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
   /**
-   * Removes all notifications for a specified application. This API uses an asynchronous callback to return the result.
+   * 删除指定应用的所有通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<void> } callback - 删除指定应用的所有通知回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -960,10 +932,10 @@ declare namespace notification {
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notifications. This API uses an asynchronous callback to return the result.
+   * 删除所有通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 删除所有通知回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -973,11 +945,11 @@ declare namespace notification {
   function removeAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notifications for a specified user. This API uses an asynchronous callback to return the result.
+   * 删除指定用户下的所有通知（callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } userId - 用户ID。
+   * @param { AsyncCallback<void> } callback - 删除指定用户所有通知回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -987,11 +959,11 @@ declare namespace notification {
   function removeAll(userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notifications for a specified user. This API uses a promise to return the result.
+   * 删除指定用户下的所有通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } userId - 用户ID。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1001,12 +973,11 @@ declare namespace notification {
   function removeAll(userId: number): Promise<void>;
 
   /**
-   * Removes all notifications for a specified application. This API uses a promise to return the result.
+   * 删除指定应用的所有通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } [bundle] - Bundle information of the application.
-   * By default, this parameter is left empty, indicating that all notifications will be removed.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } [bundle] - 指定应用的包信息。默认为空，表示删除所有通知。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -1016,10 +987,10 @@ declare namespace notification {
   function removeAll(bundle?: BundleOption): Promise<void>;
 
   /**
-   * Obtains all active notifications. This API uses an asynchronous callback to return the result.
+   * 获取当前未删除的所有通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - 获取活动通知回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -1029,10 +1000,10 @@ declare namespace notification {
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
   /**
-   * Obtains all active notifications. This API uses a promise to return the result.
+   * 获取当前未删除的所有通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<Array<NotificationRequest>> } Promise used to return the result.
+   * @returns { Promise<Array<NotificationRequest>> } 以Promise形式返回获取活动通知。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -1042,10 +1013,9 @@ declare namespace notification {
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
-   * Obtains the number of active notifications of this application. This API uses an asynchronous callback to return 
-   * the result.
+   * 获取当前应用未删除的通知数（Callback形式）。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - 获取未删除通知数回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1054,9 +1024,9 @@ declare namespace notification {
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of active notifications of this application. This API uses a promise to return the result.
+   * 获取当前应用未删除的通知数（Promise形式）。
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<number> } 以Promise形式返回获取当前应用未删除通知数。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1065,9 +1035,9 @@ declare namespace notification {
   function getActiveNotificationCount(): Promise<number>;
 
   /**
-   * Obtains active notifications of this application. This API uses an asynchronous callback to return the result.
+   * 获取当前应用未删除的通知列表（Callback形式）。
    *
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - 获取当前应用通知列表回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1076,9 +1046,9 @@ declare namespace notification {
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
   /**
-   * Obtains active notifications of this application. This API uses a promise to return the result.
+   * 获取当前应用未删除的通知列表（Promise形式）。
    *
-   * @returns { Promise<Array<NotificationRequest>> } Promise used to return the result.
+   * @returns { Promise<Array<NotificationRequest>> } 以Promise形式返回获取当前应用通知列表。
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1087,13 +1057,11 @@ declare namespace notification {
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
-   * Cancels notifications under a notification group of this application. This API uses an asynchronous callback to 
-   * return the result.
+   * 取消本应用指定组下的通知（Callback形式）。
    *
-   * @param { string } groupName - Name of the notification group, which is specified through
-   *     [NotificationRequest]{@link notification.requestEnableNotification(callback: AsyncCallback<void>)} when the
-   *     notification is published.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } groupName - 通知组名称，此名称需要在发布通知时通过
+   *     [NotificationRequest]{@link notification.requestEnableNotification(callback: AsyncCallback<void>)}对象指定。
+   * @param { AsyncCallback<void> } callback - 取消本应用指定组下通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1102,10 +1070,10 @@ declare namespace notification {
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels notifications under a notification group of this application. This API uses a promise to return the result.
+   * 取消本应用指定组下的通知（Promise形式）。
    *
-   * @param { string } groupName - Name of the notification group.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } groupName - 通知组名称。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1114,13 +1082,12 @@ declare namespace notification {
   function cancelGroup(groupName: string): Promise<void>;
 
   /**
-   * Removes notifications under a notification group of a specified application.
-   * This API uses an asynchronous callback to return the result.
+   * 删除指定应用的指定组下的通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } groupName - Name of the notification group.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { string } groupName - 通知组名称。
+   * @param { AsyncCallback<void> } callback - 删除指定应用指定组下通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1130,13 +1097,12 @@ declare namespace notification {
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes notifications under a notification group of a specified application.
-   * This API uses a promise to return the result.
+   * 删除指定应用的指定组下的通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } groupName - Name of the notification group.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { string } groupName - 通知组名称。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1146,11 +1112,11 @@ declare namespace notification {
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
 
   /**
-   * Sets the DND time. This API uses an asynchronous callback to return the result.
+   * 设置免打扰时间（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @param { AsyncCallback<void> } callback - 设置免打扰时间回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1160,11 +1126,11 @@ declare namespace notification {
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the DND time. This API uses a promise to return the result.
+   * 设置免打扰时间（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1174,12 +1140,12 @@ declare namespace notification {
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
   /**
-   * Sets the DND time for a specified user. This API uses an asynchronous callback to return the result.
+   * 指定用户设置免打扰时间（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @param { number } userId - ID of the user for whom you want to set the DND time.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @param { number } userId - 设置免打扰时间的用户ID。
+   * @param { AsyncCallback<void> } callback - 设置免打扰时间回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1189,12 +1155,12 @@ declare namespace notification {
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the DND time for a specified user. This API uses a promise to return the result.
+   * 指定用户设置免打扰时间（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @param { number } userId - ID of the user for whom you want to set the DND time.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @param { number } userId - 设置免打扰时间的用户ID。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1204,10 +1170,10 @@ declare namespace notification {
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
 
   /**
-   * Obtains the DND time. This API uses an asynchronous callback to return the result.
+   * 查询免打扰时间（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<DoNotDisturbDate> } callback - Callback used to return the result.
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - 查询免打扰时间回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1217,10 +1183,10 @@ declare namespace notification {
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
-   * Obtains the DND time. This API uses a promise to return the result.
+   * 查询免打扰时间（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<DoNotDisturbDate> } Promise used to return the result.
+   * @returns { Promise<DoNotDisturbDate> } 以Promise形式返回查询到的免打扰时间。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1230,11 +1196,11 @@ declare namespace notification {
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
   /**
-   * Obtains the DND time of a specified user. This API uses an asynchronous callback to return the result.
+   * 查询指定用户的免打扰时间（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - User ID.
-   * @param { AsyncCallback<DoNotDisturbDate> } callback - Callback used to return the result.
+   * @param { number } userId - 用户ID。
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - 查询免打扰时间回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1244,11 +1210,11 @@ declare namespace notification {
   function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
-   * Obtains the DND time of a specified user. This API uses a promise to return the result.
+   * 查询指定用户的免打扰时间（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - User ID.
-   * @returns { Promise<DoNotDisturbDate> } Promise used to return the result.
+   * @param { number } userId - 用户ID。
+   * @returns { Promise<DoNotDisturbDate> } 以Promise形式返回查询到的免打扰时间。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1258,10 +1224,10 @@ declare namespace notification {
   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
   /**
-   * Checks whether DND mode is supported. This API uses an asynchronous callback to return the result.
+   * 查询是否支持免打扰功能（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - 查询是否支持免打扰功能回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1271,10 +1237,10 @@ declare namespace notification {
   function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether DND mode is supported. This API uses a promise to return the result.
+   * 查询是否支持免打扰功能（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @returns { Promise<boolean> } 以Promise形式返回获取是否支持免打扰功能的结果。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1284,12 +1250,11 @@ declare namespace notification {
   function supportDoNotDisturbMode(): Promise<boolean>;
 
   /**
-   * Checks whether a specified template is supported before using
-   * [NotificationTemplate](@link ./notification/notificationTemplate:NotificationTemplate) to publish a notification.
-   * This API uses an asynchronous callback to return the result.
+   * 在使用[通知模板]{@link ./notification/notificationTemplate:NotificationTemplate}发布通知前，
+   * 可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
    *
-   * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { string } templateName - 模板名称。当前仅支持'downloadTemplate'。
+   * @param { AsyncCallback<boolean> } callback - 查询模板是否存在的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1298,12 +1263,11 @@ declare namespace notification {
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a specified template is supported before using
-   * [NotificationTemplate](@link ./notification/notificationTemplate:NotificationTemplate) to publish a notification.
-   * This API uses a promise to return the result.
+   * 在使用[通知模板]{@link ./notification/notificationTemplate:NotificationTemplate}发布通知前，
+   * 可以通过该接口查询是否支持对应的通知模板。使用Promise异步回调。
    *
-   * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @param { string } templateName - 模板名称。当前仅支持'downloadTemplate'。
+   * @returns { Promise<boolean> } Promise方式返回模板是否存在的结果。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1312,10 +1276,9 @@ declare namespace notification {
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
   /**
-   * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the 
-   * result.
+   * 应用请求通知使能（Callback形式）。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 应用请求通知使能的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1324,9 +1287,9 @@ declare namespace notification {
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
   /**
-   * Requests notification to be enabled for this application. This API uses a promise to return the result.
+   * 应用请求通知使能（Promise形式）。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1335,12 +1298,11 @@ declare namespace notification {
   function requestEnableNotification(): Promise<void>;
 
   /**
-   * Sets whether this device supports distributed notifications.
-   * This API uses an asynchronous callback to return the result.
+   * 设置设备是否支持分布式通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Whether the device supports distributed notifications.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { boolean } enable - 是否支持。
+   * @param { AsyncCallback<void> } callback - 设置设备是否支持分布式通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1350,11 +1312,11 @@ declare namespace notification {
   function enableDistributed(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether this device supports distributed notifications. This API uses a promise to return the result.
+   * 设置设备是否支持分布式通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Whether the device supports distributed notifications.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } enable - 是否支持。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1364,10 +1326,9 @@ declare namespace notification {
   function enableDistributed(enable: boolean): Promise<void>;
 
   /**
-   * Checks whether this device supports distributed notifications. This API uses an asynchronous callback to return the
-   * result.
+   * 查询设备是否支持分布式通知（Callback形式）。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - 设备是否支持分布式通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1376,9 +1337,9 @@ declare namespace notification {
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether this device supports distributed notifications. This API uses a promise to return the result.
+   * 查询设备是否支持分布式通知（Promise形式）。
    *
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @returns { Promise<boolean> } Promise方式返回设备是否支持分布式通知的结果。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1387,13 +1348,12 @@ declare namespace notification {
   function isDistributedEnabled(): Promise<boolean>;
 
   /**
-   * Sets whether a specified application supports distributed notifications.
-   * This API uses an asynchronous callback to return the result.
+   * 设置指定应用是否支持分布式通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether the device supports distributed notifications.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { boolean } enable - 是否支持。
+   * @param { AsyncCallback<void> } callback - 应用程序是否支持分布式通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1403,13 +1363,12 @@ declare namespace notification {
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether a specified application supports distributed notifications.
-   * This API uses a promise to return the result.
+   * 设置指定应用是否支持分布式通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Application bundle.
-   * @param { boolean } enable - Whether the device supports distributed notifications.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 应用的包。
+   * @param { boolean } enable - 是否支持。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1419,12 +1378,11 @@ declare namespace notification {
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
-   * Obtains whether an application supports distributed notifications based on the bundle.
-   * This API uses an asynchronous callback to return the result.
+   * 根据应用的包获取应用程序是否支持分布式通知（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Application bundle.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包。
+   * @param { AsyncCallback<boolean> } callback - 查询指定应用是否支持分布式通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1434,12 +1392,11 @@ declare namespace notification {
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a specified application supports distributed notifications.
-   * This API uses an asynchronous callback to return the result.
+   * 查询指定应用是否支持分布式通知（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Application bundle.
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @param { BundleOption } bundle - 应用的包。
+   * @returns { Promise<boolean> } Promise方式返回指定应用是否支持分布式通知的结果。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1449,10 +1406,10 @@ declare namespace notification {
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Obtains the notification reminder type. This API uses an asynchronous callback to return the result.
+   * 获取通知的提醒方式（Callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<DeviceRemindType> } callback - Callback used to return the result.
+   * @param { AsyncCallback<DeviceRemindType> } callback - 获取通知提醒方式的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1462,10 +1419,10 @@ declare namespace notification {
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
   /**
-   * Obtains the notification reminder type. This API uses a promise to return the result.
+   * 获取通知的提醒方式（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<DeviceRemindType> } Promise used to return the result.
+   * @returns { Promise<DeviceRemindType> } Promise方式返回获取通知提醒方式的结果。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1475,19 +1432,18 @@ declare namespace notification {
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
   /**
+   * > **说明：**
+   * > > 从 API version 7开始支持，从API version 9开始废弃。建议使用
+   * > [notificationManager.BundleOption]{@link ./notification/NotificationCommonDef:BundleOption}替代。
    *
-   * > **NOTE**
-   * > This API is supported since API version 7 and deprecated since API version 9.
-   * You are advised to use [notificationManager.BundleOption]{@link ./notification/NotificationCommonDef:BundleOption} instead.
-   * 
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead .ohos.notificationManager/notificationManager#BundleOption
+   * @useinstead ./notification/NotificationCommonDef:BundleOption
    */
   export interface BundleOption {
     /**
-     * Bundle information of the application.
+     * 应用的包信息。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -1497,7 +1453,7 @@ declare namespace notification {
     bundle: string;
 
     /**
-     * User ID. The default value is 0.
+     * 用户ID，默认为0。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -1508,19 +1464,19 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**
-   * > This API is supported since API version 7 and deprecated since API version 9. <!--Del-->You are advised to use 
-   * > [notificationManager.NotificationKey]{@link @ohos.notificationSubscribe:notificationSubscribe.NotificationKey}.<!
-   * > --DelEnd-->
+   * > **说明：**
+   * > 从 API version 7开始支持，从API version 9开始废弃。<!--Del-->建议使用
+   * > [notificationManager.NotificationKey]{@link @ohos.notificationSubscribe:notificationSubscribe.NotificationKey}替代。
+   * > <!--DelEnd-->
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager/notificationManager#NotificationKey
+   * @useinstead @ohos.notificationSubscribe:notificationSubscribe.NotificationKey
    */
   export interface NotificationKey {
     /**
-     * Notification ID.
+     * 通知ID。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -1530,7 +1486,7 @@ declare namespace notification {
     id: number;
 
     /**
-     * Notification label.
+     * 通知标签。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
@@ -1541,9 +1497,10 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [notificationManager.DoNotDisturbType]{@link @ohos.notificationManager:notificationManager.DoNotDisturbType} instead.
+   * 免打扰设置的时间类型。
+   * > **说明：**
+   * > 从 API version 8开始支持，从API version 9开始废弃。建议使用
+   * [notificationManager.DoNotDisturbType]{@link @ohos.notificationManager:notificationManager.DoNotDisturbType}替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1553,7 +1510,7 @@ declare namespace notification {
    */
   export enum DoNotDisturbType {
     /**
-     * Non-DND.
+     * 非通知勿扰类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1564,7 +1521,7 @@ declare namespace notification {
     TYPE_NONE = 0,
 
     /**
-     * One-shot DND at the specified time segment (only considering the hour and minute).
+     * 以设置时间段(只看小时和分钟)一次执行勿扰。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1575,7 +1532,7 @@ declare namespace notification {
     TYPE_ONCE = 1,
 
     /**
-     * Daily DND at the specified time segment (only considering the hour and minute).
+     * 以设置时间段(只看小时和分钟)每天执行勿扰。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1586,7 +1543,7 @@ declare namespace notification {
     TYPE_DAILY = 2,
 
     /**
-     * DND at the specified time segment (considering the year, month, day, hour, and minute).
+     * 以设置时间段(明确年月日时分)执行勿扰。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1598,9 +1555,10 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [notificationManager.DoNotDisturbDate]{@link @ohos.notificationManager:notificationManager.DoNotDisturbDate} instead.
+   * 免打扰时间。
+   * > **说明：**
+   * > 从 API version 8开始支持，从API version 9开始废弃。建议使用
+   * [notificationManager.DoNotDisturbDate]{@link @ohos.notificationManager:notificationManager.DoNotDisturbDate}替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1610,7 +1568,7 @@ declare namespace notification {
    */
   export interface DoNotDisturbDate {
     /**
-     * DND time type.
+     * 免打扰设置的时间类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1621,7 +1579,7 @@ declare namespace notification {
     type: DoNotDisturbType;
 
     /**
-     * DND start time.
+     * 免打扰设置的起点时间。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1632,7 +1590,7 @@ declare namespace notification {
     begin: Date;
 
     /**
-     * DND end time.
+     * 免打扰设置的终点时间。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1644,9 +1602,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > notificationManager.DeviceRemindType instead.
+   * 通知的提醒方式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1656,7 +1612,7 @@ declare namespace notification {
    */
   export enum DeviceRemindType {
     /**
-     * The device is not in use. No notification is required.
+     * 设备未被使用，无需提醒。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1667,7 +1623,7 @@ declare namespace notification {
     IDLE_DONOT_REMIND = 0,
 
     /**
-     * The device is not in use.
+     * 提醒设备未被使用。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1678,7 +1634,7 @@ declare namespace notification {
     IDLE_REMIND = 1,
 
     /**
-     * The device is in use. No notification is required.
+     * 设备正在使用，无需提醒。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1689,7 +1645,7 @@ declare namespace notification {
     ACTIVE_DONOT_REMIND = 2,
 
     /**
-     * The device is in use.
+     * 提醒设备正在使用。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1701,9 +1657,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > notificationManager.SourceType instead.
+   * 通知来源类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1713,7 +1667,7 @@ declare namespace notification {
    */
   export enum SourceType {
     /**
-     * Normal notification.
+     * 一般通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1724,7 +1678,7 @@ declare namespace notification {
     TYPE_NORMAL = 0,
 
     /**
-     * Continuous notification.
+     * 连续通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1735,7 +1689,7 @@ declare namespace notification {
     TYPE_CONTINUOUS = 1,
 
     /**
-     * Timed notification.
+     * 计划通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1747,9 +1701,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-   * > notificationManager.RemoveReason instead.
+   * 通知删除原因。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1759,7 +1711,7 @@ declare namespace notification {
    */
   export enum RemoveReason {
     /**
-     * The notification is removed after a click on it.
+     * 点击通知后删除通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1770,7 +1722,7 @@ declare namespace notification {
     CLICK_REASON_REMOVE = 1,
 
     /**
-     * The notification is removed by the user.
+     * 用户删除通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi

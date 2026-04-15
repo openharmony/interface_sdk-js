@@ -19,7 +19,7 @@
  */
 
 /**
- * The **NotificationExtensionContent** module describes the notification extension content.
+ * 通知扩展内容。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
@@ -27,7 +27,7 @@
  */
 export interface NotificationExtensionContent {
   /**
-   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * 通知标题。不能为空且不能超过1024字节，超出内容将被截断。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
@@ -37,7 +37,7 @@ export interface NotificationExtensionContent {
   title: string;
 
   /**
-   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
+   * 通知内容。不能为空且不能超过3072字节，超出内容将被截断。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
