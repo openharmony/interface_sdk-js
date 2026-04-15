@@ -159,14 +159,14 @@ declare namespace webSocket {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
-     * @since 23 static
      */
     /**
      * Wheter or not to skip the verification of the server's certification.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     skipServerCertVerification?: boolean;
 
@@ -225,7 +225,6 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21 dynamic
-     * @since 23 static
      */
     /**
      * Self defined interval of ping frame.
@@ -235,7 +234,8 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     pingInterval?: int;
 
@@ -246,7 +246,6 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21 dynamic
-     * @since 23 static
      */
     /**
      * Self defined timeout of pong frame.
@@ -256,7 +255,8 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     pongTimeout?: int;
 
@@ -1956,7 +1956,8 @@ declare namespace webSocket {
      * Enables listening for events that a connection from a given client has been closed.
      * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
+     * @crossplatform
+     * @since 26.0.0 static
      */
     onWebSocketServerClose(callback: ClientConnectionCloseCallback): void;
 
@@ -1980,7 +1981,8 @@ declare namespace webSocket {
      * Cancels listening for events that a connection from a given client has been closed.
      * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
+     * @crossplatform
+     * @since 26.0.0 static
      */
     offWebSocketServerClose(callback?: ClientConnectionCloseCallback): void;
     
