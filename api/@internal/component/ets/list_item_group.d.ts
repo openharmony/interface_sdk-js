@@ -70,6 +70,39 @@ declare enum ListItemGroupStyle {
 }
 
 /**
+ * Defines the list item group header/footer style.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum ListItemGroupHeaderFooterStyle {
+  /**
+   * Show none style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  NONE = 0,
+
+  /**
+   * Show floating style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  FLOATING = 1
+}
+
+/**
  * Defines the list item group options.
  *
  * @interface ListItemGroupOptions
@@ -215,6 +248,28 @@ declare interface ListItemGroupOptions {
    * @since 11 dynamic
    */
   style?: ListItemGroupStyle;
+
+  /**
+   * Describes the ListItemGroup header style.
+   * @default ListItemGroupAttribute.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  headerStyle?: ListItemGroupHeaderFooterStyle;
+
+  /**
+   * Describes the ListItemGroup footer style.
+   * @default ListItemGroupAttribute.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  footerStyle?: ListItemGroupHeaderFooterStyle;
 }
 
 /**
