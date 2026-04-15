@@ -15158,6 +15158,21 @@ declare namespace window {
      * @since 22 dynamic
      * @since 23 static
      */
+    /**
+     * Remove Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     removeImageForRecent(): Promise<void>;
   }
 
