@@ -36,12 +36,11 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
 /*** endif */
 
 /**
- * The **notificationSubscribe** module provides APIs for notification subscription, notification unsubscription, 
- * subscription removal, and more. In general cases, only system applications can call these APIs.
+ * 本模块提供通知订阅、取消订阅、通知移除等，一般情况下，只有系统应用具有这些操作权限。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The APIs provided by this module are system APIs.
+ * > 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -50,7 +49,7 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
  */
 declare namespace notificationSubscribe {
   /**
-   * Notification key.
+   * 通知键值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -59,7 +58,7 @@ declare namespace notificationSubscribe {
    */
   export interface NotificationKey {
     /**
-     * Notification ID.
+     * 通知ID。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -69,7 +68,7 @@ declare namespace notificationSubscribe {
     id: int;
 
     /**
-     * Notification label. This parameter is left empty by default.
+     * 通知标签，默认为空。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -80,7 +79,7 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Reason for removing the notification.
+   * 通知删除原因。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -89,7 +88,7 @@ declare namespace notificationSubscribe {
    */
   export enum RemoveReason {
     /**
-     * The notification is removed after a click on it.
+     * 点击通知后删除通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -99,7 +98,7 @@ declare namespace notificationSubscribe {
     CLICK_REASON_REMOVE = 1,
 
     /**
-     * The notification is removed by the user.
+     * 用户删除通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -110,12 +109,11 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Subscribes to notifications of all applications under this user. This API uses an asynchronous callback to return 
-   * the result.
+   * 订阅当前用户下所有应用的通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { AsyncCallback<void> } callback - 订阅动作回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -134,11 +132,10 @@ declare namespace notificationSubscribe {
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
   /**
-   * Subscribes to notifications of the application and specifies subscription information. This API uses a promise to 
-   * return the result.
+   * 订阅本应用的通知并指定订阅信息。使用Promise异步回调。
    *
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -154,13 +151,12 @@ declare namespace notificationSubscribe {
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Subscribes to a notification with the subscription information specified. This API uses an asynchronous callback to
-   * return the result.
+   * 订阅通知并指定订阅信息。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { NotificationSubscribeInfo } info - Notification subscription information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { NotificationSubscribeInfo } info - 通知订阅信息。
+   * @param { AsyncCallback<void> } callback - 订阅动作回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -183,14 +179,12 @@ declare namespace notificationSubscribe {
   ): void;
 
   /**
-   * Subscribes to a notification with the subscription information specified. This API uses a promise to return the 
-   * result.
+   * 订阅通知并指定订阅信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { NotificationSubscribeInfo } [info] - Notification subscription information. By default, this parameter is
-   *     left empty, which means to subscribe to notifications of all applications under this user.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { NotificationSubscribeInfo } [info] - 通知订阅信息，默认为空（当为空时，表示订阅当前用户下所有应用的通知，否则表示订阅通知并指定订阅信息）。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -209,11 +203,11 @@ declare namespace notificationSubscribe {
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
   /**
-   * Subscribe to notifications; After subscribing, new messages are received via a callback function in the subscriber.
+   * 订阅通知；订阅后，通过订阅者中的回调函数接收新消息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationSubscriber } subscriber - 通知订阅者。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -227,12 +221,12 @@ declare namespace notificationSubscribe {
   function subscribeNotification(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Subscribe to notifications; After subscribing, new messages are received via a callback function in the subscriber.
+   * 订阅通知；订阅后，通过订阅者中的回调函数接收新消息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { NotificationSubscribeInfo } info - The notification subscribe info.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationSubscriber } subscriber - 通知订阅者。
+   * @param { NotificationSubscribeInfo } info - 通知订阅信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -246,11 +240,11 @@ declare namespace notificationSubscribe {
   function subscribeNotification(subscriber: NotificationSubscriber, info: NotificationSubscribeInfo): Promise<void>;
 
   /**
-   * Unsubscribes from a notification. This API uses an asynchronous callback to return the result.
+   * 取消订阅。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 19]
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @param { AsyncCallback<void> } callback - 取消订阅动作回调函数。
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 19]
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -266,11 +260,11 @@ declare namespace notificationSubscribe {
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
   /**
-   * Unsubscribes from a notification. This API uses a promise to return the result.
+   * 取消订阅。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 19]
-   * @param { NotificationSubscriber } subscriber - Notification subscriber.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSubscriber } subscriber - 通知订阅对象。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 19]
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -286,14 +280,13 @@ declare namespace notificationSubscribe {
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Removes a notification based on the bundle information and notification key. This API uses an asynchronous callback
-   * to return the result.
+   * 根据应用的包信息和通知键值，删除指定通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationKey } notificationKey - Notification key.
-   * @param { RemoveReason } reason - Reason for removing the notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationKey } notificationKey - 通知键值。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @param { AsyncCallback<void> } callback - 删除指定通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -316,14 +309,13 @@ declare namespace notificationSubscribe {
   ): void;
 
   /**
-   * Removes a notification based on the bundle information and notification key. This API uses a promise to return the 
-   * result.
+   * 根据应用的包信息和通知键值，删除指定通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationKey } notificationKey - Notification key.
-   * @param { RemoveReason } reason - Reason for removing the notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationKey } notificationKey - 通知键值。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -341,16 +333,15 @@ declare namespace notificationSubscribe {
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
   /**
-   * Removes a notification based on the specified unique notification ID. This API uses an asynchronous callback to 
-   * return the result.
+   * 通过通知的唯一ID，删除指定通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - Unique notification ID. It is the value of **hashCode** in the
-   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
-   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
-   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
-   * @param { RemoveReason } reason - Reason for removing the notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } hashCode - 通知唯一ID。可以通过
+   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}回调的入参
+   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData}获取其内部
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象中的hashCode。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @param { AsyncCallback<void> } callback - 删除指定通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -367,15 +358,15 @@ declare namespace notificationSubscribe {
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes specified notifications. This API uses an asynchronous callback to return the result.
+   * 批量删除指定通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<String> } hashCodes - Array of unique notification IDs. It is the value of **hashCode** in the
-   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
-   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
-   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
-   * @param { RemoveReason } reason - Reason for removing the notification.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Array<String> } hashCodes - 通知唯一ID数组集合。可以通过
+   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}回调的入参
+   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData}获取其内部
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象中的hashCode。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @param { AsyncCallback<void> } callback - 删除指定通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -391,14 +382,14 @@ declare namespace notificationSubscribe {
   function remove(hashCodes: Array<String>, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a notification based on the specified unique notification ID. This API uses a promise to return the result.
+   * 通过通知的唯一ID，删除指定通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - Unique notification ID. It is the value of **hashCode** in the
-   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
-   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
-   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
-   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @param { string } hashCode - 通知唯一ID。可以通过
+   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}回调的入参
+   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData}获取其内部
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象中的hashCode。
+   * @param { RemoveReason } reason - 通知删除原因。
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -416,12 +407,12 @@ declare namespace notificationSubscribe {
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
   /**
-   * Removes specified notifications. This API uses a promise to return the result.
+   * 批量删除指定通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<String> } hashCodes - Array of unique notification IDs.
-   * @param { RemoveReason } reason - Reason for removing the notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<String> } hashCodes - 通知唯一ID数组集合。
+   * @param { RemoveReason } reason - 通知删除原因。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -437,11 +428,11 @@ declare namespace notificationSubscribe {
   function remove(hashCodes: Array<String>, reason: RemoveReason): Promise<void>;
 
   /**
-   * Removes all notifications for a specified application. This API uses an asynchronous callback to return the result.
+   * 删除指定应用的所有通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<void> } callback - 删除指定应用的所有通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -458,10 +449,10 @@ declare namespace notificationSubscribe {
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notifications. This API uses an asynchronous callback to return the result.
+   * 删除所有通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 删除所有通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -477,11 +468,11 @@ declare namespace notificationSubscribe {
   function removeAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notifications for a specified user. This API uses an asynchronous callback to return the result.
+   * 删除指定用户下的所有通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } userId - 用户ID。
+   * @param { AsyncCallback<void> } callback - 删除指定用户所有通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -498,11 +489,11 @@ declare namespace notificationSubscribe {
   function removeAll(userId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notifications for a specified user. This API uses a promise to return the result.
+   * 删除指定用户下的所有通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } userId - 用户ID。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -519,12 +510,11 @@ declare namespace notificationSubscribe {
   function removeAll(userId: int): Promise<void>;
 
   /**
-   * Removes all notifications for a specified application. This API uses a promise to return the result.
+   * 删除指定应用的所有通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } [bundle] - Bundle information of the application. By default, this parameter is left empty,
-   *     indicating that all notifications will be removed.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } [bundle] - 指定应用的包信息。默认为空，表示删除所有通知。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -541,14 +531,12 @@ declare namespace notificationSubscribe {
   function removeAll(bundle?: BundleOption): Promise<void>;
 
   /**
-   * Triggers a notification for cross-device operations, such as tap-to-redirect and quick reply. This API uses a 
-   * promise to return the result.
+   * 触发指定通知的跨设备协同操作（例如通知跨设备点击跳转、通知跨设备快捷回复等）。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashcode - Unique notification ID.
-   * @param { OperationInfo } [operationInfo] - Cross-device operation information. This parameter is left empty by
-   *     default.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } hashcode - 通知唯一ID。
+   * @param { OperationInfo } [operationInfo] - 跨设备协同操作信息，默认为空。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -563,7 +551,7 @@ declare namespace notificationSubscribe {
   function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
   /**
-   * Cross-device operation information.
+   * 跨设备协同操作信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -572,8 +560,8 @@ declare namespace notificationSubscribe {
    */
   export interface OperationInfo {
     /**
-     * Operation button displayed in the notification. The value must be the same as that of **title** in 
-     * [NotificationActionButton]{@link ./notification/notificationActionButton:NotificationActionButton}.
+     * 描述通知中显示的操作按钮（与通知
+     * [NotificationActionButton]{@link ./notification/notificationActionButton:NotificationActionButton}中title字段保持一致）。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -583,8 +571,8 @@ declare namespace notificationSubscribe {
     actionName?: string;
 
     /**
-     * User input, used to apply quick reply across devices. The value must be the same as that of **inputKey** in 
-     * [NotificationUserInput]{@link ./notification/notificationUserInput:NotificationUserInput}.
+     * 用户输入（用于通知跨设备快捷回复场景传递用户输入，与通知
+     * [NotificationUserInput]{@link ./notification/notificationUserInput:NotificationUserInput}中inputKey字段保持一致）。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -594,12 +582,12 @@ declare namespace notificationSubscribe {
     userInput?: string;
 
     /**
-     * Operation type.
+     * 用户点击操作类型。
      * 
-     * - **0**: The user taps the non-live view.
-     * - **1**: The user taps the non-live view button.
-     * - **32**: The user taps the live view.
-     * - **33**: The user taps the live view auxiliary area.
+     * - 0：用户点击非实况通知本体。
+     * - 1：用户点击非实况通知按钮。
+     * - 32：用户点击实况通知本体。
+     * - 33：用户点击实况通知辅助区
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -609,7 +597,7 @@ declare namespace notificationSubscribe {
     operationType?: int;
 
     /**
-     * Index of the non-live view button or live view auxiliary area that the user taps.
+     * 用户点击的非实况通知按钮序号或实况通知辅助区序号。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -620,7 +608,7 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Describes the **BundleOption** information, that is, the bundle information of an application.
+   * 描述BundleOption信息，即应用的包信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -630,8 +618,7 @@ declare namespace notificationSubscribe {
   export type BundleOption = _BundleOption;
 
   /**
-   * The **NotificationSubscribeInfo** module provides APIs for defining the information about the publisher for
-   * notification subscription.
+   * 通知发布者的信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -641,7 +628,7 @@ declare namespace notificationSubscribe {
   export type NotificationSubscribeInfo = _NotificationSubscribeInfo;
 
   /**
-   * Provides callback methods for subscribers to receive and cancel notifications.
+   * 作为订阅通知接口subscribe的入参，提供订阅者接收到新通知、取消通知等的回调方法。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -651,8 +638,7 @@ declare namespace notificationSubscribe {
   export type NotificationSubscriber = _NotificationSubscriber;
 
   /**
-   * Provides methods that will be called back when the subscriber receives a new notification or
-   * a notification is canceled.
+   * 携带系统属性值的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -662,7 +648,7 @@ declare namespace notificationSubscribe {
   export type SubscribeCallbackData = _SubscribeCallbackData;
 
   /**
-   * Describes the properties of the application that the permission to send notifications has changed.
+   * 回调返回监听到的应用信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -672,7 +658,7 @@ declare namespace notificationSubscribe {
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
 
   /**
-   * Describes the switch state for silent reminder notification.
+   * 回调返回监听到的静默提醒使能状态信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -682,7 +668,7 @@ declare namespace notificationSubscribe {
   export type EnabledSilentReminderCallbackData = _EnabledSilentReminderCallbackData;
 
   /**
-   * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
+   * 注册应用通知静默提醒使能状态变化的回调函数类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -692,7 +678,7 @@ declare namespace notificationSubscribe {
   export type EnabledSilentReminderChangedCallback = _EnabledSilentReminderChangedCallback;
 
   /**
-   * Describes the main switch state for priority notification.
+   * 返回通知优先级总开关状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -701,7 +687,7 @@ declare namespace notificationSubscribe {
   export type EnabledPriorityNotificationCallbackData = _EnabledPriorityNotificationCallbackData;
 
   /**
-   * Describes the bundle switch state for priority notification.
+   * 返回应用通知优先级开关状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -710,7 +696,7 @@ declare namespace notificationSubscribe {
   export type EnabledPriorityNotificationByBundleCallbackData = _EnabledPriorityNotificationByBundleCallbackData;
 
   /**
-   * Describes the badge number of the application has changed.
+   * 回调返回监听到的应用信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

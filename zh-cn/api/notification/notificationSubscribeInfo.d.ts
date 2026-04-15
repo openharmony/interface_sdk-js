@@ -21,12 +21,11 @@
 import type notificationManager from '../@ohos.notificationManager';
 
 /**
- * The **NotificationSubscribeInfo** module provides APIs for defining the information about the publisher for 
- * notification subscription.
+ * 通知发布者的信息。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The APIs provided by this module are system APIs.
+ * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -35,8 +34,7 @@ import type notificationManager from '../@ohos.notificationManager';
  */
 export interface NotificationSubscribeInfo {
   /**
-   * Bundle names of the applications whose notifications to subscribe to. If this parameter is not specified, the 
-   * subscription defaults to notifications from all applications.
+   * 应用Bundle名称。 不传递该参数时，默认订阅所有应用的通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -46,7 +44,7 @@ export interface NotificationSubscribeInfo {
   bundleNames?: Array<string>;
 
   /**
-   * User ID. If this parameter is not specified, the subscription defaults to notifications from all user IDs.
+   * 用户ID。 不传递该参数时，默认订阅所有用户ID的通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -56,8 +54,7 @@ export interface NotificationSubscribeInfo {
   userId?: int;
 
   /**
-   * Device type. If this parameter is not specified, the subscription defaults to notifications from the current 
-   * device. The value is obtained based on [device information]{@link ./../@ohos.deviceInfo:deviceInfo}.
+   * 设备类型。不传递该参数时，默认订阅当前设备的通知。根据[设备信息]{@link ./../@ohos.deviceInfo:deviceInfo}获取。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -67,8 +64,7 @@ export interface NotificationSubscribeInfo {
   deviceType?: string;
 
   /**
-   * Types of the notification slots. If this parameter is not specified, the subscription defaults to notifications of 
-   * all slot types.
+   * 通知渠道类型。 不传递该参数时，默认订阅所有渠道类型的通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -78,15 +74,13 @@ export interface NotificationSubscribeInfo {
   slotTypes?: Array<notificationManager.SlotType>;
 
   /**
-   * Notification filtering range. The default value is **0**. The options are as follows:
+   * 通知过滤范围。默认值为0。取值范围包括：
    * 
-   * - **0**: All notifications are included in the subscription.
-   * - **1**: Filter out notifications whose slot type is 
-   * [SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType} and 
-   * [userInput]{@link notificationActionButton:NotificationActionButton} is empty.
-   * - **2**: Filter out notifications whose slot type is 
-   * [SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType} and 
-   * [userInput]{@link notificationActionButton:NotificationActionButton} is not empty.
+   * - 0：不进行任何过滤，订阅全部通知。 
+   * - 1：将渠道类型为[SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType}且
+   * [userInput]{@link notificationActionButton:NotificationActionButton}为空的通知过滤掉。
+   * - 2：将渠道类型为[SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType}且
+   * [userInput]{@link notificationActionButton:NotificationActionButton}不为空的通知过滤掉。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
