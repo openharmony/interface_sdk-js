@@ -189,6 +189,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 23 static
      */
     extraData?: string | Object | ArrayBuffer;
 
