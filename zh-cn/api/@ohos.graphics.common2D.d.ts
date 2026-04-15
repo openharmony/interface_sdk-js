@@ -18,11 +18,11 @@
  * @kit ArkGraphics2D
  */
 /**
- * This module defines some common data types in the 2D graphics field.
- *
- * > **NOTE**
+ * 本模块定义了一些2D图形领域的通用数据类型。
+ * 
+ * > **说明：**
  * >
- * > - This module uses the physical pixel unit, px.
+ * > - 本模块使用屏幕物理像素单位px。
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform [since 20]
@@ -32,7 +32,7 @@
  */
 declare namespace common2D {
   /**
-   * Describes a color in ARGB format.
+   * ARGB格式的颜色描述。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -42,7 +42,7 @@ declare namespace common2D {
    */
   interface Color {
     /**
-     * Alpha component of the color. The value is an integer ranging from 0 to 255.
+     * 颜色的A分量（透明度），值是0~255的整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -52,7 +52,7 @@ declare namespace common2D {
      */
     alpha: int;
     /**
-     * Red component of the color. The value is an integer ranging from 0 to 255.
+     * 颜色的R分量（红色），值是0~255的整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -62,7 +62,7 @@ declare namespace common2D {
      */
     red: int;
     /**
-     * Green component of the color. The value is an integer ranging from 0 to 255.
+     * 颜色的G分量（绿色），值是0~255的整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -72,7 +72,7 @@ declare namespace common2D {
      */
     green: int;
     /**
-     * Blue component of the color. The value is an integer ranging from 0 to 255.
+     * 颜色的B分量（蓝色），值是0~255的整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -84,8 +84,7 @@ declare namespace common2D {
   }
 
   /**
-   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right
-   * corner point.
+   * 矩形区域，通过2个坐标点可以描述出一个矩形区域，这2个点分别认为是矩形区域的左上角点与右下角点。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -95,7 +94,7 @@ declare namespace common2D {
    */
   interface Rect {
     /**
-     * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
+     * 矩形区域的左上角横坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -105,7 +104,7 @@ declare namespace common2D {
      */
     left: double;
     /**
-     * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
+     * 矩形区域的左上角纵坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -115,7 +114,7 @@ declare namespace common2D {
      */
     top: double;
     /**
-     * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
+     * 矩形区域的右下角横坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -125,7 +124,7 @@ declare namespace common2D {
      */
     right: double;
     /**
-     * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
+     * 矩形区域的右下角纵坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -137,7 +136,7 @@ declare namespace common2D {
   }
 
   /**
-   * Describes a coordinate point.
+   * 坐标点。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -147,7 +146,7 @@ declare namespace common2D {
    */
   interface Point {
     /**
-     * Horizontal coordinate. The value is a floating point number.
+     * 横坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -158,7 +157,7 @@ declare namespace common2D {
     x: double;
 
     /**
-     * Vertical coordinate. The value is a floating point number.
+     * 纵坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -170,7 +169,7 @@ declare namespace common2D {
   }
 
   /**
-   * Describes a 3D coordinate point. It inherits from [Point]{@link common2D.Point}.
+   * 三维的坐标点。继承自[Point]{@link common2D.Point}。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -179,7 +178,7 @@ declare namespace common2D {
    */
   interface Point3d extends Point {
     /**
-     * Z-axis coordinate. The value is a floating point number.
+     * z轴坐标，浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -190,7 +189,7 @@ declare namespace common2D {
   }
 
   /**
-   * Describes a color in ARGB format.
+   * ARGB格式的颜色描述。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
@@ -199,7 +198,7 @@ declare namespace common2D {
    */
   interface Color4f {
     /**
-     * Alpha component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     * 颜色的A分量（透明度），值是0.0~1.0的浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -208,7 +207,7 @@ declare namespace common2D {
      */
     alpha: double;
     /**
-     * Red component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     * 颜色的R分量（红色），值是0.0~1.0的浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -217,7 +216,7 @@ declare namespace common2D {
      */
     red: double;
     /**
-     * Green component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     * 颜色的G分量（绿色），值是0.0~1.0的浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -226,7 +225,7 @@ declare namespace common2D {
      */
     green: double;
     /**
-     * Blue component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     * 颜色的B分量（蓝色），值是0.0~1.0的浮点数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
