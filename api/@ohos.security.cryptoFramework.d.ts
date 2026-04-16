@@ -612,7 +612,7 @@ declare namespace cryptoFramework {
 
   /**
    * The aead algorithm parameters.
-   * 
+   *
    * Currently, it only supports the AES-CCM algorithm.
    *
    * @extends ParamsSpec
@@ -1141,6 +1141,11 @@ declare namespace cryptoFramework {
     /**
      * Get the public key object of the private key.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link getPubKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @returns { PubKey } the public key object of the private key.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
@@ -1173,7 +1178,7 @@ declare namespace cryptoFramework {
      * Get the key data from the private key.
      *
      * <br><br>**NOTE**
-     * <br> It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
      * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
      * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
@@ -1319,6 +1324,11 @@ declare namespace cryptoFramework {
 
     /**
      * Get the key data from the public key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
      *     <br>AsyKeyDataItem Enumeration
@@ -1564,6 +1574,11 @@ declare namespace cryptoFramework {
     /**
      * Generate random DataBlob by given length synchronously.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateRandom}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { int } len - indicates the length of random DataBlob.
      * @returns { DataBlob } return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1790,6 +1805,11 @@ declare namespace cryptoFramework {
 
     /**
      * Used to generate asymmetric keypair.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateKeyPair}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2057,6 +2077,11 @@ declare namespace cryptoFramework {
 
     /**
      * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertPemKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { string | null } pubKey - the public key string in PEM format.
      * @param { string | null } priKey - the private key string in PEM format.
@@ -2605,6 +2630,11 @@ declare namespace cryptoFramework {
      * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
      * init and doFinal are mandatory, and update is optional.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { SymKey } key - indicates the SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2705,6 +2735,11 @@ declare namespace cryptoFramework {
     /**
      * Update mac with DataBlob.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2786,6 +2821,11 @@ declare namespace cryptoFramework {
 
     /**
      * Output the result of mac calculation.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3033,6 +3073,11 @@ declare namespace cryptoFramework {
     /**
      * Update md with DataBlob.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3114,6 +3159,11 @@ declare namespace cryptoFramework {
 
     /**
      * Output the result of md calculation.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link digest}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3915,6 +3965,11 @@ declare namespace cryptoFramework {
      * Init the crypto operation with the given crypto mode, key and parameters.
      * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
@@ -4149,6 +4204,11 @@ declare namespace cryptoFramework {
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
      * this time. RSA is not supported in this function.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
@@ -4170,6 +4230,11 @@ declare namespace cryptoFramework {
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
      * this time. RSA is not supported in this function.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
@@ -4547,6 +4612,11 @@ declare namespace cryptoFramework {
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
      * Data cannot be updated after the crypto operation is finished.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
@@ -4568,6 +4638,11 @@ declare namespace cryptoFramework {
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
      * Data cannot be updated after the crypto operation is finished.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
@@ -5115,6 +5190,11 @@ declare namespace cryptoFramework {
     /**
      * Used to append the message that needs to be signed.
      * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob } data - the data that needs to be signed.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
@@ -5781,6 +5861,11 @@ declare namespace cryptoFramework {
     /**
      * Used to append the message that needs to be verified.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob } data - the data that needs to be verified.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -6068,6 +6153,11 @@ declare namespace cryptoFramework {
     /**
      * Used to recover signed data.
      * Currently, only RSA is supported.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link recover}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob } signatureData - the signature data.
      * @returns { DataBlob | null } returns the recovered data.
@@ -6455,6 +6545,11 @@ declare namespace cryptoFramework {
 
     /**
      * Generates a shared secret based on the given private key and public key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSecret}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { PriKey } priKey - the private key.
      * @param { PubKey } pubKey - the public key.
@@ -9577,6 +9672,11 @@ declare namespace cryptoFramework {
     /**
      * Generate an asymmetric keypair.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateKeyPair}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9668,6 +9768,11 @@ declare namespace cryptoFramework {
     /**
      * Generate a private key instance.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generatePriKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @returns { PriKey } return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9758,6 +9863,11 @@ declare namespace cryptoFramework {
 
     /**
      * Generate a public key instance.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generatePubKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { PubKey } return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -10342,6 +10452,11 @@ declare namespace cryptoFramework {
      */
     /**
      * Generate a dataBlob object of secret key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSecret}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @returns { DataBlob } the sync used to return dataBlob.
