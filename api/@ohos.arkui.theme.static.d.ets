@@ -53,6 +53,33 @@ export declare interface Colors {
     */
     brand: ResourceColor;
     /**
+    * System primary Color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    primary?: ResourceColor;
+    /**
+    * System onPrimary Color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    onPrimary?: ResourceColor;
+    /**
+    * System container Color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    container?: ResourceColor;
+    /**
     * System warning Color.
     *
     * @type { ResourceColor }
