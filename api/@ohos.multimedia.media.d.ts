@@ -4414,12 +4414,6 @@ declare namespace media {
      * @param { double } loudnessGain - Loudness gain to set, expressed in dB. The value is a 
      *     floating int ranging from -90.0 dB to 24.0 dB.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     *     e.g. The function is called in an incorrect state, or the stream usage of audioRendererInfo is not one of
-     *     {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
-     *     {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
-     * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 21 dynamic
      * @since 23 static
