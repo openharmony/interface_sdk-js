@@ -3889,6 +3889,16 @@ declare namespace audio {
     getCollaborativeManager(): AudioCollaborativeManager;
 
     /**
+     * Obtains a device enhancement manager instance.
+     *
+     * @returns { AudioDeviceEnhanceManager } Returns an instance of audio device enhancement manager.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -8926,6 +8936,29 @@ declare namespace audio {
   }
 
   /**
+   * Provides enhanced audio device management capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDeviceEnhanceManager {
+    /**
+     * Obtains the sound card information. This method uses a Promise to return the query result.
+     *
+     * @returns { Promise<SoundCardInfo> } Promise used to return the sound card information.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *   Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSoundCardInfo(): Promise<SoundCardInfo>;
+  }
+
+  /**
    * Connect type for device.
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -9253,6 +9286,62 @@ declare namespace audio {
      * @since 23 static
      */
     readonly muted?: boolean;
+  }
+
+  /**
+   * Describes sound card information.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SoundCardInfo {
+    /**
+     * Sound card name.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    name: string;
+    /**
+     * Sound card vendor.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendor: string;
+    /**
+     * Sound card model.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    model: string;
+    /**
+     * Sound card bus address.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    busAddress: string;
+    /**
+     * Sound card driver.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    driver: string;
   }
 
   /**
