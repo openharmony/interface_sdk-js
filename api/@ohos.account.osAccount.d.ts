@@ -3142,6 +3142,22 @@ declare namespace osAccount {
      * @since 23 static
      */
     serverConfigId?: string;
+
+    /**
+     * Indicates the additional information about the domain acount
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 dynamic 
+     */
+    additionalInfo?: Record<string, Object>;
+
+    /**
+     * Indicates the additional information about the domain acount
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 static 
+     */
+    additionalInfo?: Record<string, RecordData>;
   }
 
   /**

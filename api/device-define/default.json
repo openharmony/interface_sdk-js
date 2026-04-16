@@ -113,6 +113,7 @@
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
+    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",

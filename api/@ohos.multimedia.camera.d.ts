@@ -771,17 +771,7 @@ declare namespace camera {
      * @since 18 dynamic
      * @since 23 static
      */
-    CAMERA_LENS_RETRACTED = 7400112,
-
-    /**
-     * Unsupported multi-camera combination.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    UNSUPPORTED_MULTI_CAMERA_COMBINATION = 7400113
+    CAMERA_LENS_RETRACTED = 7400112
   }
 
   /**
@@ -3187,20 +3177,6 @@ declare namespace camera {
      * @since 19 dynamic
      * @since 23 static
      */
-    /**
-     * Open camera.
-     *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
-     * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @throws { BusinessError } 7400113 - Unsupported multi-camera combination. It is suggested to use
-     *     {@link CameraManager#getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>)}
-     *     to check the concurrent infos;
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
     open(callback: AsyncCallback<void>): void;
 
     /**
@@ -3226,21 +3202,6 @@ declare namespace camera {
      * @atomicservice
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * Open camera.
-     *
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
-     * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
-     * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @throws { BusinessError } 7400113 - Unsupported multi-camera combination. It is suggested to use
-     *     {@link CameraManager#getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>)}
-     *     to check the concurrent infos;
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     open(): Promise<void>;
 
@@ -3268,22 +3229,6 @@ declare namespace camera {
      * @atomicservice
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * Open camera.
-     *
-     * @param { boolean } isSecureEnabled - Setting true enables the camera to be opened in a safe way,
-     *     setting false does the opposite. Failure of an interface call returns an error code of type CameraErrorCode.
-     * @returns { Promise<bigint> } Promise used to return the result.
-     * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
-     * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @throws { BusinessError } 7400113 - Unsupported multi-camera combination. It is suggested to use
-     *     {@link CameraManager#getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>)}
-     *     to check the concurrent infos;
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     open(isSecureEnabled: boolean): Promise<bigint>;
 
@@ -3558,22 +3503,6 @@ declare namespace camera {
      * @atomicservice
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * Open camera with specified concurrent type.
-     *
-     * @param { CameraConcurrentType } type - Camera concurrent type.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
-     * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
-     * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @throws { BusinessError } 7400113 - Unsupported multi-camera combination. It is suggested to use
-     *     {@link CameraManager#getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>)}
-     *     to check the concurrent infos;
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     open(type: CameraConcurrentType): Promise<void>;
   }
@@ -4373,6 +4302,13 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Manual exposure mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     EXPOSURE_MODE_MANUAL = 3
   }
@@ -5942,6 +5878,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * ZoomPointInfo object.
+   *
+   * @typedef ZoomPointInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   interface ZoomPointInfo {
     /**
      * The zoom ratio value.
@@ -5952,6 +5896,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * The zoom ratio value.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     readonly zoomRatio: double;
 
@@ -5964,6 +5917,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * The equivalent focal Length.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     readonly equivalentFocalLength: int;
   }
@@ -6025,6 +5987,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Gets all important zoom ratio infos.
+     *
+     * @returns { Array<ZoomPointInfo> } The zoom point infos.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getZoomPointInfos(): Array<ZoomPointInfo>;
 
@@ -9598,6 +9569,31 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     offIsoInfoChange(callback?: Callback<IsoInfo>): void;
+
+    /**
+     * Subscribes exposure info change event callback.
+     *     After exposure parameters are changed, the system will returns the updated exposure infos.
+     *
+     * @param { Callback<ExposureInfo> } callback - Callback used to get the exposure value change.
+     *     <br>Exposure information callback listening.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    onExposureInfoChange(callback: Callback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes exposure info change event callback. Invoke this method after finishing camera operations.
+     *
+     * @param { Callback<ExposureInfo> } [callback] - Callback used to get the exposure value change.
+     *     <br>Callback listening for canceling exposure information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
   }
 
   /**
@@ -11492,29 +11488,6 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     setExposureDuration(exposureDuration: int): void;
-
-    /**
-     * Subscribes exposure info change event callback. 
-     *     After exposure parameters are changed, the system will returns the updated exposure infos.
-     *
-     * @param { Callback<ExposureInfo> } callback - Callback used to get the exposure value change.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    onExposureInfoChange(callback: Callback<ExposureInfo>): void;
-
-    /**
-     * Unsubscribes exposure info change event callback. Invoke this method after finishing camera operations.
-     *
-     * @param { Callback<ExposureInfo> } [callback] - Callback used to get the exposure value change.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
   }
 
   /**

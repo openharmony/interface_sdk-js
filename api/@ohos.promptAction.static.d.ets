@@ -19,7 +19,7 @@
  */
 import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses, VoidCallback } from '@ohos.arkui.component';
 import { AsyncCallback, Callback } from '@ohos.base';
-import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from '@ohos.arkui.component';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions, SystemUiMaterial } from '@ohos.arkui.component';
 import { CustomBuilder } from '@ohos.arkui.component';
 import { DialogAlignment } from '@ohos.arkui.component';
 import { DismissDialogAction } from '@ohos.arkui.component';
@@ -83,7 +83,7 @@ export declare class LevelOrder {
     /**
      * Generate valid level order.
      *
-     * @param { double } order - Clamp order with mininum number -100000 and maximum number 100000.
+     * @param { double } order - Clamp order with minimum number -100000 and maximum number 100000.
      * @returns { LevelOrder } the order object.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -227,6 +227,16 @@ declare namespace promptAction {
          * @since 23 static
          */
         hoverModeArea?: HoverModeAreaType;
+        /**
+ 	     * Set system-styled materials for toast. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of toast.
+         *
+         * @type { ?SystemUiMaterial }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        systemMaterial?: SystemUiMaterial;
     }
     
     /**
@@ -434,7 +444,7 @@ declare namespace promptAction {
         /**
          * Array of buttons in the dialog box.
          * The array structure is {text:'button', color: '#666666'}.
-         * More than one buttons are supported.
+         * More than one buttons is supported.
          *
          * @type { ?Array<Button> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -609,7 +619,7 @@ declare namespace promptAction {
          * Determine the display order of the dialog.
          *
          * @type { ?LevelOrder }
-         * @default The value returns by LevelOrder.clamp(0)
+         * @default The value returned by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */
@@ -935,7 +945,7 @@ declare namespace promptAction {
          * Determine the display order of the dialog.
          *
          * @type { ?LevelOrder }
-         * @default The value returns by LevelOrder.clamp(0)
+         * @default The value returned by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */
@@ -1340,7 +1350,7 @@ declare namespace promptAction {
     /**
      * Close the notification text.
      *
-     * @param { int } toastId - the toast id that returned by openToast.
+     * @param { int } toastId - the toast id returned by openToast.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.

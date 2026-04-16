@@ -111,9 +111,9 @@ export declare interface RadioStyle {
      */
     checkedBackgroundColor?: ResourceColor;
     /**
-     * Set the bolder color when the radio box is unchecked.
+     * Set the border color when the radio box is unchecked.
      *
-     * @type { ?ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
+     * @type { ?ResourceColor } uncheckedBorderColor - the border color when the radio box is unchecked.
      * @default #182431
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static

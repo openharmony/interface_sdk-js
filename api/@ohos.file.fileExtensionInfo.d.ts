@@ -19,9 +19,9 @@
  */
 
 /**
- * This module provides the capability to parse file or device information.
+ * The **fileExtensionInfo** module defines attributes in **RootInfo** and **FileInfo** of the user file access and 
+ * management module.
  *
- * @namespace fileExtensionInfo
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
  * @since 9 dynamiconly
@@ -29,9 +29,8 @@
  */
 declare namespace fileExtensionInfo {
   /**
-   * DeviceType Indicates the type of device connected to the fileaccess server.
+   * Defines the values of **deviceType** used in **RootInfo**.
    *
-   * @enum { number }
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
@@ -40,7 +39,7 @@ declare namespace fileExtensionInfo {
    */
   enum DeviceType {
     /**
-     * Local c,d... disk.
+     * Local disk.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -51,7 +50,7 @@ declare namespace fileExtensionInfo {
     DEVICE_LOCAL_DISK = 1,
 
     /**
-     * Multi-user shared disk.
+     * Shared disk.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -59,10 +58,10 @@ declare namespace fileExtensionInfo {
      * @since 9 dynamiconly
      * @deprecated since 23
      */
-    DEVICE_SHARED_DISK,
+    DEVICE_SHARED_DISK = 2,
 
     /**
-     * Distributed networking terminal device.
+     * Distributed network device.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -70,7 +69,7 @@ declare namespace fileExtensionInfo {
      * @since 9 dynamiconly
      * @deprecated since 23
      */
-    DEVICE_SHARED_TERMINAL,
+    DEVICE_SHARED_TERMINAL = 3,
 
     /**
      * Network neighbor device.
@@ -81,7 +80,7 @@ declare namespace fileExtensionInfo {
      * @since 9 dynamiconly
      * @deprecated since 23
      */
-    DEVICE_NETWORK_NEIGHBORHOODS,
+    DEVICE_NETWORK_NEIGHBORHOODS = 4,
 
     /**
      * MTP device.
@@ -92,7 +91,7 @@ declare namespace fileExtensionInfo {
      * @since 9 dynamiconly
      * @deprecated since 23
      */
-    DEVICE_EXTERNAL_MTP,
+    DEVICE_EXTERNAL_MTP = 5,
 
     /**
      * USB device.
@@ -103,10 +102,10 @@ declare namespace fileExtensionInfo {
      * @since 9 dynamiconly
      * @deprecated since 23
      */
-    DEVICE_EXTERNAL_USB,
+    DEVICE_EXTERNAL_USB = 6,
 
     /**
-     * Cloud disk device.
+     * Cloud disk.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -114,13 +113,13 @@ declare namespace fileExtensionInfo {
      * @since 9 dynamiconly
      * @deprecated since 23
      */
-    DEVICE_EXTERNAL_CLOUD
+    DEVICE_EXTERNAL_CLOUD = 7
   }
 
   /**
-   * Indicates the supported capabilities of the device.
+   * Defines the values of **deviceFlags** used in **RootInfo**. **deviceFlags** is used to determine whether a 
+   * capability is available through the AND operation.
    *
-   * @namespace DeviceFlag
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
@@ -129,9 +128,8 @@ declare namespace fileExtensionInfo {
    */
   namespace DeviceFlag {
     /**
-     * supports read.
+     * The device supports read.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -141,9 +139,8 @@ declare namespace fileExtensionInfo {
     const SUPPORTS_READ = 0b1;
 
     /**
-     * supports write.
+     * The device supports write.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -154,9 +151,8 @@ declare namespace fileExtensionInfo {
   }
 
   /**
-   * Indicate the supported capabilities of the file or directory.
+   * Defines the values of **mode** used in **FileInfo**.
    *
-   * @namespace DocumentFlag
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
@@ -165,9 +161,8 @@ declare namespace fileExtensionInfo {
    */
   namespace DocumentFlag {
     /**
-     * represents file.
+     * File.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -177,9 +172,8 @@ declare namespace fileExtensionInfo {
     const REPRESENTS_FILE = 0b1;
 
     /**
-     * represents directory.
+     * Directory.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -189,9 +183,8 @@ declare namespace fileExtensionInfo {
     const REPRESENTS_DIR = 0b10;
 
     /**
-     * supports read.
+     * The device supports read.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -201,9 +194,8 @@ declare namespace fileExtensionInfo {
     const SUPPORTS_READ = 0b100;
 
     /**
-     * supports write.
+     * The device supports write.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly

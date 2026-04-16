@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -118,6 +118,14 @@ declare namespace fileIo {
      * @since 23 static
      */
     const SYNC = 0o4010000;
+    /**
+     * UNCACHE IO.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    const UNCACHE = 0o10000000000;
   }
 
 /**
@@ -302,129 +310,132 @@ function close(file: int | File, callback: AsyncCallback<void>): void;
  */
 function closeSync(file: int | File): void;
 
-/**
- * Copies a file or directory. This API uses a promise to return the result.
- * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
- * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
- *
- * @param { string } srcUri - URI of the file or directory to copy.
- * @param { string } destUri - URI of the destination file or directory.
- * @param { CopyOptions } [options] - Callback invoked to provide the copy progress.
- *     <br>If this parameter is not set, the callback will not be invoked.
- * @returns { Promise<void> } Promise that returns no value.
- * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
- *     <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied by the file system
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900021 - File table overflow
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900025 - No space left on device
- * @throws { BusinessError } 13900027 - Read-only file system
- * @throws { BusinessError } 13900028 - Too many links
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900044 - Network is unreachable
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
+  /**
+   * Copies a file or directory. This API uses a promise to return the result.
+   * 
+   * File copy across devices is supported. This API forcibly overwrites the file or directory.
+   * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+   * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
+   *
+   * @param { string } srcUri - URI of the file or directory to copy.
+   * @param { string } destUri - URI of the destination file or directory.
+   * @param { CopyOptions } [options] - Callback invoked to provide the copy progress.
+   *     <br>If this parameter is not set, the callback will not be invoked.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900015 - File exists
+   * @throws { BusinessError } 13900018 - Not a directory
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900021 - File table overflow
+   * @throws { BusinessError } 13900022 - Too many open files
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900027 - Read-only file system
+   * @throws { BusinessError } 13900028 - Too many links
+   * @throws { BusinessError } 13900030 - File name too long
+   * @throws { BusinessError } 13900031 - Function not implemented
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900038 - Value too large for defined data type
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900044 - Network is unreachable
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
-/**
- * Copies a file or directory. This API uses an asynchronous callback to return the result.
- * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
- *
- * @param { string } srcUri - URI of the file or directory to copy.
- * @param { string } destUri - URI of the destination file or directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result.
- * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
- *     <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied by the file system
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900021 - File table overflow
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900025 - No space left on device
- * @throws { BusinessError } 13900027 - Read-only file system
- * @throws { BusinessError } 13900028 - Too many links
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
+  /**
+   * Copies a file or directory. This API uses an asynchronous callback to return the result.
+   * 
+   * File copy across devices is supported. This API forcibly overwrites the file or directory.
+   * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+   * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
+   *
+   * @param { string } srcUri - URI of the file or directory to copy.
+   * @param { string } destUri - URI of the destination file or directory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900015 - File exists
+   * @throws { BusinessError } 13900018 - Not a directory
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900021 - File table overflow
+   * @throws { BusinessError } 13900022 - Too many open files
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900027 - Read-only file system
+   * @throws { BusinessError } 13900028 - Too many links
+   * @throws { BusinessError } 13900030 - File name too long
+   * @throws { BusinessError } 13900031 - Function not implemented
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900038 - Value too large for defined data type
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
-/**
- * Copies a file or directory. This API uses an asynchronous callback to return the result.
- * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
- *
- * @param { string } srcUri - URI of the file or directory to copy.
- * @param { string } destUri - URI of the destination file or directory.
- * @param { CopyOptions } options - Callback used to return the copy progress.
- * @param { AsyncCallback<void> } callback - Callback used to return the result.
- * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
- *     <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied by the file system
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900021 - File table overflow
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900025 - No space left on device
- * @throws { BusinessError } 13900027 - Read-only file system
- * @throws { BusinessError } 13900028 - Too many links
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
+  /**
+   * Copies a file or directory. This API uses an asynchronous callback to return the result.
+   * 
+   * File copy across devices is supported. This API forcibly overwrites the file or directory.
+   * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+   * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
+   *
+   * @param { string } srcUri - URI of the file or directory to copy.
+   * @param { string } destUri - URI of the destination file or directory.
+   * @param { CopyOptions } options - Callback used to return the copy progress.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900015 - File exists
+   * @throws { BusinessError } 13900018 - Not a directory
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900021 - File table overflow
+   * @throws { BusinessError } 13900022 - Too many open files
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900027 - Read-only file system
+   * @throws { BusinessError } 13900028 - Too many links
+   * @throws { BusinessError } 13900030 - File name too long
+   * @throws { BusinessError } 13900031 - Function not implemented
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900038 - Value too large for defined data type
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
 /**
  * Copies the source directory to the destination directory. This API uses a promise to return the result.
@@ -1532,6 +1543,48 @@ function listFileSync(
 ): string[];
 
 /**
+ * Lists all file names in a directory. This API uses a promise to return the result.
+ * This API supports recursive listing of all file names and custom file name filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileExtOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { Promise<string[]> } Promise used to return the file names listed.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+function listFileExt(
+  path: string,
+  options?: ListFileExtOptions
+): Promise<string[]>;
+
+/**
+ * Lists all file names in a directory. This API returns the result synchronously.
+ * This API supports recursive listing of all file names and custom file name filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileExtOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { string[] } List of the file names obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+function listFileExtSync(
+  path: string,
+  options?: ListFileExtOptions
+): string[];
+
+/**
  * Adjusts the position of the file offset pointer.
  *
  * @param { int } fd - FD of the file.
@@ -1854,6 +1907,86 @@ function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @since 23 static
  */
 function mkdtempSync(prefix: string): string;
+
+/**
+ * Creates a file mapping object based on a file descriptor or file object by using the synchronization method.
+ * Maps file content to memory for efficient reading and writing.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file
+ * size will be automatically expanded.
+ *
+ * @param { int | File } file - File object or file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the
+ *     following options:
+ *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ * when the file mapping area is modified.
+ *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and
+ * then synchronized to the file by the operating system (non-real-time).
+ *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the
+ * mapping area are visible only to the current process and do not affect the raw file.
+ * @param { long } offset - Start position of the file mapping area.
+ * @param { int } size - Size of the file mapping area, in bytes.
+ * @returns { Promise<FileMapping> } - Promise object. Returns a FileMapping object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900050 - Internal resource error
+ * @throws { BusinessError } 13900056 - Mmap does not support mapping this file
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+function mmap(file: int | File, mode: MappingMode, offset: long, size: int): Promise<FileMapping>;
+
+/**
+ * Creates a file mapping object based on a file descriptor or file object, using promise asynchronous callback.
+ * Maps file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file
+ * size will be automatically expanded.
+ *
+ * @param { int | File } file - File object or open file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the
+ *     following options:
+ *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ * when the file mapping area is modified.
+ *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and
+ * then synchronized to the file by the operating system (non-real-time).
+ *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the
+ * mapping area are visible only to the current process and do not affect the raw file.
+ * @param { long } offset - Start position of the file mapping area.
+ * @param { int } size - Size of the file mapping area, in bytes.
+ * @returns { FileMapping - FileMapping object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900050 - Internal resource error
+ * @throws { BusinessError } 13900056 - Mmap does not support mapping this file
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+function mmapSync(file: int | File, mode: MappingMode, offset: long, size: int): FileMapping;
 
 /**
  * Moves the source directory to the destination directory. This API uses a promise to return the result.
@@ -2223,6 +2356,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
  * @returns { Promise<File> } Promise used to return the File object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2252,7 +2386,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
+ * @since 26.0.0 static
  */
 function open(path: string, mode?: int): Promise<File>;
 
@@ -2313,6 +2447,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
  * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
  *     <br>the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2342,7 +2477,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
+ * @since 26.0.0 static
  */
 function open(path: string, mode: int, callback: AsyncCallback<File>): void;
 
@@ -2365,6 +2500,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
  * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2394,7 +2530,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
+ * @since 26.0.0 static
  */
 function openSync(path: string, mode?: int): File;
 
@@ -3353,68 +3489,73 @@ function writeSync(
   options?: WriteOptions
 ): long;
 
-/**
- * Connect Distributed File System.
- *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @param { DfsListeners } listeners - The listeners of Distributed File System.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900045 - Connection failed.
- * @throws { BusinessError } 13900046 - Software caused connection abort.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
-
-/**
- * Disconnect Distributed File System.
- *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13600004 - Unmount failed.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-function disconnectDfs(networkId: string): Promise<void>;
-
-/**
- * DfsListener Callback function.
- *
- * @typedef {function} DfsListenerCallback.
- * @param { string } networkId - The networkId of device.
- * @param { int } status - The status code of Distributed File System.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @stagemodelonly
- * @since 23 static
- */
-type DfsListenerCallback = (networkId: string, status: int) => void;
-
-/**
- * The listeners of Distributed File System.
- *
- * @typedef DfsListeners
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @stagemodelonly
- * @since 23 static
- */
-export interface DfsListeners {
   /**
-   * The Listener of Distributed File System status
+   * Triggers connection. If the peer device is abnormal, [onStatus]{@link DfsListeners.onStatus}
+   * in DfsListeners will be called to notify the application.
    *
-   * @type { DfsListenerCallback }
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
+   *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
+   *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
+   * @param { DfsListeners } listeners - Listeners for distributed file system status.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13900045 - Connection failed.
+   * @throws { BusinessError } 13900046 - Software caused connection abort.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
+
+  /**
+   * Triggers disconnection.
+   *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
+   *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
+   *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13600004 - Unmount failed.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  function disconnectDfs(networkId: string): Promise<void>;
+
+  /**
+   * DfsListener Callback function.
+   *
+   * @param { string } networkId - The networkId of device.
+   * @param { int } status - The status code of Distributed File System.
+   *     The value should be an integer.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
    * @since 23 static
    */
-  onStatus: DfsListenerCallback;
+  type DfsListenerCallback = (networkId: string, status: int) => void;
+
+  /**
+   * The listeners of Distributed File System.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 23 static
+   */
+  export interface DfsListeners {
+    /**
+     * The Listener of Distributed File System status
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onStatus: DfsListenerCallback;
 }
 
 /**
@@ -3535,60 +3676,56 @@ interface Progress {
   readonly totalSize: long;
 }
 
-/**
- * Provides APIs for interrupting a copy task.
- *
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-class TaskSignal {
   /**
-   * Cancels a copy task.
+   * Provides APIs for interrupting a copy task.
    *
-   * @throws { BusinessError } 13900010 - Try again
-   * @throws { BusinessError } 13900012 - Permission denied by the file system
-   * @throws { BusinessError } 13900043 - No task can be canceled.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
-  cancel(): void;
+  class TaskSignal {
+    /**
+     * Cancels a copy task.
+     *
+     * @throws { BusinessError } 13900010 - Try again
+     * @throws { BusinessError } 13900012 - Permission denied by the file system
+     * @throws { BusinessError } 13900043 - No task can be canceled.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 23 static
+     */
+    cancel(): void;
 }
 
-/**
- * Defines the callback for listening for the copy progress.
- *
- * @typedef CopyOptions
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-interface CopyOptions {
+  /**
+   * Defines the callback for listening for the copy progress.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  interface CopyOptions {
+    /**
+     * Listener used to observe the copy progress.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 23 static
+     */
+    progressListener?: ProgressListener;
+    /**
+     * Signal used to cancel a copy task.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 23 static
+     */
+    copySignal?: TaskSignal;
+}
+
   /**
    * Listener used to observe the copy progress.
    *
-   * @type { ?ProgressListener }
+   * @param { Progress } progress - indicates the progress data of copyFile
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
-  progressListener?: ProgressListener;
-  /**
-   * Signal used to cancel a copy task.
-   *
-   * @type { ?TaskSignal }
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 static
-   */
-  copySignal?: TaskSignal;
-}
-
-/**
- * Signal used to cancel a copy task.
- *
- * @typedef { function } ProgressListener
- * @param { Progress } progress - indicates the progress data of copyFile
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-type ProgressListener = (progress: Progress) => void;
+  type ProgressListener = (progress: Progress) => void;
 
 /**
  * Represents a File object opened by open().
@@ -3727,6 +3864,289 @@ interface File {
    * @since 23 static
    */
   unlock(): void;
+}
+
+/**
+ * File mapping object. Before invoking the FileMapping method, you need to use the mmap() method (synchronous or
+ * asynchronous) to construct a FileMapping instance.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+interface FileMapping {
+  /**
+   * Sets the current location of the file mapping area.
+   *
+   * @param { int } position - Expected target location. The value must be a non-negative number
+   *     <br>and cannot be greater than the current upper limit.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setPosition(position: int): void;
+
+  /**
+   * Gets the current location of the file mapping area.
+   *
+   * @returns { int } Current location of the file mapping area.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getPosition(): int;
+
+  /**
+   * Obtains the capacity of the file mapping area.
+   *
+   * @returns { int } Size of the file mapping area, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  capacity(): int;
+
+  /**
+   * Sets the upper bound of the readable and writable area of the file mapping area.
+   * The upper bound does not exceed the total capacity of the mapping area (0 �? limit �? capacity).
+   *
+   * @param { int } limit - Upper limit of the readable and writable region to be set. If the current position
+   *     <br>is greater than the new upper limit, the value is automatically adjusted to limit.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setLimit(limit: int): void;
+
+  /**
+   * Obtains the upper bound of the readable and writable area of the file mapping area.
+   *
+   * @returns { int } Upper limit of the current readable and writable region.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getLimit(): int;
+
+  /**
+   * Mode reversal. That is, the limit attribute is set to the current position,
+   * and then the current position is set to 0.
+   *
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  flip(): void;
+
+  /**
+   * Obtains the number of remaining bytes between the current position
+   * and the upper bound (limit) of the readable and writable region.
+   *
+   * @returns { int } Number of remaining bytes that can be read and written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  remaining(): int;
+
+  /**
+   * Reads data from the specified location without affecting the current location.
+   *
+   * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
+   * @param { int } [length] - Start position to read from.
+   * @returns { int } [length] - Length of the data to be read. This parameter is optional. The default value is
+   *     the buffer length.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  read(buffer: ArrayBuffer, length?: int): int;
+
+  /**
+   * Reads data from the specified location without affecting the current location.
+   *
+   * @param { int } position - Start position to read from.
+   * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
+   * @param { int } [length] - Length of the data to be read. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { int } - Length of the actually read data, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  read(position: int, buffer: ArrayBuffer, length?: int): int;
+
+  /**
+   * Writes data from the current location and moves the location backward by the number of bytes actually
+   * written.
+   *
+   * @param { ArrayBuffer } data - Buffer data to be written to the file.
+   * @param { int } [length] - Length of the data to be written. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { int } - Length of the data written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900053 - Read-only mmap buffer
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  write(data: ArrayBuffer, length?: int): int;
+
+  /**
+   * Writes data from the specified location without affecting the current location.
+   *
+   * @param { int } position - Start position for writing data.
+   * @param { ArrayBuffer } data - Buffer data to be written to the file.
+   * @param { int } [length] - Length of the data to be written. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { int } - Length of the data written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900053 - Read-only mmap buffer
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  write(position: int, data: ArrayBuffer, length?: int): int;
+
+  /**
+   * Synchronize the dirty page data in the entire file mapping area to the disk file
+   * and use the promise asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this interface does not ensure
+   * that all changes are stored persistently.
+   *
+   * @returns { Promise<void> } Promise object. No return value.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  msync(): Promise<void>;
+
+  /**
+   * Synchronizes the dirty page data in the specified range of the file mapping area to the disk file
+   * and uses the promise asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this interface does not ensure
+   * that all changes are stored persistently.
+   *
+   * @param { int } position - Indicates the start position of the expected synchronization.
+   * @param { int } length - Length of the data to be synchronized.
+   * @returns { Promise<void> } Promise object. No return value.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  msync(position: int, length: int): Promise<void>;
+
+  /**
+   * Synchronize the dirty page data of the entire file mapping area to the disk file
+   * by using the synchronization method.
+   * Note: If the file is not stored on the local device, calling this interface does not ensure
+   * that all changes are stored persistently.
+   *
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  msyncSync(): void;
+
+  /**
+   * Synchronize the dirty page data in the specified range of the file mapping area to the disk file
+   * by using the synchronization method.
+   * Note: If the file is not stored on the local device, calling this interface does not ensure
+   * that all changes are stored persistently.
+   *
+   * @param { int } position - Indicates the start position of the expected synchronization.
+   * @param { int } length - Length of the data to be synchronized.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  msyncSync(position: int, length: int): void;
+
+  /**
+   * Releases the file mapping area and uses the promise asynchronous callback function.
+   *
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  unmap(): Promise<void>;
+
+  /**
+   * Releases the file mapping area by using the synchronization method.
+   *
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  unmapSync(): void;
 }
 
 /**
@@ -4920,6 +5340,45 @@ interface Watcher {
 }
 
 /**
+ * Enumerated type of the file memory mapping mode, which can be used by the mmap API.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+enum MappingMode {
+  /**
+   * Read-only mode. The file mapping area is not writable. An exception is thrown when the file mapping area is
+   * modified.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  READ_ONLY = 0,
+
+  /**
+   * Read/Write mode. The modification is written to the file mapping area and then synchronized to the file by
+   * the operating system (non-real-time).
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  READ_WRITE = 1,
+
+  /**
+   * Private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping area are visible only to
+   * the current process and do not affect the raw file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  PRIVATE = 2
+}
+
+/**
  * Enumerates the types of the relative offset position used in lseek().
  *
  * @enum { int } whence type
@@ -5374,6 +5833,68 @@ export interface ListFileOptions {
    * @since 23 static
    */
   filter?: Filter;
+}
+
+/**
+ * Defines the file name filtering interface used by listFile().
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface FileFilter {
+  /**
+   * Filter function, which is used to determine whether the specified file name should be included in the file list.
+   *
+   * Note: This function is frequently invoked. Avoid time-consuming operations, such as file I/O and network requests.
+   *
+   * @param { string } name - Name of the file to be filtered.
+   * @returns { boolean } Returns true if the file should be included, false otherwise.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  filter(name: string): boolean;
+}
+
+/**
+ * Defines the options used in listFileExt().
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface ListFileExtOptions {
+  /**
+   * Whether to list all files in the subdirectories recursively. This parameter is optional.
+   * The default value is false. If recursion is false, the names of files and directories that meet the filtering
+   * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
+   * of all files that meet the specified conditions in the current directory are returned.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  recursion?: boolean;
+
+  /**
+   * Number of file names to list. This parameter is optional. The default value is 0, which means to list all files.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  listNum?: long;
+
+  /**
+   * File name filtering interface. This parameter is optional.
+   * Filtering rules can be defined based on file names.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  fileFilter?: FileFilter;
 }
 
 /**

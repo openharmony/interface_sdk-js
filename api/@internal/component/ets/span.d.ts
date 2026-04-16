@@ -672,6 +672,19 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @since 12 dynamic
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
+
+  /**
+   * Set the font variation.
+   *
+   * @param { Array<FontVariation> } fontVariations - Indicates the span font variation.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontVariations(fontVariations: Array<FontVariation>): SpanAttribute;
 }
 
 /**
