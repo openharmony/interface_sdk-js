@@ -437,6 +437,17 @@ declare namespace hiAppEvent {
      * @since 23 dynamic&static
      */
     const SCROLL_ARKWEB_FLING_JANK: string;
+
+    /**
+     * App encounter a longer hang and trigger an system warning, such as THREAD_BLOCK_3S or LIFECYCLE_HALF_TIMEOUT.
+     * This is a system event name constant.
+     * 
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    const appFreezeWarning: string;
   }
 
   /**

@@ -46,6 +46,13 @@ declare namespace uiMaterial {
    * @stagemodelonly
    * @since 23 static
    */
+  /**
+   * Enum of the type of material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   export enum MaterialType {
     /**
      * Material type with no effect.
@@ -65,7 +72,85 @@ declare namespace uiMaterial {
      * @since 23 static
      */
     SEMI_TRANSPARENT = 1,
+    /**
+     * Material type for immersive style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    IMMERSIVE = 2,
   }
+
+  /**
+   * Enum of the material state configuration.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export enum MaterialState {
+    /**
+     * Default mode: Dialog, Toast, AlphabetIndexer, and Text selection menus use immersive material by default.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DEFAULT = 0,
+    /**
+     * Enable mode: The component uses immersive material by default.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ENABLE = 1,
+    /**
+     * Disable mode: All components disable immersive material.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISABLE = 2,
+  }
+
+  /**
+   * Material information containing state and type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export interface MaterialInfo {
+    /**
+     * The material state configuration.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    state: MaterialState;
+
+    /**
+     * Currently configured material type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    type: MaterialType;
+  }
+
+  /**
+   * Get material information from application configuration.
+   *
+   * @returns { MaterialInfo } The material information containing state and type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export function getMaterialInfo(): MaterialInfo;
 
   /**
    * The enumeration of material styles. Different material styles have different thicknesses.
@@ -240,6 +325,15 @@ declare namespace uiMaterial {
      * @since 23 static
      */
     constructor(options?: MaterialOptions);
+    /**
+     * Disables the material effect
+     *
+     * @returns { Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    static get empty(): Material;
   }
 
   /**
