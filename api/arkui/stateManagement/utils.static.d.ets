@@ -43,13 +43,13 @@ export declare class UIUtils {
    * Make non-observed data into observed data.
    * Support builtin type and objectLiteral.
    *
-   * @param { T } source input source object data.
+   * @param { T } source - input source object data.
    * @returns { T } proxy object from the source object data.
-   * @static
+   * @stagemodelonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-   static makeObserved<T extends object>(source: T): T;
+   static makeObserved<T extends object | null | undefined>(source: T): T;
 
    /**
    * Creates read-only data binding.
