@@ -555,6 +555,43 @@ declare namespace webSocket {
   }
 
   /**
+   * The result for open info of a WebSocket connection.
+   * @interface WebSocketOpenInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface WebSocketOpenInfo {
+    /**
+     * result status.
+     * @type {int}
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    status: int;
+
+    /**
+     * result message.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    message: string;
+
+    /**
+     * Negotiated protocol.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    protocol?: string;
+  }
+
+
+  /**
    * HTTP response headers.
    * @typedef { object }
    * @syscap SystemCapability.Communication.NetStack
@@ -1026,6 +1063,44 @@ declare namespace webSocket {
      * @since 23 static
      */
     offOpen(callback?: Callback<OpenResult>): void;
+
+    /**
+     * Enables listening for the open info events of a WebSocket connection.
+     * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
+     * @param { AsyncCallback<WebSocketOpenInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    on(type: 'openInfo', callback: AsyncCallback<WebSocketOpenInfo>): void;
+
+    /**
+     * Enables listening for the open info events of a WebSocket connection.
+     * @param { Callback<WebSocketOpenInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    onOpenInfo(callback: Callback<WebSocketOpenInfo>): void;
+
+    /**
+     * Cancels listening for the open info events of a WebSocket connection.
+     * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
+     * @param { AsyncCallback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    off(type: 'openInfo', callback?: AsyncCallback<WebSocketOpenInfo>): void;
+
+    /**
+     * Cancels listening for the open info events of a WebSocket connection.
+     * @param { Callback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    offOpenInfo(callback?: Callback<WebSocketOpenInfo>): void;
 
     /**
      * Enables listening for the message events of a WebSocket connection.
