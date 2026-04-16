@@ -28,7 +28,7 @@ import AccessibilityExtensionAbility, {
   ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent, AccessibilityEventInfo,
   Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
-import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode } from '@ohos.accessibility';
+import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode, InjectActionType } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts static */
@@ -38,7 +38,7 @@ import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo,
   Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
-import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode } from '@ohos.accessibility';
+import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode, InjectActionType } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -47,7 +47,7 @@ export {
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
   AccessibilityAction, AccessibilityEventType, Parameter,
-  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
+  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode, InjectActionType
 };
 /*** endif */
 
@@ -55,6 +55,6 @@ export {
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
   WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType,
-  Parameter, FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
+  Parameter, FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode, InjectActionType
 };
 /*** endif */

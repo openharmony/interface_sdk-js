@@ -84,7 +84,54 @@ declare interface ComponentOptions {
    * @since 12 dynamic
    */
   freezeWhenInactive : boolean,
+
+  /**
+   * the reuse type of a custom component.
+   * 
+   * @default perInstance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  reusePool?: ReusePoolOwnership;
+
+  /**
+   * Collection of custom components to be reused.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  poolAccepts?: ReusableComponentConstructor[];
 }
+
+/**
+ * Defining the reuse type of a custom component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusePoolOwnership = 'shared' | 'perInstance';
+
+/**
+ * Defining custom component constructor.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusableComponentConstructor = Function;
 
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
@@ -9786,6 +9833,38 @@ declare enum ThemeColorMode {
 }
 
 /**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum AnchoredColorMode {
+ /**
+  * Defines the mode which is follow up with system.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+ FOLLOW_SYSTEM = 0,
+
+ /**
+  * Defines the mode which is follow up with target.
+  * 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+ FOLLOW_TARGET = 1
+}
+
+/**
  * Defines adaptive color
  *
  * @enum { number }
@@ -14809,6 +14888,82 @@ declare enum BlendApplyType {
 }
 
 /**
+ * Enum for distortion animation mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum DistortionMode {
+  /**
+   * Adaptive implementation of distortion animation
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  DISTORTION_AUTO = 0,
+  /**
+   * Distortion animation is enabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  DISTORTION_ENABLED = 1,
+  /**
+   * Distortion animation is disabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  DISTORTION_DISABLED = 2
+}
+
+/**
+ * Enum for edgeLight animation mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum EdgeLightMode {
+  /**
+   * Adaptive implementation of edgeLight animation
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  EDGELIGHT_AUTO = 0,
+  /**
+   * EdgeLight animation is enabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  EDGELIGHT_ENABLED = 1,
+  /**
+   * EdgeLight animation is disabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  EDGELIGHT_DISABLED = 2
+}
+
+/**
  * DragEvent object description
  *
  * @interface DragEvent
@@ -17042,6 +17197,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 18 dynamic
    */
   placementOnTarget?: boolean;
+
+  /**
+   * Sets the edgeLight animation Mode of the bindSheet.
+   *
+   * @default EdgeLightMode.EDGELIGHT_DISABLED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
@@ -17854,6 +18020,19 @@ declare interface PopupCommonOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
@@ -17978,6 +18157,17 @@ declare interface TipsOptions {
    * @since 20 dynamic
    */
   showAtAnchor?: TipsAnchorType;
+  /**
+   * Set system-styled materials for tips. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of tips.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -18717,6 +18907,19 @@ declare interface PopupOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
@@ -19380,6 +19583,19 @@ declare interface CustomPopupOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
 
   /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
@@ -20218,6 +20434,19 @@ declare interface ContextMenuOptions {
     * @since 20 dynamic
     */
   outlineWidth?: Dimension | EdgeOutlineWidths;
+
+  /**
+   * Define the menu theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
 
   /**
    * Defines the haptic feedback mode of menu.
@@ -25924,6 +26153,23 @@ declare class CommonMethod<T> {
   useUnionEffect(value: boolean | undefined): T;
 
   /**
+   * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
+   *
+   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
+   *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
+   *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+   *     <br>Default value: **false**. Undefined means to default value.
+   * @param { GravityCenterOptions } [options] - Gravitational center parameter.
+   *     This parameter must be used together with UnionMode.GRAVITY_UNION.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  useUnionEffect(value: boolean | undefined, options?: GravityCenterOptions): T;
+
+  /**
    * Applies a background blur effect to the component. You can customize the blur radius and grayscale parameters.
    *
    * @param { number } value - Background blur effect to apply to the component.
@@ -28358,6 +28604,26 @@ declare class CommonMethod<T> {
    * @since 18 dynamic
    */
   shadow(options: Optional<ShadowOptions | ShadowStyle>): T;
+
+  /**
+  * Sets the edge light effect for the component.
+  *
+  * <p><strong>NOTE</strong>:
+  * <br>The edge light effect creates a glowing light effect along the component's edges,
+  * starting from the specified position and extending along the edge.
+  * <br>This effect can enhance the visual appeal and highlight important components.
+  * </p>
+  *
+  * @param { EdgeLightParams | undefined } params - Edge light effect parameters.
+  *     Defines the position, length, intensity, color, and thickness of the light effect.
+  *     If params is undefined, the edge light effect is removed.
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic
+  */
+  edgeLight(params: EdgeLightParams | undefined): T;
 
   /**
    * Defines how the component's content (including the content of it child components)
@@ -35447,16 +35713,11 @@ declare interface InputEventInterceptResult {
 /**
  * Defines the input event monitor identifier.
  *
- * **Important Notes**:
+ * Important Notes:
  * - This object is created and returned by the system as a unique identifier for the listener.
  * - The object is an empty object with no accessible members.
  * - Developers cannot actively construct this object, it can only be obtained through the registration interface.
  * - Used for subsequent unregistration to verify identity.
- *
- * **Design Purpose**:
- * - Prevents accidental deletion of listeners registered by other modules.
- * - Object references are unique and cannot be forged.
- * - Avoids abuse issues that may be caused by using number type IDs.
  *
  * @interface InputEventMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35473,13 +35734,6 @@ declare interface InputEventMonitor {
 /**
  * Defines the raw input event wrapper.
  *
- * Provides a unified interface to access different types of input events, ensuring type safety and backward compatibility.
- * This class encapsulates raw MouseEvent, TouchEvent, or KeyEvent objects and provides access through type-safe methods.
- *
- * **Important Notes**: This class is an abstract class, developers cannot create instances by themselves.
- * The system automatically creates instances when triggering listener callbacks.
- *
- * @class RawInputEventWrapper
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -35489,9 +35743,6 @@ declare interface InputEventMonitor {
 declare abstract class RawInputEventWrapper {
   /**
    * Constructor (internal use).
-   *
-   * Since this class is abstract, developers cannot directly call the constructor to create instances.
-   * The system automatically creates instances when input event listeners are triggered.
    *
    * @param { MouseEvent | TouchEvent | KeyEvent } event - The raw input event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35584,24 +35835,8 @@ declare abstract class RawInputEventWrapper {
 /**
  * Defines the input event listener callback function type.
  *
- * Parameters:
- * - event: Input event wrapper (automatically created and passed by the system, developers do not need to manually create).
- *
- * Returns:
- * - InputEventInterceptResult: Event intercept result.
- *
- * **Abstract Class Notes**: RawInputEventWrapper is an abstract class, developers cannot use the `new` operator to create instances.
- * The system automatically creates instances and passes them as parameters to callback functions when events are triggered.
- *
- * **Type Safety**: RawInputEventWrapper provides type-safe access methods.
- *
- * **Compatibility Notes**:
- * - Currently supports: MouseEvent, TouchEvent, KeyEvent
- * - Future extensions: AxisEvent, GamepadEvent, etc.
- * - RawInputEventWrapper will automatically support new types without modifying interface definitions
- * - Existing code does not need to be modified to be compatible with new types
- *
- * **Performance Warning**: Do not perform time-consuming operations in the callback, otherwise it may cause the application to freeze\!
+ * Performance Warning: Do not perform time-consuming operations in the callback, otherwise it may cause
+ * the application to freeze.
  *
  * The listener executes synchronously in the UI thread and will directly block the event processing flow.
  * It is recommended to only perform simple judgments and calculations, avoiding:
@@ -35610,9 +35845,9 @@ declare abstract class RawInputEventWrapper {
  * - Network requests
  * - Massive log output
  *
- * If you need to perform time-consuming operations, please use asynchronous tasks or worker threads.
- *
- * @type { InputEventListener }
+ * @typedef { function }
+ * @param { RawInputEventWrapper } event - Input event wrapper
+ * @returns { InputEventInterceptResult } - Event intercept result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -35622,3 +35857,107 @@ declare abstract class RawInputEventWrapper {
 declare type InputEventListener = (
   event: RawInputEventWrapper
 ) => InputEventInterceptResult;
+
+/**
+ * Defines the parameters of the edge light effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare interface EdgeLightParams {
+  /**
+   * The location of the edge light effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  position: EdgeLightPosition;
+
+  /**
+   * Projection length of the edge streamer along the flow direction.
+   * <br>Negative values are treated as 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  length: Length;
+
+  /**
+   * The luminous intensity of the Edge Streamer effect.
+   * <br>Valid range: [0.0, 1.0].Default value is 1.
+   * <br>Value 0.0 means the light effect is completely invisible.
+   * <br>Value 1.0 means the light effect is at maximum brightness.
+   * <br>Values exceeding 1.0 will be clamped to 1.0.
+   * <br>Negative values are treated as 0.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  intensity?: double;
+
+  /**
+   * The color of the light effect.
+   * <br>If not specified, the default color is white (#FFFFFF).
+   *
+   * @default #FFFFFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  color?: ResourceColor;
+
+  /**
+   * The thickness (width) of the light effect line.
+   * <br>Negative values are treated as 0.
+   * <br>If not specified, the default value is 0vp.
+   *
+   * @default 0vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  thickness?: Length;
+}
+
+/**
+ * Defines the parameters of the center of gravity.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare interface GravityCenterOptions {
+  /**
+   * Specifies whether the current component is the center of gravity.
+   * <br>Default value:false.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  gravityCenter?: boolean;
+
+  /**
+   * Defines the gravitational strength of the attraction/repulsion force at the gravitational center.
+   * <br>Default value:0.
+   * <br>Negative numbers are repulsion, positive numbers are attractionn.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  gravityIntensity?: double;
+}

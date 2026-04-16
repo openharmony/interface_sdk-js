@@ -11614,9 +11614,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableWebAVSession(enabled: boolean): WebAttribute;
 
   /**
-   * Sets whether to optimize parser budget to reduce FCP time
+   * Sets whether to enable segment-based HTML parsing optimization. If no attribute is explicitly called, the parsing
+   * time is used as the segment point by default.
    *
-   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
+   * To avoid occupying too many main thread resources and enable progressive loading of web pages, the ArkWeb kernel
+   * uses the segment-based parsing policy when parsing the HTML files. By default, the ArkWeb kernel uses the parsing
+   * time as the segment point. When the parsing time exceeds the threshold, the parsing is interrupted and then the
+   * layout and rendering operations are performed.
+   *
+   * After this optimization is enabled, the ArkWeb kernel checks whether the parsing time exceeds the limit and whether
+   * the number of parsed tokens (minimum parsing unit of HTML files, such as **\<div>** and **attr="xxx"**) exceeds the
+   * threshold specified by the kernel. If yes, the ArkWeb kernel decreases the threshold. When the First Contentful
+   * Paint (FCP) of the page is triggered, the default interrupt judgment logic is restored. In this way, the web page
+   * is parsed more frequently before the FCP is triggered, thereby the first-frame content may be parsed in advance and
+   * enter a rendering phase, effectively reducing the workload of first-frame rendering, and finally advancing the FCP.
+   *
+   * When the FCP of a page is triggered, the default segment parsing logic is restored. Therefore, the segment-based
+   * HTML parsing optimization takes effect only for the first page loaded by each **Web** component.
+   *
+   * @param { boolean} optimizeParserBudget Whether to enable segment-based HTML parsing optimization.<br>The value
+   *     **true** means to use the number of parsed records instead of the parsing time as the segment point for HTML
+   *     segment parsing, and reduce the upper limit of the number of parsed records in each segment. The value
+   *     **false** means to use the parsing time as the segment point for HTML segment parsing.<br>If **undefined** or
+   *     **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic

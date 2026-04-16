@@ -50,7 +50,7 @@ export { Mat4x4, CylinderGeometry } from './graphics3d/SceneTypes';
  * @since 23 static
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, ImageStream, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
 
@@ -94,3 +94,12 @@ export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Sce
  * @since 23 dynamic&static
  */
 export { RenderConfiguration } from './graphics3d/Scene';
+
+/**
+ * Export BoidsSim
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26
+ */
+export {
+    BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
+    BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';

@@ -407,6 +407,7 @@ export interface DataChangeListener {
      *
      * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataChange(index: int): void;
@@ -415,6 +416,7 @@ export interface DataChangeListener {
      *
      * @param { Array<DataOperation> } dataOperations
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDatasetChange(dataOperations: Array<DataOperation>): void;

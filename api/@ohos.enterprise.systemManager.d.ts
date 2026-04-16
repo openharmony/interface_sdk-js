@@ -692,6 +692,8 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   *     When the parameter is admin, query the policy set by the enterprise device administrator.
+   *     When the parameter is null, query the comprehensive policy of all enterprise device administrator settings.
    * @returns { boolean } true indicates whether can install localEnterpriseApp, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1200,7 +1202,8 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   *                                The admin must have the corresponding permission.
+   *     When the parameter is admin, query the policy set by the enterprise device administrator.
+   *     When the parameter is null, query the comprehensive policy of all enterprise device administrator settings.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
    * @returns { boolean } true indicates that the account can install local enterprise applications, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

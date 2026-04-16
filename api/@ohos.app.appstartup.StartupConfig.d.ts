@@ -31,7 +31,8 @@ import StartupListener from './@ohos.app.appstartup.StartupListener';
  */
 export default interface StartupConfig {
   /**
-   * Indicates timeout for executing all startup tasks. Default value is 10000 milliseconds.
+   * Indicates timeout for executing all startup tasks, in milliseconds.
+   * <br>Default value is 10000 milliseconds.
    *
    * @type { ?int }
    * @default 10000

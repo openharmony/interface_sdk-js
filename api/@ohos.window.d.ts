@@ -652,6 +652,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   enum WindowLayoutMode {
     /**
@@ -661,6 +662,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     WINDOW_LAYOUT_MODE_CASCADE,
     /**
@@ -670,6 +672,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     WINDOW_LAYOUT_MODE_TILE
   }
@@ -4131,6 +4134,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
@@ -4161,6 +4165,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
@@ -4485,6 +4490,26 @@ declare namespace window {
    * @since 23 static
    */
   function getAllWindowLayoutInfo(displayId: long): Promise<Array<WindowLayoutInfo>>;
+
+  /**
+   * Obtains the array of window layout info visible on a specified screen.
+   * The width and height of each rect are calculated after scaling. The array is sorted by the current window level.
+   * The index of the array corresponding to the highest level is 0.
+   *
+   * @param { long } displayId - Indicate the id of display.
+   * @param { WindowInfoOptions } [option] - Filter criteria for window information.
+   * @returns { Promise<Array<WindowLayoutInfo>> } Promise used to return the WindowLayoutInfo.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Function getAllWindowLayoutInfo can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   *     Possible cause: Internal task error.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllWindowLayoutInfo(displayId: long, option?: WindowInfoOptions): Promise<Array<WindowLayoutInfo>>
 
   /**
    * List the window modes of the foreground window on the specified display.
@@ -7583,6 +7608,27 @@ declare namespace window {
      * @since 23 static
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the preferred orientation for the main window.
+     * This API uses a promise to return the result.
+     * It does not take effect on devices that do not support rotation with the sensor,
+     * on 2-in-1 devices or for the child window.
+     *
+     * @param { Orientation } orientation - The orientation config of the window
+     * @returns { Promise<OrientationResult> } Promise used to return the OrientationResult.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *                                          1. The window is not created or destroyed;
+     *                                          2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setPreferredOrientationWithResult(orientation: Orientation): Promise<OrientationResult>;
 
     /**
      * Obtains the orientation of the main window.
@@ -10910,6 +10956,7 @@ declare namespace window {
      * @systemapi
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     setForbidSplitMove(isForbidSplitMove: boolean, callback: AsyncCallback<void>): void;
 
@@ -10927,6 +10974,7 @@ declare namespace window {
      * @systemapi
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
 
@@ -11903,7 +11951,7 @@ declare namespace window {
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Get the window limits of current window measrued in px.
+     * Get the window limits of current window measured in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -11912,7 +11960,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the window limits of current window measrued in px.
+     * Get the window limits of current window measured in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -11925,7 +11973,7 @@ declare namespace window {
     getWindowLimits(): WindowLimits;
 
     /**
-     * Get the window limits of current window measrued in vp.
+     * Get the window limits of current window measured in vp.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -12055,7 +12103,10 @@ declare namespace window {
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300001 - Repeated operation.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed;
+     *     2. Internal task error;
+     *     3. The window does not support floating mode.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -13898,6 +13949,15 @@ declare namespace window {
      */
     outlineEnabled?: boolean;
 
+    /**
+    * Indicates whether loose the restriction of sub window z-level above parent.
+    *
+    * @syscap SystemCapability.Window.SessionManager
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.0.0 dynamic&static
+    */
+    zLevelAboveParentLoosened?: boolean;
   }
   /**
    * WindowStage
@@ -15061,6 +15121,26 @@ declare namespace window {
      * @since 22 dynamic
      * @since 23 static
      */
+     /**
+     * Sets Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @param { long | image.PixelMap } imageResource - imageResourceId or pixelMap for recent image.
+     *     imageResourceId Value Range: [0x1000000, 0xffffffff].
+     * @param { ImageFit } value - Sets the zoom type of an image.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
+     *     1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     setImageForRecent(imageResource: long | image.PixelMap, value: ImageFit): Promise<void>;
 
     /**
@@ -15077,6 +15157,21 @@ declare namespace window {
      * @stagemodelonly
      * @since 22 dynamic
      * @since 23 static
+     */
+    /**
+     * Remove Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     removeImageForRecent(): Promise<void>;
   }
@@ -15231,6 +15326,64 @@ declare namespace window {
      * @since 23 static
      */
     windowRect: Rect;
+
+    /**
+     * The window's alpha fade level. This number is in the range 0.0 to 1.0,
+     * where 0.0 is fully transparent and 1.0 is fully opaque.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    windowAlpha?: double;
+  }
+
+  /**
+   * Filter criteria for window information.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface WindowInfoOptions {
+    /**
+     * Whether the result excludes system windows.
+     * If true, the result list does not include system windows;
+     * if false, the result list includes system windows.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    excludeSystemWindows?: boolean;
+    
+    /**
+     * Only include windows with a higher z-order than the specified window ID.
+     * When this field is set to the default value 0, this field is not used as a filter criterion.
+     *
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    foregroundAboveWindow?: int;
+    
+    /**
+     * Only include windows with a lower z-order than the specified window ID.
+     * When this field is set to the default value 0, this field is not used as a filter criterion.
+     *
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    foregroundBelowWindow?: int;
   }
 
   /**
@@ -15320,6 +15473,64 @@ declare namespace window {
      * @since 23 static
      */
     FULL_OCCLUSION = 2
+  }
+
+  /**
+   * Type of execution result of setting preferred orientation
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum OrientationExecutionResult {
+    /**
+     * Orientation policy is applied.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION_APPLIED = 0,
+    /**
+     * Orientation policy is ignored.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION_IGNORED = 1,
+    /**
+     * Orientation policy is pending and will be applied soon.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION_PENDING = 2,
+  }
+
+  /**
+   * Result of setting preferred orientation
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface OrientationResult {
+    /**
+     * Execution result of setting preferred orientation.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    executionResult : OrientationExecutionResult;
   }
 
   /**

@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, LineSpacingOptions } from './textCommon';
+import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, FontVariation } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -402,6 +402,15 @@ export declare class TextStyle {
  	 * @since 24 static
  	 */
  	readonly strokeColor?: ResourceColor;
+
+    /**
+ 	 * Get the font variation of the StyledString.
+ 	 *
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	readonly fontVariations?: Array<FontVariation>;
 }
 /**
  * TextStyleInterface
@@ -487,6 +496,15 @@ export declare interface TextStyleInterface {
  	 * @since 24 static
  	 */
  	strokeColor?: ResourceColor;
+
+    /**
+ 	 * The font variation of the text.
+ 	 *
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	fontVariations?: Array<FontVariation>;
 }
 /**
  * Defines DecorationStyle.
@@ -931,16 +949,6 @@ export declare class LineHeightStyle {
      */
     constructor(lineHeight: LengthMetrics);
     /**
-     * constructor.
-     *
-     * @param { LengthMetrics } lineHeight - line height value.
-     * @param { double } lineHeightMultiple - line height multiple value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    constructor(lineHeight: LengthMetrics, lineHeightMultiple: double);
-    /**
      * Get the lineHeight value of the StyledString.
      * The unit is vp.
      *
@@ -950,51 +958,6 @@ export declare class LineHeightStyle {
      * @since 23 static
      */
     readonly lineHeight: double;
-    /**
-     * Get the lineHeightMultiple value of the StyledString.
-     * The unit is vp.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    readonly lineHeightMultiple?: double;
-}
-/**
- * Defines LineSpacingStyle.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare class LineSpacingStyle {
-    /**
-     * constructor.
-     *
-     * @param { LengthMetrics } lineSpacing - line spacing value.
-     * @param { LineSpacingOptions } [options] - line spacing options value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
-    /**
-     * Get the lineSpacing value of the StyledString.
-     * The unit is vp.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    readonly lineSpacing: double;
-    /**
-     * Get the lineSpacing options value of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    readonly options?: LineSpacingOptions;
 }
 /**
  * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
@@ -1031,16 +994,9 @@ export declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-/**
- * Defines the StyledString style type.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
 export type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
                             TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle |
-                            UrlStyle |CustomSpan | UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
+                            UrlStyle |CustomSpan | UserDataSpan | BackgroundColorStyle;
 /**
  * MutableStyledString
  *
@@ -1254,14 +1210,6 @@ export declare enum StyledStringKey {
      * @since 23 static
      */
     URL = 7,
-    /**
-     * The key of LineSpacingStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    LINE_SPACING = 8,
     /**
      * The key of GestureStyle.
      *

@@ -22,41 +22,46 @@ import Want from './@ohos.app.ability.Want';
 import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContext';
 
 /**
- * The extension ability class of input method.
+ * The **InputMethodExtensionAbility** module provides APIs for developing input methods and managing the lifecycle of 
+ * input method extensions.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module can be used only in the stage model.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9 dynamic
  * @since 23 static
  */
 declare class InputMethodExtensionAbility {
   /**
-   * Indicates input method extension ability context.
+   * Context of the **InputMethodExtension**, which is inherited from **ExtensionContext**.
    *
-   * @type { InputMethodExtensionContext }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
   context: InputMethodExtensionContext;
 
   /**
-   * Called back when a input method extension is started for initialization.
+   * Called when the **InputMethodExtensionAbility** is started to implement initialization.
    *
-   * @param { Want } want - Indicates the want of created service extension.
+   * @param { Want } want - Information related to the **InputMethodExtensionAbility**, including the ability name and
+   *     bundle name.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
   onCreate(want: Want): void;
 
   /**
-   * Called back before a input method extension is destroyed.
+   * Called when this **InputMethodExtensionAbility** is destroyed to clear resources.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */

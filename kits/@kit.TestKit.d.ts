@@ -23,9 +23,10 @@ import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry
 import TestRunner from '@ohos.application.testRunner';
 import {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-  UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter, 
+  UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter,
   Rect, TouchPadSwipeOptions, InputTextMode,
-  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions, TouchOptions, KeyOptions
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions, TouchOptions, KeyOptions,
+  PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions
 } from '@ohos.UiTest';
 import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
 /*** endif */
@@ -38,7 +39,8 @@ export {
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode,
   WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions,
-  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest, TouchOptions, KeyOptions
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest, TouchOptions, KeyOptions,
+  PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions
 };
 
 /*** if arkts static */
@@ -47,6 +49,7 @@ export {
   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions,
   WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions,
-  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest, TouchOptions, KeyOptions
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest, TouchOptions, KeyOptions,
+  PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions
 };
 /*** endif */

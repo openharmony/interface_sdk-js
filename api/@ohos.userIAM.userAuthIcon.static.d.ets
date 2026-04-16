@@ -23,7 +23,14 @@ import userAuth from '@ohos.userIAM.userAuth';
 import { ResourceColor, Dimension, Component } from '@ohos.arkui.component';
 
 /**
- * Declare UserAuthIcon, used for user authentication.
+ * **userAuthIcon** provides user identity authentication icons used on the application UI. With **userAuthIcon**, you
+ * can:
+ *
+ * 1. Easily integrate the facial authentication and fingerprint authentication icons into your applications.
+ *
+ * 2. Customize the color and size of the icons. The icon style cannot be changed.
+ *
+ * 3. Start the facial or fingerprint authentication pop-up component once the icon is tapped.
  *
  * @struct { UserAuthIcon }
  * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -32,79 +39,73 @@ import { ResourceColor, Dimension, Component } from '@ohos.arkui.component';
  */
 @Component
 export declare struct UserAuthIcon {
-    /**
-     * Set user auth parameter.
-     *
-     * @type { userAuth.AuthParam }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 static
-     */
-    authParam: userAuth.AuthParam;
+  /**
+   * User authentication parameters.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  authParam: userAuth.AuthParam;
 
-    /**
-     * Set auth widget parameter.
-     *
-     * @type { userAuth.WidgetParam }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 static
-     */
-    widgetParam: userAuth.WidgetParam;
+  /**
+   * Parameters on the user authentication page.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  widgetParam: userAuth.WidgetParam;
 
-    /**
-     * Set the height of the icon, width and height ratio 1:1.
-     *
-     * @type { ?Dimension }
-     * @default 64fp
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 static
-     */
-    iconHeight?: Dimension;
+  /**
+   * Height of the icon. The aspect ratio is 1:1. The default value is **64fp**. Percentage strings are not supported.
+   *
+   * @default 64fp
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  iconHeight?: Dimension;
 
-    /**
-     * Set the color of the icon.
-     *
-     * @type { ?ResourceColor }
-     * @default $r('sys.color.ohos_id_color_activated')
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 static
-     */
-    iconColor?: ResourceColor;
+  /**
+   * Color of the icon. The default value is **$r('sys.color.ohos_id_color_activated')**.
+   *
+   * @default $r('sys.color.ohos_id_color_activated')
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  iconColor?: ResourceColor;
 
-    /**
-     * The authentication result code is returned through the callback.
-     * If the authentication is passed, the authentication token and auth type will be returned.
-     * You need to apply for permission:ohos.permission.ACCESS_BIOMETRIC to use user authentication ability.
-     *
-     * @type { userAuth.AuthCallbackOnResultFunc }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onAuthResult: userAuth.AuthCallbackOnResultFunc;
+  /**
+   * Callback used to return the user authentication result.<br>The application must request
+   * the `ohos.permission.ACCESS_BIOMETRIC` permission.
+   * Otherwise, it will only display the icon and cannot start the identity authentication components.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onAuthResult: userAuth.AuthCallbackOnResultFunc;
 
-    /**
-     * When user click the icon, it will be returned through this callback.
-     *
-     * @type { userAuth.ClickCallbackFunc }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onIconClick?: ClickCallbackFunc;
+  /**
+   * Callback to be invoked when the icon is tapped.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onIconClick?: ClickCallbackFunc;
 
-    /**
-     * The method to build the component.
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @since 23 staticonly
-     */
-    @Builder
-    build(): void;
+  /**
+   * The method to build the component.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }
 
 /**

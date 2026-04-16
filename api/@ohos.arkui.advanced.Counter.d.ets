@@ -133,7 +133,7 @@ declare class CommonOptions {
     focusable?: boolean;
 
     /**
-     * Set the step of the couter component, ranges greater than or equal to 1
+     * Set the step of the counter component, ranges greater than or equal to 1
      *
      * @type { ?number }
      * @default 1
@@ -142,7 +142,7 @@ declare class CommonOptions {
      * @since 11
      */
      /**
-     * Set the step of the couter component, ranges greater than or equal to 1
+     * Set the step of the counter component, ranges greater than or equal to 1
      *
      * @type { ?number }
      * @default 1
@@ -154,7 +154,7 @@ declare class CommonOptions {
     step?: number;
 
     /**
-     * Trigger a mouse hover event at the increased button.
+     * Trigger a mouse hover event at the increase button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -162,7 +162,7 @@ declare class CommonOptions {
      * @since 11
      */
      /**
-     * Trigger a mouse hover event at the increased button.
+     * Trigger a mouse hover event at the increase button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -173,7 +173,7 @@ declare class CommonOptions {
     onHoverIncrease?: (isHover: boolean) => void;
 
     /**
-     * Trigger a mouse hover event at the decreased button.
+     * Trigger a mouse hover event at the decrease button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -181,7 +181,7 @@ declare class CommonOptions {
      * @since 11
      */
      /**
-     * Trigger a mouse hover event at the decreased button.
+     * Trigger a mouse hover event at the decrease button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -272,7 +272,7 @@ declare class InlineStyleOptions extends CommonOptions {
     max?: number;
 
     /**
-     * Set text width  of the counter component,  ranges greater than or equal to 0
+     * Set text width of the counter component,  ranges greater than or equal to 0
      *
      * @type { ?number }
      * @default 0
@@ -281,7 +281,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @since 11
      */
      /**
-     * Set text width  of the counter component,  ranges greater than or equal to 0
+     * Set text width of the counter component,  ranges greater than or equal to 0
      *
      * @type { ?number }
      * @default 0
@@ -293,7 +293,7 @@ declare class InlineStyleOptions extends CommonOptions {
     textWidth?: number;
 
     /**
-     * Trigger a event when the value of the counter has been changed.
+     * Trigger an event when the value of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -301,7 +301,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @since 11
      */
      /**
-     * Trigger a event when the value of the counter has been changed.
+     * Trigger an event when the value of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -348,7 +348,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     label?: ResourceStr;
 
     /**
-     * Trigger a event when the increased button got focus.
+     * Trigger an event when the increase button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -356,7 +356,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @since 11
      */
      /**
-     * Trigger a event when the increased button got focus.
+     * Trigger an event when the increase button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -367,7 +367,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     onFocusIncrease?: () => void;
 
     /**
-     * Trigger a event when the decreased button got focus.
+     * Trigger an event when the decrease button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -375,7 +375,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @since 11
      */
      /**
-     * Trigger a event when the decreased button got focus.
+     * Trigger an event when the decrease button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -386,7 +386,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     onFocusDecrease?: () => void;
 
     /**
-     * Trigger a event when the increased button lose focus.
+     * Trigger an event when the increase button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -394,7 +394,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @since 11
      */
      /**
-     * Trigger a event when the increased button lose focus.
+     * Trigger an event when the increase button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -405,7 +405,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     onBlurIncrease?: () => void;
 
     /**
-     * Trigger a event when the decreased button lose focus.
+     * Trigger an event when the decrease button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -413,7 +413,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @since 11
      */
      /**
-     * Trigger a event when the decreased button lose focus.
+     * Trigger an event when the decrease button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -620,7 +620,7 @@ declare class DateStyleOptions extends CommonOptions {
     day?: number;
 
     /**
-     * Trigger a event when the date of the counter has been changed.
+     * Trigger an event when the date of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -628,7 +628,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @since 11
      */
      /**
-     * Trigger a event when the date of the counter has been changed.
+     * Trigger an event when the date of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
