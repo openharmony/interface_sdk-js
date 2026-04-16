@@ -11208,19 +11208,19 @@ declare namespace media {
      * @since 26 dynamic
      * @since 26 static
      */
- 	  WINDOW_AND_APP = 4,
+    WINDOW_AND_APP = 4,
     /**
      * @brief Show both screen and application options
      * @since 26 dynamic
      * @since 26 static
      */
- 	  SCREEN_AND_APP = 5,
+    SCREEN_AND_APP = 5,
     /**
      * @brief Show screen, window, and application options
      * @since 26 dynamic
      * @since 26 static
      */
- 	  SCREEN_WINDOW_AND_APP = 6,
+    SCREEN_WINDOW_AND_APP = 6,
   }
 
   /**
