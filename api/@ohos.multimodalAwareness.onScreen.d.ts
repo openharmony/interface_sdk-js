@@ -33,7 +33,6 @@ declare namespace onScreen {
   /**
    * Enum for page content scenario
    *
-   * @enum { int } Scenario
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @since 20 dynamic
    * @since 23 static
