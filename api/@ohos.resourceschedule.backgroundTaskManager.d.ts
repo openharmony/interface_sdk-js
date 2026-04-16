@@ -2538,7 +2538,7 @@ declare namespace backgroundTaskManager {
   /**
    * Type of user authorization status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 dynamic
    * @since 24 static
