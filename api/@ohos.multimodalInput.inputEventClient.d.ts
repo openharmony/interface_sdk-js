@@ -606,7 +606,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300002 - The touch point is touching the display.
+     * @throws { BusinessError } 4300001 - The touch point is touching the display.
+     * @throws { BusinessError } 4300002 - The display does not exist.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -622,7 +623,7 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300002 - The touch point is not touching the display.
+     * @throws { BusinessError } 4300001 - The touch point is not touching the display.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -638,7 +639,7 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300002 - The touch point is not touching the display.
+     * @throws { BusinessError } 4300001 - The touch point is not touching the display.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
