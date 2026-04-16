@@ -15121,6 +15121,26 @@ declare namespace window {
      * @since 22 dynamic
      * @since 23 static
      */
+     /**
+     * Sets Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @param { long | image.PixelMap } imageResource - imageResourceId or pixelMap for recent image.
+     *     imageResourceId Value Range: [0x1000000, 0xffffffff].
+     * @param { ImageFit } value - Sets the zoom type of an image.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
+     *     1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     setImageForRecent(imageResource: long | image.PixelMap, value: ImageFit): Promise<void>;
 
     /**
@@ -15137,6 +15157,21 @@ declare namespace window {
      * @stagemodelonly
      * @since 22 dynamic
      * @since 23 static
+     */
+    /**
+     * Remove Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     removeImageForRecent(): Promise<void>;
   }

@@ -322,7 +322,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
  	 * Sets the color of the symbol icon.
  	 *
  	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
- 	 * @param { ResourceColor | Array<ResourceColor> | undefined } color - Color of the symbol icon.
+ 	 * @param { Array<ResourceColor> | undefined } color - Color of the symbol icon.
  	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly

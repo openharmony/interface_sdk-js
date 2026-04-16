@@ -807,7 +807,7 @@ export declare enum KeyType {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  CANCEL = 3,
+  CANCEL = 3
 }
 
 /**
@@ -4658,7 +4658,7 @@ export declare enum InputEventInterceptAction {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  CONTINUE,
+  CONTINUE = 0,
 
   /**
    * Block the event from being delivered to the UI framework.
@@ -4667,7 +4667,7 @@ export declare enum InputEventInterceptAction {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  BLOCK
+  BLOCK = 1
 }
 
 /**

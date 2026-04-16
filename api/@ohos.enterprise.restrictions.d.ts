@@ -74,6 +74,15 @@ declare namespace restrictions {
    */
   enum FeatureForAccount {
     /**
+     * Multi-Window.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MULTI_WINDOW = 0,
+
+    /**
      * Super hub.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
