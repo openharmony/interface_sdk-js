@@ -13384,7 +13384,7 @@ declare namespace media {
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
      *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress, in percentage.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -13394,7 +13394,7 @@ declare namespace media {
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
      *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress, in percentage.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
@@ -13504,7 +13504,7 @@ declare namespace media {
      * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress, in percentage.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */
