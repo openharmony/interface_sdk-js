@@ -23,6 +23,7 @@ import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abi
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
 import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
+import { InteropAbilityMonitor as _InteropAbilityMonitor } from './application/InteropAbilityMonitor';
 
 /**
  * **AbilityDelegatorRegistry**, a module of the automatic test framework, is used to obtain 
@@ -175,6 +176,17 @@ declare namespace abilityDelegatorRegistry {
    * @since 23 static
    */
   export type AbilityMonitor = _AbilityMonitor;
+
+  /**
+   * Provide methods for matching monitored Ability objects that meet specified conditions.
+   * The most recently matched Ability objects will be saved in the InteropAbilityMonitor object.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export type InteropAbilityMonitor = _InteropAbilityMonitor;
 
   /**
    * Represents the **ShellCmdResult** module.
