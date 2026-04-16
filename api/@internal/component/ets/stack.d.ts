@@ -243,6 +243,19 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): StackAttribute;
+
+  /**
+   * Set whether to synchronously load child nodes within one frame.
+   *
+   * @param { boolean } enable - Whether to synchronously load child nodes within one frame.
+   *     <br>Default value: <em>true</em>
+   * @returns { StackAttribute } The attribute of the Stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  syncLoad(enable: boolean): StackAttribute;
 }
 
 /**
