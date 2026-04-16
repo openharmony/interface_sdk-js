@@ -1984,11 +1984,11 @@ declare namespace dlpPermission {
   }
 
   /**
-   * Queries the list of URIs of DLP files that are currently open and match the specified options.
+   * Queries the list of URIs of DLP files that have been opened and matched the specified options.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
    * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
-   * @returns { Promise<Array<string>> } Returns the list of URIs of the currently open target DLP files.
+   * @returns { Promise<Array<string>> } Returns list of URIs of the target DLP files that have been opened.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
