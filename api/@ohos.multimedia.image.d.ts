@@ -456,6 +456,18 @@ declare namespace image {
     YCRCB_P010 = 12,
 
     /**
+     * Indicates that each pixel is stored on 8 bits, without 4-byte stride alignment.
+     * Each pixel contains 1 component: ALPHA(8bits) and is stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    ALPHA_U8 = 15,
+
+    /**
      * The storage format is ASTC 4x4 format, and the memory usage is only 1/4 of RGBA_8888.
      * This format is only used for direct display scenes and does not support pixel access or post-
      * processing editing.
@@ -5171,6 +5183,70 @@ declare namespace image {
   type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata;
 
   /**
+   * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
+   * pixel format to initialize the PixelMap.
+   * 
+   * The following pixel formats are not supported for PixelMap creation:
+   * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
+   *
+   * @param { ArrayBuffer } pixels - The pixel data buffer used to initialize the PixelMap.
+   *     The format of the pixel data can be specified by InitializationOptions.srcPixelFormat.
+   *     The size of the buffer should be: image width * image height * bytes per pixel.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
+   *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
+   *     If InitializationOptions.srcPixelFormat is set to ASTC_4x4, it will be reset to the default value BGRA_8888.
+   * @returns { Promise<PixelMap> } A Promise of the new PixelMap created.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   *     Possible cause: Size of the pixel data buffer does not match InitializationOptions.size.
+   * @throws { BusinessError } 7600207 - Unsupported pixel format.
+   * @throws { BusinessError } 7600301 - Failed to allocate memory.
+   *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   *     Possible causes:
+   *     1. Failed to perform pixel format conversion.
+   *     2. Internal data is corrupted. Please check the logs for detailed information.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createPixelMapFromPixels(pixels: ArrayBuffer, param: InitializationOptions): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
+   * pixel format to initialize the PixelMap.
+   * 
+   * The following pixel formats are not supported for PixelMap creation:
+   * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
+   *
+   * @param { ArrayBuffer } pixels - The pixel data buffer used to initialize the PixelMap.
+   *     The format of the pixel data can be specified by InitializationOptions.srcPixelFormat.
+   *     The size of the buffer should be: image width * image height * bytes per pixel.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
+   *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
+   *     If InitializationOptions.srcPixelFormat is set to ASTC_4x4, it will be reset to the default value BGRA_8888.
+   * @returns { PixelMap } The new PixelMap created.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   *     Possible cause: Size of the pixel data buffer does not match InitializationOptions.size.
+   * @throws { BusinessError } 7600207 - Unsupported pixel format.
+   * @throws { BusinessError } 7600301 - Failed to allocate memory.
+   *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   *     Possible causes:
+   *     1. Failed to perform pixel format conversion.
+   *     2. Internal data is corrupted. Please check the logs for detailed information.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createPixelMapFromPixelsSync(pixels: ArrayBuffer, param: InitializationOptions): PixelMap;
+
+  /**
    * Create pixelmap by data buffer.
    *
    * @param { ArrayBuffer } colors The image color buffer.
@@ -5181,6 +5257,8 @@ declare namespace image {
    */
   /**
    * Create pixelmap by data buffer.
+   * 
+   * It is recommended to use {@link createPixelMapFromPixels}.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5203,6 +5281,8 @@ declare namespace image {
    */
   /**
    * Create pixelmap by data buffer.
+   * 
+   * It is recommended to use {@link createPixelMapFromPixels}.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5216,6 +5296,8 @@ declare namespace image {
 
   /**
    * Create pixelmap by data buffer.
+   * 
+   * It is recommended to use {@link createPixelMapFromPixelsSync}.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5270,7 +5352,31 @@ declare namespace image {
     allocatorType?: AllocatorType): PixelMap;
 
   /**
+   * Creates an empty PixelMap.
+   * 
+   * The following pixel format is not supported for PixelMap creation: ASTC_4x4.
+   *
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
+   *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
+   * @returns { PixelMap } The new PixelMap created.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600301 - Failed to allocate memory.
+   *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createEmptyPixelMap(param: InitializationOptions): PixelMap;
+  
+  /**
    * Create an empty pixelmap.
+   * 
+   * It is recommended to use {@link createEmptyPixelMap}.
    *
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
@@ -5281,7 +5387,7 @@ declare namespace image {
    * @since 12 dynamic
    * @since 23 static
    */
-function createPixelMapSync(options: InitializationOptions): PixelMap;
+  function createPixelMapSync(options: InitializationOptions): PixelMap;
 
   /**
    * Create an empty pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
@@ -6080,6 +6186,47 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly isEditable: boolean;
 
     /**
+     * Reads all the pixel data from the PixelMap and writes the data to a buffer.
+     * The resulting data will be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } dst - The buffer to receive the pixel data from the PixelMap.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readAllPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads all the pixel data from the PixelMap and writes the data to a buffer.
+     * The resulting data will be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } dst - The buffer to receive the pixel data from the PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readAllPixelsToBufferSync(dst: ArrayBuffer): void;
+
+    /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a promise to return the result.
      *
@@ -6112,6 +6259,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a promise to return the result.
+     * 
+     * It is recommended to use {@link readAllPixelsToBuffer}.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6157,6 +6306,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a callback to return the result.
+     * 
+     * It is recommended to use {@link readAllPixelsToBuffer}.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6171,6 +6322,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer.
+     * 
+     * It is recommended to use {@link readAllPixelsToBufferSync}.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6184,6 +6337,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     readPixelsToBufferSync(dst: ArrayBuffer): void;
+
+    /**
+     * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to read the data.
+     *     Data will be read from the PixelMap and copied into PositionArea.pixels.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readPixelsToArea(area: PositionArea): Promise<void>;
+
+    /**
+     * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to read the data.
+     *     Data will be read from the PixelMap and copied into PositionArea.pixels.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readPixelsToAreaSync(area: PositionArea): void;
 
     /**
      * Reads image pixel map data in an area. This method uses a promise to return the data read.
@@ -6214,6 +6410,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Reads image pixel map data in an area. This method uses a promise to return the data read.
+     * 
+     * It is recommended to use {@link readPixelsToArea}.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6255,6 +6453,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Reads image pixel map data in an area. This method uses a callback to return the data read.
+     * 
+     * It is recommended to use {@link readPixelsToArea}.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6269,6 +6469,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Reads image pixel map data in an area.
+     * 
+     * It is recommended to use {@link readPixelsToAreaSync}.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6281,6 +6483,51 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     readPixelsSync(area: PositionArea): void;
+
+    /**
+     * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to write the data.
+     *     Data will be copied from PositionArea.pixels to the PixelMap.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writePixelsFromArea(area: PositionArea): Promise<void>;
+
+    /**
+     * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to write the data.
+     *     Data will be copied from PositionArea.pixels to the PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writePixelsFromAreaSync(area: PositionArea): void;
 
     /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
@@ -6315,6 +6562,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
      * the operation result.
+     * 
+     * It is recommended to use {@link writePixelsFromArea}.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6360,6 +6609,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Writes image pixel map data to the specified area. This method uses a callback to return
      * the operation result.
+     * 
+     * It is recommended to use {@link writePixelsFromArea}.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6374,6 +6625,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Writes image pixel map data to the specified area.
+     * 
+     * It is recommended to use {@link writePixelsFromAreaSync}.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6387,6 +6640,50 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     writePixelsSync(area: PositionArea): void;
+
+    /**
+     * Reads the pixel data from a buffer and writes the data to the PixelMap.
+     * The source data must be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } src - The buffer that contains pixel data to be written to the PixelMap.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writeAllPixelsFromBuffer(src: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads the pixel data from a buffer and writes the data to the PixelMap.
+     * The source data must be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } src - The buffer that contains pixel data to be written to the PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writeAllPixelsFromBufferSync(src: ArrayBuffer): void;
+
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
@@ -6420,6 +6717,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
+     * 
+     * It is recommended to use {@link writeAllPixelsFromBuffer}.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6465,6 +6764,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a callback to return the result.
+     * 
+     * It is recommended to use {@link writeAllPixelsFromBuffer}.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6479,6 +6780,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
+     * 
+     * It is recommended to use {@link writeAllPixelsFromBufferSync}.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6707,6 +7010,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getDensity(): int;
 
     /**
+     * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+     *
+     * @param { double } value - The target opacity value to be set. Unit: Percentage, Value range: (0,1].
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming transparent as it approaches 0.0.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: The specified value is out of range.
+     * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setOpacity(value: double): Promise<void>;
+
+    /**
+     * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+     *
+     * @param { double } value - The target opacity value to be set. Unit: Percentage, Value range: (0,1].
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming transparent as it approaches 0.0.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: The specified value is out of range.
+     * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setOpacitySync(value: double): void;
+
+    /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
      *
      * @param { double } rate The value of transparent rate.
@@ -6735,6 +7081,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link setOpacity}.
      *
      * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6776,6 +7124,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link setOpacity}.
      *
      * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6790,6 +7140,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Set the transparent rate of pixel map.
+     * 
+     * It is recommended to use {@link setOpacitySync}.
      *
      * @param { double } rate The value of transparent rate.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6802,6 +7154,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     opacitySync(rate: double): void;
+
+    /**
+     * Extracts the alpha channel from the current PixelMap to create a new ALPHA_U8 format PixelMap.
+     *
+     * @returns { Promise<PixelMap> } A Promise of the new ALPHA_U8 format PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The current PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The current PixelMap has been passed across threads.
+     * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+     *     Possible cause: Current PixelMap data is corrupted.
+     * @throws { BusinessError } 7600306 - Failed to convert the data.
+     *     Possible causes: 1. Failed to perform pixel format conversion. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    extractAlphaPixelMap(): Promise<PixelMap>;
+
+    /**
+     * Extracts the alpha channel from the current PixelMap to create a new ALPHA_U8 format PixelMap.
+     *
+     * @returns { PixelMap } A new ALPHA_U8 format PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The current PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The current PixelMap has been passed across threads.
+     * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+     *     Possible cause: Current PixelMap data is corrupted.
+     * @throws { BusinessError } 7600306 - Failed to convert the data.
+     *     Possible causes: 1. Failed to perform pixel format conversion. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    extractAlphaPixelMapSync(): PixelMap;
+
     /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
@@ -6828,6 +7223,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
+     * 
+     * It is recommended to use {@link extractAlphaPixelMap}.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6865,6 +7262,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Obtains new pixel map with alpha information. This method uses a callback to return the information.
+     * 
+     * It is recommended to use {@link extractAlphaPixelMap}.
      *
      * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6878,6 +7277,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Obtains new pixel map with alpha information.
+     * 
+     * It is recommended to use {@link extractAlphaPixelMapSync}.
      *
      * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
@@ -6889,6 +7290,54 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     createAlphaPixelmapSync(): PixelMap;
+
+    /**
+     * Scales the PixelMap in the horizontal and/or vertical dimensions.
+     *
+     * @param { double } x - The scale ratio of width. Unit: Percentage.
+     * @param { double } y - The scale ratio of height. Unit: Percentage.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used. Default value: NONE.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyScale(x: double, y: double, level?: AntiAliasingLevel): Promise<void>;
+
+    /**
+     * Scales the PixelMap in the horizontal and/or vertical dimensions.
+     *
+     * @param { double } x - The scale ratio of width. Unit: Percentage.
+     * @param { double } y - The scale ratio of height. Unit: Percentage.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used. Default value: NONE.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyScaleSync(x: double, y: double, level?: AntiAliasingLevel): void;
+
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
@@ -6921,6 +7370,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6966,6 +7417,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6981,6 +7434,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height.
+     * 
+     * It is recommended to use {@link applyScaleSync}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6997,6 +7452,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7016,6 +7473,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height with anti-aliasing.
+     * 
+     * It is recommended to use {@link applyScaleSync}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7064,6 +7523,51 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createScaledPixelMapSync(x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
     /**
+     * Repositions the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { double } x - The distance in pixels to move in the horizontal direction. Unit: px.
+     * @param { double } y - The distance in pixels to move in the vertical direction. Unit: px.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyTranslate(x: double, y: double): Promise<void>;
+
+    /**
+     * Repositions the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { double } x - The distance in pixels to move in the horizontal direction. Unit: px.
+     * @param { double } y - The distance in pixels to move in the vertical direction. Unit: px.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyTranslateSync(x: double, y: double): void;
+
+    /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
      * @param { double } x The position value of width, in px.
@@ -7095,6 +7599,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image position transformation. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyTranslate}.
      *
      * @param { double } x The position value of width, in px.
      * @param { double } y The position value of height, in px.
@@ -7140,6 +7646,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image position transformation. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyTranslate}.
      *
      * @param { double } x The position value of width, in px.
      * @param { double } y The position value of height, in px.
@@ -7155,6 +7663,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image position transformation.
+     * 
+     * It is recommended to use {@link applyTranslateSync}.
      *
      * @param { double } x The position value of width, in px.
      * @param { double } y The position value of height, in px.
@@ -7168,6 +7678,53 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     translateSync(x: double, y: double): void;
+
+    /**
+     * Rotates the PixelMap.
+     * 
+     * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+     *
+     * @param { double } angle - The rotation angle in degrees. Unit: Degree.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyRotate(angle: double): Promise<void>;
+
+    /**
+     * Rotates the PixelMap.
+     * 
+     * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+     *
+     * @param { double } angle - The rotation angle in degrees. Unit: Degree.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyRotateSync(angle: double): void;
 
     /**
      * Image rotation. This method uses a callback to return the operation result.
@@ -7198,6 +7755,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image rotation. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyRotate}.
      *
      * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -7239,6 +7798,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image rotation. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyRotate}.
      *
      * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -7253,6 +7814,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image rotation.
+     * 
+     * It is recommended to use {@link applyRotateSync}.
      *
      * @param { double } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -7265,6 +7828,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     rotateSync(angle: double): void;
+
+    /**
+     * Flips the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { boolean } horizontal - Whether to flip horizontally.
+     * @param { boolean } vertical - Whether to flip vertically.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyFlip(horizontal: boolean, vertical: boolean): Promise<void>;
+
+    /**
+     * Flips the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { boolean } horizontal - Whether to flip horizontally.
+     * @param { boolean } vertical - Whether to flip vertically.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyFlipSync(horizontal: boolean, vertical: boolean): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
@@ -7298,6 +7904,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image flipping. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyFlip}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7343,6 +7951,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image flipping. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyFlip}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7358,6 +7968,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image flipping.
+     * 
+     * It is recommended to use {@link applyFlipSync}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7371,6 +7983,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     flipSync(horizontal: boolean, vertical: boolean): void;
+
+    /**
+     * Crops the PixelMap.
+     *
+     * @param { Region } region - The region to crop.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600204 - The specified region is invalid or out of range.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyCrop(region: Region): Promise<void>;
+
+    /**
+     * Crops the PixelMap.
+     *
+     * @param { Region } region - The region to crop.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600204 - The specified region is invalid or out of range.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyCropSync(region: Region): void;
 
     /**
      * Crop the image. This method uses a callback to return the operation result.
@@ -7401,6 +8056,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Crop the image. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyCrop}.
      *
      * @param { Region } region The region to crop.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -7442,6 +8099,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Crop the image. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyCrop}.
      *
      * @param { Region } region The region to crop.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -7456,6 +8115,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Crop the image.
+     * 
+     * It is recommended to use {@link applyCropSync}.
      *
      * @param { Region } region The region to crop.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
