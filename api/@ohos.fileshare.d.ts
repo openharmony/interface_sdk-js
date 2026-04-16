@@ -513,6 +513,7 @@ declare namespace fileShare {
    * Provides a permission grant for application-shared directories
    *
    * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -528,6 +529,7 @@ declare namespace fileShare {
    * Revokes permission for application-shared directories
    *
    * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
