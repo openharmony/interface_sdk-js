@@ -57,8 +57,8 @@ declare class SelectionExtensionAbility {
 
   /**
    * Callback invoked when the ExtensionAbility is initialized.
-   * 
-   * @param { Want } want Want object used to initialize the ExtensionAbility.
+   *
+   * @param { Want } want - Want object used to initialize the ExtensionAbility.
    * @returns { rpc.RemoteObject } RPC remote connection object.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
@@ -66,8 +66,8 @@ declare class SelectionExtensionAbility {
    */
   /**
    * Callback invoked when the ExtensionAbility is initialized.
-   * 
-   * @param { Want } want Want object used to initialize the ExtensionAbility.
+   *
+   * @param { Want } want - Want object used to initialize the ExtensionAbility.
    * @returns { rpc.RemoteObject } RPC remote connection object.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
@@ -77,14 +77,14 @@ declare class SelectionExtensionAbility {
 
   /**
    * Callback invoked when the ExtensionAbility is disconnected.
-   * 
+   *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
   /**
    * Callback invoked when the ExtensionAbility is disconnected.
-   * 
+   *
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 dynamic&static

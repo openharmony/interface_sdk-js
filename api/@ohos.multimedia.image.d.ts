@@ -3852,6 +3852,19 @@ declare namespace image {
      * @since 23 static
      */
     needsPackProperties?: boolean;
+    
+    /**
+     * This parameter is valid only when needsPackProperties is set to true. It specifies the maximum width and height
+     *     of the thumbnail generated during encoding. If this parameter is not specified, no thumbnail will be
+     *     generated during encoding.
+     * The value should be an integer.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxEmbedThumbnailDimension?: int;
   }
 
   /**
@@ -8385,6 +8398,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     WEBP_METADATA = 17,
+
+    /**
+     * Metadata of a PNG image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PNG_METADATA = 19,
+
+    /**
+     * Metadata of a JFIF image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    JFIF_METADATA = 20,
+
+    /**
+     * Metadata of a TIFF image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TIFF_METADATA = 21
   }
 
   /**
@@ -8560,7 +8600,52 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 20 dynamic
      * @since 23 static
      */
-    GIF_DISPOSAL_TYPE = 'GifDisposalType'
+    GIF_DISPOSAL_TYPE = 'GifDisposalType',
+
+    /**
+     * Whether the GIF image has a global color map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_HAS_GLOBAL_COLOR_MAP = 'GifHasGlobalColorMap',
+
+    /**
+     * Canvas width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_CANVAS_WIDTH = 'GifCanvasWidth',
+
+    /**
+     * Canvas height.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_CANVAS_HEIGHT = 'GifCanvasHeight',
+
+    /**
+     * Loop count.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_LOOP_COUNT = 'GifLoopCount',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_UNCLAMPED_DELAY_TIME = 'GifUnclampedDelayTime'
   }
 
   /**
@@ -8577,7 +8662,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    HEIFS_DELAY_TIME = 'HeifsDelayTime'
+    HEIFS_DELAY_TIME = 'HeifsDelayTime',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HEIFS_UNCLAMPED_DELAY_TIME = 'HeifsUnclampedDelayTime',
+
+    /**
+     * Canvas height.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HEIFS_CANVAS_HEIGHT = 'HeifsCanvasHeight',
+
+    /**
+     * Canvas width.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HEIFS_CANVAS_WIDTH = 'HeifsCanvasWidth'
   }
 
   /**
@@ -9391,6 +9500,402 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Enumerates the properties available for the metadata of a TIFF image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum TiffPropertyKey {
+    /**
+     * Name of the document or image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DOCUMENT_NAME = 'TiffDocumentName',
+
+    /**
+     * Defines how pixel colors are interpreted (e.g., RGB, grayscale).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PHOTOMETRIC_INTERPRETATION = 'TiffPhotometricInterpretation',
+
+    /**
+     * Indicates image orientation for correct display rotation/flip.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION = 'TiffOrientation',
+
+    /**
+     * Unit for X/Y resolution.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RESOLUTION_UNIT = 'TiffResolutionUnit',
+
+    /**
+     * Copyright notice for the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COPYRIGHT = 'TiffCopyright',
+
+    /**
+     * Date and time associated with the image (typically last modification).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATE_TIME = 'TiffDateTime',
+
+    /**
+     * Description of the image content.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    IMAGE_DESCRIPTION = 'TiffImageDescription',
+
+    /**
+     * Vertical resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_RESOLUTION = 'TiffYResolution',
+
+    /**
+     * Horizontal resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_RESOLUTION = 'TiffXResolution',
+
+    /**
+     * Chromaticity coordinates of the reference white point.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WHITE_POINT = 'TiffWhitePoint',
+
+    /**
+     * Height of each image tile in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TILE_LENGTH = 'TiffTileLength',
+
+    /**
+     * Tone transfer curve mapping pixel values to output intensity.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TRANSFER_FUNCTION = 'TiffTransferFunction',
+
+    /**
+     * Width of each image tile in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TILE_WIDTH = 'TiffTileWidth',
+
+    /**
+     * Manufacturer of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MAKE = 'TiffMake',
+
+    /**
+     * Model name/number of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODEL = 'TiffModel',
+
+    /**
+     * Host computer/system used for image processing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HOST_COMPUTER = 'TiffHostComputer',
+
+    /**
+     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPRESSION = 'TiffCompression',
+
+    /**
+     * Software used to create or process the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SOFTWARE = 'TiffSoftware',
+
+    /**
+     * Chromaticity coordinates of the RGB primaries.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PRIMARY_CHROMATICITIES = 'TiffPrimaryChromaticities',
+
+    /**
+     * Name of the image creator or artist.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ARTIST = 'TiffArtist'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a JFIF image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum JfifPropertyKey {
+    /**
+     * JFIF density unit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DENSITY_UNIT = 'JfifDensityUnit',
+
+    /**
+     * JFIF x density.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_DENSITY = 'JfifXDensity',
+
+    /**
+     * JFIF y density.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_DENSITY = 'JfifYDensity',
+
+    /**
+     * JFIF version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VERSION = 'JfifVersion',
+
+    /**
+     * whether the JFIF image is progressive.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    IS_PROGRESSIVE = 'JfifIsProgressive'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a PNG image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum PngPropertyKey {
+    /**
+     * PNG x pixels per meter.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_PIXELS_PER_METER = 'PngXPixelsPerMeter',
+
+    /**
+     * PNG modification time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODIFICATION_TIME = 'PngModificationTime',
+      
+    /**
+     * PNG software.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SOFTWARE = 'PngSoftware',
+      
+    /**
+     * PNG copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COPYRIGHT = 'PngCopyright',
+      
+    /**
+     * PNG creation time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CREATION_TIME = 'PngCreationTime',
+      
+    /**
+     * PNG sRGB rendering intent.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SRGB_INTENT = 'PngSRGBIntent',
+      
+    /**
+     * PNG author.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AUTHOR = 'PngAuthor',
+      
+    /**
+     * PNG interlacing mode.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INTERLACE_TYPE = 'PngInterlaceType',
+      
+    /**
+     * PNG warning.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WARNING = 'PngWarning',
+      
+    /**
+     * PNG y pixels per meter.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_PIXELS_PER_METER = 'PngYPixelsPerMeter',
+      
+    /**
+     * PNG gamma.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GAMMA = 'PngGamma',
+
+    /**
+     * PNG color primary/white-point coordinates.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CHROMATICITIES = 'PngChromaticities',
+
+    /**
+     * PNG description.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DESCRIPTION = 'PngDescription',
+
+    /**
+     * PNG title.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TITLE = 'PngTitle',
+
+    /**
+     * PNG comment.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMENT = 'PngComment',
+
+    /**
+     * PNG disclaimer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISCLAIMER = 'PngDisclaimer'
+  }
+
+  /**
    * Heifs metadata.
    *
    * @implements Metadata
@@ -9409,6 +9914,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     readonly heifsDelayTime?: int;
+
+    /**
+     * Canvas height.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly heifsCanvasHeight?: int;
+
+    /**
+     * Canvas width.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly heifsCanvasWidth?: int;
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly heifsUnclampedDelayTime?: int;
 
     /**
      * Create an empty instance of HeifsMetadata.
@@ -9487,6 +10022,476 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     setBlob(blob: ArrayBuffer): Promise<void>;
+  }
+
+  /**
+   * JFIF metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class JfifMetadata {
+    /**
+     * JFIF density unit.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly densityUnit?: int;
+
+    /**
+     * JFIF x density.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly xDensity?: int;
+
+    /**
+     * JFIF y density.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly yDensity?: int;
+
+    /**
+     * whether the JFIF image is progressive.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly isProgressive?: boolean;
+
+    /**
+     * JFIF version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly version?: int[];
+  }
+
+  /**
+   * Gif metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class GifMetadata {
+    /**
+     * Delay of each frame in milliseconds.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly delayTime?: int;
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly unclampedDelayTime?: int;
+
+    /**
+     * whether the GIF image has a global color map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly hasGlobalColorMap?: boolean;
+
+    /**
+     * Loop count.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly loopCount?: int;
+
+    /**
+     * Disposal type of each frame in the image.
+     * 0 - No disposal specified.
+     * 1 - Do not dispose.
+     * 2 - Restore to background color.
+     * 3 - Restore to previous.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly disposalType?: int;
+
+    /**
+     * Canvas height.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly canvasHeight?: int;
+
+    /**
+     * Canvas width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly canvasWidth?: int;
+  }
+
+
+  /**
+   * TIFF metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class TiffMetadata {
+    /**
+     * Chromaticity coordinates of the RGB primaries.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly primaryChromaticities?: double[];
+
+    /**
+     * Width of each image tile in pixels.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly tileWidth?: int;
+
+    /**
+     * Height of each image tile in pixels.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly tileLength?: int;
+
+    /**
+     * Date and time associated with the image (typically last modification).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly dateTime?: string;
+
+    /**
+     * Manufacturer of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly make?: string;
+
+    /**
+     * Defines how pixel colors are interpreted (e.g., RGB, grayscale).
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly photometricInterpretation?: int;
+
+    /**
+     * Chromaticity coordinates of the reference white point.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly whitePoint?: double[];
+
+    /**
+     * Name of the document or image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly documentName?: string;
+
+    /**
+     * Description of the image content.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly imageDescription?: string;
+
+    /**
+     * Software used to create or process the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly software?: string;
+
+
+    /**
+     * Horizontal resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly xResolution?: double;
+
+    /**
+     * Vertical resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly yResolution?: double;
+
+    /**
+     * Host computer/system used for image processing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly hostComputer?: string;
+
+    /**
+     * Tone transfer curve mapping pixel values to output intensity.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly transferFunction?: string;
+
+    /**
+     * Name of the image creator or artist.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly artist?: string;
+
+    /**
+     * Indicates image orientation for correct display rotation/flip.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly orientation?: Orientation;
+
+    /**
+     * Model name/number of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly model?: string;
+
+    /**
+     * Unit for X/Y resolution.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly resolutionUnit?: int;
+
+    /**
+     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly compression?: int;
+
+    /**
+     * Copyright notice for the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly copyright?: string;
+  }
+
+  /**
+   * Png metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class PngMetadata {
+    /**
+     *PNG x pixels per meter.
+     *The value should be an integer.
+     *
+     *@syscap SystemCapability.Multimedia.Image.Core
+     *@stagemodelonly
+     *@since 26.0.0 dynamic&static
+     */
+    readonly xPixelsPerMeter?: int;
+
+    /**
+     * PNG software.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly software?: string;
+
+    /**
+     * PNG disclaimer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly disclaimer?: string;
+
+    /**
+     * PNG description.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly description?: string;
+
+    /**
+     * PNG copyright.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly copyright?: string;
+
+    /**
+     * PNG interlacing mode.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly interlaceType?: int;
+
+    /**
+     * PNG comment.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly comment?: string;
+
+    /**
+     * PNG author.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly author?: string;
+
+    /**
+     * PNG creation time.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly creationTime?: string;
+
+    /**
+     * PNG modification time.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly modificationTime?: string;
+
+    /**
+     * PNG gamma.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly gamma?: double;
+
+    /**
+     * PNG y pixels per meter.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly yPixelsPerMeter?: int;
+
+    /**
+     * PNG sRGB rendering intent.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly sRGBIntent?: int;
+
+    /**
+     * PNG title.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly title?: string;
+
+    /**
+     * PNG warning.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly warning?: string;
   }
 
   /**
@@ -12702,6 +13707,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     webPMetadata?: WebPMetadata;
+
+    /**
+     * Gif metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    gifMetadata?: GifMetadata;
+
+    /**
+     * Tiff metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    tiffMetadata?: TiffMetadata;
+
+    /**
+     * Jfif metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    jfifMetadata?: JfifMetadata;
+
+    /**
+     * Png metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pngMetadata?: PngMetadata;
   }
 
   /**
@@ -12743,6 +13780,39 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     desiredPixelFormat?: PixelMapFormat;
+  }
+
+  /**
+   * Describes thumbnail decoding parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface DecodingOptionsForThumbnail {
+    /**
+     * Flag to specify whether the thumbnail should be generated, if the image does not have a thumbnail.
+     *
+     * <br>Default value: true.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    generateThumbnailIfAbsent?: boolean;
+
+    /**
+     * This parameter is valid only when generateThumbnailIfAbsent is set to true. The width and height of the image
+     *     cannot exceed the value of this parameter.
+     * The value should be an integer.
+     * <br>Unit:px.
+     * <br>Default value:512.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxGeneratedPixelDimension?: int;
   }
 
    /**
@@ -14348,6 +15418,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     * @since 24 dynamic&static
     */
     createImageRawData(): Promise<ImageRawData>
+
+    /**
+     * Creates a thumbnail image based on image decoding parameters.
+     * This method uses a promise to return the PixelMap object, which represents the thumbnail.
+     *
+     * @param { DecodingOptionsForThumbnail } [options] - Image decoding parameters for creating the thumbnail.
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object representing
+     *     the thumbnail.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700204 - Invalid parameter, e.g, invalid generate size.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700303 - Image does not carry thumbnail data.
+     * @throws { BusinessError } 7700305 - Thumbnail generation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createThumbnail(options?: DecodingOptionsForThumbnail): Promise<PixelMap | undefined>;
+
+    /**
+     * Synchronously creates a thumbnail image based on image decoding parameters.
+     * This method returns a `PixelMap` object, which represents the generated thumbnail.
+     *
+     * @param { DecodingOptionsForThumbnail } [options] - Image decoding parameters for creating the thumbnail.
+     * @returns { PixelMap | undefined } The PixelMap object representing the generated thumbnail.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700204 - Invalid parameter, e.g, invalid generate size.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700303 - Image does not carry thumbnail data.
+     * @throws { BusinessError } 7700305 - Thumbnail generation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createThumbnailSync(options?: DecodingOptionsForThumbnail): PixelMap | undefined;
   }
 
   /**
