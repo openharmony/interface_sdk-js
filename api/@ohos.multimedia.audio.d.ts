@@ -1926,7 +1926,9 @@ declare namespace audio {
     SAMPLE_RATE_192000 = 192000,
     /**
      * 384kHz sample rate.
+     * 
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     SAMPLE_RATE_384000 = 384000,
@@ -2389,8 +2391,6 @@ declare namespace audio {
      */
     /**
      * Sampling rate, supports 10hz intervals.
-     * @type { AudioSamplingRate }
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @stagemodelonly
      * @crossplatform
