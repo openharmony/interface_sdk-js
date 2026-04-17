@@ -23,7 +23,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Describes the data of a common event.
+ * 表示公共事件的数据。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform [since 11]
@@ -33,7 +33,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface CommonEventData {
   /**
-   * Name of the common event that is being received.
+   * 表示当前接收的公共事件名称。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 11]
@@ -44,7 +44,7 @@ export interface CommonEventData {
   event: string;
 
   /**
-   * Bundle name. The default value is an empty string.
+   * 表示包名称，默认为空字符串。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -54,10 +54,9 @@ export interface CommonEventData {
   bundleName?: string;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+   * 表示订阅者接收到的公共事件数据（number类型）。该字段取值与发布者使用
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   * to publish a common event. The default value is **0**.
+   * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`code`字段传递的数据一致。默认值为0。
    *
    * @type { ?number } [since 7 - 10]
    * @type { ?int } [since 11]
@@ -70,10 +69,9 @@ export interface CommonEventData {
   code?: int;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the **data** field in
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+   * 表示订阅者接收到的公共事件数据（string类型）。该字段取值与发布者使用
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   * to publish a common event.
+   * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`data`字段传递的数据一致。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 12]
@@ -84,11 +82,9 @@ export interface CommonEventData {
   data?: string;
 
   /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as
-   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
-   * when the publisher uses
+   * 表示订阅者接收到的公共事件的附加信息。该字段取值与发布者使用
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   * to publish a common event.
+   * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`parameters`字段传递的数据一致。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -97,11 +93,9 @@ export interface CommonEventData {
   parameters?: { [key: string]: any };
 
   /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as
-   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
-   * when the publisher uses
+   * 表示订阅者接收到的公共事件的附加信息。该字段取值与发布者使用
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   * to publish a common event.
+   * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`parameters`字段传递的数据一致。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 23 static

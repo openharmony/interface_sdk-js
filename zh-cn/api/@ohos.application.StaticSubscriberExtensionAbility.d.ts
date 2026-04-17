@@ -19,10 +19,14 @@
  */
 
 import { CommonEventData } from './commonEvent/commonEventData';
+
+/*** if arkts 1.1 */
+import { CommonEventData } from './commonEvent/commonEventData';
+/*** endif */
 import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
- * The **StaticSubscriberExtensionAbility** module provides Extension abilities for static subscribers.
+ * StaticSubscriberExtensionAbility模块提供静态订阅者ExtensionAbility类别的能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -32,7 +36,7 @@ import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscrib
  */
 declare class StaticSubscriberExtensionAbility {
   /**
-   * Context of the ExtensionAbility.
+   * 上下文。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -43,9 +47,9 @@ declare class StaticSubscriberExtensionAbility {
   context: StaticSubscriberExtensionContext;
 
   /**
-   * Represents a callback of the common event of a static subscriber.
+   * 静态订阅者通用事件回调。
    *
-   * @param { CommonEventData } event - Common event of a static subscriber.
+   * @param { CommonEventData } event - 静态订阅者通用事件回调。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly

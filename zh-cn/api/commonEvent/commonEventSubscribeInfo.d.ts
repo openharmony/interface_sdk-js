@@ -19,13 +19,11 @@
  */
 
 /**
- * The **CommonEventSubscribeInfo** module provides APIs for providing subscriber information.
- *
- * > **NOTE**
+ * 用于表示订阅者的信息。
+ * 
+ * > **说明：**
  * >
- * > After users subscribing to custom common events, any application can send potential malicious common events to
- * > subscribers. Use the **publisherPermission** and **publisherBundleName** parameters of this module to restrict the
- * > publishing scope of common events.
+ * > 订阅自定义公共事件后，任意应用都可以向订阅者发送潜在的恶意公共事件。通过本模块的publisherPermission和publisherBundleName参数，可以限制公共事件发布方的范围。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform [since 11]
@@ -35,7 +33,7 @@
  */
 export interface CommonEventSubscribeInfo {
   /**
-   * Common events to subscribe to.
+   * 表示要订阅的公共事件。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 11]
@@ -46,7 +44,7 @@ export interface CommonEventSubscribeInfo {
   events: Array<string>;
 
   /**
-   * Permission of the publisher. The subscriber can receive only the events from the publisher with this permission.
+   * 表示发布者的权限，订阅方将只能接收到具有该权限的发送方发布的事件。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -56,8 +54,7 @@ export interface CommonEventSubscribeInfo {
   publisherPermission?: string;
 
   /**
-   * Device ID. Use [@ohos.deviceInfo]{@link ./../@ohos.deviceInfo:deviceInfo} to obtain the UDID as the device ID of
-   * the subscriber. Not supported currently.
+   * 表示设备ID。通过[@ohos.deviceInfo]{@link ./../@ohos.deviceInfo:deviceInfo}获取udid，作为订阅者的设备ID。预留能力，暂不支持。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -67,10 +64,9 @@ export interface CommonEventSubscribeInfo {
   publisherDeviceId?: string;
 
   /**
-   * User ID. If this parameter is not specified, the default value, which is the ID of the current user, will be used.
-   * The value must be an existing user ID in the system. Use
+   * 表示用户ID。此参数是可选的，默认值当前用户的ID。如果指定了此参数，则该值必须是系统中现有的用户ID。通过
    * [getOsAccountLocalId]{@link ./../@ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   * to obtain the system account ID and use it as the user ID of the subscriber.
+   * 获取系统账号ID，作为订阅者的用户ID。
    *
    * @type { ?number } [since 7 - 10]
    * @type { ?int } [since 11]
@@ -82,8 +78,7 @@ export interface CommonEventSubscribeInfo {
   userId?: int;
 
   /**
-   * Subscriber priority. The value ranges from –100 to +1000. If the value exceeds the upper or lower limit, the upper
-   * or lower limit is used.
+   * 表示订阅者的优先级。值的范围是-100到1000，超过上下限的优先级将被设置为上下限值。
    *
    * @type { ?number } [since 7 - 10]
    * @type { ?int } [since 11]
@@ -95,7 +90,7 @@ export interface CommonEventSubscribeInfo {
   priority?: int;
 
   /**
-   * Bundle name of the publisher to subscribe to.
+   * 表示要订阅的发布者的bundleName。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice

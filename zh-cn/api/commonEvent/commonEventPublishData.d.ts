@@ -23,13 +23,11 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The **CommonEventPublishData** module provides APIs for defining common event content and attributes.
- *
- * > **NOTE**
+ * 包含公共事件内容和属性。
+ * 
+ * > **说明：**
  * >
- * > If there is no restriction, any application can subscribe to common events and read related information. In this
- * > case, sensitive information should not be carried in common events. The **subscriberPermissions** and
- * > **bundleName** parameters of this module can be used to restrict the receiving scope of common events.
+ * > 如果不加限制，任何应用都可以订阅公共事件并读取相关信息，应避免在公共事件中携带敏感信息。通过本模块的subscriberPermissions和bundleName参数，可以限制公共事件接收方的范围。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform [since 12]
@@ -39,7 +37,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface CommonEventPublishData {
   /**
-   * Bundle name of the subscriber that can receive the common event.
+   * 表示订阅者包名称，只有包名为bundleName的订阅者才能收到该公共事件。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -49,7 +47,7 @@ export interface CommonEventPublishData {
   bundleName?: string;
 
   /**
-   * Common event data transferred by the publisher. The default value is **0**.
+   * 表示发布方传递的公共事件数据（number类型）。默认值为0。
    *
    * @type { ?number } [since 7 - 10]
    * @type { ?int } [since 11]
@@ -62,7 +60,7 @@ export interface CommonEventPublishData {
   code?: int;
 
   /**
-   * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
+   * 表示发布方传递的公共事件数据（string类型）。数据大小不超过64KB。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 12]
@@ -73,7 +71,7 @@ export interface CommonEventPublishData {
   data?: string;
 
   /**
-   * Permissions required for subscribers to receive the common event.
+   * 表示订阅者的权限。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -83,14 +81,10 @@ export interface CommonEventPublishData {
   subscriberPermissions?: Array<string>;
 
   /**
-   * Whether the common event is an ordered one. The default value is **false**.
-   *
-   * - **true**: This event is an ordered common event. Based on the priority set by the subscriber, the common event is
-   * preferentially sent to the subscriber with a higher priority. After the subscriber successfully receives the event,
-   * the public event is sent to the subscriber with a lower priority. Subscribers with the same priority receive common
-   * events in a random order.
-   * - **false**: This event is an unordered common event. Whether subscribers receive the event is not considered, and
-   * the common event which subscribers receive may not comply with the subscription sequence.
+   * 表示是否是有序事件。默认为false。
+   * 
+   * - true：有序公共事件，根据订阅者设置的优先级等级，优先将公共事件发送给优先级较高的订阅者，等待其成功接收该公共事件之后再将事件发送给优先级较低的订阅者。如果有多个订阅者具有相同的优先级，则他们将随机接收到公共事件。
+   * - false：无序公共事件，不考虑订阅者是否接收到该事件，也不保证订阅者接收到该事件的顺序与其订阅顺序一致。
    *
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
@@ -100,17 +94,12 @@ export interface CommonEventPublishData {
   isOrdered?: boolean;
 
   /**
-   * Whether the common event is a sticky one. The default value is **false**.
-   *
-   * - **true**: This event is a sticky common event, which allows subscribers to receive common events that have been
-   * sent before subscription.
-   * - **false**: This event is not a sticky common event, which allows subscribers to receive common events sent after
-   * subscription.
-   *
-   * Only system applications and system services are allowed to send sticky events.
-   *
-   * **Required Permissions**:
-   * [ohos.permission.COMMONEVENT_STICKY](docroot://security/AccessToken/permissions-for-all.md#ohospermissioncommonevent_sticky)
+   * 表示是否是粘性事件。默认为false。
+   * 
+   * - true：粘性公共事件，能够让订阅者收到在订阅前已经发送的公共事件。
+   * - false：普通公共事件，只能让订阅者收到在订阅后才发送的公共事件。
+   * 
+   * 仅系统应用或系统服务允许发送粘性事件。
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @default false
@@ -121,7 +110,7 @@ export interface CommonEventPublishData {
   isSticky?: boolean;
 
   /**
-   * Additional information about the common event transferred by the publisher.
+   * 表示发布方传递的公共事件的附加信息。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -130,7 +119,7 @@ export interface CommonEventPublishData {
   parameters?: { [key: string]: any };
 
   /**
-   * Additional information about the common event transferred by the publisher.
+   * 表示发布方传递的公共事件的附加信息。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 23 static
