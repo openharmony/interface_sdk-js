@@ -2746,7 +2746,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     extendPcLrPrinting?: boolean;
 
@@ -2759,7 +2759,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     logFileCutoffSzBytes?: int;
 
@@ -2774,7 +2774,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     simplifyVmaPrinting?: boolean;
   }
@@ -2835,7 +2835,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     jsHeapLogtype?: string;
   }
