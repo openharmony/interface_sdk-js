@@ -2414,9 +2414,9 @@ declare namespace sim {
   function getSimLabel(slotId: int, callback: AsyncCallback<SimLabel>): void;
 
   /**
-   * Obtains the SIM card label.
-   * @param { int } slotId SIM card slot ID.
-   * @returns { Promise<SimLabel> } Promise used to return the SIM card label.
+   * 获取SIM卡标签名称
+   * @param { int } slotId 卡槽索引号
+   * @returns { Promise<SimLabel> } 返回SIM卡标签：
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2428,9 +2428,9 @@ declare namespace sim {
   function getSimLabel(slotId: int): Promise<SimLabel>;
 
   /**
-   * Obtains the SIM card label synchronously.
+     * Obtains the SIM card label synchronously.
    * @param { int } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
-   *     by the device.
+     *     by the device.
    * @returns { SimLabel } SIM card label.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
@@ -2439,8 +2439,8 @@ declare namespace sim {
   function getSimLabelSync(slotId: int): SimLabel;
 
   /**
-   * Indicates the SIM card type.
-   *
+     * Indicates the SIM card type.
+     *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
@@ -2467,7 +2467,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the SIM card label.
+   * 定义SIM卡标签信息。
    * @interface SimLabel
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
@@ -2475,7 +2475,7 @@ declare namespace sim {
    */
   export interface SimLabel {
     /**
-     * Represents the SIM card type.
+     * 表示SIM卡类型。
      * @type { SimType }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
@@ -2484,7 +2484,8 @@ declare namespace sim {
     simType: SimType;
 
     /**
-     * Represents the SIM card index.
+     * 表示卡片索引。
+     *
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
@@ -3044,7 +3045,7 @@ declare namespace sim {
     FIXED_DIALING = 2,
 
     /**
-     * Service dialing number.
+     * 业务拨号号码。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
@@ -3523,12 +3524,12 @@ declare namespace sim {
   }
 
   /**
-   * Set the SIM card labelIndex.
+   * 设置SIM卡标签索引。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } simId - Indicates the sim Id for card from sim account information.
-   *     <br>Value range:[1,500]
-   * @param { int } simLabelIndex - Indicates the simlabel index for card.
+   * @param { int } simId - 表示来自SIM账户信息的卡的SIM ID。
+   *     <br>取值范围:[1,500]
+   * @param { int } simLabelIndex - 表示卡的SIM标签索引。
    * @returns { Promise<void> } The promise returned by the setSimLabelIndex.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
