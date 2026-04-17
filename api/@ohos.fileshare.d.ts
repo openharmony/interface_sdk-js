@@ -496,7 +496,7 @@ declare namespace fileShare {
    * Gets the shared sandbox directories of applications
    *
    * @permission ohos.permission.ACCESS_SHARED_FILE
-   * @returns { Array<SharedDirectoryInfo> } Returns the shared sandbox directories on paths.
+   * @returns { Promise<Array<SharedDirectoryInfo>> } Returns the shared sandbox directories on paths.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
