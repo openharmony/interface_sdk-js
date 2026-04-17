@@ -33,7 +33,7 @@ import { StyledString, TextStyle } from './arkui/component/styledString';
  * @atomicservice
  * @since 23 static
  */
-declare namespace i18n {
+declare namespace i18n {11
 
   /**
    * Provides system functions.
