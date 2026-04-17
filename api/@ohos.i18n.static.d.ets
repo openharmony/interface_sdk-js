@@ -875,6 +875,20 @@ declare namespace i18n {
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
 
     /**
+     * Converts a locale string into canonical locale identifier with BCP47 standard.
+     * [BCP47](https://www.rfc-editor.org/info/bcp47).
+     *
+     * @param { string } locale - Locale string to be converted, which consists of the language, script,
+     *     and country/region.
+     * @returns { string } BCP47 standard locale identifier.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    static convertCanonicalLocaleIdentifier(locale: string): string;
+
+    /**
      * Sets the text direction for a specific piece of text independently,
      * separating it from the text direction of the surrounding context.
      *
@@ -1757,6 +1771,19 @@ latitude and a negative value is used for south latitude.
      * @since 23 static
      */
     public getZoneRules(): ZoneRules;
+
+    /**
+     * Check if the given date use daylight saving time. The calculation will be based on the matched time zone rules.
+     *
+     * @param { Date } date - Date and time for calculation.
+     *     The value must match the time range supported by the time zone rule.
+     * @returns { boolean } true if the date use daylight saving time, and false otherwise.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    public isDaylightSavingTime(date: Date): boolean;
 
     /**
      * Sets the default time zone for the current app, the value will be used on the application's runtime lifecycle.
