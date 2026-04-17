@@ -37,7 +37,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Describes part of the **wantAgent** information about in [NotificationRequest]{@link NotificationRequest}.
+ * 描述[NotificationRequest]{@link NotificationRequest}中wantAgent的部分信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -45,8 +45,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface NotificationParameters {
   /**
-   * **action** field passed in **want** when **wantAgent** is created. For details, see 
-   * [action]{@link @ohos.app.ability.Want:Want}.
+   * 应用在创建wantAgent时，传入的want的action字段，具体含义请参考[action]{@link @ohos.app.ability.Want:Want}。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -55,8 +54,7 @@ export interface NotificationParameters {
   wantAction?:string;
 
   /**
-   * **uri** field passed in **want** when **wantAgent** is created. For details, see 
-   * [uri]{@link @ohos.app.ability.Want:Want}.
+   * 应用在创建wantAgent时，传入的want的uri字段，具体含义请参考[uri]{@link @ohos.app.ability.Want:Want}。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -65,8 +63,7 @@ export interface NotificationParameters {
   wantUri?:string;
 
   /**
-   * **parameters** field passed in **want** when **wantAgent** is created. For details, see 
-   * [parameters]{@link @ohos.app.ability.Want:Want}.
+   * 应用在创建wantAgent时，传入的want的parameters字段，具体含义请参考[parameters]{@link @ohos.app.ability.Want:Want}。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -75,8 +72,7 @@ export interface NotificationParameters {
   wantParameters?:Record<string, Object>;
 
   /**
-   * **parameters** field passed in **want** when **wantAgent** is created. For details, see 
-   * [parameters]{@link @ohos.app.ability.Want:Want}.
+   * 应用在创建wantAgent时，传入的want的parameters字段，具体含义请参考[parameters]{@link @ohos.app.ability.Want:Want}。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -86,7 +82,7 @@ export interface NotificationParameters {
 }
 
 /**
- * Enumerates the event types of monitoring a geofence.
+ * 表示地理围栏的监控事件类型的枚举。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -94,7 +90,7 @@ export interface NotificationParameters {
  */
 export enum MonitorEvent {
   /**
-   * Entering a geofence.
+   * 进入地理围栏。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -103,7 +99,7 @@ export enum MonitorEvent {
   MONITOR_TYPE_ENTRY = 1,
 
   /**
-   * Exiting a geofence.
+   * 退出地理围栏。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -113,7 +109,7 @@ export enum MonitorEvent {
 }
 
 /**
- * Enumerates the coordinate systems of a geofence.
+ * 表示地理围栏坐标系类型的枚举。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -121,7 +117,7 @@ export enum MonitorEvent {
  */
 export enum CoordinateSystemType {
   /**
-   * WGS84.
+   * WGS84坐标系。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -130,7 +126,7 @@ export enum CoordinateSystemType {
   COORDINATE_TYPE_WGS84 = 1,
 
   /**
-   * GCJ02.
+   * GCJ02坐标系。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -140,7 +136,7 @@ export enum CoordinateSystemType {
 }
 
 /**
- * Enumerates the trigger types.
+ * 表示触发条件的事件类型的枚举。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -148,7 +144,7 @@ export enum CoordinateSystemType {
  */
 export enum TriggerType {
   /**
-   * Geofence.
+   * 地理围栏触发类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -158,7 +154,7 @@ export enum TriggerType {
 }
 
 /**
- * Defines the configuration of a geofence.
+ * 地理围栏的配置信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -166,7 +162,7 @@ export enum TriggerType {
  */
 export interface Geofence {
   /**
-   * Longitude of the geofence center. The value ranges from -180 to 180.
+   * 地理围栏中心点经度，取值范围：[-180, 180]。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -175,7 +171,7 @@ export interface Geofence {
   longitude:double;
 
   /**
-   * Latitude of the geofence center. The value ranges from -90 to 90.
+   * 地理围栏中心点纬度，取值范围：[-90, 90]。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -184,7 +180,7 @@ export interface Geofence {
   latitude:double;
 
   /**
-   * Geofence radius, in meters. The value ranges from 200 to 2000.
+   * 围栏半径，单位米，取值范围：[200, 2000]。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -193,8 +189,7 @@ export interface Geofence {
   radius:double;
 
   /**
-   * Delay time from geofence entry to event trigger, in seconds. 
-   * The value ranges from 0 to 300. The default value is **0**.
+   * 围栏延迟时间，单位秒，进入围栏后触发围栏的延迟时间，取值范围：[0, 300]。默认值为0。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -203,7 +198,7 @@ export interface Geofence {
   delayTime?:int;
 
   /**
-   * Coordinate system type of the center point.
+   * 中心点坐标系类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -212,7 +207,7 @@ export interface Geofence {
   coordinateSystemType:CoordinateSystemType;
 
   /**
-   * Event type for monitoring a geofence.
+   * 围栏触发条件类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -222,7 +217,7 @@ export interface Geofence {
 }
 
 /**
- * Defines the details for triggering a geofence.
+ * 触发条件的具体信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -230,7 +225,7 @@ export interface Geofence {
  */
 export interface Trigger {
   /**
-   * Trigger type.
+   * 条件类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -239,7 +234,7 @@ export interface Trigger {
   type:TriggerType;
 
   /**
-   * Details about a geofence.
+   * 条件具体描述。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -248,7 +243,7 @@ export interface Trigger {
   condition:Geofence;
   
   /**
-   * Display time of a live view, in seconds. The value ranges from 15 to 1800. The default value is **900**.
+   * 条件触发实况的展示时间，单位：秒，取值范围：[15, 1800]，默认值为900。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -258,8 +253,8 @@ export interface Trigger {
 }
 
 /**
- * The **NotificationRequest** module provides APIs for defining the notification request.
- *
+ * 描述通知的请求。
+ * 
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -267,7 +262,7 @@ export interface Trigger {
  */
 export interface NotificationRequest {
   /**
-   * Notification content.
+   * 通知展示内容。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -277,7 +272,9 @@ export interface NotificationRequest {
   content: NotificationContent;
 
   /**
-   * Condition object. This parameter is left empty by default.<br>**System API**: This is a system API.
+   * 条件对象。默认为空。 
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -286,8 +283,7 @@ export interface NotificationRequest {
   trigger?:Trigger;
 
   /**
-   * Notification ID. The default value is **0**. If a notification with the same ID exists, the notification is 
-   * updated. If no notification with the same ID exists, a new notification is created.
+   * 通知ID，默认值为0。若已存在相同ID的通知，则更新该通知；若不存在相同ID的通知，则创建新的通知。
    *
    * @crossplatform [since 12]
    * @type { ?number } [since 7 - 11]
@@ -299,11 +295,9 @@ export interface NotificationRequest {
   id?: int;
 
   /**
-   * Notification priority type. The default value is **OTHER**. If this parameter is set, the notification is pinned on
-   * the top and displayed in a highlighted manner in the notification center. <!--RP2--><!--RP2End-->The actual display
-   * effect depends on the device capability and notification center UI style.
+   * 通知优先级类型，默认值为OTHER。设置该参数可使通知置顶，并且在通知中心以突出方式显示。<!--RP2--><!--RP2End-->实际显示效果依赖于设备能力和通知中心UI样式。
    * 
-   * This API can be used only in the stage model.
+   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -312,11 +306,8 @@ export interface NotificationRequest {
   priorityNotificationType?: notificationManager.PriorityNotificationType;
 
   /**
-   * Unique ID carried in a notification sent by an application, which is used for notification deduplication. If an 
-   * application publishes notifications with the same **appMessageId** locally or on the cloud, the device displays 
-   * only one message. Repeated notifications received later will be silenced and deduplicated, and will not be 
-   * displayed or notified. The deduplication flag is valid only within 24 hours after the notification is published. 
-   * After 24 hours or the device is restarted, the deduplication flag becomes invalid.
+   * 应用发送通知携带的唯一标识字段，用于通知去重。如果同一应用通过本地和云端等不同途径发布携带相同appMessageId的通知，设备只展示一条消息，之后收到的重复通知会被静默去重，不展示、不提醒。去重标识仅在通知发布的24小时内有效
+   * ，超过24小时或者设备重启失效。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -325,10 +316,9 @@ export interface NotificationRequest {
   appMessageId?: string;
 
   /**
-   * Notification slot type. The default value is **OTHER_TYPES**.
+   * 通知渠道类型，默认值为OTHER_TYPES。
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
-   * **notificationSlotType** instead.
+   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationSlotType替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -338,8 +328,7 @@ export interface NotificationRequest {
   slotType?: notification.SlotType;
 
   /**
-   * Notification slot type. The default value is **OTHER_TYPES**. The notification reminder mode varies depending on 
-   * the notification slot type.
+   * 通知渠道类型，默认值为OTHER_TYPES。不同渠道类型的通知提醒方式不同。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -348,7 +337,7 @@ export interface NotificationRequest {
   notificationSlotType?: notificationManager.SlotType;
 
   /**
-   * Not supported currently.
+   * 预留能力，暂未支持。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -358,7 +347,7 @@ export interface NotificationRequest {
   isOngoing?: boolean;
 
   /**
-   * Not supported currently.
+   * 预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -367,12 +356,10 @@ export interface NotificationRequest {
   isUnremovable?: boolean;
 
   /**
-   * Whether to update notifications only. The default value is **false**.
+   * 是否仅更新通知，默认值为false。
    * 
-   * - **true**: If a notification with the same ID exists, the notification is updated. If no notification with the 
-   * same ID exists, the update fails and no new notification is created.
-   * - **false**: If a notification with the same ID exists, the notification is updated. If no notification with the 
-   * same ID exists, a new notification is created.
+   * - true：若已存在相同ID的通知，则更新该通知；若不存在相同ID的通知，则更新失败，并且不创建新的通知。
+   * - false：若已存在相同ID的通知，则更新该通知；若不存在相同ID的通知，则创建新的通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 18 dynamic
@@ -381,11 +368,11 @@ export interface NotificationRequest {
   updateOnly?: boolean;
 
   /**
-   * Time when the notification is sent. This API is automatically generated by the system.
+   * 通知发送时间。系统自动生成，无需开发者配置。
    * 
-   * Data format: timestamp,
+   * 数据格式：时间戳。
    * 
-   * in milliseconds.
+   * 单位：ms。
    *
    * @crossplatform [since 12]
    * @type { ?number } [since 7 - 11]
@@ -397,12 +384,10 @@ export interface NotificationRequest {
   deliveryTime?: long;
 
   /**
-   * Whether the notification is automatically cleared when the notification carries **wantAgent** or **actionButtons**.
-   * This parameter is valid only when the notification carries **wantAgent** or **actionButtons**. The default value is
-   * **true**.
+   * 点击通知携带的wantAgent或actionButtons时，该通知是否自动清除。当通知携带wantAgent或actionButtons时该字段生效。默认值为true。
    * 
-   * - **true**: The current notification is automatically cleared after the notification or button is tapped.
-   * - **false**: The current notification is retained after the notification or button is tapped.
+   * - true：点击通知或按钮后，自动删除当前通知。
+   * - false：点击通知或按钮后，保留当前通知。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -412,15 +397,13 @@ export interface NotificationRequest {
   tapDismissed?: boolean;
 
   /**
-   * Scheduled time for clearing a notification. If this parameter is set, the notification will be automatically 
-   * cleared after the specified time. The default value is **0**.
+   * 通知定时清除时间。设置该参数可使通知在指定时间后自动清除。默认值为0。
    * 
-   * Data format: timestamp,
+   * 数据格式：时间戳。
    * 
-   * in milliseconds.
+   * 单位：ms。
    * 
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms), you can set 
-   * **new Date().getTime() + 3000** to meet this requirement.
+   * 例如，希望某通知存留3秒（3000ms）后对其进行清除，则对应的清除时间为：new Date().getTime() + 3000。
    *
    * @crossplatform [since 12]
    * @type { ?number } [since 7 - 11]
@@ -432,8 +415,7 @@ export interface NotificationRequest {
   autoDeletedTime?: long;
 
   /**
-   * Behavior intent of an application, which is triggered when a notification is clicked. This parameter is left empty 
-   * by default.
+   * 封装了应用的行为意图，点击通知时触发该行为，默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -442,15 +424,13 @@ export interface NotificationRequest {
   wantAgent?: WantAgent;
 
   /**
-   * Extended parameters, used to provide custom services for applications. This parameter is left blank by default.
+   * 扩展参数。为应用提供定制服务。默认为空。
    * 
-   * The key value is assigned by the system. Manual modification does not take effect. The system automatically changes
-   * the value to the actual value during data transmission.
+   * 以下Key由系统赋值，开发者手动修改也不会生效，系统在数据传递时会自动修改为实际值。
    * 
-   * - **ohos.notificationManager.wantUri**: **uri** field in the [Want]{@link @ohos.app.ability.Want:Want} object, 
-   * which is passed to the application when the user taps a notification. This field can be obtained via the 
+   * - 'ohos.notificationManager.wantUri'：用户点击通知时传递给应用的[Want]{@link @ohos.app.ability.Want:Want} 中的uri字段，使用
    * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>)}
-   * API call.
+   * 接口获取该信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -458,15 +438,13 @@ export interface NotificationRequest {
   extraInfo?: { [key: string]: any };
 
   /**
-   * Extended parameters, used to provide custom services for applications. This parameter is left blank by default.
+   * 扩展参数。为应用提供定制服务。默认为空。
    * 
-   * The key value is assigned by the system. Manual modification does not take effect. The system automatically changes
-   * the value to the actual value during data transmission.
+   * 以下Key由系统赋值，开发者手动修改也不会生效，系统在数据传递时会自动修改为实际值。
    * 
-   * - **ohos.notificationManager.wantUri**: **uri** field in the [Want]{@link @ohos.app.ability.Want:Want} object, 
-   * which is passed to the application when the user taps a notification. This field can be obtained via the 
+   * - 'ohos.notificationManager.wantUri'：用户点击通知时传递给应用的[Want]{@link @ohos.app.ability.Want:Want} 中的uri字段，使用
    * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>)}
-   * API call.
+   * 接口获取该信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
@@ -474,9 +452,9 @@ export interface NotificationRequest {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extended parameters customized for the system applications to publish notifications.
-   * This parameter is left empty by default.
-   * **System API**: This is a system API.
+   * 系统应用发布通知时的自定义扩展参数。默认为空。
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -485,9 +463,7 @@ export interface NotificationRequest {
   extendInfo?: Record<string, Object>;
 
   /**
-   * Extended parameters customized for the system applications to publish notifications.
-   * This parameter is left empty by default.
-   * **System API**: This is a system API.
+   * 系统应用发布通知时的自定义扩展参数。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -496,7 +472,7 @@ export interface NotificationRequest {
   extendInfo?: Record<string, RecordData>;
 
   /**
-   * Background color of the notification. Not supported currently.
+   * 通知背景颜色。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -505,7 +481,7 @@ export interface NotificationRequest {
   color?: long;
 
   /**
-   * Whether the notification background color can be enabled. Not supported currently.
+   * 通知背景颜色是否使能。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -514,13 +490,10 @@ export interface NotificationRequest {
   colorEnabled?: boolean;
 
   /**
-   * Whether to send a notification only once when the notification is published or updated. The default value is 
-   * **false**.
+   * 发布或更新该通知时，是否只进行一次通知提醒，默认为false。
    * 
-   * - **true**: A notification is sent only when the notification is published for the first time. For subsequent 
-   * update, the notification mode is changed to 
-   * [LEVEL_LOW]{@link @ohos.notificationManager:notificationManager.SlotLevel}.
-   * - **false**: A notification is sent based on the configured notification mode.
+   * - true：仅首次发布通知时进行提醒，后续更新该通知时，提醒方式变更为[LEVEL_LOW]{@link @ohos.notificationManager:notificationManager.SlotLevel}。
+   * - false：每次均按照配置的通知提醒方式进行提醒。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -530,7 +503,7 @@ export interface NotificationRequest {
   isAlertOnce?: boolean;
 
   /**
-   * Whether to display the stopwatch. Not supported currently.
+   * 是否显示已用时间。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -539,7 +512,7 @@ export interface NotificationRequest {
   isStopwatch?: boolean;
 
   /**
-   * Whether to display the countdown time. Not supported currently.
+   * 是否显示倒计时时间。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -548,7 +521,7 @@ export interface NotificationRequest {
   isCountDown?: boolean;
 
   /**
-   * Whether the notification is displayed as a floating icon in the status bar. Not supported currently.
+   * 是否显示状态栏图标。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -557,13 +530,11 @@ export interface NotificationRequest {
   isFloatingIcon?: boolean;
 
   /**
-   * Notification label. This parameter is left empty by default.
+   * 通知标签，默认为空。
    * 
-   * The **label** field can be used independently, or used together with ID as a notification identifier. ID is 
-   * preferentially used.
+   * label字段的功能类似于id，可以单独使用，也可与id结合共同作为通知的标识。优先推荐使用id。
    * 
-   * If the label is not empty when a notification is published, you need to specify the label when updating or deleting
-   * the notification.
+   * 如果发布通知时label不为空，那么在更新或删除该通知时，也需要指定相应的label。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -572,7 +543,7 @@ export interface NotificationRequest {
   label?: string;
 
   /**
-   * Notification badge type. Not supported currently.
+   * 通知角标类型。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -581,7 +552,7 @@ export interface NotificationRequest {
   badgeIconStyle?: int;
 
   /**
-   * Whether to display the time when the notification is delivered. Not supported currently.
+   * 是否显示分发时间。预留能力，暂未支持。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -591,8 +562,7 @@ export interface NotificationRequest {
   showDeliveryTime?: boolean;
 
   /**
-   * Notification button. This parameter is left empty by default. A notification can contain a maximum of two buttons. 
-   * Since API version 16, a notification can contain a maximum of three buttons for wearables.
+   * 通知按钮，默认为空。一条通知中最多包含两个按钮。从API version 16开始，`wearable`设备一条通知最多包含三个按钮。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -601,10 +571,9 @@ export interface NotificationRequest {
   actionButtons?: Array<NotificationActionButton>;
 
   /**
-   * Small notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * 通知小图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
+   * 于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -613,10 +582,9 @@ export interface NotificationRequest {
   smallIcon?: image.PixelMap;
 
   /**
-   * Large notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * 通知大图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
+   * 于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -625,13 +593,11 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * Notification overlay icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}).
+   * 通知重叠图标，默认为空。图像像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取）。
    * 
-   * This API takes effect only when [notificationSlotType]{@link NotificationRequest} is set to 
-   * **SOCIAL_COMMUNICATION**. The recommended icon size is 128 × 128 pixels. The display effect depends on the device 
-   * capability and notification center UI style.
+   * 此接口只在[notificationSlotType]{@link NotificationRequest}类型设置为SOCIAL_COMMUNICATION时生效。建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通
+   * 知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 11 - 22]
@@ -642,8 +608,7 @@ export interface NotificationRequest {
   overlayIcon?: image.PixelMap;
 
   /**
-   * Group to which a notification belongs. If the group names of different notifications are the same, these 
-   * notifications are displayed in a group. This parameter is left blank by default.
+   * 通知所属组。当不同通知的groupName相同时，这些通知将成组展示。默认为空。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -653,7 +618,7 @@ export interface NotificationRequest {
   groupName?: string;
 
   /**
-   * Name of the application that creates the notification.
+   * 创建通知的应用名称。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -662,7 +627,7 @@ export interface NotificationRequest {
   readonly creatorBundleName?: string;
 
   /**
-   * UID of the application that creates the notification.
+   * 创建通知的应用UID。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -671,7 +636,7 @@ export interface NotificationRequest {
   readonly creatorUid?: int;
 
   /**
-   * PID used for creating the notification.
+   * 创建通知的PID。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -680,7 +645,7 @@ export interface NotificationRequest {
   readonly creatorPid?: int;
 
   /**
-   * ID of the user who creates the notification.
+   * 创建通知的用户ID。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
@@ -689,9 +654,11 @@ export interface NotificationRequest {
   readonly creatorUserId?: int;
 
   /**
-   * Creator instance key.
-   * This parameter is supported since API version 12 and deprecated since API version 15. You are advised to use **appInstanceKey** instead.
-   * **System API**: This is a system API.
+   * 创建者实例键值。
+   * 
+   * 从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -702,21 +669,15 @@ export interface NotificationRequest {
   readonly creatorInstanceKey?: number;
 
   /**
-   * Path of the custom application notification ringtone resource. By default, this parameter is left empty. The 
-   * following two types of audio resources are supported:
+   * 应用通知自定义铃声资源路径，默认为空。支持两种音频资源来源：
    * 
-   * - Resource file: Audio file preconfigured in the application. It must be stored in the **resources/rawfile** 
-   * directory. To use the resource file, directly pass the file name.
-   * - Sandbox file: Audio file downloaded from the network or generated by the user. It must be stored in the **files**
-   * directory or its subdirectory in the EL1 area of the 
-   * [sandbox file directory](docroot://file-management/app-sandbox-directory.md#application-sandbox-directory-and-application-sandbox-path)
-   * . The input format is **uri::{fileUri}**, where **fileUri** is the path obtained through 
-   * [getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}. For example, if an application transfers the 
-   * downloaded audio resource demo.mp3 to the sandbox file directory /data/storage/el1/base/files/, the path 
-   * obtained through **getUriFromPath** is **file://{bundleName}/data/storage/el1/base/files/demo.mp3**. You can use 
-   * this path to release a notification to play the audio resource downloaded by the application.
+   * - 资源文件：应用预置的音频文件，资源文件必须放在放在resources/rawfile目录下，使用时直接传入文件名。
+   * - 沙箱文件：网络下载或者用户生成的音频文件，必须放在[沙箱文件目录](docroot://file-management/app-sandbox-directory.md#应用文件目录与应用文件路径)EL1区域的files目录或
+   * 者其子目录下，传入格式为uri::{fileUri}，其中fileUri是通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}获取的路径。例如，应用
+   * 将下载的音频资源demo.mp3传入沙箱文件目录/data/storage/el1/base/files/，通过getUriFromPath获取的路径为file://{bundleName}/data/storage/el1/
+   * base/files/demo.mp3，使用该路径发布通知即可播放应用下载的音频资源。
    * 
-   * Supported formats: M4A, AAC, MP3, OGG, WAV, FLAC, and AMR.
+   * 支持m4a、aac、mp3、ogg、wav、flac、amr等格式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -725,8 +686,9 @@ export interface NotificationRequest {
   sound?: string;
 
   /**
-   * Notification category.
-   * **System API**: This is a system API. Not supported currently.
+   * 通知分类。
+   * 
+   * 此接口为系统接口。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -736,7 +698,7 @@ export interface NotificationRequest {
   classification?: string;
 
   /**
-   * Unique ID of the notification.
+   * 通知唯一标识。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -745,10 +707,14 @@ export interface NotificationRequest {
   readonly hashCode?: string;
 
   /**
-   * Whether the notification can be removed. If a notification is not removable, it will not be deleted when the user touches the delete button below the notification, and it also cannot be deleted by swiping left on the notification and touching the delete button. The default value is **true**.<br> - **true**: The notification can be removed.
-   * - **false**: The notification cannot be removed.
-   * **System API**: This is a system API.
-   * **Required permissions**: ohos.permission.SET_UNREMOVABLE_NOTIFICATION
+   * 通知是否能被移除（点击通知下方删除按钮无法删除，左滑不出现删除按钮）。默认为true。
+   * 
+   * - true：是。
+   * - false：否。
+   * 
+   * 此接口为系统接口。
+   * 
+   * ohos.permission.SET_UNREMOVABLE_NOTIFICATION
    *
    * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION [since 11]
    * @default true
@@ -761,8 +727,9 @@ export interface NotificationRequest {
   isRemoveAllowed?: boolean;
 
   /**
-   * Notification source.
-   * **System API**: This is a system API. Not supported currently. 
+   * 通知源。
+   * 
+   * 此接口为系统接口。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -772,7 +739,7 @@ export interface NotificationRequest {
   readonly source?: int;
 
   /**
-   * Notification template. This parameter is left empty by default.
+   * 通知模板，默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
@@ -781,7 +748,7 @@ export interface NotificationRequest {
   template?: NotificationTemplate;
 
   /**
-   * Distributed notification options. Not supported currently.
+   * 分布式通知的选项。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
@@ -790,8 +757,9 @@ export interface NotificationRequest {
   distributedOption?: DistributedOptions;
 
   /**
-   * Device ID of the notification source.
-   * **System API**: This is a system API. Not supported currently.
+   * 通知源的deviceId。
+   * 
+   * 此接口为系统接口。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -801,8 +769,8 @@ export interface NotificationRequest {
   readonly deviceId?: string;
 
   /**
-   * Notification flags to be set or obtained. This parameter is left empty by default. This parameter is writable since
-   * API version 23. You can set this parameter to reduce the notification reminder modes.
+   * 设置或获取NotificationFlags，默认为空。从API version 23开始成为可写参数，设置该参数可削减通知的提醒方式，当通知渠道类型为
+   * [LIVE_VIEW]{@link @ohos.notificationManager:notificationManager.SlotType}时，该参数设置不生效。
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -813,11 +781,9 @@ export interface NotificationRequest {
   notificationFlags?: NotificationFlags;
 
   /**
-   * Behavior intent of an application, which is triggered when a notification is removed. This parameter is left empty 
-   * by default.
+   * 封装了应用的行为意图，移除通知时触发该行为，默认为空。
    * 
-   * Currently, redirection to UIAbility is not supported. Only common events can be published (that is, the 
-   * **actionType** field of [WantAgentInfo]{@link ./wantAgent/wantAgentInfo:WantAgentInfo} is set to **4**).
+   * 当前不支持跳转UIAbility，只支持发布公共事件（即[WantAgentInfo]{@link ./wantAgent/wantAgentInfo:WantAgentInfo}的actionType字段取值为4）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -826,14 +792,13 @@ export interface NotificationRequest {
   removalWantAgent?: WantAgent;
 
   /**
-   * Number of notifications displayed on the application icon. The value is accumulated. The default value is **0**.
+   * 应用程序图标上显示的通知数，该数量累计展示，默认值为0。
    * 
-   * If the value of **badgeNumber** is less than or equal to 0, the badge number is not displayed;
+   * 当`badgeNumber`取值小于或等于0时，将忽略本次角标设定。
    * 
-   * if the value is greater than 99, **99+** is displayed on the badge.
+   * 当角标累加设定个数取值大于99时，通知角标将显示99+。
    * 
-   * For example, if an application publishes three notifications, and `badgeNumber` is set to **2**, **0**, and **3** 
-   * in sequence, the application displays **2**, **2**, and **5** accordingly.
+   * 例如，应用发布3条通知，`badgeNumber`依次设置为2、0、3，应用将依次展示为2、2、5。
    *
    * @crossplatform [since 12]
    * @type { ?number } [since 9 - 11]
@@ -845,8 +810,9 @@ export interface NotificationRequest {
   badgeNumber?: long;
 
   /**
-   * Information about the proxied bundle. This parameter is left empty by default.
-   * **System API**: This is a system API.
+   * 被代理的包信息。默认为空。
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -856,8 +822,9 @@ export interface NotificationRequest {
   representativeBundle?: BundleOption;
 
   /**
-   * Information about the agent bundle for creating notifications. This parameter is left empty by default.
-   * This is a system API.
+   * 创建通知的代理包信息。默认为空。 
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -867,8 +834,9 @@ export interface NotificationRequest {
   readonly agentBundle?: BundleOption;
 
   /**
-   * Intelligent notification unification information. This parameter is left empty by default.
-   * **System API**: This is a system API.
+   * 消息智能聚合信息字段。默认为空。 
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -878,9 +846,13 @@ export interface NotificationRequest {
   unifiedGroupInfo?: UnifiedGroupInfo;
 
   /**
-   * Notification mode control. The default value is **0**.
-   * This API can be used to reduce the notification modes of the current notification. This parameter is obtained by performing the bitwise OR operation with the enumeration of [NotificationControlFlagStatus](@link @ohos.notificationManager:notificationManager.NotificationControlFlagStatus).
-   * **System API**: This is a system API.
+   * 通知提醒方式管控。默认值为0。
+   * 
+   * 可以通过此接口减少当前通知的提醒方式。与
+   * [NotificationControlFlagStatus]{@link @ohos.notificationManager:notificationManager.NotificationControlFlagStatus}的
+   * 枚举进行按位或运算得到该参数。
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -890,8 +862,9 @@ export interface NotificationRequest {
   notificationControlFlags?: long;
 
   /**
-   * Application instance key. This parameter is left empty by default.
-   * This is a system API.
+   * 应用实例键值。默认为空。 
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -901,12 +874,19 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * Whether notifications are forcibly displayed in all scenario across devices. The default value is **false**.
-   * **NOTE**
-   * This field takes effect only when the application is in the cross-device collaborative management list and **notDistributed** is set to **false**. Check whether the **collaborationFilter** field in the **notification_config.json** file contains the UID or bundle name of the application. For details about the file configuration path, see the **NOTIFICATION_CONFIG_FILE** property in [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h). If yes, the application is on the cross-device collaborative management list.
-   * - **true**: Notifications are displayed on all collaboration devices.
-   * - **false**: Notifications are displayed on the applications that are on the collaborative management list.
-   * **System API**: This is a system API.
+   * 通知是否强制进行全场景跨设备协同显示，默认为false。
+   * 
+   * **说明**:
+   * 
+   * 仅当应用在跨设备协同管控名单中且notDistributed为false时，该字段才会生效。通过读取notification_config.json文件（文件配置路径见：
+   * [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h)
+   * 中的NOTIFICATION_CONFIG_FILE属性）中的collaborationFilter字段，查看是否包含应用的UID或包名。如果包含，说明是在应用跨设备协同管控名单中。
+   * 
+   * - 设置为true时：通知将在所有协同设备上显示。
+   * 
+   * - 设置为false时：通知将按照协同管控名单显示。
+   * 
+   * 此接口为系统接口。
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -917,12 +897,17 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * Whether notifications are not displayed in all scenarios across devices. The default value is **false**.
-   * **NOTE**
-   * field takes effect.
-   * - **true**: Notifications are displayed only on the local device.
-   * - **false**: Notifications are displayed on all collaboration devices.
-   * **System API**: This is a system API.
+   * 通知是否不进行全场景跨设备协同显示，默认为false。
+   * 
+   * **说明**:
+   * 
+   * 该字段与forceDistributed字段互斥，当两者同时为true时，仅notDistributed字段生效。
+   * 
+   * - 设置为true时：通知仅在本设备上显示。
+   * 
+   * - 设置为false时：通知将在所有协同设备上显示。
+   * 
+   * 此接口为系统接口。
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -933,10 +918,13 @@ export interface NotificationRequest {
   notDistributed?: boolean;
 
   /**
-   * Custom group notification information. This parameter is left empty by default.
-   * **Model restriction**: This API can be used only in the stage model.
-   * **Since**: 26.0.0
-   * **System API**: This is a system API.
+   * 组通知定制信息。默认为空。
+   * 
+   * 此接口仅可在Stage模型下使用。
+   * 
+   * 26.0.0
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -947,7 +935,7 @@ export interface NotificationRequest {
 }
 
 /**
- * Describes options for cross-device notifications. Not supported currently.
+ * 描述跨设备协同选项。预留能力，暂未支持。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
@@ -955,10 +943,10 @@ export interface NotificationRequest {
  */
 export interface DistributedOptions {
   /**
-   * Whether cross-device notifications are supported. The default value is **true**.
+   * 是否支持跨设备协同通知。默认为true。
    * 
-   * - **true**: cross-device notifications are supported.
-   * - **false**: cross-device notifications are not supported.
+   * - true：支持跨设备协同通知。
+   * - false：不支持跨设备协同通知。
    *
    * @default true
    * @syscap SystemCapability.Notification.Notification
@@ -968,7 +956,7 @@ export interface DistributedOptions {
   isDistributed?: boolean;
 
   /**
-   * List of the devices to which the notification can be synchronized.
+   * 可以同步通知到的设备列表。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
@@ -977,7 +965,7 @@ export interface DistributedOptions {
   supportDisplayDevices?: Array<string>;
 
   /**
-   * List of the devices on which the notification can be opened.
+   * 可以打开通知的设备列表。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
@@ -986,8 +974,9 @@ export interface DistributedOptions {
   supportOperateDevices?: Array<string>;
 
   /**
-   * Notification reminder type.
-   * **System API**: This is a system API.
+   * 通知的提醒方式。
+   * 
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -998,7 +987,7 @@ export interface DistributedOptions {
 }
 
 /**
- * Describes the filter criteria for querying the live view.
+ * 描述查询普通实况窗时的筛选条件。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -1007,7 +996,7 @@ export interface DistributedOptions {
  */
 export interface NotificationFilter {
   /**
-   * Bundle information of the live view.
+   * 实况通知的包信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1017,7 +1006,7 @@ export interface NotificationFilter {
   bundle: BundleOption;
 
   /**
-   * Notification information, including the notification ID and label.
+   * 通知信息，包含通知ID和通知标签。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1027,7 +1016,7 @@ export interface NotificationFilter {
   notificationKey: notificationSubscribe.NotificationKey;
 
   /**
-   * List of extra keys. If this parameter is left empty, all extra information is included.
+   * 筛选附加信息的键值列表。不填表示查询所有的附加信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1038,7 +1027,7 @@ export interface NotificationFilter {
 }
 
 /**
- * Describes the notification authentication information.
+ * 描述通知的鉴权信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -1047,7 +1036,7 @@ export interface NotificationFilter {
  */
 export interface NotificationCheckRequest {
   /**
-   * Notification type.
+   * 通知类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1057,7 +1046,7 @@ export interface NotificationCheckRequest {
   contentType: notificationManager.ContentType;
 
   /**
-   * Notification slot type. 
+   * 渠道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1067,7 +1056,7 @@ export interface NotificationCheckRequest {
   slotType: notificationManager.SlotType;
 
   /**
-   * Extra information about the live view.
+   * 实况通知的附加信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1078,7 +1067,7 @@ export interface NotificationCheckRequest {
 }
 
 /**
- * Describes the fields of notification intelligent unification information.
+ * 描述通知智能聚合信息字段。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -1087,7 +1076,7 @@ export interface NotificationCheckRequest {
  */
 export interface UnifiedGroupInfo {
   /**
-   * Unified group ID.
+   * 聚合组ID。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1097,7 +1086,7 @@ export interface UnifiedGroupInfo {
   key?: string;
 
   /**
-   * Unified group title.  
+   * 聚合组标题。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1107,7 +1096,7 @@ export interface UnifiedGroupInfo {
   title?: string;
 
   /**
-   * Unified group summary.
+   * 聚合组摘要正文。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1117,7 +1106,7 @@ export interface UnifiedGroupInfo {
   content?: string;
 
   /**
-   * Name of a unification scene.
+   * 聚合场景名称。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1127,7 +1116,7 @@ export interface UnifiedGroupInfo {
   sceneName?: string;
 
   /**
-   * Other unification information.
+   * 其他聚合信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1136,7 +1125,7 @@ export interface UnifiedGroupInfo {
   extraInfo?: { [key: string]: any };
 
   /**
-   * Other unification information.
+   * 其他聚合信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1146,7 +1135,7 @@ export interface UnifiedGroupInfo {
 }
 
 /**
- * Defines the group notification information.
+ * 组通知信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -1155,12 +1144,11 @@ export interface UnifiedGroupInfo {
  */
 export interface GroupInfo {
   /**
-   * Whether to use the **smallIcon** field in 
-   * [NotificationRequest](@link ./notification/notificationRequest:NotificationRequest) as the group icon displayed
-   * after notifications are grouped. Whether to use the **smallIcon** field as the group icon when the notification
-   * is the latest one in the notification group and the **smallIcon** field is passed. The default value is **false**.
-   * - **true**: yes.
-   * - **false**: no.
+   * 是否使用该通知[NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}中的smallIcon字段作为通知成组后
+   * 展示的组图标。当该通知是通知组中最新的一条通知，且开发者传入smallIcon时，是否使用smallIcon作为组图标。默认值为false。
+   * 
+   * - true：使用smallIcon作为组通知的图标。
+   * - false：不使用smallIcon作为组通知的图标。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1170,9 +1158,7 @@ export interface GroupInfo {
   isGroupIcon?: boolean;
  	 
   /**
-   * Group title displayed after notifications are grouped. 
-   * This parameter is valid only when the notification is the latest one in the notification group.
-   * This parameter is left empty by default.
+   * 通知成组后展示的组标题。当该通知是通知组中最新的一条通知时，该字段生效。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

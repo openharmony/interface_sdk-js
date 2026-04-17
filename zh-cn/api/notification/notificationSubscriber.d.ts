@@ -24,9 +24,9 @@ import type notificationManager from '../@ohos.notificationManager';
 /*** if arkts dynamic */
 import notification from '../@ohos.notification';
 /*** endif */
-
+ 
 /**
- * Provides callback methods for subscribers to receive and cancel notifications.
+ * 提供订阅者接收到新通知、取消通知等的回调方法。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -35,7 +35,7 @@ import notification from '../@ohos.notification';
  */
 export interface NotificationSubscriber {
   /**
-   * Information about the notification received.
+   * 新接收到的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -45,7 +45,7 @@ export interface NotificationSubscriber {
   onConsume?:(data: SubscribeCallbackData) => void;
 
   /**
-   * Information about the notification to cancel.
+   * 需要取消的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -55,7 +55,7 @@ export interface NotificationSubscriber {
   onCancel?:(data: SubscribeCallbackData) => void;
 
   /**
-   * Latest notification sorting list.
+   * 最新的通知排序列表。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -65,7 +65,7 @@ export interface NotificationSubscriber {
   onUpdate?:(data: NotificationSortingMap) => void;
 
   /**
-   * Callback invoked when subscription is complete.
+   * 订阅完成的回调。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -75,7 +75,7 @@ export interface NotificationSubscriber {
   onConnect?:() => void;
 
   /**
-   * Callback invoked when unsubscription is complete.
+   * 取消订阅的回调。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -85,7 +85,7 @@ export interface NotificationSubscriber {
   onDisconnect?:() => void;
 
   /**
-   * Callback to be invoked when the service is disconnected.
+   *  服务失联的回调。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -95,7 +95,7 @@ export interface NotificationSubscriber {
   onDestroy?:() => void;
 
   /**
-   * Callback used to return DND time setting updates.
+   * 回调返回免打扰时间选项变更。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -106,7 +106,7 @@ export interface NotificationSubscriber {
   onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
 
   /**
-   * Callback used to return DND time setting updates.
+   * 回调返回免打扰时间选项变更。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -116,7 +116,7 @@ export interface NotificationSubscriber {
   onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
   /**
-   * Callback used to return the listened application information.
+   * 回调返回监听到的应用信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -126,7 +126,7 @@ export interface NotificationSubscriber {
   onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
 
   /**
-   * Returns the changes of the enabling state of the application's silent reminder.
+   * 返回应用通知静默提醒的使能状态变化。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -136,7 +136,7 @@ export interface NotificationSubscriber {
   onEnabledSilentReminderChanged?: EnabledSilentReminderChangedCallback;
 
   /**
-   * Callback used to return the result.
+   * 返回通知优先级总开关状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -145,7 +145,7 @@ export interface NotificationSubscriber {
   onEnabledPriorityChanged?: (callbackData: EnabledPriorityNotificationCallbackData) => void;
  
   /**
-   * Callback used to return the result.
+   * 返回应用通知优先级开关状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -154,7 +154,7 @@ export interface NotificationSubscriber {
   onEnabledPriorityByBundleChanged?: (callbackData: EnabledPriorityNotificationByBundleCallbackData) => void;
 
   /**
-   * Callback used to return the listened application information.
+   * 回调返回监听到的应用信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -164,7 +164,7 @@ export interface NotificationSubscriber {
   onBadgeChanged?:(data: BadgeNumberCallbackData) => void;
 
   /**
-   * Returns the changes of the enabling state of the application's badge.
+   * 返回应用角标的使能状态变化。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -174,7 +174,7 @@ export interface NotificationSubscriber {
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
   /**
-   * Notification information of batch deletion.
+   * 批量删除的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -184,7 +184,7 @@ export interface NotificationSubscriber {
   onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 
   /**
-   * Returns notification information containing the system property value.
+   * 返回携带系统属性值的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -195,7 +195,7 @@ export interface NotificationSubscriber {
 }
 
 /**
- * Defines the SystemUpdateCallback callback.
+ * 通知回调内容定义。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -204,7 +204,7 @@ export interface NotificationSubscriber {
  */
 export interface SubscribeCallbackData {
   /**
-   * Notification content.
+   * 通知内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -214,7 +214,7 @@ export interface SubscribeCallbackData {
   readonly request: NotificationRequest;
 
   /**
-   * Notification sorting information.
+   * 通知排序信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -224,9 +224,7 @@ export interface SubscribeCallbackData {
   readonly sortingMap?: NotificationSortingMap;
 
   /**
-   * Reason for deletion. The options are as follows:
-   * **1**: The notification is deleted after being clicked.
-   * **2**: The notification is deleted by the user.
+   * 删除原因（1:点击通知后删除通知，2:用户删除通知） 。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -236,7 +234,7 @@ export interface SubscribeCallbackData {
   readonly reason?: int;
 
   /**
-   * Sound used for notification.
+   * 通知声音。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -246,7 +244,7 @@ export interface SubscribeCallbackData {
   readonly sound?: string;
 
   /**
-   * Vibration used for notification.
+   * 通知震动。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -257,7 +255,7 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application badge.
+ * 应用角标使能状态变化。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -266,7 +264,7 @@ export interface SubscribeCallbackData {
  */
 export interface EnabledNotificationCallbackData {
   /**
-   * Bundle name of the application.
+   * 应用的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -276,7 +274,7 @@ export interface EnabledNotificationCallbackData {
   readonly bundle: string;
 
   /**
-   * UID of the application.
+   * 应用的uid。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -286,9 +284,9 @@ export interface EnabledNotificationCallbackData {
   readonly uid: int;
 
   /**
-   * Whether the application notification is enabled.
-   * - **true**: enabled.
-   * - **false**: disabled.
+   * 应用通知使能状态。
+   * - true：允许。
+   * - false：禁止。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -299,8 +297,8 @@ export interface EnabledNotificationCallbackData {
 }
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
- *
+ * 应用通知静默提醒使能状态变化。
+ * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -308,7 +306,7 @@ export interface EnabledNotificationCallbackData {
  */
 export interface EnabledSilentReminderCallbackData {
   /**
-   * Bundle name of the application.
+   * 应用的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -318,7 +316,7 @@ export interface EnabledSilentReminderCallbackData {
   readonly bundle: string;
 
   /**
-   * UID of the application.
+   * 应用的uid。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -328,11 +326,11 @@ export interface EnabledSilentReminderCallbackData {
   readonly uid: int;
 
   /**
-   * Enabling state of the application's silent reminder.
-   * - **USER_MODIFIED_OFF**: disabled state set by the user.
-   * - **USER_MODIFIED_ON**: enabled state set by the user.
-   * - **SYSTEM_DEFAULT_OFF**: initial disabled state before user setting.
-   * - **SYSTEM_DEFAULT_ON**: initial enabled state before user setting.
+   * 应用通知的静默提醒开关状态。
+   * - USER_MODIFIED_OFF：用户设置的关闭状态。
+   * - USER_MODIFIED_ON：用户设置的开启状态。
+   * - SYSTEM_DEFAULT_OFF：用户设置前的初始关闭状态。
+   * - SYSTEM_DEFAULT_ON：用户设置前的初始开启状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -343,7 +341,7 @@ export interface EnabledSilentReminderCallbackData {
 }
 
 /**
- * Callback used to return the result.
+ * 通知优先级总开关状态。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -351,10 +349,9 @@ export interface EnabledSilentReminderCallbackData {
  */
 export interface EnabledPriorityNotificationCallbackData {
   /**
-   * Whether the priority notification is enabled.
-   * - **true**: The priority notification is enabled.
-   * - **false**: The priority notification is disabled.
-   *
+   * 所有通知的优先使能状态。
+   * - true：允许设置为优先通知。
+   * - true：允许设置为优先通知。	
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -363,7 +360,7 @@ export interface EnabledPriorityNotificationCallbackData {
 }
 
 /**
- * Describes the switch state to Restrict notification capability.
+ * 应用通知优先级开关状态
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -371,7 +368,7 @@ export interface EnabledPriorityNotificationCallbackData {
  */
 export interface EnabledPriorityNotificationByBundleCallbackData {
   /**
-   * Bundle name of the application.
+   * 应用的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -380,7 +377,7 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
   readonly bundle: string;
 
   /**
-   * UID of the application.
+   * 应用的uid。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -389,11 +386,10 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
   readonly uid: int;
 
   /**
-   * Whether the priority notification for an application is enabled.
-   * - **DISABLE**: The priority notification is disabled.
-   * - **ENABLE_BY_INTELLIGENT**: The priority notification can be enabled through intelligent recognition,
-   * user keyword matching, or application rule matching.
-   * - **ENABLE**: The priority notification is enabled for all applications.
+   * 应用通知的优先使能状态。
+   * - DISABLE：不允许设置为优先通知。
+   * - ENABLE_BY_INTELLIGENT：允许经智能识别、用户关键词匹配、应用规则匹配等方式设置为优先通知。
+   * - ENABLE：应用通知均设置为优先通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -403,7 +399,7 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
 }
 
 /**
- * Describes the badge number of the application has changed.
+ * 应用通知角标数量状态变化的回调函数类型。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -412,7 +408,7 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
  */
 export interface BadgeNumberCallbackData {
   /**
-   * Bundle name of the application.
+   * 应用的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -422,7 +418,7 @@ export interface BadgeNumberCallbackData {
   readonly bundle: string;
 
   /**
-   * UID of the application.
+   * 应用的uid。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -432,7 +428,7 @@ export interface BadgeNumberCallbackData {
   readonly uid: int;
 
   /**
-   * Number of notifications displayed on the application icon.
+   * 角标个数。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -442,8 +438,7 @@ export interface BadgeNumberCallbackData {
   readonly badgeNumber: int;
 
   /**
-   * Key value of an application instance. This parameter is supported since API version 12 and
-   * deprecated since API version 15.You are advised to use **appInstanceKey** instead.
+   * 应用实例键值。从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -454,7 +449,7 @@ export interface BadgeNumberCallbackData {
   readonly instanceKey?: number;
 
   /**
-   * Key value of an application instance.
+   * 应用实例键值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -465,7 +460,7 @@ export interface BadgeNumberCallbackData {
 }
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application badge.
+ * 注册应用角标使能状态变化的回调函数类型。
  * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
  *
  * @syscap SystemCapability.Notification.Notification
@@ -473,7 +468,7 @@ export interface BadgeNumberCallbackData {
  */
 export interface BadgeEnabledChangedCallback {
   /**
-   * Callback used to return the listened badge enabling state.
+   * 回调返回监听到的角标使能状态信息。
    *
    * @param { EnabledNotificationCallbackData } data
    * @syscap SystemCapability.Notification.Notification
@@ -484,10 +479,10 @@ export interface BadgeEnabledChangedCallback {
 }
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application badge.
  * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
+ * 注册应用角标使能状态变化的回调函数类型。
  *
- * @param { EnabledNotificationCallbackData } data - Callback used to return the listened badge enabling state.
+ * @param { EnabledNotificationCallbackData } data - 回调返回监听到的角标使能状态信息。
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -496,10 +491,9 @@ export interface BadgeEnabledChangedCallback {
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;
 
 /**
- * Defines the SystemUpdateCallback callback.
  * type SystemUpdateCallback = (data: SubscribeCallbackData) => void
  *
- * @param { SubscribeCallbackData } data -Notification information that carries the system property value.
+ * @param { SubscribeCallbackData } data - 返回携带系统属性值的通知信息。
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -508,11 +502,10 @@ export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData
 export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
+ * 注册应用通知静默提醒使能状态变化的回调函数类型。
  * type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void
  *
- * @param { EnabledSilentReminderCallbackData } callbackData -
- *     Callback used to return the listened silent reminder enabling state.
+ * @param { EnabledSilentReminderCallbackData } callbackData - 回调返回监听到的静默提醒使能状态信息。
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly

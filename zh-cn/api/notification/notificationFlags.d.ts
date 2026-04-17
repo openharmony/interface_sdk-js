@@ -14,12 +14,12 @@
  */
 
 /**
- * @file The NotificationFlags module implements a NotificationFlags instance.
+ * @file Some states and flags for notifications
  * @kit NotificationKit
  */
 
 /**
- * Enumerates the notification flag states.
+ * 描述通知标志状态。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi [since 8 - 10]
@@ -29,7 +29,7 @@
  */
 export enum NotificationFlagStatus {
   /**
-   * Default flag, which has the same effect as **TYPE_OPEN**.
+   * 默认标志，与TYPE_OPEN效果相同。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]
@@ -40,7 +40,7 @@ export enum NotificationFlagStatus {
   TYPE_NONE = 0,
 
   /**
-   * The notification flag is enabled.
+   * 通知标志打开。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]
@@ -51,7 +51,7 @@ export enum NotificationFlagStatus {
   TYPE_OPEN = 1,
 
   /**
-   * The notification flag is disabled.
+   * 通知标志关闭。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]
@@ -63,7 +63,7 @@ export enum NotificationFlagStatus {
 }
 
 /**
- * Defines the notification flags.
+ * 描述通知标志位。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
@@ -71,8 +71,7 @@ export enum NotificationFlagStatus {
  */
 export interface NotificationFlags {
   /**
-   * Settings of sound for the notification. The default value is **TYPE_NONE**. This parameter becomes writable 
-   * starting from API version 23. Only [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * 是否启用声音提示功能。默认值为TYPE_NONE。从API version 23开始成为可写参数，设置时仅[TYPE_CLOSE]{@link NotificationFlagStatus}会生效。
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -82,8 +81,7 @@ export interface NotificationFlags {
   soundEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of vibration for the notification. The default value is **TYPE_NONE**. This parameter becomes writable 
-   * starting from API version 23. Only [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * 是否启用振动提醒功能。默认值为TYPE_NONE。从API version 23开始成为可写参数，设置时仅[TYPE_CLOSE]{@link NotificationFlagStatus}会生效。
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -93,8 +91,7 @@ export interface NotificationFlags {
   vibrationEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of banner for the notification. The default value is **TYPE_NONE**. Only 
-   * [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * 是否启用横幅功能。默认值为TYPE_NONE。设置时仅[TYPE_CLOSE]{@link NotificationFlagStatus}会生效。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
@@ -102,8 +99,7 @@ export interface NotificationFlags {
   bannerEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of screen lock for the notification. The default value is **TYPE_NONE**. Only 
-   * [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * 是否启用锁屏功能。默认值为TYPE_NONE。设置时仅[TYPE_CLOSE]{@link NotificationFlagStatus}会生效。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
@@ -111,17 +107,16 @@ export interface NotificationFlags {
   lockScreenEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of the input information reminder features.
+   * 是否启用输入信息提示功能。
    * 
-   * This is a system API.
+   * 此接口为系统接口。
    * 
-   * - Bit 0: sound alert. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 1: locking the screen. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 2: banner. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 3: turning on the screen. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 4: vibration. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 5: notification icon in the status bar. The value **0** means to enable the feature, and **1** means the 
-   * opposite.
+   * - bit0：铃声提示。0表示关闭，1表示开启。 
+   * - bit1：锁屏。0表示关闭，1表示开启。 
+   * - bit2：横幅。0表示关闭，1表示开启。 
+   * - bit3：亮屏。0表示关闭，1表示开启。 
+   * - bit4：振动。0表示关闭，1表示开启。 
+   * - bit5：状态栏通知图标。0表示关闭，1表示开启。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
