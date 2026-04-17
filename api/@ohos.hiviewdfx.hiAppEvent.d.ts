@@ -699,7 +699,7 @@ declare namespace hiAppEvent {
    */
   interface AppEventInfo {
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z), and 
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and 
      * underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @type { string }
@@ -707,7 +707,7 @@ declare namespace hiAppEvent {
      * @since 9
      */
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z), and 
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and 
      * underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @type { string }
@@ -716,7 +716,7 @@ declare namespace hiAppEvent {
      * @since 11
      */
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z), and 
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and 
      * underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @type { string }
@@ -730,7 +730,7 @@ declare namespace hiAppEvent {
 
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      *
      * @type { string }
@@ -739,7 +739,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      *
      * @type { string }
@@ -749,7 +749,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      *
      * @type { string }
@@ -794,7 +794,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -814,7 +814,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -835,7 +835,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -859,7 +859,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -1072,7 +1072,7 @@ declare namespace hiAppEvent {
    * @param { Record<string, ParamType> } params Custom parameter object. The parameter name and value are defined as 
    * follows:
    * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-   * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
+   * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
    * or letter.
    * <br>- The parameter value is of the ParamType and contains a maximum of 1024 characters.
    * <br>- The number of parameters must be less than 64.
@@ -1107,7 +1107,7 @@ declare namespace hiAppEvent {
    * @param { Record<string, ParamType> } params Custom parameter object. The parameter name and value are defined as 
    * follows:
    * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-   * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
+   * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
    * or letter.
    * <br>- The parameter value is of the ParamType and contains a maximum of 1024 characters.
    * <br>- The number of parameters must be less than 64.
@@ -1834,7 +1834,7 @@ declare namespace hiAppEvent {
   interface Watcher {
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
+     * (a to z)(A to Z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
      * and crash_Watcher.
      *
      * @type { string }
@@ -1843,7 +1843,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
+     * (a to z)(A to Z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
      * and crash_Watcher.
      *
      * @type { string }
@@ -1853,7 +1853,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
+     * (a to z)(A to Z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
      * and crash_Watcher.
      *
      * @type { string }
@@ -2122,7 +2122,7 @@ declare namespace hiAppEvent {
    * Sets a user ID, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user ID. It can contain a maximum of 256 characters. If the value is null or 
    * left empty, the user ID is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2136,7 +2136,7 @@ declare namespace hiAppEvent {
    * Sets a user ID, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user ID. It can contain a maximum of 256 characters. If the value is null or 
    * left empty, the user ID is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2154,7 +2154,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserId.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user ID. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2167,7 +2167,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserId.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user ID. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2184,7 +2184,7 @@ declare namespace hiAppEvent {
    * Sets a user property, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user property. It can contain a maximum of 1024 characters. If the value is 
    * null or left empty, the user property is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2198,7 +2198,7 @@ declare namespace hiAppEvent {
    * Sets a user property, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user property. It can contain a maximum of 1024 characters. If the value is 
    * null or left empty, the user property is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2216,7 +2216,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserProperty.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user property. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2229,7 +2229,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserProperty.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user property. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2254,7 +2254,7 @@ declare namespace hiAppEvent {
   interface AppEventReportConfig {
     /**
      * Event domain. The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), and underscore (_). It must start with a letter and cannot end with an underscore (_). The default 
+     * (a to z)(A to Z), and underscore (_). It must start with a letter and cannot end with an underscore (_). The default 
      * value is an empty string.
      *
      * @type { ?string }
@@ -2267,7 +2267,7 @@ declare namespace hiAppEvent {
 
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. The default value is an empty string.
      *
      * @type { ?string }
@@ -2303,7 +2303,7 @@ declare namespace hiAppEvent {
   interface Processor {
     /**
      * Name of a data processor. The value is string that contains a maximum of 256 characters, including digits (0 to 
-     * 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+     * 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -2451,7 +2451,7 @@ declare namespace hiAppEvent {
      * Custom extended parameters. If the input parameter name and value do not meet the specifications, extended 
      * parameters are not configured by default. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      * <br>- A parameter value is a string contains a maximum of 1024 characters.
      * <br>- The number of parameters must be less than 32.
