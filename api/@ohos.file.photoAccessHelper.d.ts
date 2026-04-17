@@ -3618,7 +3618,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    LOCAL_ASSET_SIZE = 'local_asset_size'
+    LOCAL_ASSET_SIZE = 'local_asset_size',
+    /**
+     * File hidden state of filemanager.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_HIDDEN = 'file_hidden'
   }
 
   /**
@@ -3835,7 +3844,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    HIDDEN = 'hidden'
+    HIDDEN = 'hidden',
+    /**
+     * directory hidden state of filemanager
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_HIDDEN = 'file_hidden'
   }
 
   /**
@@ -8200,6 +8218,27 @@ declare namespace photoAccessHelper {
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
 
     /**
+     * Convert to PhotoAsset from path of filemanagerr.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string }path - file path of filemanager.
+     * @returns { Promise<PhotoAsset> } Returns successed asset.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws {BusinessError } 202 - Called by non-system application.
+     * @throws {BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Converted an image after filtering into an asset object;
+     *     <br>2.File to be converted is not exist;
+     *     <br>3. Only images in the public directory of filemanager can be converted.
+     * @throws { BusinessError } 23800301 - Internalsystem error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    convertToAsset(path: string): Promise<PhotoAsset>;
+
+    /**
      * Get PhotoAsset objects from ValuesBucket record info.
      *
      * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset's
@@ -11883,6 +11922,22 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
+
+    /**
+     * Set hidden state of the asset.
+     *
+     * @param { boolean } hiddenState - Hidden status of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The asset does not exist;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted.2. The filesystem is abnormal.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setHiddenAttribute(hiddenState: boolean): void;
   }
 
   /**
@@ -12395,6 +12450,23 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     resetCoverUri(): void;
+
+    /**
+     * Set hidden state of album.
+     *
+     * @param { boolean } hiddenState - Hidden status of the album
+     * @param { boolean } isInherited - Whether all child files or directories under an album inherit this setting
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The album does not exist;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setHiddenAttribute(hiddenState: boolean, isInherited:boolean):void;
   }
 
   /**
