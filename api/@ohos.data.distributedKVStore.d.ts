@@ -354,7 +354,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
-     * @crossplatform [since 24]
+     * @crossplatform
      * @since 9 dynamic
      * @since 23 static
      */
@@ -365,7 +365,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
-     * @crossplatform [since 24]
+     * @crossplatform
      * @since 9 dynamic
      * @since 23 static
      */
