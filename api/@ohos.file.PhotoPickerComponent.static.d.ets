@@ -252,6 +252,16 @@ export declare class PickerController {
    * @since 26.0.0 static
    */
   public deleteData(dataType: DataType, data: Object): void;
+
+  /**
+   * Call this method to obtain the complete data after a selection operation has finished.
+   *
+   * @returns { Promise<CompletedResult> } Promise<CompletedResult>
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 24 static
+   */
+  public completed(): Promise<CompletedResult>;
 }
 
 /**
@@ -456,6 +466,15 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 26.0.0 static
    */
   public badgeConfig?: BadgeConfig;
+
+  /**
+   * Context recovery information for restoring the last selection session.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 24 static
+   */
+  public contextRecoveryInfo?: photoAccessHelper.ContextRecoveryInfo;
 }
 
 /**
@@ -692,6 +711,45 @@ export declare class BadgeConfig {
    * @since 26.0.0 static
    */
   public uris?: Array<string>;
+}
+
+/**
+ * CompletedResult
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare class CompletedResult {
+  /**
+   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets 
+   * with temporary authorization. For details about how to use the media file URI, see Using a Media File URI.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 24 static
+   */
+  photoUris: Array<string>;
+
+  /**
+   * Contextual information about the PhotoPicker's exit state.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 24 static
+   */
+  contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
+
+  /**
+   * M​oving photo badge states for the selected media files in the gallery.
+   * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
+   * otherwise, it is empty.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 24 static
+   */
+  movingPhotoBadgeStates: Array<photoAccessHelper.MovingPhotoBadgeStateType>;
 }
 
 /**
