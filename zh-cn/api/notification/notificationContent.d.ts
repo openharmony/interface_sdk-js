@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationContent module provides APIs for defining the notification content.
+ * @file Some notification types and content
  * @kit NotificationKit
  */
 
@@ -31,11 +31,11 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Describes the icon types.
+ * 描述图标的类型。
  *
  * @syscap SystemCapability.Notification.Notification
- * @unionmember { Resource } Image resource.
- * @unionmember { image.PixelMap } Image.
+ * @unionmember { Resource } 表示值类型为图片资源。
+ * @unionmember { image.PixelMap } 表示值类型为图片。
  * @systemapi
  * @since 18 dynamic
  * @since 23 static
@@ -43,7 +43,7 @@ import { RecordData } from '../@ohos.base';
 type IconType = Resource | image.PixelMap;
 
 /**
- * Describes the normal text notification.
+ * 描述普通文本通知。
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -52,7 +52,7 @@ type IconType = Resource | image.PixelMap;
  */
 export interface NotificationBasicContent {
   /**
-   * Notification title. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * 通知标题（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -62,7 +62,7 @@ export interface NotificationBasicContent {
   title: string;
 
   /**
-   * Notification content. It cannot be empty or exceed 3,072 bytes. Excess content will be truncated.
+   * 通知内容（不可为空字符串，大小不超过3072字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -72,8 +72,7 @@ export interface NotificationBasicContent {
   text: string;
 
   /**
-   * Additional information of the notification. It cannot exceed 3,072 bytes. Excess content will be truncated. This 
-   * parameter is left empty by default.
+   * 通知附加内容，默认为空，是对通知内容的补充（大小不超过3072字节，超出部分会被截断）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -82,10 +81,9 @@ export interface NotificationBasicContent {
   additionalText?: string;
 
   /**
-   * Picture displayed on the lock screen. This parameter is left empty by default. Currently, only the live view 
-   * notification is supported. The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * 通知在锁屏界面显示的图片，默认为空。当前仅支持实况窗类型通知。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
+   * 于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -94,9 +92,7 @@ export interface NotificationBasicContent {
   lockscreenPicture?: image.PixelMap;
 
   /**
-   * Structured notification. Currently, only service reminder messages can be displayed in structured format in the 
-   * notification center. This parameter is left empty by default. (The size of key or value cannot exceed 512 bytes; 
-   * otherwise, the excess part will be truncated. Only a maximum of three pairs of structured data are supported.)
+   * 通知结构化字段。当前仅支持服务提醒类短信在通知中心结构化展示。默认为空。（key/value大小不超过512字节，超出部分会被截断，最多支持3对结构化数据，超出部分会被忽略。）
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -107,12 +103,11 @@ export interface NotificationBasicContent {
 }
 
 /**
- * Describes the long text notification. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 描述长文本通知。继承自[NotificationBasicContent]{@link NotificationBasicContent}。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The display effect depends on the device capability and notification center UI style.
+ * > 实际显示效果依赖于设备能力和通知中心UI样式。
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -121,7 +116,7 @@ export interface NotificationBasicContent {
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
-   * Long text of the notification. It cannot be empty or exceed 3,072 bytes. Excess content will be truncated.
+   * 通知的长文本（不可为空字符串，大小不超过3072字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -131,7 +126,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   longText: string;
 
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * 通知概要内容，是对通知内容的总结（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -141,8 +136,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
-   * truncated.
+   * 通知展开时的标题（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -153,7 +147,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
 }
 
 /**
- * Enumerates the statuses of the common live view.
+ * 描述普通实况通知的状态。
  *
  * @syscap SystemCapability.Security.AccessToken
  * @systemapi
@@ -162,7 +156,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
  */
 export enum LiveViewStatus {
   /**
-   * The live view is created.
+   * 创建
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -171,7 +165,7 @@ export enum LiveViewStatus {
    */
   LIVE_VIEW_CREATE = 0,
   /**
-   * The live view is updated in incremental mode.
+   * 增量更新
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -180,7 +174,7 @@ export enum LiveViewStatus {
    */
   LIVE_VIEW_INCREMENTAL_UPDATE = 1,
   /**
-   * The live view is ended.
+   * 结束
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -189,7 +183,7 @@ export enum LiveViewStatus {
    */
   LIVE_VIEW_END = 2,
   /**
-   * The live view is updated in full mode.
+   * 全量更新
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -198,9 +192,9 @@ export enum LiveViewStatus {
    */
   LIVE_VIEW_FULL_UPDATE = 3,
   /**
-   * The live view is created by condition.
+   * 条件触发创建
    * 
-   * This API can be used only in the stage model.
+   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -209,9 +203,9 @@ export enum LiveViewStatus {
    */
   LIVE_VIEW_PENDING_CREATE = 4,
   /**
-   * The live view is terminated by condition.
+   * 条件触发结束
    * 
-   * This API can be used only in the stage model.
+   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -222,7 +216,7 @@ export enum LiveViewStatus {
 }
 
 /**
- * Enumerates live view types.
+ * 描述实况通知的类型。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -231,7 +225,7 @@ export enum LiveViewStatus {
  */
 export enum LiveViewTypes {
   /**
-   * Real-time activity (progress).
+   * 实时活动类（进度类）系统实况
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -240,7 +234,7 @@ export enum LiveViewTypes {
    */
   LIVE_VIEW_ACTIVITY = 0,
   /**
-   * Instant task.
+   * 即时任务类系统实况
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -249,7 +243,7 @@ export enum LiveViewTypes {
    */
   LIVE_VIEW_INSTANT = 1,
   /**
-   * Long-term task.
+   * 长时任务类系统实况
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -260,7 +254,7 @@ export enum LiveViewTypes {
 }
 
 /**
- * Describes the common live view.
+ * 描述普通实况通知。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -269,7 +263,7 @@ export enum LiveViewTypes {
  */
 export interface NotificationLiveViewContent extends NotificationBasicContent {
   /**
-   * Notification status.
+   * 通知状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -279,9 +273,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   status: LiveViewStatus;
 
   /**
-   * If the version number stored in the database is not **0xffffffff**, the version number needs to be verified when 
-   * the live view is updated or ended to ensure that the current version number is greater than the version number 
-   * stored in the database. The default value is **0xffffffff**.
+   * 通知版本号（如果数据库存储版本号为0xffffffff，则本次更新和结束不校验版本号大小，否则需要校验本次版本号>数据库存储版本号）。不填默认为0xffffffff。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -291,7 +283,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   version?: int;
 
   /**
-   * Extra information of the live view. This parameter is left empty by default.
+   * 实况通知附加内容。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -300,7 +292,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   extraInfo?: Record<string, Object>;
 
   /**
-   * Extra information of the live view. This parameter is left empty by default.
+   * 实况通知附加内容。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -309,7 +301,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extra image information of the live view. This parameter is left empty by default.
+   * 实况通知附加内容中的图片信息。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -319,10 +311,10 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   pictureInfo?: Record<string, Array<image.PixelMap>>;
 
   /**
-   * Whether the live view is updated only locally. The default value is **false**.
+   * 实况窗是否只在本地更新。默认为false。
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - true：是。
+   * - false：否。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -332,7 +324,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   isLocalUpdateOnly?: boolean;
 
   /**
-   * Redirection by tapping in the auxiliary area. This parameter is left empty by default.
+   * 点击辅助区的跳转动作。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -343,20 +335,16 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
 }
 
 /**
- * Describes the multi-line text notification. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 描述多行文本通知。继承自[NotificationBasicContent]{@link NotificationBasicContent}。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - When the multi-line text notification and another notification form a group notification, the group notification 
- * > is displayed as a [normal text notification]{@link NotificationBasicContent} by default. After the group 
- * > notification is expanded, the value of **longTitle** is used as the title, and the value of **lines** is used as 
- * > the multi-line text content.
+ * > - 当该类型通知与其他通知形成组通知时，该通知显示默认与[普通文本]{@link NotificationBasicContent}相同。展开组通知后，标题显示为展开时的标题`longTitle`，多行文本内容`lines`多行显
+ * > 示。
  * 
- * When the multi-line text notification is displayed independently, the value of **longTitle** is used as the title, 
- * and the value of **lines** is used as the multi-line text content.
+ * 当该类型通知单独呈现时，该通知标题显示为展开时的标题`longTitle`，多行文本内容`lines`多行显示。
  * 
- * > - The display effect depends on the device capability and notification center UI style.
+ * > - 实际显示效果依赖于设备能力和通知中心UI样式。
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -365,7 +353,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * 通知概要内容，是对通知内容的总结（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -375,8 +363,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
-   * truncated.
+   * 通知展开时的标题（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -386,8 +373,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   longTitle: string;
 
   /**
-   * Multi-line text of a notification. A maximum of three lines are supported, and each line cannot exceed 1,024 bytes.
-   * Excess content will be truncated.
+   * 通知的多行文本（最多支持三行，每行大小不超过1024字节，超出部分会被截断）。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -397,12 +383,10 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   lines: Array<string>;
 
   /**
-   * **wantAgent**s triggered when a line of text in the multi-line text is tapped. The text in different lines 
-   * corresponds to different **wantAgent**s. The maximum number of lines configured for this field is equal to the 
-   * value of [lines]{@link ./notification/notificationContent:NotificationMultiLineContent}. This parameter is left 
-   * empty by default.
+   * 点击多行文本中某一行文本消息触发的wantAgent。不同行的文本分别对应于不同的wantAgent。该字段配置的行数不能大于
+   * [lines]{@link ./notification/notificationContent:NotificationMultiLineContent}字段配置的行数。默认为空。
    * 
-   * This is a system API.
+   * 此接口为系统接口。
    * 
    * ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    *
@@ -416,12 +400,11 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
 }
 
 /**
- * Describes the picture-attached notification. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 描述附有图片的通知。继承自[NotificationBasicContent]{@link NotificationBasicContent}。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The display effect depends on the device capability and notification center UI style.
+ * > 实际显示效果依赖于设备能力和通知中心UI样式。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -429,7 +412,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * 通知概要内容，是对通知内容的总结（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -438,8 +421,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
-   * truncated.
+   * 通知展开时的标题（不可为空字符串，大小不超过1024字节，超出部分会被截断）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -448,7 +430,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * Picture content of the notification. The total pixel data size of the image cannot exceed 2 MB.
+   * 通知的图片内容（图像像素的总字节数不能超过2MB）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -458,10 +440,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 }
 
 /**
- * Describes the system live view notification. A third-party application cannot directly create a notification of this 
- * type. After the system proxy creates a system live view, the third-party application releases a notification with the
- * same ID to update the specified content. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 描述系统实况窗通知内容。不支持三方应用直接创建该类型通知，可以由系统代理创建系统实况窗类型通知后，三方应用发布同ID的通知来更新指定内容。继承自
+ * [NotificationBasicContent]{@link NotificationBasicContent}。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -469,7 +449,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
  */
 export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
   /**
-   * Type code, which identifies the type of the service that invokes the API.
+   * 类型标识符，标记调用方业务类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -478,7 +458,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   typeCode: int;
 
   /**
-   * Capsule of the notification. This parameter is left empty by default.
+   * 实况通知的胶囊。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -487,7 +467,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   capsule?: NotificationCapsule;
 
   /**
-   * Button in the notification. This parameter is left empty by default.
+   * 实况通知的按钮。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -496,7 +476,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   button?: NotificationButton;
 
   /**
-   * Live view buttons (a maximum of three buttons are supported). This parameter is left empty by default.
+   * 实况窗按钮（最多支持3个）。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -506,7 +486,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   cardButtons?: Array<NotificationIconButton>;
 
   /**
-   * Time of the notification. This parameter is left empty by default.
+   * 实况通知的时间。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -515,7 +495,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   time?: NotificationTime;
 
   /**
-   * Progress of the notification. This parameter is left empty by default.
+   * 实况内容的进度。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -524,7 +504,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   progress?: NotificationProgress;
 
   /**
-   * Live view types. The default value is **LIVE_VIEW_ACTIVITY**.
+   * 实况窗类型。默认值为LIVE_VIEW_ACTIVITY。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -535,7 +515,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
 }
 
 /**
- * Describe the notification capsule.
+ * 描述通知胶囊。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -543,7 +523,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
  */
 export interface NotificationCapsule {
   /**
-   * Title of the capsule, with a maximum of 200 bytes. Excess part will be truncated.
+   * 胶囊标题。大小不超过200字节，超出部分会被截断。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -552,7 +532,7 @@ export interface NotificationCapsule {
   title?: string;
 
   /**
-   * Icon of the capsule.
+   * 胶囊图片。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -561,7 +541,7 @@ export interface NotificationCapsule {
   icon?: image.PixelMap;
 
   /**
-   * Background color of the capsule.
+   * 背景颜色。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -570,7 +550,7 @@ export interface NotificationCapsule {
   backgroundColor?: string;
 
   /**
-   * Extended text of the capsule. This parameter is left empty by default.
+   * 胶囊的拓展文本。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -580,7 +560,7 @@ export interface NotificationCapsule {
   content?: string;
 
   /**
-   * Display duration of the notification capsule of an instant task, in seconds. The default value is **0**.
+   * 即时任务类实况胶囊展示时长（单位：秒）。默认值为0。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -590,8 +570,7 @@ export interface NotificationCapsule {
   time?: int;
 
   /**
-   * Buttons of the notification capsule of an instant task. A maximum of two buttons are supported. This parameter is 
-   * left empty by default.
+   * 即时任务类实况胶囊的按钮（最多支持2个）。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -602,7 +581,7 @@ export interface NotificationCapsule {
 }
 
 /**
- * Describes the information of a system notification button.
+ * 描述系统通知按钮。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -612,7 +591,7 @@ export interface NotificationCapsule {
 export interface NotificationIconButton {
 
   /**
-   * Button ID, which is used to distinguish multiple buttons of the same notification.
+   * 按钮标识，用于区分同一通知的多个不同按钮。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -622,7 +601,7 @@ export interface NotificationIconButton {
   name: string;
 
   /**
-   * Background image of a button.
+   * 按钮的背景图。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -632,7 +611,7 @@ export interface NotificationIconButton {
   iconResource: IconType;
 
   /**
-   * Text displayed on the button. This parameter is left empty by default.
+   * 按钮展示的信息。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -642,10 +621,10 @@ export interface NotificationIconButton {
   text?: string;
 
   /**
-   * Whether to hide the notification panel when the button is tapped. The default value is **false**.
+   * 点击按钮时，是否隐藏通知中心。默认为false。
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - true：是。
+   * - false：否。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -656,7 +635,7 @@ export interface NotificationIconButton {
 }
 
 /**
- * Describes the notification button.
+ * 描述通知按钮。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -664,7 +643,7 @@ export interface NotificationIconButton {
  */
 export interface NotificationButton {
   /**
-   * Button names. A maximum of three names are supported.
+   * 按钮名称（最多支持3个）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -673,7 +652,7 @@ export interface NotificationButton {
   names?: Array<string>;
 
   /**
-   * Button icons. A maximum of three icons are supported.
+   * 按钮图片（最多支持3个）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -682,7 +661,7 @@ export interface NotificationButton {
   icons?: Array<image.PixelMap>;
 
   /**
-   * Button icon resources. A maximum of three icon resources are supported.
+   * 按钮资源（最多支持3个）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -692,7 +671,7 @@ export interface NotificationButton {
 }
 
 /**
- * Describes the notification timing information.
+ * 描述通知计时信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -700,7 +679,7 @@ export interface NotificationButton {
  */
 export interface NotificationTime {
   /**
-   * Start time, in milliseconds.
+   * 计时起始时间。单位：ms。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -709,10 +688,10 @@ export interface NotificationTime {
   initialTime?: int;
 
   /**
-   * Whether to count down. The default value is **false**.
+   * 是否倒计时。默认为false。
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - true：是。
+   * - false：否。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -721,10 +700,10 @@ export interface NotificationTime {
   isCountDown?: boolean;
 
   /**
-   * Whether to pause the progress. The default value is **false**.
+   * 是否暂停。默认为false。
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - true：是。
+   * - false：否。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -733,10 +712,10 @@ export interface NotificationTime {
   isPaused?: boolean;
 
   /**
-   * Whether the time is displayed in the title. The default value is **false**.
+   * 时间是否展示在title中。默认为false。
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - true：是。
+   * - false：否。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -746,7 +725,7 @@ export interface NotificationTime {
 }
 
 /**
- * Describes the notification progress.
+ * 描述通知进度。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -754,7 +733,7 @@ export interface NotificationTime {
  */
 export interface NotificationProgress {
   /**
-   * Maximum progress value.
+   * 进度最大值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -763,7 +742,7 @@ export interface NotificationProgress {
   maxValue?: int;
 
   /**
-   * Current progress value.
+   * 进度当前值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -772,10 +751,10 @@ export interface NotificationProgress {
   currentValue?: int;
 
   /**
-   * Whether to show the progress in percentage. The default value is **false**.
+   * 是否按百分比展示。默认为false。
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - true：是。
+   * - false：否。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -785,7 +764,7 @@ export interface NotificationProgress {
 }
 
 /**
- * Describes the notification contents.
+ * 通知内容。
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -794,10 +773,9 @@ export interface NotificationProgress {
  */
 export interface NotificationContent {
   /**
-   * Notification content type.
+   * 通知内容类型。
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
-   * **notificationContentType** instead.
+   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationContentType替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -807,7 +785,7 @@ export interface NotificationContent {
   contentType?: notification.ContentType;
 
   /**
-   * Notification content type.
+   * 通知内容类型。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -817,7 +795,7 @@ export interface NotificationContent {
   notificationContentType?: notificationManager.ContentType;
 
   /**
-   * Normal text.
+   * 基本类型通知内容。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -827,7 +805,7 @@ export interface NotificationContent {
   normal?: NotificationBasicContent;
 
   /**
-   * Long text.
+   * 长文本类型通知内容。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -837,7 +815,7 @@ export interface NotificationContent {
   longText?: NotificationLongTextContent;
 
   /**
-   * Multi-line text.
+   * 多行类型通知内容。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -847,7 +825,7 @@ export interface NotificationContent {
   multiLine?: NotificationMultiLineContent;
 
   /**
-   * Picture-attached.
+   * 图片类型通知内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -856,9 +834,7 @@ export interface NotificationContent {
   picture?: NotificationPictureContent;
 
   /**
-   * System live view. A third-party application cannot directly create a notification of this type. After the system 
-   * proxy creates a system live view, the third-party application releases a notification with the same ID to update 
-   * the specified content.
+   * 系统实况窗类型通知内容。不支持三方应用直接创建该类型通知，可以由系统代理创建系统实况窗类型通知后，三方应用发布同ID的通知来更新指定内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -867,9 +843,9 @@ export interface NotificationContent {
   systemLiveView?: NotificationSystemLiveViewContent;
 
   /**
-   * Common live view.
+   * 普通实况窗类型通知内容。
    * 
-   * This is a system API.
+   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
