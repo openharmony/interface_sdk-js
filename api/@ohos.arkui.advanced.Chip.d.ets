@@ -22,6 +22,7 @@
 
 
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Enum for ChipSize
@@ -906,6 +907,17 @@ export interface ChipOptions {
   backgroundColor?: ResourceColor;
 
   /**
+   * Chip background system material.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
+
+  /**
    * Chip background color when chip is activated.
    *
    * @type { ?ResourceColor }
@@ -915,6 +927,17 @@ export interface ChipOptions {
    * @since 12 dynamic
    */
   activatedBackgroundColor?: ResourceColor;
+
+  /**
+   * Chip background system material when chip is activated.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**
    * Chip radius.

@@ -21,6 +21,7 @@
 
 import { ChipSize, ChipSymbolGlyphOptions, CloseOptions, ChipSuffixSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines icon options.
@@ -286,6 +287,17 @@ export interface ChipGroupItemOptions {
      * @since 14 dynamic
      */
     accessibilityLevel?: string;
+
+    /**
+     * ChipGroup item background system material.
+     *
+     * @type { ?uiMaterial.Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 
@@ -616,6 +628,18 @@ export declare struct IconGroupSuffix {
      */
     @Require @Prop
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
+
+    /**
+     * IconGroupSuffix background system material.
+     *
+     * @type { ?uiMaterial.Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    @Prop
+    backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 

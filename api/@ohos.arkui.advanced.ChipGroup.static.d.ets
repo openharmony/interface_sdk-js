@@ -24,6 +24,7 @@ import { Component, BuilderParam, Builder, ResourceStr, SizeOptions, ResourceCol
 import { PropRef, Require } from './@ohos.arkui.stateManagement';
 import { ChipSize, ChipSymbolGlyphOptions, CloseOptions, ChipSuffixSymbolGlyphOptions } from './@ohos.arkui.advanced.Chip';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines icon options.
@@ -233,16 +234,26 @@ export interface ChipGroupItemOptions {
      */
     accessibilityDescription?: ResourceStr;
 
-    /**
-     * Set accessibility level for ChipGroup item.
-     *
-     * @type { ?string }
-     * @default "auto"
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityLevel?: string;
+     /**
+      * Set accessibility level for ChipGroup item.
+      *
+      * @type { ?string }
+      * @default "auto"
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @since 23 static
+      * @noninterop
+      */
+     accessibilityLevel?: string;
+
+     /**
+      * ChipGroup item background system material.
+      *
+      * @type { ?uiMaterial.Material }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @since 26.0.0 static
+      * @noninterop
+      */
+     backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 
@@ -521,6 +532,17 @@ export declare struct IconGroupSuffix {
      */
     @Require @PropRef
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
+
+    /**
+     * IconGroupSuffix background system material.
+     *
+     * @type { ?uiMaterial.Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 26.0.0 static
+     * @noninterop
+     */
+    @PropRef
+    backgroundSystemMaterial?: uiMaterial.Material;
 
     /**
      * The method to build component.
