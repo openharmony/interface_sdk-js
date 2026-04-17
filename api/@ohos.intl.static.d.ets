@@ -26,7 +26,7 @@
  * @syscap SystemCapability.Global.I18n
  * @since 23 static
  */
-declare namespace intl {
+declare namespace intl {11
   /**
    * Defines the options for a DateTimeOptions object. Since API version 9, the DateTimeOptions attribute is changed
    * from mandatory to optional.
