@@ -24,7 +24,6 @@ import image from './@ohos.multimedia.image';
  * This module provides the capability of content processing for images, including image scaling.
  * @namespace videoProcessingEngine
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
- * @crossplatform
  * @form
  * @since 18 dynamic
  * @since 23 static
@@ -34,7 +33,6 @@ declare namespace videoProcessingEngine {
    * Levels of processing quality for detail enhancement.
    * @enum {int}
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-   * @crossplatform
    * @form
    * @since 18 dynamic
    * @since 23 static
@@ -43,7 +41,6 @@ declare namespace videoProcessingEngine {
     /**
      * No detail enhancement.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -52,7 +49,6 @@ declare namespace videoProcessingEngine {
     /**
      * A low level of detail enhancement quality but with a fast speed. It's the default level.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -61,7 +57,6 @@ declare namespace videoProcessingEngine {
     /**
      * A medium level of detail enhancement quality. Its speed is between the low setting and high setting.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -70,7 +65,6 @@ declare namespace videoProcessingEngine {
     /**
      * A high level of detail enhancement quality but with a relatively slow speed.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -82,7 +76,6 @@ declare namespace videoProcessingEngine {
    * Provides the ImageProcessor type, including the processing function.
    * @typedef ImageProcessor
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-   * @crossplatform
    * @form
    * @since 18 dynamic
    * @since 23 static
@@ -107,7 +100,6 @@ declare namespace videoProcessingEngine {
      * <br>2 - Invalid parameter - The parameter does not contain valid information,
      * <br>such as detail enhancer level is incorrect.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -135,7 +127,6 @@ declare namespace videoProcessingEngine {
      * <br>2 - Invalid parameter - The parameter does not contain valid information,
      * <br>such as detail enhancer level is incorrect.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -160,7 +151,6 @@ declare namespace videoProcessingEngine {
      * <br>2 - Invalid parameter - The parameter does not contain valid information,
      * <br>such as detail enhancer level is incorrect.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -187,7 +177,6 @@ declare namespace videoProcessingEngine {
      * <br>2 - Invalid parameter - The parameter does not contain valid information,
      * <br>such as detail enhancer level is incorrect.
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-     * @crossplatform
      * @form
      * @since 18 dynamic
      * @since 23 static
@@ -206,7 +195,6 @@ declare namespace videoProcessingEngine {
    * @throws { BusinessError } 29200006 - The operation is not permitted. This may be caused by incorrect status.
    * @throws { BusinessError } 29200007 - Out of memory.
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-   * @crossplatform
    * @form
    * @since 18 dynamic
    * @since 23 static
@@ -218,7 +206,6 @@ declare namespace videoProcessingEngine {
    * If the operation fails, an error message is returned.
    * @throws { BusinessError } 29200006 - The operation is not permitted. This may be caused by incorrect status.
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-   * @crossplatform
    * @form
    * @since 18 dynamic
    * @since 23 static
@@ -234,7 +221,6 @@ declare namespace videoProcessingEngine {
    * <br>the number of instances exceeds the upper limit.
    * @throws { BusinessError } 29200007 - Out of memory.
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
-   * @crossplatform
    * @form
    * @since 18 dynamic
    * @since 23 static
