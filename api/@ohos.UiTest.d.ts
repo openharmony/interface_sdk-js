@@ -1223,7 +1223,7 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
     /**
-     * Listening timeout interval, to prevent listening failures casued by event notification delay.
+     * Listening timeout interval, to prevent listening failures caused by event notification delay.
      *     <br>Value range: The value should be >= 500
      *     <br>Default value: 10000
      *     <br>Unit: ms
@@ -1257,7 +1257,7 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
     /**
-     * Listening timeout interval , to prevent listening failures casued by event notification delay.
+     * Listening timeout interval , to prevent listening failures caused by event notification delay.
      * <br>Value range: The value should be >= 500
      * <br>Default value: 10000
      *     <br>Unit: ms
@@ -2949,7 +2949,7 @@ declare class Driver {
     /**
      * Find the first matched {@link UiWindow} window.
      *
-     * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
+     * @param { WindowFilter } filter - the filter condition of the target {@link UiWindow}.
      * @returns { Promise<UiWindow | null> } the first matched {@link UiWindow} or undefined.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4989,6 +4989,20 @@ declare namespace ON {
     export function isBefore(on: On): On;
 
     /**
+     * Requires that the target Component is before another Component that is specified by the given {@link Component}
+     * object, used to locate Component relatively.
+     *
+     * @param { Component } com - Describes the Component which the target one is in front of.
+     * @returns { On } this {@link On} object.
+     * @throws { BusinessError } 17000007 - Parameter verification failed.
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @since 26.0.0 static
+     * @test
+     */
+    export function isBefore(com: Component): On;
+
+    /**
      * Requires that the target Component which is after another Component that specified by the given {@link On}
      * object,used to locate Component relatively.
      *
@@ -4999,6 +5013,20 @@ declare namespace ON {
      * @test
      */
     export function isAfter(on: On): On;
+
+    /**
+     * Requires that the target Component which is after another Component specified by the given {@link Component}
+     * object, used to locate Component relatively.
+     *
+     * @param { Component } com - Describes the Component which the target one is in back of.
+     * @returns { On } this {@link On} object.
+     * @throws { BusinessError } 17000007 - Parameter verification failed.
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @since 26.0.0 static
+     * @test
+     */
+    export function isAfter(com: Component): On;
     /**
      * Requires that the target Component which is inside of another Component that specified by the given {@link On}
      * object,used to locate Component relatively.
@@ -5010,6 +5038,20 @@ declare namespace ON {
      * @test
      */
     export function within(on: On): On;
+
+    /**
+     * Requires that the target Component which is inside of another Component specified by the given {@link Component}
+     * object, used to locate Component relatively.
+     *
+     * @param { Component } com - Describes the Component which the target one is inside of.
+     * @returns { On } this {@link On} object.
+     * @throws { BusinessError } 17000007 - Parameter verification failed.
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @since 26.0.0 static
+     * @test
+     */
+    export function within(com: Component): On;
 
     /**
      * Specifies the bundleName of the application which the window that the target Component is located belongs.
