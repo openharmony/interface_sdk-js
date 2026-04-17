@@ -39,24 +39,23 @@
 import { AsyncCallback } from './../@ohos.base';
 import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
 /**
- * # How to Use
- *
- * Before using the **CommonEventSubscriber** module, you must obtain a **subscriber** object by calling
- * **commonEventManager.createSubscriber**.
- *
+ * # 使用说明
+ * 
+ * 在使用CommonEventSubscriber的功能前，需要通过commonEventManager.createSubscriber获取subscriber对象。
+ * 
  * <!--code_no_check-->
- *
+ * 
  * ```ts
  * import { commonEventManager } from '@kit.BasicServicesKit';
  * import { BusinessError } from '@kit.BasicServicesKit';
- *
- * // Define a subscriber to save the created subscriber object for subsequent subscription and unsubscription.
+ * 
+ * // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
  * let subscriber: commonEventManager.CommonEventSubscriber | null = null;
- * // Subscriber information.
+ * // 订阅者信息
  * let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
  * 	events: ['event']
  * };
- * // Create a subscriber.
+ * // 创建订阅者
  * subscriber = commonEventManager.createSubscriberSync(subscribeInfo);
  * ```
  */
@@ -69,10 +68,9 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
  */
 export interface CommonEventSubscriber {
   /**
-   * Obtains the result code (number type) of an ordered common event. This API uses an asynchronous callback to return
-   * the result.
+   * 获取有序公共事件传递的数据（number类型）。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - 回调函数。返回有序公共事件传递的数据（number类型）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -83,9 +81,9 @@ export interface CommonEventSubscriber {
   getCode(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the result code (number type) of an ordered common event. This API uses a promise to return the result.
+   * 获取有序公共事件传递的数据（number类型）。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise used to return the result.
+   * @returns { Promise<int> } Promise对象。返回有序公共事件传递的数据（number类型）。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -94,9 +92,9 @@ export interface CommonEventSubscriber {
   getCode(): Promise<int>;
 
   /**
-   * Obtains the result code (number type) of an ordered common event.
+   * 获取有序公共事件传递的数据（number类型）。
    *
-   * @returns { int } Result code of an ordered common event.
+   * @returns { int } 表示有序公共事件传递的数据（number类型）。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -105,12 +103,10 @@ export interface CommonEventSubscriber {
   getCodeSync(): int;
 
   /**
-   * Sets the result code (number type) of an ordered common event. This API uses an asynchronous callback to return the
-   * result.
+   * 设置有序公共事件传递的数据（number类型）。使用callback异步回调。
    *
-   * @param { int } code - Result code of an ordered common event.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据（number类型）成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -121,10 +117,10 @@ export interface CommonEventSubscriber {
   setCode(code: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result code (number type) of an ordered common event. This API uses a promise to return the result.
+   * 设置有序公共事件传递的数据（number类型）。使用Promise异步回调。
    *
-   * @param { int } code - Result code of an ordered common event.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -135,9 +131,9 @@ export interface CommonEventSubscriber {
   setCode(code: int): Promise<void>;
 
   /**
-   * Sets the result code (number type) of an ordered common event.
+   * 设置有序公共事件传递的数据（number类型）。
    *
-   * @param { int } code - Result code of an ordered common event.
+   * @param { int } code - 有序公共事件传递的数据（number类型）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -148,10 +144,9 @@ export interface CommonEventSubscriber {
   setCodeSync(code: int): void;
 
   /**
-   * Obtains the result data (string type) of an ordered common event. This API uses an asynchronous callback to return
-   * the result.
+   * 获取有序公共事件传递的数据（string类型）。使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { AsyncCallback<string> } callback - 回调函数。返回有序公共事件传递的数据（string类型）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -162,9 +157,9 @@ export interface CommonEventSubscriber {
   getData(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the result data (string type) of an ordered common event. This API uses a promise to return the result.
+   * 获取有序公共事件传递的数据（string类型）。使用Promise异步回调。
    *
-   * @returns { Promise<string> } Promise used to return the result.
+   * @returns { Promise<string> } Promise对象。返回有序公共事件传递的数据（string类型）。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -173,9 +168,9 @@ export interface CommonEventSubscriber {
   getData(): Promise<string>;
 
   /**
-   * Obtains the result data (string type) of an ordered common event.
+   * 获取有序公共事件传递的数据（string类型）。
    *
-   * @returns { string } Result data of an ordered common event.
+   * @returns { string } 有序公共事件传递的数据（string类型）。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -184,12 +179,10 @@ export interface CommonEventSubscriber {
   getDataSync(): string;
 
   /**
-   * Sets the result data (string type) of an ordered common event. This API uses an asynchronous callback to return the
-   * result.
+   * 设置有序公共事件传递的数据（string类型）。使用callback异步回调。
    *
-   * @param { string } data - Result data of an ordered common event.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据（string类型）成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -200,10 +193,10 @@ export interface CommonEventSubscriber {
   setData(data: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result data (string type) of an ordered common event. This API uses a promise to return the result.
+   * 设置有序公共事件传递的数据（string类型）。使用Promise异步回调。
    *
-   * @param { string } data - Result data of an ordered common event.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -214,9 +207,9 @@ export interface CommonEventSubscriber {
   setData(data: string): Promise<void>;
 
   /**
-   * Sets the result data (string type) of an ordered common event.
+   * 设置有序公共事件传递的数据（string类型）。
    *
-   * @param { string } data - Result data of an ordered common event.
+   * @param { string } data - 有序公共事件传递的数据（string类型）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -227,13 +220,11 @@ export interface CommonEventSubscriber {
   setDataSync(data: string): void;
 
   /**
-   * Sets the result code and data of an ordered common event. This API uses an asynchronous callback to return the
-   * result.
+   * 设置有序公共事件数据。使用callback异步回调。
    *
-   * @param { int } code - Result code of an ordered common event.
-   * @param { string } data - Result data of an ordered common event.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -244,11 +235,11 @@ export interface CommonEventSubscriber {
   setCodeAndData(code: int, data: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result code and data of an ordered common event. This API uses a promise to return the result.
+   * 设置有序公共事件传递的数据。使用Promise异步回调。
    *
-   * @param { int } code - Result code of an ordered common event.
-   * @param { string } data - Result data of an ordered common event.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -259,10 +250,10 @@ export interface CommonEventSubscriber {
   setCodeAndData(code: int, data: string): Promise<void>;
 
   /**
-   * Sets the result code and data of an ordered common event.
+   * 设置有序公共事件传递的数据。
    *
-   * @param { int } code - Result code of an ordered common event.
-   * @param { string } data - Result data of an ordered common event.
+   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @param { string } data - 有序公共事件传递的数据（string类型）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -273,11 +264,9 @@ export interface CommonEventSubscriber {
   setCodeAndDataSync(code: int, data: string): void;
 
   /**
-   * Checks whether the current common event is an ordered common event. This API uses an asynchronous callback to
-   * return the result.
+   * 查询当前公共事件是否为有序公共事件。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the common
-   *     event is an ordered one; returns **false** if the common event is an unordered one.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示有序公共事件；返回false表示无序公共事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -287,10 +276,9 @@ export interface CommonEventSubscriber {
   isOrderedCommonEvent(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the current common event is an ordered common event. This API uses a promise to return the result.
+   * 查询当前公共事件是否为有序公共事件。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. Returns **true** if the common event is an ordered
-   *     one; returns **false** if the common event is an unordered one.
+   * @returns { Promise<boolean> } Promise对象。返回true表示有序公共事件；返回false表示无序公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -298,10 +286,9 @@ export interface CommonEventSubscriber {
   isOrderedCommonEvent(): Promise<boolean>;
 
   /**
-   * Checks whether the current common event is an ordered common event.
+   * 查询当前公共事件是否为有序公共事件。
    *
-   * @returns { boolean } Returns **true** if the common event is an ordered one; returns **false** if the common event
-   *     is an unordered one.
+   * @returns { boolean } 返回true表示有序公共事件；返回false表示无序公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -309,10 +296,9 @@ export interface CommonEventSubscriber {
   isOrderedCommonEventSync(): boolean;
 
   /**
-   * Checks whether a common event is a sticky one. This API uses an asynchronous callback to return the result.
+   * 检查当前公共事件是否为一个粘性事件。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the common
-   *     event is a sticky one; returns **false** otherwise.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示是粘性公共事件；返回false表示不是粘性公共事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -322,10 +308,9 @@ export interface CommonEventSubscriber {
   isStickyCommonEvent(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a common event is a sticky one. This API uses a promise to return the result.
+   * 检查当前公共事件是否为一个粘性事件。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. Returns **true** if the common event is a sticky
-   *     one; returns **false** otherwise.
+   * @returns { Promise<boolean> } Promise对象。返回true表示是粘性公共事件；返回false表示不是粘性公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -333,9 +318,9 @@ export interface CommonEventSubscriber {
   isStickyCommonEvent(): Promise<boolean>;
 
   /**
-   * Checks whether a common event is a sticky one.
+   * 检查当前公共事件是否为一个粘性事件。
    *
-   * @returns { boolean } Returns **true** if the common event is a sticky one; returns **false** otherwise.
+   * @returns { boolean } 返回true表示是粘性公共事件；返回false表示不是粘性公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -343,12 +328,11 @@ export interface CommonEventSubscriber {
   isStickyCommonEventSync(): boolean;
 
   /**
-   * Aborts an ordered common event. This API is used with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
-   * the common event is not sent to the next subscriber. This API uses an asynchronous callback to return the result.
+   * 添加有序公共事件的中止状态。当该接口与
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以中止当前的有序公共事
+   * 件，使该公共事件不再向下一个订阅者传递。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当添加有序公共事件中止状态成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -358,11 +342,11 @@ export interface CommonEventSubscriber {
   abortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Aborts this ordered common event. This API is used with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
-   * the common event is not sent to the next subscriber. This API uses a promise to return the result.
+   * 添加有序公共事件的中止状态。当该接口与
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以中止当前的有序公共事
+   * 件，使该公共事件不再向下一个订阅者传递。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -370,9 +354,9 @@ export interface CommonEventSubscriber {
   abortCommonEvent(): Promise<void>;
 
   /**
-   * Aborts this ordered common event synchronously. This API is used with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
-   * the common event is not sent to the next subscriber.
+   * 添加有序公共事件的中止状态。当该接口与
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以中止当前的有序公共事
+   * 件，使该公共事件不再向下一个订阅者传递。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
@@ -381,12 +365,11 @@ export interface CommonEventSubscriber {
   abortCommonEventSync(): void;
 
   /**
-   * Clears the abort state of an ordered common event. Use this API together with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common
-   * event can be passed to the next subscriber. This API uses an asynchronous callback to return the result.
+   * 清理有序公共事件的中止状态。当该接口与
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以使该公共事件继续向下
+   * 一个订阅者传递。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当清理有序公共事件中止状态成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -396,11 +379,11 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Clears the abort state of this ordered common event. Use this API together with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common
-   * event can be passed to the next subscriber. This API uses a promise to return the result.
+   * 清理有序公共事件的中止状态。当该接口与
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以使该公共事件继续向下
+   * 一个订阅者传递。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -408,9 +391,9 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(): Promise<void>;
 
   /**
-   * Clears the abort state of this ordered common event. Use this API together with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common
-   * event can be passed to the next subscriber.
+   * 清理有序公共事件的中止状态。当该接口与
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以使该公共事件继续向下
+   * 一个订阅者传递。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
@@ -419,11 +402,9 @@ export interface CommonEventSubscriber {
   clearAbortCommonEventSync(): void;
 
   /**
-   * Checks whether this ordered common event should be aborted. This API uses an asynchronous callback to return the
-   * result.
+   * 获取当前有序公共事件是否处于中止状态。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the ordered
-   *     common event is in the abort state; returns **false** otherwise.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件没有处于中止状态。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -433,10 +414,9 @@ export interface CommonEventSubscriber {
   getAbortCommonEvent(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether this ordered common event should be aborted. This API uses a promise to return the result.
+   * 获取当前有序公共事件是否处于中止状态。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. Returns **true** if the ordered common event is in
-   *     the abort state; returns **false** otherwise.
+   * @returns { Promise<boolean> } Promise对象。返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件没有处于中止状态。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -444,10 +424,9 @@ export interface CommonEventSubscriber {
   getAbortCommonEvent(): Promise<boolean>;
 
   /**
-   * Checks whether this ordered common event should be aborted.
+   * 获取当前有序公共事件是否处于中止状态。
    *
-   * @returns { boolean } Returns **true** if the ordered common event is in the abort state; returns **false**
-   *     otherwise.
+   * @returns { boolean } 返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件没有处于中止状态。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -455,9 +434,9 @@ export interface CommonEventSubscriber {
   getAbortCommonEventSync(): boolean;
 
   /**
-   * Obtains the subscriber information. This API uses an asynchronous callback to return the result.
+   * 获取订阅者的订阅信息。使用callback异步回调。
    *
-   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Callback used to return the result.
+   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - 回调函数。返回订阅者的订阅信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -468,9 +447,9 @@ export interface CommonEventSubscriber {
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
 
   /**
-   * Obtains the subscriber information. This API uses an asynchronous callback to return the result.
+   * 获取订阅者的订阅信息。使用callback异步回调。
    *
-   * @param { AsyncCallback<CommonEventSubscribeInfo|null> } callback - Callback used to return the result.
+   * @param { AsyncCallback<CommonEventSubscribeInfo|null> } callback - 回调函数。返回订阅者的订阅信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -480,9 +459,9 @@ export interface CommonEventSubscriber {
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo|null>): void;
 
   /**
-   * Obtains the subscriber information. This API uses a promise to return the result.
+   * 获取订阅者的订阅信息。使用Promise异步回调。
    *
-   * @returns { Promise<CommonEventSubscribeInfo> } Promise used to return the result.
+   * @returns { Promise<CommonEventSubscribeInfo> } Promise对象。返回订阅者的订阅信息。
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -491,7 +470,7 @@ export interface CommonEventSubscriber {
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
 
   /**
-   * Obtains the subscriber information. This API uses a promise to return the result.
+   * 获取订阅者的订阅信息。使用Promise异步回调。
    *
    * @returns { Promise<CommonEventSubscribeInfo|null> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -501,9 +480,9 @@ export interface CommonEventSubscriber {
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo|null>;
 
   /**
-   * Obtains the subscriber information.
+   * 获取订阅者的订阅信息。
    *
-   * @returns { CommonEventSubscribeInfo } Subscriber information.
+   * @returns { CommonEventSubscribeInfo } 表示订阅者的订阅信息。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -511,7 +490,7 @@ export interface CommonEventSubscriber {
   getSubscribeInfoSync(): CommonEventSubscribeInfo;
 
   /**
-   * Obtains the subscriber information.
+   * 获取订阅者的订阅信息。
    *
    * @returns { CommonEventSubscribeInfo|null } Subscriber information.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -520,10 +499,9 @@ export interface CommonEventSubscriber {
   getSubscribeInfoSync(): CommonEventSubscribeInfo|null;
 
   /**
-   * Finishes this ordered common event. This API uses an asynchronous callback to return the result.
+   * 用于订阅者结束对当前有序公共事件的处理。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当订阅者结束当前有序公共事件成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -533,9 +511,9 @@ export interface CommonEventSubscriber {
   finishCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Finishes this ordered common event. This API uses a promise to return the result.
+   * 用于订阅者结束对当前有序公共事件的处理。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9 dynamic
    * @since 23 static
