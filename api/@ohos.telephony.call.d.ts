@@ -3145,7 +3145,6 @@ declare namespace call {
    */
   function stopRtt(callId: int, type: ImsRttMode): Promise<void>;
 
-  
   /**
    * Preload callUI.
    *
