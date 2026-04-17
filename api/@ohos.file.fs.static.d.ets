@@ -5988,7 +5988,7 @@ export interface ListFileOptions {
 }
 
 /**
- * Defines the file name filtering interface used by listFile().
+ * Defines the file name filtering interface used by listFileExt().
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -5996,7 +5996,7 @@ export interface ListFileOptions {
  */
 export interface FileFilter {
   /**
-   * Filter function, which is used to determine whether the specified file name should be included in the file list.
+   * Filtering function, which determines whether the specified file name should be included in the file list.
    *
    * Note: This function is frequently invoked. Avoid time-consuming operations, such as file I/O and network requests.
    *
