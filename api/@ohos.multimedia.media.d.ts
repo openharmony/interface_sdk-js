@@ -11183,6 +11183,7 @@ declare namespace media {
      * @since 23 static
      */
     WINDOW_ONLY = 0,
+
     /**
      * Capture Screen Only
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11190,6 +11191,7 @@ declare namespace media {
      * @since 23 static
      */
     SCREEN_ONLY = 1,
+
     /**
      * Capture Screen and Window
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11197,30 +11199,42 @@ declare namespace media {
      * @since 23 static
      */
     SCREEN_AND_WINDOW = 2,
+
     /**
-     * @brief Show application options only
-     * @since 26 dynamic
-     * @since 26 static
+     * Show application options only.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     APP_ONLY = 3,
+
     /**
-     * @brief Show both window and application options
-     * @since 26 dynamic
-     * @since 26 static
+     * Show both window and application options.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     WINDOW_AND_APP = 4,
+
     /**
-     * @brief Show both screen and application options
-     * @since 26 dynamic
-     * @since 26 static
+     * Show both screen and application options.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     SCREEN_AND_APP = 5,
+
     /**
-     * @brief Show screen, window, and application options
-     * @since 26 dynamic
-     * @since 26 static
+     * Show screen, window, and application options.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
-    SCREEN_WINDOW_AND_APP = 6,
+    SCREEN_WINDOW_AND_APP = 6
   }
 
   /**
