@@ -447,7 +447,7 @@ declare interface AnimationOptions {
  */
 export interface AnimationController {
   /**
-   * Start animtion playback.
+   * Start animation playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -487,7 +487,7 @@ export interface AnimationController {
   resume(): void;
 
   /**
-   * Get animtion status of the current component.
+   * Get animation status of the current component.
    *
    * @returns { AnimationStatus } Return the status of animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
