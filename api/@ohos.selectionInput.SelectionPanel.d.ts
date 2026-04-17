@@ -14,170 +14,122 @@
  */
 
 /**
+ * This module provides the properties and types of the word selection panel.
+ * 
+ * > **NOTE**
+ * > - This module is supported only on PCs/2-in-1 devices.
+ *
  * @file
  * @kit BasicServicesKit
  */
 
 /**
- * Defines information about the word selection panel.
- * 
- * @typedef PanelInfo
+ * Describes the properties of the word selection panel.
+ *
  * @syscap SystemCapability.SelectionInput.Selection
- * @systemapi
- * @since 20 dynamic
- */
-/**
- * Defines information about the word selection panel.
- * 
- * @typedef PanelInfo
- * @syscap SystemCapability.SelectionInput.Selection
+ * @systemapi [since 20 - 23]
+ * @publicapi [since 24]
  * @stagemodelonly
- * @since 24 dynamic&static
+ * @since 20 dynamic
+ * @since 24 static
  */
 export interface PanelInfo {
   /**
    * Type of the word selection panel.
-   * 
-   * @type { PanelType }
+   *
    * @default MENU_PANEL
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * Type of the word selection panel.
-   * 
-   * @type { PanelType }
-   * @default MENU_PANEL
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   panelType: PanelType;
 
   /**
-   * X-coordinate of the upper left corner of the word selection panel on the screen.
-   * 
-   * @type { int }
+   * X-coordinate of the upper left corner of the word selection panel, in px.
+   *
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * X-coordinate of the upper left corner of the word selection panel on the screen.
-   * 
-   * @type { int }
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   x: int;
 
   /**
-   * Y-coordinate of the upper left corner of the word selection panel on the screen.
-   * 
-   * @type { int }
+   * Y-coordinate of the upper left corner of the word selection panel, in px.
+   *
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * Y-coordinate of the upper left corner of the word selection panel on the screen.
-   * 
-   * @type { int }
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   y: int;
 
   /**
-   * Width of the word selection panel.
-   * 
-   * @type { int }
+   * Width of the word selection panel, in px.
+   *
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * Width of the word selection panel.
-   * 
-   * @type { int }
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   width: int;
 
   /**
-   * Height of the word selection panel.
-   * 
-   * @type { int }
+   * Height of the word selection panel, in px.
+   *
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * Height of the word selection panel.
-   * 
-   * @type { int }
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   height: int;
 }
 
 /**
- * Enumerates the types of the word selection panel.
- * 
- * @enum { int }
+ * Enumerates the word selection panel types.
+ *
  * @syscap SystemCapability.SelectionInput.Selection
- * @systemapi
- * @since 20 dynamic
- */
-/**
- * Enumerates the types of the word selection panel.
- * 
- * @enum { int }
- * @syscap SystemCapability.SelectionInput.Selection
+ * @systemapi [since 20 - 23]
+ * @publicapi [since 24]
  * @stagemodelonly
- * @since 24 dynamic&static
+ * @since 20 dynamic
+ * @since 24 static
  */
 export enum PanelType {
   /**
    * The menu panel can serve as a primary panel to display the functions that the current application can provide,
-   *     such as translation, search, etc.
+ 	 * such as translation, search, etc.
    *
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * The menu panel can serve as a primary panel to display the functions that the current application can provide,
-   *     such as translation, search, etc.
-   *
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   MENU_PANEL = 1,
 
   /**
    * The main panel can serve as a secondary panel that pops up when the user clicks on the function buttons
-   *     on the menu panel, displaying specific translation or search results, etc.
+ 	 * on the menu panel, displaying specific translation or search results, etc.
    *
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20 dynamic
-   */
-  /**
-   * The main panel can serve as a secondary panel that pops up when the user clicks on the function buttons
-   *     on the menu panel, displaying specific translation or search results, etc.
-   *
-   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 20 dynamic
+   * @since 24 static
    */
   MAIN_PANEL = 2
 }
