@@ -945,6 +945,7 @@ declare namespace i18n {
   }
 
   /**
+   * Provides util functions.
    *
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
@@ -1134,20 +1135,6 @@ declare namespace i18n {
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
 
     /**
-     * Converts a locale string into canonical locale identifier with BCP47 standard.
-     * [BCP47](https://www.rfc-editor.org/info/bcp47).
-     *
-     * @param { string } locale - Locale string to be converted, which consists of the language, script,
-     *     and country/region.
-     * @returns { string } BCP47 standard locale identifier.
-     * @syscap SystemCapability.Global.I18n
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    static convertCanonicalLocaleIdentifier(locale: string): string;
-
-    /**
      * Sets the text direction for a specific piece of text independently,
      * separating it from the text direction of the surrounding context.
      *
@@ -1293,10 +1280,10 @@ declare namespace i18n {
      * > > This API can be used to obtain the home location of a dialed number in real time since API version 23.
      *
      * @param { string } number - input phone number. [since 9 - 11]
-     * @param { string } locale - [System locale](docroot://internationalization/i18n-locale-culture.md#how-it-works),
-     *     which consists of the language, script, and country/region.
      * @param { string } phoneNumber - Phone number. To obtain the home location of a number in other countries/regions,
      *     you need to prefix the number with **00** and the country code. [since 12]
+     * @param { string } locale - [System locale](docroot://internationalization/i18n-locale-culture.md#how-it-works),
+     *     which consists of the language, script, and country/region.
      * @returns { string } Home location of the phone number. If the number is invalid, an empty string is returned.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice [since 12]
@@ -2426,19 +2413,6 @@ declare namespace i18n {
      * @since 23 static
      */
     public getZoneRules(): ZoneRules;
-
-    /**
-     * Check if the given date use daylight saving time. The calculation will be based on the matched time zone rules.
-     *
-     * @param { Date } date - Date and time for calculation.
-     *     The value must match the time range supported by the time zone rule.
-     * @returns { boolean } true if the date use daylight saving time, and false otherwise.
-     * @syscap SystemCapability.Global.I18n
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    public isDaylightSavingTime(date: Date): boolean;
 
     /**
      * Sets the default time zone for the current app, the value will be used on the application's runtime lifecycle.
@@ -4277,7 +4251,7 @@ declare namespace i18n {
      */
     groupingSeparator?: string;
   }
-  
+
   /**
    * Provide a DateTime formatting interface which could format date to ISO 8601 standard string.
    * [ISO8601](https://iso8601.com/).
@@ -4379,6 +4353,158 @@ declare namespace i18n {
   }
 
   /**
+   * Provide a number parse interface which convert a localized string to number object.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export class NumberParse {  
+    /**
+     * A constructor used to create a NumberParse object.
+     *
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "1,23,456" is a invalid thousand separator number string, it will parse failure
+     *     when lenientMode is false, and will parse success with value 123456 when lenientMode is true.it's better
+     *     set to false, ensure the data is not polluted.
+     * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public constructor(lenientMode: boolean, locale?: Intl.Locale);
+
+    /**
+     * Parse a localized string to number object. For example, "123,456" will parse to 123456.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed.
+     * @returns { double } The result parse with localization rules.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public parse(text: string): double;
+  }
+
+  /**
+   * Obtains a NumberParse object based on the specified skeleton.
+   *
+   * @param { boolean } lenientMode - Indicates whether to use loose parsing mode. When loose parsing mode is enabled,
+   *     the input text is not required to strictly match the template and can be subjected to a certain degree of
+   *     fuzzy processing.
+   *     Loose mode. When the loose mode is enabled, the input text is not required to strictly match the template.
+   *     You can perform fuzzy processing to a certain extent.
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *     [Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#number-skeletons).
+   *     <br>Parsing Template.
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   *     <br>Default value: current system language.
+   *     <br>Locale Object.
+   * @returns { NumberParse } NumberParse object.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export function getNumberParseBySkeleton(lenientMode: boolean, skeleton: string, locale?: Intl.Locale): NumberParse;
+
+  /**
+   * Provide a date time parse interface which convert a date time localized string to timestamp.
+   * timestamp indicates the number of milliseconds that have elapsed since the Unix epoch.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export class DateTimeParse {  
+    /**
+     * A constructor used to create a DateTimeParse object.
+     *
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "2023/02-25" is a invalid separator date string, it will parse failure when lenientMode
+     *     is false, and will parse success with value (2023, 02, 25) when lenientMode is true. it's better set
+     *     to false, ensure the data is not polluted.
+     * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public constructor(lenientMode: boolean, locale?: Intl.Locale);
+
+    /**
+     * Parse a date time localized string to Unix timestamp.
+     * Unix timestamp, indicating the number of milliseconds elapsed since 00:00:00 on January 1, 1970 GMT.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed.
+     * @returns { long } Unix timestamp, which indicates the number of milliseconds that have elapsed since
+     *     the Unix epoch.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public parse(text: string): long;
+  }
+
+  /**
+   * Obtains a DateTimeParse object based on the specified pattern string.
+   *
+   * @param { boolean } lenientMode - Indicates whether to use loose parsing mode. When loose parsing mode is enabled,
+   *     the input text is not required to strictly match the template and can be subjected to a certain degree of
+   *     fuzzy processing.
+   *     the template. You can perform fuzzy processing to a certain extent.
+   *     <br>Loose mode. When loose parsing mode is enabled, the input text does not need to be strictly matched.
+   *     template. It can be obfuscated to a certain extent.
+   * @param { string } pattern - Valid pattern. For details about the supported characters and their meanings, see
+   *     [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+   *     This parameter also supports custom text enclosed in single quotation marks ('').
+   *     <br>Parsing Template.
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   *     <br>Default value: system locale.
+   *     <br>Locale Object.
+   * @returns { DateTimeParse } DateTimeParse object.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export function getDateTimeParseByPattern(lenientMode: boolean, pattern: string, locale?: Intl.Locale): DateTimeParse;
+
+  /**
+   * Obtains a DateTimeParse object based on the specified skeleton.
+   *
+   * @param { boolean } lenientMode - Indicates whether to use loose parsing mode. When loose parsing mode is enabled,
+   *     the input text is not required to strictly match the template and can be subjected to a certain degree of
+   *     fuzzy processing.
+   *     Loose mode. When the loose mode is enabled, the input text is not required to strictly match the template.
+   *     You can perform fuzzy processing to a certain extent.
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *     [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+   *     This parameter does not support custom text.
+   *     <br>Parsing Template.
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   *     <br>Default value:Current area of the system.
+   *     <br>Region object.
+   * @returns { DateTimeParse } DateTimeParse object.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export function getDateTimeParseBySkeleton(lenientMode: boolean, skeleton: string,
+      locale?: Intl.Locale): DateTimeParse;
+
+  /**
    * Obtains the ChineseCalendar object for the specified locale.
    *
    * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
@@ -4429,7 +4555,7 @@ declare namespace i18n {
      * @atomicservice
      * @since 26.0.0 dynamic
      */
-    public checkLeapMonth(gregorianYear: int, cyclicalYear: int, month: int): boolean;
+    public static checkLeapMonth(gregorianYear: int, cyclicalYear: int, month: int): boolean;
   }
 
   /**
