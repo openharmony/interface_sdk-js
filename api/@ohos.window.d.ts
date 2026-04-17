@@ -1632,6 +1632,28 @@ declare namespace window {
      * @since 24 dynamic&static
      */
     parentWindowStatusChangeCallback?: Callback<WindowStatusType>;
+
+    /**
+     * Whether to use the intersection of the width limits of both windows in the attachment.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isIntersectedWidthLimit?: boolean;
+
+    /**
+     * Whether to use the intersection of the height limits of both windows in the attachment.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isIntersectedHeightLimit?: boolean;
   }
 
   /**
