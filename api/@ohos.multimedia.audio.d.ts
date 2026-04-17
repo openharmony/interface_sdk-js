@@ -2438,12 +2438,12 @@ declare namespace audio {
      */
     /**
      * Sampling rate, supports 10hz intervals.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @stagemodelonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 26.0.0 dynamic&static
      */
-    samplingRate: AudioSamplingRate | int;
+    samplingRate: AudioSamplingRate | number;
     /**
      * Audio channels.
      * @type { AudioChannel }
