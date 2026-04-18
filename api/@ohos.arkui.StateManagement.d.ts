@@ -1220,7 +1220,7 @@ export declare interface IReusePool {
    * The getReusableInfo function gets IReusableInfo for given Component/V2 in the pool.
    * 
    * @param { ReusableComponentConstructor } constructor - @ReusableV2 @ComponentV2 or @Reusable @Component.
-   * @param { number } [reuseId] - the reuse-id.
+   * @param { string } [reuseId] - the reuse-id.
    * @returns { IReusableInfo[] | IReusableInfo | undefined } returns undefined if this pool does not
    *     accepts given component.
    *     returns IReusableInfo if this pool accepts given Component/V2, reuseId was not used to recycle instances.
@@ -1232,7 +1232,7 @@ export declare interface IReusePool {
    * @since 26.0.0 dynamic
    */
   getReusableInfo(constructor: ReusableComponentConstructor,
-    reuseId?: number): IReusableInfo[] | IReusableInfo | undefined;
+    reuseId?: string): IReusableInfo[] | IReusableInfo | undefined;
 
   /**
    * The preRender function pre-render n instances and add to pool.
@@ -1240,13 +1240,14 @@ export declare interface IReusePool {
    * @param { WrappedBuilder<[]> } builder - builder a WrappedBuilder containing a @Builder
    *     function that accepts no parameter.
    * @param { number } times - number of times to exec the given @Builder function.
+   * @returns { Promise<void> } - promise when pre-render is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  preRender(builder: WrappedBuilder<[]>, times: number): void;
+  preRender(builder: WrappedBuilder<[]>, times: number): Promise<void>;
 }
 
 /**
@@ -1273,8 +1274,10 @@ export declare interface IReusableInfo {
   readonly count: number;
 
   /**
-   * Maximum number of permissible @Reusable/V2 component instances
-   * the default in infinite number.
+   * Maximum number of permissible @Reusable/V2 component instances.
+   * The default value is 100, the maximum value is 200.
+   * Setting to a negative number will be treated as setting to 0.
+   * Setting to a number greater than maximum will be treated as setting to 200.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1295,3 +1298,15 @@ export declare interface IReusableInfo {
    */
   readonly reuseId?: string;
 }
+
+/**
+ * Defining custom component constructor.
+ * 
+ * @typedef { Function }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusableComponentConstructor = Function;
