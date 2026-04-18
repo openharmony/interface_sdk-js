@@ -5694,7 +5694,7 @@ export declare interface WebAttribute extends CommonMethod {
      *
      * @param { int | undefined } size - Font size.
      *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
-     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     and the value that is less than 1px is rendered as 1px.
      *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
