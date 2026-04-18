@@ -5020,57 +5020,36 @@ declare class WebResourceError {
  * Defines the js geolocation request.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the js geolocation request.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class JsGeolocation {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
-  /**
-   * Report the geolocation permission status from users.
-   *
-   * @param { string } origin - The origin that ask for the geolocation permission.
-   * @param { boolean } allow - The geolocation permission status.
-   * @param { boolean } retain - Whether to allow the geolocation permission status to be saved to the system.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
   /**
    * Sets the geolocation permission status of a web page.
    *
    * @param { string } origin - Index of the origin.
    * @param { boolean } allow - Geolocation permission status. {@code true} means to allow geolocation permission;
-   *                            {@code false} means to disallow geolocation permission.
+   *     {@code false} means to disallow geolocation permission.
    * @param { boolean } retain - Whether the geolocation permission status can be saved to the system.
-   *                             {@code true} means to allow the geolocation permission status to be saved to
-   *                             the system; {@code false} means to disallow the geolocation permission status to
-   *                             be saved to the system. You can manage the geolocation permissions saved
-   *                             to the system through {@link GeolocationPermissions}.
+   *     {@code true} means to allow the geolocation permission status to be saved to
+   *     the system; {@code false} means to disallow the geolocation permission status to
+   *     be saved to the system. You can manage the geolocation permissions saved
+   *     to the system through {@link GeolocationPermissions}.
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   invoke(origin: string, allow: boolean, retain: boolean): void;
 }
@@ -6391,9 +6370,8 @@ declare interface OnTitleReceiveEvent {
 }
 
 /**
- * Defines the triggered function when requesting to show the geolocation permission.
+ * Represents the callback invoked when a request to obtain the geolocation information is received.
  *
- * @typedef OnGeolocationShowEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6401,9 +6379,8 @@ declare interface OnTitleReceiveEvent {
  */
 declare interface OnGeolocationShowEvent {
   /**
-   * Origin of the page.
+   * Index of the origin.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6412,9 +6389,8 @@ declare interface OnGeolocationShowEvent {
   origin: string;
 
   /**
-   * Defines the js geolocation request.
+   * User operation.
    *
-   * @type { JsGeolocation }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -8703,26 +8679,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to allow access to geographical locations.
-   *
-   * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
    * Set whether to enable geolocation access. By default, this feature is enabled.
    * For details, see Managing Location Permissions.
    *
    * @param { boolean } geolocationAccess - Whether to enable geolocation access. {@code true} means the Web
-   *                                        allows access to geographical locations; {@code false} means the
-   *                                        Web disallows access to geographical locations. The default value is true.
+   *     allows access to geographical locations; {@code false} means the
+   *     Web disallows access to geographical locations. The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   geolocationAccess(geolocationAccess: boolean): WebAttribute;
 
@@ -9289,53 +9256,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onTitleReceive(callback: Callback<OnTitleReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when requesting to hide the geolocation.
-   *
-   * @param { function } callback The triggered function when requesting to hide the geolocation permission.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
    * Called to notify the user that the request for obtaining the geolocation information received
    * when {@link onGeolocationShow} is called has been canceled.
    *
-   * @param { function } callback Callback invoked when the request for obtaining geolocation information has been canceled.
+   * @param { function } callback Callback invoked when the request for obtaining geolocation information has been
+   *     canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onGeolocationHide(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when requesting to show the geolocation permission.
-   *
-   * @param { function } callback The triggered function when requesting to show the geolocation permission.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when requesting to show the geolocation permission.
-   *
-   * @param { function } callback The triggered function when requesting to show the geolocation permission.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Called when a request to obtain the geolocation information is received.
+   *
+   * @param { function } callback The triggered function when requesting to show the geolocation permission.
+   *     [since 8 - 11]
    * @param { Callback<OnGeolocationShowEvent> } callback - Callback invoked when a request to obtain the geolocation
-   *                                                        information is received.
+   *     information is received. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onGeolocationShow(callback: Callback<OnGeolocationShowEvent>): WebAttribute;
 
