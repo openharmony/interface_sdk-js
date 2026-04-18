@@ -4378,5 +4378,152 @@ declare namespace i18n {
      */
     displayTimeZone?: boolean;
   }
+
+  /**
+   * Obtains the ChineseCalendar object for the specified locale.
+   *
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { ChineseCalendar } ChineseCalendar object.
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export function getChineseCalendar(locale?: Intl.Locale): ChineseCalendar;
+
+  /**
+   * Provide a ChineseCalendar interface which could handle unique characteristics of the chinese calendar,
+   * such as leap month.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export class ChineseCalendar extends Calendar {  
+    /**
+     * Sets the year, month, day, hour, minute, second, isLeapMonth for this ChineseCalendar object.
+     *
+     * @param { ChineseCalendarTime } chineseCalendarTime - Indicates the time element used to set for ChineseCalendar.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public setChineseCalendarTime(chineseCalendarTime: ChineseCalendarTime): void;
+
+    /**
+     * Checks whether a given month exist leap month in gregorianYear and cyclicalYear.
+     *
+     * @param { int } gregorianYear - Gregorian year to check, supported range is from 1900 to 2100.
+     *     The value should be an integer.
+     *     <br>Year.
+     * @param { int } cyclicalYear - Cyclical year to check, supported range is from 1 to 60.
+     *     The value should be an integer.
+     *     <br>Year.
+     * @param { int } month - Month to check. Note: The month starts from 0. For example, 0 indicates January.
+     *     The value should be an integer.
+     *     <br>Month.
+     * @returns { boolean } Check whether the input month is a leap month.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public static checkLeapMonth(gregorianYear: int, cyclicalYear: int, month: int): boolean;
+  }
+
+  /**
+   * Represents chinese calendar time element for the ChineseCalendar object.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export interface ChineseCalendarTime {  
+    /**
+     * The gregorian year of date.
+     * If you need to convert between the chinese calendar and the Gregorian calendar,
+     * the year range must be set from 1900 to 2100.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    gregorianYear: int;
+
+    /**
+     * The cyclical year of date.
+     * If you need to convert between the chinese calendar and the Gregorian calendar,
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    cyclicalYear: int;
+
+    /**
+     * Month of the chinese calendar time. Note: The month starts from 0. For example, 0 indicates January.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    month: int;
+
+    /**
+     * Date of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    date: int;
+
+    /**
+     * Determines whether the input month is a leap month.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    isLeapMonth?: boolean;
+
+    /**
+     * Hour of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    hour?: int;
+
+    /**
+     * Minute of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    minute?: int;
+
+    /**
+     * Second of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    second?: int;
+  }
 }
 export default i18n;

@@ -148,7 +148,7 @@ export enum PanelType {
   /**
    * The menu panel can serve as a primary panel to display the functions that the current application can provide,
    *     such as translation, search, etc.
-   * 
+   *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
@@ -156,7 +156,7 @@ export enum PanelType {
   /**
    * The menu panel can serve as a primary panel to display the functions that the current application can provide,
    *     such as translation, search, etc.
-   * 
+   *
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 dynamic&static
@@ -164,15 +164,17 @@ export enum PanelType {
   MENU_PANEL = 1,
 
   /**
-   * The main panel can serve as a secondary panel that pops up when the user clicks on the function bottons
+   * The main panel can serve as a secondary panel that pops up when the user clicks on the function buttons
    *     on the menu panel, displaying specific translation or search results, etc.
+   *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
   /**
-   * The main panel can serve as a secondary panel that pops up when the user clicks on the function bottons
+   * The main panel can serve as a secondary panel that pops up when the user clicks on the function buttons
    *     on the menu panel, displaying specific translation or search results, etc.
+   *
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 dynamic&static

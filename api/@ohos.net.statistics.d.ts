@@ -997,7 +997,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103019 - The timestamp in param is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 22 dynamic
-   * @since 23 static
+   * @since 26.0.0 static
    */
   function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
 

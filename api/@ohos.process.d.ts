@@ -670,7 +670,7 @@ declare namespace process {
   /**
    * Obtains the duration, in milliseconds, from the time the system starts to the time the process starts.
    *
-   * @returns { number } Return the start of the system to the start of the process.
+   * @returns { number } Return the start of the system to the start of the process (ms).
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -922,7 +922,7 @@ declare namespace process {
   /**
    * Obtains the running time of this process.
    *
-   * @returns { number } Return the running time of the system.
+   * @returns { number } Return the running time of the system (s).
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

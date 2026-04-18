@@ -4394,6 +4394,36 @@ declare namespace camera {
   }
 
   /**
+   * Enumerates the exposure states.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum ExposureState {
+    /**
+     * Exposure is being scanned.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EXPOSURE_STATE_SCAN = 0,
+
+    /**
+     * Exposure is converged.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EXPOSURE_STATE_CONVERGED = 1
+  }
+
+  /**
    * AutoExposureQuery object.
    *
    * @interface AutoExposureQuery
@@ -4695,6 +4725,28 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     setExposureMeteringMode(aeMeteringMode: ExposureMeteringMode): void;
+
+    /**
+     * Registers a callback to listen for exposure state changes.
+     *
+     * @param { Callback<ExposureState> } callback - Callback used to get the exposure state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onExposureStateChange(callback: Callback<ExposureState>): void
+
+    /**
+     * Unregisters the callback used to listen for exposure state changes.
+     *
+     * @param { Callback<ExposureState> } [callback] - Callback used to get the exposure state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offExposureStateChange(callback?: Callback<ExposureState>): void
   }
 
   /**
