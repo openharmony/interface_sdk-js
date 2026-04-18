@@ -560,7 +560,7 @@ declare enum ImageRotateOrientation {
   LEFT = 4,
 
   /**
-   * Flip the orignial image horizontally
+   * Flip the original image horizontally
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -568,7 +568,7 @@ declare enum ImageRotateOrientation {
    * @since 20 dynamic
    */
   /**
-   * Flip the orignial image horizontally
+   * Flip the original image horizontally
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -579,7 +579,7 @@ declare enum ImageRotateOrientation {
   UP_MIRRORED = 5,
 
   /**
-   * Flip the orignial image horizontally and rotate clockwise 90 degrees
+   * Flip the original image horizontally and rotate clockwise 90 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -587,7 +587,7 @@ declare enum ImageRotateOrientation {
    * @since 20 dynamic
    */
   /**
-   * Flip the orignial image horizontally and rotate clockwise 90 degrees
+   * Flip the original image horizontally and rotate clockwise 90 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -598,7 +598,7 @@ declare enum ImageRotateOrientation {
   RIGHT_MIRRORED = 6,
 
   /**
-   * Flip the orignial image vertically
+   * Flip the original image vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -606,7 +606,7 @@ declare enum ImageRotateOrientation {
    * @since 20 dynamic
    */
   /**
-   * Flip the orignial image vertically
+   * Flip the original image vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -617,7 +617,7 @@ declare enum ImageRotateOrientation {
   DOWN_MIRRORED = 7,
 
   /**
-   * Flip the orignial image horizontally and rotate clockwise 270 degrees
+   * Flip the original image horizontally and rotate clockwise 270 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -625,7 +625,7 @@ declare enum ImageRotateOrientation {
    * @since 20 dynamic
    */
   /**
-   * Flip the orignial image horizontally and rotate clockwise 270 degrees
+   * Flip the original image horizontally and rotate clockwise 270 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1382,7 +1382,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute is not applicable to SVG images.
    * </p>
    *
-   * @param { DynamicRangeMode } value - Dynamic range of the image, Default value is DynamicRangeMode.Standard.
+   * @param { DynamicRangeMode } value - Dynamic range of the image, Default value is DynamicRangeMode.STANDARD.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice

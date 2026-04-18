@@ -1231,6 +1231,14 @@ declare namespace hidebug {
      * @since 23 static
      */
     maxSimutaneousAllocations?: int;
+    /**
+     * the Recoverable mode of GWP-ASAN.
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isRecover?: boolean;
   }
 
   /**
