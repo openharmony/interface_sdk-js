@@ -407,6 +407,60 @@ declare namespace fileShare {
   function revokePermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
+   * Revoke all persistence permissions for the application.
+   *
+   * @permission ohos.permission.REVOKE_FILE_ACCESS_PERSIST
+   * @param { int } tokenID - Token ID of the application.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function revokePermission(tokenID: int): Promise<void>;
+
+  /**
+   * Revoke persistence permissions for the URI.
+   *
+   * @permission ohos.permission.REVOKE_FILE_ACCESS_PERSIST
+   * @param { int } tokenID - Token ID of the application.
+   * @param { Array<PolicyInfo> } policies - Policy information to revoke permission on URIs.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function revokePermission(tokenID: int, policies: Array<PolicyInfo>): Promise<void>;
+
+  /**
+   * Get all persistence permissions for the application.
+   *
+   * @permission ohos.permission.GET_FILE_ACCESS_PERSIST
+   * @param { int } tokenID - Token ID of the application.
+   * @returns { Promise<Array<PolicyInfo>> } Returns all persistence policy information.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+    function getPersistentPolicy(tokenID: int): Promise<Array<PolicyInfo>>;
+
+  /**
    * Enable the URI that have been permanently authorized
    *
    * @permission ohos.permission.FILE_ACCESS_PERSIST
@@ -496,22 +550,24 @@ declare namespace fileShare {
    * Gets the shared sandbox directories of applications
    *
    * @permission ohos.permission.ACCESS_SHARED_FILE
-   * @returns { Array<SharedDirectoryInfo> } Returns the shared sandbox directories on paths.
+   * @returns { Promise<Array<SharedDirectoryInfo>> } Returns the shared sandbox directories on paths.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function getSharedDirectoryInfo(): Array<SharedDirectoryInfo>;
+  function getSharedDirectoryInfo(): Promise<Array<SharedDirectoryInfo>>;
 
   /**
    * Provides a permission grant for application-shared directories
    *
    * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -521,12 +577,13 @@ declare namespace fileShare {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function grantSharedDirectoryPermission(): void;
+  function grantSharedDirectoryPermission(): Promise<void>;
 
   /**
    * Revokes permission for application-shared directories
    *
    * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -536,7 +593,7 @@ declare namespace fileShare {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function revokeSharedDirectoryPermission(): void;
+  function revokeSharedDirectoryPermission(): Promise<void>;
 }
 
 export default fileShare;

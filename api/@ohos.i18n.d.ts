@@ -6580,7 +6580,7 @@ declare namespace i18n {
      * @atomicservice
      * @since 26.0.0 dynamic
      */
-    public checkLeapMonth(gregorianYear: int, cyclicalYear: int, month: int): boolean;
+    public static checkLeapMonth(gregorianYear: int, cyclicalYear: int, month: int): boolean;
   }
 
   /**

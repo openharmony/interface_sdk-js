@@ -69,6 +69,17 @@ export declare interface StackAttribute extends CommonMethod {
     */
     default pointLight(value: PointLightStyle | undefined): StackAttribute;
     /**
+     * Set whether to synchronously load child nodes within one frame.
+     *
+     * @param { boolean } enable - Indicates whether to load subnodes in a frame synchronously.
+     *     <br>Default value: <em>true</em>
+     * @returns { StackAttribute } The attribute of the Stack.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default syncLoad(enable: boolean): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
