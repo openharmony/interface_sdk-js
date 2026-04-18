@@ -4975,7 +4975,7 @@ declare namespace audio {
     /**
      * Restores the output device for the specified audio renderer filter to the default strategy.
      *
-     * @param { AudioRendererFilter } filter - Filter for audio renderer to restore.
+     * @param { AudioRendererFilter } filter - Filter of audio renderer to restore.
      * @returns { Promise<void> } Promise used to return result.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
