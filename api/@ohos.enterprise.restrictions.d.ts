@@ -45,6 +45,16 @@ declare namespace restrictions {
      * @since 24
      */
     WIFI_P2P = 0,
+
+    /**
+     * Local input.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    LOCAL_INPUT = 2,
+    
     /**
      * Core dump
      *
@@ -63,6 +73,15 @@ declare namespace restrictions {
    * @since 26.0.0
    */
   enum FeatureForAccount {
+    /**
+     * Multi-Window.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MULTI_WINDOW = 0,
+
     /**
      * Distributed transmission.
      *

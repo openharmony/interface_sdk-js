@@ -626,7 +626,16 @@ declare namespace deviceSettings {
      * @stagemodelonly
      * @since 26.0.0
      */
-    OFF = 1
+    OFF = 1,
+
+    /**
+     * force on.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    FORCE_ON = 2
   }
 
   /**

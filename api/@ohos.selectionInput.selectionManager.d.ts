@@ -38,14 +38,12 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
  * @stagemodelonly
  * @since 24 dynamic&static
  */
-
 declare namespace selectionManager {
   /**
-   * Registers a callback to listen for the word selection completion event.
-   * 
-   * @param { 'selectionCompleted' } type Word selection completion event.
-   * @param { Callback<SelectionInfo> } callback Callback used to listen for the word selection completion
-   * event.
+   * Registers a callback used to listen for the word selection completion event.
+   *
+   * @param { 'selectionCompleted' } type - Word selection completion event.
+   * @param { Callback<SelectionInfo> } callback - Callback used to listen for the word selection completion event.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -53,11 +51,10 @@ declare namespace selectionManager {
    * @since 20 dynamic
    */
   /**
-   * Registers a callback to listen for the word selection completion event.
-   * 
-   * @param { 'selectionCompleted' } type Word selection completion event.
-   * @param { Callback<SelectionInfo> } callback Callback used to listen for the word selection completion
-   * event.
+   * Registers a callback used to listen for the word selection completion event.
+   *
+   * @param { 'selectionCompleted' } type - Word selection completion event.
+   * @param { Callback<SelectionInfo> } callback - Callback used to listen for the word selection completion event.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -67,9 +64,9 @@ declare namespace selectionManager {
 
   /**
    * Registers a callback to listen for the word selection completion event.
-   * 
-   * @param { Callback<SelectionInfo> } callback Callback used to listen for the word selection completion
-   * event.
+   *
+   * @param { Callback<SelectionInfo> } callback - Callback used to listen for the word selection completion
+   *     event.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -80,18 +77,20 @@ declare namespace selectionManager {
 
   /**
    * Unregisters the callback used to listen for the word selection completion event.
-   * @param { 'selectionCompleted' } type Word selection completion event.
-   * @param { Callback<SelectionInfo> } [callback] (Optional) Callback used to listen for the word selection
-   * completion event.
+   *
+   * @param { 'selectionCompleted' } type - Word selection completion event.
+   * @param { Callback<SelectionInfo> } [callback] - (Optional) Callback used to listen for the word selection
+   *     completion event.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
   /**
    * Unregisters the callback used to listen for the word selection completion event.
-   * @param { 'selectionCompleted' } type Word selection completion event.
-   * @param { Callback<SelectionInfo> } [callback] (Optional) Callback used to listen for the word selection
-   * completion event.
+   *
+   * @param { 'selectionCompleted' } type - Word selection completion event.
+   * @param { Callback<SelectionInfo> } [callback] - (Optional) Callback used to listen for the word selection
+   *     completion event.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 24 dynamic
    */
@@ -99,7 +98,7 @@ declare namespace selectionManager {
 
   /**
    * Unregisters the callback used to listen for the word selection completion event.
-   * 
+   *
    * @param { Callback<SelectionInfo> } [callback] - (Optional) Callback used to listen for the word selection
    *     completion event.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -112,12 +111,12 @@ declare namespace selectionManager {
    * Obtains the selected content.
    *
    * @returns { Promise<string> } Promise used to return the selected content.
-   * @throws { BusinessError } 33600001 Selection service exception.
-   * @throws { BusinessError } 33600004 The interface is called too frequently.
-   * @throws { BusinessError } 33600005 The interface is called at the wrong time.
-   * @throws { BusinessError } 33600006 The current application is prohibited from accessing content.
-   * @throws { BusinessError } 33600007 The length of selected content is out of range.
-   * @throws { BusinessError } 33600008 Getting the selected content times out.
+   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600004 - The interface is called too frequently.
+   * @throws { BusinessError } 33600005 - The interface is called at the wrong time.
+   * @throws { BusinessError } 33600006 - The current application is prohibited from accessing content.
+   * @throws { BusinessError } 33600007 - The length of selected content is out of range.
+   * @throws { BusinessError } 33600008 - Getting the selected content times out.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 22 dynamic
@@ -126,12 +125,12 @@ declare namespace selectionManager {
    * Obtains the selected content.
    *
    * @returns { Promise<string> } Promise used to return the selected content.
-   * @throws { BusinessError } 33600001 Selection service exception.
-   * @throws { BusinessError } 33600004 The interface is called too frequently.
-   * @throws { BusinessError } 33600005 The interface is called at the wrong time.
-   * @throws { BusinessError } 33600006 The current application is prohibited from accessing content.
-   * @throws { BusinessError } 33600007 The length of selected content is out of range.
-   * @throws { BusinessError } 33600008 Getting the selected content times out.
+   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600004 - The interface is called too frequently.
+   * @throws { BusinessError } 33600005 - The interface is called at the wrong time.
+   * @throws { BusinessError } 33600006 - The current application is prohibited from accessing content.
+   * @throws { BusinessError } 33600007 - The length of selected content is out of range.
+   * @throws { BusinessError } 33600008 - Getting the selected content times out.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 24 dynamic&static
    */
@@ -139,11 +138,11 @@ declare namespace selectionManager {
 
   /**
    * Creates a word selection panel.
-   * 
-   * @param { Context } ctx Context on which the word selection panel depends.
-   * @param { PanelInfo } info Information about the word selection panel.
+   *
+   * @param { Context } ctx - Context on which the word selection panel depends.
+   * @param { PanelInfo } info - Information about the word selection panel.
    * @returns { Promise<Panel> } Promise used to return the word selection panel.
-   * @throws { BusinessError } 33600001 Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service exception.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -153,10 +152,10 @@ declare namespace selectionManager {
   /**
    * Creates a word selection panel.
    * 
-   * @param { Context } ctx Context on which the word selection panel depends.
-   * @param { PanelInfo } info Information about the word selection panel.
+   * @param { Context } ctx - Context on which the word selection panel depends.
+   * @param { PanelInfo } info - Information about the word selection panel.
    * @returns { Promise<Panel> } Promise used to return the word selection panel.
-   * @throws { BusinessError } 33600001 Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service exception.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -167,20 +166,20 @@ declare namespace selectionManager {
 
   /**
    * Destroys the word selection panel.
-   * 
-   * @param { Panel } panel Word selection panel.
+   *
+   * @param { Panel } panel - Word selection panel.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 33600001 Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service exception.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
   /**
    * Destroys the word selection panel.
-   * 
-   * @param { Panel } panel Word selection panel.
+   *
+   * @param { Panel } panel - Word selection panel.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 33600001 Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service exception.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 dynamic&static
@@ -441,10 +440,10 @@ declare namespace selectionManager {
     /**
      * Sets the content to be displayed in the panel.
      * 
-     * @param { string } path Path of the content to be displayed.
+     * @param { string } path - Path of the content to be displayed.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
      * @since 20 dynamic
@@ -452,10 +451,10 @@ declare namespace selectionManager {
     /**
      * Sets the content to be displayed in the panel.
      * 
-     * @param { string } path Path of the content to be displayed.
+     * @param { string } path - Path of the content to be displayed.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -466,8 +465,8 @@ declare namespace selectionManager {
      * Shows this word selection panel.
      * 
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
      * @since 20 dynamic
@@ -476,8 +475,8 @@ declare namespace selectionManager {
      * Shows this word selection panel.
      * 
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -488,8 +487,8 @@ declare namespace selectionManager {
      * Hides this word selection panel.
      * 
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
      * @since 20 dynamic
@@ -498,33 +497,33 @@ declare namespace selectionManager {
      * Hides this word selection panel.
      * 
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 24 dynamic&static
      */
     hide(): Promise<void>;
 
     /**
-     * Start moving the selection panel window by dragging. This API used a promise to return the result.The window
+     * Starts moving the selection panel window by dragging. This API uses a promise to return the result.The window
      *     moves along with the cursor only when this API is called in the callback function of onTouch,
      *     where the event type is TouchType.Down.
      * 
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
      * @since 20 dynamic
      */
     /**
-     * Start moving the selection panel window by dragging. This API used a promise to return the result.The window
+     * Starts moving the selection panel window by dragging. This API uses a promise to return the result.The window
      *     moves along with the cursor only when this API is called in the callback function of onTouch,
      *     where the event type is TouchType.Down.
      * 
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -534,11 +533,11 @@ declare namespace selectionManager {
     /**
      * Moves the word selection panel window to the specified coordinates on the screen.
      * 
-     * @param { int } x X-coordinate on the screen.
-     * @param { int } y Y-coordinate on the screen.
+     * @param { int } x - X-coordinate on the screen.
+     * @param { int } y - Y-coordinate on the screen.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
      * @since 20 dynamiconly
@@ -550,11 +549,11 @@ declare namespace selectionManager {
     /**
      * Moves the word selection panel window to the specified coordinates on the screen.
      * 
-     * @param { int } x X-coordinate on the screen.
-     * @param { int } y Y-coordinate on the screen.
+     * @param { int } x - X-coordinate on the screen.
+     * @param { int } y - Y-coordinate on the screen.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 Selection service exception.
-     * @throws { BusinessError } 33600002 This selection window has been destroyed.
+     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -564,8 +563,8 @@ declare namespace selectionManager {
     /**
      * Registers a callback to listen for the destroy event of the word selection panel.
      * 
-     * @param { 'destroyed' } type Destroy event of the word selection panel.
-     * @param { Callback<void> } callback Callback used to listen for the destroy event of the word selection
+     * @param { 'destroyed' } type - Destroy event of the word selection panel.
+     * @param { Callback<void> } callback - Callback used to listen for the destroy event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
@@ -574,8 +573,8 @@ declare namespace selectionManager {
     /**
      * Registers a callback to listen for the destroy event of the word selection panel.
      * 
-     * @param { 'destroyed' } type Destroy event of the word selection panel.
-     * @param { Callback<void> } callback Callback used to listen for the destroy event of the word selection
+     * @param { 'destroyed' } type - Destroy event of the word selection panel.
+     * @param { Callback<void> } callback - Callback used to listen for the destroy event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 24 dynamic
@@ -584,7 +583,7 @@ declare namespace selectionManager {
 
     /**
      * Registers a callback to listen for the destroy event of the word selection panel.
-     * 
+     *
      * @param { Callback<void> } callback - Callback used to listen for the destroy event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
@@ -596,8 +595,8 @@ declare namespace selectionManager {
     /**
      * Unregisters the callback used to listen for the destroy event of the word selection panel.
      * 
-     * @param { 'destroyed' } type Destroy event of the word selection panel.
-     * @param { Callback<void> } [callback] Callback used to listen for the destroy event of the word
+     * @param { 'destroyed' } type - Destroy event of the word selection panel.
+     * @param { Callback<void> } [callback] - Callback used to listen for the destroy event of the word
      *     selection panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
@@ -606,8 +605,8 @@ declare namespace selectionManager {
     /**
      * Unregisters the callback used to listen for the destroy event of the word selection panel.
      * 
-     * @param { 'destroyed' } type Destroy event of the word selection panel.
-     * @param { Callback<void> } [callback] Callback used to listen for the destroy event of the word
+     * @param { 'destroyed' } type - Destroy event of the word selection panel.
+     * @param { Callback<void> } [callback] - Callback used to listen for the destroy event of the word
      *     selection panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 24 dynamic
@@ -616,7 +615,7 @@ declare namespace selectionManager {
 
     /**
      * Unregisters the callback used to listen for the destroy event of the word selection panel.
-     * 
+     *
      * @param { Callback<void> } [callback] - Callback used to listen for the destroy event of the word
      *     selection panel.
      * @syscap SystemCapability.SelectionInput.Selection
@@ -628,8 +627,8 @@ declare namespace selectionManager {
     /**
      * Registers a callback to listen for the hide event of the word selection panel.
      * 
-     * @param { 'hidden' } type Hide event of the word selection panel.
-     * @param { Callback<void> } callback Callback used to listen for the hide event of the word selection
+     * @param { 'hidden' } type - Hide event of the word selection panel.
+     * @param { Callback<void> } callback - Callback used to listen for the hide event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
@@ -638,8 +637,8 @@ declare namespace selectionManager {
     /**
      * Registers a callback to listen for the hide event of the word selection panel.
      * 
-     * @param { 'hidden' } type Hide event of the word selection panel.
-     * @param { Callback<void> } callback Callback used to listen for the hide event of the word selection
+     * @param { 'hidden' } type - Hide event of the word selection panel.
+     * @param { Callback<void> } callback - Callback used to listen for the hide event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 24 dynamic
@@ -648,7 +647,7 @@ declare namespace selectionManager {
 
     /**
      * Registers a callback to listen for the hide event of the word selection panel.
-     * 
+     *
      * @param { Callback<void> } callback - Callback used to listen for the hide event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
@@ -660,9 +659,9 @@ declare namespace selectionManager {
     /**
      * Unregisters the callback used to listen for the hide event of the word selection panel.
      * 
-     * @param { 'hidden' } type Hide event of the word selection panel.
-     * @param { Callback<void> } [callback] Callback used to listen for the hide event of the word selection
-     * panel.
+     * @param { 'hidden' } type - Hide event of the word selection panel.
+     * @param { Callback<void> } [callback] - Callback used to listen for the hide event of the word selection
+     *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
      * @since 20 dynamic
@@ -670,9 +669,9 @@ declare namespace selectionManager {
     /**
      * Unregisters the callback used to listen for the hide event of the word selection panel.
      * 
-     * @param { 'hidden' } type Hide event of the word selection panel.
-     * @param { Callback<void> } [callback] Callback used to listen for the hide event of the word selection
-     * panel.
+     * @param { 'hidden' } type - Hide event of the word selection panel.
+     * @param { Callback<void> } [callback] - Callback used to listen for the hide event of the word selection
+     *     panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 24 dynamic
      */
@@ -680,7 +679,7 @@ declare namespace selectionManager {
 
     /**
      * Unregisters the callback used to listen for the hide event of the word selection panel.
-     * 
+     *
      * @param { Callback<void> } [callback] - Callback used to listen for the hide event of the word selection
      *     panel.
      * @syscap SystemCapability.SelectionInput.Selection

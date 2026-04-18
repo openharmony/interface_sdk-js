@@ -33,7 +33,7 @@ import {
     Direction,
     Callback,
     ComponentV2,
-    Builder,
+    Builder
 } from './@ohos.arkui.component';
 import { ObservedV2, Trace, Require, Param, Event } from './@ohos.arkui.stateManagement';
 import { ColorMetrics, LengthMetrics, SizeT } from './@ohos.arkui.node';

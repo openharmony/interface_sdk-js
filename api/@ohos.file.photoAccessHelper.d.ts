@@ -3601,7 +3601,33 @@ declare namespace photoAccessHelper {
     * @stagemodelonly
     * @since 24 dynamic&static
     */
-    LCD_FILE_SIZE = 'lcd_file_size'
+    LCD_FILE_SIZE = 'lcd_file_size',
+    /**
+     * Hidden time of asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HIDDEN_TIME = 'hidden_time',
+    /**
+     * Size of local asset, which well matched the content read by the application.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LOCAL_ASSET_SIZE = 'local_asset_size',
+    /**
+     * File hidden state of filemanager.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_HIDDEN = 'file_hidden'
   }
 
   /**
@@ -3818,7 +3844,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    HIDDEN = 'hidden'
+    HIDDEN = 'hidden',
+    /**
+     * directory hidden state of filemanager
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_HIDDEN = 'file_hidden'
   }
 
   /**
@@ -7318,6 +7353,36 @@ declare namespace photoAccessHelper {
     stopAssetAnalysis(config: AnalysisConfig): void;
 
     /**
+     * Subscribes to changes of medialibrary availability.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<MediaLibraryAvailability> } callback - Callback used to return the MediaLibraryAvailability.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800151 - Scenario-specific parameters are incorrect. Possible causes are as follows:
+     * <br>1. The input parameter is null or undefined.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onMediaLibraryAvailability(callback: Callback<MediaLibraryAvailability>): void;
+
+    /**
+     * Unsubscribes to changes of medialibrary availability.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<MediaLibraryAvailability> } [callback] - Callback used to return the MediaLibraryAvailability.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offMediaLibraryAvailability(callback?: Callback<MediaLibraryAvailability>): void;
+
+    /**
      * Obtains album information by album IDs. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -8153,6 +8218,27 @@ declare namespace photoAccessHelper {
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
 
     /**
+     * Convert to PhotoAsset from path of filemanagerr.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string }path - file path of filemanager.
+     * @returns { Promise<PhotoAsset> } Returns successed asset.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws {BusinessError } 202 - Called by non-system application.
+     * @throws {BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Converted an image after filtering into an asset object;
+     *     <br>2.File to be converted is not exist;
+     *     <br>3. Only images in the public directory of filemanager can be converted.
+     * @throws { BusinessError } 23800301 - Internalsystem error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    convertToAsset(path: string): Promise<PhotoAsset>;
+
+    /**
      * Get PhotoAsset objects from ValuesBucket record info.
      *
      * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset's
@@ -8261,6 +8347,22 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     getPreferredCompatibleMode(bundleName: string): Promise<PreferredCompatibleMode>;
+
+    /**
+     * Query whether the assets exist and whether the invoker has read permission on the assets without permission.
+     * @param { string[] } uris - Asset URI list.
+     * @returns {Promise<Map<string, MediaAssetPermissionState>>} - Returns
+     *     whether the assets exist and whether the invoker has read permission on the assets without permission.
+     * @throws { BusinessError } 23800151 - Scenario-specific parameters are incorrect. Possible causes are as follows:
+     *     1. The length of the input parameter queue is greater than 500.
+     *     2. The input parameter is null or undefined.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    checkPhotoUrisReadPermission(uris: string[]): Promise<Map<string, MediaAssetPermissionState>>;
   }
 
   /**
@@ -8753,6 +8855,28 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     albumChangeInfos?: AlbumChangeInfo[] | null;
+
+    /**
+     * The hidden time of asset.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    hiddenTime?: long;
+
+    /**
+     * The modified time of asset.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    dateModifiedMs?: long;
   }
 
   /**
@@ -9004,6 +9128,15 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     hidden?: boolean;
+    /**
+     * The virtual path of album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    lpath?: string;
   }
 
   /**
@@ -11789,6 +11922,22 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
+
+    /**
+     * Set hidden state of the asset.
+     *
+     * @param { boolean } hiddenState - Hidden status of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The asset does not exist;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted.2. The filesystem is abnormal.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setHiddenAttribute(hiddenState: boolean): void;
   }
 
   /**
@@ -12301,6 +12450,23 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     resetCoverUri(): void;
+
+    /**
+     * Set hidden state of album.
+     *
+     * @param { boolean } hiddenState - Hidden status of the album
+     * @param { boolean } isInherited - Whether all child files or directories under an album inherit this setting
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The album does not exist;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setHiddenAttribute(hiddenState: boolean, isInherited:boolean):void;
   }
 
   /**
@@ -15581,6 +15747,100 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     WIFI = 2
+  }
+
+  /**
+   * MediaLibrary availability.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface MediaLibraryAvailability {
+    /**
+     * MediaLibrary availability status.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    availabilityStatus: AvailabilityStatus;
+    /**
+     * MediaLibrary unavailability reason.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    unavailabilityReason: string;
+  }
+
+  /**
+   * Enumeration of medialibrary availability status.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AvailabilityStatus {
+    /**
+     * MediaLibrary available.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AVAILABLE = 'available',
+    /**
+     * MediaLibrary unavailable.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNAVAILABLE = 'unavailable'
+  }
+
+  /**
+   * Enumeration of permission level for an application to access asset.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum MediaAssetPermissionState {
+    /**
+     * Not media asset uri.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    URI_FORMAT_ERROR = 0,
+    /**
+     * Asset not exists.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_NOT_EXIST = 1,
+    /**
+     * The application has read permission when accessing the asset
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    READ_PERMISSION = 2,
+    /**
+     * The application has no read permission when accessing the asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    NO_READ_PERMISSION = 3
   }
 }
 

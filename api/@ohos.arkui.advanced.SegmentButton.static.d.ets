@@ -25,7 +25,7 @@ import {
   PropRef,
   ObjectLink,
   Link,
-  Observed,
+  Observed
 } from './@ohos.arkui.stateManagement';
 import {
   ResourceStr,
@@ -45,7 +45,7 @@ import {
   LengthMetrics,
   Component,
   BuilderParam,
-  Builder,
+  Builder
 } from './@ohos.arkui.component';
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
