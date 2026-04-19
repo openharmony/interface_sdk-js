@@ -619,16 +619,17 @@ export declare struct IconGroupSuffix {
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
 
     /**
-     * IconGroupSuffix background system material.
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
      * @type { ?uiMaterial.Material }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
+     * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
      */
     @Prop
-    backgroundSystemMaterial?: uiMaterial.Material;
+    iconBackgroundSystemMaterial?: uiMaterial.Material;
 }
 
 
@@ -713,8 +714,21 @@ export declare struct ChipGroup {
      * @atomicservice
      * @since 12 dynamic
      */
+     @Prop
+     chipGroupPadding?: ChipGroupPaddingOptions;
+
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @type { ?uiMaterial.Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
     @Prop
-    chipGroupPadding?: ChipGroupPaddingOptions;
+    backgroundSystemMaterial?: uiMaterial.Material;
 
     /**
      * Chip group callback. when chip status is changed, this onChange is called.

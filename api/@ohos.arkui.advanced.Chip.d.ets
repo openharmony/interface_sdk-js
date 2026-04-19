@@ -907,11 +907,12 @@ export interface ChipOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Chip background system material.
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
    *
    * @type { ?uiMaterial.Material }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -929,11 +930,12 @@ export interface ChipOptions {
   activatedBackgroundColor?: ResourceColor;
 
   /**
-   * Chip background system material when chip is activated.
+   * Set system-styled materials for the component which is activated. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
    *
    * @type { ?uiMaterial.Material }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
    */
