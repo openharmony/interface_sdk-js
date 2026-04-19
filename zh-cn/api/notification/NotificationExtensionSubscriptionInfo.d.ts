@@ -14,35 +14,35 @@
  */
 
 /**
- * @file
+ * @file Describes a notification extension subscription info
  * @kit NotificationKit
  */
 
+import type notificationExtensionSubscription from '../@ohos.notificationExtensionSubscription';
+
 /**
- * The **NotificationExtensionContent** module describes the notification extension content.
+ * 用于描述通知扩展订阅的信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
  */
-export interface NotificationExtensionContent {
+export interface NotificationExtensionSubscriptionInfo {
   /**
-   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * 表示设备的唯一标识符。例如："11:22:33:AA:BB:FF"
    *
    * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
    * @since 22 dynamic
    * @since 23 static
    */
-  title: string;
+  addr: string;
 
   /**
-   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
+   * 表示订阅的类型，包括通过蓝牙订阅通知。
    *
    * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
    * @since 22 dynamic
    * @since 23 static
    */
-  text: string;
+  type: notificationExtensionSubscription.SubscribeType;
 }

@@ -18,31 +18,17 @@
  * @kit NotificationKit
  */
 
+import type ExtensionContext from './application/ExtensionContext';
 /**
- * The **NotificationExtensionContent** module describes the notification extension content.
+ * NotificationSubscriberExtensionContext模块提供通知订阅者扩展能力。
+ * 
+ * > **说明**
+ * >
+ * > 本模块接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.Notification.Notification
+ * @stagemodelonly
  * @since 22 dynamic
  * @since 23 static
  */
-export interface NotificationExtensionContent {
-  /**
-   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  title: string;
-
-  /**
-   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  text: string;
-}
+export default class NotificationSubscriberExtensionContext extends ExtensionContext {}
