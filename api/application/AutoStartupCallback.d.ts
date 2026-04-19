@@ -26,35 +26,34 @@ import type AutoStartupInfo from './AutoStartupInfo';
 /*** endif */
 
 /**
- * The class of auto startup callback.
+ * The module defines the callback to be invoked when auto-startup is set or canceled for an application component.
  *
- * @typedef AutoStartupCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11 dynamic
  * @since 23 static
  */
 export interface AutoStartupCallback {
   /**
-   * When the application's auto startup state is set to on, this function is called.
+   * Called when auto-startup is set for an application component.
    *
-   * @param { AutoStartupInfo } info - Auto startup info.
+   * @param { AutoStartupInfo } info - Information about the target application component.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onAutoStartupOn(info: AutoStartupInfo): void;
 
   /**
-   * When the application's auto startup state is set to off, this function is called.
+   * Called when the auto-startup setting of an application component is canceled.
    *
-   * @param { AutoStartupInfo } info - Auto startup info.
+   * @param { AutoStartupInfo } info - Information about the target application component.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */

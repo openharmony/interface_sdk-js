@@ -19,9 +19,15 @@
  */
 
 /**
- * The class of single running app information.
+ * # How to Use
+ * 
+ * The RunningAppClone struct is obtained from 
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
+ * **appManager**.
+ */
+/**
+ * The RunningAppClone module defines the information of an application clone in the running state.
  *
- * @typedef RunningAppClone
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
@@ -29,20 +35,18 @@
  */
 export interface RunningAppClone {
   /**
-   * The app clone index of current single app.
+   * Index of an application clone.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
    * @since 23 static
    */
-   appCloneIndex: int;
+  appCloneIndex: int;
 
   /**
-   * The uid of current single app.
+   * UID of the application.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
@@ -51,9 +55,8 @@ export interface RunningAppClone {
   uid: int;
 
   /**
-   * All pids of current single app.
+   * Process ID set of the application.
    *
-   * @type { Array<int> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
