@@ -26,9 +26,11 @@ import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
 /*** endif */
 
 /**
- * The ability first frame state observer.
- * 
- * @interface AbilityFirstFrameStateObserver
+ * The module defines the observer used to listen for the first frame rendering completion event of a given ability. It 
+ * is used as an input parameter of 
+ * [on]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string)}
+ * to listen for the completion event.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
@@ -37,9 +39,9 @@ import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
 export interface AbilityFirstFrameStateObserver {
 
     /**
-     * Will be called when an ability first frame drawing completed.
-     * 
-     * @param { AbilityFirstFrameStateData } data - The ability first frame state data.
+     * Called when the first frame of the ability is rendered.
+     *
+     * @param { AbilityFirstFrameStateData } data - Data returned after the first frame is rendered.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 12 dynamic

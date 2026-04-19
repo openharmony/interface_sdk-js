@@ -21,39 +21,21 @@
 import type appManager from './@ohos.app.ability.appManager';
 
 /**
- * The definition of AbilityConstant.
+ * AbilityConstant provides enums related to abilities, including the window mode.
  *
- * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 9
- */
-/**
- * The definition of AbilityConstant.
- *
- * @namespace AbilityConstant
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * The <code>AbilityConstant</code> module defines the UIAbility-related enums, including the initial launch reasons,
- * reasons for the last exit, ability continuation results, and window modes.
- *
- * @namespace AbilityConstant
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace AbilityConstant {
   /**
-   * Indicates that the application is launched by clicking the shortcut icon on the desktop.
-   * 
-   * @constant
+   * The UIAbility is launched via a home screen shortcut. If this string is obtained from the **launchReasonMessage** 
+   * property in [LaunchParam]{@link AbilityConstant.LaunchParam}, the UIAbility is initiated by touching a shortcut on 
+   * the home screen.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @stagemodelonly
    * @atomicservice
@@ -61,71 +43,36 @@ declare namespace AbilityConstant {
    * @since 23 static
    */
   const REASON_MESSAGE_DESKTOP_SHORTCUT = 'ReasonMessage_DesktopShortcut';
+
   /**
-   * Interface of launch param.
+   * Describes the launch parameters, which mainly include the ability launch reasons and reasons for the last exit. The
+   *  parameter values are automatically passed in by the system when the ability is launched. You do not need to change
+   *  the values.
    *
-   * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Interface of launch param.
-   *
-   * @typedef LaunchParam
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the parameters for starting an ability.
-   * The parameter values are automatically passed in by the system when the ability is started. You do not need to
-   * change the values.
-   *
-   * @typedef LaunchParam
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export interface LaunchParam {
     /**
-     * Indicates launch reason.
+     * An enumerated value indicating the reason for ability launch (for example, recovery from a fault, intent 
+     * invocation, or atomic service sharing). For details, see [LaunchReason]{@link AbilityConstant.LaunchReason}.
      *
-     * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Indicates launch reason.
-     *
-     * @type { LaunchReason }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Ability launch reason, which is an enumerated type.
-     *
-     * @type { LaunchReason }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     launchReason: LaunchReason;
 
     /**
-     * Detailed message that describes the ability launch reason.
+     * 	Detailed message that describes the reason for the ability launch.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -135,39 +82,20 @@ declare namespace AbilityConstant {
     launchReasonMessage?: string;
 
     /**
-     * Indicates last exit reason.
+     * An enumerated value indicating the reason for the last exit of the ability.
      *
-     * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Indicates last exit reason.
-     *
-     * @type { LastExitReason }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reason for the last exit, which is an enumerated type.
-     *
-     * @type { LastExitReason }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     lastExitReason: LastExitReason;
 
     /**
-     * Reason for the last exit.
+     * Detailed message that describes the reason for the last exit of the ability.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -177,9 +105,9 @@ declare namespace AbilityConstant {
     lastExitMessage: string;
 
     /**
-     * Detailed information about the last exit.
+     * Key runtime information for the last exit of the ability (including process ID, exit timestamp, and RSS memory 
+     * value).
      *
-     * @type { LastExitDetailInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -189,9 +117,15 @@ declare namespace AbilityConstant {
     lastExitDetailInfo?: LastExitDetailInfo;
 
     /**
-     * Indicates the UTC timestamp of component launch, in milliseconds.
+     * UTC timestamp when the UIAbility starts, in milliseconds.
+     * 
+     * This API can be used in atomic services since API version 23.
+     * 
+     * **Constraints**:
+     * 
+     * This feature takes effect only when the UIAbility is started. For other types of abilities (for example, 
+     * UIExtensionAbility), the obtained start time is the default value**0**.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -200,9 +134,13 @@ declare namespace AbilityConstant {
     launchUTCTime?: long;
 
     /**
-     * Indicates the system uptime (time since last system boot) when the component launched, in milliseconds.
+     * 	System uptime (the time elapsed since the system booted up) when the UIAbility starts, in milliseconds.
+     * 
+     * **Constraints**:
+     * 
+     * This feature takes effect only when the UIAbility is started. For other types of abilities (for example, 
+     * UIExtensionAbility), the obtained start time is the default value **0**.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -212,9 +150,8 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Describes the detailed information about the last exit.
+   * Describes the key runtime information of the process where the ability last exited.
    *
-   * @typedef LastExitDetailInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -223,9 +160,8 @@ declare namespace AbilityConstant {
    */
   export interface LastExitDetailInfo {
     /**
-     * ID of the process where the ability is running when it exits last time.
+     * ID of the process where the ability last exited.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -237,7 +173,6 @@ declare namespace AbilityConstant {
     /**
      * Name of the process.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -249,7 +184,6 @@ declare namespace AbilityConstant {
     /**
      * UID of the application.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -261,7 +195,6 @@ declare namespace AbilityConstant {
     /**
      * Specific reason for the last exit of the ability.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -273,7 +206,6 @@ declare namespace AbilityConstant {
     /**
      * Reason why the process was killed.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -283,9 +215,8 @@ declare namespace AbilityConstant {
     exitMsg: string;
 
     /**
-     * RSS value of the process, in KB.
+     * Actual memory usage of the process, in KB.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -295,9 +226,8 @@ declare namespace AbilityConstant {
     rss: int;
 
     /**
-     * PSS value of the process, in KB.
+     * Actual physical memory usage of the process, in KB.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -307,9 +237,8 @@ declare namespace AbilityConstant {
     pss: int;
 
     /**
-     * Exact time when the ability last exits.
+     * Exact time when the ability last exited.
      *
-     * @type { long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -319,9 +248,8 @@ declare namespace AbilityConstant {
     timestamp: long;
 
     /**
-     * The process state when the process exits.
+     * Process status of the ability when it last exited.
      *
-     * @type { ?appManager.ProcessState }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -333,7 +261,6 @@ declare namespace AbilityConstant {
     /**
      * Indecates kill reason message.
      * 
-     * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
@@ -343,147 +270,84 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Type of launch reason.
+   * Enumerates the ability launch reasons. You can use it together with the value of **launchParam.launchReason** in 
+   * [onCreate(want, launchParam)]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate} of the UIAbility to complete 
+   * different operations.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Type of launch reason.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates the initial ability launch reasons.
-   * You can use it together with the value of <code>launchParam.launchReason</code> in
-   * <code>onCreate(want, launchParam)</code> of the UIAbility to complete different operations.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum LaunchReason {
     /**
      * Unknown reason.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Unknown reason.
      * 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNKNOWN = 0,
 
     /**
-     * Start ability through the startAbility interface.
+     * The ability is started by calling 
+     * [startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, callback: AsyncCallback<void>)}
+     * .
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * The ability is started by calling <code>startAbility</code>.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     START_ABILITY = 1,
 
     /**
-     * Start ability through the startAbilityByCall interface.
+     * The ability is started by calling 
+     * [startAbilityByCall]{@link ./application/UIAbilityContext:UIAbilityContext.startAbilityByCall}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * The ability is started by calling <code>startAbilityByCall</code>.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CALL = 2,
 
     /**
-     * Start ability through cross-end device migration.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * The ability is started by means of cross-device migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CONTINUATION = 3,
 
     /**
-     * After the application is restored, the ability is automatically restored and started when the application fails.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * The ability is automatically started when the application is restored from a fault.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     APP_RECOVERY = 4,
 
     /**
-     * Start ability through the acquireShareData interface.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
      * The ability is started by means of atomic service sharing.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     SHARE = 5,
@@ -521,7 +385,7 @@ declare namespace AbilityConstant {
     PREPARE_CONTINUATION = 10,
 
     /**
-     * Start by preload.
+     * The ability is started through preloading.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -533,61 +397,26 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Type of last exit reason.
+   * Enumerates the reasons for the last exit. You can use it together with the value of 
+   * **launchParam.lastExitReason** in [onCreate(want, launchParam)]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate} of the 
+   * UIAbility to complete different operations.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Type of last exit reason.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates the reasons for the last exit.
-   * You can use it together with the value of <code>launchParam.lastExitReason</code> in
-   * <code>onCreate(want, launchParam)</code> of the UIAbility to complete different operations.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum LastExitReason {
-    /**
-     * Exit reason : Unknown. The reason for the last exit of the target application is not recorded in the application
-     *               framework.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Exit reason : Unknown. The reason for the last exit of the target application is not recorded in the application
-     *               framework.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @since 10
-     */
     /**
      * Unknown reason.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNKNOWN = 0,
@@ -604,142 +433,100 @@ declare namespace AbilityConstant {
     ABILITY_NOT_RESPONDING = 1,
 
     /**
-     * Exit reason : normally. App exit due to user active close.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * The ability exits normally because the user closes the application.
+     * 
+     * Note: If the application process is forcibly terminated using methods not provided by Ability Kit, such as 
+     * calling [process.exit()](../apis-arkts/js-apis-process.md#processexitdeprecated) or using the kernel **kill** 
+     * command, the reason for the last exit is also reported as **NORMAL**.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     NORMAL = 2,
 
     /**
-     * Exit reason : cpp crash. The app exit due to native exception signal.
+     * The ability exits due to [process crash](docroot://dfx/cppcrash-guideline.md).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The ability exits due to abnormal signals on the local host.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     CPP_CRASH = 3,
 
-    /**
-     * Exit reason : js error. App exit due to js error.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 10
-     */
     /**
      * The ability exits due to a JS_ERROR fault triggered when an application has a JS syntax error that is not
      * captured by developers.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     JS_ERROR = 4,
 
     /**
-     * Exit reason : app freeze. App exit due to appFreeze error.
+     * The ability exits due to [application freeze](docroot://dfx/appfreeze-guildlines.md).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The ability exits because watchdog detects that the application is frozen.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     APP_FREEZE = 5,
 
     /**
-     * Exit reason : performance control. App exit due to system performance issues, such as device low memory.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
      * The ability exits due to system performance problems, for example, insufficient device memory.
+     * 
+     * Note: This API will be deprecated. You are advised to use **RESOURCE_CONTROL** instead.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     PERFORMANCE_CONTROL = 6,
 
     /**
-     * Exit reason : resource control. App exit due to resource usage violation, such as exceed cpu/io/memory usage.
+     * The ability exits due to improper use of system resources. The specific error cause can be obtained through 
+     * [LaunchParam.lastExitMessage]{@link AbilityConstant.LaunchParam}. The possible causes are as follows:
+     * 
+     * - **CPU Highload**: The CPU load is high.
+     * - **CPU_EXT Highload**: A fast CPU load detection is carried out.
+     * - **IO Manage Control**: An I/O management and control operation is carried out.
+     * - **App Memory Deterioration**: The application memory usage exceeds the threshold.
+     * - **Temperature Control**: The temperature is too high or too low.
+     * - **Memory Pressure**: The system is low on memory, triggering process termination in ascending order of 
+     * priority.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The ability exits due to improper use of system resources. The specific error cause can be obtained through
-     * LaunchParam.lastExitMessage. The possible causes are as follows:
-     * - CPU Highload: The CPU load is high.
-     * - CPU_EXT Highload: A fast CPU load detection is carried out.
-     * - IO Manage Control: An I/O management and control operation is carried out.
-     * - App Memory Deterioration: The application memory usage exceeds the threshold.
-     * - Temperature Control: The temperature is too high or too low.
-     * - Memory Pressure: The system is low on memory, triggering ability exiting in ascending order of priority.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     RESOURCE_CONTROL = 7,
 
     /**
-     * Exit reason : upgrade. App exit due to upgrade.
+     * The application exits due to an upgrade.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The ability exits due to an update.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     UPGRADE = 8,
 
     /**
-     * The ability exits because of an action in the multitasking center, for example, when users swipe up or hit the
-     * one-click clean button in the multitasking view.
+     * The ability exits because it receives a request from the multitasking center.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -762,155 +549,112 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Type of onContinue result.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Enumerates the ability continuation results.
-   * You can use it together with <code>onContinue(wantParam)</code> of the UIAbility to complete different
+   * Enumerates the ability continuation results. You can use it in 
+   * [onContinue()]{@link @ohos.app.ability.UIAbility:UIAbility#onContinue} of the UIAbility to complete different 
    * operations.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum OnContinueResult {
-    /**
-     * Agree to the result of Ability migration.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
     /**
      * The ability continuation is accepted.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     AGREE = 0,
 
     /**
-     * Reject to the result of Ability migration.
+     * The ability continuation is rejected. If the application is abnormal in 
+     * [onContinue]{@link @ohos.app.ability.UIAbility:UIAbility#onContinue}, which results in abnormal display during 
+     * data restoration, this error code is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * The ability continuation is rejected.
-     * If the application is abnormal in onContinue, which results in abnormal display during data restoration, this
-     * error code is returned.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     REJECT = 1,
 
     /**
-     * Mismatch to the result of Ability migration.
+     * The version does not match. The application on the initiator can obtain the version of the target application 
+     * from [onContinue]{@link @ohos.app.ability.UIAbility:UIAbility#onContinue}. If the ability continuation cannot be 
+     * performed due to version mismatch, this error code is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * The version does not match.
-     * The application on the initiator can obtain the version of the target application from onContinue. If the
-     * ability continuation cannot be performed due to version mismatch, this error code is returned.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     MISMATCH = 2
   }
 
   /**
-   * Type of memory level.
+   * Enumerates the memory levels. You can use it in 
+   * [onMemoryLevel(level)]{@link @ohos.app.ability.Ability:Ability#onMemoryLevel} of the UIAbility to complete different 
+   * operations.
+   * 
+   * > **NOTE**
+   * >
+   * > - The trigger conditions may differ across various devices. For example, on a standard device with 12 GB of 
+   * > memory:
+   * > - When the available memory of the entire device drops to 1700 MB to 1800 MB, the **onMemoryLevel** callback 
+   * > with a value of **0** is triggered, indicating that the available memory is moderate.
+   * > - When the available memory of the entire device drops to 1600 MB to 1700 MB, the **onMemoryLevel** callback 
+   * > with a value of **1** is triggered, indicating that the available memory is low.
+   * > - When the available memory of the entire device drops below 1600 MB, the **onMemoryLevel** callback with a 
+   * > value of **2** is triggered, indicating that the available memory is critically low.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Enumerates the memory levels. You can use it in <code>onMemoryLevel(level)</code> of the UIAbility to complete
-   * different operations.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum MemoryLevel {
     /**
-     * Memory footprint is moderate.
+     * Indicates that the system has a moderate amount of available memory. Due to differences in system-wide memory 
+     * thresholds across devices, the actual performance may vary by product. For details, please refer to the notes 
+     * below.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Moderate memory usage.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     MEMORY_LEVEL_MODERATE = 0,
 
     /**
-     * Low memory footprint.
+     * 	Indicates that the system has low available memory. Due to differences in system-wide memory thresholds across 
+     * devices, the actual performance may vary by product. For details, please refer to the notes below.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Low memory usage.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     MEMORY_LEVEL_LOW = 1,
 
     /**
-     * High memory footprint.
+     * Indicates that the system has critically low available memory. Due to differences in system-wide memory 
+     * thresholds across devices, the actual performance may vary by product. For details, please refer to the notes 
+     * below.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * High memory usage.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     MEMORY_LEVEL_CRITICAL = 2,
@@ -951,16 +695,16 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 24 dynamic&static 
+     * @since 24 dynamic&static
      */
     MEMORY_LEVEL_BACKGROUND_CRITICAL = 6
   }
 
   /**
-   * Enumerates the window mode when the ability is started.
-   * It can be used together with <code>startAbility</code> to specify the window mode for starting the ability.
+   * Enumerates the window modes in which a UIAbility can be displayed at startup. You can use it in 
+   * [startAbility]{@link ./application/UIAbilityContext:UIAbilityContext:startAbility(want: Want, options?: StartOptions)}
+   * .
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
@@ -990,8 +734,7 @@ declare namespace AbilityConstant {
 
     /**
      * Primary screen (left screen in the case of horizontal orientation) in split-screen mode. It is valid only in
-     * intra-app redirection scenarios.
-     * It takes effect only on foldable devices and tablets.
+     * intra-app redirection scenarios. It takes effect only on foldable devices and tablets.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1002,8 +745,7 @@ declare namespace AbilityConstant {
 
     /**
      * Secondary screen (right screen in the case of horizontal orientation) in split-screen mode. It is valid only in
-     * intra-app redirection scenarios.
-     * It takes effect only on foldable devices and tablets.
+     * intra-app redirection scenarios. It takes effect only on foldable devices and tablets.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1025,255 +767,162 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Type of onSave result.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
    * Enumerates the result types for the operation of saving application data. You can use it in
-   * <code>onSaveState(reason, wantParam)</code> of the UIAbility to complete different operations.
+   * [onSaveState()]{@link @ohos.app.ability.UIAbility:UIAbility.onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Record>)}
+   *  of the UIAbility to complete 
+   * [UIAbility back and restore](docroot://application-models/ability-recover-guildline.md).
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum OnSaveResult {
-    /**
-     * Always agree to save the state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
     /**
      * Always agreed to save the status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ALL_AGREE = 0,
 
     /**
-     * Refuse to migrate the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * Rejected to save the status in continuation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CONTINUATION_REJECT = 1,
 
     /**
-     * Migration mismatch.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * Continuation mismatch.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CONTINUATION_MISMATCH = 2,
 
     /**
-     * Agree to restore the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * Agreed to restore the saved status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     RECOVERY_AGREE = 3,
 
     /**
-     * Refuse to restore the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * Rejected to restore the saved status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     RECOVERY_REJECT = 4,
 
     /**
-     * Always refuses to save the state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    /**
      * Always rejected to save the status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ALL_REJECT
   }
 
   /**
-   * Type of save state.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
    * Enumerates the scenarios for saving application data. You can use it in
-   * <code>onSaveState(reason, wantParam)</code> of the UIAbility to complete different operations.
+   * [onSaveState()]{@link @ohos.app.ability.UIAbility:UIAbility.onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>)}
+   *  of the UIAbility to complete 
+   * [UIAbility backup and restore](docroot://application-models/ability-recover-guideline.md).
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum StateType {
     /**
-     * Migrate and save the state.
+     * Application migration scenario.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Saving the status in continuation.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CONTINUATION = 0,
 
     /**
-     * App recovery to restore the saved state.
+     * Application recovery scenario.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
-     */
-    /**
-     * Saving the status in application recovery.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     APP_RECOVERY = 1
   }
 
   /**
-   * Continue state.
+   * Enumerates the mission continuation states of the application. It is used in the 
+   * [setMissionContinueState]{@link ./application/UIAbilityContext:UIAbilityContext.setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>)}
+   *  API of [UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext}.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Enumerates the mission continuation states of the application. It is used in the
-   * <code>setMissionContinueState</code> API of UIAbilityContext.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   export enum ContinueState {
-    /**
-     * Mission continuable active.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 10
-     */
     /**
      * Mission continuation is activated for the current application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     ACTIVE = 0,
 
     /**
-     * Mission continuable inactive.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
      * Mission continuation is not activated for the current application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     INACTIVE = 1
   }
 
   /**
-   * Enumerates the collaboration request results.
-   * This enum is used in multi-device collaboration scenarios to specify whether the target application accepts the
-   * collaboration request from the caller application.
-   * It is used in <code>onCollaborate(wantParam)</code> of the UIAbility.
+   * Enumerates the collaboration request results. You can use it in multi-device collaboration scenarios to specify 
+   * whether the target application accepts the collaboration request from the caller application. You can use it in 
+   * [onCollaborate()]{@link @ohos.app.ability.UIAbility:UIAbility.onCollaborate(wantParam: Record<string, Object>)} of 
+   * the UIAbility.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 18 dynamic
@@ -1302,10 +951,11 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Enumerates the actions triggered when an application is closed by the user. It must be used together with
-   * <code>onPrepareTermination</code> or <code>onPrepareTerminationAsync</code> of AbilityStage.
+   * Enumerates the actions triggered when an application is closed by the user. You can use it in 
+   * [onPrepareTermination]{@link @ohos.app.ability.AbilityStage:AbilityStage#onPrepareTermination} or 
+   * [onPrepareTerminationAsync]{@link @ohos.app.ability.AbilityStage:AbilityStage#onPrepareTerminationAsync} of 
+   * [AbilityStage]{@link @ohos.app.ability.AbilityStage:AbilityStage}.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
