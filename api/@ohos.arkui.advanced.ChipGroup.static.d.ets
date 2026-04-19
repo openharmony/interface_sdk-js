@@ -244,16 +244,6 @@ export interface ChipGroupItemOptions {
       * @noninterop
       */
      accessibilityLevel?: string;
-
-     /**
-      * ChipGroup item background system material.
-      *
-      * @type { ?uiMaterial.Material }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 26.0.0 static
-      * @noninterop
-      */
-     backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 

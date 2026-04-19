@@ -287,17 +287,6 @@ export interface ChipGroupItemOptions {
      * @since 14 dynamic
      */
     accessibilityLevel?: string;
-
-    /**
-     * ChipGroup item background system material.
-     *
-     * @type { ?uiMaterial.Material }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 
