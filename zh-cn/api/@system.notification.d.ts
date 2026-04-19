@@ -14,10 +14,9 @@
  */
 
 /**
- * > **NOTE**
+ * > **说明：**
  * >
- * > - The APIs of this module are no longer maintained since API version 7. You are advised to use 
- * > [@ohos.notification]{@link @ohos.notification:notification}.
+ * > - 从API Version 7 开始，该接口不再维护，推荐使用新接口[@ohos.notification (Notification模块)]{@link @ohos.notification:notification}。
  *
  * @file
  * @kit NotificationKit
@@ -31,7 +30,7 @@
  */
 export interface ActionResult {
   /**
-   * Name of the application bundle to which the notification will be redirected after being clicked.
+   * 单击通知后要重定向到的应用程序的Bundle名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
@@ -40,7 +39,7 @@ export interface ActionResult {
   bundleName: string;
 
   /**
-   * Name of the application ability to which the notification will be redirected after being clicked.
+   * 单击通知后要重定向到的应用程序的Ability名称。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
@@ -49,7 +48,7 @@ export interface ActionResult {
   abilityName: string;
 
   /**
-   * URI of the page to be redirected to.
+   * 要重定向到的页面的uri。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
@@ -66,7 +65,7 @@ export interface ActionResult {
  */
 export interface ShowNotificationOptions {
   /**
-   * Notification title.
+   * 通知标题。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
@@ -75,7 +74,7 @@ export interface ShowNotificationOptions {
   contentTitle?: string;
 
   /**
-   * Notification content.
+   * 通知内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
@@ -84,9 +83,9 @@ export interface ShowNotificationOptions {
   contentText?: string;
 
   /**
-   * Action triggered when the notification is clicked.
+   * 通知被点击后触发的行为。
    * 
-   * This API is deprecated since API version 7.
+   * 从API version 7开始不再维护。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
@@ -96,7 +95,7 @@ export interface ShowNotificationOptions {
 }
 
 /**
- * Manages notifications.
+ * 提供通知管理的能力。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 3 dynamiconly
@@ -105,9 +104,9 @@ export interface ShowNotificationOptions {
  */
 declare class Notification {
   /**
-   * Displays the notification.
+   * 显示通知。
    *
-   * @param { ShowNotificationOptions } [options] - Notification title.
+   * @param { ShowNotificationOptions } [options] - 通知标题。
    * @syscap SystemCapability.Notification.Notification
    * @since 3 dynamiconly
    * @deprecated since 7

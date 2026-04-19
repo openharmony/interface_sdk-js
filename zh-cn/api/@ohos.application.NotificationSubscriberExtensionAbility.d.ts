@@ -22,12 +22,11 @@ import type NotificationSubscriberExtensionContext from './@ohos.application.Not
 import { NotificationInfo } from './notification/NotificationInfo'
 
 /**
- * NotificationSubscriberExtensionAbility is the base class for notification subscription extensions, providing the core
- * functionality for subscribing to notifications.
+ * NotificationSubscriberExtensionAbility 是通知订阅者扩展能力的基类，提供通知订阅的相关功能。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The APIs of this module can be used only in the stage model.
+ * > 本模块接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -36,7 +35,7 @@ import { NotificationInfo } from './notification/NotificationInfo'
  */
 declare class NotificationSubscriberExtensionAbility {
   /**
-   * Context for the NotificationSubscriberExtensionAbility.
+   * NotificationSubscriberExtensionAbility的上下文环境。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -46,7 +45,7 @@ declare class NotificationSubscriberExtensionAbility {
   context: NotificationSubscriberExtensionContext;
  
   /**
-   * Called when the notification subscription extension is destroyed.
+   * 通知订阅扩展被销毁时的回调。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -56,11 +55,11 @@ declare class NotificationSubscriberExtensionAbility {
   onDestroy(): void;
 
   /**
-   * Called when a notification is received.
+   * 收到通知时回调。
    *
-   * @param { NotificationInfo } notificationInfo - Notification information delivered to the
+   * @param { NotificationInfo } notificationInfo - 通知订阅扩展能力中
    *     [onReceiveMessage]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility.onReceiveMessage}
-   *     callback of ExtensionAbility for notification subscriptions.
+   *     回调的通知信息。
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic
@@ -69,9 +68,9 @@ declare class NotificationSubscriberExtensionAbility {
   onReceiveMessage(notificationInfo: NotificationInfo): void;
 
   /**
-   * Called when notifications are canceled.
+   * 取消通知时的回调。
    *
-   * @param { Array<string> } hashCodes - Array of hash codes representing the notifications to be canceled.
+   * @param { Array<string> } hashCodes - 要取消的通知的哈希码列表。
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic

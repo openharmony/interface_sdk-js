@@ -68,8 +68,7 @@ import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 
 /**
- * The **NotificationManager** module provides notification management capabilities, covering notifications, 
- * notification slots, notification enabled status, and notification badge status.
+ * 本模块提供通知管理的能力，包括发布、更新、取消通知，创建、获取、移除通知渠道，获取发布通知应用的使能状态，获取通知的相关信息等。
  *
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform [since 12]
@@ -79,14 +78,12 @@ import type UIAbilityContext from './application/UIAbilityContext';
  */
 declare namespace notificationManager {
   /**
-   * Publishes a notification. This API uses an asynchronous callback to return the result.
+   * 发布通知。使用callback异步回调。
    * 
-   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces
-   * the previous one.
+   * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
    *
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { NotificationRequest } request - 设置发布通知的内容和相关配置信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当发布通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -112,12 +109,11 @@ declare namespace notificationManager {
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a notification. This API uses a promise to return the result.
+   * 发布通知。使用Promise异步回调。
    * 
-   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces
-   * the previous one.
+   * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
    *
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @param { NotificationRequest } request - 设置发布通知的内容和相关配置信息。
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -144,13 +140,13 @@ declare namespace notificationManager {
   function publish(request: NotificationRequest): Promise<void>;
 
   /**
-   * Publishes a notification to a specified user. This API uses an asynchronous callback to return the result.
+   * 发布通知给指定的用户。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 17]
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.SEND_NOTIFICATION_CROSS_USER [since 18]
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { int } userId - 用户ID。
+   * @param { AsyncCallback<void> } callback - 被指定的回调方法。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -184,13 +180,13 @@ declare namespace notificationManager {
   function publish(request: NotificationRequest, userId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a notification to a specified user. This API uses a promise to return the result.
+   * 发布通知给指定的用户。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 17]
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.SEND_NOTIFICATION_CROSS_USER [since 18]
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { int } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { int } userId - 用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -224,14 +220,13 @@ declare namespace notificationManager {
   function publish(request: NotificationRequest, userId: int): Promise<void>;
 
   /**
-   * Publishes a notification through the reminder agent. This API uses an asynchronous callback to return the result.
+   * 发布代理通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { string } representativeBundle - Bundle name of the application whose notification function is taken over
-   *     by the reminder agent.
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { string } representativeBundle - 被代理应用的包名。
+   * @param { int } userId - 用户ID。
+   * @param { AsyncCallback<void> } callback - 发布代理通知的回调方法。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -268,14 +263,13 @@ declare namespace notificationManager {
   ): void;
 
   /**
-   * Publishes a notification through the reminder agent. This API uses a promise to return the result.
+   * 发布代理通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @param { string } representativeBundle - Bundle name of the application whose notification function is taken over
-   *     by the reminder agent.
-   * @param { int } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @param { string } representativeBundle - 被代理应用的包名。
+   * @param { int } userId - 用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -307,13 +301,12 @@ declare namespace notificationManager {
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: int): Promise<void>;
 
   /**
-   * Publishes a notification through the reminder agent. This API uses a promise to return the result.
+   * 发布代理通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { BundleOption } representativeBundle - Bundle information of the application whose notification function is
-   *     taken over by the reminder agent.
-   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } representativeBundle - 被代理应用的包信息。
+   * @param { NotificationRequest } request - 用于设置要发布通知的内容和相关配置信息。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -345,11 +338,10 @@ declare namespace notificationManager {
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
   /**
-   * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
+   * 根据指定的通知ID取消已发布的通知。使用callback异步回调。
    *
-   * @param { int } id - Notification ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } id - 通知ID。
+   * @param { AsyncCallback<void> } callback - 回调函数。当取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -364,13 +356,11 @@ declare namespace notificationManager {
   function cancel(id: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified ID and label. This API uses an asynchronous callback to return the 
-   * result.
+   * 根据通知ID和标签取消已发布的通知。使用callback异步回调。
    *
-   * @param { int } id - Notification ID.
-   * @param { string } label - Notification label.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } id - 通知ID。
+   * @param { string } label - 通知标签。
+   * @param { AsyncCallback<void> } callback - 回调函数。根据通知ID和标签取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -384,11 +374,11 @@ declare namespace notificationManager {
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified ID and optional label. This API uses a promise to return the result.
+   * 根据通知ID和标签取消已发布的通知，若标签为空，则取消与指定通知ID匹配的已发布通知。使用Promise异步回调。
    *
-   * @param { int } id - Notification ID.
-   * @param { string } [label] - Notification label. This parameter is left empty by default.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } id - 通知ID。
+   * @param { string } [label] - 通知标签，默认为空。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -402,14 +392,13 @@ declare namespace notificationManager {
   function cancel(id: int, label?: string): Promise<void>;
 
   /**
-   * Cancels the notification of other applications of the user. This API uses a promise to return the result.
+   * 代理取消当前用户其他应用的通知。使用Promise异步回调。
    * 
-   * The current application must have a proxy relationship with another application, or the 
-   * **ohos.permission.NOTIFICATION_AGENT_CONTROLLER** permission is granted to the current application.
+   * 需要当前应用与其他应用存在代理关系，或者当前应用有ohos.permission.NOTIFICATION_AGENT_CONTROLLER权限。
    *
-   * @param { BundleOption } representativeBundle - Bundle information of the application.
-   * @param { int } id - Notification ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } representativeBundle - 应用的包信息。
+   * @param { int } id - 通知ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -427,15 +416,13 @@ declare namespace notificationManager {
   function cancel(representativeBundle: BundleOption, id: int): Promise<void>;
 
   /**
-   * Cancels a notification published through the reminder agent. This API uses an asynchronous callback to return the 
-   * result.
+   * 取消代理通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { int } id - Notification ID.
-   * @param { string } representativeBundle - Bundle name of the application whose notification function is taken over
-   *     by the reminder agent.
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } id - 通知ID。
+   * @param { string } representativeBundle - 被代理应用的包名。
+   * @param { int } userId - 用户ID。
+   * @param { AsyncCallback<void> } callback - 取消代理通知的回调方法。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -459,14 +446,13 @@ declare namespace notificationManager {
   ): void;
 
   /**
-   * Cancels a notification published through the reminder agent. This API uses a promise to return the result.
+   * 取消代理通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { int } id - Notification ID.
-   * @param { string } representativeBundle - Bundle name of the application whose notification function is taken over
-   *     by the reminder agent.
-   * @param { int } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } id - 通知ID。
+   * @param { string } representativeBundle - 被代理应用的包名。
+   * @param { int } userId - 用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -485,13 +471,12 @@ declare namespace notificationManager {
   function cancelAsBundle(id: int, representativeBundle: string, userId: int): Promise<void>;
 
   /**
-   * Cancels a notification published through the reminder agent. This API uses a promise to return the result.
+   * 取消代理通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { BundleOption } representativeBundle - Bundle information of the application whose notification function is
-   *     taken over by the reminder agent.
-   * @param { int } id - Notification ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } representativeBundle - 被代理应用的包信息。
+   * @param { int } id - 通知ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -511,10 +496,9 @@ declare namespace notificationManager {
   function cancelAsBundle(representativeBundle: BundleOption, id: int): Promise<void>;
 
   /**
-   * Cancels all notifications of this application. This API uses an asynchronous callback to return the result.
+   * 取消当前应用所有已发布的通知。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当取消当前应用所有已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -528,9 +512,9 @@ declare namespace notificationManager {
   function cancelAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels all notifications of this application. This API uses a promise to return the result.
+   * 取消当前应用所有已发布的通知。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -542,11 +526,11 @@ declare namespace notificationManager {
   function cancelAll(): Promise<void>;
 
   /**
-   * Adds a notification slot. This API uses an asynchronous callback to return the result.
+   * 创建通知渠道。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSlot } slot - Notification slot to add.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSlot } slot - 要创建的通知渠道对象。
+   * @param { AsyncCallback<void> } callback - 表示被指定通道的回调方法。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -563,11 +547,11 @@ declare namespace notificationManager {
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a notification slot. This API uses a promise to return the result.
+   * 创建通知渠道。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSlot } slot - Notification slot to add.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NotificationSlot } slot - 要创建的通知渠道对象。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -584,11 +568,10 @@ declare namespace notificationManager {
   function addSlot(slot: NotificationSlot): Promise<void>;
 
   /**
-   * Adds a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 创建指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } type - Type of the notification slot to add.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { SlotType } type - 要创建的通知渠道的类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。当创建指定类型的通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -602,10 +585,10 @@ declare namespace notificationManager {
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a notification slot of a specified type. This API uses a promise to return the result.
+   * 创建指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } type - Type of the notification slot to add.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { SlotType } type - 要创建的通知渠道的类型。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -619,12 +602,11 @@ declare namespace notificationManager {
   function addSlot(type: SlotType): Promise<void>;
 
   /**
-   * Adds an array of notification slots. This API uses an asynchronous callback to return the result.
+   * 创建多个通知渠道。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots - Notification slots to add. The number of elements in the array ranges
-   *     from 0 to 5.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Array<NotificationSlot> } slots - 要创建的通知渠道对象数组。数组中的元素个数为0~5。
+   * @param { AsyncCallback<void> } callback - 表示被指定通道的回调方法。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -641,12 +623,11 @@ declare namespace notificationManager {
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds an array of notification slots. This API uses a promise to return the result.
+   * 创建多个通知渠道。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots - Notification slots to add. The number of elements in the array ranges
-   *     from 0 to 5.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<NotificationSlot> } slots - 要创建的通知渠道对象数组。数组中的元素个数为0~5。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -663,13 +644,11 @@ declare namespace notificationManager {
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
   /**
-   * Obtains a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 获取指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification,
-   *     content consultation, and so on.
-   * @param { AsyncCallback<NotificationSlot> } callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined** and **data** is the obtained **NotificationSlot**; otherwise, **err** is
-   *     an error object.
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * @param { AsyncCallback<NotificationSlot> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对
+   *     象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -681,13 +660,11 @@ declare namespace notificationManager {
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
   /**
-   * Obtains a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 获取指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification,
-   *     content consultation, and so on.
-   * @param { AsyncCallback<NotificationSlot|null> } callback - Callback used to return the result. If the operation is
-   *     successful, err is undefined
-   *     and data is the obtained NotificationSlot; otherwise, err is an error object.
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * @param { AsyncCallback<NotificationSlot|null> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对
+   *     象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -699,11 +676,10 @@ declare namespace notificationManager {
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot|null>): void;
 
   /**
-   * Obtains a notification slot of a specified type. This API uses a promise to return the result.
+   * 获取指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification,
-   *     content consultation, and so on.
-   * @returns { Promise<NotificationSlot> } Promise used to return the result.
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * @returns { Promise<NotificationSlot> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -715,11 +691,10 @@ declare namespace notificationManager {
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
   /**
-   * Obtains a notification slot of a specified type. This API uses a promise to return the result.
+   * 获取指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification,
-   *     content consultation, and so on.
-   * @returns { Promise<NotificationSlot|null> } Promise used to return the result.
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * @returns { Promise<NotificationSlot|null> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -731,11 +706,10 @@ declare namespace notificationManager {
   function getSlot(slotType: SlotType): Promise<NotificationSlot|null>;
 
   /**
-   * Obtains all notification slots of this application. This API uses an asynchronous callback to return the result.
+   * 获取当前应用的所有通知渠道。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Callback used to return the result. If the operation
-   *     is successful, **err** is **undefined** and **data** is the obtained **NotificationSlot** array; otherwise,
-   *     **err** is an error object.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot
+   *     数组，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -748,9 +722,9 @@ declare namespace notificationManager {
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
   /**
-   * Obtains all notification slots of this application. This API uses a promise to return the result.
+   * 获取当前应用的所有通知渠道。使用Promise异步回调。
    *
-   * @returns { Promise<Array<NotificationSlot>> } Promise used to return the result.
+   * @returns { Promise<Array<NotificationSlot>> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -761,10 +735,10 @@ declare namespace notificationManager {
   function getSlots(): Promise<Array<NotificationSlot>>;
 
   /**
-   * Obtains a list of applications that allow notifications. This API uses a promise to return the result.
+   * 获取允许通知的应用程序列表。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<Array<BundleOption>> } Returns a list of applications that allow notifications.
+   * @returns { Promise<Array<BundleOption>> } 返回允许通知的应用程序列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -778,12 +752,11 @@ declare namespace notificationManager {
   function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
   /**
-   * Obtains the list of applications that are allowed to publish notifications by a specified user. This API uses a 
-   * promise to return the result.
+   * 获取指定用户下允许通知的应用程序列表。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - Target user.
-   * @returns { Promise<Array<BundleOption>> } Returns a list of applications that allow notifications.
+   * @param { int } userId - 要获取允许通知的应用程序列表的用户。
+   * @returns { Promise<Array<BundleOption>> } 返回允许通知的应用程序列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -797,13 +770,10 @@ declare namespace notificationManager {
   function getAllNotificationEnabledBundles(userId: int): Promise<Array<BundleOption>>;
 
   /**
-   * Removes a notification slot of a specified type for this application. This API uses an asynchronous callback to 
-   * return the result.
+   * 删除当前应用指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification,
-   *     content consultation, and so on.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除指定类型的通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -816,11 +786,10 @@ declare namespace notificationManager {
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a notification slot of a specified type for this application. This API uses a promise to return the result.
+   * 删除当前应用指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification,
-   *     content consultation, and so on.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -833,10 +802,9 @@ declare namespace notificationManager {
   function removeSlot(slotType: SlotType): Promise<void>;
 
   /**
-   * Removes all notification slots for this application. This API uses an asynchronous callback to return the result.
+   * 删除当前应用所有通知渠道。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除当前应用所有通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -849,9 +817,9 @@ declare namespace notificationManager {
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all notification slots for this application. This API uses a promise to return the result.
+   * 删除当前应用所有通知渠道。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -862,14 +830,12 @@ declare namespace notificationManager {
   function removeAllSlots(): Promise<void>;
 
   /**
-   * Sets whether to enable notification for a specified application. This API uses an asynchronous callback to return 
-   * the result.
+   * 设定指定应用的通知使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @param { AsyncCallback<void> } callback - 设定通知使能回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -886,13 +852,12 @@ declare namespace notificationManager {
   function setNotificationEnable(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable notification for a specified application. This API uses a promise to return the result.
+   * 设定指定应用的通知使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -909,13 +874,11 @@ declare namespace notificationManager {
   function setNotificationEnable(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
-   * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to 
-   * return the result.
+   * 获取指定应用的通知使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     notification is enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<boolean> } callback - 获取通知使能状态回调函数（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -932,12 +895,11 @@ declare namespace notificationManager {
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether notification is enabled for the specified application. This API uses a promise to return the result.
+   * 获取指定应用的通知使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the notification is
-   *     enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<boolean> } 以Promise形式返回获取指定应用的通知使能状态的结果（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -954,13 +916,10 @@ declare namespace notificationManager {
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to 
-   * return the result.
+   * 查询当前应用通知使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 10]
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     notification can be published; **false** means the opposite. If this API call fails, an error object is
-   *     returned.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true，表示允许发布通知；返回false，表示禁止发布通知；调用失败返回错误对象。
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 10]
    * @throws { BusinessError } 202 - Not system application to call the interface. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -980,11 +939,10 @@ declare namespace notificationManager {
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether notification is enabled for the specified application. This API uses a promise to return the result.
+   * 查询当前应用通知使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 10]
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the notification is
-   *     enabled, and **false** means the opposite.
+   * @returns { Promise<boolean> } Promise对象。返回true，表示允许发布通知；返回false，表示禁止发布通知。
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 10]
    * @throws { BusinessError } 202 - Not system application to call the interface. [since 9 - 10]
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1002,10 +960,9 @@ declare namespace notificationManager {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
-   * Checks whether notification is enabled for the specified application. This API returns the result synchronously.
+   * 同步查询当前应用通知使能状态。
    *
-   * @returns { boolean } Result of the notification enabling status. The value **true** means that the notification is
-   *     enabled, and **false** means the opposite.
+   * @returns { boolean } 返回查询通知使能状态的结果。返回true，表示允许发布通知；返回false，表示禁止发布通知。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1016,13 +973,11 @@ declare namespace notificationManager {
   function isNotificationEnabledSync(): boolean;
 
   /**
-   * Checks whether notification is enabled for a specified user. This API uses an asynchronous callback to return the 
-   * result.
+   * 获取指定用户ID下的通知使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     notification is enabled, and **false** means the opposite.
+   * @param { int } userId - 指定的用户ID。
+   * @param { AsyncCallback<boolean> } callback - 获取通知使能状态回调函数（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1039,12 +994,11 @@ declare namespace notificationManager {
   function isNotificationEnabled(userId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether notification is enabled for a specified user. This API uses a promise to return the result.
+   * 获取指定用户下的通知使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the notification is
-   *     enabled, and **false** means the opposite.
+   * @param { int } userId - 指定的用户ID。
+   * @returns { Promise<boolean> } 以Promise形式返回获取通知使能状态的结果（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1061,14 +1015,12 @@ declare namespace notificationManager {
   function isNotificationEnabled(userId: int): Promise<boolean>;
 
   /**
-   * Sets whether to enable the notification badge for a specified application. This API uses an asynchronous callback 
-   * to return the result.
+   * 设定指定应用的角标使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @param { AsyncCallback<void> } callback - 设定角标使能回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1086,14 +1038,12 @@ declare namespace notificationManager {
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable the notification badge for a specified application. This API uses a promise to return the 
-   * result.
+   * 设定指定应用的角标使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1111,13 +1061,11 @@ declare namespace notificationManager {
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
-   * Checks whether the notification badge is enabled for a specified application. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取指定应用的角标使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     badge is enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<boolean> } callback - 获取角标使能状态回调函数（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1135,13 +1083,11 @@ declare namespace notificationManager {
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the notification badge is enabled for a specified application. This API uses a promise to return the
-   * result.
+   * 获取指定应用的角标使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the badge is enabled
-   *     , and **false** means the opposite.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<boolean> } 以Promise形式返回获取指定应用的角标使能状态（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1159,16 +1105,14 @@ declare namespace notificationManager {
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Sets the notification slot for a specified application. This API uses an asynchronous callback to return the 
-   * result.
+   * 设置指定应用的通知渠道。使用callback异步回调。
    * 
-   * Before setting a notification slot, create a slot through 
-   * [addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}.
+   * 设置前需要先通过[addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}创建通知渠道。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationSlot } slot - Notification slot.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationSlot } slot - 通知渠道。
+   * @param { AsyncCallback<void> } callback - 设定通知渠道回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1186,15 +1130,14 @@ declare namespace notificationManager {
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the notification slot for a specified application. This API uses a promise to return the result.
+   * 设置指定应用的通知渠道。使用Promise异步回调。
    * 
-   * Before setting a notification slot, create a slot through 
-   * [addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}.
+   * 设置前需要先通过[addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}创建通知渠道。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { NotificationSlot } slot - Notification slot.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { NotificationSlot } slot - 通知渠道。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1212,12 +1155,11 @@ declare namespace notificationManager {
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
   /**
-   * Obtains the notification slots of a specified application. This API uses an asynchronous callback to return the 
-   * result.
+   * 获取指定应用的所有通知渠道。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - 获取通知渠道回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1235,15 +1177,14 @@ declare namespace notificationManager {
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
   /**
-   * Obtains a notification slot of a specified application. This API uses a promise to return the result.
+   * 获取指定应用指定类型的通知渠道。使用Promise异步回调。
    * 
-   * Before obtaining the notification slot, create a slot through 
-   * [addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}.
+   * 获取前需要先通过[addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}创建通知渠道。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } slotType - Notification slot type.
-   * @returns { Promise<NotificationSlot> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { SlotType } slotType - 渠道类型。
+   * @returns { Promise<NotificationSlot> } 以Promise形式返回获取指定应用指定类型的通知渠道。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1261,15 +1202,14 @@ declare namespace notificationManager {
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
   /**
-   * Obtains a notification slot of a specified application. This API uses a promise to return the result.
-   *
-   * Before obtaining the notification slot, create a slot through 
-   * [addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}.
+   * 获取指定应用指定类型的通知渠道。使用Promise异步回调。
    * 
+   * 获取前需要先通过[addSlot]{@link notificationManager.addSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}创建通知渠道。
+   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } slotType - Notification slot type.
-   * @returns { Promise<NotificationSlot|null> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { SlotType } slotType - 渠道类型。
+   * @returns { Promise<NotificationSlot|null> } 以Promise形式返回获取指定应用指定类型的通知渠道。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1287,11 +1227,11 @@ declare namespace notificationManager {
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot|null>;
 
   /**
-   * Obtains the notification slots of a specified application. This API uses a promise to return the result.
+   * 获取指定应用的所有通知渠道。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<Array<NotificationSlot>> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<Array<NotificationSlot>> } 以Promise形式返回获取指定应用的通知渠道。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1309,12 +1249,11 @@ declare namespace notificationManager {
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
   /**
-   * Obtains the number of notification slots of a specified application. This API uses an asynchronous callback to 
-   * return the result.
+   * 获取指定应用的通知渠道数量。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { AsyncCallback<long> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { AsyncCallback<long> } callback - 获取通知渠道数量回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1332,11 +1271,11 @@ declare namespace notificationManager {
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the number of notification slots of a specified application. This API uses a promise to return the result.
+   * 获取指定应用的通知渠道数量。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<long> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<long> } 以Promise形式返回获取指定应用的通知渠道数量。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1354,10 +1293,10 @@ declare namespace notificationManager {
   function getSlotNumByBundle(bundle: BundleOption): Promise<long>;
 
   /**
-   * Obtains all active notifications. This API uses an asynchronous callback to return the result.
+   * 获取当前未删除的所有通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - 获取活动通知回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1373,10 +1312,10 @@ declare namespace notificationManager {
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
   /**
-   * Obtains all active notifications. This API uses a promise to return the result.
+   * 获取当前未删除的所有通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<Array<NotificationRequest>> } Promise used to return the result.
+   * @returns { Promise<Array<NotificationRequest>> } 以Promise形式返回获取活动通知。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1390,12 +1329,9 @@ declare namespace notificationManager {
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
-   * Obtains the number of active notifications of this application. This API uses an asynchronous callback to return 
-   * the result.
+   * 获取当前应用未删除的通知数。使用callback异步回调。
    *
-   * @param { AsyncCallback<long> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined** and data is the obtained number of active notifications; otherwise, **err** is an
-   *     error object.
+   * @param { AsyncCallback<long> } callback - 回调函数。当获取当前应用未删除的通知数成功，err为undefined，data为当前应用未删除的通知数，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1408,9 +1344,9 @@ declare namespace notificationManager {
   function getActiveNotificationCount(callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the number of active notifications of this application. This API uses a promise to return the result.
+   * 获取当前应用未删除的通知数。使用Promise异步回调。
    *
-   * @returns { Promise<long> } Promise used to return the result.
+   * @returns { Promise<long> } Promise对象，返回当前应用未删除通知数。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1421,11 +1357,10 @@ declare namespace notificationManager {
   function getActiveNotificationCount(): Promise<long>;
 
   /**
-   * Obtains the active notifications of this application. This API uses an asynchronous callback to return the result.
+   * 获取当前应用未删除的通知列表。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Callback used to return the result. If the
-   *     operation is successful, **err** is **undefined** and data is the obtained **NotificationRequest** array;
-   *     otherwise, **err** is an error object.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - 回调函数。当获取未删除的通知列表成功，err为undefined，data为获取到的通知列表，否则为错
+   *     误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1438,9 +1373,9 @@ declare namespace notificationManager {
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
   /**
-   * Obtains the active notifications of this application. This API uses a promise to return the result.
+   * 获取当前应用未删除的通知列表。使用Promise异步回调。
    *
-   * @returns { Promise<Array<NotificationRequest>> } Promise used to return the result.
+   * @returns { Promise<Array<NotificationRequest>> } Promise对象，返回当前应用的通知列表。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1451,12 +1386,11 @@ declare namespace notificationManager {
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
-   * Obtains information about the common live view that matches the specified filter criteria. This API uses an 
-   * asynchronous callback to return the result.
+   * 获取满足条件的普通实况通知信息。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationFilter } filter - Filter criteria for querying the common live view.
-   * @param { AsyncCallback<NotificationRequest> } callback - Callback used to return the result.
+   * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
+   * @param { AsyncCallback<NotificationRequest> } callback - 获取满足条件的普通实况通知信息的回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
@@ -1468,12 +1402,11 @@ declare namespace notificationManager {
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest>): void;
 
   /**
-   * Obtains information about the common live view that matches the specified filter criteria. This API uses an 
-   * asynchronous callback to return the result.
+   * 获取满足条件的普通实况通知信息。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationFilter } filter - Filter criteria for querying the common live view.
-   * @param { AsyncCallback<NotificationRequest|null> } callback - Callback used to return the result.
+   * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
+   * @param { AsyncCallback<NotificationRequest|null> } callback - 获取满足条件的普通实况通知信息的回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
@@ -1485,12 +1418,11 @@ declare namespace notificationManager {
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest|null>): void;
 
   /**
-   * Obtains information about the common live view that matches the specified filter criteria. This API uses a promise 
-   * to return the result.
+   * 获取满足条件的普通实况通知信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationFilter } filter - Filter criteria for querying the common live view.
-   * @returns { Promise<NotificationRequest> } Promise used to return the result.
+   * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
+   * @returns { Promise<NotificationRequest> } 以Promise形式返回获取的满足条件的普通实况通知信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
@@ -1502,12 +1434,11 @@ declare namespace notificationManager {
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest>;
 
   /**
-   * Obtains information about the common live view that matches the specified filter criteria. This API uses a promise 
-   * to return the result.
+   * 获取满足条件的普通实况通知信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationFilter } filter - Filter criteria for querying the common live view.
-   * @returns { Promise<NotificationRequest|null> } Promise used to return the result.
+   * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
+   * @returns { Promise<NotificationRequest|null> } 以Promise形式返回获取的满足条件的普通实况通知信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
@@ -1519,13 +1450,12 @@ declare namespace notificationManager {
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest|null>;
 
   /**
-   * Obtains some information about the **wantAgent** field in 
-   * [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}. This API uses a promise to 
-   * return the result.
+   * 获取通知[NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}中wantAgent字段的部分信息。使用Promise异
+   * 步回调。
    *
-   * @param { number } id - Notification ID.
-   * @param { string } [label] - Notification label. This parameter is left empty by default.
-   * @returns { Promise<NotificationParameters> } Promise used to return some information about **wantAgent**.
+   * @param { number } id - 通知ID。
+   * @param { string } [label] - 通知标签，默认为空。
+   * @returns { Promise<NotificationParameters> } Promise对象，返回wantAgent的部分信息。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1537,13 +1467,12 @@ declare namespace notificationManager {
   function getNotificationParameters(id: number, label?: string): Promise<NotificationParameters>;
 
   /**
-   * Obtains some information about the **wantAgent** field in 
-   * [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}. This API uses a promise to 
-   * return the result.
+   * 获取通知[NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}中wantAgent字段的部分信息。使用Promise异
+   * 步回调。
    *
-   * @param { int } id - Notification ID.
-   * @param { string } [label] - Notification label. This parameter is left empty by default.
-   * @returns { Promise<NotificationParameters | null> } Promise used to return some information about **wantAgent**.
+   * @param { int } id - 通知ID。
+   * @param { string } [label] - 通知标签，默认为空。
+   * @returns { Promise<NotificationParameters | null> } Promise对象，返回wantAgent的部分信息。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1555,14 +1484,11 @@ declare namespace notificationManager {
   function getNotificationParameters(id: int, label?: string): Promise<NotificationParameters | null>;
 
   /**
-   * Cancels notifications under a notification group of this application. This API uses an asynchronous callback to 
-   * return the result.
+   * 取消当前应用指定组下的通知。使用callback异步回调。
    *
-   * @param { string } groupName - Name of the notification group, which is specified through
-   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} when the notification is
-   *     published.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { string } groupName - 通知组名称，此名称需要在发布通知时通过
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
+   * @param { AsyncCallback<void> } callback - 回调函数。当取消当前应用指定组下的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1575,12 +1501,11 @@ declare namespace notificationManager {
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels notifications under a notification group of this application. This API uses a promise to return the result.
+   * 取消当前应用指定组下的通知。使用Promise异步回调。
    *
-   * @param { string } groupName - Name of the notification group, which is specified through
-   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} when the notification is
-   *     published.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } groupName - 通知组名称，此名称需要在发布通知时通过
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1593,13 +1518,12 @@ declare namespace notificationManager {
   function cancelGroup(groupName: string): Promise<void>;
 
   /**
-   * Removes notifications under a notification group of the specified application. This API uses an asynchronous 
-   * callback to return the result.
+   * 删除指定应用的指定组下的通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } groupName - Name of the notification group.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { string } groupName - 通知组名称。
+   * @param { AsyncCallback<void> } callback - 删除指定应用指定组下通知的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1616,13 +1540,12 @@ declare namespace notificationManager {
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes notifications under a notification group of the specified application. This API uses a promise to return 
-   * the result.
+   * 删除指定应用的指定组下的通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } groupName - Name of the notification group.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { string } groupName - 通知组名称。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1639,11 +1562,11 @@ declare namespace notificationManager {
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
 
   /**
-   * Sets the DND time. This API uses an asynchronous callback to return the result.
+   * 设置免打扰时间。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @param { AsyncCallback<void> } callback - 设置免打扰时间回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1661,11 +1584,11 @@ declare namespace notificationManager {
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the DND time. This API uses a promise to return the result.
+   * 设置免打扰时间。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1683,12 +1606,12 @@ declare namespace notificationManager {
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
   /**
-   * Sets the DND time for a specified user. This API uses an asynchronous callback to return the result.
+   * 指定用户设置免打扰时间。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @param { int } userId - ID of the user for whom you want to set the DND time.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @param { int } userId - 设置免打扰时间的用户ID。
+   * @param { AsyncCallback<void> } callback - 设置免打扰时间回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1707,12 +1630,12 @@ declare namespace notificationManager {
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the DND time for a specified user. This API uses a promise to return the result.
+   * 指定用户设置免打扰时间。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date - DND time to set.
-   * @param { int } userId - ID of the user for whom you want to set the DND time.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { DoNotDisturbDate } date - 免打扰时间选项。
+   * @param { int } userId - 设置免打扰时间的用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1731,10 +1654,10 @@ declare namespace notificationManager {
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: int): Promise<void>;
 
   /**
-   * Obtains the DND time. This API uses an asynchronous callback to return the result.
+   * 查询免打扰时间。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<DoNotDisturbDate> } callback - Callback used to return the result.
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - 查询免打扰时间回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1752,10 +1675,10 @@ declare namespace notificationManager {
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
-   * Obtains the DND time. This API uses a promise to return the result.
+   * 查询免打扰时间。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<DoNotDisturbDate> } Promise used to return the result.
+   * @returns { Promise<DoNotDisturbDate> } 以Promise形式返回获取查询到的免打扰时间。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1771,11 +1694,11 @@ declare namespace notificationManager {
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
   /**
-   * Obtains the DND time of a specified user. This API uses an asynchronous callback to return the result.
+   * 查询指定用户的免打扰时间。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<DoNotDisturbDate> } callback - Callback used to return the result.
+   * @param { int } userId - 用户ID。
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - 查询免打扰时间回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1794,11 +1717,11 @@ declare namespace notificationManager {
   function getDoNotDisturbDate(userId: int, callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
-   * Obtains the DND time of a specified user. This API uses a promise to return the result.
+   * 查询指定用户的免打扰时间。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @returns { Promise<DoNotDisturbDate> } Promise used to return the result.
+   * @param { int } userId - 用户ID。
+   * @returns { Promise<DoNotDisturbDate> } 以Promise形式返回获取查询到的免打扰时间。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1817,11 +1740,10 @@ declare namespace notificationManager {
   function getDoNotDisturbDate(userId: int): Promise<DoNotDisturbDate>;
 
   /**
-   * Checks whether DND mode is supported. This API uses an asynchronous callback to return the result.
+   * 查询是否支持免打扰功能。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that DND
-   *     mode is supported, and **false** means the opposite.
+   * @param { AsyncCallback<boolean> } callback - 查询是否支持免打扰功能回调函数（true：支持，false：不支持）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1838,11 +1760,10 @@ declare namespace notificationManager {
   function isSupportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether DND mode is supported. This API uses a promise to return the result.
+   * 查询是否支持免打扰功能。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that DND mode is
-   *     supported, and **false** means the opposite.
+   * @returns { Promise<boolean> } 以Promise形式返回获取是否支持免打扰功能的结果（true：支持，false：不支持）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1857,14 +1778,11 @@ declare namespace notificationManager {
   function isSupportDoNotDisturbMode(): Promise<boolean>;
 
   /**
-   * Checks whether a specified template is supported before using 
-   * [NotificationTemplate]{@link ./notification/notificationTemplate:NotificationTemplate} to publish a notification. 
-   * This API uses an asynchronous callback to return the result.
+   * 在使用[通知模板]{@link ./notification/notificationTemplate:NotificationTemplate}发布通知前，
+   * 可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
    *
-   * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the template is supported, and **false** indicates the opposite. If this API call fails, an error object is
-   *     returned.
+   * @param { string } templateName - 模板名称。当前仅支持'downloadTemplate'。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持该模板；返回false表示不支持该模板；调用失败返回错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1877,13 +1795,11 @@ declare namespace notificationManager {
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a specified template is supported before using 
-   * [NotificationTemplate]{@link ./notification/notificationTemplate:NotificationTemplate} to publish a notification. 
-   * This API uses a promise to return the result.
+   * 在使用[通知模板]{@link ./notification/notificationTemplate:NotificationTemplate}发布通知前，
+   * 可以通过该接口查询是否支持对应的通知模板。使用Promise异步回调。
    *
-   * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the specified
-   *     template is supported, and **false** means the opposite.
+   * @param { string } templateName - 模板名称。当前仅支持'downloadTemplate'。
+   * @returns { Promise<boolean> } Promise对象。返回true表示支持该模板；返回false表示不支持该模板。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1896,17 +1812,15 @@ declare namespace notificationManager {
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
   /**
-   * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the 
-   * result.
+   * 当前应用请求通知使能。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API is supported since API version 9 and deprecated since API version 12. You are advised to use
-   * [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>)}
-   * with context instead.
+   * > 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的
+   * > [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>)}
+   * > 替代。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当应用请求通知使能成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1923,24 +1837,20 @@ declare namespace notificationManager {
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
   /**
-   * Requests notification to be enabled for this application. You can call this API to display a dialog box prompting 
-   * the user to enable notification for your application before publishing a notification. This API uses an 
-   * asynchronous callback to return the result.
+   * 应用需要获取用户授权才能发送通知。在通知发布前调用该接口，可以拉起通知授权弹窗，让用户选择是否允许发送通知。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - This API can be called only after the application UI is loaded (that is, 
-   * > [loadContent]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.loadContent} is 
-   * > successfully called).
+   * > - 仅当应用界面加载完成后（即调用
+   * > [loadContent]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.loadContent}成功），方可使用该接口
+   * > 。
    * >
-   * > - When an application uses **requestEnableNotification()** to display a dialog box for notification authorization
-   * > and the user rejects the authorization, the application cannot use this API to open the dialog box again. However
-   * > , it can call [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult} 
-   * > to open the notification management dialog box.
+   * > - 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用
+   * > [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult}二次申请授权，拉起通知管理弹窗
+   * > 。
    *
-   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { UIAbilityContext } context - 通知弹窗绑定Ability的上下文。
+   * @param { AsyncCallback<void> } callback - 回调函数。当应用通过弹窗获取用户授权成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1957,15 +1867,14 @@ declare namespace notificationManager {
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests notification to be enabled for this application. This API uses a promise to return the result.
+   * 当前应用请求通知使能。使用Promise异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API is supported since API version 9 and deprecated since API version 12. You are advised to use
-   * [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext)}
-   * with context instead.
+   * > 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的
+   * > [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext)}替代。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1980,23 +1889,20 @@ declare namespace notificationManager {
   function requestEnableNotification(): Promise<void>;
 
   /**
-   * Requests notification to be enabled for this application. You can call this API to display a dialog box prompting 
-   * the user to enable notification for your application before publishing a notification. This API uses a promise to 
-   * return the result.
+   * 应用需要获取用户授权才能发送通知。在通知发布前调用该接口，可以拉起通知授权弹窗，让用户选择是否允许发送通知。使用Promise异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - This API can be called only after the application UI is loaded (that is, 
-   * > [loadContent]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.loadContent} is 
-   * > successfully called).
+   * > - 仅当应用界面加载完成后（即调用
+   * > [loadContent]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.loadContent}成功），方可使用该接口
+   * > 。
    * >
-   * > - When an application uses **requestEnableNotification()** to display a dialog box for notification authorization
-   * > and the user rejects the authorization, the application cannot use this API to open the dialog box again. However
-   * > , it can call [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult} 
-   * > to open the notification management dialog box.
+   * > - 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用
+   * > [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult}二次申请授权，拉起通知管理弹窗
+   * > 。
    *
-   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { UIAbilityContext } context - 通知弹窗绑定的Ability上下文。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2013,13 +1919,11 @@ declare namespace notificationManager {
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Sets whether to enable distributed notification on this device. This API uses an asynchronous callback to return 
-   * the result.
+   * 设置设备是否支持分布式通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Whether to enable distributed notification. The value **true** means to enable
-   *     distributed notification, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { boolean } enable - 是否支持（true：支持，false：不支持）。
+   * @param { AsyncCallback<void> } callback - 设置设备是否支持分布式通知的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2037,12 +1941,11 @@ declare namespace notificationManager {
   function setDistributedEnable(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable distributed notification on this device. This API uses a promise to return the result.
+   * 设置设备是否支持分布式通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Whether to enable distributed notification. The value **true** means to enable
-   *     distributed notification, and **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } enable - 是否支持（true：支持，false：不支持）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2060,12 +1963,9 @@ declare namespace notificationManager {
   function setDistributedEnable(enable: boolean): Promise<void>;
 
   /**
-   * Checks whether the device supports cross-device notifications. This API uses an asynchronous callback to return the
-   * result.
+   * 查询设备是否支持跨设备协同通知。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     cross-device notification is supported; **false** means the opposite. If this API call fails, an error object
-   *     is returned.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持跨设备协同通知；返回false表示不支持跨设备协同通知；调用失败返回错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2079,10 +1979,9 @@ declare namespace notificationManager {
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the device supports cross-device notifications. This API uses a promise to return the result.
+   * 查询设备是否支持跨设备协同通知。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the cross-device
-   *     notification is supported; **false** means the opposite.
+   * @returns { Promise<boolean> } Promise对象。返回true表示支持跨设备协同通知；返回false表示不支持跨设备协同通知。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2094,14 +1993,12 @@ declare namespace notificationManager {
   function isDistributedEnabled(): Promise<boolean>;
 
   /**
-   * Sets whether to enable distributed notification for a specified application. This API uses an asynchronous callback
-   * to return the result.
+   * 设置指定应用是否支持分布式通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enable - Whether to enable distributed notification. The value **true** means to enable
-   *     distributed notification, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { boolean } enable - 指定应用是否支持分布式通知（true：支持，false：不支持）。
+   * @param { AsyncCallback<void> } callback - 应用程序是否支持分布式通知的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2120,14 +2017,12 @@ declare namespace notificationManager {
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable distributed notification for a specified application. This API uses a promise to return the 
-   * result.
+   * 设置指定应用是否支持分布式通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle of the application.
-   * @param { boolean } enable - Whether to enable distributed notification. The value **true** means to enable
-   *     distributed notification, and **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 应用的包。
+   * @param { boolean } enable - 指定应用是否支持分布式通知（true：支持，false：不支持）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2146,15 +2041,13 @@ declare namespace notificationManager {
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
-   * Sets whether a specified application enables cross-device collaboration. This API uses a promise to return the 
-   * result.
+   * 设置指定应用是否支持跨设备协同。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } deviceType - Device type.
-   * @param { boolean } enable - Whether a specified application enables cross-device collaboration. The value **true**
-   *     indicates that the cross-device collaboration is enabled, and the value **false** indicates the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { string } deviceType - 设备类型。
+   * @param { boolean } enable - 指定应用是否支持跨设备协同（true：支持，false：不支持）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2174,13 +2067,11 @@ declare namespace notificationManager {
   function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
   /**
-   * Checks whether distributed notification is enabled for a specified application. This API uses an asynchronous 
-   * callback to return the result.
+   * 根据应用的包获取应用程序是否支持分布式通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle of the application.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that
-   *     distributed notification is enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 应用的包。
+   * @param { AsyncCallback<boolean> } callback - 查询指定应用是否支持分布式通知的回调函数（true：支持，false：不支持）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2199,13 +2090,11 @@ declare namespace notificationManager {
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether distributed notification is enabled for a specified application. This API uses a promise to return 
-   * the result.
+   * 查询指定应用是否支持分布式通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle of the application.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that distributed
-   *     notification is enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 应用的包。
+   * @returns { Promise<boolean> } Promise方式返回指定应用是否支持分布式通知的结果（true：支持，false：不支持）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2224,14 +2113,12 @@ declare namespace notificationManager {
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Obtains whether a specified application enables cross-device collaboration. This API uses a promise to return the 
-   * result.
+   * 获取指定应用是否支持跨设备协同。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } deviceType - Device type.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the cross-device
-   *     collaboration is enabled, and the value **false** indicates the opposite.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { string } deviceType - 设备类型。
+   * @returns { Promise<boolean> } 以Promise形式返回指定应用是否支持跨设备协同的开关是否开启的结果（true：开启，false：未开启）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2251,12 +2138,12 @@ declare namespace notificationManager {
   function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
 
   /**
-   * Sets whether applications enable cross-device collaboration. This API uses a promise to return the result.
+   * 批量设置应用是否支持跨设备协同。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DistributedBundleEnableInfo> } bundleEnableInfos - Applications to set.
-   * @param { string } deviceType - Device type.
-   * @returns { Promise<void> } Promise that returns no result.
+   * @param { Array<DistributedBundleEnableInfo> } bundleEnableInfos - 需要设置的应用数组。
+   * @param { string } deviceType - 设备类型。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2273,13 +2160,12 @@ declare namespace notificationManager {
   function setDistributedEnableByBundles(bundleEnableInfos: Array<DistributedBundleEnableInfo>, deviceType: string): Promise<void>;
 
   /**
-   * Sets a smart reminder for cross-device collaboration. This API uses a promise to return the result.
+   * 设置设备是否与其他设备协同智能提醒。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } deviceType - Device type.
-   * @param { boolean } enable - Indicates whether the specified application supports a smart reminder for cross-device
-   *     collaboration (**true**: enabled; **false**: disabled).
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } deviceType - 设备类型。
+   * @param { boolean } enable - 指定应用是否支持设备是否与其他设备协同智能提醒（true：支持，false：不支持）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2299,11 +2185,11 @@ declare namespace notificationManager {
   function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
 
   /**
-   * Obtains a smart reminder for cross-device collaboration. This API uses a promise to return the result.
+   * 获取设备是否与其他设备协同智能提醒。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } deviceType - Device type.
-   * @returns { Promise<boolean> } Promise used to return the result (**true**: enabled; **false**: disabled).
+   * @param { string } deviceType - 设备类型。
+   * @returns { Promise<boolean> } 以Promise形式返回设备与其他设备协同智能提醒的开关是否开启的结果（true：开启，false：未开启）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2323,10 +2209,10 @@ declare namespace notificationManager {
   function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
 
   /**
-   * Obtains the notification reminder type. This API uses an asynchronous callback to return the result.
+   * 获取通知的提醒方式。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<DeviceRemindType> } callback - Callback used to return the result.
+   * @param { AsyncCallback<DeviceRemindType> } callback - 获取通知提醒方式的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2343,10 +2229,10 @@ declare namespace notificationManager {
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
   /**
-   * Obtains the notification reminder type. This API uses a promise to return the result.
+   * 获取通知的提醒方式。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<DeviceRemindType> } Promise used to return the result.
+   * @returns { Promise<DeviceRemindType> } Promise方式返回获取通知提醒方式的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2361,15 +2247,13 @@ declare namespace notificationManager {
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
   /**
-   * Sets the enabled status of a slot type for the specified application. This API uses an asynchronous callback to 
-   * return the result.
+   * 设置指定应用的指定渠道类型的使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } type - Notification slot type.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { SlotType } type - 指定渠道类型。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @param { AsyncCallback<void> } callback - 设置渠道使能回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2393,17 +2277,14 @@ declare namespace notificationManager {
   ): void;
 
   /**
-   * Sets the enabled status of a slot type for the specified application. This API uses an asynchronous callback to 
-   * return the result.
+   * 设置指定应用的指定渠道类型的使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } type - Notification slot type.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @param { boolean } isForceControl - Whether the slot is affected by the notification authorization. The value
-   *     **true** means the slot is affected, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { SlotType } type - 指定渠道类型。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @param { boolean } isForceControl - 渠道开关是否受通知授权开关影响（false：受影响，true：不受影响）。
+   * @param { AsyncCallback<void> } callback - 设置渠道使能回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2428,17 +2309,14 @@ declare namespace notificationManager {
   ): void;
 
   /**
-   * Sets the enabled status of a slot type for the specified application. This API uses a promise to return the result.
+   * 设置指定应用的指定渠道类型的使能状态。使用promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } type - Notification slot type.
-   * @param { boolean } enable - Whether to enable the notification slot type. The value **true** means to enable the
-   *     notification slot type, and **false** means the opposite.
-   * @param { boolean } isForceControl - Whether the enabled status of the notification slot is subject to the enabled
-   *     status of notification. The value **false** means that the enabled status of the notification slot is subject
-   *     to the enabled status of notification, and **true** means the opposite. Default value: **false** [since 11]
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { SlotType } type - 渠道类型。
+   * @param { boolean } enable - 使能状态（true：使能，false：禁止）。
+   * @param { boolean } isForceControl - 渠道开关是否受通知总开关影响（false：受总开关影响，true：不受总开关影响）。默认为false。 [since 11]
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2457,14 +2335,12 @@ declare namespace notificationManager {
   function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
   /**
-   * Checks whether a notification slot type is enabled for the specified application. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取指定应用的指定渠道类型的使能状态。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } type - Notification slot type.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     notification slot type is enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { SlotType } type - 渠道类型。
+   * @param { AsyncCallback<boolean> } callback - 获取渠道使能状态回调函数（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2482,14 +2358,12 @@ declare namespace notificationManager {
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a notification slot type is enabled for the specified application. This API uses a promise to return
-   * the result.
+   * 获取指定应用的指定渠道类型的使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { SlotType } type - Notification slot type.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the notification
-   *     slot type is enabled, and **false** means the opposite.
+   * @param { BundleOption } bundle - 应用的包信息。
+   * @param { SlotType } type - 渠道类型。
+   * @returns { Promise<boolean> } 以Promise形式返回指定类型的渠道使能状态（true：使能，false：禁止）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2507,14 +2381,12 @@ declare namespace notificationManager {
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
-   * Sets whether to enable the notification sync feature for devices where the application is not installed. This API 
-   * uses an asynchronous callback to return the result.
+   * 设置是否将通知同步到未安装应用程序的设备(callback形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @param { boolean } enable - Whether to enable the notification sync feature. The value **true** means to enable the
-   *     feature, and **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } userId - 用户ID。
+   * @param { boolean } enable - 是否启用（true：使能，false：禁止）。
+   * @param { AsyncCallback<void> } callback - 设置是否将通知同步到未安装应用程序的设备的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2532,14 +2404,12 @@ declare namespace notificationManager {
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable the notification sync feature for devices where the application is not installed. This API 
-   * uses a promise to return the result.
+   * 设置是否将通知同步到未安装应用程序的设备(Promise形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @param { boolean } enable - Whether to enable the notification sync feature. The value **true** means to enable the
-   *     feature, and **false** means the opposite.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } userId - 用户ID。
+   * @param { boolean } enable - 是否启用（true：使能，false：禁止）。
+   * @returns { Promise<void> } 以Promise形式返回设置是否将通知同步到未安装应用程序的设备的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2557,13 +2427,11 @@ declare namespace notificationManager {
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean): Promise<void>;
 
   /**
-   * Obtains whether the notification sync feature is enabled for devices where the application is not installed. This 
-   * API uses an asynchronous callback to return the result.
+   * 获取同步通知到未安装应用程序设备的开关是否开启(callback形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     notification sync feature is enabled, and **false** means the opposite.
+   * @param { int } userId - 用户ID。
+   * @param { AsyncCallback<boolean> } callback - 获取同步通知到未安装应用程序设备的开关是否开启的回调函数（true：开启，false：未开启）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2580,13 +2448,11 @@ declare namespace notificationManager {
   function getSyncNotificationEnabledWithoutApp(userId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains whether the notification sync feature is enabled for devices where the application is not installed. This 
-   * API uses a promise to return the result.
+   * 获取同步通知到未安装应用程序设备的开关是否开启(Promise形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - User ID.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the notification
-   *     sync feature is enabled, and **false** means the opposite.
+   * @param { int } userId - 用户ID。
+   * @returns { Promise<boolean> } 以Promise形式返回获取同步通知到未安装应用程序设备的开关是否开启的结果（true：开启，false：未开启）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2603,12 +2469,10 @@ declare namespace notificationManager {
   function getSyncNotificationEnabledWithoutApp(userId: int): Promise<boolean>;
 
   /**
-   * Sets the notification badge number. This API uses an asynchronous callback to return the result.
+   * 设定角标个数，在应用的桌面图标上呈现。使用callback异步回调。
    *
-   * @param { int } badgeNumber - Notification badge number to set. If **badgeNumber** is set to **0**, badges are
-   *     cleared; if the value is greater than **99**, **99+** is displayed on the badge.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } badgeNumber - 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设定角标个数成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2624,11 +2488,10 @@ declare namespace notificationManager {
   function setBadgeNumber(badgeNumber: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the notification badge number. This API uses a promise to return the result.
+   * 设定角标个数，在应用的桌面图标上呈现。使用Promise异步回调。
    *
-   * @param { int } badgeNumber - Notification badge number to set. If **badgeNumber** is set to **0**, badges are
-   *     cleared; if the value is greater than **99**, **99+** is displayed on the badge.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } badgeNumber - 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2644,11 +2507,11 @@ declare namespace notificationManager {
   function setBadgeNumber(badgeNumber: int): Promise<void>;
 
   /**
-   * Sets the badge count for other applications. This API uses a promise to return the result.
+   * 代理其他应用设定角标个数。使用Promise异步回调。
    *
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { int } badgeNumber - Notification badge number to set.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { int } badgeNumber - 角标个数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2667,16 +2530,13 @@ declare namespace notificationManager {
   function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: int): Promise<void>;
 
   /**
-   * Subscribes to notification events. The notification service sends the notification information in the callback to 
-   * the verification program. The verification program returns the verification result to determine whether to publish 
-   * the notification, for example, controlling the publication frequency of marketing notifications.
+   * 注册通知监听回调。通知服务将通知信息回调给校验程序，校验程序返回校验结果决定该通知是否发布，如营销类通知发布频率控制等。
    * 
-   * Each [SlotType]{@link @ohos.notificationManager:notificationManager.SlotType} in the system can have only one 
-   * registrant.
+   * 系统中每个[SlotType]{@link @ohos.notificationManager:notificationManager.SlotType}只允许存在一个注册者。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { 'checkNotification' } type - Event type. The value is fixed to **'checkNotification'**.
-   * @param { function } callback - Pointer to the notification verification function.
+   * @param { 'checkNotification' } type - 回调函数类型名，固定为'checkNotification'。
+   * @param { function } callback - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2688,10 +2548,10 @@ declare namespace notificationManager {
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
   /**
-   * Subscribe the callback for check notifications.
+   * 通知监听回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { function } callback - callback - The callback of check notifications.
+   * @param { function } callback - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2703,18 +2563,14 @@ declare namespace notificationManager {
   function onCheckNotification(callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
   /**
-   * Subscribes to notification events. The notification service sends the notification information in the callback to 
-   * the verification program. The verification program returns the verification result to determine whether to publish 
-   * the notification, for example, controlling the publication frequency of marketing notifications. This API uses a 
-   * promise to return the result.
+   * 注册通知监听回调。通知服务将通知信息回调给校验程序，校验程序返回校验结果决定该通知是否发布，如营销类通知发布频率控制等。使用Promise异步回调。
    * 
-   * Each [SlotType]{@link @ohos.notificationManager:notificationManager.SlotType} in the system can have only one 
-   * registrant.
+   * 系统中每个[SlotType]{@link @ohos.notificationManager:notificationManager.SlotType}只允许存在一个注册者。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { 'checkNotification' } type - Event type. The value is fixed to **'checkNotification'**.
-   * @param { NotificationCheckRequest } checkRequest - Notification verification content.
-   * @param { function } callback - Pointer to the notification verification function.
+   * @param { 'checkNotification' } type - 回调函数类型名，固定为'checkNotification'。
+   * @param { NotificationCheckRequest } checkRequest - 通知请求验证内容。
+   * @param { function } callback - 消息验证函数指针。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2730,11 +2586,11 @@ declare namespace notificationManager {
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
 
   /**
-   * Subscribe the callback for check notifications.
+   * 通知监听回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
-   * @param { function } callback - callback - The callback of check notifications.
+   * @param { NotificationCheckRequest } checkRequest - 通知请求验证内容。
+   * @param { function } callback - callback - 消息验证函数指针。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2750,11 +2606,11 @@ declare namespace notificationManager {
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
 
   /**
-   * Unsubscribes from notification events.
+   * 取消通知监听回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { 'checkNotification' } type - Event type. The value is fixed to **'checkNotification'**.
-   * @param { function } [callback] - Pointer to the notification verification function.
+   * @param { 'checkNotification' } type - 回调函数类型名，固定为'checkNotification'。
+   * @param { function } [callback] - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2769,10 +2625,10 @@ declare namespace notificationManager {
   ): void;
 
   /**
-   * Unsubscribe the callback for check notifications.
+   * 通知监听回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { function } [callback] - callback - The callback of check notifications.
+   * @param { function } [callback] - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2786,13 +2642,13 @@ declare namespace notificationManager {
   ): void;
 
   /**
-   * Triggers a system live view notification. This API uses a promise to return the result.
+   * 触发系统实况窗。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { int } notificationId - Notification ID.
-   * @param { ButtonOptions } buttonOptions - Button information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { int } notificationId - 通知ID。
+   * @param { ButtonOptions } buttonOptions - 按钮信息。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2811,10 +2667,10 @@ declare namespace notificationManager {
   function triggerSystemLiveView(bundle: BundleOption, notificationId: int, buttonOptions: ButtonOptions): Promise<void>;
 
   /**
-   * Subscribes to the system live view notification. This API uses a promise to return the result.
+   * 订阅系统实况窗。使用Promise异步回调。
    *
-   * @param { SystemLiveViewSubscriber } subscriber - Subscriber of the system live view notification.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { SystemLiveViewSubscriber } subscriber - 系统实况窗订阅者。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2831,18 +2687,13 @@ declare namespace notificationManager {
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
   /**
-   * Sets the slot flags for a specified application. This API uses a promise to return the result.
+   * 设定指定应用的通知提醒方式开关。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { long } slotFlags - Notification slot flags.<br>- Bit 0: sound alert. The value **0** means to disable the
-   *     feature, and **1** means the opposite.<br>- Bit 1: locking the screen. The value **0** means to disable the
-   *     feature, and **1** means the opposite.<br>- Bit 2: banner. The value **0** means to disable the feature, and
-   *     **1** means the opposite.<br>- Bit 3: turning on the screen. The value **0** means to disable the feature, and
-   *     **1** means the opposite.<br>- Bit 4: vibration. The value **0** means to disable the feature, and **1** means
-   *     the opposite.<br>- Bit 5: notification icon in the status bar. The value **0** means to disable the feature,
-   *     and **1** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { long } slotFlags - 通知提醒方式开关标识位。<br>- bit0：铃声提示。0表示关闭，1表示开启。 <br>- bit1：锁屏。0表示关闭，1表示开启。 <br>- bit2：横幅。0表示关闭
+   *     ，1表示开启。 <br>- bit3：亮屏。0表示关闭，1表示开启。 <br>- bit4：振动。0表示关闭，1表示开启。 <br>- bit5：状态栏通知图标。0表示关闭，1表示开启。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2860,18 +2711,17 @@ declare namespace notificationManager {
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: long): Promise<void>;
 
   /**
-   * Obtains the notification slot flag of a specified application. This API uses a promise to return the result.
+   * 获取指定应用的通知渠道标识位。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<long> } Promise used to return the notification slot flag.
-   *     <br>- Bit 0: sound alert. The value **0** means to disable the feature, and **1** means the opposite.
-   *     <br>- Bit 1: locking the screen. The value **0** means to disable the feature, and **1** means the opposite.
-   *     <br>- Bit 2: banner. The value **0** means to disable the feature, and **1** means the opposite.
-   *     <br>- Bit 3: turning on the screen. The value **0** means to disable the feature, and **1** means the opposite.
-   *     <br>- Bit 4: vibration. The value **0** means to disable the feature, and **1** means the opposite.
-   *     <br>- Bit 5: notification icon in the status bar. The value **0** means to disable the feature, and **1** means the
-   *     opposite.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<long> } 以Promise形式返回获取指定应用的通知渠道标识位。
+   *     <br>- bit0：铃声提示。0表示关闭，1表示开启。 
+   *     <br>- bit1：锁屏。0表示关闭，1表示开启。 
+   *     <br>- bit2：横幅。0表示关闭，1表示开启。 
+   *     <br>- bit3：亮屏。0表示关闭，1表示开启。 
+   *     <br>- bit4：振动。0表示关闭，1表示开启。 
+   *     <br>- bit5：状态栏通知图标。0表示关闭，1表示开启。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2889,9 +2739,9 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<long>;
 
   /**
-   * Obtains the notification settings of an application. This API uses a promise to return the result.
+   * 获取应用程序的通知设置。使用Promise异步回调。
    *
-   * @returns { Promise<NotificationSetting> } Promise used to return the result.
+   * @returns { Promise<NotificationSetting> } Promise对象，返回此应用程序的通知设置。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2902,11 +2752,11 @@ declare namespace notificationManager {
   function getNotificationSetting(): Promise<NotificationSetting>;
 
   /**
-   * Adds the Do Not Disturb profile. This API uses a promise to return the result.
+   * 添加勿扰模式配置信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DoNotDisturbProfile> } templates - Do Not Disturb profile.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<DoNotDisturbProfile> } templates - 勿扰模式的配置信息。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2924,12 +2774,12 @@ declare namespace notificationManager {
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
-   * Adds the Do Not Disturb profile for a specified user. This API uses a promise to return the result.
+   * 向指定用户添加勿扰模式配置信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DoNotDisturbProfile> } templates - Do Not Disturb profile.
-   * @param { int } userId - ID of the target user.
-   * @returns { Promise<void> } Promise that returns no result.
+   * @param { Array<DoNotDisturbProfile> } templates - 勿扰模式的配置信息。
+   * @param { int } userId - 添加勿扰模式配置信息的用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2946,11 +2796,11 @@ declare namespace notificationManager {
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>, userId: int): Promise<void>;
 
   /**
-   * Deletes the Do Not Disturb profile. This API uses a promise to return the result.
+   * 删除勿扰模式配置。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DoNotDisturbProfile> } templates - Do Not Disturb profile.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<DoNotDisturbProfile> } templates - 勿扰模式的配置信息。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2968,12 +2818,12 @@ declare namespace notificationManager {
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
-   * Deletes the Do Not Disturb profile of a specified user. This API uses a promise to return the result.
+   * 删除指定用户的勿扰模式配置。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DoNotDisturbProfile> } templates - Do Not Disturb profile.
-   * @param { int } userId - ID of the target user.
-   * @returns { Promise<void> } Promise that returns no result.
+   * @param { Array<DoNotDisturbProfile> } templates - 勿扰模式的配置信息。
+   * @param { int } userId - 删除勿扰模式配置的用户ID。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2990,16 +2840,13 @@ declare namespace notificationManager {
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>, userId: int): Promise<void>;
 
   /**
-   * Sets the additional system configuration information of the notification. This API uses a promise to return the 
-   * result.
+   * 设置通知的系统附加配置信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { string } key - Additional configuration key. Currently, only **RING_TRUSTLIST_PKG** is supported,
-   *     indicating that the application supports
-   *     [custom ringtone]{@link ./notification/notificationRequest:NotificationRequest}.
-   * @param { string } value - Additional configuration value. Example: [bundleName1,bundleName2].
-   * @returns { Promise<int> } Promise used to return the result. **0** indicates successful; other values indicate
-   *     failed.
+   * @param { string } key - 附加配置键。目前仅支持`RING_TRUSTLIST_PKG`，表示应用支持使用
+   *     [自定义铃声]{@link ./notification/notificationRequest:NotificationRequest}。
+   * @param { string } value - 附加配置值。参数示例：[bundleName1,bundleName2]。
+   * @returns { Promise<int> } Promise对象，返回0表示设置成功，返回其他值表示设置失败。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3016,12 +2863,12 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<int>;
 
   /**
-   * Sets the priority configuration of an application.
+   * 设置应用的优先功能配置。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { string } value - Priority configuration of an application.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { string } value - 应用的优先功能配置。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3036,11 +2883,11 @@ declare namespace notificationManager {
   function setBundlePriorityConfig(bundle: BundleOption, value: string): Promise<void>;
 
   /**
-   * Obtains the priority configuration of an application.
+   * 获取应用的优先功能配置。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<string> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<string> } Promise对象，返回包含应用优先功能配置的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3055,14 +2902,12 @@ declare namespace notificationManager {
   function getBundlePriorityConfig(bundle: BundleOption): Promise<string>;
 
   /**
-   * Obtains whether the intelligent priority notification service is enabled. This API uses a promise to return the 
-   * result.
+   * 获取优先通知智能服务使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<boolean> } Promise that contains the enabling status of the intelligent priority notification
-   *     service.
-   *     <br> - **true**: The intelligent priority notification service is enabled.
-   *     <br> - **false**: The intelligent priority notification service is disabled.
+   * @returns { Promise<boolean> } Promise对象，返回包含优先通知智能服务使能状态的Promise对象。
+   *     <br> - true：优先通知智能服务为打开状态。
+   *     <br> - false：优先通知智能服务为关闭状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3076,14 +2921,11 @@ declare namespace notificationManager {
   function isPriorityIntelligentEnabled(): Promise<boolean>;
 
   /**
-   * Sets the enabling status of the intelligent priority notification service. This API uses a promise to return the 
-   * result.
+   * 设置优先通知智能服务使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Enabling status of the intelligent priority notification service.<br> - **true**: The
-   *     intelligent priority notification service is enabled.<br> - **false**: The intelligent priority notification
-   *     service is disabled.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } enable - 优先通知智能服务使能状态。<br> - true：优先通知智能服务为打开状态。<br> - false：优先通知智能服务为关闭状态。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3097,13 +2939,11 @@ declare namespace notificationManager {
   function setPriorityIntelligentEnabled(enable: boolean): Promise<void>;
 
   /**
-   * Sets whether priority notifications are enabled for applications in batches. This API uses a promise to return the 
-   * result.
+   * 批量设置应用通知优先级开关状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Map<BundleOption, boolean> } switches - Key-value pair set of the application notification priority
-   *     enabling status.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Map<BundleOption, boolean> } switches - 应用通知优先级开关状态的键值对集合。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3118,13 +2958,11 @@ declare namespace notificationManager {
   function setPriorityEnabledByBundles(switches: Map<BundleOption, boolean>): Promise<void>;
 
   /**
-   * Obtains whether priority notifications are enabled for applications in batches. This API uses a promise to return 
-   * the result.
+   * 批量获取应用通知优先级开关状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<BundleOption> } bundles - Array of application bundles.
-   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the key-value pair set of the application
-   *     notification priority enabling status.
+   * @param { Array<BundleOption> } bundles - 应用包信息数组。
+   * @returns { Promise<Map<BundleOption, boolean>> } Promise对象，返回应用通知优先级开关状态的键值对集合的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3139,13 +2977,12 @@ declare namespace notificationManager {
   function getPriorityEnabledByBundles(bundles: Array<BundleOption>): Promise<Map<BundleOption, boolean>>;
 
   /**
-   * Sets the application priority notification strategies in batches. This API uses a promise to return the result.
+   * 批量设置应用通知优先策略。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Map<BundleOption, long> } strategies - Key-value pair set of the application notification priority
-   *     strategies. This parameter is obtained by performing the bitwise OR operation with the enumeration of
-   *     [PriorityStrategyStatus]{@link notificationManager.PriorityStrategyStatus}.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Map<BundleOption, long> } strategies - 应用通知优先策略的键值对集合。与
+   *     [PriorityStrategyStatus]{@link notificationManager.PriorityStrategyStatus}的枚举进行按位或运算得到值。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3160,12 +2997,11 @@ declare namespace notificationManager {
   function setPriorityStrategyByBundles(strategies: Map<BundleOption, long>): Promise<void>;
 
   /**
-   * Obtains the application priority notification strategies in batches. This API uses a promise to return the result.
+   * 批量获取应用通知优先策略。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<BundleOption> } bundles - Array of application bundles.
-   * @returns { Promise<Map<BundleOption, long>> } Promise used to return the key-value pair set of the application
-   *     notification priority strategies.
+   * @param { Array<BundleOption> } bundles - 应用包信息数组。
+   * @returns { Promise<Map<BundleOption, long>> } Promise对象，返回应用通知优先策略的键值对集合的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3180,11 +3016,10 @@ declare namespace notificationManager {
   function getPriorityStrategyByBundles(bundles: Array<BundleOption>): Promise<Map<BundleOption, long>>;
 
   /**
-   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to 
-   * set the notification enabling and notification mode. This API uses a promise to return the result.
+   * 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调。
    *
-   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
@@ -3197,12 +3032,10 @@ declare namespace notificationManager {
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to 
-   * set the notification enabling and notification mode. This API uses a promise to return the result. When the semi-
-   * modal window is closed, the user-defined status is returned.
+   * 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调, 当半模态窗口关闭时返回用户设置的状态。
    *
-   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
-   * @returns { Promise<NotificationSetting> } Promise used to return the result.
+   * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
+   * @returns { Promise<NotificationSetting> } Promise对象，返回此应用程序的通知设置。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3214,11 +3047,11 @@ declare namespace notificationManager {
   function openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>;
 
   /**
-   * Queries the Do Not Disturb profile. This API uses a promise to return the result.
+   * 查询勿扰模式配置信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { long } id - ID of the Do Not Disturb profile.
-   * @returns { Promise<DoNotDisturbProfile> } Promise used to return the result.
+   * @param { long } id - 勿扰模式编号。
+   * @returns { Promise<DoNotDisturbProfile> } Promise对象，返回勿扰模式的配置信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3236,12 +3069,12 @@ declare namespace notificationManager {
   function getDoNotDisturbProfile(id: long): Promise<DoNotDisturbProfile>;
 
  /**
-   * Queries the Do Not Disturb profile of a specified user. This API uses a promise to return the result.
+   * 查询指定用户的勿扰模式配置信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { long } id - ID of the Do Not Disturb profile.
-   * @param { int } userId - Target user.
-   * @returns { Promise<DoNotDisturbProfile> } Promise used to return the result.
+   * @param { long } id - 勿扰模式编号。
+   * @param { int } userId - 待查询勿扰模式配置信息的用户。
+   * @returns { Promise<DoNotDisturbProfile> } Promise对象，返回勿扰模式的配置信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3258,15 +3091,12 @@ declare namespace notificationManager {
   function getDoNotDisturbProfile(id: long, userId: int): Promise<DoNotDisturbProfile>;
 
   /**
-   * Disables the application from publishing notifications by adding the application bundle name to the permission 
-   * control list. This function can be disabled as required.
+   * 将应用包名添加到通知发布权限管控名单，以阻止应用发布通知。支持启用或关闭该功能。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
-   * @param { boolean } disabled - Whether to enable the permission control list for publishing notifications (**true**:
-   *     enabled; **false**: disabled).
-   * @param { Array<string> } bundleList - Application list under the permission control list. The bundle name is used
-   *     to represent a specific application.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } disabled - 是否启用通知发布权限管控名单（true：开启，false：关闭）。
+   * @param { Array<string> } bundleList - 指定通知发布权限管控名单的应用列表，使用包名代表应用。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3282,16 +3112,13 @@ declare namespace notificationManager {
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
   /**
-   * Disables the application from publishing notifications by adding the application bundle name to the permission 
-   * control list. This API uses a promise to return the result.
+   * 将应用包名添加到通知发布权限管控名单，以阻止应用发布通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
-   * @param { boolean } disabled - Whether to enable the notification permission control list. The value **true**
-   *     indicates that the notification permission control list is enabled; **false** indicates the opposite.
-   * @param { Array<string> } bundleList - Bundles under the permission control list. The bundle name is used to
-   *     represent a specific application.
-   * @param { int } userId - User ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } disabled - 表示是否启用通知发布权限管控名单。true表示启用，false表示关闭。
+   * @param { Array<string> } bundleList - 指定通知发布权限管控名单的应用列表，使用包名表示应用。
+   * @param { int } userId - 表示用户ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -3305,18 +3132,14 @@ declare namespace notificationManager {
   function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: int): Promise<void>;
 
   /**
-   * Sets the status of a device after it is successfully connected. Device status determines the notification mode of 
-   * the current device when a notification is published.
+   * 设置设备配对成功后的状态。当发布通知时，会根据各个设备的状态来确定当前设备的通知提醒方式。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } deviceType - Device type. Currently, only **headset**, **liteWearable**, **wearable**,
-   *     **glasses**, and **current** are supported.
-   * @param { long } status - Device status.<br>- Bit 0: whether the device is in use. The value **0** indicates that
-   *     the device is available; **1** indicates that the device is in use.<br>- Bit 1: whether the device user is the
-   *     owner. The value **0** indicates that the user is not the owner; **1** indicates the opposite.<br>- Bit 2:
-   *     whether the device is in the Do Not Disturb mode. The value **0** indicates that the device is not in the Do
-   *     Not Disturb mode; **1** indicates the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } deviceType - 设备类型。当前仅支持`headset`（可穿戴式音频设备）、`liteWearable`（轻量级智能穿戴设备）、`wearable`（智能穿戴设备）、`glasses`
+   *     （智能眼镜设备）、`current`（本设备）。
+   * @param { long } status - 设备状态。<br>- bit0：设备是否正在被使用。0表示未使用，1表示使用中。<br>- bit1：当前设备使用者是否为机主。0表示为非机主，1表示为机主。<br>- bit2：
+   *     设备是否处于勿扰模式。0表示处于非勿扰模式，1表示处于勿扰模式。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3329,19 +3152,15 @@ declare namespace notificationManager {
   function setTargetDeviceStatus(deviceType: string, status: long): Promise<void>;
 
   /**
-   * Sets whether notifications of a specified slot can be sent to devices of a specified type through cross-device 
-   * collaboration. This API uses a promise to return the result.
+   * 设置指定渠道的通知是否支持通知跨设备协同至指定类型设备。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { SlotType } slot - Types of the notification slot.
-   * @param { string } deviceType - Device type.<br>Since API version 18, the following device types are supported:<br>-
-   *     **headset**: wearable audio device<br>- **liteWearable**: lite wearable<br>- **wearable**: wearable<br>Since
-   *     API version 20, the following device types are supported:<br>- **headset**: wearable audio device<br>-
-   *     **liteWearable**: lite wearable<br>- **wearable**: wearable<br>- **current**: current device<br>- **2in1**: PC<
-   *     br>- **tablet**: tablet
-   * @param { boolean } enabled - Whether to enable cross-device collaboration for notifications. The value **true**
-   *     means to enable cross-device collaboration, and **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { SlotType } slot - 通知渠道类型。
+   * @param { string } deviceType - 设备类型。<br>从API version 18开始，支持的设备类型如下：<br>- headset（可穿戴式音频设备）。<br>- liteWearable（轻量级智
+   *     能穿戴设备）。<br>- wearable（智能穿戴设备）。<br>从API version 20开始，支持的设备类型如下：<br>- headset（可穿戴式音频设备）。<br>- liteWearable（轻量级智能穿
+   *     戴设备）。<br>- wearable（智能穿戴设备）。<br>- current（本设备）。<br>- 2in1（PC设备）。<br>- tablet（平板）。
+   * @param { boolean } enabled - 是否开启通知跨设备协同开关。取值为true表示打开，取值为false表示关闭。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3354,18 +3173,14 @@ declare namespace notificationManager {
   function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
 
   /**
-   * Queries whether notifications of a specified slot can be sent to devices of a specified type. This API uses a 
-   * promise to return the result.
+   * 查询指定渠道的通知是否支持通知跨设备协同至指定类型设备。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { SlotType } slot - Types of the notification slot.
-   * @param { string } deviceType - Device type.<br>Since API version 18, the following device types are supported:<br>-
-   *     **headset**: wearable audio device<br>- **liteWearable**: lite wearable<br>- **wearable**: wearable<br>Since
-   *     API version 20, the following device types are supported:<br>- **headset**: wearable audio device<br>-
-   *     **liteWearable**: lite wearable<br>- **wearable**: wearable<br>- **current**: current device<br>- **2in1**: PC<
-   *     br>- **tablet**: tablet
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that cross-device
-   *     collaboration is supported, and **false** means the opposite.
+   * @param { SlotType } slot - 通知渠道类型。
+   * @param { string } deviceType - 设备类型。<br>从API version 18开始，支持的设备类型如下：<br>- headset（可穿戴式音频设备）。<br>- liteWearable（轻量级智
+   *     能穿戴设备）。<br>- wearable（智能穿戴设备）。<br>从API version 20开始，支持的设备类型如下：<br>- headset（可穿戴式音频设备）。<br>- liteWearable（轻量级智能穿
+   *     戴设备）。<br>- wearable（智能穿戴设备）。<br>- current（本设备）。<br>- 2in1（PC设备）。<br>- tablet（平板）。
+   * @returns { Promise<boolean> } Promise对象，返回true表示指定渠道的通知支持通知跨设备协同至指定类型设备；返回false表示指定渠道的通知不支持通知跨设备协同至指定类型设备。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3378,14 +3193,12 @@ declare namespace notificationManager {
   function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
   /**
-   * Checks whether a device enables cross-device notification. This API uses a promise to return the result.
+   * 查询设备是否支持跨设备协同通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } deviceType - Device type. The options are as follows:<br>- **headset**: wearable audio device<br>
-   *     - **liteWearable**: lite wearable<br>- **wearable**: wearable<br>- **current**: current device<br>- **2in1**:
-   *     PC<br>- **tablet**: tablet
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the cross-device
-   *     notification is enabled, and the value **false** indicates the opposite.
+   * @param { string } deviceType - 设备类型。当前仅支持以下类型：<br>- headset（可穿戴式音频设备）。<br>- liteWearable（轻量级智能穿戴设备）。<br>- wearable（
+   *     智能穿戴设备）。<br>- current（本设备）。<br>- 2in1（PC设备）。<br>- tablet（平板）。
+   * @returns { Promise<boolean> } 返回设备是否支持跨设备协同通知的结果，返回true表示支持；返回false表示不支持。Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
@@ -3396,17 +3209,13 @@ declare namespace notificationManager {
   function isDistributedEnabled(deviceType: string): Promise<boolean>;
 
   /**
-   * Sets whether the device of a specified type enables cross-device notification. This API uses a promise to return 
-   * the result.
+   * 设置设备是否支持跨设备协同通知。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Whether the device of a specified type enables cross-device notification. The value
-   *     **true** indicates that the cross-device notification is enabled, and the value **false** indicates the
-   *     opposite.
-   * @param { string } deviceType - Device type. The options are as follows:<br>- **headset**: wearable audio device<br>
-   *     - **liteWearable**: lite wearable<br>- **wearable**: wearable<br>- **current**: current device<br>- **2in1**:
-   *     PC<br>- **tablet**: tablet
-   * @returns { Promise<void> } Promise that returns no result.
+   * @param { boolean } enable - 表示指定设备类型是否支持跨设备协同通知。true表示支持，false表示不支持。
+   * @param { string } deviceType - 设备类型。当前仅支持以下类型：<br>- headset（可穿戴式音频设备）。<br>- liteWearable（轻量级智能穿戴设备）。<br>- wearable（
+   *     智能穿戴设备）。<br>- current（本设备）。<br>- 2in1（PC设备）。<br>- tablet（平板）。
+   * @returns { Promise<void> } 无返回结果。Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
@@ -3417,10 +3226,10 @@ declare namespace notificationManager {
   function setDistributedEnabled(enable: boolean, deviceType: string): Promise<void>;
 
   /**
-   * Obtains the device types that enable cross-device notification. This API uses a promise to return the result.
+   * 查询支持跨设备协同通知的设备类型。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<Array<string>> } Promise used to return the result.
+   * @returns { Promise<Array<string>> } 返回支持跨设备协同通知的设备列表。Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
@@ -3431,15 +3240,13 @@ declare namespace notificationManager {
   function getDistributedDeviceList(): Promise<Array<string>>;
 
   /**
-   * Sets the enabling status of the priority notification for an application.
+   * 设置应用通知优先级开关。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { PriorityEnableStatus } enableStatus - Whether the priority notification for an application is enabled.<br>
-   *     - **DISABLE**: The priority notification is disabled.<br> - **ENABLE_BY_INTELLIGENT**: The priority
-   *     notification can be enabled through intelligent recognition, user keyword matching, or application rule
-   *     matching.<br> - **ENABLE**: The priority notification is enabled for all applications.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { PriorityEnableStatus } enableStatus - 应用通知优先级开关状态。<br> - DISABLE：不允许设置为优先通知。<br> - ENABLE_BY_INTELLIGENT：允
+   *     许经智能识别、用户关键词匹配、应用规则匹配等方式设置为优先通知。<br> - ENABLE：应用通知均设置为优先通知。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3454,11 +3261,11 @@ declare namespace notificationManager {
   function setPriorityEnabledByBundle(bundle: BundleOption, enableStatus: PriorityEnableStatus): Promise<void>;
 
   /**
-   * Checks whether the priority notification for a specified application is enabled.
+   * 获取应用通知优先级开关状态。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<PriorityEnableStatus> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<PriorityEnableStatus> } Promise对象，返回包含应用通知优先级开关状态的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3473,12 +3280,12 @@ declare namespace notificationManager {
   function isPriorityEnabledByBundle(bundle: BundleOption): Promise<PriorityEnableStatus>;
 
   /**
-   * Checks whether the priority notification is enabled.
+   * 获取通知优先级总开关状态。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<boolean> } Promise used to return the result.
-   *     <br> - **true**: The priority notification is enabled.
-   *     <br> - **false**: The priority notification is disabled.
+   * @returns { Promise<boolean> } Promise对象，返回包含通知优先级总开关使能状态的Promise对象。
+   *     <br> - true：允许设置为优先通知。
+   *     <br> - false：禁止设置为优先通知。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3490,12 +3297,11 @@ declare namespace notificationManager {
   function isPriorityEnabled(): Promise<boolean>;
 
   /**
-   * Sets the enabling status of the priority notification.
+   * 设置通知优先级总开关。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable - Whether to enable the priority notification.<br> - **true**: The priority notification
-   *     is enabled.<br> - **false**: The priority notification is disabled.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } enable - 所有通知的优先使能状态。<br> - true：允许设置为优先通知。<br> - false：禁止设置为优先通知。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3509,13 +3315,12 @@ declare namespace notificationManager {
   function setPriorityEnabled(enable: boolean): Promise<void>;
 
   /**
-   * Sets the enabling status of the silent reminder. This API uses a promise to return the result.
+   * 设置静默提醒的开关状态。使用Promise进行异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { boolean } enabled - Whether to enable the silent reminder. The value **true** means to enable the silent
-   *     reminder, and **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { boolean } enabled - 表示是否开启通知静默提醒开关。true表示打开，false表示关闭。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3531,11 +3336,11 @@ declare namespace notificationManager {
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
 
   /**
-   * Checks whether the silent reminder is enabled. This API uses a promise to return the result.
+   * 查询静默提醒的开关状态。使用Promise进行异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<SwitchState> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<SwitchState> } Promise对象，返回指定应用的通知静默提醒开关状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3551,12 +3356,12 @@ declare namespace notificationManager {
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
 
   /**
-   * Sets the custom ringtone information for an application. This API uses a promise to return the result.
+   * 设置应用自定义铃声信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @param { RingtoneInfo } ringtoneInfo - Custom ringtone information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @param { RingtoneInfo } ringtoneInfo - 自定义铃声信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3570,11 +3375,11 @@ declare namespace notificationManager {
   function setRingtoneInfoByBundle(bundle: BundleOption, ringtoneInfo: RingtoneInfo): Promise<void>;
  
   /**
-   * Obtains the custom ringtone information of an application. This API uses a promise to return the result.
+   * 获取应用自定义铃声信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - Bundle information of the application.
-   * @returns { Promise<RingtoneInfo> } Promise used to return the result.
+   * @param { BundleOption } bundle - 指定应用的包信息。
+   * @returns { Promise<RingtoneInfo> } Promise对象，返回应用自定义铃声信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3589,11 +3394,11 @@ declare namespace notificationManager {
   function getRingtoneInfoByBundle(bundle: BundleOption): Promise<RingtoneInfo>;
 
   /**
-   * Batch sets reminders for specified applications. This API uses a promise to return the result.
+   * 批量设置指定应用提醒信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationReminderInfo> } reminderInfos - Reminders to be set.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<NotificationReminderInfo> } reminderInfos - 设置应用通知提醒信息的列表。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3608,11 +3413,11 @@ declare namespace notificationManager {
   function setReminderInfoByBundles(reminderInfos: Array<NotificationReminderInfo>) : Promise<void>;
 
   /**
-   * Batch obtains reminders of specified applications. This API uses a promise to return the result.
+   * 批量获取指定应用提醒信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<BundleOption> } bundles - Bundles whose reminders are to be obtained.
-   * @returns { Promise<Array<NotificationReminderInfo>> } Promise used to return the application reminders obtained.
+   * @param { Array<BundleOption> } bundles - 待获取应用提醒信息的应用包信息数组。
+   * @returns { Promise<Array<NotificationReminderInfo>> } Promise对象，返回包含应用提醒信息的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3627,11 +3432,11 @@ declare namespace notificationManager {
   function getReminderInfoByBundles(bundles: Array<BundleOption>) : Promise<Array<NotificationReminderInfo>>;
 
   /**
-   * Batch sets whether to display badges for specified applications. This API uses a promise to return the result.
+   * 批量设置指定应用是否显示角标。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Map<BundleOption, boolean> } badges - List containing bundle names and badge display statuses.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Map<BundleOption, boolean> } badges - 应用包名信息和角标显示状态的列表。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3646,12 +3451,11 @@ declare namespace notificationManager {
   function setBadgeDisplayStatusByBundles(badges: Map<BundleOption, boolean>) : Promise<void>;
 
   /**
-   * Batch obtains the display statuses of application badges. This API uses a promise to return the result.
+   * 批量获取应用角标显示状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<BundleOption> } bundles - Bundles whose badge display statuses are to be obtained.
-   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the bundles and the badge display statuses
-   *     obtained.
+   * @param { Array<BundleOption> } bundles - 待获取应用角标显示状态的应用包信息数组。
+   * @returns { Promise<Map<BundleOption, boolean>> } Promise对象，返回应用包信息和显示角标状态的键值对集合的Promise对象 。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3666,10 +3470,10 @@ declare namespace notificationManager {
   function getBadgeDisplayStatusByBundles(bundles: Array<BundleOption>) : Promise<Map<BundleOption, boolean>>;
 
   /**
-   * Registers a callback for querying the number of application badges.
+   * 注册应用角标数量查询回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { function } callback - Number of target application badges.
+   * @param { function } callback - 应用角标数量查询函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3683,7 +3487,7 @@ declare namespace notificationManager {
   function onBadgeNumberQuery(callback: (bundle: BundleOption) => Promise<long>): void;
 
   /**
-   * Unregisters the callback for querying the number of application badges.
+   * 取消应用角标数量查询回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @throws { BusinessError } 201 - Permission denied.
@@ -3699,10 +3503,9 @@ declare namespace notificationManager {
   function offBadgeNumberQuery(): void;
 
   /**
-   * Obtains the badge number of this application. This API uses a promise to return the result.
+   * 获取当前应用角标数量。使用Promise异步回调。
    *
-   * @returns { Promise<long> } Promise used to return the badge number. (The value is irrelevant to whether
-   *     notifications and home-screen badges of this application are enabled.)
+   * @returns { Promise<long> } Promise对象，返回当前应用角标数量。（查询的角标数量与当前应用通知开关，桌面角标开关是否开启无关）
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3713,12 +3516,11 @@ declare namespace notificationManager {
   function getBadgeNumber(): Promise<long>;
 
   /**
-   * Sets the enabling state of geofencing. This API uses a promise to return the result.
+   * 设置地理围栏的启用状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enabled - Whether geofencing is enabled. The value **true** indicates that geofencing is enabled
-   *     , and the value **false** indicates the opposite.
-   * @returns { Promise<void> } Promise that returns no result.
+   * @param { boolean } enabled - 设置地理围栏开关。true表示开启地理围栏，false表示关闭地理围栏。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3732,10 +3534,9 @@ declare namespace notificationManager {
   function setGeofenceEnabled(enabled: boolean): Promise<void>;
 
   /**
-   * Checks whether geofencing is enabled. This API uses a promise to return the result.
+   * 检查地理围栏功能是否已启用。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that geofencing is
-   *     enabled, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } Promise对象，返回地理围栏开关状态的Promise对象。返回true表示地理围栏功能已启用，返回false表示地理围栏功能未启用。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3746,13 +3547,11 @@ declare namespace notificationManager {
   function isGeofenceEnabled(): Promise<boolean>;
 
   /**
-   * Obtains notification statistics of a specified list of applications in batches.
-   * This API uses a promise to return the result.
+   * 批量获取指定应用列表的通知统计信息，使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption[] } bundles - List of application bundle information.
-   * @returns { Promise<BundleNotificationStatistics[]> } Promise used to return the notification statistics
-   *     of a specified list of applications.
+   * @param { BundleOption[] } bundles - 应用的包信息列表。
+   * @returns { Promise<BundleNotificationStatistics[]> } Promise对象。返回指定应用列表的通知统计信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3765,7 +3564,7 @@ declare namespace notificationManager {
   function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
-   * Describes the switch state of notifications.
+   * 描述通知相关开关的设置状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -3774,7 +3573,7 @@ declare namespace notificationManager {
    */
   export enum SwitchState {
     /**
-     * Disabled state set by the user.
+     * 表示用户设置的关闭状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -3784,7 +3583,7 @@ declare namespace notificationManager {
     USER_MODIFIED_OFF = 0,
 
     /**
-     * Enabled state set by the user.
+     * 表示用户设置的开启状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -3794,7 +3593,7 @@ declare namespace notificationManager {
     USER_MODIFIED_ON = 1,
 
     /**
-     * Initial disabled state before user settings.
+     * 表示在用户设置前的初始关闭状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -3804,7 +3603,7 @@ declare namespace notificationManager {
     SYSTEM_DEFAULT_OFF = 2,
 
     /**
-     * Initial enabled state before user settings.
+     * 表示在用户设置前的初始开启状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -3815,7 +3614,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Provides the button information of the notification.
+   * 描述触发按钮信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -3824,7 +3623,7 @@ declare namespace notificationManager {
    */
   export interface ButtonOptions {
     /**
-     * Button name.
+     * 按钮名称。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3836,7 +3635,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Subscriber of the system live view notification.
+   * 系统实况窗订阅者。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -3845,7 +3644,7 @@ declare namespace notificationManager {
    */
   export interface SystemLiveViewSubscriber {
     /**
-     * Callback when the button is touched.
+     * 点击按钮的回调。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -3856,7 +3655,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the parameters of check notifications.
+   * 通知校验参数。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -3865,7 +3664,7 @@ declare namespace notificationManager {
    */
   export interface NotificationCheckInfo {
     /**
-     * Bundle name.
+     * Bundle名称。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3876,7 +3675,7 @@ declare namespace notificationManager {
     bundleName: string;
 
     /**
-     * Notification ID.
+     * 通知ID。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3887,7 +3686,7 @@ declare namespace notificationManager {
     notificationId: int;
 
     /**
-     * Notification label.
+     * 通知标签。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3898,7 +3697,7 @@ declare namespace notificationManager {
     label?: string;
 
     /**
-     * Notification type.
+     * 通知类型。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3909,7 +3708,7 @@ declare namespace notificationManager {
     contentType: ContentType;
 
     /**
-     * User ID of the notification.
+     * 通知的user ID。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3920,7 +3719,7 @@ declare namespace notificationManager {
     creatorUserId: int;
 
     /**
-     * Notification slot type.
+     * 渠道类型。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3931,7 +3730,7 @@ declare namespace notificationManager {
     slotType: SlotType;
 
     /**
-     * Extra information about the live view.
+     * 实况通知的附加信息。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3941,7 +3740,7 @@ declare namespace notificationManager {
     extraInfos?: Record<string, Object>;
 
     /**
-     * Extra information about the live view.
+     * 实况通知的附加信息。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3952,7 +3751,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the result of check notifications.
+   * 通知校验结果。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -3961,11 +3760,7 @@ declare namespace notificationManager {
    */
   export interface NotificationCheckResult {
     /**
-     * Result code.
-     * 
-     * **0**: display.
-     * 
-     * **1**: no display.
+     * 0-display，1-no display。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3976,7 +3771,7 @@ declare namespace notificationManager {
     code: int;
 
     /**
-     * Result.
+     * 结果信息。
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -3988,7 +3783,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the setting status of the notification mode switch.
+   * 通知提醒方式开关的设置状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
@@ -3996,10 +3791,10 @@ declare namespace notificationManager {
    */
   export interface NotificationSetting {
     /**
-     * Whether to enable vibration.
+     * 表示是否开启振动。
      * 
-     * - **true**: enabled.
-     * - **false**: disable.
+     * - true：开启。
+     * - false：关闭。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 20 dynamic
@@ -4008,10 +3803,10 @@ declare namespace notificationManager {
     vibrationEnabled: boolean;
 
     /**
-     * Whether to enable ringtone.
+     * 表示是否开启响铃。
      * 
-     * - **true**: enabled.
-     * - **false**: disable.
+     * - true：开启。
+     * - false：关闭。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 20 dynamic
@@ -4020,11 +3815,12 @@ declare namespace notificationManager {
     soundEnabled: boolean;
 
     /**
-     * Whether to enable lock screen notification. <br>**Model restriction**: This API can be used only in the stage model.
-     * <br>**Since**: 26.0.0<br> - **true**: enabled.<br> - **false**: disable.
+     * 表示是否开启锁屏通知。
      * 
-     * - **true**: enabled.
-     * - **false**: disable.
+     * 26.0.0
+     * 
+     * - true：开启。
+     * - false：关闭。
      *
      * @syscap SystemCapability.Notification.Notification
      * @stagemodelonly
@@ -4033,11 +3829,12 @@ declare namespace notificationManager {
     lockScreenEnabled?: boolean;
  	 
     /**
-     * Whether to enable banner notification.<br>**Model restriction**: This API can be used only in the stage model.
-     * <br>**Since**: 26.0.0<br> - **true**: enabled.<br> - **false**: disable.
+     * 表示是否开启横幅通知。
      * 
-     * - **true**: enabled.
-     * - **false**: disable.
+     * 26.0.0
+     * 
+     * - true：开启。
+     * - false：关闭。
      *
      * @syscap SystemCapability.Notification.Notification
      * @stagemodelonly
@@ -4046,11 +3843,12 @@ declare namespace notificationManager {
     bannerEnabled?: boolean;
  	 
     /**
-     * Whether to enable the display of notification badges. <br>**Model restriction**:
-     * This API can be used only in the stage model.<br>**Since**: 26.0.0<br> - **true**: enabled.<br> - **false**: disable.
+     * 表示是否开启通知角标数字展示。
      * 
-     * - **true**: enabled.
-     * - **false**: disable.
+     * 26.0.0
+     * 
+     * - true：开启。
+     * - false：关闭。
      *
      * @syscap SystemCapability.Notification.Notification
      * @stagemodelonly
@@ -4059,11 +3857,12 @@ declare namespace notificationManager {
     badgeNumberEnabled?: boolean;
 
     /**
-     * Whether to enable the application notification.<br>**Model restriction**:
-     * This API can be used only in the stage model.<br>**Since**: 26.0.0<br> - **true**: enabled.<br> - **false**: disable.
+     * 表示应用通知使能状态。
      * 
-     * - **true**: enabled.
-     * - **false**: disable.
+     * 26.0.0
+     * 
+     * - true：开启。
+     * - false：关闭。
      *
      * @syscap SystemCapability.Notification.Notification
      * @stagemodelonly
@@ -4073,7 +3872,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Enumerates the notification slot types.
+   * 通知渠道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @atomicservice [since 12]
@@ -4082,7 +3881,7 @@ declare namespace notificationManager {
    */
   export enum SlotType {
     /**
-     * Unknown type. This type corresponds to [SlotLevel]{@link notificationManager.SlotLevel} being **LEVEL_MIN**.
+     * 未知类型。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_MIN。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4092,8 +3891,7 @@ declare namespace notificationManager {
     UNKNOWN_TYPE = 0,
 
     /**
-     * Notification slot for social communication. This type corresponds to 
-     * [SlotLevel]{@link notificationManager.SlotLevel} being **LEVEL_HIGH**.
+     * 社交通信。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_HIGH。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4103,8 +3901,7 @@ declare namespace notificationManager {
     SOCIAL_COMMUNICATION = 1,
 
     /**
-     * Notification slot for service information. This type corresponds to 
-     * [SlotLevel]{@link notificationManager.SlotLevel} being **LEVEL_HIGH**.
+     * 服务提醒。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_HIGH。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4114,8 +3911,7 @@ declare namespace notificationManager {
     SERVICE_INFORMATION = 2,
 
     /**
-     * Notification slot for content consultation. This type corresponds to 
-     * [SlotLevel]{@link notificationManager.SlotLevel} being **LEVEL_MIN**.
+     * 内容资讯。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_MIN。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4125,10 +3921,8 @@ declare namespace notificationManager {
     CONTENT_INFORMATION = 3,
 
     /**
-     * Live view. A third-party application cannot directly create a notification of this slot type. After the system 
-     * proxy creates a system live view, the third-party application publishes a notification with the same ID to update
-     * the specified content. This type corresponds to [SlotLevel]{@link notificationManager.SlotLevel} being 
-     * **LEVEL_DEFAULT**.
+     * 实况窗。不支持三方应用直接创建该渠道类型通知，可以由系统代理创建后，三方应用发布同ID的通知来更新指定内容。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为
+     * LEVEL_DEFAULT。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4138,9 +3932,7 @@ declare namespace notificationManager {
     LIVE_VIEW = 4,
 
     /**
-     * Notification slot for customer service message. This type is used for messages between users and customer service
-     * providers. The messages must be initiated by users. This type corresponds to 
-     * [SlotLevel]{@link notificationManager.SlotLevel} being **LEVEL_DEFAULT**.
+     * 客服消息。该类型用于用户与商家之间的客服消息，需由用户主动发起。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_DEFAULT。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4150,8 +3942,8 @@ declare namespace notificationManager {
     CUSTOMER_SERVICE = 5,
 
     /**
-     * Emergency event. 
-     * This is a system API.
+     * 紧急事件。
+     * 此接口为系统接口。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4161,8 +3953,7 @@ declare namespace notificationManager {
     EMERGENCY_INFORMATION = 10,
 
     /**
-     * Notification slot for other purposes. This type corresponds to [SlotLevel]{@link notificationManager.SlotLevel} 
-     * being **LEVEL_MIN**.
+     * 其他。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_MIN。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4173,7 +3964,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Enumerates the notification content types.
+   * 通知内容类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -4183,7 +3974,7 @@ declare namespace notificationManager {
    */
   export enum ContentType {
     /**
-     * Normal text notification.
+     * 普通文本类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform [since 12]
@@ -4194,7 +3985,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
     /**
-     * Long text notification.
+     * 长文本类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform [since 12]
@@ -4205,7 +3996,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_LONG_TEXT,
 
     /**
-     * Picture-attached notification.
+     * 图片类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4215,7 +4006,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
-     * Conversation notification. Not supported currently.
+     * 社交类型通知。预留能力，暂未支持。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4225,7 +4016,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_CONVERSATION,
 
     /**
-     * Multi-line text notification.
+     * 多行文本类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform [since 12]
@@ -4236,9 +4027,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_MULTILINE,
 
     /**
-     * Live view notification. A third-party application cannot directly create a notification of this type. After the 
-     * system proxy creates a system live view, the third-party application publishes a notification with the same ID to
-     * update the specified content.
+     * 系统实况窗类型通知。不支持三方应用直接创建该类型通知。系统代理创建系统实况窗类型通知后，三方应用可以通过发布相同ID的通知来更新指定内容。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4248,7 +4037,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
 
     /**
-     * Common live view notification. Available only to system applications.
+     * 普通实况窗类型通知。仅系统应用可用。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
@@ -4259,7 +4048,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Enumerates the notification level.
+   * 通知级别。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -4267,7 +4056,7 @@ declare namespace notificationManager {
    */
   export enum SlotLevel {
     /**
-     * Notification is disabled.
+     * 表示关闭通知功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
@@ -4276,8 +4065,7 @@ declare namespace notificationManager {
     LEVEL_NONE = 0,
 
     /**
-     * Notification is enabled, but the notification icon is not displayed in the status bar, with no alert tone and 
-     * banner.
+     * 表示通知功能已启用，状态栏中不显示通知图标，无横幅，无提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
@@ -4286,7 +4074,7 @@ declare namespace notificationManager {
     LEVEL_MIN = 1,
 
     /**
-     * Notification is enabled, and the notification icon is displayed in the status bar, with no alert tone and banner.
+     * 表示通知功能已启用，状态栏中显示通知图标，无横幅，无提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
@@ -4295,8 +4083,7 @@ declare namespace notificationManager {
     LEVEL_LOW = 2,
 
     /**
-     * Notification is enabled, and the notification icon is displayed in the status bar, with an alert tone but no 
-     * banner.
+     * 表示通知功能已启用，状态栏中显示通知图标，无横幅，有提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
@@ -4305,7 +4092,7 @@ declare namespace notificationManager {
     LEVEL_DEFAULT = 3,
 
     /**
-     * Notification is enabled, and the notification icon is displayed in the status bar, with an alert tone and banner.
+     * 表示通知功能已启用，状态栏中显示通知图标，有横幅，有提示音。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
@@ -4315,7 +4102,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * DND time type.
+   * 免打扰设置的时间类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4324,7 +4111,7 @@ declare namespace notificationManager {
    */
   export enum DoNotDisturbType {
     /**
-     * Non-DND.
+     * 非通知勿扰类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4334,7 +4121,7 @@ declare namespace notificationManager {
     TYPE_NONE = 0,
 
     /**
-     * One-shot DND at the specified time segment (only considering the hour and minute).
+     * 以设置时间段(只看小时和分钟)一次执行勿扰。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4344,7 +4131,7 @@ declare namespace notificationManager {
     TYPE_ONCE = 1,
 
     /**
-     * Daily DND at the specified time segment (only considering the hour and minute).
+     * 以设置时间段(只看小时和分钟)每天执行勿扰。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4354,7 +4141,7 @@ declare namespace notificationManager {
     TYPE_DAILY = 2,
 
     /**
-     * DND at the specified time segment (with the hour, day, and month specified).
+     * 以设置时间段(明确月日时)执行勿扰。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4365,7 +4152,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * DND time to set.
+   * 免打扰时间选项。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4374,7 +4161,7 @@ declare namespace notificationManager {
    */
   export interface DoNotDisturbDate {
     /**
-     * DND time type.
+     * 免打扰设置的时间类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4384,7 +4171,7 @@ declare namespace notificationManager {
     type: DoNotDisturbType;
 
     /**
-     * DND start time.
+     * 免打扰设置的起点时间。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4394,7 +4181,7 @@ declare namespace notificationManager {
     begin: Date;
 
     /**
-     * DND end time.
+     * 免打扰设置的终点时间。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4405,7 +4192,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the bundle information of an application that enables cross-device collaboration.
+   * 描述多设备协同的包信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4414,7 +4201,7 @@ declare namespace notificationManager {
    */
   export interface DistributedBundleEnableInfo {
     /**
-     * Bundle name.
+     * 包名。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4424,7 +4211,7 @@ declare namespace notificationManager {
     bundleName: string;
 
     /**
-     * UID of the application.
+     * 应用程序的UID。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4434,8 +4221,7 @@ declare namespace notificationManager {
     uid: int;
 
     /**
-     * Whether the application enables cross-device collaboration. The value **true** indicates that the cross-device 
-     * collaboration is enabled, and the value **false** indicates the opposite.
+     * 是否支持跨设备协同，返回true表示支持，返回false表示不支持，默认为false。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4446,7 +4232,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Do Not Disturb profile.
+   * 勿扰模式的配置信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4455,7 +4241,7 @@ declare namespace notificationManager {
    */
   export interface DoNotDisturbProfile {
     /**
-     * ID of the Do Not Disturb profile.
+     * 勿扰模式编号。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4465,7 +4251,7 @@ declare namespace notificationManager {
     id: long;
 
     /**
-     * Name of the Do Not Disturb profile.
+     * 勿扰模式名称。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4475,7 +4261,7 @@ declare namespace notificationManager {
     name: string;
 
     /**
-     * Trustlist in Do Not Disturb profile.
+     * 勿扰模式的信任列表。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4486,7 +4272,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the custom ringtone information.
+   * 描述自定义铃声信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4495,7 +4281,7 @@ declare namespace notificationManager {
    */
   export interface RingtoneInfo {
     /**
-     * Type of the ringtone.
+     * 铃声的类型。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4505,7 +4291,7 @@ declare namespace notificationManager {
     ringtoneType: RingtoneType;
 
     /**
-     * Title of the ringtone.
+     * 铃声的标题。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4515,7 +4301,7 @@ declare namespace notificationManager {
     ringtoneTitle?: string;
 
     /**
-     * File name of the ringtone.
+     * 铃声的文件名称。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4525,7 +4311,7 @@ declare namespace notificationManager {
     ringtoneFileName?: string;
 
     /**
-     * URI of the ringtone.
+     * 铃声的URI。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4536,7 +4322,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the information about the application reminder.
+   * 描述指定应用提醒方式信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4545,7 +4331,7 @@ declare namespace notificationManager {
    */
   export interface NotificationReminderInfo {
     /**
-     * Bundle information of the application.
+     * 指定应用的包信息。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4555,7 +4341,7 @@ declare namespace notificationManager {
     bundle: BundleOption;
 
     /**
-     * Reminder flag.
+     * 表示通知提醒方式的标志位。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4565,8 +4351,7 @@ declare namespace notificationManager {
     reminderFlags: long;
 
     /**
-     * Whether the silent reminder is enabled. The value **true** indicates that the silent reminder is enabled, and 
-     * the value **false** indicates the opposite.
+     * 表示静默提醒开关使能状态（true：使能，false：禁止）。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4577,7 +4362,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * The notification reminder type.
+   * 通知提醒方式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4586,7 +4371,7 @@ declare namespace notificationManager {
    */
   export enum DeviceRemindType {
     /**
-     * The device is not in use. No notification is required.
+     * 设备未被使用，无需提醒。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4596,7 +4381,7 @@ declare namespace notificationManager {
     IDLE_DONOT_REMIND = 0,
 
     /**
-     * The device is not in use.
+     * 提醒设备未被使用。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4606,7 +4391,7 @@ declare namespace notificationManager {
     IDLE_REMIND = 1,
 
     /**
-     * The device is in use. No notification is required.
+     * 设备正在使用，无需提醒。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4616,7 +4401,7 @@ declare namespace notificationManager {
     ACTIVE_DONOT_REMIND = 2,
 
     /**
-     * The device is in use.
+     * 提醒设备正在使用。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4627,7 +4412,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Notification source type.
+   * 通知来源类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4636,7 +4421,7 @@ declare namespace notificationManager {
    */
   export enum SourceType {
     /**
-     * Normal notification.
+     * 一般通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4646,7 +4431,7 @@ declare namespace notificationManager {
     TYPE_NORMAL = 0,
 
     /**
-     * Continuous notification.
+     * 连续通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4656,7 +4441,7 @@ declare namespace notificationManager {
     TYPE_CONTINUOUS = 1,
 
     /**
-     * Timed notification.
+     * 计划通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4667,8 +4452,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Each bit can control the notification mode. When the bitwise OR operation is performed on 
-   * **notificationControlFlags** and the enumerated values in the following table, the notification mode is disabled.
+   * 每个bit位都可以控制通知的提示方式。当notificationControlFlags和下表中枚举值进行按位或操作，则表示关闭其提示方式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4677,7 +4461,7 @@ declare namespace notificationManager {
    */
   export enum NotificationControlFlagStatus {
     /**
-     * Disables the sound notification function.
+     * 关闭声音提示功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4687,7 +4471,7 @@ declare namespace notificationManager {
     NOTIFICATION_STATUS_CLOSE_SOUND = 1 << 0,
 
     /**
-     * Disables the screen lock notification function.
+     * 关闭锁屏提示功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4697,7 +4481,7 @@ declare namespace notificationManager {
     NOTIFICATION_STATUS_CLOSE_LOCKSCREEN = 1 << 1,
 
     /**
-     * Disables the banner notification function.
+     * 关闭横幅提示功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4707,7 +4491,7 @@ declare namespace notificationManager {
     NOTIFICATION_STATUS_CLOSE_BANNER = 1 << 2,
 
     /**
-     * Disables the screen-on notification function.
+     * 关闭亮屏提示功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4717,7 +4501,7 @@ declare namespace notificationManager {
     NOTIFICATION_STATUS_CLOSE_LIGHT_SCREEN = 1 << 3,
 
     /**
-     * Disables the vibration notification function.
+     * 关闭振动提示功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4727,7 +4511,7 @@ declare namespace notificationManager {
     NOTIFICATION_STATUS_CLOSE_VIBRATION = 1 << 4,
 
     /**
-     * Disables the icon notification function in the status bar.
+     * 关闭状态栏图标提示功能。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4738,14 +4522,14 @@ declare namespace notificationManager {
   }
 
   /**
-   * Enumerates the priority notification types.
+   * 描述通知的优先级类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
    */
   export enum PriorityNotificationType {
     /**
-     * Default.
+     * 表示通知优先级类型为默认。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 23 dynamic&static
@@ -4753,7 +4537,7 @@ declare namespace notificationManager {
     OTHER = 'OTHER',
 
     /**
-     * Primary contacts.
+     * 表示通知优先级类型为重要联系人。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 23 dynamic&static
@@ -4761,7 +4545,7 @@ declare namespace notificationManager {
     PRIMARY_CONTACT = 'PRIMARY_CONTACT',
 
     /**
-     * Message that mentions me.
+     * 表示通知优先级类型为@我。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 23 dynamic&static
@@ -4769,7 +4553,7 @@ declare namespace notificationManager {
     AT_ME = 'AT_ME',
 
     /**
-     * Urgent message.
+     * 表示通知优先级类型为加急消息。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 23 dynamic&static
@@ -4777,7 +4561,7 @@ declare namespace notificationManager {
     URGENT_MESSAGE = 'URGENT_MESSAGE',
 
     /**
-     * Schedule reminder.
+     * 表示通知优先级类型为日程待办。
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 23 dynamic&static
@@ -4785,7 +4569,7 @@ declare namespace notificationManager {
     SCHEDULE_REMINDER = 'SCHEDULE_REMINDER',
 
     /**
-     * Payment and repayment.
+     * 表示通知优先级类型为缴费还款。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4794,7 +4578,7 @@ declare namespace notificationManager {
     PAYMENT_DUE = 'PAYMENT_DUE',
 
     /**
-     * Account balance reminder.
+     * 表示通知优先级类型为动账提醒。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4803,7 +4587,7 @@ declare namespace notificationManager {
     TRANSACTION_ALERT = 'TRANSACTION_ALERT',
 
     /**
-     * Express progress.
+     * 表示通知优先级类型为物流进展。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4812,7 +4596,7 @@ declare namespace notificationManager {
     EXPRESS_PROGRESS = 'EXPRESS_PROGRESS',
 
     /**
-     * Missed call.
+     * 表示通知优先级类型为未接来电。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4821,7 +4605,7 @@ declare namespace notificationManager {
     MISS_CALL = 'MISS_CALL',
 
     /**
-     * Abnormal traveling.
+     * 表示通知优先级类型为出行异常。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4830,7 +4614,7 @@ declare namespace notificationManager {
     TRAVEL_ALERT = 'TRAVEL_ALERT',
 
     /**
-     * Account security.
+     * 表示通知优先级类型为账号安全。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4839,7 +4623,7 @@ declare namespace notificationManager {
     ACCOUNT_ALERT = 'ACCOUNT_ALERT',
 
     /**
-     * Appointment reminder.
+     * 表示通知优先级类型为预约提醒。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4848,7 +4632,7 @@ declare namespace notificationManager {
     APPOINTMENT_REMINDER = 'APPOINTMENT_REMINDER',
 
     /**
-     * Traffic violation.
+     * 表示通知优先级类型为交通违规。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4857,7 +4641,7 @@ declare namespace notificationManager {
     TRAFFIC_NOTICE = 'TRAFFIC_NOTICE',
 
     /**
-     * Key progress.
+     * 表示通知优先级类型为关键进展通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4866,7 +4650,7 @@ declare namespace notificationManager {
     KEY_PROGRESS = 'KEY_PROGRESS',
 
     /**
-     * Important common event.
+     * 表示通知优先级类型为重要公共事件。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4875,7 +4659,7 @@ declare namespace notificationManager {
     PUBLIC_EVENT = 'PUBLIC_EVENT',
 
     /**
-     * IoT warning.
+     * 表示通知优先级类型为预警通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4884,7 +4668,7 @@ declare namespace notificationManager {
     IOT_WARNING = 'IOT_WARNING',
 
     /**
-     * Custom keyword.
+     * 表示通知优先级类型为用户自定义关键词。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4894,7 +4678,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the enabling status of the priority notification for an application.
+   * 描述应用通知的优先级开关状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4902,7 +4686,7 @@ declare namespace notificationManager {
    */
   export enum PriorityEnableStatus {
     /**
-     * The priority notification is disabled.
+     * 应用通知的优先级开关为关闭状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4911,7 +4695,7 @@ declare namespace notificationManager {
     DISABLE = 0,
 
     /**
-     * The priority notification is enabled by intelligent recognition.
+     * 应用通知的优先级开关为智能识别状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4920,7 +4704,7 @@ declare namespace notificationManager {
     ENABLE_BY_INTELLIGENT = 1,
 
     /**
-     * The priority notification is enabled for all applications.
+     * 应用通知的优先级开关为全部通知状态。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4930,7 +4714,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the application notification strategy.
+   * 描述应用通知的优先策略。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -4939,7 +4723,7 @@ declare namespace notificationManager {
    */
   export enum PriorityStrategyStatus {  
     /**
-     * Default priority strategy.
+     * 默认优先策略。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4949,7 +4733,7 @@ declare namespace notificationManager {
     STATUS_SYSTEM_DEFAULT = 1 << 0,
 
     /**
-     * Only system rule.
+     * 仅优先规则。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4959,7 +4743,7 @@ declare namespace notificationManager {
     STATUS_SYSTEM_RULE = 1 << 1,
 
     /**
-     * Only intelligent recognition.
+     * 仅智能识别。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4969,7 +4753,7 @@ declare namespace notificationManager {
     STATUS_INTELLIGENT = 1 << 2,
 
     /**
-     * Only user-defined.
+     * 仅用户自定义。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4979,7 +4763,7 @@ declare namespace notificationManager {
     STATUS_USER_DEFINED = 1 << 3,
 
     /**
-     * Only application-defined.
+     * 仅应用自定义。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -4989,7 +4773,7 @@ declare namespace notificationManager {
     STATUS_APPLICATION_DEFINED = 1 << 4,
 
     /**
-     * All.
+     * 全部通知优先。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5000,7 +4784,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Enumerates the custom ringtone types.
+   * 描述自定义铃声类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5009,7 +4793,7 @@ declare namespace notificationManager {
    */
   export enum RingtoneType {
     /**
-     * System ringtone.
+     * 表示系统自定义铃声。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5019,7 +4803,7 @@ declare namespace notificationManager {
     RINGTONE_TYPE_SYSTEM = 0,
 
     /**
-     * Local ringtone.
+     * 表示本地自定义铃声。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5029,7 +4813,7 @@ declare namespace notificationManager {
     RINGTONE_TYPE_LOCAL = 1,
 
     /**
-     * Online ringtone.
+     * 表示在线自定义铃声。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5039,7 +4823,7 @@ declare namespace notificationManager {
     RINGTONE_TYPE_ONLINE = 2,
 
     /**
-     * Non-custom ringtone.
+     * 表示非自定义铃声。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5050,24 +4834,24 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes the notification statistics of a specified application.
+   * 描述指定应用通知统计信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
- 	export interface BundleNotificationStatistics {
- 	  /**
-     * Bundle information of the application.
+  export interface BundleNotificationStatistics {
+    /**
+     * 指定应用的包信息。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
     bundle: BundleOption;
- 	 
+
     /**
-     * Last time when the application sent a notification. Data format: timestamp, in ms.
+     * 应用最后一次发布通知的时间。数据格式：时间戳。单位：ms。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5076,16 +4860,16 @@ declare namespace notificationManager {
     lastTime: number;
 
     /**
-     * Last time when the application sent a notification. Data format: timestamp, in ms.
+     * 应用最后一次发布通知的时间。数据格式：时间戳。单位：ms。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 26.0.0 static
      */
     lastTime: long;
- 	 
+
     /**
-     * Total number of notifications released by the application in the last seven days.
+     * 应用最近7天发布的通知总量。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5094,17 +4878,17 @@ declare namespace notificationManager {
     recentCount: number;
 
     /**
-     * Total number of notifications released by the application in the last seven days.
+     * 应用最近7天发布的通知总量。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 26.0.0 static
      */
     recentCount: int;
- 	}
+  }
 
   /**
-   * Describes the bundle information of an application.
+   * 指定应用的包信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5113,7 +4897,7 @@ declare namespace notificationManager {
   export type BundleOption = _BundleOption;
 
   /**
-   * Describes the operation button displayed in the notification.
+   * 通知中显示的操作按钮。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5122,7 +4906,7 @@ declare namespace notificationManager {
   export type NotificationActionButton = _NotificationActionButton;
 
   /**
-   * Describes the normal text notification.
+   * 普通文本通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -5132,7 +4916,7 @@ declare namespace notificationManager {
   export type NotificationBasicContent = _NotificationBasicContent;
 
   /**
-   * Describes the notification content.
+   * 通知内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -5142,7 +4926,7 @@ declare namespace notificationManager {
   export type NotificationContent = _NotificationContent;
 
   /**
-   * Describes the long text notification.
+   * 长文本通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -5152,7 +4936,7 @@ declare namespace notificationManager {
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
   /**
-   * Describes the common live view.
+   * 描述普通实况通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5162,7 +4946,7 @@ declare namespace notificationManager {
   export type NotificationLiveViewContent = _NotificationLiveViewContent;
 
   /**
-   * Describes the multi-line text notification.
+   * 多行文本通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -5172,7 +4956,7 @@ declare namespace notificationManager {
   export type NotificationMultiLineContent = _NotificationMultiLineContent;
 
   /**
-   * Describes the picture-attached notification.
+   * 附有图片的通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5181,7 +4965,7 @@ declare namespace notificationManager {
   export type NotificationPictureContent = _NotificationPictureContent;
 
   /**
-   * Describes the system live view notification.
+   * 系统实况窗通知内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -5190,7 +4974,7 @@ declare namespace notificationManager {
   export type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent;
 
   /**
-   * Defines the notification flags.
+   * 描述通知标志位。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5200,7 +4984,7 @@ declare namespace notificationManager {
   export type NotificationFlags = _NotificationFlags;
 
   /**
-   * Enumerates the notification flag states.
+   * 描述通知标志状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5210,7 +4994,7 @@ declare namespace notificationManager {
   export type NotificationFlagStatus = _NotificationFlagStatus;
 
   /**
-   * Describes the notification request.
+   * 通知请求。
    *
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -5220,7 +5004,7 @@ declare namespace notificationManager {
   export type NotificationRequest = _NotificationRequest;
 
   /**
-   * Describes the fields of notification intelligent unification information.
+   * 描述通知智能聚合信息字段。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5230,7 +5014,7 @@ declare namespace notificationManager {
   export type UnifiedGroupInfo = _UnifiedGroupInfo;
 
   /**
-   * Describes the filter criteria for querying the live view.
+   * 描述查询普通实况窗时的筛选条件。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5240,7 +5024,7 @@ declare namespace notificationManager {
   export type NotificationFilter = _NotificationFilter;
 
   /**
-   * Describes the notification authentication information.
+   * 描述通知的鉴权信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5250,7 +5034,7 @@ declare namespace notificationManager {
   export type NotificationCheckRequest = _NotificationCheckRequest;
 
   /**
-   * Describes distributed notification options.
+   * 分布式选项。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5259,7 +5043,7 @@ declare namespace notificationManager {
   export type DistributedOptions = _DistributedOptions;
 
   /**
-   * Describes the notification slot.
+   * 通知渠道。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5268,7 +5052,7 @@ declare namespace notificationManager {
   export type NotificationSlot = _NotificationSlot;
 
   /**
-   * Enumerates the statuses of the common live view.
+   * 描述普通实况通知的状态。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5278,7 +5062,7 @@ declare namespace notificationManager {
   export type LiveViewStatus = _LiveViewStatus;
 
   /**
-   * Enumerates live view types.
+   * 描述实况通知的类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5288,7 +5072,7 @@ declare namespace notificationManager {
   export type LiveViewTypes = _LiveViewTypes;
 
   /**
-   * The **NotificationSorting** module provides APIs for defining the sorting information of active notifications.
+   * 提供有关活动通知的排序信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5298,7 +5082,7 @@ declare namespace notificationManager {
   export type NotificationSorting = _NotificationSorting;
 
   /**
-   * Describes the notification template.
+   * 通知模板。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5307,7 +5091,7 @@ declare namespace notificationManager {
   export type NotificationTemplate = _NotificationTemplate;
 
   /**
-   * Provides the notification user input.
+   * 保存用户输入的通知消息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -5316,7 +5100,7 @@ declare namespace notificationManager {
   export type NotificationUserInput = _NotificationUserInput;
 
   /**
-   * Describes the notification capsule.
+   * 通知胶囊。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -5325,7 +5109,7 @@ declare namespace notificationManager {
   export type NotificationCapsule = _NotificationCapsule;
 
   /**
-   * Describes the notification button.
+   * 通知按钮。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -5334,7 +5118,7 @@ declare namespace notificationManager {
   export type NotificationButton = _NotificationButton;
 
   /**
-   * Describes the notification timing information.
+   * 通知计时信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -5343,7 +5127,7 @@ declare namespace notificationManager {
   export type NotificationTime = _NotificationTime;
 
   /**
-   * Describes the notification progress.
+   * 通知进度。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -5352,7 +5136,7 @@ declare namespace notificationManager {
   export type NotificationProgress = _NotificationProgress;
 
   /**
-   * System notification button.
+   * 系统通知按钮。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5361,7 +5145,7 @@ declare namespace notificationManager {
   export type NotificationIconButton = _NotificationIconButton;
 
   /**
-   * Enumerates the trigger types.
+   * 触发条件的事件类型的枚举。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5371,7 +5155,7 @@ declare namespace notificationManager {
   export type TriggerType = _TriggerType;
 
   /**
-   * Defines the details for triggering a geofence.
+   * 触发条件的具体信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5381,7 +5165,7 @@ declare namespace notificationManager {
   export type Trigger = _Trigger;
 
   /**
-   * Defines Notification Parameters to describe the key information of wantAgent in the notification.
+   * 描述NotificationRequest中wantAgent的部分信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -5390,7 +5174,7 @@ declare namespace notificationManager {
   export type NotificationParameters = _NotificationParameters;
 
   /**
-   * Defines the configuration of a geofence.
+   * 地理围栏的配置信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5400,7 +5184,7 @@ declare namespace notificationManager {
   export type Geofence = _Geofence;
 
   /**
-   * Enumerates the coordinate systems of a geofence.
+   * 表示地理围栏坐标系类型的枚举。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5410,7 +5194,7 @@ declare namespace notificationManager {
   export type CoordinateSystemType = _CoordinateSystemType;
 
   /**
-   * Enumerates the event types of monitoring a geofence.
+   * 表示地理围栏的监控事件类型的枚举。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -5420,7 +5204,7 @@ declare namespace notificationManager {
   export type MonitorEvent = _MonitorEvent;
 
   /**
-   * Defines the custom group notification information.
+   * 组通知定制信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
