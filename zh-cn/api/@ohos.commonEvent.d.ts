@@ -25,8 +25,7 @@ import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo
 import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * The **CommonEvent** module provides capabilities to publish, subscribe to, and unsubscribe from common events,
- * as well as obtain and modify the common event result code and result data.
+ * 本模块提供了公共事件的能力，包括公共事件的权限列表，发布公共事件，订阅或取消订阅公共事件，获取或修改公共事件结果代码、结果数据等。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
@@ -35,10 +34,10 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
  */
 declare namespace commonEvent {
   /**
-   * Publishes a common event. This API uses an asynchronous callback to return the result.
+   * 发布公共事件（回调形式）。
    *
-   * @param { string } event - Name of the common event to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } event - 表示要发送的公共事件。
+   * @param { AsyncCallback<void> } callback - 表示指定的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -47,11 +46,11 @@ declare namespace commonEvent {
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a common event with given properties. This API uses an asynchronous callback to return the result.
+   * 以回调的形式发布公共事件。
    *
-   * @param { string } event - Name of the common event to publish.
-   * @param { CommonEventPublishData } options - Properties of the common event to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } event - 表示要发布的公共事件。
+   * @param { CommonEventPublishData } options - 表示发布公共事件的属性。
+   * @param { AsyncCallback<void> } callback - 表示指定的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -60,11 +59,16 @@ declare namespace commonEvent {
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a common event to a specific user. This API uses an asynchronous callback to return the result.
+   * 以回调的形式向指定用户发布公共事件。
    *
-   * @param { string } event - Name of the common event to publish.
-   * @param { number } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * > **说明：**
+   * > > 从 API version 8开始支持，从API version 9开始废弃。建议使用
+   * > [commonEventManager.publishAsUser]{@link @ohos.commonEventManager:commonEventManager.publishAsUser(event: string, userId: int, callback: AsyncCallback<void>)}
+   * > 替代。
+   *
+   * @param { string } event - 表示要发送的公共事件。
+   * @param { number } userId - 表示指定向该用户ID发送此公共事件。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -74,13 +78,17 @@ declare namespace commonEvent {
   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a common event with given properties to a specific user. This API uses an asynchronous callback to return
-   * the result.
+   * 以回调形式向指定用户发布公共事件并指定发布信息。
    *
-   * @param { string } event - Name of the common event to publish.
-   * @param { number } userId - User ID.
-   * @param { CommonEventPublishData } options - Properties of the common event to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * > **说明：**
+   * > > 从 API version 8开始支持，从API version 9开始废弃。建议使用
+   * > [commonEventManager.publishAsUser]{@link @ohos.commonEventManager:commonEventManager.publishAsUser( event: string, userId: int, options: CommonEventPublishData, callback: AsyncCallback<void> )}
+   * > 替代。
+   *
+   * @param { string } event - 表示要发布的公共事件。
+   * @param { number } userId - 表示指定向该用户ID发送此公共事件。
+   * @param { CommonEventPublishData } options - 表示发布公共事件的属性。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -95,10 +103,10 @@ declare namespace commonEvent {
   ): void;
 
   /**
-   * Creates a subscriber. This API uses an asynchronous callback to return the result.
+   * 以回调形式创建订阅者。
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
-   * @param { AsyncCallback<CommonEventSubscriber> } callback - Callback used to return the result.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - 表示订阅信息。
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - 表示创建订阅者的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -110,9 +118,9 @@ declare namespace commonEvent {
   ): void;
 
   /**
-   * Creates a subscriber. This API uses a promise to return the result.
+   * 以Promise形式创建订阅者。
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - 表示订阅信息。
    * @returns { Promise<CommonEventSubscriber> } Returns common event subscriber object
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -122,10 +130,10 @@ declare namespace commonEvent {
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
-   * Subscribes to common events. This API uses an asynchronous callback to return the result.
+   * 以回调形式订阅公共事件。
    *
-   * @param { CommonEventSubscriber } subscriber - Subscriber object.
-   * @param { AsyncCallback<CommonEventData> } callback - Callback used to return the result.
+   * @param { CommonEventSubscriber } subscriber - 表示订阅者对象。
+   * @param { AsyncCallback<CommonEventData> } callback - 表示接收公共事件数据的回调函数。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -134,10 +142,10 @@ declare namespace commonEvent {
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
-   * Unsubscribes from common events. This API uses an asynchronous callback to return the result.
+   * 以回调形式取消订阅公共事件。
    *
-   * @param { CommonEventSubscriber } subscriber - Subscriber object.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
+   * @param { CommonEventSubscriber } subscriber - 表示订阅者对象。
+   * @param { AsyncCallback<void> } [callback] - 表示取消订阅的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -146,12 +154,9 @@ declare namespace commonEvent {
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
-   * A system common event is an event that is published by a system service or system application and requires specific
-   * permissions to subscribe to. To publish or subscribe to this type of event, you must follow the event-specific
-   * definitions.
+   * 系统公共事件是指由系统服务或系统应用发布的事件，订阅这些系统公共事件需要特定的权限。发布或订阅这些事件需要使用如下链接中的枚举定义。
    *
-   * For details about the definitions of all system common events, see
-   * [System Common Events]{@link @ohos.commonEvent:commonEvent}.
+   * 全部系统公共事件枚举定义请参见[系统公共事件定义]{@link @ohos.commonEvent:commonEvent}。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -160,10 +165,9 @@ declare namespace commonEvent {
    */
   export enum Support {
     /**
-     * The boot is complete and the system is loaded.
+     * 提示用户已完成引导并加载系统。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVER_STARTUP_COMPLETED
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.RECEIVER_STARTUP_COMPLETED权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -173,7 +177,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BOOT_COMPLETED = 'usual.event.BOOT_COMPLETED',
 
     /**
-     * The guidance is complete and the system is loaded, but the screen is still locked.
+     * （预留事件，暂未支持）提示用户已完成引导，系统已加载，但屏幕仍锁定。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -183,7 +187,7 @@ declare namespace commonEvent {
     COMMON_EVENT_LOCKED_BOOT_COMPLETED = 'usual.event.LOCKED_BOOT_COMPLETED',
 
     /**
-     * The device is being shut down and will continue until it is finally shut down.
+     * 提示设备正在关闭并将继续直至最终关闭。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -193,7 +197,7 @@ declare namespace commonEvent {
     COMMON_EVENT_SHUTDOWN = 'usual.event.SHUTDOWN',
 
     /**
-     * The battery charging status, battery level, and other information has changed.
+     * 提示电池充电状态、电量和其他信息发生变化。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -203,7 +207,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BATTERY_CHANGED = 'usual.event.BATTERY_CHANGED',
 
     /**
-     * The battery level is low.
+     * 提示电池电量低。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -213,7 +217,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BATTERY_LOW = 'usual.event.BATTERY_LOW',
 
     /**
-     * The battery level is normal.
+     * 提示电池退出低电量状态。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -223,7 +227,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BATTERY_OKAY = 'usual.event.BATTERY_OKAY',
 
     /**
-     * The device is connected to an external power supply.
+     * 提示设备连接到外部电源。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -233,7 +237,7 @@ declare namespace commonEvent {
     COMMON_EVENT_POWER_CONNECTED = 'usual.event.POWER_CONNECTED',
 
     /**
-     * The device is disconnected from the external power supply.
+     * 提示设备与外部电源断开。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -243,7 +247,7 @@ declare namespace commonEvent {
     COMMON_EVENT_POWER_DISCONNECTED = 'usual.event.POWER_DISCONNECTED',
 
     /**
-     * The device screen is off and the device is in sleep mode.
+     * 提示设备屏幕关闭且设备处于睡眠状态。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -253,7 +257,7 @@ declare namespace commonEvent {
     COMMON_EVENT_SCREEN_OFF = 'usual.event.SCREEN_OFF',
 
     /**
-     * The device screen is on and the device is in interactive state.
+     * 提示设备屏幕打开且设备处于交互状态。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -263,7 +267,7 @@ declare namespace commonEvent {
     COMMON_EVENT_SCREEN_ON = 'usual.event.SCREEN_ON',
 
     /**
-     * The device thermal level has changed.
+     * 提示设备热状态（温度等级）发生变化。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 8
@@ -273,7 +277,7 @@ declare namespace commonEvent {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
     /**
-     * The user unlocks the device.
+     * （预留事件，暂未支持）提示用户解锁了设备。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -283,7 +287,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_PRESENT = 'usual.event.USER_PRESENT',
 
     /**
-     * The system time has changed as time ticks by.
+     * 提示系统时间发生更改（指时间正常流逝）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -293,7 +297,7 @@ declare namespace commonEvent {
     COMMON_EVENT_TIME_TICK = 'usual.event.TIME_TICK',
 
     /**
-     * The system time is set.
+     * 提示系统时间被重新设置。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -303,7 +307,7 @@ declare namespace commonEvent {
     COMMON_EVENT_TIME_CHANGED = 'usual.event.TIME_CHANGED',
 
     /**
-     * The system date has been changed.
+     * （预留事件，暂未支持）提示系统日期已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -313,7 +317,7 @@ declare namespace commonEvent {
     COMMON_EVENT_DATE_CHANGED = 'usual.event.DATE_CHANGED',
 
     /**
-     * The system time zone is changed.
+     * 提示系统时区发生变更。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -323,7 +327,7 @@ declare namespace commonEvent {
     COMMON_EVENT_TIMEZONE_CHANGED = 'usual.event.TIMEZONE_CHANGED',
 
     /**
-     * The user closes a temporary system dialog box.
+     * （预留事件，暂未支持）提示用户关闭临时系统对话框。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -333,7 +337,7 @@ declare namespace commonEvent {
     COMMON_EVENT_CLOSE_SYSTEM_DIALOGS = 'usual.event.CLOSE_SYSTEM_DIALOGS',
 
     /**
-     * A new application package has been installed on the device.
+     * 提示设备上已安装新应用程序包。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -343,7 +347,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_ADDED = 'usual.event.PACKAGE_ADDED',
 
     /**
-     * A later version of an installed application package has replaced the previous one on the device.
+     * （预留事件，暂未支持）提示设备上已安装的旧版本应用程序已被新版本所替换。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -353,7 +357,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_REPLACED = 'usual.event.PACKAGE_REPLACED',
 
     /**
-     * The new version of the application package has replaced the previous version.
+     * （预留事件，暂未支持）提示应用程序包的新版本已取代前一个版本。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -363,7 +367,7 @@ declare namespace commonEvent {
     COMMON_EVENT_MY_PACKAGE_REPLACED = 'usual.event.MY_PACKAGE_REPLACED',
 
     /**
-     * An installed application has been uninstalled from the device with the application data retained.
+     * 提示已安装的应用程序已从设备卸载，但应用程序数据得到保留的。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -373,7 +377,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_REMOVED = 'usual.event.PACKAGE_REMOVED',
 
     /**
-     * An installed bundle has been uninstalled from the device with the application data retained.
+     * （预留事件，暂未支持）提示已从设备中卸载已安装应用程序的附加包，但应用程序数据得到保留。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -383,8 +387,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BUNDLE_REMOVED = 'usual.event.BUNDLE_REMOVED',
 
     /**
-     * An installed application, including both the application data and code, has been completely uninstalled from the
-     * device.
+     * （预留事件，暂未支持）提示已从设备中完全卸载已安装的应用程序（包括应用程序数据和代码）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -394,7 +397,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_FULLY_REMOVED = 'usual.event.PACKAGE_FULLY_REMOVED',
 
     /**
-     * An application package has been changed (for example, an ability in the package has been enabled or disabled).
+     * 提示应用程序包已发生更改（例如，包中的组件已启用或禁用）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -404,7 +407,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_CHANGED = 'usual.event.PACKAGE_CHANGED',
 
     /**
-     * The user closed all processes of the application and restarted the application.
+     * 提示用户终止了应用程序的所有进程并重启应用程序。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -414,7 +417,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_RESTARTED = 'usual.event.PACKAGE_RESTARTED',
 
     /**
-     * The user cleared the application package data.
+     * 提示用户清除了应用包数据。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -424,7 +427,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_DATA_CLEARED = 'usual.event.PACKAGE_DATA_CLEARED',
 
     /**
-     * Application packages have been suspended.
+     * （预留事件，暂未支持）提示应用程序已挂起。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -434,7 +437,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGES_SUSPENDED = 'usual.event.PACKAGES_SUSPENDED',
 
     /**
-     * The application HAP package is not suspended (resumed from the suspended state).
+     * （预留事件，暂未支持）提示应用HAP包未挂起（从挂起状态恢复）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -444,7 +447,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGES_UNSUSPENDED = 'usual.event.PACKAGES_UNSUSPENDED',
 
     /**
-     * The application HAP package is suspended.
+     * 提示应用HAP包被挂起的。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -454,7 +457,7 @@ declare namespace commonEvent {
     COMMON_EVENT_MY_PACKAGE_SUSPENDED = 'usual.event.MY_PACKAGE_SUSPENDED',
 
     /**
-     * The application package is not suspended.
+     * 提示应用包未挂起。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -464,7 +467,7 @@ declare namespace commonEvent {
     COMMON_EVENT_MY_PACKAGE_UNSUSPENDED = 'usual.event.MY_PACKAGE_UNSUSPENDED',
 
     /**
-     * A user ID has been removed from the system.
+     * （预留事件，暂未支持）提示用户ID已从系统中删除。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -474,7 +477,7 @@ declare namespace commonEvent {
     COMMON_EVENT_UID_REMOVED = 'usual.event.UID_REMOVED',
 
     /**
-     * An installed application is started for the first time.
+     * （预留事件，暂未支持）提示首次启动已安装的应用程序。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -484,7 +487,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_FIRST_LAUNCH = 'usual.event.PACKAGE_FIRST_LAUNCH',
 
     /**
-     * An application requires system verification.
+     * （预留事件，暂未支持）提示应用需要系统校验。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -494,7 +497,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION = 'usual.event.PACKAGE_NEEDS_VERIFICATION',
 
     /**
-     * An application has been verified by the system.
+     * （预留事件，暂未支持）提示应用已被系统校验。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -504,7 +507,7 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_VERIFIED = 'usual.event.PACKAGE_VERIFIED',
 
     /**
-     * Applications installed on the external storage are available for the system.
+     * （预留事件，暂未支持）提示安装在外部存储上的应用程序对系统可用。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -514,7 +517,7 @@ declare namespace commonEvent {
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_AVAILABLE',
 
     /**
-     * Applications installed on the external storage are not available for the system.
+     * （预留事件，暂未支持）提示安装在外部存储上的应用程序对系统不可用。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -524,7 +527,7 @@ declare namespace commonEvent {
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE',
 
     /**
-     * The device state (for example, orientation and locale) has changed.
+     * （预留事件，暂未支持）提示设备状态（例如，方向、区域设置等）已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -534,7 +537,7 @@ declare namespace commonEvent {
     COMMON_EVENT_CONFIGURATION_CHANGED = 'usual.event.CONFIGURATION_CHANGED',
 
     /**
-     * The device locale has changed.
+     * （预留事件，暂未支持）提示设备区域设置已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -544,7 +547,7 @@ declare namespace commonEvent {
     COMMON_EVENT_LOCALE_CHANGED = 'usual.event.LOCALE_CHANGED',
 
     /**
-     * The device storage is insufficient.
+     * （预留事件，暂未支持）提示设备存储空间不足。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -554,7 +557,7 @@ declare namespace commonEvent {
     COMMON_EVENT_MANAGE_PACKAGE_STORAGE = 'usual.event.MANAGE_PACKAGE_STORAGE',
 
     /**
-     * The system is in driving mode.
+     * （预留事件，暂未支持）提示系统处于驾驶模式。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -564,7 +567,7 @@ declare namespace commonEvent {
     COMMON_EVENT_DRIVE_MODE = 'common.event.DRIVE_MODE',
 
     /**
-     * The system is in home mode.
+     * （预留事件，暂未支持）提示系统处于HOME模式。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -574,7 +577,7 @@ declare namespace commonEvent {
     COMMON_EVENT_HOME_MODE = 'common.event.HOME_MODE',
 
     /**
-     * The system is in office mode.
+     * （预留事件，暂未支持）提示系统处于办公模式。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -584,7 +587,7 @@ declare namespace commonEvent {
     COMMON_EVENT_OFFICE_MODE = 'common.event.OFFICE_MODE',
 
     /**
-     * The user has been started.
+     * （预留事件，暂未支持）提示用户已启动。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -594,7 +597,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_STARTED = 'usual.event.USER_STARTED',
 
     /**
-     * The user has been brought to the background.
+     * （预留事件，暂未支持）提示用户已被带到后台。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -604,7 +607,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_BACKGROUND = 'usual.event.USER_BACKGROUND',
 
     /**
-     * The user has been brought to the foreground.
+     * （预留事件，暂未支持）提示用户已被带到前台。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -614,10 +617,9 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_FOREGROUND = 'usual.event.USER_FOREGROUND',
 
     /**
-     * User switching is in progress.
+     * 提示用户正在切换。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.MANAGE_LOCAL_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -627,10 +629,9 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_SWITCHED = 'usual.event.USER_SWITCHED',
 
     /**
-     * User starting is in progress.
+     * （预留事件，暂未支持）提示用户正在启动。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -640,7 +641,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_STARTING = 'usual.event.USER_STARTING',
 
     /**
-     * The credential encryption storage of the current user has been unlocked upon restart.
+     * （预留事件，暂未支持）在重启后解锁时，提示当前用户的凭据加密存储已解锁。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -650,10 +651,9 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
     /**
-     * The user to be stopped.
+     * （预留事件，暂未支持）提示要停止用户。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -663,7 +663,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_STOPPING = 'usual.event.USER_STOPPING',
 
     /**
-     * The user has been stopped.
+     * （预留事件，暂未支持）提示用户已停止。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -673,7 +673,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_STOPPED = 'usual.event.USER_STOPPED',
 
     /**
-     * HW id login successfully.
+     * 表示分布式账号登录成功的动作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -683,7 +683,7 @@ declare namespace commonEvent {
     COMMON_EVENT_HWID_LOGIN = 'common.event.HWID_LOGIN',
 
     /**
-     * HW id logout successfully.
+     * 表示分布式账号登出成功的动作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -693,7 +693,7 @@ declare namespace commonEvent {
     COMMON_EVENT_HWID_LOGOUT = 'common.event.HWID_LOGOUT',
 
     /**
-     * HW id is invalid.
+     * 表示分布式账号token令牌无效的动作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -703,7 +703,7 @@ declare namespace commonEvent {
     COMMON_EVENT_HWID_TOKEN_INVALID = 'common.event.HWID_TOKEN_INVALID',
 
     /**
-     * HW id logs off.
+     * 表示分布式账号注销的动作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -713,7 +713,7 @@ declare namespace commonEvent {
     COMMON_EVENT_HWID_LOGOFF = 'common.event.HWID_LOGOFF',
 
     /**
-     * A change in the Wi-Fi state (enabled or disabled).
+     * 提示Wi-Fi功能状态的变更，如启用或禁用。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -723,9 +723,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_POWER_STATE = 'usual.event.wifi.POWER_STATE',
 
     /**
-     * The Wi-Fi access point has been scanned and proved available.
+     * 提示Wi-Fi接入点已被扫描并证明可用。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.LOCATION permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.LOCATION权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -735,9 +735,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_SCAN_FINISHED = 'usual.event.wifi.SCAN_FINISHED',
 
     /**
-     * The Wi-Fi signal strength (RSSI) has changed.
+     * 提示Wi-Fi信号强度（RSSI）改变。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -747,7 +747,7 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_RSSI_VALUE = 'usual.event.wifi.RSSI_VALUE',
 
     /**
-     * The Wi-Fi connection state has changed.
+     * 提示Wi-Fi连接状态发生改变。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -757,7 +757,7 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_CONN_STATE = 'usual.event.wifi.CONN_STATE',
 
     /**
-     * A change in the Wi-Fi hotspot state (enabled or disabled).
+     * 提示Wi-Fi热点功能状态的变更，如启用或禁用。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -767,9 +767,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_HOTSPOT_STATE = 'usual.event.wifi.HOTSPOT_STATE',
 
     /**
-     * A client has joined the Wi-Fi hotspot of the current device.
+     * 提示有客户端加入当前设备Wi-Fi热点。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -779,9 +779,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_AP_STA_JOIN = 'usual.event.wifi.WIFI_HS_STA_JOIN',
 
     /**
-     * The client is disconnected from the Wi-Fi hotspot of the current device.
+     * 提示客户端已断开与当前设备Wi-Fi热点的连接。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -791,7 +791,7 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_AP_STA_LEAVE = 'usual.event.wifi.WIFI_HS_STA_LEAVE',
 
     /**
-     * The state of MPLINK (an enhanced Wi-Fi feature) has changed.
+     * 提示MPLink（增强Wi-Fi功能）状态已更改（暂不支持）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -801,10 +801,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = 'usual.event.wifi.mplink.STATE_CHANGE',
 
     /**
-     * The Wi-Fi P2P connection state has changed.
+     * 提示Wi-Fi P2P连接状态改变。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO and
-     * ohos.permission.LOCATION permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO和ohos.permission.LOCATION权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -814,9 +813,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_P2P_CONN_STATE = 'usual.event.wifi.p2p.CONN_STATE_CHANGE',
 
     /**
-     * A change in the Wi-Fi P2P state (enabled or disabled).
+     * 提示Wi-Fi P2P状态发生变更，如启用和禁用。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -826,9 +825,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_P2P_STATE_CHANGED = 'usual.event.wifi.p2p.STATE_CHANGE',
 
     /**
-     * The state of the Wi-Fi P2P peer device has changed.
+     * 提示Wi-Fi P2P对等体状态变化。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -838,9 +837,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED = 'usual.event.wifi.p2p.DEVICES_CHANGE',
 
     /**
-     * The Wi-Fi P2P discovery state has changed.
+     * 提示Wi-Fi P2P发现状态变化。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -850,9 +849,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED = 'usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE',
 
     /**
-     * The state of the Wi-Fi P2P local device has changed.
+     * 提示Wi-Fi P2P当前设备状态变化。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -862,9 +861,9 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED = 'usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE',
 
     /**
-     * The Wi-Fi P2P group information has changed.
+     * 提示Wi-Fi P2P群组信息已更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -874,9 +873,6 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED = 'usual.event.wifi.p2p.GROUP_STATE_CHANGED',
 
     /**
-     * The connection state of Bluetooth handsfree communication.
-     *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -887,9 +883,6 @@ declare namespace commonEvent {
       'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE',
 
     /**
-     * The device connected to the Bluetooth handsfree function is active.
-     *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -900,9 +893,9 @@ declare namespace commonEvent {
       'usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE',
 
     /**
-     * The connection state of Bluetooth A2DP has changed.
+     * （预留事件，暂未支持）提示蓝牙A2DP连接状态已更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -912,9 +905,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE',
 
     /**
-     * The connection state of Bluetooth A2DP.
+     * （预留事件，暂未支持）提示蓝牙A2DP连接状态。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -924,9 +917,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE',
 
     /**
-     * The device connected using Bluetooth A2DP is active.
+     * （预留事件，暂未支持）提示使用蓝牙A2DP连接的设备处于活动状态。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -936,9 +929,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE',
 
     /**
-     * The playing state of Bluetooth A2DP has changed.
+     * （预留事件，暂未支持）提示蓝牙A2DP播放状态发生改变。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -948,9 +941,6 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE',
 
     /**
-     * The AVRCP connection state of Bluetooth A2DP has changed.
-     *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -961,9 +951,9 @@ declare namespace commonEvent {
       'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE',
 
     /**
-     * The audio codec state of Bluetooth A2DP has changed.
+     * （预留事件，暂未支持）提示蓝牙A2DP音频编解码状态更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -973,10 +963,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE = 'usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE',
 
     /**
-     * A remote Bluetooth device is discovered.
+     * （预留事件，暂未支持）提示发现远程蓝牙设备。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.LOCATION and
-     * ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.LOCATION和ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -986,9 +975,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED = 'usual.event.bluetooth.remotedevice.DISCOVERED',
 
     /**
-     * The Bluetooth class of a remote Bluetooth device has changed.
+     * （预留事件，暂未支持）提示远程蓝牙设备的蓝牙类别已更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -998,9 +987,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE',
 
     /**
-     * A low-level (ACL) connection has been established with the remote Bluetooth device.
+     * （预留事件，暂未支持）提示已与远程蓝牙设备建立低级别（ACL）连接。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1010,9 +999,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED = 'usual.event.bluetooth.remotedevice.ACL_CONNECTED',
 
     /**
-     * The low-level (ACL) connection has been disconnected from the remote Bluetooth device.
+     * （预留事件，暂未支持）提示低级别（ACL）连接已从远程蓝牙设备断开。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1022,10 +1011,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED = 'usual.event.bluetooth.remotedevice.ACL_DISCONNECTED',
 
     /**
-     * The friendly name of a remote Bluetooth device is retrieved for the first time or has changed since the last
-     * retrieval.
+     * （预留事件，暂未支持）提示远程蓝牙设备的友好名称首次被检索或自上次检索以来被更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1035,9 +1023,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE = 'usual.event.bluetooth.remotedevice.NAME_UPDATE',
 
     /**
-     * The connection state with a remote Bluetooth device is changed.
+     * （预留事件，暂未支持）提示远程蓝牙设备连接状态更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1047,10 +1035,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE = 'usual.event.bluetooth.remotedevice.PAIR_STATE',
 
     /**
-     * The battery level of a remote Bluetooth device is retrieved for the first time or has changed since the last
-     * retrieval.
+     * （预留事件，暂未支持）提示远程蓝牙设备的电池电量首次被检索或自上次检索以来被更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1060,7 +1047,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE',
 
     /**
-     * The SDP state of a remote Bluetooth device.
+     * （预留事件，暂未支持）提示远程蓝牙设备SDP状态。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1070,9 +1057,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT = 'usual.event.bluetooth.remotedevice.SDP_RESULT',
 
     /**
-     * The UUID connection state with a remote Bluetooth device.
+     * （预留事件，暂未支持）提示远程蓝牙设备UUID连接状态。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.DISCOVER_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.DISCOVER_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1082,9 +1069,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE = 'usual.event.bluetooth.remotedevice.UUID_VALUE',
 
     /**
-     * The pairing request from a remote Bluetooth device.
+     * （预留事件，暂未支持）提示远程蓝牙设备配对请求。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.DISCOVER_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.DISCOVER_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1094,7 +1081,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ = 'usual.event.bluetooth.remotedevice.PAIRING_REQ',
 
     /**
-     * Bluetooth pairing has been canceled.
+     * （预留事件，暂未支持）提示取消蓝牙配对。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1104,7 +1091,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL = 'usual.event.bluetooth.remotedevice.PAIRING_CANCEL',
 
     /**
-     * The connection request from a remote Bluetooth device.
+     * （预留事件，暂未支持）提示远程蓝牙设备连接请求。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1114,7 +1101,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ = 'usual.event.bluetooth.remotedevice.CONNECT_REQ',
 
     /**
-     * The response to the connection request from a remote Bluetooth device.
+     * （预留事件，暂未支持）提示远程蓝牙设备连接请求响应。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1124,7 +1111,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY = 'usual.event.bluetooth.remotedevice.CONNECT_REPLY',
 
     /**
-     * The connection to a remote Bluetooth device has been canceled.
+     * （预留事件，暂未支持）提示取消与远程蓝牙设备的连接。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1134,7 +1121,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL = 'usual.event.bluetooth.remotedevice.CONNECT_CANCEL',
 
     /**
-     * The connection state with a Bluetooth handsfree has changed.
+     * （预留事件，暂未支持）提示蓝牙免提连接状态已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1144,7 +1131,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE',
 
     /**
-     * The audio state of a Bluetooth handsfree has changed.
+     * （预留事件，暂未支持）提示蓝牙免提音频状态已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1154,7 +1141,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE',
 
     /**
-     * The audio gateway state of a Bluetooth handsfree has changed.
+     * （预留事件，暂未支持）提示蓝牙免提音频网关状态已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1164,7 +1151,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT = 'usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT',
 
     /**
-     * The calling state of a Bluetooth handsfree has changed.
+     * （预留事件，暂未支持）提示蓝牙免提呼叫状态已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1174,9 +1161,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE',
 
     /**
-     * A change in the Bluetooth adapter state (enabled or disabled).
+     * （预留事件，暂未支持）提示蓝牙适配器状态已更改，例如蓝牙已打开或关闭。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1186,7 +1173,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE = 'usual.event.bluetooth.host.STATE_UPDATE',
 
     /**
-     * Bluetooth is discoverable.
+     * （预留事件，暂未支持）提示用户允许扫描蓝牙请求。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1196,9 +1183,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE = 'usual.event.bluetooth.host.REQ_DISCOVERABLE',
 
     /**
-     * Bluetooth is enabled.
+     * （预留事件，暂未支持）提示用户打开蓝牙请求。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1208,9 +1195,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = 'usual.event.bluetooth.host.REQ_ENABLE',
 
     /**
-     * Bluetooth is disabled.
+     * （预留事件，暂未支持）提示用户关闭蓝牙请求。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1220,9 +1207,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE = 'usual.event.bluetooth.host.REQ_DISABLE',
 
     /**
-     * The Bluetooth scan mode of the device is changed.
+     * （预留事件，暂未支持）提示设备蓝牙扫描模式更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1232,9 +1219,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE = 'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
     /**
-     * Bluetooth discovery is started on the device.
+     * （预留事件，暂未支持）提示设备上已启动蓝牙扫描。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1244,9 +1231,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED = 'usual.event.bluetooth.host.DISCOVERY_STARTED',
 
     /**
-     * Bluetooth discovery is finished on the device.
+     * （预留事件，暂未支持）提示设备上蓝牙扫描完成。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1256,9 +1243,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED = 'usual.event.bluetooth.host.DISCOVERY_FINISHED',
 
     /**
-     * The name of the device Bluetooth adapter has changed.
+     * （预留事件，暂未支持）提示设备蓝牙适配器名称已更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1268,9 +1255,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE = 'usual.event.bluetooth.host.NAME_UPDATE',
 
     /**
-     * The connection state of Bluetooth A2DP Sink has changed.
+     * （预留事件，暂未支持）提示蓝牙A2DP宿的连接状态已更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1280,9 +1267,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE',
 
     /**
-     * The playing state of Bluetooth A2DP Sink has changed.
+     * （预留事件，暂未支持）提示蓝牙A2DP宿的播放状态发生改变。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1292,9 +1279,9 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE',
 
     /**
-     * The audio state of Bluetooth A2DP Sink has changed.
+     * （预留事件，暂未支持）提示蓝牙A2DP宿的音频状态已更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.USE_BLUETOOTH权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1304,7 +1291,7 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
 
     /**
-     * The state of the device NFC adapter has changed.
+     * （预留事件，暂未支持）提示设备NFC适配器状态已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1314,10 +1301,9 @@ declare namespace commonEvent {
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED = 'usual.event.nfc.action.ADAPTER_STATE_CHANGED',
 
     /**
-     * The NFC RF field is detected to be in the enabled state.
+     * （预留事件，暂未支持）提示检测到NFC设备RF字段处于使能状态。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_SECURE_SETTINGS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.MANAGE_SECURE_SETTINGS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1327,10 +1313,9 @@ declare namespace commonEvent {
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED = 'usual.event.nfc.action.RF_FIELD_ON_DETECTED',
 
     /**
-     * The NFC RF field is detected to be in the disabled state.
+     * （预留事件，暂未支持）提示检测到NFC设备RF字段处于关闭状态。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_SECURE_SETTINGS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.MANAGE_SECURE_SETTINGS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1340,7 +1325,7 @@ declare namespace commonEvent {
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED = 'usual.event.nfc.action.RF_FIELD_OFF_DETECTED',
 
     /**
-     * The system stops charging the battery.
+     * 提示系统停止为电池充电。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1350,7 +1335,7 @@ declare namespace commonEvent {
     COMMON_EVENT_DISCHARGING = 'usual.event.DISCHARGING',
 
     /**
-     * The system starts charging the battery.
+     * 提示系统开始为电池充电。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1360,7 +1345,7 @@ declare namespace commonEvent {
     COMMON_EVENT_CHARGING = 'usual.event.CHARGING',
 
     /**
-     * The system idle mode has changed.
+     * （预留事件，暂未支持）提示系统空闲模式已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1370,7 +1355,7 @@ declare namespace commonEvent {
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
     /**
-     * The system power-saving mode has changed.
+     * 提示系统节能模式更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1380,10 +1365,9 @@ declare namespace commonEvent {
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = 'usual.event.POWER_SAVE_MODE_CHANGED',
 
     /**
-     * A user has been added to the system.
+     * 提示用户已添加到系统中。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.MANAGE_LOCAL_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1393,10 +1377,9 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_ADDED = 'usual.event.USER_ADDED',
 
     /**
-     * A user has been removed from the system.
+     * 提示用户已从系统中删除。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.MANAGE_LOCAL_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1406,10 +1389,9 @@ declare namespace commonEvent {
     COMMON_EVENT_USER_REMOVED = 'usual.event.USER_REMOVED',
 
     /**
-     * An ability has been added.
+     * （预留事件，暂未支持）提示有某个能力已被添加。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.LISTEN_BUNDLE_CHANGE
-     * permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.LISTEN_BUNDLE_CHANGE权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1419,10 +1401,9 @@ declare namespace commonEvent {
     COMMON_EVENT_ABILITY_ADDED = 'common.event.ABILITY_ADDED',
 
     /**
-     * An ability has been removed.
+     * （预留事件，暂未支持）提示已删除某个能力。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.LISTEN_BUNDLE_CHANGE
-     * permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.LISTEN_BUNDLE_CHANGE权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1432,10 +1413,9 @@ declare namespace commonEvent {
     COMMON_EVENT_ABILITY_REMOVED = 'common.event.ABILITY_REMOVED',
 
     /**
-     * An ability has been updated.
+     * （预留事件，暂未支持）提示能力已更新。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.LISTEN_BUNDLE_CHANGE
-     * permission.
+     * 要订阅此事件，您的应用必须具备ohos.permission.LISTEN_BUNDLE_CHANGE权限。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1445,7 +1425,7 @@ declare namespace commonEvent {
     COMMON_EVENT_ABILITY_UPDATED = 'common.event.ABILITY_UPDATED',
 
     /**
-     * The location mode of the system has changed.
+     * （预留事件，暂未支持）提示系统定位模式已更改。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1455,7 +1435,7 @@ declare namespace commonEvent {
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED = 'usual.event.location.MODE_STATE_CHANGED',
 
     /**
-     * The in-vehicle infotainment (IVI) system of the vehicle is sleeping.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统正在休眠。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1465,7 +1445,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_SLEEP = 'common.event.IVI_SLEEP',
 
     /**
-     * The IVI system of the vehicle is in sleep mode and notifies the application to stop playing.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统已休眠，并通知应用程序停止播放。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1475,7 +1455,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_PAUSE = 'common.event.IVI_PAUSE',
 
     /**
-     * A third-party application in the IVI system of a vehicle is suspended.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统中的第三方应用暂停当前工作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1485,7 +1465,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_STANDBY = 'common.event.IVI_STANDBY',
 
     /**
-     * The third-party application in the IVI system of the vehicle saves the last mode.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统中的第三方应用保存其最后一个模式。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1495,7 +1475,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_LASTMODE_SAVE = 'common.event.IVI_LASTMODE_SAVE',
 
     /**
-     * The voltage of the vehicle's power system is abnormal.
+     * （预留事件，暂未支持）提示车辆电源系统电压异常。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1505,7 +1485,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_VOLTAGE_ABNORMAL = 'common.event.IVI_VOLTAGE_ABNORMAL',
 
     /**
-     * The temperature of the IVI system of the vehicle is too high.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统温度过高。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1515,7 +1495,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_HIGH_TEMPERATURE = 'common.event.IVI_HIGH_TEMPERATURE',
 
     /**
-     * The temperature of the IVI system of the vehicle is extremely high.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统温度极高。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1525,7 +1505,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_EXTREME_TEMPERATURE = 'common.event.IVI_EXTREME_TEMPERATURE',
 
     /**
-     * The IVI system of the vehicle has an extreme temperature.
+     * （预留事件，暂未支持）提示车辆的车载信息娱乐（IVI）系统具有极端温度。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1535,7 +1515,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL = 'common.event.IVI_TEMPERATURE_ABNORMAL',
 
     /**
-     * The voltage of the vehicle's power system is restored to normal.
+     * （预留事件，暂未支持）提示车辆电源系统电压恢复正常。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1545,7 +1525,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_VOLTAGE_RECOVERY = 'common.event.IVI_VOLTAGE_RECOVERY',
 
     /**
-     * The temperature of the IVI system is restored to normal.
+     * （预留事件，暂未支持）提示车载系统温度恢复正常。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1555,7 +1535,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_TEMPERATURE_RECOVERY = 'common.event.IVI_TEMPERATURE_RECOVERY',
 
     /**
-     * The battery service of the vehicle-mounted system is active.
+     * （预留事件，暂未支持）提示车载系统电池服务处于活动状态。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1565,7 +1545,7 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_ACTIVE = 'common.event.IVI_ACTIVE',
 
     /**
-     * A USB device has been attached to the device functioning as a USB host.
+     * 当用户设备作为USB主机时，提示USB设备已挂载。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1575,7 +1555,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USB_DEVICE_ATTACHED = 'usual.event.hardware.usb.action.USB_DEVICE_ATTACHED',
 
     /**
-     * A USB device has been detached from the device functioning as a USB host.
+     * 当用户设备作为USB主机时，提示USB设备被卸载。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1585,7 +1565,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USB_DEVICE_DETACHED = 'usual.event.hardware.usb.action.USB_DEVICE_DETACHED',
 
     /**
-     * A USB accessory was attached.
+     * （预留事件，暂未支持）提示已连接USB附件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1595,7 +1575,7 @@ declare namespace commonEvent {
     COMMON_EVENT_USB_ACCESSORY_ATTACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED',
 
     /**
-     * The USB attachment is uninstalled.
+     * （预留事件，暂未支持）提示USB附件被卸载。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1605,10 +1585,9 @@ declare namespace commonEvent {
     COMMON_EVENT_USB_ACCESSORY_DETACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED',
 
     /**
-     * An external storage device was removed.
+     * （预留事件，暂未支持）提示外部存储设备状态变更为移除。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1618,10 +1597,9 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_REMOVED = 'usual.event.data.DISK_REMOVED',
 
     /**
-     * An external storage device was unmounted.
+     * （预留事件，暂未支持）提示外部存储设备状态变更为卸载。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1631,10 +1609,9 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_UNMOUNTED = 'usual.event.data.DISK_UNMOUNTED',
 
     /**
-     * An external storage device was mounted.
+     * （预留事件，暂未支持）提示外部存储设备状态变更为挂载。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1644,10 +1621,9 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_MOUNTED = 'usual.event.data.DISK_MOUNTED',
 
     /**
-     * An external storage device was removed without being unmounted.
+     * （预留事件，暂未支持）提示外部存储设备在挂载状态下被移除。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1657,10 +1633,9 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_BAD_REMOVAL = 'usual.event.data.DISK_BAD_REMOVAL',
 
     /**
-     * The external storage device cannot be mounted when a card is inserted.
+     * （预留事件，暂未支持）提示外部存储设备在插卡情况下无法挂载。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1670,11 +1645,9 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
     /**
-     * The external storage medium has been ejected (interactive operation at the system software layer, not directly
-     * ejected physically).
+     * （预留事件，暂未支持）提示用户已作出弹出外部存储介质的操作（系统软件层面的交互操作，非直接物理弹出）。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1684,10 +1657,9 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_EJECT = 'usual.event.data.DISK_EJECT',
 
     /**
-     * The account visibility changed.
+     * （预留事件，暂未支持）提示账户发生可见性的更改。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_APP_ACCOUNTS permission. (
-     * This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.GET_APP_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1697,10 +1669,9 @@ declare namespace commonEvent {
     COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED = 'usual.event.data.VISIBLE_ACCOUNTS_UPDATED',
 
     /**
-     * An account was deleted.
+     * （预留事件，暂未支持）提示有账户被删除。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1710,10 +1681,9 @@ declare namespace commonEvent {
     COMMON_EVENT_ACCOUNT_DELETED = 'usual.event.data.ACCOUNT_DELETED',
 
     /**
-     * The foundation is ready.
+     * （预留事件，暂未支持）提示foundation已准备好。
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVER_STARTUP_COMPLETED
-     * permission. (This permission is available only for system applications.)
+     * 要订阅此事件，您的应用必须具备ohos.permission.RECEIVER_STARTUP_COMPLETED权限（该权限仅系统应用可申请）。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1723,7 +1693,7 @@ declare namespace commonEvent {
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
     /**
-     * The airplane mode of the device has changed.
+     * 提示设备飞行模式发生了切换。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -1733,7 +1703,7 @@ declare namespace commonEvent {
     COMMON_EVENT_AIRPLANE_MODE_CHANGED = 'usual.event.AIRPLANE_MODE',
 
     /**
-     * The screen has been split.
+     * 提示分屏。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 8
