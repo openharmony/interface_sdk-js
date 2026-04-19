@@ -19,9 +19,8 @@
  */
 
 /**
- * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+ * Enumerates the error codes that may be returned when an ability is started.
  *
- * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 6 dynamic
  * @since 23 static
@@ -37,7 +36,7 @@ export enum ErrorCode {
   PERMISSION_DENY = -3,
 
   /**
-   * Ability not found.
+   * The ability is not found.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6 dynamic

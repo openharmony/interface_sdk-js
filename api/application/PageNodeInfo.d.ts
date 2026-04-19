@@ -28,9 +28,8 @@ import AutoFillRect from './AutoFillRect';
 /*** endif */
 
 /**
- * Page node info for automatic filling.
+ * PageNodeInfo defines the page node information used for auto-fill.
  *
- * @interface PageNodeInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
@@ -41,7 +40,6 @@ export default interface PageNodeInfo {
   /**
    * The id of page node.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -51,9 +49,8 @@ export default interface PageNodeInfo {
   id: int;
 
   /**
-   * The depth of page node, in px.
+   * The depth of page node.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -65,7 +62,6 @@ export default interface PageNodeInfo {
   /**
    * The auto fill type of page node.
    *
-   * @type { AutoFillType }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -77,7 +73,6 @@ export default interface PageNodeInfo {
   /**
    * The tag of page node.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -89,7 +84,6 @@ export default interface PageNodeInfo {
   /**
    * The value of page node.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -101,7 +95,6 @@ export default interface PageNodeInfo {
   /**
    * The placeholder of page node.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -113,7 +106,6 @@ export default interface PageNodeInfo {
   /**
    * The password rules of page node.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -125,7 +117,6 @@ export default interface PageNodeInfo {
   /**
    * The auto fill flag of page node.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -137,7 +128,6 @@ export default interface PageNodeInfo {
   /**
    * The rect of page node.
    *
-   * @type { AutoFillRect }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -149,7 +139,6 @@ export default interface PageNodeInfo {
   /**
    * Is the page node in the focus.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -161,7 +150,6 @@ export default interface PageNodeInfo {
   /**
    * The metadata of a node.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly

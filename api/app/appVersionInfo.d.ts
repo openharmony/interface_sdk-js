@@ -19,123 +19,46 @@
  */
 
 /**
- * Defines an AppVersionInfo object.
+ * The module defines the application version information. You can use 
+ * [getAppVersionInfo](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetappversioninfo7) to 
+ * obtain the version information of the current application.
  *
- * @typedef AppVersionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 7
- */
-/**
- * Defines an AppVersionInfo object.
- *
- * @typedef AppVersionInfo
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines an AppVersionInfo object.
- *
- * @typedef AppVersionInfo
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @famodelonly
- * @atomicservice
- * @since 12 dynamiconly
+ * @famodelonly [since 12]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  */
 export interface AppVersionInfo {
   /**
    * Application name.
    *
-   * @type { string }
    * @default appName
-   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Application name.
-   *
-   * @type { string }
-   * @default appName
-   * @readonly
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Application name.
-   *
-   * @type { string }
-   * @default appName
-   * @readonly
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @famodelonly
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @famodelonly [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   readonly appName: string;
 
   /**
    * Application version number.
    *
-   * @type { number }
    * @default versionCode
-   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Application version number.
-   *
-   * @type { number }
-   * @default versionCode
-   * @readonly
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Application version number.
-   *
-   * @type { number }
-   * @default versionCode
-   * @readonly
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @famodelonly
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @famodelonly [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   readonly versionCode: number;
 
   /**
    * Application version name.
    *
-   * @type { string }
    * @default versionName
-   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Application version name.
-   *
-   * @type { string }
-   * @default versionName
-   * @readonly
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Application version name.
-   *
-   * @type { string }
-   * @default versionName
-   * @readonly
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @famodelonly
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @famodelonly [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   readonly versionName: string;
 }
