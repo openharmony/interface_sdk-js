@@ -14,10 +14,119 @@
  */
 
 /**
+ * The module defines an observer to listen for application state changes. It can be used as an input parameter in 
+ * [on('applicationState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
+ * to listen for lifecycle changes of the application.
+ *
  * @file
  * @kit AbilityKit
  */
 
+/**
+ * # ApplicationStateObserver.onForegroundApplicationChanged
+ * 
+ * onForegroundApplicationChanged(appStateData: AppStateData): void
+ * 
+ * Called when the foreground or background state of an application changes.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | appStateData | [AppStateData]{@link AppStateData:AppStateData} | Yes| Application state data.|
+ */
+/**
+ * # ApplicationStateObserver.onAbilityStateChanged
+ * 
+ * onAbilityStateChanged(abilityStateData: AbilityStateData): void
+ * 
+ * Called when the ability state changes.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | abilityStateData | [AbilityStateData]{@link AbilityStateData:AbilityStateData} | Yes| Ability state data.|
+ */
+/**
+ * # ApplicationStateObserver.onProcessCreated
+ * 
+ * onProcessCreated(processData: ProcessData): void
+ * 
+ * Called when a process is created.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | processData | [ProcessData]{@link ProcessData:ProcessData} | Yes| Process data.|
+ */
+/**
+ * # ApplicationStateObserver.onProcessDied
+ * 
+ * onProcessDied(processData: ProcessData): void
+ * 
+ * Called when a process is destroyed.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | processData | [ProcessData]{@link ProcessData:ProcessData} | Yes| Process data.|
+ */
+/**
+ * # ApplicationStateObserver.onProcessStateChanged
+ * 
+ * onProcessStateChanged(processData: ProcessData): void
+ * 
+ * Called when the process state is changed.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | processData | [ProcessData]{@link ProcessData:ProcessData} | Yes| Process data.|
+ */
+/**
+ * # ApplicationStateObserver.onAppStarted
+ * 
+ * onAppStarted(appStateData: AppStateData): void
+ * 
+ * Called when the first process of the application is created.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | appStateData | [AppStateData]{@link AppStateData:AppStateData} | Yes| Application state data.|
+ */
+/**
+ * # ApplicationStateObserver.onAppStopped
+ * 
+ * onAppStopped(appStateData: AppStateData): void
+ * 
+ * Called when the last process of the application is destroyed.
+ * 
+ * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
+ * 
+ * **Parameters**
+ * 
+ * | Name| Type| Mandatory| Description|
+ * | -------- | -------- | -------- | -------- |
+ * | appStateData | [AppStateData]{@link AppStateData:AppStateData} | Yes| Application state data.|
+ */
 import AppStateData from './AppStateData';
 import AbilityStateData from './AbilityStateData';
 /*** if arkts dynamic */
@@ -119,7 +228,7 @@ declare interface ApplicationStateObserver {
 
 /**
  * The process data.
- * @typedef { _ProcessData.default }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
  */
@@ -127,7 +236,7 @@ export type ProcessData = _ProcessData.default;
 
 /**
  * The process data.
- * @typedef { _ProcessData }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 23 static
  */

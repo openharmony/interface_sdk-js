@@ -21,83 +21,85 @@
 import Want from './@ohos.app.ability.Want';
 
 /**
- * Interface of request dialog.
+ * The dialogRequest module provides APIs related to modal dialog box processing, including obtaining the request 
+ * information (used to bind a modal dialog box) and request callback (used to set the request result).
+ * 
+ * A modal dialog box is a system-level dialog box that blocks interactions such as mouse clicks, keyboard input, and 
+ * touch events on the underlying page. The page can only be interacted with after the modal dialog box is closed.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs provided by this module are used in ServiceExtensionAbilities. For a ServiceExtensionAbility that 
+ * > implements modal dialog boxes, you can use the APIs to obtain the request information and request callback and 
+ * > return the request result.
  *
- * @namespace dialogRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9 dynamic
  * @since 23 static
  */
 declare namespace dialogRequest {
   /**
-   * Window Rectangle
+   * Defines the location attributes of a modal dialog box.
    *
-   * @typedef WindowRect
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
   export interface WindowRect {
     /**
-     * The left position of WindowRect
+     * X-coordinate of the upper left corner of the dialog box.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
     left: int;
 
     /**
-     * The top position of WindowRect
+     * Y-coordinate of the upper left corner of the dialog box.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
     top: int;
 
     /**
-     * The width of WindowRect
+     * Width of the dialog box, in px.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
     width: int;
 
     /**
-     * The height of WindowRect
+     * Height of the dialog box, in px.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
     height: int;
   }
   /**
-   * Request info of a request.
+   * Defines the request information, which is used as an input parameter for binding the modal dialog box.
    *
-   * @typedef RequestInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
    * @since 23 static
    */
   export interface RequestInfo {
     /**
-     * The Window of caller.
+     * Location attributes of a modal dialog box.
      *
-     * @type { ?WindowRect }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -105,16 +107,15 @@ declare namespace dialogRequest {
   }
 
   /**
-   * The modal bullet box requests the result code.
+   * Enumerates the result codes of the request for the modal dialog box.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
    * @since 23 static
    */
   export enum ResultCode {
     /**
-     * The modal bullet box requests succeeded.
+     * The request succeeds.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamic
@@ -123,7 +124,7 @@ declare namespace dialogRequest {
     RESULT_OK = 0,
 
     /**
-     * The modal bullet box requests Failed.
+     * The request fails.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamic
@@ -133,32 +134,29 @@ declare namespace dialogRequest {
   }
 
   /**
-   * The result of requestDialogService with asynchronous callback.
+   * Defines the result of the request for the modal dialog box. It contains **ResultCode** and **ResultWant**.
    *
-   * @typedef RequestResult
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
   export interface RequestResult {
     /**
-     * The request result passed in by the user.
+     * Result code of the request.
      *
-     * @type { ResultCode }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
     result: ResultCode;
 
     /**
-     * The request additional want data passed in by the user.
+     * Want information, such as the ability name and bundle name.
      *
-     * @type { ?Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -166,22 +164,21 @@ declare namespace dialogRequest {
   }
 
   /**
-   * Provides methods for request callback.
+   * Provides a callback for setting the modal dialog box request result.
    *
-   * @interface RequestCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
    * @since 23 static
    */
   export interface RequestCallback {
     /**
-     * Send request result to caller.
+     * Sets the result of the request for the modal dialog box.
      *
-     * @param { RequestResult } result - result for request.
+     * @param { RequestResult } result - Request result to set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -189,12 +186,18 @@ declare namespace dialogRequest {
   }
 
   /**
-   * Get request info from caller want.
+   * > **NOTE**
+   * >
+   * > This API can be used by a ServiceExtensionAbility. If the ServiceExtensionAbility implements modal dialog boxes, 
+   * > the request information can be obtained from Want. If this API is used in other scenarios, no return value is 
+   * > obtained.
+   * 
+   * Obtains the request information from Want.
    *
-   * @param { Want } want - want from caller.
-   * @returns { RequestInfo } Returns the request info from caller.
+   * @param { Want } want - Want passed in the request for a modal dialog box.
+   * @returns { RequestInfo } RequestInfo object obtained, which is used to bind a modal dialog box.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
    * @since 23 static
@@ -202,12 +205,18 @@ declare namespace dialogRequest {
   function getRequestInfo(want: Want): RequestInfo;
 
   /**
-   * Get request callback from caller want.
+   * Obtains the request callback from Want.
+   * 
+   * > **NOTE**
+   * >
+   * > This API can be used by a ServiceExtensionAbility. If the ServiceExtensionAbility implements modal dialog boxes, 
+   * > the request callback can be obtained from Want. If this API is used in other scenarios, no return value is 
+   * > obtained.
    *
-   * @param { Want } want - want from caller.
-   * @returns { RequestCallback } Returns the request callback.
+   * @param { Want } want - Want passed in the request for a modal dialog box.
+   * @returns { RequestCallback } RequestCallback object obtained, which is used to set the return result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
    * @since 23 static

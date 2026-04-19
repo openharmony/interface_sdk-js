@@ -23,9 +23,12 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * UI service proxy.
+ * UIServiceProxy functions as a proxy to send data from the UIServiceExtensionAbility client to the server.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
  *
- * @interface UIServiceProxy
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
@@ -34,11 +37,16 @@ import { RecordData } from '../@ohos.base';
  */
 export default interface UIServiceProxy {
   /**
-   * Send data to ui service.
+   * Sends data to the UIServiceExtensionAbility server.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
    *
-   * @param { Record<string, Object> } data - Indicates the data to send.
+   * @param { Record<string, Object> } data - Data to be sent to the UIServiceExtensionAbility server.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -48,9 +56,14 @@ export default interface UIServiceProxy {
   sendData(data: Record<string, Object>): void;
 
   /**
-   * Send data to ui service.
+   * Sends data to the UIServiceExtensionAbility server.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
    *
-   * @param { Record<string, RecordData> } data - Indicates the data to send.
+   * @param { Record<string, RecordData> } data - Data to be sent to the UIServiceExtensionAbility server.
    * @throws { BusinessError } 16000050 - Internal error. Possible cause: Connect to stub failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
