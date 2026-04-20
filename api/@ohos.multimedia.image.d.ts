@@ -11139,6 +11139,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly sRGBIntent?: int;
 
     /**
+     * PNG color primary/white-point coordinates.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly chromaticities?: double[];
+
+    /**
      * PNG title.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
