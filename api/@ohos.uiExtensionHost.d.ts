@@ -78,9 +78,10 @@ declare namespace uiExtensionHost {
      *
      * @param { Callback<uiExtension.AvoidAreaInfo> } callback
      *     - Callback used to return the area.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     * <br> 1. The callback has been registered.
-     * <br> 2. The UIExtension window proxy is abnormal.
+     * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
+     * <br> 1. The listening type is not supported.
+     * <br> 2. The listening has been registered.
+     * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
@@ -148,9 +149,10 @@ declare namespace uiExtensionHost {
      * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
      *
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     * <br> 1. The callback has been registered.
-     * <br> 2. The UIExtension window proxy is abnormal.
+     * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
+     * <br> 1. The listening type is not supported.
+     * <br> 2. The listening has been registered.
+     * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
