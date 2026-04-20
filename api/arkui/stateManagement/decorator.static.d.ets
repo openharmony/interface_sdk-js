@@ -384,6 +384,31 @@ export declare @interface Env {
 };
 
 /**
+ * Define SyncMonitor MethodDecorator. Decorator path parameters are the same as defined for Montior.
+ * The function decorator is functionally equivalent to the UIUtils.addMonitor API with isSynchronous enabled.
+ * SyncMonitor must contain at least one path item, with multiple path items separated by commas.
+ * Path items are either observed attribute names or arry item indices.The path in SyncMonitor
+ * supports wildcard at the end of a path item, but path items must never appear at the beginning or
+ * in the middle of a path. All other paths using one or more wildcard are invalid.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface SyncMonitor {
+  /**
+   * Listened property name.
+   *
+   * @type { string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  path: string[];
+}
+
+/**
  * Define IMonitor interface
  *
  * @interface IMonitor
@@ -1222,7 +1247,7 @@ export declare interface IStateMgmtFactory {
    */
   makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, options?: MakeMonitorOptions): IMonitorDecoratedVariable;
 
-    /**
+  /**
    * Create a Env variable instance.
    *
    * @param { IVariableOwner } owner - custom component owner
@@ -1235,6 +1260,20 @@ export declare interface IStateMgmtFactory {
    * @since 24 static
    */
   makeEnv<T>(owner: IVariableOwner, envValue: string, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
+
+  /**
+   * Create a synchronous monitored variable instance.
+   *
+   * @param { IMonitorPathInfo[] } pathInfos - monitor path to its accessor.
+   * @param { MonitorCallback } monitorCallback - callback when the monitor triggers.
+   * @param { MakeMonitorOptions } [options] - options of this monitor.
+   * @returns { IMonitorDecoratedVariable } Monitor variable instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  makeSyncMonitor(pathInfos: IMonitorPathInfo[], monitorCallback: MonitorCallback,
+    options?: MakeMonitorOptions): IMonitorDecoratedVariable;
 }
 
 
@@ -1444,22 +1483,34 @@ export declare interface IMonitorDecoratedVariable {
  * @since 23 static
  */
 export declare interface IMonitorPathInfo {
-    /**
-     * Changed paths(keys)
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    path: string;
-    /**
-     * Callback function to access monitored value.
-     *
-     * @type { MonitorValueCallback }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    valueCallback: MonitorValueCallback;
+  /**
+   * Changed paths(keys)
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  path: string;
+  /**
+   * Callback function to access monitored value.
+   *
+   * @type { MonitorValueCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  valueCallback: MonitorValueCallback;
+
+  /**
+   * Enables the wildcard feature.
+   * Set to true to enable wildcard feature, and set to false to disable it.
+   * The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableWildcard?: boolean;
 }
 
 /**
@@ -1510,4 +1561,23 @@ export declare interface MakeMonitorOptions {
    * @since 24 static
    */
   functionName?: string;
+}
+
+/**
+ * Defines IObservedAnyProp type.
+ *
+ * @interface IObservedAnyProp
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IObservedAnyProp {
+  /**
+   * Add reference to any one-level property change.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  addRefAnyProp(): void;
 }
