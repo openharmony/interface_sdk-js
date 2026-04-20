@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -452,7 +452,7 @@ declare namespace cert {
     ERR_CRL_HAS_EXPIRED = 19030017,
 
     /**
-     * Failed to verify the signature of certificate revocation list.
+     * Failed to verify the signature of the certificate revocation list.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -462,7 +462,7 @@ declare namespace cert {
     ERR_CRL_SIGNATURE_FAILURE = 19030018,
 
     /**
-     * Failed to obtain the issuer of certificate revocation list.
+     * Failed to find the issuer of the certificate revocation list.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -5439,7 +5439,7 @@ declare namespace cert {
      * The specified value must match the publicKeyAlgID (public key algorithm identifier) for the X509Certificate:
      * [Rule]
      * null : Do not match.
-     * NOT null : match ok if it is equal with [publicKeyAlgID of cert].
+     * NOT null : match ok if it is equal to [publicKeyAlgID of cert].
      *
      * @type { ?string } the object identifier (OID) of the public key algorithm identifier to check.
      * @syscap SystemCapability.Security.Cert
@@ -5450,7 +5450,7 @@ declare namespace cert {
      * The specified value must match the publicKeyAlgID (public key algorithm identifier) for the X509Certificate:
      * [Rule]
      * null : Do not match.
-     * NOT null : match ok if it is equal with [publicKeyAlgID of cert].
+     * NOT null : match ok if it is equal to [publicKeyAlgID of cert].
      *
      * @type { ?string } the object identifier (OID) of the public key algorithm identifier to check.
      * @syscap SystemCapability.Security.Cert
@@ -6240,13 +6240,14 @@ declare namespace cert {
    *
    * @param { Uint8Array } data - the PKCS12 data.
    * @param { string } password - the password of the PKCS12.
+   *     <br>Value range:[0,4096]
    * @returns { Promise<Pkcs12Data> } the promise returned by the function.
    * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
    *     <br>1. The length of the data is zero or too large;
-   *     <br>2. The length of the password is zero or too large.
+   *     <br>2. The length of the password is too large.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030008 - maybe wrong password.
    * @syscap SystemCapability.Security.Cert
@@ -6406,9 +6407,9 @@ declare namespace cert {
      * @returns { Array<string> } distinguished name strings.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
-     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
-     * <br>1. The value of encodingType is invalid.
+     *     <br>1. The value of encodingType is invalid.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
