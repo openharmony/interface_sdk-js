@@ -59,10 +59,14 @@ declare namespace uiExtensionHost {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has been registered.
+     * <br> 2. Incorrect type value.
+     * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
@@ -74,6 +78,9 @@ declare namespace uiExtensionHost {
      *
      * @param { Callback<uiExtension.AvoidAreaInfo> } callback
      *     - Callback used to return the area.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has been registered.
+     * <br> 2. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
@@ -85,10 +92,14 @@ declare namespace uiExtensionHost {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has not been registered.
+     * <br> 2. Incorrect type value.
+     * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
@@ -100,6 +111,9 @@ declare namespace uiExtensionHost {
      *
      * @param { Callback<uiExtension.AvoidAreaInfo> } [callback]
      *     - Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has not been registered.
+     * <br> 2. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
@@ -113,10 +127,14 @@ declare namespace uiExtensionHost {
      *        indicating the component (EmbeddedComponent or UIExtensionComponent) size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the component (EmbeddedComponent or
      *        UIExtensionComponent) size.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has been registered.
+     * <br> 2. Incorrect type value.
+     * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
@@ -127,6 +145,9 @@ declare namespace uiExtensionHost {
      * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
      *
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has been registered.
+     * <br> 2. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
@@ -140,10 +161,14 @@ declare namespace uiExtensionHost {
      *        indicating the component (EmbeddedComponent or UIExtensionComponent) size change event.
      * @param { Callback<window.Size> } [callback] - Unregister the callback function.
      *        If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has not been registered.
+     * <br> 2. Incorrect type value.
+     * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
@@ -155,6 +180,9 @@ declare namespace uiExtensionHost {
      *
      * @param { Callback<window.Size> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The callback has not been registered.
+     * <br> 2. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
