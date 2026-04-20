@@ -5863,6 +5863,20 @@ declare namespace text {
      * @since 26.0.0 dynamic&static
      */
     getVisibleTextRanges(): Array<Range>;
+
+    /**
+     * Whether to force reuse the rasterization result.
+     *
+     * @param { boolean } isForce - Whether to force reuse the rasterization result.
+     *     True means to force reuse of the rasterization result. 
+     *     False means to allow updates to the rasterization result.
+     *     The default value is false.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    forceReuseRasterResult(isForce: boolean): void;
   }
 
   /**
