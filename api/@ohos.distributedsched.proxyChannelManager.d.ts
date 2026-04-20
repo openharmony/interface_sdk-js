@@ -38,7 +38,7 @@ declare namespace proxyChannelManager {
     * @param { ChannelInfo } channelInfo -  Parameters for creating proxy channel
     * @returns { Promise<int> } The Promise returned by this function.
     * @throws { BusinessError } 201 - Permission denied.
-    * @throws { BusinessError } 801 - Capability not supported.[since 26]
+    * @throws { BusinessError } 801 - Capability not supported because bluetooth proxy function not support.[since 26] |
     * @throws { BusinessError } 32390001 - BR is disabled.
     * @throws { BusinessError } 32390002 - Device not paired.
     * @throws { BusinessError } 32390006 - Parameter error.
@@ -78,7 +78,7 @@ declare namespace proxyChannelManager {
     * @param { ArrayBuffer } data - Indicates the message data to send.
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permission denied.
-    * @throws { BusinessError } 801 - Capability not supported.[since 26]
+    * @throws { BusinessError } 801 - Capability not supported because bluetooth proxy function not support.[since 26] |
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
