@@ -14,12 +14,14 @@
  */
 
 /**
- * @file The NotificationCommonDef module provides APIs for describing the BundleOption information, that is, the bundle information of a specified application.
+ * 描述应用的包信息。
+ *
+ * @file Some common definitions
  * @kit NotificationKit
  */
 
 /**
- * Describes the bundle information of an application.
+ * 描述BundleOption信息，即应用的包信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 9 dynamic
@@ -27,7 +29,7 @@
  */
 export interface BundleOption {
   /**
-   * Bundle name of the application.
+   * 应用程序的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -36,7 +38,8 @@ export interface BundleOption {
   bundle: string;
 
   /**
-   * UID of the application, which is obtained from [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo). The default value is **0**. This parameter is mandatory in application clone<!--Del--> or telematics device<!--DelEnd--> scenarios.
+   * 应用程序的UID。从[ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo)获取，默认为0。
+   * 应用分身<!--Del-->或车机<!--DelEnd-->场景下，此参数为必填项。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -46,7 +49,7 @@ export interface BundleOption {
 }
 
 /**
- * Describes the authorized bundle information.
+ * 描述已授权的包信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
@@ -54,7 +57,7 @@ export interface BundleOption {
  */
 export interface GrantedBundleInfo {
   /**
-   * Bundle name of the application.
+   * 应用程序的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -63,9 +66,7 @@ export interface GrantedBundleInfo {
   bundleName: string;
 
   /**
-   * Index of an application clone, which takes effect only for application clones.
-   * The value is obtained from the **appIndex** of 
-   * [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo).
+   * 应用包的分身索引标识，仅在分身应用中生效。从[ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo)中appIndex获取。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -74,8 +75,7 @@ export interface GrantedBundleInfo {
   readonly appIndex: int;
 
   /**
-   * Application name, which is obtained from the **label** of 
-   * [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo).
+   * 标识应用的名称。从[ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo)中label获取。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -85,7 +85,7 @@ export interface GrantedBundleInfo {
 }
 
 /**
- * Describes the user authorization settings.
+ * 描述用户授权的设置信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -93,7 +93,7 @@ export interface GrantedBundleInfo {
  */
 export interface UserGrantSetting {
   /**
-   * Whether the **Allow access to notifications on this device** switch is toggled on. true: **yes**; false: **no**.
+   * “允许获取本机通知”的开关状态。 true：表示功能已启用；false：表示功能未启用。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -102,7 +102,7 @@ export interface UserGrantSetting {
   readonly userGrantEnabled: boolean;
 
   /**
-   * List of apps for which the **Allow access to notifications on this device** switch is toggled on.
+   * “已获取的本机通知”通知开关开启的应用列表。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
