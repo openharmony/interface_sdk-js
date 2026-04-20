@@ -290,7 +290,7 @@ declare class List<T> {
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
    *
-   * @param { RecordData } obj - obj obj Compare objects
+   * @param { RecordData } obj - The object to compare with this list
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang

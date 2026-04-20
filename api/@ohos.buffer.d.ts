@@ -296,7 +296,7 @@ declare namespace buffer {
   /**
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
-   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
+   * @param { ArrayBuffer } arrayBuffer - The ArrayBuffer to create a view from
    * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
    *     The value should be an integer.
    * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
@@ -416,8 +416,8 @@ declare namespace buffer {
   /**
    * Compares buf1 to buf2
    *
-   * @param { Buffer | Uint8Array } buf1 - buf1 buf1 A Buffer or Uint8Array instance.
-   * @param { Buffer | Uint8Array } buf2 - buf2 buf2 A Buffer or Uint8Array instance.
+   * @param { Buffer | Uint8Array } buf1 - First buffer for comparison
+   * @param { Buffer | Uint8Array } buf2 - Second buffer for comparison
    * @returns { int } 0 is returned if target is the same as buf
    *     1 is returned if target should come before buf when sorted.
    *     -1 is returned if target should come after buf when sorted.
@@ -592,7 +592,7 @@ declare namespace buffer {
      * Compares buf with target and returns a number indicating whether buf comes before, after,
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
-     * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
+     * @param { Buffer | Uint8Array } target - The buffer to compare with this buffer
      * @param { int } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin
      *     comparison
      * @param { int } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end
@@ -1803,8 +1803,8 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @param { ArrayUnionType } sources - sources sources ArrayUnionType will be stored within the Blob.
-     * @param { BlobOptions } [options] - options options {endings: string, type: string}
+     * @param { ArrayUnionType } sources - The sources to store within the Blob
+     * @param { BlobOptions } [options] - Blob options {endings: string, type: string}
      *     endings:  One of either 'transparent' or 'native'.
      *     type: The Blob content-type
      * @syscap SystemCapability.Utils.Lang
