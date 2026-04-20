@@ -39,20 +39,18 @@ import { AutoFillTriggerType } from './AutoFillTriggerType';
  * Defines the information about an auto-fill request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export interface FillRequest {
   /**
    * Type of the element to be automatically filled in.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   type: AutoFillType;
 
@@ -60,10 +58,9 @@ export interface FillRequest {
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   viewData: ViewData;
 
@@ -97,9 +94,9 @@ export interface FillRequest {
    * Trigger type for the autofill service.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   triggerType?: AutoFillTriggerType;
 }
@@ -108,20 +105,18 @@ export interface FillRequest {
  * Defines the information about an auto-saving request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export interface SaveRequest {
   /**
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   viewData: ViewData;
 }
@@ -278,4 +273,25 @@ export interface SaveRequestCallback {
    * @since 23 static
    */
   onFailure(): void;
+}
+
+/**
+ * Fill fail result.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ */
+export interface FillFailureResult {
+  /**
+   * errcode.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  errCode: int;
 }
