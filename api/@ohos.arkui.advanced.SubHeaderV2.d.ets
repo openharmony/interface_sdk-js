@@ -83,7 +83,7 @@ export interface SubHeaderV2TitleOptions {
    */
   secondaryTitleModifier?: TextModifier;
   /**
-   * Set the ability to customize the broadcast of the title.
+   * The accessibility text for broadcasting the title.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -155,8 +155,7 @@ export declare class SubHeaderV2Title {
    */
   @Trace secondaryTitleModifier?: TextModifier;
   /**
-   * Set the ability to customize the broadcast of the title.
-   *
+   * The accessibility text for broadcasting the title.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

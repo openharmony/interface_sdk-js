@@ -94,20 +94,20 @@ export declare enum TreeListenType {
      */
     NODE_ADD = "NodeAdd",
     /**
-     * register listener after a node is delected.
+     * register listener after a node is deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 10
      */
     /**
-     * register listener after a node is delected.
+     * register listener after a node is deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
      */
     /**
-     * register listener after a node is delected.
+     * register listener after a node is deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform

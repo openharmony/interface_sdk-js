@@ -871,7 +871,9 @@ declare class UIExtensionContext extends ExtensionContext {
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } connect - The remote object instance
    * @returns { long } Returns the number code of the ability connected
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. Possible cause:
+   *     target service extension ability is in cross-device and needed designated permission to be started, but
+   *     call ability do not have this permission.
    * @throws { BusinessError } 202 - Not system application
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -879,6 +881,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to commnicate with dependency module.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -909,6 +913,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.

@@ -136,20 +136,20 @@ declare enum PanDirection {
   Right,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -300,20 +300,20 @@ declare enum SwipeDirection {
   Horizontal,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4515,6 +4515,17 @@ declare class EventTargetInfo {
    * @since 12 dynamic
    */
   getId(): string;
+  /**
+   * Returns the component's unique id.
+   * 
+   * @returns { number } - the unique id of the component
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getUniqueId(): number;
 }
 
 /**
@@ -4545,6 +4556,18 @@ declare class TouchRecognizer {
      * @since 20 dynamic
      */
     cancelTouch(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { number } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    isHostBelongsTo(uniqueId: number): boolean;
 }
 
 /**
@@ -4670,6 +4693,18 @@ declare class GestureRecognizer {
    * @since 20 dynamic
    */
   preventBegin(): void;
+  /**
+   * Check whether the current gesture binding node is a descendant of the passed-in component.
+   *
+   * @param { number } uniqueId - the unique id of the component.
+   * @returns { boolean } - the query result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  isHostBelongsTo(uniqueId: number): boolean;
 }
 
 /**

@@ -487,6 +487,17 @@ declare class TextStyle {
      * @since 24 dynamic
      */
     readonly fontConfigs?: FontConfigs;
+
+    /**
+     * Get the font variation of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -598,6 +609,17 @@ declare interface TextStyleInterface {
      * @since 24 dynamic
      */
     fontConfigs?: FontConfigs;
+
+    /**
+     * The font variation value of the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -1262,6 +1284,19 @@ declare class LineHeightStyle {
     constructor(lineHeight: LengthMetrics);
 
     /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineHeight - line height value.
+     * @param { number } [lineHeightMultiple] - line height multiple value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(lineHeight: LengthMetrics, lineHeightMultiple?: number);
+
+    /**
      * Get the lineHeight value of the StyledString.
      * The unit is vp.
      * 
@@ -1273,6 +1308,65 @@ declare class LineHeightStyle {
      * @since 12 dynamic
      */
     readonly lineHeight: number;
+
+    /**
+     * Get the line height multiple value of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly lineHeightMultiple?: number;
+}
+
+/**
+ * Defines LineSpacingStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class LineSpacingStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineSpacing - line spacing value.
+     * @param { LineSpacingOptions } [options] - line spacing options value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
+
+    /**
+     * Get the lineSpacing value of the StyledString.
+     * The unit is vp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly lineSpacing: number;
+
+    /**
+     * Get the lineSpacing options value of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly options?: LineSpacingOptions;
 }
 
 /**
@@ -1335,9 +1429,18 @@ declare class UrlStyle {
  * @atomicservice
  * @since 14 dynamic
  */
+/**
+ * Defines the StyledString style type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan | BackgroundColorStyle;
+UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
 
 /**
  * MutableStyledString
@@ -1597,6 +1700,16 @@ declare enum StyledStringKey {
      * @since 14 dynamic
      */
     URL = 7,
+    /**
+     * The key of LineSpacingStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    LINE_SPACING = 8,
     /**
      * The key of GestureStyle.
      *

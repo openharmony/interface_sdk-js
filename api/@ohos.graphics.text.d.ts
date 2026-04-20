@@ -3264,6 +3264,17 @@ declare namespace text {
      * @since 24 dynamic&static
      */
      clearCaches(): void;
+
+     /**
+     * Sets whether paragraph caches are enabled.
+     * 
+     * @param { boolean } enable - Indicates whether to enable paragraph caches, where true enables and false disables.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setParagraphCachesEnabled(enable: boolean): void;
   }
 
   /**
@@ -3937,6 +3948,36 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     fallbackLineSpacing?: boolean;
+
+    /**
+     * Indentation before the first line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    firstLineHeadIndent?: double;
+
+    /**
+     * Indentation after each line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tailIndents?: Array<double>;
+
+    /**
+     * Indentation before each line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    headIndents?: Array<double>;
 
     /**
      * Whether to enable orphan char optimization.
@@ -5811,6 +5852,17 @@ declare namespace text {
      * @since 26.0.0 dynamic&static
      */
     getParagraphStyle(): ParagraphStyle;
+
+    /**
+     * Obtains the visible text ranges of the paragraph.
+     *
+     * @returns { Array<Range> } The visible text ranges of the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getVisibleTextRanges(): Array<Range>;
   }
 
   /**

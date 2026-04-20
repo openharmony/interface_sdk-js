@@ -584,13 +584,13 @@ declare class SecurityComponentMethod<T> {
   /**
    * Id. User can set an id to the component to identify it.
    *
-   * @param { string } description
+   * @param { string } id
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 15 dynamic
    */
-  id(description: string): T;
+  id(id: string): T;
 
   /**
    * Specifies the direction and style of chain in relative container

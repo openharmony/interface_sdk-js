@@ -21,105 +21,64 @@
 import { BusinessError } from '../@ohos.base';
 
 /**
- * The event center of a context, support the subscription and publication of events.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 9
- */
-/**
- * The event center of a context, support the subscription and publication of events.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @atomicservice
- * @since 11
- */
-/**
- * The event center of a context, support the subscription and publication of events.
+ * EventHub is an event communication mechanism based on the publish-subscribe pattern. It decouples senders and 
+ * subscribers through event names, supporting efficient data transfer and state synchronization between different 
+ * service modules.
+ * It is primarily used for 
+ * [data communication between UIAbility components and UI pages](docroot://application-models/uiability-data-sync-with-ui.md)
+ * .
+ * Different Context objects have different EventHub objects, and different EventHub objects cannot communicate directly
+ *  with each other. Event subscription, unsubscription, and triggering all take place on a specific EventHub object.
+ * Since Worker and TaskPool implement 
+ * [multithreaded concurrency](docroot://arkts-utils/multi-thread-concurrency-overview.md#multithreaded-concurrency-models)
+ *  through the actor model, where different virtual machine instances have exclusive memory, EventHub objects cannot be
+ *  used for inter-thread data communication.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare class EventHub {
   /**
-   * Subscribe to an event.
+   * Subscribes to an event.
+   * 
+   * > **NOTE**
+   * >
+   * > When the callback is triggered by **emit**, the invoker is the EventHub object. To change the direction of 
+   * > **this** in **callback**, use an arrow function.
    *
-   * @param { string } event - Indicates the event.
-   * @param { Function } callback - Indicates the callback.
+   * @param { string } event - Event name.
+   * @param { Function } callback - Callback invoked when the event is triggered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Subscribe to an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Function } callback - Indicates the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Subscribe to an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Function } callback - Indicates the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   on(event: string, callback: Function): void;
 
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from an event.
+   * 
+   * - If **callback** is specified, this API unsubscribes from the given event with the specified callback.
+   * - If **callback** is not specified, this API unsubscribes from the given event with all callbacks.
    *
-   * @param { string } event - Indicates the event.
-   * @param { Function } [callback] - Indicates the callback.
+   * @param { string } event - Event name.
+   * @param { Function } [callback] - Callback for the event. If **callback** is unspecified, the given event with all 
+   *     callbacks is unsubscribed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Unsubscribe from an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Function } [callback] - Indicates the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unsubscribe from an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Function } [callback] - Indicates the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   off(event: string, callback?: Function): void;
@@ -130,35 +89,12 @@ declare class EventHub {
    * @param { string } event - Indicates the event.
    * @param { Object[] } args - Indicates the callback arguments.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Trigger the event callbacks.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Object[] } args - Indicates the callback arguments.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Trigger the event callbacks.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Object[] } args - Indicates the callback arguments.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   emit(event: string, ...args: Object[]): void;
  

@@ -21,19 +21,20 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * Mission information corresponding to ability.
+ * The module defines detailed information about a mission. The information can be obtained through 
+ * [getMissionInfo]{@link @ohos.app.ability.missionManager:missionManager.getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>)}
+ * .
  *
- * @typedef MissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 8 dynamic
  * @since 23 static
  */
+
 export interface MissionInfo {
   /**
    * Indicates mission id.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -44,7 +45,6 @@ export interface MissionInfo {
   /**
    * Indicates running state.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -55,7 +55,6 @@ export interface MissionInfo {
   /**
    * Indicates locked state.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -66,7 +65,6 @@ export interface MissionInfo {
   /**
    * Indicates the recent created or updated time of the mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -77,7 +75,6 @@ export interface MissionInfo {
   /**
    * Indicates want of the mission.
    *
-   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -88,7 +85,6 @@ export interface MissionInfo {
   /**
    * Indicates label of the mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -99,7 +95,6 @@ export interface MissionInfo {
   /**
    * Indicates icon path of the mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -110,7 +105,6 @@ export interface MissionInfo {
   /**
    * Indicates whether the mission is continuable.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
@@ -121,7 +115,6 @@ export interface MissionInfo {
   /**
    * Indicates the ability state of this mission.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
@@ -132,7 +125,6 @@ export interface MissionInfo {
   /**
    * Indicates whether the mission is unclearable.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic

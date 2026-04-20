@@ -118,7 +118,7 @@ export declare interface Colors {
     fontSecondary: ResourceColor;
 
     /**
-    * tertiary text color.
+    * Tertiary text color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -547,7 +547,7 @@ export declare interface Colors {
     compFocusedTertiary: ResourceColor;
 
     /**
-    *  Hover interactive color 
+    *  Hover interactive color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -558,7 +558,7 @@ export declare interface Colors {
     interactiveHover: ResourceColor;
 
     /**
-    * Pressed interactive color 
+    * Pressed interactive color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -569,7 +569,7 @@ export declare interface Colors {
     interactivePressed: ResourceColor;
 
     /**
-    * Focus interactive color 
+    * Focus interactive color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -580,7 +580,7 @@ export declare interface Colors {
     interactiveFocus: ResourceColor;
 
     /**
-    * Active interactive color 
+    * Active interactive color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -591,7 +591,7 @@ export declare interface Colors {
     interactiveActive: ResourceColor;
 
     /**
-    * Select interactive color 
+    * Select interactive color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -602,7 +602,7 @@ export declare interface Colors {
     interactiveSelect: ResourceColor;
 
     /**
-    * Click interactive color 
+    * Click interactive color.
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full

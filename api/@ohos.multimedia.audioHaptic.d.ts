@@ -271,7 +271,7 @@ declare namespace audioHaptic {
 
     /**
      * The offset into the file where the data to be read.
-     * By default, the offset is 0.
+     * By default, the offset is 0, unit is byte.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic

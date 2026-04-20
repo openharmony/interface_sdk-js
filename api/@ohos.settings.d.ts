@@ -1640,7 +1640,36 @@ declare namespace settings {
    * @StageModelOnly
    * @since 26.0.0 dynamic&static
    */
-  function openAppDetailSettings(context: Context, bundleName: string, appIndex?: int): void;
+  function openAppDetailSettingsPage(context: Context, bundleName: string, appIndex?: int): void;
+
+  /**
+   * 1. Opens the settings page for double-pressing the Down key.
+   * 2. This API is used to set the default application started by double-pressing the Down key.
+   *
+   * @param { Context } context - 1. Application context.
+   *     2. Specify this parameter to set the application started by double-pressing the Down key.
+   * @throws { BusinessError } 16900010 - 1. The parameter is incorrect.
+   *     2. The parameter is not transferred or the transferred parameter is invalid.
+   * @throws { BusinessError } 16900020 - 1. The setting page cannot be opened through redirection.
+   *     2. Internal error
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function openDoubleClickSettingsPage(context: Context): void;
+ 
+  /**
+   * 1. Checks whether the application started by double-pressing the Down key is the application itself.
+   * 2. This API is triggered to check whether double-pressing the Down key starts the application itself.
+   *
+   *
+   * @returns { Promise<boolean> } Check result.
+   *     {@code true} is returned if the specified application is started. Otherwise, {@code false} is returned.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function isDoubleClickAppForSelf(): Promise<boolean>;
 }
 
 export default settings;

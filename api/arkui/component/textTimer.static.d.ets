@@ -112,6 +112,18 @@ export declare interface TextTimerConfiguration extends CommonConfiguration<Text
      * @since 23 static
      */
     elapsedTime: long;
+    /**
+     * The start time of the timer.
+     * It is effective when isCountDown is false.
+     *
+     * Unit:milliseconds.
+     * Default value: 0.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    startTime?: int;
 }
 /**
  * Parameters of the TextTimer component.
@@ -154,6 +166,18 @@ export interface TextTimerOptions {
      * @since 23 static
      */
     controller?: TextTimerController;
+    /**
+     * The start time of the timer.
+     * It is effective when isCountDown is false.
+     *
+     * Unit:milliseconds.
+     * Default value:0.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    startTime?: int;
 }
 /**
  * TimerCallback

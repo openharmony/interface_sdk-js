@@ -44,7 +44,7 @@ import { InputEventMonitor, InputEventListener } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
 import { ResourceStr, SizeOptions, VoidCallback } from '@ohos.arkui.component';
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from '@ohos.arkui.component';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode, RawInputEventType } from '@ohos.arkui.component';
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
@@ -2583,6 +2583,19 @@ export declare class CursorController {
    * @since 23 static
    */
   setCursor(value: PointerStyle): void;
+  /**
+   * Sets the custom cursor style.
+   *
+   * @param { image.PixelMap } value - custom cursor style.
+   * @param { int } [focusX] - Focus x of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @param { int } [focusY] - Focus y of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setCustomCursor(value: image.PixelMap, focusX?: int, focusY?: int): void;
 }
 
 /**
@@ -2827,6 +2840,16 @@ export declare class ComponentSnapshot {
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
+
+  /**
+   * Query the size limitation for taking a component snapshot.
+   *
+   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation;
 }
 
 /**
@@ -3385,25 +3408,18 @@ export declare class UIContext {
   /**
    * Registers a local input event monitor.
    *
-   * Parameters:
-   * - eventMask: Event type mask, specifying the types of events to monitor through bitwise operations.
-   * - listener: Event listener callback function.
-   *
-   * Returns:
-   * - InputEventMonitor: Unique identifier object for the monitor, used for subsequent cancellation of registration.
-   *
-   * **Performance Warning**: Do not perform time-consuming operations in the callback!
-   *
-   * **Naming Notes**: The "Local" in the interface name indicates that the monitor is only valid within the current UIContext (i.e., the current window),
+   * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
    * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
    *
-   * **Monitor Object Notes**:
+   * Performance Warning: Do not perform time-consuming operations in the callback!
+   *
+   * Monitor Object Notes:
    * - The returned Monitor object is a unique identifier created by the system.
    * - Developers cannot actively construct or forge this object.
-   * - Must save the returned object reference for subsequent cancellation.
+   * - Must save the returned monitor object reference for subsequent cancellation.
    * - It is recommended to use a variable to save it to avoid losing the reference.
    *
-   * **Usage Examples**:
+   * Usage Examples:
    * ```typescript
    * // Monitor a single event type
    * const monitor1 = uiContext.addLocalInputEventMonitor(
@@ -3436,20 +3452,19 @@ export declare class UIContext {
    * uiContext.removeLocalInputEventMonitor(monitor2);
    * ```
    *
-   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through bitwise operations.
+   * @param { int } eventMask - Event type mask, specifying the types of events to monitor through
+   *     bitwise operations.
    * @param { InputEventListener } listener - Event listener callback function.
-   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
+   *     cancellation of registration.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor;
+  addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
 
   /**
    * Removes a local input event monitor.
-   *
-   * Parameters:
-   * - monitor: Monitor identifier object (returned by addLocalInputEventMonitor).
    *
    * **Important Notes**:
    * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.
@@ -3888,6 +3903,28 @@ export declare class UIContext {
    * @since 24 static
    */
   isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean | undefined } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableEventPassthrough(enabled: boolean | undefined, eventType: RawInputEventType): void;
+
+  /**
+   * Sets the text selection clear policy for text component.
+   * Default policy: **TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH**
+   *
+   * @param { TextSelectionClearPolicy } policy - The text selection clear policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
 }
 
 /**
@@ -3932,6 +3969,33 @@ export const enum KeyboardAvoidMode {
    * @since 23 static
    */
   NONE = 4
+}
+
+/**
+ * Enum of TextSelectionClearPolicy
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export const enum TextSelectionClearPolicy {
+  /**
+  * Keep the selected text when touch outside of text component.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
+  KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 0,
+
+  /**
+   * Clear the selected text when touch outside of text component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
 }
 
 /**

@@ -1439,7 +1439,7 @@ declare namespace zlib {
   function createZipSync(): Zip;
 
   /**
-   * Synchronize creation of gzip objects.
+   * Asynchronous creation of gzip objects.
    *
    * @returns { Promise<GZip> } Returns zip objects.
    * @syscap SystemCapability.BundleManager.Zlib

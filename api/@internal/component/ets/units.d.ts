@@ -3676,7 +3676,7 @@ declare interface ChainWeightOptions {
  */
 declare interface AccessibilityOptions {
   /**
-   * accessibilityPreferred - Should accessibilityText be prioritized when contatenating child component strings.
+   * accessibilityPreferred - Should accessibilityText be prioritized when concatenating child component strings.
    *
    * @type { ?(boolean) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

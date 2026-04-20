@@ -48,7 +48,7 @@ declare namespace locationManager {
     DEFAULT_LOCATION_SERVICE = 0,
 
     /**
-     * Disallows open location service.
+     * Disallows opening the location service.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly

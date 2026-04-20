@@ -14,6 +14,22 @@
  */
 
 /**
+ * LightWeightSet stores a set of values, each of which must be unique.
+ * LightWeightSet is based on generics and uses a lightweight structure. Its default initial capacity is 8, and it has 
+ * the capacity doubled in each expansion.
+ * The values in such a set are searched using hash values, which are stored in an array.
+ * Compared with [HashSet]{@link @ohos.util.HashSet}, which can also store values, LightWeightSet occupies less memory.
+ * **Recommended use case**: Use LightWeightSet when you need a set that has only unique elements or need to deduplicate
+ * a set.
+ * This topic uses the following to identify the use of generics:
+ * 
+ * - T: Type
+ * 
+ * > **NOTE**
+ * >
+ * > - Container classes, implemented in static languages, have restrictions on storage locations and properties, and do
+ * > not support custom properties or methods.
+ *
  * @file
  * @kit ArkTS
  */
@@ -22,81 +38,36 @@
  * LightWeightSet stores a set of values, each of which must be unique.
  *
  * @syscap SystemCapability.Utils.Lang
- * @since 8
- */
-/**
- * LightWeightSet stores a set of values, each of which must be unique.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * LightWeightSet stores a set of values, each of which must be unique.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 8 dynamic
  * @since 23 static
  */
 declare class LightWeightSet<T> {
   /**
-   * A constructor used to create a LightWeightSet object.
+   * A constructor used to create a **LightWeightSet** instance.
    *
    * @throws { BusinessError } 10200012 - The LightWeightSet's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * A constructor used to create a LightWeightSet object.
-   *
-   * @throws { BusinessError } 10200012 - The LightWeightSet's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A constructor used to create a LightWeightSet object.
-   *
-   * @throws { BusinessError } 10200012 - The LightWeightSet's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   constructor();
   /**
-   * Gets the element number of the LightWeightSet.
+   * Number of elements in a LightWeightSet.
    *
-   * @type { number }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Gets the element number of the LightWeightSet.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the element number of the LightWeightSet.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the LightWeightSet.
    *
-   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -105,280 +76,128 @@ declare class LightWeightSet<T> {
   get length(): int;
 
   /**
-   * If the set does not contain the element, the specified element is added
+   * Adds an element to this LightWeightSet.
    *
-   * @param { T } obj - obj obj Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } obj - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise, **false**
+   *     is returned.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * If the set does not contain the element, the specified element is added
-   *
-   * @param { T } obj - obj obj Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * If the set does not contain the element, the specified element is added
-   *
-   * @param { T } obj - obj obj Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   add(obj: T): boolean;
   /**
-   * Adds all the objects in a specified LightWeightSet container to the current LightWeightSet container
+   * Adds all elements in a LightWeightSet to this LightWeightSet.
    *
-   * @param { LightWeightSet<T> } set - set set the Set object to provide the added element
-   * @returns { boolean } the boolean type(Is there any new data added successfully)
+   * @param { LightWeightSet<T> } set - LightWeightSet whose elements are to be added to the current LightWeightSet.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise, **false**
+   *     is returned.
    * @throws { BusinessError } 10200011 - The addAll method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Adds all the objects in a specified LightWeightSet container to the current LightWeightSet container
-   *
-   * @param { LightWeightSet<T> } set - set set the Set object to provide the added element
-   * @returns { boolean } the boolean type(Is there any new data added successfully)
-   * @throws { BusinessError } 10200011 - The addAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Adds all the objects in a specified LightWeightSet container to the current LightWeightSet container
-   *
-   * @param { LightWeightSet<T> } set - set set the Set object to provide the added element
-   * @returns { boolean } the boolean type(Is there any new data added successfully)
-   * @throws { BusinessError } 10200011 - The addAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   addAll(set: LightWeightSet<T>): boolean;
   /**
-   * Returns whether this set has all the object in a specified set
+   * Checks whether this LightWeightSet contains all elements of the specified LightWeightSet.
    *
-   * @param { LightWeightSet<T> } set - set set the Set object to compare
-   * @returns { boolean } the boolean type
+   * @param { LightWeightSet<T> } set - **LightWeightSet** instance to be used for comparison.
+   * @returns { boolean } Check result. The value **true** is returned if all the elements in the specified
+   *     LightWeightSet are contained; otherwise, **false** is returned.
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns whether this set has all the object in a specified set
-   *
-   * @param { LightWeightSet<T> } set - set set the Set object to compare
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns whether this set has all the object in a specified set
-   *
-   * @param { LightWeightSet<T> } set - set set the Set object to compare
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   hasAll(set: LightWeightSet<T>): boolean;
   /**
-   * Checks whether an LightWeightSet container has a specified key
+   * Checks whether this LightWeightSet has the specified key.
    *
-   * @param { T } key - key key need to determine whether to include the key
-   * @returns { boolean } the boolean type
+   * @param { T } key - Target key.
+   * @returns { boolean } Check result. The value **true** is returned if the specified key is contained; otherwise,
+   *     **false** is returned.
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Checks whether an LightWeightSet container has a specified key
-   *
-   * @param { T } key - key key need to determine whether to include the key
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Checks whether an LightWeightSet container has a specified key
-   *
-   * @param { T } key - key key need to determine whether to include the key
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   has(key: T): boolean;
   /**
-   * Checks whether an the objects of an LightWeightSet container are of the same type as a specified Object LightWeightSet
+   * Checks whether the elements of this LightWeightSet are the same as those of **obj**.
    *
-   * @param { Object } obj - obj obj need to determine whether to include the obj
-   * @returns { boolean } the boolean type
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 12. There is no substitute API.
+   *
+   * @param { Object } obj - **LightWeightSet** instance to be used for comparison.
+   * @returns { boolean } Returns **true** if **obj** is a LightWeightSet or an array containing only strings or numbers
+   *     and the elements in them are the same; returns **false** in other cases.
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Checks whether an the objects of an LightWeightSet container are of the same type as a specified Object LightWeightSet
-   *
-   * @param { Object } obj - obj obj need to determine whether to include the obj
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The equal method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10 dynamiconly
+   * @crossplatform [since 10]
+   * @since 8 dynamiconly
    * @deprecated since 12
    */
   equal(obj: Object): boolean;
   /**
-   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
-   * and that the container has all the original objects after capacity expansion
+   * Increases the capacity of this LightWeightSet. If the passed-in capacity is greater than or equal to the number of
+   * elements in this LightWeightSet, the capacity is changed to the new capacity. If the passed-in capacity is less
+   * than the number of elements in this LightWeightSet, the capacity is not changed.
    *
-   * @param { number } minimumCapacity Minimum capacity to be reserved
+   * @param { int } minimumCapacity - Minimum number of elements to accommodate in this LightWeightSet.
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of minimumCapacity is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
-   * and that the container has all the original objects after capacity expansion
-   *
-   * @param { number } minimumCapacity Minimum capacity to be reserved
-   * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of minimumCapacity is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
-   * and that the container has all the original objects after capacity expansion
-   *
-   * @param { int } minimumCapacity Minimum capacity to be reserved
-   * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of minimumCapacity is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   increaseCapacityTo(minimumCapacity: int): void;
   /**
-   * Obtains the index of the key of a specified Object type in an LightWeightSet container
+   * Obtains the position index of the element with the specified key in this LightWeightSet.
    *
-   * @param { T } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @param { T } key - Key of the target element.
+   * @returns { int } Position index of the element. If the element does not exist, a negative value is returned. The
+   *     negative value consists of a minus sign and the position where the element (if available) should be. The
+   *     position starts from 1.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Obtains the index of the key of a specified Object type in an LightWeightSet container
-   *
-   * @param { T } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
-   * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the index of the key of a specified Object type in an LightWeightSet container
-   *
-   * @param { T } key - key key Looking for goals
-   * @returns { int } Subscript corresponding to target
-   * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   getIndexOf(key: T): int;
   /**
-   * Deletes an object of a specified Object type from an LightWeightSet container
+   * Removes an element of the specified key from this LightWeightSet.
    *
-   * @param { T } key - key key Target to be deleted
-   * @returns { T } Target element
+   * @param { T } key - Key of the target element.
+   * @returns { T } Value of the element removed.
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Deletes an object of a specified Object type from an LightWeightSet container
-   *
-   * @param { T } key - key key Target to be deleted
-   * @returns { T } Target element
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes an object of a specified Object type from an LightWeightSet container
-   *
-   * @param { T } key - key key Target to be deleted
-   * @returns { T } Target element
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   remove(key: T): T;
 
@@ -395,133 +214,53 @@ declare class LightWeightSet<T> {
   remove(key: T): T | undefined;
 
   /**
-   * Deletes an object at the location identified by index from an LightWeightSet container
+   * Removes the element at the specified position from this LightWeightSet.
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { boolean } the boolean type(Is there a delete value)
+   * @param { int } index - Position index of the element. The value must be less than or equal to int32_max, that is, 2
+   *     147483647.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is removed; otherwise,
+   *     **false** is returned.
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Deletes an object at the location identified by index from an LightWeightSet container
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { boolean } the boolean type(Is there a delete value)
-   * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes an object at the location identified by index from an LightWeightSet container
-   *
-   * @param { int } index - index index Target subscript for search
-   * @returns { boolean } the boolean type(Is there a delete value)
-   * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   removeAt(index: int): boolean;
   /**
-   * Removes all of the mapping from this container
-   * The container will be empty after this call returns
+   * Clears this LightWeightSet and sets its length to **0**.
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes all of the mapping from this container
-   * The container will be empty after this call returns
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes all of the mapping from this container
-   * The container will be empty after this call returns
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   clear(): void;
   /**
-   * Executes the given callback function once for each real key in the container.
-   * It does not perform functions on deleted keys.
+   * Uses a callback to traverse the elements in this LightWeightSet and obtain their position indexes.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
+   * @param { function } callbackFn - Callback invoked to traverse the elements in the LightWeightSet.
+   * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Executes the given callback function once for each real key in the container.
-   * It does not perform functions on deleted keys.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Executes the given callback function once for each real key in the container.
-   * It does not perform functions on deleted keys.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisArg?: Object): void;
 
   /**
-   * Executes the given callback function once for each real key in the container.
+   * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys.
    *
    * @param { LightWeightSetForEachCb<T> } callbackFn - A callback function to execute for each element.
@@ -538,26 +277,9 @@ declare class LightWeightSet<T> {
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -573,98 +295,42 @@ declare class LightWeightSet<T> {
   $_iterator(): IterableIterator<T>;
 
   /**
-   * Obtains a string that contains all the keys and values in an LightWeightSet container
+   * Obtains a string that contains all elements in this LightWeightSet.
    *
-   * @returns { String }
+   * @returns { String } String obtained.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Obtains a string that contains all the keys and values in an LightWeightSet container
-   *
-   * @returns { String }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains a string that contains all the keys and values in an LightWeightSet container
-   *
-   * @returns { String }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   toString(): String;
   /**
-   * Obtains an Array that contains all the objects of an LightWeightSet container.
+   * Obtains an array that contains all objects in this LightWeightSet.
    *
-   * @returns { Array<T> }
+   * @returns { Array<T> } Array obtained.
    * @throws { BusinessError } 10200011 - The toArray method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Obtains an Array that contains all the objects of an LightWeightSet container.
-   *
-   * @returns { Array<T> }
-   * @throws { BusinessError } 10200011 - The toArray method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains an Array that contains all the objects of an LightWeightSet container.
-   *
-   * @returns { Array<T> }
-   * @throws { BusinessError } 10200011 - The toArray method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   toArray(): Array<T>;
   /**
-   * Obtains the object at the location  identified by index in an LightWeightSet container
+   * Obtains the value of the element at the specified position in this LightWeightSet.
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the value of key-value pairs
+   * @param { number } index - Position index of the element. The value must be less than or equal to int32_max, that is
+   *     , 2147483647.
+   * @returns { T } Value obtained.
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Obtains the object at the location  identified by index in an LightWeightSet container
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the value of key-value pairs
-   * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the object at the location  identified by index in an LightWeightSet container
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the value of key-value pairs
-   * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   getValueAt(index: number): T;
 
@@ -681,89 +347,39 @@ declare class LightWeightSet<T> {
   getValueAt(index: int): T | undefined;
 
   /**
-   * Returns a ES6 iterator of the values contained in this Set
+   * Returns an iterator that contains all the values in this LightWeightSet.
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } Iterator obtained.
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns a ES6 iterator of the values contained in this Set
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The values method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns a ES6 iterator of the values contained in this Set
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The values method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
-   * Returns a Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
+   * Returns an iterator that contains all the elements in this LightWeightSet.
    *
-   * @returns { IterableIterator<[T, T]> }
+   * @returns { IterableIterator<[T, T]> } Iterator obtained.
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns a Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
-   *
-   * @returns { IterableIterator<[T, T]> }
-   * @throws { BusinessError } 10200011 - The entries method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns a Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
-   *
-   * @returns { IterableIterator<[T, T]> }
-   * @throws { BusinessError } 10200011 - The entries method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
-   * Returns whether the set object contains elements
+   * Checks whether this LightWeightSet is empty (contains no element).
    *
-   * @returns { boolean }
+   * @returns { boolean } Check result. The value **true** is returned if the LightWeightSet is empty; otherwise,
+   *     **false** is returned.
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns whether the set object contains elements
-   *
-   * @returns { boolean }
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns whether the set object contains elements
-   *
-   * @returns { boolean }
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   isEmpty(): boolean;
@@ -772,7 +388,6 @@ declare class LightWeightSet<T> {
 /**
  * The type of LightWeightSet callback function.
  *
- * @typedef { function } LightWeightSetForEachCb
  * @param { T } value - The value of current element
  * @param { T } key - The key of current element(same as value)
  * @param { LightWeightSet<T> } set - The LightWeightSet instance being traversed
@@ -781,6 +396,6 @@ declare class LightWeightSet<T> {
  * @atomicservice
  * @since 23 static
  */
-export type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
+export type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void;
 
 export default LightWeightSet;

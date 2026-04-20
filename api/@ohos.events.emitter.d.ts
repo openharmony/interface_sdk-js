@@ -539,7 +539,7 @@ declare namespace emitter {
    * Obtains the number of subscriptions to a specified event.
    *
    * @param { number | string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { number } Returns the number of listener count.
+   * @returns { number } Returns the number of listeners.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
@@ -548,7 +548,7 @@ declare namespace emitter {
    * Obtains the number of subscriptions to a specified event.
    *
    * @param { long | string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { long } Returns the number of listener count.
+   * @returns { long } Returns the number of listeners.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -1119,7 +1119,7 @@ declare namespace emitter {
      * Obtains the number of subscriptions to a specified event.
      *
      * @param { string } eventId - Event ID. The value cannot be an empty string.
-     * @returns { long } Returns the number of listener count.
+     * @returns { long } Returns the number of listeners.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 22 dynamic

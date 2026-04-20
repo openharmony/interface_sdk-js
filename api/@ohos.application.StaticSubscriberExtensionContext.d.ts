@@ -23,9 +23,11 @@ import Want from './@ohos.app.ability.Want';
 import ExtensionContext from './application/ExtensionContext';
 
 /**
- * class of static subscriber extension context.
+ * The **StaticSubscriberExtensionContext** module, inherited from **StaticSubscriberExtensionAbility**, provides
+ * context for StaticSubscriberExtensionAbilities.
  *
- * @extends ExtensionContext
+ * You can use the APIs of this module to start StaticSubscriberExtensionAbilities.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
@@ -34,17 +36,23 @@ import ExtensionContext from './application/ExtensionContext';
  */
 declare class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
-   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * Starts an ability that belongs to the same application as this StaticSubscriberExtensionAbility. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * Observe the following when using this API:
+   *
+   * - If an application running in the background needs to call this API to start an ability, it must have the
+   * **ohos.permission.START_ABILITIES_FROM_BACKGROUND** permission.
+   * - If **visible** of the target ability is **false** in cross-application scenarios, the caller must have the
+   * **ohos.permission.START_INVISIBLE_ABILITY** permission.
    *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -67,17 +75,23 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * Starts an ability that belongs to the same application as this StaticSubscriberExtensionAbility. This API uses a
+   * promise to return the result.
+   *
+   * Observe the following when using this API:
+   *
+   * - If an application running in the background needs to call this API to start an ability, it must have the
+   * **ohos.permission.START_ABILITIES_FROM_BACKGROUND** permission.
+   * - If **visible** of the target ability is **false** in cross-application scenarios, the caller must have the
+   * **ohos.permission.START_INVISIBLE_ABILITY** permission.
    *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
-   * @param { Want } want - Indicates the ability to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.

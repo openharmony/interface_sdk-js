@@ -217,14 +217,16 @@ declare namespace PiPWindow {
     templateType?: PiPTemplateType;
 
     /**
-     * Describes the width of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
+     * Describes the width of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * Describes the width of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
+     * Describes the width of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -235,14 +237,16 @@ declare namespace PiPWindow {
     contentWidth?: int;
 
     /**
-     * Describes the height of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
+     * Describes the height of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * Describes the height of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
+     * Describes the height of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -321,7 +325,7 @@ declare namespace PiPWindow {
    */
   interface PiPWindowSize {
     /**
-     * The width of the picture-in-picture window.
+     * The width of the picture-in-picture window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -332,7 +336,7 @@ declare namespace PiPWindow {
     width: int;
 
     /**
-     * The height of the picture-in-picture window.
+     * The height of the picture-in-picture window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -1133,8 +1137,10 @@ declare namespace PiPWindow {
 
     /**
      * Update source content size to adjust PiP window aspect ratio.
-     * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
-     * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
+     * @param { number } width - Indicate the width of the content, measured in px.
+     * The width can consist of only digits and above 0.
+     * @param { number } height - Indicate the height of the content, measured in px.
+     * The height can consist of only digits and above 0.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      * @syscap SystemCapability.Window.SessionManager
@@ -1142,8 +1148,10 @@ declare namespace PiPWindow {
      */
     /**
      * Update source content size to adjust PiP window aspect ratio.
-     * @param { int } width - Indicate the width of the content. The width can consist of only digits and above 0.
-     * @param { int } height - Indicate the height of the content. The height can consist of only digits and above 0.
+     * @param { int } width - Indicate the width of the content, measured in px.
+     * The width can consist of only digits and above 0.
+     * @param { int } height - Indicate the height of the content, measured in px.
+     * The height can consist of only digits and above 0.
      * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice

@@ -290,7 +290,7 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   /**
-   * Indicates the src language to express extension ability info
+   * Indicates whether the extension ability is enable
    *
    * @type { boolean }
    * @readonly
@@ -310,7 +310,7 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   /**
-   * Indicates the read permission extension ability info
+   * Indicates the read permission of the extension ability info
    *
    * @type { string }
    * @readonly

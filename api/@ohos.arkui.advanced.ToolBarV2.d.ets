@@ -315,7 +315,7 @@ export declare class ToolBarV2ItemImage {
   /**
    * The constructor used to create a ToolBarV2ItemImage object.
    *
-   * @param { ToolBarV2ItemImageOptions } options - text info.
+   * @param { ToolBarV2ItemImageOptions } options - image info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -471,7 +471,7 @@ export declare class ToolBarV2Item {
   /**
    * The constructor used to create a ToolBarV2Item object.
    *
-   * @param { ToolBarV2ItemOptions } options - text info.
+   * @param { ToolBarV2ItemOptions } options - item info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

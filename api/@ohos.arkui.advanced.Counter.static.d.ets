@@ -486,4 +486,4 @@ declare struct CounterComponent {
     build(): void;
 }
 
-export { CounterComponent, CounterOptions, DateData, CounterType, InlineStyleOptions, NumberStyleOptions, DateStyleOptions };
+export { CounterComponent, CounterOptions, DateData, CounterType, InlineStyleOptions, NumberStyleOptions, DateStyleOptions, CommonOptions };

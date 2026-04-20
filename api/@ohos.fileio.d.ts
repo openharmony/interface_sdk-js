@@ -186,8 +186,8 @@ declare function closeSync(fd: number): void;
 /**
  * copyFile.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
+ * @param { string | number } src - Path of the source file or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
  * @param { number } [mode = 0] - mode.
  * @returns { Promise<void> } return Promise
  * @throws { TypedError } Parameter check failed
@@ -201,8 +201,8 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
 /**
  * copyFile.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
+ * @param { string | number } src - Path of the source file or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
  * @param { AsyncCallback<void> } [callback] - callback.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -215,8 +215,8 @@ declare function copyFile(src: string | number, dest: string | number, callback:
 /**
  * copyFile.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
+ * @param { string | number } src - Path of the source file or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
  * @param { number } [mode = 0] - mode.
  * @param { AsyncCallback<void> } [callback] - callback.
  * @throws { TypedError } Parameter check failed
@@ -234,8 +234,8 @@ declare function copyFile(
 /**
  * copyFileSync.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
+ * @param { string | number } src - Path of the source file or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
  * @param { number } [mode = 0] - mode.
  * @throws { TypedError | Error } copyFile fail
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -288,8 +288,8 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * chown.
  *
  * @param { string } path - path.
- * @param { number } uid - mode.
- * @param { number } gid - mode.
+ * @param { number } uid - uid.
+ * @param { number } gid - gid.
  * @returns { Promise<void> } return Promise
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -302,8 +302,8 @@ declare function chown(path: string, uid: number, gid: number): Promise<void>;
  * chown.
  *
  * @param { string } path - path.
- * @param { number } uid - mode.
- * @param { number } gid - mode.
+ * @param { number } uid - uid.
+ * @param { number } gid - gid.
  * @param { AsyncCallback<void> } [callback] - callback.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -315,8 +315,8 @@ declare function chown(path: string, uid: number, gid: number, callback: AsyncCa
  * chownSync.
  *
  * @param { string } path - path.
- * @param { number } uid - mode.
- * @param { number } gid - mode.
+ * @param { number } uid - uid.
+ * @param { number } gid - gid.
  * @throws { TypedError | Error } chown fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -363,7 +363,7 @@ declare function chmodSync(path: string, mode: number): void;
  * ftruncate.
  *
  * @param { number } fd - fd.
- * @param { number } [len = 0] - len.
+ * @param { number } [len = 0] - File length after truncation, in bytes. The default value is 0.
  * @returns { Promise<void> } return Promise
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -390,7 +390,7 @@ declare function ftruncate(fd: number, callback: AsyncCallback<void>): void;
  * ftruncate.
  *
  * @param { number } fd - fd.
- * @param { number } [len = 0] - len.
+ * @param { number } [len = 0] - File length after truncation, in bytes.
  * @param { AsyncCallback<void> } [callback] - callback.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -403,7 +403,7 @@ declare function ftruncate(fd: number, len: number, callback: AsyncCallback<void
  * ftruncateSync.
  *
  * @param { number } fd - fd.
- * @param { number } [len = 0] - len.
+ * @param { number } [len = 0] - File length after truncation, in bytes.
  * @throws { TypedError | Error } ftruncate fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -833,7 +833,7 @@ declare function mkdtempSync(prefix: string): string;
  * @param { string } path - path.
  * @param { number } [flags = 0] - flags.
  * @param { number } [mode = 0o666] - mode.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Promise that returns the file descriptor of the file opened.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -846,7 +846,7 @@ declare function open(path: string, flags?: number, mode?: number): Promise<numb
  * open.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - Callback invoked when the file is opened asynchronously.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -860,7 +860,7 @@ declare function open(path: string, callback: AsyncCallback<number>): void;
  *
  * @param { string } path - path.
  * @param { number } [flags = 0] - flags.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - Callback invoked when the file is opened asynchronously.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -875,7 +875,7 @@ declare function open(path: string, flags: number, callback: AsyncCallback<numbe
  * @param { string } path - path.
  * @param { number } [flags = 0] - flags.
  * @param { number } [mode = 0o666] - mode.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - Callback invoked when the file is opened asynchronously.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -889,7 +889,7 @@ declare function open(path: string, flags: number, mode: number, callback: Async
  * @param { string } path - path.
  * @param { number } [flags = 0] - flags.
  * @param { number } [mode = 0o666] - mode.
- * @returns { number } open fd
+ * @returns { number } FD of the file opened.
  * @throws { TypedError | Error } open fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -1235,7 +1235,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  * truncate.
  *
  * @param { string } path - path.
- * @param { number } [len = 0] - len.
+ * @param { number } [len = 0] - File length, in bytes, after truncation.
  * @returns { Promise<void> } return Promise
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1262,7 +1262,7 @@ declare function truncate(path: string, callback: AsyncCallback<void>): void;
  * truncate.
  *
  * @param { string } path - path.
- * @param { number } [len = 0] - len.
+ * @param { number } [len = 0] - File length, in bytes, after truncation.
  * @param { AsyncCallback<void> } [callback] - callback.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1275,7 +1275,7 @@ declare function truncate(path: string, len: number, callback: AsyncCallback<voi
  * truncateSync.
  *
  * @param { string } path - path.
- * @param { number } [len = 0] - len.
+ * @param { number } [len = 0] - File length, in bytes, after truncation.
  * @throws { TypedError | Error } truncate fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -1325,7 +1325,7 @@ declare function unlinkSync(path: string): void;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer or string.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Promise that returns the length of the data written, in bytes.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -1348,7 +1348,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer or string.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - Callback that returns the length of the data written, in bytes.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -1363,7 +1363,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer or string.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - Callback that returns the length of the data written, in bytes.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -1387,7 +1387,7 @@ declare function write(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer or string.
  * @param { object } [options] - options.
- * @returns { number } on success number of bytesRead
+ * @returns { number } Length of the data written, in bytes.
  * @throws { TypedError | Error } write fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -1410,7 +1410,7 @@ declare function writeSync(
  *
  * @param { string } filename - filename.
  * @param { number } events - events(depends on OS & filesystem) events = 1 rename events = 2 change.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - Called each time a change is detected.
  * @returns { Watcher } watch success
  * @throws { TypedError | Error } watch fail
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1600,16 +1600,16 @@ declare interface Dirent {
  */
 declare interface Stat {
   /**
-   * @type { number }
-   * @readonly
+   * Number of hard links in the file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
    */
   readonly dev: number;
   /**
-   * @type { number }
-   * @readonly
+   * File identifier, which varies with files on the same device.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1617,8 +1617,30 @@ declare interface Stat {
    */
   readonly ino: number;
   /**
-   * @type { number }
-   * @readonly
+   * File type and permissions. The first four bits indicate the file type, and the last 12 bits indicate the
+   * permissions. The bit fields are described as follows:
+   *
+   * 0o170000: mask used to obtain the file type.
+   * 0o140000: The file is a socket.
+   * 0o120000: The file is a symbolic link.
+   * 0o100000: The file is a regular file.
+   * 0o060000: The file is a block device.
+   * 0o040000: The file is a directory.
+   * 0o020000: The file is a character device.
+   * 0o010000: The file is a named pipe (FIFO).
+   * 0o0700: mask used to obtain the owner permissions.
+   * 0o0400: The owner has the permission to read a regular file or a directory entry.
+   * 0o0200: The owner has the permission to write a regular file or create and delete a directory entry.
+   * 0o0100: The owner has the permission to execute a regular file or search for the specified path in a directory.
+   * 0o0070: mask used to obtain the user group permissions.
+   * 0o0040: The user group has the permission to read a regular file or a directory entry.
+   * 0o0020: The user group has the permission to write a regular file or create and delete a directory entry.
+   * 0o0010: The user group has the permission to execute a regular file or search for the specified path in a directory.
+   * 0o0007: mask used to obtain the permissions of other users.
+   * 0o0004: Other users have the permission to read a regular file or a directory entry.
+   * 0o0002: Other users have the permission to write a regular file or create and delete a directory entry.
+   * 0o0001: Other users have the permission to execute a regular file or search for the specified path in a directory.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1626,16 +1648,16 @@ declare interface Stat {
    */
   readonly mode: number;
   /**
-   * @type { number }
-   * @readonly
+   * Number of hard links in the file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
    */
   readonly nlink: number;
   /**
-   * @type { number }
-   * @readonly
+   * ID of the file owner.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1643,8 +1665,8 @@ declare interface Stat {
    */
   readonly uid: number;
   /**
-   * @type { number }
-   * @readonly
+   * ID of the user group of the file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1652,16 +1674,16 @@ declare interface Stat {
    */
   readonly gid: number;
   /**
-   * @type { number }
-   * @readonly
+   * Number of hard links in the file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
    */
   readonly rdev: number;
   /**
-   * @type { number }
-   * @readonly
+   * File size, in bytes. This parameter is valid only for regular files.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1669,16 +1691,17 @@ declare interface Stat {
    */
   readonly size: number;
   /**
-   * @type { number }
-   * @readonly
+   * Number of hard links in the file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
    */
   readonly blocks: number;
   /**
-   * @type { number }
-   * @readonly
+   * Time when the file was last accessed. The value is the number
+   * of seconds elapsed since 00:00:00 on January 1, 1970.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1686,8 +1709,9 @@ declare interface Stat {
    */
   readonly atime: number;
   /**
-   * @type { number }
-   * @readonly
+   * Time when the file content was last modified. The value is the number
+   * of seconds elapsed since 00:00:00 on January 1, 1970.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1695,8 +1719,9 @@ declare interface Stat {
    */
   readonly mtime: number;
   /**
-   * @type { number }
-   * @readonly
+   * Time of the last status change of the file. The value is the number of seconds
+   * elapsed since 00:00:00 on January 1, 1970.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1704,9 +1729,10 @@ declare interface Stat {
    */
   readonly ctime: number;
   /**
-   * isBlockDevice.
+   * Checks whether this file is a block special file. A block special file supports access by block only,
+   * and it is cached when accessed.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a block special file; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1714,9 +1740,10 @@ declare interface Stat {
    */
   isBlockDevice(): boolean;
   /**
-   * isCharacterDevice.
+   * Checks whether this file is a character special file. A character special file supports random access,
+   * and it is not cached when accessed.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a character special file; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1724,9 +1751,9 @@ declare interface Stat {
    */
   isCharacterDevice(): boolean;
   /**
-   * isDirectory.
+   * Checks whether this file is a directory.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a directory; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1734,9 +1761,9 @@ declare interface Stat {
    */
   isDirectory(): boolean;
   /**
-   * isFIFO.
+   * Checks whether this file is a named pipe (or FIFO). Named pipes are used for inter-process communication.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a named pipe; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1744,9 +1771,9 @@ declare interface Stat {
    */
   isFIFO(): boolean;
   /**
-   * isFile.
+   * Checks whether this file is a regular file.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a regular file; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1754,9 +1781,9 @@ declare interface Stat {
    */
   isFile(): boolean;
   /**
-   * isSocket.
+   * Checks whether this file is a socket.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a socket; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1764,9 +1791,9 @@ declare interface Stat {
    */
   isSocket(): boolean;
   /**
-   * isSymbolicLink.
+   * Checks whether this file is a symbolic link.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns true if it is a symbolic link; returns false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -1856,7 +1883,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer or string.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } return Promise, in bytes.
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 7
@@ -1877,7 +1904,7 @@ declare interface Stream {
    * write.
    *
    * @param { ArrayBuffer | string } buffer - buffer or string.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - Callback that returns the length of the data written, in bytes.
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 7
@@ -1891,7 +1918,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer or string.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - Callback that returns the length of the data written, in bytes.
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 7
@@ -1913,7 +1940,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer or string.
    * @param { object } [options] - options.
-   * @returns { number } on success number of bytes written
+   * @returns { number } Length of the data written, in bytes.
    * @throws { TypedError | Error } write fail
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 7
@@ -1989,7 +2016,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } number of bytesRead
+   * @returns { number } Length of the data read, in bytes.
    * @throws { TypedError | Error } read fail
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 7
@@ -2016,24 +2043,24 @@ declare interface Stream {
  */
 declare interface ReadOut {
   /**
-   * @type { number }
-   * @readonly
+   * Length of the data read, in bytes.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
    */
   bytesRead: number;
   /**
-   * @type { number }
-   * @readonly
+   * Position of the buffer to which the data will be read in reference to the start
+   * address of the buffer, in bytes.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
    */
   offset: number;
   /**
-   * @type { ArrayBuffer }
-   * @readonly
+   * Number of hard links in the file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
