@@ -23,9 +23,9 @@ import type notificationManager from '../@ohos.notificationManager';
 import { NotificationExtensionContent } from './NotificationExtensionContent';
 
 /**
- * The **NotificationInfo** module describes the notification information delivered to the 
+ * 通知订阅扩展能力中
  * [onReceiveMessage]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility#onReceiveMessage}
- * callback of ExtensionAbility for notification subscriptions.
+ * 回调的通知信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
@@ -33,7 +33,7 @@ import { NotificationExtensionContent } from './NotificationExtensionContent';
  */
 export interface NotificationInfo {
   /**
-   * Unique identifier of the notification.
+   * 通知的唯一标识符。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -42,7 +42,7 @@ export interface NotificationInfo {
   readonly hashCode: string;
 
   /**
-   * Notification slot type.
+   * 通知渠道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -51,7 +51,7 @@ export interface NotificationInfo {
   readonly notificationSlotType: notificationManager.SlotType;
 
   /**
-   * Notification content.
+   * 通知内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -60,7 +60,7 @@ export interface NotificationInfo {
   readonly content: NotificationExtensionContent;
   
   /**
-   * Name of the bundle that creates the notification.
+   * 创建通知的包名。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -69,7 +69,7 @@ export interface NotificationInfo {
   readonly bundleName: string;
 
   /**
-   * Name of the application that creates the notification.
+   * 创建通知的应用程序名称。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -78,7 +78,7 @@ export interface NotificationInfo {
   readonly appName?: string;
 
   /**
-   * Timestamp (in milliseconds) when the notification is published.
+   * 通知发布的时间戳（毫秒数）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -87,7 +87,7 @@ export interface NotificationInfo {
   readonly deliveryTime?: long;
 
   /**
-   * Notification group name, which is left empty by default.
+   * 通知组名称。默认情况下此参数为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -96,7 +96,7 @@ export interface NotificationInfo {
   readonly groupName?: string;
 
   /**
-   * Index of the application clone that creates the notification. It takes effect only for application clones.
+   * 创建通知的应用包的分身索引标识，仅在分身应用中生效。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic

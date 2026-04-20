@@ -21,11 +21,11 @@
 import { NotificationSlot } from './notificationSlot';
 
 /**
- * The **NotificationSorting** module provides APIs for defining the sorting information of active notifications.
+ * 提供有关活动通知的排序信息。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The APIs provided by this module are system APIs.
+ * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -34,7 +34,7 @@ import { NotificationSlot } from './notificationSlot';
  */
 export interface NotificationSorting {
   /**
-   * Notification slot type.
+   * 通道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -44,7 +44,7 @@ export interface NotificationSorting {
   readonly slot: NotificationSlot;
 
   /**
-   * Unique ID of the notification.
+   * 通知唯一标识。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -54,7 +54,7 @@ export interface NotificationSorting {
   readonly hashCode: string;
 
   /**
-   * Notification level. If this parameter is not set, the default value is used based on the notification slot type.
+   * 通知级别，不设置则根据通知渠道类型有默认值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

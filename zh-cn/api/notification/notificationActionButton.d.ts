@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationActionButton module provides APIs for describing the button displayed in the notification.
+ * @file Describes an action button displayed in a notification
  * @kit NotificationKit
  */
 
@@ -28,7 +28,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The **NotificationActionButton** module provides APIs for describing the button displayed in the notification.
+ * 描述通知中显示的操作按钮。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -36,7 +36,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface NotificationActionButton {
   /**
-   * Button title. It cannot be an empty string or exceed 200 bytes. Excess content will be truncated.
+   * 按钮标题。字符串长度不超过200字节，超出部分会被截断；也不可为空字符串。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -45,7 +45,7 @@ export interface NotificationActionButton {
   title: string;
 
   /**
-   * **WantAgent** of the button.
+   * 点击按钮时触发的WantAgent。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -54,7 +54,7 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * **WantAgent** of the button.
+   * 按钮扩展信息。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -62,7 +62,7 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * Extra information of the button.
+   * 按钮扩展信息。预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
@@ -70,7 +70,7 @@ export interface NotificationActionButton {
   extras?: Record<string, RecordData>;
 
   /**
-   * User input object. This parameter is left empty by default. ID entered by a subscriber.
+   * 用户输入对象实例，默认为空。表示用户输入时的标识。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic

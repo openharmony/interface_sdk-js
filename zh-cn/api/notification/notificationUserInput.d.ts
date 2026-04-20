@@ -19,7 +19,7 @@
  */
 
 /**
- * The **NotificationUserInput** module provides APIs for defining the notification user input.
+ * 保存用户输入的通知消息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
@@ -27,7 +27,7 @@
  */
 export interface NotificationUserInput {
   /**
-   * Key to identify the user input.
+   * 用户输入时用于标识此输入的key。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic

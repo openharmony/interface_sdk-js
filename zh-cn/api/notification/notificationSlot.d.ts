@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationSlot module provides APIs for defining the notification slot.
+ * @file Description of the notification channel
  * @kit NotificationKit
  */
 
@@ -26,8 +26,7 @@ import type notificationManager from '../@ohos.notificationManager';
 /*** endif */
 
 /**
- * The **NotificationSlot** module provides APIs for defining the notification slots. The notification reminder modes 
- * vary according to notification slots.
+ * 描述通知渠道，不同通知渠道对应的通知提醒方式不同。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -35,10 +34,9 @@ import type notificationManager from '../@ohos.notificationManager';
  */
 export interface NotificationSlot {
   /**
-   * Notification slot type.
+   * 通道类型。
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
-   * **notificationType** instead.
+   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationType替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -48,7 +46,7 @@ export interface NotificationSlot {
   type?: notification.SlotType;
 
   /**
-   * Notification slot type.
+   * 通道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -57,10 +55,9 @@ export interface NotificationSlot {
   notificationType?: notificationManager.SlotType;
 
   /**
-   * Notification level.
+   * 通知级别。
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 20. You are advised to use 
-   * **notificationLevel** instead.
+   * 从API version 7开始支持，从API version 20开始废弃，建议使用notificationLevel替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -70,7 +67,7 @@ export interface NotificationSlot {
   level?: notification.SlotLevel;
 
   /**
-   * Notification level.
+   * 通知级别。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
@@ -79,7 +76,7 @@ export interface NotificationSlot {
   notificationLevel?: notificationManager.SlotLevel;
 
   /**
-   * Notification slot description. The value contains a maximum of 243 bytes. Excess part will be truncated.
+   * 通知渠道描述信息。大小不超过243字节，超出部分会被截取。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -88,10 +85,10 @@ export interface NotificationSlot {
   desc?: string;
 
   /**
-   * Whether to display the badge.
+   * 是否显示角标。
    * 
-   * - **true**: Yes.
-   * - **false**: No. The default value is **true**.
+   * - true：是。
+   * - false：否。默认值为true。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -100,10 +97,10 @@ export interface NotificationSlot {
   badgeFlag?: boolean;
 
   /**
-   * Whether to bypass DND mode in the system.
+   * 是否在系统中绕过免打扰模式。
    * 
-   * - **true**: Yes.
-   * - **false**: No. The default value is **false**.
+   * - true：是。
+   * - false：否。默认值为false。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -112,7 +109,7 @@ export interface NotificationSlot {
   bypassDnd?: boolean;
 
   /**
-   * Mode for displaying the notification on the lock screen. Not supported currently.
+   * 在锁定屏幕上显示通知的模式。预留能力，暂不支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -121,10 +118,10 @@ export interface NotificationSlot {
   lockscreenVisibility?: int;
 
   /**
-   * Whether to enable vibration for the notification.
+   * 是否可振动。
    * 
-   * - **true**: Yes.
-   * - **false**: No. The default value is **false**.
+   * - true：是。
+   * - false：否。默认值为false。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -133,9 +130,7 @@ export interface NotificationSlot {
   vibrationEnabled?: boolean;
 
   /**
-   * Name of the custom ringtone file for notifications. This file is stored in the **resources/rawfile** directory and 
-   * supports formats such as M4A, AAC, MP3, OGG, WAV, FLAC, and AMR. The value contains a maximum of 243 bytes. Excess 
-   * part will be truncated.
+   * 该渠道的通知的自定义铃声文件名。该文件放在resources/rawfile目录下，支持m4a、aac、mp3、ogg、wav、flac、amr等格式。大小不超过243字节，超出部分会被截取。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -144,10 +139,10 @@ export interface NotificationSlot {
   sound?: string;
 
   /**
-   * Whether the indicator blinks for the notification.
+   * 是否闪灯。
    * 
-   * - **true**: Yes.
-   * - **false**: No. The default value is **false**.
+   * - true：是。
+   * - false：否。默认值为false。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -156,7 +151,7 @@ export interface NotificationSlot {
   lightEnabled?: boolean;
 
   /**
-   * Indicator color of the notification. Not supported currently.
+   * 通知灯颜色。预留能力，暂不支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -165,7 +160,7 @@ export interface NotificationSlot {
   lightColor?: int;
 
   /**
-   * Vibration mode of the notification. Not supported currently.
+   * 通知振动样式。预留能力，暂不支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -174,10 +169,10 @@ export interface NotificationSlot {
   vibrationValues?: Array<long>;
 
   /**
-   * Whether the notification is enabled.
+   * 表示是否允许发布此通知渠道的通知。
    * 
-   * - **true**: enabled.
-   * - **false**: disabled.
+   * - true：允许。
+   * - false：禁止。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -186,17 +181,16 @@ export interface NotificationSlot {
   readonly enabled?: boolean;
 
   /**
-   * Reminder mode of the notification.
+   * 通知提醒模式。
    * 
-   * This is a system API.
+   * 此接口为系统接口。 
    * 
-   * - Bit 0: sound alert. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 1: locking the screen. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 2: banner. The value **0** means to enable the feature, and **1** means the opposite.
-   * - BIt 3: turning on the screen. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 4: vibration. The value **0** means to enable the feature, and **1** means the opposite.
-   * - Bit 5: notification icon in the status bar. The value **0** means to enable the feature, and **1** means the 
-   * opposite.
+   * - bit0：铃声提示。0表示关闭，1表示开启。 
+   * - bit1：锁屏。0表示关闭，1表示开启。 
+   * - bit2：横幅。0表示关闭，1表示开启。 
+   * - bit3：亮屏。0表示关闭，1表示开启。 
+   * - bit4：振动。0表示关闭，1表示开启。 
+   * - bit5：状态栏通知图标。0表示关闭，1表示开启。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -206,12 +200,12 @@ export interface NotificationSlot {
   readonly reminderMode?: int;
 
   /**
-   * Authorization status.
+   * 授权状态。
    * 
-   * This is a system API.
+   * 此接口为系统接口。 
    * 
-   * - **0**: means the feature is authorized.
-   * - **1**: means the feature is to be authorized.
+   * - 0：表示已授权。 
+   * - 1：表示待授权。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
