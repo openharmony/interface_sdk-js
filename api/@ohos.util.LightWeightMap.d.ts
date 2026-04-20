@@ -164,7 +164,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns the value to which the specified key is mapped, or undefined if this map contains no mapping for the key
    *
-   * @param { K } key - key key the index in LightWeightMap
+   * @param { K } key - The key to look up in the LightWeightMap
    * @returns { V | undefined } value if associated with key presents, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -233,7 +233,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the key at the location identified by index in an LightWeightMap container
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - The index to look up in the LightWeightMap
    *     The value should be an integer.
    * @returns { K | undefined } the key of key-value pairs or undefined
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -301,7 +301,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Remove the mapping for this key from this map if present
    *
-   * @param { K } key - key key Target to be deleted
+   * @param { K } key - The key to remove from the map
    * @returns { V | undefined } the value associated with the key if it was removed, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -444,7 +444,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the value identified by index in an LightWeightMap container
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - The index to look up in the map
    *     The value should be an integer.
    * @returns { V | undefined } the value of key-value pairs or undefined
    * @throws { BusinessError } 10200001 - The value of index is out of range.

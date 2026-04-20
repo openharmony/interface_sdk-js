@@ -57,8 +57,8 @@ declare namespace url {
         /**
          * Appends a specified key/value pair as a new search parameter.
          *
-         * @param { string } name - name name Key name of the search parameter to be inserted.
-         * @param { string } value - value value Values of search parameters to be inserted.
+         * @param { string } name - The key name of the search parameter to insert
+         * @param { string } value - The value of the search parameter to insert
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
@@ -69,7 +69,7 @@ declare namespace url {
         /**
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          *
-         * @param { string } name - name name Name of the key-value pair to be deleted.
+         * @param { string } name - The name of the key-value pair to delete
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
@@ -80,8 +80,8 @@ declare namespace url {
         /**
          * Returns all key-value pairs associated with a given search parameter as an array.
          *
-         * @param { string } name - name name Specifies the name of a key value.
-         * @returns { string[] } string[] Returns all key-value pairs with the specified name.
+         * @param { string } name - The name of the key-value pairs to retrieve
+         * @returns { string[] } Returns all key-value pairs with the specified name
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
@@ -104,8 +104,8 @@ declare namespace url {
         /**
          * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
          *
-         * @param { function } callbackFn - callbackFn callbackFn Current traversal key value.
-         * @param { Object } thisArg - thisArg thisArg thisArg to be used as this value for when callbackFn is called
+         * @param { function } callbackFn - The callback function to execute for each key-value pair
+         * @param { Object } thisArg - The value to use as this when executing callbackFn
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
@@ -116,7 +116,7 @@ declare namespace url {
         /**
          * Returns the first value associated to the given search parameter.
          *
-         * @param { string } name - name name Specifies the name of a key-value pair.
+         * @param { string } name - The name of the key-value pair to get
          * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
@@ -128,7 +128,7 @@ declare namespace url {
         /**
          * Returns a Boolean that indicates whether a parameter with the specified name exists.
          *
-         * @param { string } name - name name Specifies the name of a key-value pair.
+         * @param { string } name - The name of the key-value pair to check
          * @returns { boolean } Returns a Boolean value that indicates whether a found
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
@@ -143,8 +143,8 @@ declare namespace url {
          * deletes the others. If the search parameter doesn't exist, this
          * method creates it.
          *
-         * @param { string } name - name name Key name of the parameter to be set.
-         * @param { string } value - value value Indicates the parameter value to be set.
+         * @param { string } name - The key name of the parameter to set
+         * @param { string } value - The value to set for the parameter
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
@@ -310,7 +310,7 @@ declare namespace url {
          *
          * @param { function } callbackFn - callbackFn value Current traversal key value,
          *     key Indicates the name of the key that is traversed.
-         * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
+         * @param { Object } [thisArg] - thisArg to be used as this value for when callbackFn is called
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform [since 10]
          * @atomicservice [since 11]
