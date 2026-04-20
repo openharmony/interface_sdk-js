@@ -1170,6 +1170,30 @@ export declare const ComponentReuse: MethodDecorator;
 export declare const ComponentRecycle: MethodDecorator;
 
 /**
+ * The function decorated is invoked before a custom component becomes active.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare const ComponentActive: MethodDecorator;
+
+/**
+ * The function decorated is invoked before a custom component becomes inactive.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare const ComponentInactive: MethodDecorator;
+
+/**
  * The function decorated by the decorator is invoked before a custom component is destroyed. It is not
  * allowed to change state variables within the function, especially since modifying @Link variables may lead to
  * unstable application behavior.
