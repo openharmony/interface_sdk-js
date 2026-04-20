@@ -6850,11 +6850,12 @@ declare namespace camera {
     AUTO_FRAMING = 2,
 
     /**
-     * XMAGE type.
+     * Color effect.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     XMAGE = 3
   }
@@ -19246,9 +19247,10 @@ declare namespace camera {
 
   /**
    * Control center session object.
+   * 
+   * @extends Beauty, Aperture [since 20 - 24]
+   * @extends Beauty, Aperture, ColorEffect [since 26.0.0]
    *
-   * @extends Beauty, Aperture
-   * @interface ControlCenterSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 20 dynamic
