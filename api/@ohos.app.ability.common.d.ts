@@ -847,7 +847,7 @@ declare namespace common {
    * The context of the agent service ability.
    *
    * @typedef { _AgentExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
