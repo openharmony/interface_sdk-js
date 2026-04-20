@@ -208,6 +208,22 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @since 12 dynamic
    */
   elapsedTime: number;
+
+  /**
+   * The start time of the timer.
+   * It is effective when isCountDown is false.
+   *
+   * Unit:milliseconds.
+   * 
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  startTime?: number;
 }
 
 /**
@@ -333,6 +349,22 @@ interface TextTimerOptions {
    * @since 11 dynamic
    */
   controller?: TextTimerController;
+
+  /**
+   * The start time of the timer.
+   * It is effective when isCountDown is false.
+   *
+   * Unit:milliseconds.
+   * 
+   * @type { ?number } - Default value: 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  startTime?: number;
 }
 
 /**

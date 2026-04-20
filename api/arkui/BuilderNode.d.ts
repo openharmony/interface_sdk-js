@@ -548,7 +548,7 @@ export class BuilderNode<Args extends Object[]> {
    * Dispatch event to targetNode with competition strategy.
    *
    * @param { InputEventType } event - The event which will be sent to the targetNode.
-   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * @param { CompetitionStrategy } competitionStrategy - The competition strategy.
    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
    *    false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -761,7 +761,7 @@ export class ReactiveBuilderNode<Args extends Object[]> {
    /**
     * Dispatch mouse event to targetNode.
     *
-    * @param { InputEventType  } event - The event which will be sent to the targetNode.
+    * @param { InputEventType } event - The event which will be sent to the targetNode.
     * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
     *     false otherwise.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -769,6 +769,21 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     * @since 22 dynamic
     */
    postInputEvent(event: InputEventType): boolean;
+  
+   /**
+    * Dispatch event to targetNode with competition strategy.
+    *
+    * @param { InputEventType } event - The event which will be sent to the targetNode.
+    * @param { CompetitionStrategy } competitionStrategy - The competition strategy.
+    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+    *    false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 24 dynamic
+    */
+   postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
   
    /**
     * Set if the ReactiveBuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,

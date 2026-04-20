@@ -48,7 +48,7 @@ declare namespace componentUtils {
         
         
         /**
-        * Obtain attribute information relative to the local.
+        * Obtain attribute information relative to the local coordinates.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 23 static

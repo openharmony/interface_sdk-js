@@ -198,7 +198,7 @@ export interface Quaternion {
  */
 export interface Aabb {
   /**
-   * Coordinates of the AABB minimum corner.
+   * Coordinates of the AABB minimum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -208,7 +208,7 @@ export interface Aabb {
   aabbMin: Vec3;
 
   /**
-   * Coordinates of the AABB maximum corner.
+   * Coordinates of the AABB maximum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -278,7 +278,7 @@ export interface Color {
  */
 export interface Rect {
   /**
-   * Left up x coordinate.
+   * Left up x coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -288,7 +288,7 @@ export interface Rect {
   x: double;
 
   /**
-   * Left up y coordinate.
+   * Left up y coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -298,7 +298,7 @@ export interface Rect {
   y: double;
 
   /**
-   * The width of the rectangle.
+   * The width of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -308,7 +308,7 @@ export interface Rect {
   width: double;
 
   /**
-   * The height of the rectangle.
+   * The height of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -700,7 +700,7 @@ export declare class CustomGeometry extends GeometryDefinition {
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
-   * The width, height and depth of the cube.
+   * The width, height and depth of the cube, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -710,7 +710,7 @@ export declare class CubeGeometry extends GeometryDefinition {
   get size(): Vec3;
 
   /**
-   * The width, height and depth of the cube.
+   * The width, height and depth of the cube, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -730,7 +730,7 @@ export declare class CubeGeometry extends GeometryDefinition {
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
-   * The width and length of the plane.
+   * The width and length of the plane, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -740,7 +740,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
   get size(): Vec2;
 
   /**
-   * The width and length of the plane.
+   * The width and length of the plane, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -760,7 +760,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
-   * The radius of the sphere.
+   * The radius of the sphere, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -770,7 +770,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * The radius of the sphere.
+   * The radius of the sphere, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -809,7 +809,7 @@ export declare class SphereGeometry extends GeometryDefinition {
  */
 export declare class CylinderGeometry extends GeometryDefinition {
   /**
-   * The radius of the base of the cylinder.
+   * The radius of the base of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -818,7 +818,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * The radius of the base of the cylinder.
+   * The radius of the base of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -827,7 +827,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * The height of the cylinder.
+   * The height of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -836,7 +836,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get height(): double;
 
   /**
-   * The height of the cylinder.
+   * The height of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -866,7 +866,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
 }
 
 /**
- * 3D position information.
+ * 3D position information, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -876,7 +876,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
 export type Position3 = Vec3;
 
 /**
- * 3D rotation info as euler angles.
+ * 3D rotation info as euler angles, the unit is radian.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D

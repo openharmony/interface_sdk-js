@@ -21,6 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import common from './@ohos.enterprise.common';
+import statistics from './@ohos.net.statistics';
 
 /**
  * This module provides the capability to manage the applications of the enterprise devices.
@@ -110,6 +111,42 @@ declare namespace applicationManager {
      * @since 24
      */
     index: number;
+  }
+
+  /**
+   * The bundle statistics information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  interface BundleStatsInfo {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    bundleName: string;
+
+    /**
+     * The index of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    appIndex: number;
+
+    /**
+     * The total duration, in milliseconds.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    abilityInFgTotalTime: number;
   }
 
   /**
@@ -1387,6 +1424,53 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function getAllowedNotificationBundles(admin: Want | null, accountId: number): Array<string>;
+
+  /**
+   * Queries bundle statistics information of applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } startTime - startTime indicates the start time of the query period, in milliseconds.
+   *   <br>Value range:[0, +∞)
+   *   <br>Unit: ms
+   * @param { number } endTime - endTime indicates the end time of the query period, in milliseconds.
+   *   <br>Value range:[0, +∞)
+   *   <br>Unit: ms
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞)
+   * @returns { Array<BundleStatsInfo> } return the bundle statistics information of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array<BundleStatsInfo>;
+
+  /**
+   * Queries usage statistics of application traffic.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } bundleName - bundleName indicates the bundle name of application to be queried.
+   * @param { number } appIndex - appIndex indicates the index of the bundle.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *   <br>Value range:[0, +∞)
+   * @param { statistics.NetworkInfo } networkInfo - networkInfo indicates the network information.
+   * @returns { Promise<statistics.NetStatsInfo> } return the detailed network statistics information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryTrafficStats(admin: Want, bundleName: string, appIndex: number, accountId: number, networkInfo: statistics.NetworkInfo): Promise<statistics.NetStatsInfo>;
 }
 
 export default applicationManager;

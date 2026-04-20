@@ -1,4 +1,3 @@
-'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -16,5 +15,20 @@
 
 /**
  * @file
- * @kit ArkUI
+ * @kit NotificationKit
  */
+
+import type ExtensionContext from './application/ExtensionContext';
+/**
+ * NotificationSubscriberExtensionContext模块提供通知订阅者扩展能力。
+ * 
+ * > **说明**
+ * >
+ * > 本模块接口仅可在Stage模型下使用。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @stagemodelonly
+ * @since 22 dynamic
+ * @since 23 static
+ */
+export default class NotificationSubscriberExtensionContext extends ExtensionContext {}

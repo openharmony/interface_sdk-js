@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
- 
+
 import { UIContext } from '@ohos.arkui.UIContext';
 import { FrameNode } from 'arkui.FrameNode';
 import { Size } from 'arkui.Graphics';
@@ -45,7 +45,7 @@ export declare enum NodeRenderType {
   RENDER_TYPE_DISPLAY = 0,
 
   /**
-   * Exporting texture type. The node will be rendered to a  texture.
+   * Exporting texture type. The node will be rendered to a texture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
@@ -429,4 +429,17 @@ export declare class ReactiveBuilderNode {
    * @since 24 static
    */
   postInputEvent(event: InputEventType): boolean;
+
+  /**
+   * Dispatch event to targetNode with competition strategy.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 }

@@ -103,6 +103,7 @@
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiSysEvent",
+    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.HiviewDFX.HiTrace",
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",

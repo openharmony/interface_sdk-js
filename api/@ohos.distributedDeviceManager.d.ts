@@ -21,9 +21,15 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Providers interfaces to create a {@link deviceManager} instances.
+ * The **distributedDeviceManager** module provides APIs for distributed device management.
+ * Applications can call the APIs to:
  *
- * @namespace distributedDeviceManager
+ * - Subscribe to or unsubscribe from device state changes.
+ * - Discover devices nearby.
+ * - Authenticate or deauthenticate a device.
+ * - Query the trusted device list.
+ * - Query local device information, including the device name, type, and ID.
+ *
  * @syscap SystemCapability.DistributedHardware.DeviceManager
  * @since 10 dynamic
  * @since 23 static
@@ -31,18 +37,17 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 declare namespace distributedDeviceManager {
 
   /**
-   * Basic description information of a distributed device.
-   * @interface DeviceBasicInfo
+   * Represents the basic information about a distributed device.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
    * @since 23 static
    */
   interface DeviceBasicInfo {
     /**
-     * Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
-     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
-     * the obtained ID will change.
-     * @type { string }
+     * Device ID. The value is the result of obfuscating the udid-hash (hash value of the UDID), **appid**, and salt
+     * using the SHA-256 algorithm.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
@@ -51,7 +56,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device name.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
@@ -59,9 +64,8 @@ declare namespace distributedDeviceManager {
     deviceName: string;
 
     /**
-     * Obtains the device type represented by a string,
-     * which can be {@code phone}, {@code tablet}, {@code tv}, {@code smartVision}, {@code car}.
-     * @type { string }
+     * [Device type]{@link distributedDeviceManager.DeviceManager.getDeviceType}.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
@@ -69,8 +73,8 @@ declare namespace distributedDeviceManager {
     deviceType: string;
 
     /**
-     * Device network id.
-     * @type { ?string }
+     * Network ID of the device.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
@@ -79,16 +83,17 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * The state of the nearby devices.
-   * @enum { int }
+   * Enumerates the device states.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
    * @since 23 static
    */
   enum DeviceStateChange {
     /**
-     * This state indicates the device is online but the state is unknown,The distributed function cannot used until
-     * state changes to AVAILABLE.
+     * The device state is unknown after the device goes online. Before the device state changes to available,
+     * distributed services cannot be used.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
@@ -96,7 +101,9 @@ declare namespace distributedDeviceManager {
     UNKNOWN = 0,
 
     /**
-     * This state indicates the device has been synchronized to the database, Now the distributed function can be used.
+     * The information between devices has been synchronized in the Distributed Data Service (DDS) module, and the
+     * device is ready for running distributed services.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
@@ -104,31 +111,32 @@ declare namespace distributedDeviceManager {
     AVAILABLE = 1,
 
     /**
-     * This state indicates the device is offline.
+     * The device goes offline, and the device state is unknown.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      * @since 23 static
      */
-    UNAVAILABLE = 2,
+    UNAVAILABLE = 2
   }
 
   /**
    * Device status change result.
-   * @interface DeviceStateChangeResult
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 23 static
    */
   interface DeviceStateChangeResult {
     /**
      * The state of the nearby devices.
-     * @type { DeviceStateChange }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
     action: DeviceStateChange;
     /**
      * Basic description information of a distributed device.
-     * @type { DeviceBasicInfo }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
@@ -137,14 +145,14 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device name change result.
-   * @interface DeviceNameChangeResult
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 23 static
    */
   interface DeviceNameChangeResult {
     /**
      * Device name.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
@@ -153,14 +161,14 @@ declare namespace distributedDeviceManager {
 
   /**
    * Discovery failure result.
-   * @interface DiscoveryFailureResult
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 23 static
    */
   interface DiscoveryFailureResult {
     /**
      * Discovery failure cause code.
-     * @type { int }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
@@ -169,14 +177,14 @@ declare namespace distributedDeviceManager {
 
   /**
    * Discovery successful result.
-   * @interface DiscoverySuccessResult
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 23 static
    */
   interface DiscoverySuccessResult {
     /**
      * Basic description information of a distributed device.
-     * @type { DeviceBasicInfo }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
@@ -185,7 +193,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Reply result.
-   * @interface ReplyResult
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 23 static
@@ -193,7 +201,7 @@ declare namespace distributedDeviceManager {
   interface ReplyResult {
     /**
      * Param of ui state changes.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 23 static
@@ -203,15 +211,15 @@ declare namespace distributedDeviceManager {
 
   /**
    * ServiceDie data.
-   * @interface ServiceDieData
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 23 static
    */
-  interface ServiceDieData {}
+  interface ServiceDieData {  }
 
   /**
    * Bind target result.
-   * @interface BindTargetResult
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 23 static
    */
@@ -220,7 +228,7 @@ declare namespace distributedDeviceManager {
      * Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
      * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
      * the obtained ID will change.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
@@ -228,8 +236,8 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device profile information filter options.
-   * @interface DeviceProfileInfoFilterOptions
+   * Defines device profile information filter options.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15 dynamic
@@ -238,7 +246,7 @@ declare namespace distributedDeviceManager {
   interface DeviceProfileInfoFilterOptions {
     /**
      * Whether to request data from the cloud.
-     * @type { boolean }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -247,7 +255,7 @@ declare namespace distributedDeviceManager {
     isCloud : boolean,
     /**
      * Device ID list.
-     * @type { Array<string> }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -257,8 +265,8 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Service profile information.
-   * @interface ServiceProfileInfo
+   * Defines the service profile information. It is populated based on the data returned from the cloud.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15 dynamic
@@ -267,7 +275,7 @@ declare namespace distributedDeviceManager {
   interface ServiceProfileInfo {
     /**
      * Device ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -277,7 +285,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Service ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -286,8 +294,8 @@ declare namespace distributedDeviceManager {
     serviceId: string;
 
     /**
-     * Service Type.
-     * @type { string }
+     * Service type.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -296,8 +304,8 @@ declare namespace distributedDeviceManager {
     serviceType: string;
 
     /**
-     * Service data.
-     * @type { ?string }
+     * Service data. The value is a string of up to 1000 characters. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -307,8 +315,8 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device profile information.
-   * @interface DeviceProfileInfo
+   * Defines the device profile information.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15 dynamic
@@ -317,7 +325,7 @@ declare namespace distributedDeviceManager {
   interface DeviceProfileInfo {
     /**
      * Device ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -326,8 +334,8 @@ declare namespace distributedDeviceManager {
     deviceId: string;
 
     /**
-     * Device SerialNumber.
-     * @type { string }
+     * Device SN.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -337,7 +345,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * MAC address.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -347,7 +355,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device model.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -357,7 +365,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device type.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -367,7 +375,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Manufacturer.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -377,7 +385,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device name.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -387,7 +395,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Product ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -396,8 +404,8 @@ declare namespace distributedDeviceManager {
     productId: string;
 
     /**
-     * Product sub ID.
-     * @type { ?string }
+     * Sub-product ID. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -406,8 +414,8 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     * Sdk version.
-     * @type { string }
+     * SDK version.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -417,7 +425,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Bluetooth BLE MAC address.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -427,7 +435,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Bluetooth BR MAC address.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -437,7 +445,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Starflash MAC address.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -447,7 +455,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Firmware version.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -457,7 +465,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Hardware version.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -467,7 +475,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Software version.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -477,7 +485,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Protocol type.
-     * @type { int }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -486,8 +494,8 @@ declare namespace distributedDeviceManager {
     protocolType: int;
 
     /**
-     * Setup type.
-     * @type { int }
+     * Device type.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -496,8 +504,8 @@ declare namespace distributedDeviceManager {
     setupType: int;
 
     /**
-     * Wise device ID.
-     * @type { string }
+     * Registered device ID.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -506,8 +514,8 @@ declare namespace distributedDeviceManager {
     wiseDeviceId: string;
 
     /**
-     * Wise user ID.
-     * @type { string }
+     * Registered user ID.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -516,8 +524,8 @@ declare namespace distributedDeviceManager {
     wiseUserId: string;
 
     /**
-     * Register time.
-     * @type { string }
+     * Registration time.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -526,8 +534,8 @@ declare namespace distributedDeviceManager {
     registerTime: string;
 
     /**
-     * Modify time.
-     * @type { string }
+     * Modification time.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -537,7 +545,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Share time.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -547,7 +555,10 @@ declare namespace distributedDeviceManager {
 
     /**
      * Whether the device is a local device.
-     * @type { boolean }
+     *
+     * - **false**: non-local device.
+     * - **true**: local device.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -556,8 +567,8 @@ declare namespace distributedDeviceManager {
     isLocalDevice: boolean;
 
     /**
-     * Service profile information list.
-     * @type { Array<ServiceProfileInfo> }
+     * Service list. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -566,8 +577,8 @@ declare namespace distributedDeviceManager {
     services?: Array<ServiceProfileInfo>;
 
     /**
-     * Name of the product to which the device belongs.
-     * @type { ?string }
+     * Product name. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -576,8 +587,8 @@ declare namespace distributedDeviceManager {
     productName?: string;
 
     /**
-     * Internal model of the product to which the device belongs.
-     * @type { ?string }
+     * Internal product model. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -587,8 +598,8 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device icon information filter options.
-   * @interface DeviceIconInfoFilterOptions
+   * Defines the device icon information filter options.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 18 dynamic
@@ -597,7 +608,7 @@ declare namespace distributedDeviceManager {
   interface DeviceIconInfoFilterOptions {
     /**
      * Product ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -606,8 +617,8 @@ declare namespace distributedDeviceManager {
     productId: string;
 
     /**
-     * Product sub ID.
-     * @type { ?string }
+     * Sub-product ID. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -616,8 +627,8 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     * Image type.
-     * @type { string }
+     * Image type. This parameter has a fixed value of **ID**, indicating the product's physical image.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -626,8 +637,11 @@ declare namespace distributedDeviceManager {
     imageType: string;
 
     /**
-     * Spec name.
-     * @type { string }
+     * Image specification name. Value:
+     *
+     * - **lg**: large image (size: 1016064 pixels)
+     * - **sm**: small image (size: 65536 pixels)
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -636,8 +650,8 @@ declare namespace distributedDeviceManager {
     specName: string;
 
     /**
-     * Internal model of the product to which the device belongs.
-     * @type { ?string }
+     * Internal product model. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -647,8 +661,8 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device icon information.
-   * @interface DeviceIconInfo
+   * Defines the device icon information.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 18 dynamic
@@ -657,7 +671,7 @@ declare namespace distributedDeviceManager {
   interface DeviceIconInfo {
     /**
      * Product ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -666,8 +680,8 @@ declare namespace distributedDeviceManager {
     productId: string;
 
     /**
-     * Product sub ID.
-     * @type { ?string }
+     * Sub-product ID. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -676,8 +690,8 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     * Image type.
-     * @type { string }
+     * Image type. This parameter has a fixed value of **ID**, indicating the product's physical image.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -686,8 +700,11 @@ declare namespace distributedDeviceManager {
     imageType: string;
 
     /**
-     * Spec name.
-     * @type { string }
+     * Image specification name. Value:
+     *
+     * - **lg**: large image (size: 1016064 pixels)
+     * - **sm**: small image (size: 65536 pixels)
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -696,8 +713,8 @@ declare namespace distributedDeviceManager {
     specName: string;
 
     /**
-     * Uniform resoure locator.
-     * @type { string }
+     * URL.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -707,7 +724,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Icon.
-     * @type { ArrayBuffer }
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -716,8 +733,8 @@ declare namespace distributedDeviceManager {
     icon: ArrayBuffer;
 
     /**
-     * Internal model of the product to which the device belongs.
-     * @type { ?string }
+     * Internal product model. This parameter is left unspecified by default.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -727,8 +744,8 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Heartbeat policy.
-   * @enum {int}
+   * Defines the heartbeat broadcast policy.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15 dynamic
@@ -736,7 +753,8 @@ declare namespace distributedDeviceManager {
    */
   enum StrategyForHeartbeat {
     /**
-     * Temporarily stop heartbeat, which automatically recovers after timeout.
+     * Stops the heartbeat broadcast temporarily, and resumes it upon timeout expiration.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
@@ -744,18 +762,19 @@ declare namespace distributedDeviceManager {
      */
     TEMP_STOP_HEARTBEAT = 100,
     /**
-     * Start heartbeat.
+     * Starts heartbeat broadcast.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
      * @since 23 static
      */
-    START_HEARTBEAT = 101,
+    START_HEARTBEAT = 101
   }
 
   /**
-   * Device network id query filter options.
-   * @interface NetworkIdQueryFilter
+   * Defines the network ID filter options.
+   *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 18 dynamic
@@ -763,8 +782,8 @@ declare namespace distributedDeviceManager {
    */
   interface NetworkIdQueryFilter {
     /**
-     * Get device network id list by wiseDevice ID.
-     * @type { string }
+     * Registered device ID.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -773,8 +792,11 @@ declare namespace distributedDeviceManager {
     wiseDeviceId : string;
 
     /**
-     * Get device network id list by online status.
-     * @type { int }
+     * Device online status.
+     *
+     * - **0**: The device is offline.
+     * - **1**: The device is online.
+     *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
@@ -819,17 +841,15 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Creates an {@code DeviceManager} instance.
+   * Creates a **DeviceManager** instance. The **DeviceManager** instance is the entry for invoking the APIs for
+   * distributed device management. It can be used to obtain information about trusted devices and local devices.
    *
-   * To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
-   * use this instance to call other device management methods.
-   *
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @returns { DeviceManager } - Return the DeviceManager object.
+   * @param { string } bundleName - Bundle name of the application. The value is a string of 1 to 255 characters.
+   * @returns { DeviceManager } **DeviceManager** instance created.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                                  1. Mandatory parameters are left unspecified;
-   *                                                  2. Incorrect parameter type;
-   *                                                  3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter type;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
    * @since 23 static
@@ -837,13 +857,13 @@ declare namespace distributedDeviceManager {
   function createDeviceManager(bundleName: string): DeviceManager;
 
   /**
-   * Releases the {@code DeviceManager} instance that is no longer used.
+   * Releases a **DeviceManager** instance that is no longer used.
    *
-   * @param { DeviceManager } deviceManager - Indicates the {@code DeviceManager} instance.
+   * @param { DeviceManager } deviceManager - **DeviceManager** instance to release.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                                  1. Mandatory parameters are left unspecified;
-   *                                                  2. Incorrect parameter types;
-   *                                                  3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 11600101 - Failed to execute the function.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
@@ -852,9 +872,10 @@ declare namespace distributedDeviceManager {
   function releaseDeviceManager(deviceManager: DeviceManager): void;
 
   /**
-   * Provides methods for managing devices.
+   * Provides APIs to obtain information about trusted devices and local devices. Before calling any API in
+   * **DeviceManager**, you must use **createDeviceManager** to create a **DeviceManager** instance, for example,
+   * **dmInstance**.
    *
-   * @interface DeviceManager
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
    * @since 23 static
@@ -862,11 +883,12 @@ declare namespace distributedDeviceManager {
   interface DeviceManager {
 
     /**
-     * Get a list of available devices. This interface query all authorized and connectable devices.
+     * Obtains all trusted devices synchronously.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Array<DeviceBasicInfo> } - Returns a list of available devices.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @returns { Array<DeviceBasicInfo> } List of trusted devices obtained.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -875,12 +897,12 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceListSync(): Array<DeviceBasicInfo>;
 
     /**
-     * Get a list of available devices. This interface query all authorized and connectable devices.
+     * Obtains all trusted devices. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - Indicates the callback to be
-     * invoked upon getAvailableDeviceList.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - Callback used to return the list of trusted devices.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -889,11 +911,12 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceList(callback: AsyncCallback<Array<DeviceBasicInfo>>): void;
 
     /**
-     * Get a list of available devices. This interface query all authorized and connectable devices.
+     * Obtains all trusted devices. This API uses a promise to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Promise<Array<DeviceBasicInfo>> } - Returns a list of available devices.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @returns { Promise<Array<DeviceBasicInfo>> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -902,11 +925,12 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>;
 
     /**
-     * Get the network id of the local device.
+     * Obtains the network ID of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device network id.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @returns { string } Network ID of the local device obtained.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -915,11 +939,12 @@ declare namespace distributedDeviceManager {
     getLocalDeviceNetworkId(): string;
 
     /**
-     * Get the device name of the local device.
+     * Obtains the local device name.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device name.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @returns { string } Name of the local device obtained.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -928,10 +953,10 @@ declare namespace distributedDeviceManager {
     getLocalDeviceName(): string;
 
     /**
-     * Get the device type of the local device.
+     * Obtains the local device type.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { int } - Returns local device type.
+     * @returns { int } <!--RP1-->Local device type obtained.<!--RP1End-->
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -942,13 +967,13 @@ declare namespace distributedDeviceManager {
     getLocalDeviceType(): int;
 
     /**
-     * Get the device id of the local device.
+     * Obtains the local device ID. The value is the result of obfuscating the udid-hash (hash value of the UDID),
+     * **appid**, and salt using the SHA-256 algorithm.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
-     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
-     * the obtained ID will change.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @returns { string } Local device ID obtained.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -957,17 +982,18 @@ declare namespace distributedDeviceManager {
     getLocalDeviceId(): string;
 
     /**
-     * Get the device name by network id.
+     * Obtains the device name based on the network ID of the specified device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } networkId - Device network id.
-     * @returns { string } - Returns device name.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @param { string } networkId - Network ID of the device. The value is a string of 1 to 255 characters.
+     * @returns { string } Device name obtained.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified networkId is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified networkId is greater than 255.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -976,18 +1002,18 @@ declare namespace distributedDeviceManager {
     getDeviceName(networkId: string): string;
 
     /**
-     * Get the device type by network id.
+     * Obtains the device type based on the network ID of the specified device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } networkId - Device network id.
-     * @returns { int } - Returns device type.
+     * @param { string } networkId - Network ID of the device. The value is a string of 1 to 255 characters.
+     * @returns { int } <!--RP2-->Device type obtained.<!--RP2End-->
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified networkId is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified networkId is greater than 255.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -996,31 +1022,32 @@ declare namespace distributedDeviceManager {
     getDeviceType(networkId: string): int;
 
     /**
-     * Start to discover nearby devices.
+     * Starts to discover devices nearby. The discovery process takes 2 minutes. A maximum of 99 devices can be
+     * discovered. In Wi-Fi scenarios, only the devices in the same LAN can be discovered.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { object } discoverParam - Identifies the type of target discovered:
-     *       discoverTargetType : 1     - Discovery target as a device by default, the value is 1.
-     * @param { object } filterOptions - FilterOptions to filter discovery device.
-     *     The type of filterOptions is map. The map are as follows:
-     *     availableStatus: 0-1       - Discover devices only are credible, The value is 0 indicates
-     *     device isn't credible;
-     *                                      0: Devices are offline, client need to bind the device by calling
-     *     bindTarget() and then connect to it.
-     *                                      1: Devices already online, client can make connection.
-     *       discoverDistance: 0-100    - Discover devices within a certain distance from the local, the unit is cm.
-     *       authenticationStatus: 0-1  - Discover devices based on different authentication status:
-     *                                      0: Devices not authenticated.
-     *                                      1: Devices already authenticated.
-     *                                The value is 1 indicates device is trust.
-     *       authorizationType: 0-2     - Discover devices based on different authorization type:
-     *                                      0: Devices authenticated based on temporary negotiated session key.
-     *                                      1: Devices authenticated based on the same account credential key.
-     *                                      2: Devices authenticated based on different account credential keys.
+     * @param { object } discoverParam - Identifier of the device to discover. It specifies the type of the target to
+     *     discover.
+     *     <br>**discoverTargetType**: The default discovery target is device. The value is **1**.
+     * @param { object } filterOptions - Options for filtering the devices to discover. The default value is
+     *     **undefined**, which means to discover offline devices. The options include the following:
+     *     <br>- **availableStatus(0-1)**: status of the device to discover.
+     *     The value **0** means the device is untrusted.
+     *     <br>- **0**: The device is offline. The client needs to call **bindTarget** to bind the device.
+     *     <br>- **1**: The device is online and can be connected.
+     *     <br>**discoverDistance(0-100)**: distance of the device to discover, in cm.
+     *     This parameter is not used in Wi-Fi scenarios.
+     *     <br>**authenticationStatus(0-1)**: authentication status of the device to discover.
+     *     <br>- **0**: The device is not authenticated.
+     *     <br>The value **1** means the device has been authenticated.
+     *     <br>- **authorizationType(0-2)**: authorization type of the device to discover.
+     *     <br>- **0**: The device is authenticated by a temporarily agreed session key.
+     *     <br>- **1**: The device is authenticated by a key of the same account.
+     *     <br>- **2**: The device is authenticated by a credential key of different accounts.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600104 - Discovery unavailable.
@@ -1031,27 +1058,29 @@ declare namespace distributedDeviceManager {
     startDiscovering(discoverParam: { [key: string]: Object; }, filterOptions?: { [key: string]: Object; }): void;
 
     /**
-     * Start to discover nearby devices.
+     * Starts to discover devices nearby. The discovery process takes 2 minutes. A maximum of 99 devices can be
+     * discovered. In Wi-Fi scenarios, only the devices in the same LAN can be discovered.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Record<string, int | string> } discoverParam - Identifies the type of target discovered:
-     *     discoverTargetType : 1     - Discovery target as a device by default, the value is 1.
-     * @param { Record<string, int | string> } [filterOptions] - FilterOptions to filter discovery device.
-     *     The type of filterOptions is map. The map are as follows:
-     *     availableStatus: 0-1       - Discover devices only are credible, The value is 0 indicates device
-     *     isn't credible;
-     *                                      0: Devices are offline, client need to bind the device by calling
-     *     bindTarget() and then connect to it.
-     *                                      1: Devices already online, client can make connection.
-     *       discoverDistance: 0-100    - Discover devices within a certain distance from the local, the unit is cm.
-     *       authenticationStatus: 0-1  - Discover devices based on different authentication status:
-     *                                      0: Devices not authenticated.
-     *                                      1: Devices already authenticated.
-     *                                The value is 1 indicates device is trust.
-     *       authorizationType: 0-2     - Discover devices based on different authorization type:
-     *                                      0: Devices authenticated based on temporary negotiated session key.
-     *                                      1: Devices authenticated based on the same account credential key.
-     *                                      2: Devices authenticated based on different account credential keys.
+     * @param { Record<string, int | string> } discoverParam - Identifier of the device to discover.
+     *     It specifies the type of the target to discover.
+     *     <br>**discoverTargetType**: The default discovery target is device. The value is **1**.
+     * @param { Record<string, int | string> } [filterOptions] - Options for filtering the devices to discover.
+     *     The default value is **undefined**, which means to discover offline devices.
+     *     The options include the following:
+     *     <br>- **availableStatus(0-1)**: status of the device to discover.
+     *     The value **0** means the device is untrusted.
+     *     <br>- **0**: The device is offline. The client needs to call **bindTarget** to bind the device.
+     *     <br>- **1**: The device is online and can be connected.
+     *     <br>**discoverDistance(0-100)**: distance of the device to discover, in cm.
+     *     This parameter is not used in Wi-Fi scenarios.
+     *     <br>**authenticationStatus(0-1)**: authentication status of the device to discover.
+     *     <br>- **0**: The device is not authenticated.
+     *     <br>The value **1** means the device has been authenticated.
+     *     <br>- **authorizationType(0-2)**: authorization type of the device to discover.
+     *     <br>- **0**: The device is authenticated by a temporarily agreed session key.
+     *     <br>- **1**: The device is authenticated by a key of the same account.
+     *     <br>- **2**: The device is authenticated by a credential key of different accounts.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600104 - Discovery unavailable.
@@ -1062,10 +1091,11 @@ declare namespace distributedDeviceManager {
     startDiscovering(discoverParam: Record<string, int | string>, filterOptions?: Record<string, int | string>): void;
 
     /**
-     * Stop discovering nearby devices.
+     * Stops device discovery.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -1074,23 +1104,24 @@ declare namespace distributedDeviceManager {
     stopDiscovering(): void;
 
     /**
-     * Bind the specified target.
+     * Binds a device. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } deviceId - id of device to bind.
-     * @param { object } bindParam - parameters of device to bind, The parameter type is map,such as:
-     *      "bindType" : 1,           - This value is type of bind, the values are as follows:
-     *                                  1 - The bind type is pin code .
-     *      "targetPkgName" : "xxxx", - The package name of binding target.
-     *      "appName" : "xxxx",       - The app name that try to bind the target.
-     *      "appOperation" : "xxxx"   - The reason why the app want to bind the target package.
-     *      "customDescription" : "xxxx" - The detail description of the operation.
-     * @param { AsyncCallback<{deviceId: string;}> } callback - indicates the callback to be invoked upon bindDevice.
+     * @param { string } deviceId - Device ID. The value is a string of 1 to 255 characters.
+     * @param { object } bindParam - Authentication parameters.
+     *     You can determine the key-value pair to be passed in. By default, the following keys are carried:
+     *     <br>**bindType**: binding type, which is mandatory.
+     *     <br>The value **1** means PIN authentication.
+     *     <br>**targetPkgName**: bundle name of the target to bind.
+     *     <br>**appName**: application that attempts to bind the target.
+     *     <br>**appOperation**: reason for the application to bind the target.
+     *     <br>**customDescription**: detailed description of the operation.
+     * @param { AsyncCallback<{deviceId: string;}> } callback - Callback used to return the authentication result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified deviceId is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified deviceId is greater than 255.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -1101,18 +1132,19 @@ declare namespace distributedDeviceManager {
     bindTarget(deviceId: string, bindParam: { [key: string]: Object; }, callback: AsyncCallback<{deviceId: string;}>): void;
 
     /**
-     * Bind the specified target.
+     * Binds a device. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } deviceId - id of device to bind.
-     * @param { Record<string, int | string> } bindParam - parameters of device to bind, The parameter type is map,such as:
-     *      "bindType" : 1,           - This value is type of bind, the values are as follows:
-     *                                  1 - The bind type is pin code .
-     *      "targetPkgName" : "xxxx", - The package name of binding target.
-     *      "appName" : "xxxx",       - The app name that try to bind the target.
-     *      "appOperation" : "xxxx"   - The reason why the app want to bind the target package.
-     *      "customDescription" : "xxxx" - The detail description of the operation.
-     * @param { AsyncCallback<BindTargetResult> } callback - indicates the callback to be invoked upon bindDevice.
+     * @param { string } deviceId - Device ID. The value is a string of 1 to 255 characters.
+     * @param { Record<string, int | string> } bindParam - Authentication parameters.
+     *     You can determine the key-value pair to be passed in. By default, the following keys are carried:
+     *     <br>**bindType**: binding type, which is mandatory.
+     *     <br>The value **1** means PIN authentication.
+     *     <br>**targetPkgName**: bundle name of the target to bind.
+     *     <br>**appName**: application that attempts to bind the target.
+     *     <br>**appOperation**: reason for the application to bind the target.
+     *     <br>**customDescription**: detailed description of the operation.
+     * @param { AsyncCallback<BindTargetResult> } callback - Callback used to return the authentication result.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -1123,16 +1155,17 @@ declare namespace distributedDeviceManager {
     bindTarget(deviceId: string, bindParam: Record<string, int | string>, callback: AsyncCallback<BindTargetResult>): void;
 
     /**
-     * Unbind the specified target.
+     * Unbinds a device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } deviceId - id of device to unbind
+     * @param { string } deviceId - Device ID. The value is a string of 1 to 255 characters.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified deviceId is greater than 255.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified deviceId is greater than 255.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -1141,19 +1174,25 @@ declare namespace distributedDeviceManager {
     unbindTarget(deviceId: string): void;
 
     /**
-     * The reply of ui operation from pin-code window, this interface can only be used by pin-code-hap of devicemanager.
+     * Replies to the user's UI operation. This API can be used only by the PIN HAP of the **deviceManager**.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { int } action - The reply action of user operation.
-     * @param { string } actionResult - Indicates the user operation result.
+     * @param { int } action - User operation.
+     *     <br>- **0**: Grant the permission.
+     *     <br>- **1**. Remove the permission.
+     *     <br>-**2**: Time out the user operation in the permission request dialog.
+     *     <br>- **3**: Cancel the display of the PIN box.
+     *     <br>- **4**: Cancel the display of the PIN input box.
+     *     <br>- **5**: Confirm the input in the PIN input box.
+     * @param { string } actionResult - User operation result. The value is a string of 1 to 255 characters.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified actionResult is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified actionResult is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10 dynamic
@@ -1162,20 +1201,21 @@ declare namespace distributedDeviceManager {
     replyUiAction(action: int, actionResult: string): void;
 
     /**
-     * Register a device state callback so that the application can be notified upon device state changes based on
-     * the application bundle name.
+     * Subscribes to the device state changes. The application (identified by the bundle name) will be notified when the
+     * device state changes. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceStateChange' } type - Device state change.
-     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback
-     *     Indicates the device state callback to register.
+     * @param { 'deviceStateChange' } type - Event type. The value **'deviceStateChange'** indicates device state
+     *     changes.
+     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback - Callback used to return
+     *     the device information and state.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1195,19 +1235,19 @@ declare namespace distributedDeviceManager {
     onDeviceStateChange(callback: Callback<DeviceStateChangeResult>): void;
 
     /**
-     * UnRegister device state callback based on the application bundle name.
+     * Unsubscribes from the device state changes. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceStateChange' } type - Device state change.
-     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback
-     *     Indicates the device state callback to unregister.
+     * @param { 'deviceStateChange' } type - Event type. The value **'deviceStateChange'** indicates device state
+     *     changes.
+     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback - Callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1227,18 +1267,20 @@ declare namespace distributedDeviceManager {
     offDeviceStateChange(callback?: Callback<DeviceStateChangeResult>): void;
 
     /**
-     * Register a device discovery result callback so that the application can be notified when discovery success.
+     * Subscribes to the **'discoverSuccess'** event. The application will be notified when a device is successfully
+     * discovered. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'discoverSuccess' } type - Successfully discovered device.
-     * @param { Callback<{ device: DeviceBasicInfo; }> } callback - Indicates the device discovery callback to register.
+     * @param { 'discoverSuccess' } type - Event type, which has a fixed value of **'discoverSuccess'**.
+     * @param { Callback<{ device: DeviceBasicInfo; }> } callback - Callback invoked when a device is successfully
+     *     discovered.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1249,7 +1291,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DiscoverySuccessResult> } callback - Indicates the device discovery callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
@@ -1257,19 +1299,18 @@ declare namespace distributedDeviceManager {
     onDiscoverSuccess(callback: Callback<DiscoverySuccessResult>): void;
 
     /**
-     * UnRegister the device discovery result callback.
+     * Unsubscribes from the **'discoverSuccess'** event. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'discoverSuccess' } type - Successfully discovered device.
-     * @param { Callback<{ device: DeviceBasicInfo; }> } callback - Indicates the device discovery callback to
-     *     unregister.
+     * @param { 'discoverSuccess' } type - Event type, which has a fixed value of **'discoverSuccess'**.
+     * @param { Callback<{ device: DeviceBasicInfo; }> } callback - Callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1280,7 +1321,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DiscoverySuccessResult> } [callback] - Indicates the device discovery callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
@@ -1288,18 +1329,19 @@ declare namespace distributedDeviceManager {
     offDiscoverSuccess(callback?: Callback<DiscoverySuccessResult>): void;
 
     /**
-     * Register a device name change callback so that the application can be notified when discovery success.
+     * Subscribes to device name changes. The application will be notified when the name of a device is changed. This
+     * API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceNameChange' } type - Changed device name.
-     * @param { Callback<{ deviceName: string; }> } callback - Indicates the device name change callback to register.
+     * @param { 'deviceNameChange' } type - Event type, which has a fixed value of **deviceNameChange**.
+     * @param { Callback<{ deviceName: string; }> } callback - Callback used to return the device name change.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1310,7 +1352,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DeviceNameChangeResult> } callback - Indicates the device name change callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
@@ -1318,18 +1360,18 @@ declare namespace distributedDeviceManager {
     onDeviceNameChange(callback: Callback<DeviceNameChangeResult>): void;
 
     /**
-     * UnRegister the device name change result callback.
+     * Unsubscribes from the device name changes. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceNameChange' } type - Changed device name.
-     * @param { Callback<{ deviceName: string; }> } callback - Indicates the device name change callback to unregister.
+     * @param { 'deviceNameChange' } type - Event type, which has a fixed value of **deviceNameChange**.
+     * @param { Callback<{ deviceName: string; }> } callback - Callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1340,7 +1382,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DeviceNameChangeResult> } [callback] - Indicates the device name change callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
@@ -1348,19 +1390,19 @@ declare namespace distributedDeviceManager {
     offDeviceNameChange(callback?: Callback<DeviceNameChangeResult>): void;
 
     /**
-     * Register a device discovery result callback so that the application can be notified when discover failed.
+     * Subscribes to the **'discoverFailure'** event. The application will be notified when a device fails to be
+     * discovered. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'discoverFailure' } type - Discovery Device Failure.
-     * @param { Callback<{ reason: int; }> } callback
-     *     Indicates the device found result callback to register.
+     * @param { 'discoverFailure' } type - Event type, which has a fixed value of **'discoverFailure'**.
+     * @param { Callback<{ reason: int; }> } callback - Callback invoked when a device fails to be discovered.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1380,18 +1422,18 @@ declare namespace distributedDeviceManager {
     onDiscoverFailure(callback: Callback<DiscoveryFailureResult>): void;
 
     /**
-     * UnRegister the device discovery result callback.
+     * Unsubscribes from the **'discoverFailure'** event. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'discoverFailure' } type - Discovery Device Failure.
-     * @param { Callback<{ reason: int; }> } callback - Indicates the device found result callback to unregister.
+     * @param { 'discoverFailure' } type - Event type, which has a fixed value of **'discoverFailure'**.
+     * @param { Callback<{ reason: int; }> } callback - Callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1403,7 +1445,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DiscoveryFailureResult> } [callback]
      *     Indicates the device found result callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
@@ -1411,18 +1453,21 @@ declare namespace distributedDeviceManager {
     offDiscoverFailure(callback?: Callback<DiscoveryFailureResult>): void;
 
     /**
-     * Register a serviceError callback so that the application can be notified when devicemanager service died
+     * Subscribes to the dead events of the **DeviceManager** service. The application will be notified when the
+     * **DeviceManager** service is terminated unexpectedly. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serviceDie' } type - Service death.
-     * @param { Callback<{}> } callback - Indicates the service error callback to register.
+     * @param { 'serviceDie' } type - Event type, which has a fixed value of **'serviceDie'**.
+     * @param { Callback<{}> } callback - Callback invoked when the **DeviceManager** service is terminated
+     *     unexpectedly.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1441,18 +1486,19 @@ declare namespace distributedDeviceManager {
     onServiceDie(callback: Callback<ServiceDieData>): void;
 
     /**
-     * UnRegister the service error callback.
+     * Unsubscribes from the dead events of the **DeviceManager** service. This API uses an asynchronous callback to
+     * return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serviceDie' } type - Service death.
-     * @param { Callback<{}> } callback - Indicates the service error callback to unregister.
+     * @param { 'serviceDie' } type - Event type, which has a fixed value of **'serviceDie'**.
+     * @param { Callback<{}> } callback - Callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
@@ -1471,16 +1517,16 @@ declare namespace distributedDeviceManager {
     offServiceDie(callback?: Callback<ServiceDieData>): void;
 
     /**
-     * Register a callback from deviceManager service so that the devicemanager ui can be notified when uiStateChanges.
+     * Subscribes to the reply to the UI operation result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { 'replyResult' } type - Ui reply result to register.
-     * @param { Callback<{ param: string; }> } callback - Indicates the devicemanager ui state to register.
+     * @param { 'replyResult' } type - Event type, which has a fixed value of **replyResult**.
+     * @param { Callback<{ param: string; }> } callback - Callback invoked to return the UI status change.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 255.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1495,7 +1541,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { Callback<ReplyResult> } callback - Indicates the devicemanager ui state to register.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1505,23 +1551,23 @@ declare namespace distributedDeviceManager {
     onReplyResult(callback: Callback<ReplyResult>): void;
 
     /**
-      * Unregister uiStateChange, this interface can only be used by devicemanager ui.
-      *
-      * @permission ohos.permission.ACCESS_SERVICE_DM
-      * @param { 'replyResult' } type - Ui reply result to unregister.
-      * @param { Callback<{ param: string; }> } callback - Indicates the devicemanager ui state to unregister.
-      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-      *                                                  1. Mandatory parameters are left unspecified;
-      *                                                  2. Incorrect parameter type;
-      *                                                  3. Parameter verification failed;
-      *                                                  4. The size of specified type is greater than 255.
+     * Unsubscribes from the reply to the UI operation result.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { 'replyResult' } type - Event type, which has a fixed value of **replyResult**.
+     * @param { Callback<{ param: string; }> } callback - Callback to unregister.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 255.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
-      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-      * @syscap SystemCapability.DistributedHardware.DeviceManager
-      * @systemapi this method can be used only by system applications.
-      * @since 10 dynamic
-      */
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10 dynamic
+     */
     off(type: 'replyResult', callback?: Callback<{ param: string; }>): void;
 
     /**
@@ -1529,7 +1575,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { Callback<ReplyResult> } [callback] - Indicates the devicemanager ui state to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. 
+     * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1539,20 +1585,18 @@ declare namespace distributedDeviceManager {
     offReplyResult(callback?: Callback<ReplyResult>): void;
 
     /**
-     * Get the device list under the same account.
+     * Obtains the list of devices under the same account. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { DeviceProfileInfoFilterOptions } filterOptions - parameter for querying the device list, The parameter type is map,such as:
-     *      "isCloud" : false,           -  false - Get from the cahce of device side.
-     *                                      true  - Get from the cloud.
-     *      "deviceIdList" : [],         - Get by specified device ids.
-     * @returns { Promise<Array<DeviceProfileInfo>> } - Returns a list of devices.
+     * @param { DeviceProfileInfoFilterOptions } filterOptions - Filter options.
+     * @returns { Promise<Array<DeviceProfileInfo>> } Promise used to return the device list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 500.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 500.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600106 - Get data from cloud fail.
@@ -1565,18 +1609,18 @@ declare namespace distributedDeviceManager {
     getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
 
     /**
-     * Put the device list under the same account.
+     * Updates the device list. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { Array<DeviceProfileInfo> } deviceProfileInfoList - parameter for querying the device list for put, 
-     * @returns { Promise<int> } - Returns operation result.
+     * @param { Array<DeviceProfileInfo> } deviceProfileInfoList - Device list.
+     * @returns { Promise<int> } Operation result. The value **0** indicates that the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
-     *                                                  4. The size of specified type is greater than 500.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
+     *     4. The size of specified type is greater than 500.
      * @throws { BusinessError } 201 - Permission verification failed.
-     *                           The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1587,21 +1631,15 @@ declare namespace distributedDeviceManager {
     putDeviceProfileInfoList(deviceProfileInfoList: Array<DeviceProfileInfo>): Promise<int>;
 
     /**
-     * Get a DeviceIconInfo.
+     * Obtains the device icon. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { DeviceIconInfoFilterOptions } filterOptions - parameter for querying the device list,
-     *     The parameter type is map,such as:
-     *      "productId" : "xxx",           - product id of device
-     *      "subProductId" : "xxx",        - subproduct id of device
-     *      "imageType" : "xxx",           - image type, such as: ID,ID_Headset_L,ID_Headset_R,
-     *     ID_Headset_B,ID_Headset_LB,ID_Headset_RB
-     *      "specName" : "xxx",            - image size specification name, such as: sm/lg
-     * @returns { Promise<DeviceIconInfo> } - Returns a DeviceIconInfo.
+     * @param { DeviceIconInfoFilterOptions } filterOptions - Filter options.
+     * @returns { Promise<DeviceIconInfo> } Promise used to return the device icon information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1615,15 +1653,16 @@ declare namespace distributedDeviceManager {
     getDeviceIconInfo(filterOptions: DeviceIconInfoFilterOptions): Promise<DeviceIconInfo>;
 
     /**
-     * Get display name of local device.
+     * Obtains the local device's display name with the specified length. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { int } maxNameLength - the max number of bytes of the local device display name
-     * @returns { Promise<string> } - Returns device display name.
+     * @param { int } maxNameLength - Length of the local device's display name, in bytes. The value range is [18, 100].
+     *     If the value is **0**, the length is not limited.
+     * @returns { Promise<string> } Maximum number of bytes in the local device's display name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1636,17 +1675,17 @@ declare namespace distributedDeviceManager {
     getLocalDisplayDeviceName(maxNameLength: int): Promise<string>;
 
     /**
-     * Set local device name.
+     * Sets the local device name. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { string } deviceName - local device name
-     * @returns { Promise<int> } - Returns operation result.
+     * @param { string } deviceName - Device name to set. The value is a string of 1 to 255 characters.
+     * @returns { Promise<int> } Operation result. The value **0** indicates that the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed.
-     *                                 The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600106 - Failed to get data from the cloud.
@@ -1660,18 +1699,19 @@ declare namespace distributedDeviceManager {
     setLocalDeviceName(deviceName: string): Promise<int>;
 
     /**
-     * Set remote device name.
+     * Sets the remote device name. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { string } deviceId    - remote device id
-     * @param { string } deviceName  - remote device name
-     * @returns { Promise<int> } - Returns operation result.
+     * @param { string } deviceId - UDID of the  remote device. If the device does not have a UDID, the MAC address or
+     *     SN of the device is used as the device ID. The SN is used preferentially.
+     * @param { string } deviceName - Device name to set. The value is a string of 1 to 255 characters.
+     * @returns { Promise<int> } Operation result. The value **0** indicates that the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed;
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter type;
+     *     3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed.
-     *                                 The application does not have the permission required to call the API.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600106 - Failed to get data from the cloud.
@@ -1685,18 +1725,19 @@ declare namespace distributedDeviceManager {
     setRemoteDeviceName(deviceId: string, deviceName: string): Promise<int>;
 
     /**
-     * Set heartbeat policy.
+     * Sets the heartbeat broadcast policy.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { StrategyForHeartbeat } policy  - Heartbeat policy.
-     * @param { int } delayTime  - Indicates the duration for disable heartbeat.
+     * @param { StrategyForHeartbeat } policy - Heartbeat broadcast policy.
+     * @param { int } delayTime - Duration for temporarily disabling heartbeat broadcast. The value ranges from 1000 to
+     *     15000, in milliseconds.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter types;
-     *                                                  3. Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
@@ -1706,10 +1747,11 @@ declare namespace distributedDeviceManager {
     setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: int): void;
 
     /**
-     * Restores local device name.
+     * Restores the local device name by resetting the network settings.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain the service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1717,27 +1759,22 @@ declare namespace distributedDeviceManager {
      * @since 18 dynamic
      * @since 23 static
      * @deprecated since 24
-     * @useinstead distributedDeviceManager.DeviceManager#restoreLocalDeviceName
+     * @useinstead distributedDeviceManager.DeviceManager.restoreLocalDeviceName
      */
     restoreLocalDeivceName(): void;
 
     /**
-     * Get the device network id list by conditions.
+     * Obtains the list of network devices according to the specified filter options.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { NetworkIdQueryFilter } filterOptions - parameter for querying the device network id list,
-     *                                                 The parameter type is map, such as:
-     *      "wiseDeviceId" : xx-xxxxx - Get device network id list by wiseDevice id.
-     *      "onlineStatus" : 1,             -  Get device network id list by online status.
-     *                                       0 - indicates that the device is offline.
-     *                                       1 - indicates that the device is online.
-     * @returns { Promise<Array<string>> }  - Returns a list of device network id.
+     * @param { NetworkIdQueryFilter } filterOptions - Filter options.
+     * @returns { Promise<Array<string>> } Promise used to return the device list.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *                                 required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Parameter verification failed;
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Parameter verification failed;
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600107 - A login account is required.
      * @syscap SystemCapability.DistributedHardware.DeviceManager

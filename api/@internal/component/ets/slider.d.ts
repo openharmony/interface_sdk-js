@@ -18,14 +18,14 @@
  * @kit ArkUI
  */
 /**
- * Declare sliderstyle
+ * Declare SliderStyle
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * Declare sliderstyle
+ * Declare SliderStyle
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33,7 +33,7 @@
  * @since 9
  */
 /**
- * Declare sliderstyle
+ * Declare SliderStyle
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

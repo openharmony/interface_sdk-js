@@ -443,7 +443,7 @@ declare namespace webview {
      */
     interface PdfConfiguration {
         /**
-         * Number of the width.
+         * Number of the width. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -452,7 +452,7 @@ declare namespace webview {
         width: double;
 
         /**
-         * Number of the height.
+         * Number of the height. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -461,7 +461,7 @@ declare namespace webview {
         height: double;
 
         /**
-         * Number of the marginTop.
+         * Number of the marginTop. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -470,7 +470,7 @@ declare namespace webview {
         marginTop: double;
 
         /**
-         * Number of the marginBottom.
+         * Number of the marginBottom. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -479,7 +479,7 @@ declare namespace webview {
         marginBottom: double;
 
         /**
-         * Number of the marginRight.
+         * Number of the marginRight. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -488,7 +488,7 @@ declare namespace webview {
         marginRight: double;
 
         /**
-         * Number of the marginLeft.
+         * Number of the marginLeft. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -532,7 +532,7 @@ declare namespace webview {
          */
         origin: string;
         /**
-         * Specify the amount of storage for the source.
+         * Specify the amount of storage for the source. Unit: byte.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -540,7 +540,7 @@ declare namespace webview {
          */
         usage: double;
         /**
-         * the callback of getOriginUsage.
+         * the callback of getOriginUsage. Unit: byte.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -699,7 +699,7 @@ declare namespace webview {
         /**
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function
+         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
@@ -725,7 +725,7 @@ declare namespace webview {
         /**
          * Get the web amount of storage with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function
+         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
@@ -2204,6 +2204,8 @@ declare namespace webview {
          * Time when a frame is interpolated or removed.
          *
          * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         * The value must be an integer.
+         * <br>Unit: ms.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -2250,9 +2252,11 @@ declare namespace webview {
         enable: boolean;
 
         /**
-         * Duration of the frame interpolation, in ms. The valid range is the union of {0} and [200, 2000].
+         * Duration of the frame interpolation. The valid range is the union of {0} and [200, 2000].
          *
          * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         * The value must be an integer.
+         * <br>Unit: ms.
          *
          * @type { ?int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -2289,6 +2293,72 @@ declare namespace webview {
          */
         callback?: Callback<BlanklessFrameInterpolationInfo>;
     }
+
+  /**
+   * Defines the parameters for enableAdvancedSecurityMode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  interface SecurityParams {  
+    /**
+     * Decide whether JIT is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableJITCompilation?: boolean;
+    /**
+     * Decide whether WASM is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableWebAssembly?: boolean;
+    /**
+     * Decide whether WebGL is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableWebGL?: boolean;
+    /**
+     * Decide whether PDFViewer is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disablePDFViewer?: boolean;
+    /**
+     * Decide whether MathML is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableMathML?: boolean;
+    /**
+     * Decide whether ServiceWorker is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableServiceWorker?: boolean;
+    /**
+     * Decide whether NonProxyUDP is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableNonProxyUDP?: boolean;
+  }
 
     /**
      * WebviewController can control various behaviors of Web components
@@ -3303,8 +3373,10 @@ declare namespace webview {
         getCustomUserAgent(): string;
 
         /**
-         * Set web engine socket connection timeout.
+         * Set web engine socket connection timeout. Unit: seconds.
+         * 
          * @param { int } timeout - Socket connection timeout.
+         *     The value should be an integer.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
@@ -4219,9 +4291,10 @@ declare namespace webview {
          * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
          * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
          *
-         * @param { int } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
-         * <br>The valid interval of avoidHeight is [0, the height of web component].
-         * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+         * @param { int } avoidHeight - the height value of the visible viewport avoidance.
+         *     The valid interval of avoidHeight is [0, the height of web component].
+         *     When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+         *     <br>Unit: vp.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 801 - Capability not supported.
@@ -4460,6 +4533,16 @@ declare namespace webview {
          * @since 23 static
          */
         static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+        /**
+         * Enable the application disable some features such as PDFViewer to enhance the security level of web application
+         *
+         * @param { SecurityParams } securityParams - The options means which supported option or item will be disabled.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
         /**
          * Resume current microphone.
@@ -4837,6 +4920,26 @@ declare namespace webview {
         getSuggestedFileName(): string;
 
         /**
+         * Get the original url of the web download.
+         *
+         * @returns { string } - Returns the original url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Get the referrer url of the web download.
+         *
+         * @returns { string } - Returns the referrer url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getReferrerUrl(): string;
+
+        /**
          * Start the web download.
          * Used in onBeforeDownload, If you want to start the current download, call this function.
          * @param { string } downloadPath - The content will be downloaded to this file.
@@ -4988,9 +5091,10 @@ declare namespace webview {
          */
         initialize(): Promise<void>;
         /**
-         * Read the data stream to the buffer.
+         * Read the data stream to the buffer. Unit: bytes.
          *
          * @param { int } size - Read size.
+         *     The value should be an integer.
          * @returns { Promise<ArrayBuffer> } Read array buffer of result.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -4999,7 +5103,7 @@ declare namespace webview {
          */
         read(size: int): Promise<ArrayBuffer>;
         /**
-         * Get the total size of the data stream. When data is chunked, always return zero.
+         * Get the total size of the data stream. When data is chunked, always return zero. Unit: bytes.
          *
          * @returns { long } Return size of data stream size.
          * @syscap SystemCapability.Web.Webview.Core
@@ -5007,7 +5111,7 @@ declare namespace webview {
          */
         getSize(): long;
         /**
-         * Get the current position of the data stream.
+         * Get the current position of the data stream. Unit: bytes.
          *
          * @returns { long } Return position in post data stream.
          * @syscap SystemCapability.Web.Webview.Core
@@ -6391,7 +6495,7 @@ declare namespace webview {
 
         /**
          * Set the lifetime in seconds in the BackForwardCache.
-         * Default is 600.
+         * The value should be an integer.Unit: seconds. Default is 600.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6417,7 +6521,7 @@ declare namespace webview {
         /**
          * ‌Set prefetch page interval limit.
          * <p><strong>API Note</strong>:<br>
-         * Default 500ms (ensures only one successful prefetch within 500ms).
+         * Unit: ms. Default 500ms (ensures only one successful prefetch within 500ms).
          * The interval throttles prefetch frequency to balance performance and resource usage.
          *
          * @type { int }

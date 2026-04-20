@@ -170,7 +170,7 @@ declare namespace intl {
      */
     /**
      * Collation parameter. The value can be: "big5han", "compat", "dict", "direct", "ducet", "emoji", "eor", "gb2312",
-     * "phonebk", "phonetic", "pinyin", "reformed, "search", "searchjl", "standard", "stroke", "trad", "unihan", "zhuyin"
+     * "phonebk", "phonetic", "pinyin", "reformed", "search", "searchjl", "standard", "stroke", "trad", "unihan", "zhuyin"
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -310,7 +310,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Wether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
+     * Whether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
      * and the value "false" means the opposite. The default value is "false".
      *
      * @type { ?boolean }
@@ -831,7 +831,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Wether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
+     * Whether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
      * and the value "false" means the opposite. The default value is "false".
      *
      * @type { boolean }
