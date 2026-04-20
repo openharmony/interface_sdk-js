@@ -3852,6 +3852,7 @@ declare namespace audio {
      * @returns { AudioSessionManager } AudioSessionManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5506,6 +5507,7 @@ declare namespace audio {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
+   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
@@ -5514,6 +5516,7 @@ declare namespace audio {
      * Default concurrency mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5522,6 +5525,7 @@ declare namespace audio {
      * Mix with others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5530,6 +5534,7 @@ declare namespace audio {
      * Duck others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5538,6 +5543,7 @@ declare namespace audio {
      * Pause others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5772,6 +5778,7 @@ declare namespace audio {
    * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
+   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
@@ -5781,6 +5788,7 @@ declare namespace audio {
      * @type { AudioConcurrencyMode }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5938,6 +5946,7 @@ declare namespace audio {
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
+   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
@@ -5954,6 +5963,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5965,6 +5975,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5975,6 +5986,7 @@ declare namespace audio {
      * @returns { boolean } The active audio session status for the current pid application.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5991,6 +6003,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
@@ -6015,6 +6028,7 @@ declare namespace audio {
     * @throws { BusinessError } 6800101 - Parameter verification failed.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @crossplatform
+    * @atomicservice
     * @since 12 dynamic
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
