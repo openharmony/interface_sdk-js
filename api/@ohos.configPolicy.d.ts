@@ -23,10 +23,6 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * The **configPolicy** module provides APIs for obtaining the corresponding directory and file path based on the 
  * predefined custom configuration level.
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Customization.ConfigPolicy
  * @systemapi
@@ -35,6 +31,7 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace configPolicy {
   /**
+   * Define followXMode.
    * 
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi
@@ -117,7 +114,8 @@ declare namespace configPolicy {
    * @param { AsyncCallback<string> } callback - Callback used to return the result. If the configuration file path is
    *     successfully obtained, **err** is **undefined**, and **data** is the path of the configuration file with the
    *     highest priority. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -131,7 +129,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - Name of the configuration file.
    * @returns { Promise<string> } Promise used to return the path of the configuration file with the highest priority.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -154,7 +153,8 @@ declare namespace configPolicy {
    * @param { AsyncCallback<string> } callback - Callback used to return the result. If the configuration file path is
    *     successfully obtained, **err** is **undefined**, and **data** is the path of the configuration file with the
    *     highest priority. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -175,11 +175,12 @@ declare namespace configPolicy {
    * @param { string } relPath - Name of the configuration file.
    * @param { FollowXMode } followMode - Follow mode.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
-   *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}.
    * @param { AsyncCallback<string> } callback - Callback used to return the result. If the configuration file path is
    *     successfully obtained, **err** is **undefined**, and **data** is the path of the configuration file with the
    *     highest priority. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -195,10 +196,12 @@ declare namespace configPolicy {
    * @param { string } relPath - Name of the configuration file.
    * @param { FollowXMode } followMode - Follow mode.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
-   *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}.
    * @returns { Promise<string> } Promise used to return the path of the configuration file with the highest priority.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -210,13 +213,15 @@ declare namespace configPolicy {
    * Obtains the path of the configuration file with the highest priority based on the provided follow mode.
    *
    * @param { string } relPath - Name of the configuration file.
-   * @param { FollowXMode } followMode - Follow mode. The default value is [DEFAULT]{@link configPolicy.FollowXMode} if
-   *     this parameter is not set.
+   * @param { FollowXMode } followMode - Follow mode. The default value is 
+   *     [DEFAULT]{@link configPolicy.FollowXMode.DEFAULT} if this parameter is not set.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
-   *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}.
    * @returns { string } The path of the configuration file with the highest priority obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -235,7 +240,8 @@ declare namespace configPolicy {
    * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the file list is
    *     successfully obtained, **err** is **undefined**, and **data** is the obtained file list. Otherwise, **err** is
    *     an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -258,7 +264,8 @@ declare namespace configPolicy {
    * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the file list is
    *     successfully obtained, **err** is **undefined**, and **data** is the obtained file list. Otherwise, **err** is
    *     an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -280,11 +287,12 @@ declare namespace configPolicy {
    * @param { string } relPath - Name of the configuration file.
    * @param { FollowXMode } followMode - Follow mode.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
-   *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}.
    * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the file list is
    *     successfully obtained, **err** is **undefined**, and **data** is the obtained file list. Otherwise, **err** is
    *     an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -299,7 +307,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - Name of the configuration file.
    * @returns { Promise<Array<string>> } Promise used to return the file list.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -315,10 +324,12 @@ declare namespace configPolicy {
    * @param { string } relPath - Name of the configuration file.
    * @param { FollowXMode } followMode - Follow mode.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
-   *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}.
    * @returns { Promise<Array<string>> } Promise used to return the file list.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -331,13 +342,15 @@ declare namespace configPolicy {
    * priority.
    *
    * @param { string } relPath - Name of the configuration file.
-   * @param { FollowXMode } followMode - Follow mode. The default value is [DEFAULT]{@link configPolicy.FollowXMode} if
-   *     this parameter is not set.
+   * @param { FollowXMode } followMode - Follow mode. The default value is 
+   *     [DEFAULT]{@link configPolicy.FollowXMode.DEFAULT} if this parameter is not set.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
-   *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}.
    * @returns { Array<string> } List of configuration files obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -352,7 +365,8 @@ declare namespace configPolicy {
    * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the list of configuration
    *     level directories is successfully obtained, <strong>err</strong> is <strong>undefined</strong>, 
    *     and <strong>data</strong> is the obtained list. Otherwise, <strong>err</strong> is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
