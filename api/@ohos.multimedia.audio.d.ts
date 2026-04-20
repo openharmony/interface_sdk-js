@@ -14876,6 +14876,33 @@ declare namespace audio {
   }
 
   /**
+   * Describes an audio device pair including both input and output devices.
+   * 
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDevicePair {
+    /**
+     * Input audio device descriptor.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    inputDevice: AudioDeviceDescriptor;
+
+    /**
+     * Output audio device descriptor.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    outputDevice: AudioDeviceDescriptor;
+  }
+
+  /**
    * Provides APIs for audio loopback.
    * When audio loopback is enabled, the system creates fast playback and recording streams to implement low-latency in-ear
    * monitoring. The recorded audio is directly routed back to the playback device internally. For the renderer, its audio
@@ -14910,6 +14937,16 @@ declare namespace audio {
      * @since 23 static
      */
     setVolume(volume: double): Promise<void>;
+
+    /**
+     * Gets the output volume for audio loopback.
+     * 
+     * @returns { double } Current audio loopback output volume value.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getVolume(): double;
 
     /**
      * Subscribes to audio loopback status changes.
@@ -14952,6 +14989,28 @@ declare namespace audio {
      * @since 23 static
      */
     offStatusChange(callback?: Callback<AudioLoopbackStatus>): void;
+
+    /**
+     * Gets supported audio device pairs in current device connection situation.
+     * 
+     * @returns { Array<AudioDevicePair> } Audio device pairs that support loopback,
+     *     if there is no supported device pair, empty array will be returned.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSupportedDevicePairs(): Array<AudioDevicePair>;
+
+    /**
+     * Gets the preferred audio device pair in current device connection situation.
+     * 
+     * @returns { AudioDevicePair | null }  The preferred audio device pair in audio system,
+     *     or null if there is no supported device pair.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getPreferredDevicePair(): AudioDevicePair | null;
 
     /**
      * Enable or disable audio loopback.
