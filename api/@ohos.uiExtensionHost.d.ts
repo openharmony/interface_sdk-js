@@ -65,7 +65,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -80,7 +80,7 @@ declare namespace uiExtensionHost {
      *     - Callback used to return the area.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -137,7 +137,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -151,7 +151,7 @@ declare namespace uiExtensionHost {
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi

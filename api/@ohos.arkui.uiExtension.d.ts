@@ -68,7 +68,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -82,7 +82,7 @@ declare namespace uiExtension {
      * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
@@ -138,7 +138,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -152,7 +152,7 @@ declare namespace uiExtension {
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
@@ -210,7 +210,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -228,7 +228,7 @@ declare namespace uiExtension {
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
      * <br> 1. The listening type is not supported.
-     * <br> 2. The listening has been registered.
+     * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
