@@ -334,6 +334,14 @@ declare namespace webview {
     M132 = 2,
 
     /**
+     * ArkWeb M144 version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    M144 = 3,
+
+    /**
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
