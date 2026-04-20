@@ -6386,6 +6386,18 @@ declare namespace webview {
     closeCamera(): void;
 
     /**
+     * Gets URL of frame that sent the latest postMessage to native application.
+     *
+     * @returns { string } The URL of frame that last sent a postMessage.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getLastPostMessageURL(): string;
+
+    /**
      * Pause all WebView timers.
      *
      * @throws { BusinessError } 17100001 - Init error.
