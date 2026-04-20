@@ -58,7 +58,7 @@ declare namespace proxyChannelManager {
     * @permission ohos.permission.ACCESS_BLUETOOTH
     * @param { int } channelId - Indicates the unique channelId.
     * @throws { BusinessError } 201 - Permission denied.
-    * @throws { BusinessError } 801 - Capability not supported.[since 26]
+    * @throws { BusinessError } 801 - Capability not supported because bluetooth proxy function not support.[since 26] |
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
