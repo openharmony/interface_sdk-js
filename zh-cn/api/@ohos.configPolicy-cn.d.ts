@@ -22,10 +22,6 @@ import { AsyncCallback } from './@ohos.base';
 
 /**
  * 配置策略提供按系统预定义的定制配置层级获取对应目录和文件路径的能力。
- * 
- * > **说明：**
- * >
- * > 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.Customization.ConfigPolicy
  * @systemapi
@@ -104,11 +100,14 @@ declare namespace configPolicy {
 
   /**
    * 获取指定文件名优先级最高的配置文件路径。使用callback异步回调。
-   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml，最终返回优先级最高的是：/sys_pod/etc/config.xml。
+   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml，
+   * 最终返回优先级最高的是：/sys_pod/etc/config.xml。
    *
    * @param { string } relPath - 配置文件名。
-   * @param { AsyncCallback<string> } callback - 回调函数。当获取配置文件路径成功，err为undefined，data为获取到的优先级最高的配置文件路径；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取配置文件路径成功，err为undefined，
+   *     data为获取到的优先级最高的配置文件路径；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -119,14 +118,17 @@ declare namespace configPolicy {
 
   /**
    * 根据提供的跟随模式获取指定文件名优先级最高的配置文件路径。使用callback异步回调。
-   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、/sys_pod/etc/carrier/46060/etc/
-   * config.xml。设备默认卡opkey为46060，设置的followMode为configPolicy.FollowXMode.SIM_DEFAULT。最终返回的是：/sys_pod/etc/carrier/46060/
-   * etc/config.xml。
+   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、
+   * /sys_pod/etc/carrier/46060/etc/
+   * config.xml。设备默认卡opkey为46060，设置的followMode为configPolicy.FollowXMode.SIM_DEFAULT。最终返回的是：
+   * /sys_pod/etc/carrier/46060/etc/config.xml。
    *
    * @param { string } relPath - 配置文件名。
    * @param { FollowXMode } followMode - 跟随模式。
-   * @param { AsyncCallback<string> } callback - 回调函数。当获取配置文件路径成功，err为undefined，data为获取到的优先级最高的配置文件路径；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取配置文件路径成功，err为undefined，
+   *     data为获取到的优先级最高的配置文件路径；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -137,15 +139,19 @@ declare namespace configPolicy {
 
   /**
    * 根据跟随模式获取指定文件优先级最高的配置文件路径。使用callback异步回调。
-   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、/sys_pod/etc/carrier/46060/etc/
-   * config.xml。设备卡1的opkey为46060，设置的followMode为configPolicy.FollowXMode.USER_DEFINED，自定义跟随规则为"etc/carrier/${
-   * telephony.sim.opkey0}"。最终返回的是：/sys_pod/etc/carrier/46060/etc/config.xml。
+   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、
+   * /sys_pod/etc/carrier/46060/etc/config.xml。设备卡1的opkey为46060，设置的followMode为
+   * configPolicy.FollowXMode.USER_DEFINED，自定义跟随规则为"etc/carrier/${telephony.sim.opkey0}"。
+   * 最终返回的是：/sys_pod/etc/carrier/46060/etc/config.xml。
    *
    * @param { string } relPath - 配置文件名。
    * @param { FollowXMode } followMode - 跟随模式。
-   * @param { string } extra - 用户自定义跟随规则，仅在followMode为[USER_DEFINED]{@link configPolicy.FollowXMode}时有效。
-   * @param { AsyncCallback<string> } callback - 回调函数。当获取配置文件路径成功，err为undefined，data为获取到的优先级最高的配置文件路径；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { string } extra - 用户自定义跟随规则，仅在followMode为
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}时有效。
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取配置文件路径成功，err为undefined，
+   *     data为获取到的优先级最高的配置文件路径；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -159,7 +165,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - 配置文件名。
    * @returns { Promise<string> } Promise对象，返回优先级最高的配置文件路径。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -173,10 +180,13 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - 配置文件名。
    * @param { FollowXMode } followMode - 跟随模式。
-   * @param { string } extra - 用户自定义跟随规则，仅在followMode为[USER_DEFINED]{@link configPolicy.FollowXMode}时有效。
+   * @param { string } extra - 用户自定义跟随规则，仅在followMode为
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}时有效。
    * @returns { Promise<string> } Promise对象，返回优先级最高的配置文件路径。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -188,11 +198,15 @@ declare namespace configPolicy {
    * 根据提供的跟随模式，获取指定文件名优先级最高的配置文件路径。
    *
    * @param { string } relPath - 配置文件名。
-   * @param { FollowXMode } followMode - 跟随模式，不设置时，默认使用[DEFAULT]{@link configPolicy.FollowXMode}。
-   * @param { string } extra - 用户自定义跟随规则，仅在followMode为[USER_DEFINED]{@link configPolicy.FollowXMode}时有效。
+   * @param { FollowXMode } followMode - 跟随模式，不设置时，默认使用
+   *     [DEFAULT]{@link configPolicy.FollowXMode.DEFAULT}。
+   * @param { string } extra - 用户自定义跟随规则，仅在followMode为
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}时有效。
    * @returns { string } 返回优先级最高的配置文件路径。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -202,12 +216,14 @@ declare namespace configPolicy {
 
   /**
    * 获取指定文件名的所有文件列表，按优先级从低到高。使用callback异步回调。
-   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml。最终返回的是：/system/etc/config.xml, /
-   * sys_pod/etc/config.xml。
+   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml。
+   * 最终返回的是：/system/etc/config.xml, /sys_pod/etc/config.xml。
    *
    * @param { string } relPath - 配置文件名。
-   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取文件列表成功，err为undefined，data为获取到的文件列表；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取文件列表成功，err为undefined，
+   *     data为获取到的文件列表；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -218,14 +234,17 @@ declare namespace configPolicy {
 
   /**
    * 根据提供的跟随模式获取指定文件名所有的文件列表，按优先级从低到高。使用callback异步回调。
-   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、/sys_pod/etc/carrier/46060/etc/
-   * config.xml。设备默认卡opkey为46060，设置的followMode为configPolicy.FollowXMode.SIM_DEFAULT。最终返回的是：/system/etc/config.xml, /
-   * sys_pod/etc/config.xml, /sys_pod/etc/carrier/46060/etc/config.xml。
+   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、
+   * /sys_pod/etc/carrier/46060/etc/config.xml。设备默认卡opkey为46060，设置的followMode为
+   * configPolicy.FollowXMode.SIM_DEFAULT。最终返回的是：/system/etc/config.xml, /sys_pod/etc/config.xml, 
+   * /sys_pod/etc/carrier/46060/etc/config.xml。
    *
    * @param { string } relPath - 配置文件名。
    * @param { FollowXMode } followMode - 跟随模式。
-   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取文件列表成功，err为undefined，data为获取到的文件列表；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取文件列表成功，err为undefined，
+   *     data为获取到的文件列表；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -236,16 +255,19 @@ declare namespace configPolicy {
 
   /**
    * 根据提供的跟随模式获取指定文件名所有的文件列表，按优先级从低到高。使用callback异步回调。
-   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、/sys_pod/etc/carrier/46060/etc/
-   * config.xml。设备卡1的opkey为46060，设置的followMode为configPolicy.FollowXMode.USER_DEFINED，自定义跟随规则为"etc/carrier/${
-   * telephony.sim.opkey0}"。最终返回的是：/system/etc/config.xml, /sys_pod/etc/config.xml, /sys_pod/etc/carrier/46060/etc/
-   * config.xml。
+   * 例如，config.xml在设备中的路径按优先级升序排列为：/system/etc/config.xml、/sys_pod/etc/config.xml、
+   * /sys_pod/etc/carrier/46060/etc/config.xml。设备卡1的opkey为46060，设置的followMode为
+   * configPolicy.FollowXMode.USER_DEFINED，自定义跟随规则为"etc/carrier/${telephony.sim.opkey0}"。
+   * 最终返回的是：/system/etc/config.xml, /sys_pod/etc/config.xml, /sys_pod/etc/carrier/46060/etc/config.xml。
    *
    * @param { string } relPath - 配置文件名。
    * @param { FollowXMode } followMode - 跟随模式。
-   * @param { string } extra - 用户自定义跟随规则，仅在followMode为[USER_DEFINED]{@link configPolicy.FollowXMode}时有效。
-   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取文件列表成功，err为undefined，data为获取到的文件列表；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { string } extra - 用户自定义跟随规则，仅在followMode为
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}时有效。
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取文件列表成功，err为undefined，
+   *     data为获取到的文件列表；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -259,7 +281,8 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - 配置文件名。
    * @returns { Promise<Array<string>> } Promise对象，返回文件列表。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
@@ -273,10 +296,13 @@ declare namespace configPolicy {
    *
    * @param { string } relPath - 配置文件名。
    * @param { FollowXMode } followMode - 跟随模式。
-   * @param { string } extra - 用户自定义跟随规则，仅在followMode为[USER_DEFINED]{@link configPolicy.FollowXMode}时有效。
+   * @param { string } extra - 用户自定义跟随规则，仅在followMode为
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}时有效。
    * @returns { Promise<Array<string>> } Promise对象，返回文件列表。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -288,11 +314,15 @@ declare namespace configPolicy {
    * 根据提供的跟随模式获取指定文件名所有的文件列表，按优先级从低到高。
    *
    * @param { string } relPath - 配置文件名。
-   * @param { FollowXMode } followMode - 跟随模式，不设置时，默认使用[DEFAULT]{@link configPolicy.FollowXMode}。
-   * @param { string } extra - 用户自定义跟随规则，仅在followMode为[USER_DEFINED]{@link configPolicy.FollowXMode}时有效。
+   * @param { FollowXMode } followMode - 跟随模式，不设置时，默认使用
+   *     [DEFAULT]{@link configPolicy.FollowXMode.DEFAULT}。
+   * @param { string } extra - 用户自定义跟随规则，仅在followMode为
+   *     [USER_DEFINED]{@link configPolicy.FollowXMode.USER_DEFINED}时有效。
    * @returns { Array<string> } 返回文件列表。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types; 
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -303,8 +333,10 @@ declare namespace configPolicy {
   /**
    * 获取配置层级目录列表，按优先级从低到高。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取配置层级目录列表成功，err为undefined，data为获取到的配置层级目录列表；否则err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。当获取配置层级目录列表成功，err为undefined，
+   *     data为获取到的配置层级目录列表；否则err为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
