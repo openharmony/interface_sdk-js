@@ -562,6 +562,38 @@ declare namespace securityManager {
   function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: int): void;
 
   /**
+   * Sets the watermark image to be displayed on the screen.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { image.PixelMap } pixelMap - pixelMap indicates the PixelMap of watermark image
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setScreenWatermarkImage(admin: Want, pixelMap: image.PixelMap): void;
+
+  /**
+   * Cancels the watermark image displayed on the screen.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function cancelScreenWatermarkImage(admin: Want): void;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
