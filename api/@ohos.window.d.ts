@@ -7525,6 +7525,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
+     * @atomicservice
      * @since 26.0.0 dynamic&static
      */
     setFloatNavigationAvoidAreaEnabled(enabled: boolean): Promise<void>;
@@ -7539,6 +7540,7 @@ declare namespace window {
      *                     2. Create js value failed.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
+     * @atomicservice
      * @since 26.0.0 dynamic&static
      */
     isFloatNavigationAvoidAreaEnabled(): boolean;
