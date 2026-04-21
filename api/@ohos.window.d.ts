@@ -12436,47 +12436,31 @@ declare namespace window {
      * @since 23 static
      */
     getDecorButtonStyle(): DecorButtonStyle;
-    
+
     /**
      * Set touchable areas. By default, the entire window area is touchable.
      * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
      * If the window area changes, you need to reset it.
      *
+     * @permission ohos.permission.SET_WINDOW_TOUCH_AREAS [since 26.0.0]
      * @param { Array<Rect> } rects - Touchable areas.
      *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    /**
-     * Set touchable areas. By default, the entire window area is touchable.
-     * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
-     * If the window area changes, you need to reset it.
-     *
-     * @permission ohos.permission.SET_WINDOW_TOUCH_AREAS
-     * @param { Array<Rect> } rects - Touchable areas.
-     *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
+     * @returns { Promise<void> } Promise that returns no value. [since 26.0.0]
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have
-     *     the permission required or to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
+     *     the permission required or to call the API. [since 26.0.0]
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API. [since 12 - 24]
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi [since 12 - 24]
+     * @publicapi [since 26.0.0]
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    setTouchableAreas(rects: Array<Rect>): void;
-	
+    setTouchableAreas(rects: Array<Rect>): Promise<void>;
+
     /**
      * Get the area of window title buttons.
      *
