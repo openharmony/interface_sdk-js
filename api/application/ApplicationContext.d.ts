@@ -622,6 +622,64 @@ declare class ApplicationContext extends Context {
    * @since 23 static
    */
   setFont(font: string): void;
+  
+  /**
+  * Enable delayed exit for the current process.
+  * <p>**NOTE**:
+  * <br>It can be called only by the main thread.
+  * <br>Under normal circumstances, the process exits after the last UIAbility within the application process
+  * has exited. After calling this interface, the process will delay its exit for 10 seconds after the last
+  * UIAbility exits. If a new Ability is started within the 10 seconds in the current process, the process
+  * no longer exits.</p>
+  * @returns { Promise<void> } The promise returned by the function.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+  * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  enableDelayedProcessExit(): Promise<void>;
+
+  /**
+   * Disables delayed process exit for the current process.
+   *
+   * <p><b>NOTE</b>:
+   * <br>This API can be called only by the main thread.
+   * <br>Calling this API cancels the effect of {@link enableDelayedProcessExit}.</p>
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+   * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  disableDelayedProcessExit(): Promise<void>;
+
+  /**
+   * Starts a UIAbility of the current application during the delayed-exit window.
+   *
+   * @param { Want } want - Indicates the UIAbility to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+   * @throws { BusinessError } 16000122 - The target component is blocked by the system module and does not support startup.
+   * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+   * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+   * @throws { BusinessError } 16000125 - Starting a plugin UIAbility is not supported.
+   * @throws { BusinessError } 16000130 - The UIAbility does not belong to the caller.
+   * @throws { BusinessError } 16000161 - Delayed process exit is not pending in the current process, and this API cannot be called.
+   * @throws { BusinessError } 16000162 - The current process still has another UIAbility, and this API cannot be called.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  startSelfUIAbility(want: Want): Promise<void>;
 
   /**
    * Get current app clone index.
