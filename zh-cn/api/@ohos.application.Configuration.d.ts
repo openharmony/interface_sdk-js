@@ -21,8 +21,7 @@
 import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
 
 /**
- * The module defines environment change information. Configuration is an interface definition and is used only for
- * field declaration.
+ * 定义环境变化信息。Configuration是接口定义，仅做字段声明。
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
@@ -31,7 +30,7 @@ import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
  */
 export interface Configuration {
   /**
-   * Language of the application, for example, **zh**.
+   * 表示应用程序的当前语言。例如：zh。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
@@ -41,7 +40,7 @@ export interface Configuration {
   language?: string;
 
   /**
-   * Color mode, which can be **COLOR_MODE_LIGHT** or **COLOR_MODE_DARK**. The default value is **COLOR_MODE_LIGHT**.
+   * 表示深浅色模式，取值范围：浅色模式（COLOR_MODE_LIGHT），深色模式（COLOR_MODE_DARK）。默认为浅色。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8

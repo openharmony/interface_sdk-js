@@ -14,8 +14,7 @@
  */
 
 /**
- * The WantAgent module provides APIs for creating and comparing WantAgent objects, and obtaining the user ID and bundle
- *  name of a WantAgent object.
+ * WantAgent模块提供了创建WantAgent实例、获取实例的用户ID、获取want信息、比较WantAgent实例和获取bundle名称等能力。
  *
  * @file
  * @kit API10LessDeprecatedModules
@@ -27,8 +26,7 @@ import { WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo } from './wantAgent/triggerInfo';
 
 /**
- * The WantAgent module provides APIs for creating and comparing WantAgent objects, and obtaining the user ID and bundle
- *  name of a WantAgent object.
+ * WantAgent模块提供了创建WantAgent实例、获取实例的用户ID、获取want信息、比较WantAgent实例和获取bundle名称等能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 12]
@@ -38,10 +36,10 @@ import { TriggerInfo } from './wantAgent/triggerInfo';
  */
 declare namespace wantAgent {
   /**
-   * Obtains the bundle name of a WantAgent.
+   * 获取WantAgent实例的Bundle名称。使用callback异步回调。
    *
-   * @param { WantAgent } agent - whose bundle name to obtain.
-   * @param { AsyncCallback<string> } callback - A callback method to obtain the package name of the WantAgent instance.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<string> } callback - 获取WantAgent实例的包名的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -51,10 +49,10 @@ declare namespace wantAgent {
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the bundle name of a WantAgent.
+   * 获取WantAgent实例的Bundle名称。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - whose bundle name to obtain.
-   * @returns { Promise<string> } Returns the bundle name of the {@link WantAgent} if any.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<string> } 以Promise形式返回获取WantAgent实例的Bundle名称。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -64,10 +62,10 @@ declare namespace wantAgent {
   function getBundleName(agent: WantAgent): Promise<string>;
 
   /**
-   * Obtains the UID of a WantAgent.
+   * 获取WantAgent实例的用户ID。使用callback异步回调。
    *
-   * @param { WantAgent } agent - whose UID to obtain.
-   * @param { AsyncCallback<number> } callback - Create a callback method for WantAgent.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<number> } callback - 获取WantAgent实例的用户ID的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -77,10 +75,10 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the UID of a WantAgent.
+   * 获取WantAgent实例的用户ID。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - whose UID to obtain.
-   * @returns { Promise<number> } Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<number> } 以Promise形式返回获取WantAgent实例的用户ID。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -90,10 +88,10 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent): Promise<number>;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
+   * 获取WantAgent中的Want(callback形式)。
    *
-   * @param { WantAgent } agent - Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @param { AsyncCallback<Want> } callback - Obtain the callback method for Want in WantAgent.
+   * @param { WantAgent } agent - Indicates the {@link WantAgent} WantAgent信息。
+   * @param { AsyncCallback<Want> } callback - 获取WantAgent中的Want的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 7
@@ -103,10 +101,10 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
+   * 获取WantAgent中的Want(Promise形式)。
    *
-   * @param { WantAgent } agent - Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @returns { Promise<Want> } Returns the {@link Want} of the {@link WantAgent}.
+   * @param { WantAgent } agent - WantAgent信息。
+   * @returns { Promise<Want> } 以Promise形式返回Want。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 7
@@ -116,10 +114,10 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * 取消WantAgent实例。使用callback异步回调。
    *
-   * @param { WantAgent } agent - to cancel.
-   * @param { AsyncCallback<void> } callback - Cancel the callback method for Want in WantAgent.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<void> } callback - 取消WantAgent实例的回调方法
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -129,10 +127,10 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * 取消WantAgent实例。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - to cancel.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<void> } 以Promise形式获取异步返回结果。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -142,12 +140,11 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent): Promise<void>;
 
   /**
-   * Triggers a WantAgent.
+   * 主动激发WantAgent实例。使用callback异步回调。
    *
-   * @param { WantAgent } agent - to trigger.
-   * @param { TriggerInfo } triggerInfo - parameters.
-   * @param { Callback<CompleteData> } [callback] - Indicates the callback method to be called after
-   *     the {@link WantAgent} is triggered.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { TriggerInfo } triggerInfo - TriggerInfo对象。
+   * @param { Callback<CompleteData> } [callback] - 主动激发WantAgent实例的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -157,12 +154,11 @@ declare namespace wantAgent {
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
 
   /**
-   * Checks whether two WantAgent objects are equal.
+   * 判断两个WantAgent实例是否相等，以此来判断是否是来自同一应用的相同操作。使用callback异步回调。
    *
-   * @param { WantAgent } agent - to compare.
-   * @param { WantAgent } otherAgent - WantAgent Object.
-   * @param { AsyncCallback<boolean> } callback - Callback method for determining whether two WantAgent instances are
-   *     equal.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { WantAgent } otherAgent - WantAgent对象。
+   * @param { AsyncCallback<boolean> } callback - 判断两个WantAgent实例是否相等的回调方法。返回true表示两个WantAgent实例相等；返回false表示不相等。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -172,11 +168,11 @@ declare namespace wantAgent {
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether two WantAgent objects are equal.
+   * 判断两个WantAgent实例是否相等，以此来判断是否是来自同一应用的相同操作。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - to compare.
-   * @param { WantAgent } otherAgent - WantAgent Object.
-   * @returns { Promise<boolean> } Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { WantAgent } otherAgent - WantAgent对象。
+   * @returns { Promise<boolean> } 以Promise形式返回获取判断两个WantAgent实例是否相等的结果。返回true表示两个WantAgent实例相等；返回false表示不相等。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -186,10 +182,10 @@ declare namespace wantAgent {
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
   /**
-   * Obtains a WantAgent object.
+   * 创建WantAgent。创建失败返回的WantAgent为空值。使用callback异步回调。
    *
-   * @param { WantAgentInfo } info - about the WantAgent object to obtain.
-   * @param { AsyncCallback<WantAgent> } callback - Callback method for obtaining the user ID of WantAgent instance.
+   * @param { WantAgentInfo } info - WantAgent信息。
+   * @param { AsyncCallback<WantAgent> } callback - 创建WantAgent的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -199,10 +195,10 @@ declare namespace wantAgent {
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
   /**
-   * Obtains a WantAgent object.
+   * 创建WantAgent。创建失败返回的WantAgent为空值。使用Promise异步回调。
    *
-   * @param { WantAgentInfo } info - about the WantAgent object to obtain.
-   * @returns { Promise<WantAgent> } Returns the created {@link WantAgent} object.
+   * @param { WantAgentInfo } info - WantAgent信息。
+   * @returns { Promise<WantAgent> } 以Promise形式返回WantAgent。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -212,7 +208,7 @@ declare namespace wantAgent {
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
   /**
-   * Enumerates flags for using a WantAgent.
+   * 表示WantAgent行为控制标志，用于配置WantAgent的创建和触发行为。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -222,8 +218,7 @@ declare namespace wantAgent {
    */
   export enum WantAgentFlags {
     /**
-     * Indicates that the WantAgent can be used only once.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * WantAgent仅能使用一次。  
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -234,8 +229,7 @@ declare namespace wantAgent {
     ONE_TIME_FLAG = 0,
 
     /**
-     * Indicates that null is returned if the WantAgent does not exist.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * 如果描述WantAgent对象不存在，则不创建它，直接返回null。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -246,8 +240,7 @@ declare namespace wantAgent {
     NO_BUILD_FLAG,
 
     /**
-     * Indicates that the existing WantAgent should be canceled before a new object is generated.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * 在生成一个新的WantAgent对象前取消已存在的一个WantAgent对象。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -258,8 +251,7 @@ declare namespace wantAgent {
     CANCEL_PRESENT_FLAG,
 
     /**
-     * Indicates that the system only replaces the extra data of the existing WantAgent with that of the new object.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * 使用新的WantAgent的额外数据替换已存在的WantAgent中的额外数据。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -270,7 +262,7 @@ declare namespace wantAgent {
     UPDATE_PRESENT_FLAG,
 
     /**
-     * Indicates that the created WantAgent should be immutable.
+     * WantAgent是不可变的。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -281,7 +273,7 @@ declare namespace wantAgent {
     CONSTANT_FLAG,
 
     /**
-     * Indicates that the current value of element can be replaced when the WantAgent is triggered.
+     * 当前Want中的element属性可被WantAgent.trigger()中Want的element属性取代。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -292,7 +284,7 @@ declare namespace wantAgent {
     REPLACE_ELEMENT,
 
     /**
-     * Indicates that the current value of action can be replaced when the WantAgent is triggered.
+     * 当前Want中的action属性可被WantAgent.trigger()中Want的action属性取代。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -303,7 +295,7 @@ declare namespace wantAgent {
     REPLACE_ACTION,
 
     /**
-     * Indicates that the current value of uri can be replaced when the WantAgent is triggered.
+     * 当前Want中的uri属性可被WantAgent.trigger()中Want的uri属性取代。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -314,7 +306,7 @@ declare namespace wantAgent {
     REPLACE_URI,
 
     /**
-     * Indicates that the current value of entities can be replaced when the WantAgent is triggered.
+     * 当前Want中的entities属性可被WantAgent.trigger()中Want的entities属性取代。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -325,7 +317,7 @@ declare namespace wantAgent {
     REPLACE_ENTITIES,
 
     /**
-     * Indicates that the current value of packageName can be replaced when the WantAgent is triggered.
+     * 当前Want中的bundleName属性可被WantAgent.trigger()中Want的bundleName属性取代。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -337,7 +329,7 @@ declare namespace wantAgent {
   }
 
   /**
-   * Identifies the operation for using a WantAgent, such as starting an ability or sending a common event.
+   * 表示WantAgent支持的操作类型。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -347,7 +339,7 @@ declare namespace wantAgent {
    */
   export enum OperationType {
     /**
-     * Unknown operation.
+     * 不识别的类型。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -358,7 +350,7 @@ declare namespace wantAgent {
     UNKNOWN_TYPE = 0,
 
     /**
-     * Starts an ability with a UI.
+     * 开启一个有页面的Ability。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -369,7 +361,7 @@ declare namespace wantAgent {
     START_ABILITY,
 
     /**
-     * Starts multiple abilities with a UI.
+     * 开启多个有页面的Ability。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -380,7 +372,7 @@ declare namespace wantAgent {
     START_ABILITIES,
 
     /**
-     * Starts an ability without a UI.
+     * 开启一个无页面的ability。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -391,7 +383,7 @@ declare namespace wantAgent {
     START_SERVICE,
 
     /**
-     * Sends a common event.
+     * 发送一个公共事件。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -403,7 +395,7 @@ declare namespace wantAgent {
   }
 
   /**
-   * Describes the data returned by after wantAgent.trigger is called.
+   * 表示主动触发WantAgent返回的数据。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -413,7 +405,7 @@ declare namespace wantAgent {
    */
   export interface CompleteData {
     /**
-     * Triggered WantAgent.
+     * 触发的wantAgent。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -424,7 +416,7 @@ declare namespace wantAgent {
     info: WantAgent;
 
     /**
-     * Existing Want that is triggered.
+     * 存在的被触发的want。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -435,7 +427,7 @@ declare namespace wantAgent {
     want: Want;
 
     /**
-     * Request code used to trigger the WantAgent.
+     * 触发wantAgent的请求代码。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -446,7 +438,7 @@ declare namespace wantAgent {
     finalCode: number;
 
     /**
-     * Final data collected by the common event.
+     * 公共事件收集的最终数据。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -457,7 +449,7 @@ declare namespace wantAgent {
     finalData: string;
 
     /**
-     * Extra data collected by the common event.
+     * 额外数据。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -470,7 +462,7 @@ declare namespace wantAgent {
 }
 
 /**
- * Defines the WantAgent object.
+ * WantAgent对象。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 12]
