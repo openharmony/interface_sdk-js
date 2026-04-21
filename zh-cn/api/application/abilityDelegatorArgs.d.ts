@@ -19,38 +19,62 @@
  */
 
 /**
- * The **ShellCmdResult** module provides the shell command execution result.
- *
- * > **NOTE**
+ * AbilityDelegatorArgs模块提供在应用程序执行测试用例期间，获取测试用例参数AbilityDelegatorArgs对象的能力。
+ * 
+ * > **说明：**
  * >
- * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
+ * > 本模块接口仅可在[单元测试框架](docroot://application-test/unittest-guidelines.md)中使用。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 8 dynamic
  * @since 23 static
  */
-export interface ShellCmdResult {
-
+export interface AbilityDelegatorArgs {
   /**
-   * Standard output of the shell command.
+   * 当前被测试应用的包名。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
    * @since 23 static
    */
-  stdResult: string;
+  bundleName: string;
 
   /**
-   * Result code of the shell command.
+   * 当前启动单元测试的参数。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
    * @since 23 static
    */
-  exitCode: int;
+  parameters: Record<string, string>;
+
+  /**
+   * 测试用例名称。
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
+   * @since 23 static
+   */
+  testCaseNames: string;
+
+  /**
+   * 执行测试用例的测试执行器名称。
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
+   * @since 23 static
+   */
+  testRunnerClassName: string;
 }
 
-export default ShellCmdResult;
+export default AbilityDelegatorArgs;

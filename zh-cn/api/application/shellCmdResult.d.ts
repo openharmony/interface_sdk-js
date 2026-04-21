@@ -19,11 +19,11 @@
  */
 
 /**
- * The **ShellCmdResult** module provides the shell command execution result.
- *
- * > **NOTE**
+ * 本模块提供Shell命令执行结果的能力。
+ * 
+ * > **说明：**
  * >
- * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
+ * > 本模块接口仅可在[单元测试框架](docroot://application-test/unittest-guidelines.md)中使用。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 11]
@@ -33,7 +33,7 @@
 export interface ShellCmdResult {
 
   /**
-   * Standard output of the shell command.
+   * Shell命令的标准输出内容。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -43,7 +43,7 @@ export interface ShellCmdResult {
   stdResult: string;
 
   /**
-   * Result code of the shell command.
+   * Shell命令的结果码。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]

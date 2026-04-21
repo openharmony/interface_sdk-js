@@ -25,8 +25,7 @@ import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundle/elementName';
 
 /**
- * The AbilityManager module provides APIs for obtaining, adding, and modifying ability running information and state
- * information.
+ * AbilityManager模块提供对Ability相关信息和状态信息进行获取、新增、修改等能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -36,7 +35,7 @@ import { ElementName } from './bundle/elementName';
  */
 declare namespace abilityManager {
   /**
-   * Enumerates the ability states.
+   * Ability的状态信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -46,7 +45,7 @@ declare namespace abilityManager {
    */
   export enum AbilityState {
     /**
-     * The ability is in the initial state.
+     * 表示Ability为初始化状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -57,7 +56,7 @@ declare namespace abilityManager {
     INITIAL = 0,
 
     /**
-     * The ability is running in the foreground.
+     * 表示Ability处于前台。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -68,7 +67,7 @@ declare namespace abilityManager {
     FOREGROUND = 9,
 
     /**
-     * The ability is running in the background.
+     * 表示Ability处于后台。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -79,7 +78,7 @@ declare namespace abilityManager {
     BACKGROUND = 10,
 
     /**
-     * The ability is being switched to the foreground.
+     * 表示Ability处于前台调度中。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -90,7 +89,7 @@ declare namespace abilityManager {
     FOREGROUNDING = 11,
 
     /**
-     * The ability is being switched to the background.
+     * 表示Ability处于后台调度中。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -102,12 +101,11 @@ declare namespace abilityManager {
   }
 
   /**
-   * Updates the configuration. This API uses an asynchronous callback to return the result.
+   * 通过传入要修改的配置项来更新配置。使用callback异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @param { Configuration } config - New configuration.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the configuration is updated, **err**
-   *     is undefined; otherwise, **err** is an error object.
+   * @param { Configuration } config - 新的配置项。
+   * @param { AsyncCallback<void> } callback - 回调函数，当通过修改配置来更新配置成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -117,11 +115,11 @@ declare namespace abilityManager {
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the configuration. This API uses a promise to return the result.
+   * 通过传入要修改的配置项来更新配置。使用Promise异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @param { Configuration } config - New configuration.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Configuration } config - 新的配置项。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -131,10 +129,10 @@ declare namespace abilityManager {
   function updateConfiguration(config: Configuration): Promise<void>;
 
   /**
-   * Obtains the ability running information. This API uses a promise to return the result.
+   * 获取Ability运行相关信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @returns { Promise<Array<AbilityRunningInfo>> } Promise used to return the ability running information.
+   * @returns { Promise<Array<AbilityRunningInfo>> } Promise对象，返回Ability运行相关信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -144,10 +142,10 @@ declare namespace abilityManager {
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
   /**
-   * Obtains the ability running information. This API uses an asynchronous callback to return the result.
+   * 获取Ability运行相关信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - Callback used to return the ability running information.
+   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - 回调函数，返回Ability运行相关信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
