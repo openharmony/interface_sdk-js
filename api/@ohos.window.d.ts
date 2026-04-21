@@ -3438,42 +3438,6 @@ declare namespace window {
   }
 
   /**
-   * Window focus environment variable info.
-   *
-   * @interface UIEnvFocus
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26 dynamic
-   */
-  interface UIEnvFocus {
-    /**
-     * Whether the window is focused.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26 dynamic
-     */
-    isFocused: boolean;
-  }
-
-  /**
-   * Window highlight environment variable info.
-   *
-   * @interface UIEnvHighlighted
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26 dynamic
-   */
-  interface UIEnvHighlighted {
-    /**
-     * Whether the window is highlighted.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26 dynamic
-     */
-    isHighlighted: boolean;
-  }
-
-  /**
    * Window rect change reason.
    *
    * @enum { number }
