@@ -671,7 +671,20 @@ export declare interface ImageAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
-    default colorFilter(value: ColorFilter | DrawingColorFilter | undefined): this;
+    /**
+     * Sets the color filter for the image.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>When this attribute is set, renderMode is not effective.
+     * </p>
+     *
+     * @param { ColorFilter | DrawingColorFilter | ResourceColor | undefined } value - Color filter of the image.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default colorFilter(value: ColorFilter | DrawingColorFilter | ResourceColor | undefined): this;
     /**
      * Whether the image can be copied.
      *
