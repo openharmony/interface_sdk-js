@@ -1262,7 +1262,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * started on the system UI. The UIExtensionAbility to start is determined by the combination of the **bundleName**,
    * **abilityName**, and **moduleName** fields in **Want**, and its type is determined by the
    * **ability.want.params.uiExtensionType** field in **want.parameters**. This API can be called only on the main thread.
-   *  It uses an promise to return the result asynchronously.
+   *  It uses a promise to return the result asynchronously.
    * 
    * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
    * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
