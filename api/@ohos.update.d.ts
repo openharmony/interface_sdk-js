@@ -21,16 +21,16 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **update** module implements update of the entire system, including built-in resources and preset applications, 
+ * The **update** module implements update of the entire system, including built-in resources and preset applications,
  * but not third-party applications.
- * 
+ *
  * There are three types of updates: SD card update, over the air (OTA) update, and factory reset update.
- * 
+ *
  * - The SD card update depends on the update packages and SD cards.
- * - The OTA update depends on the server deployed by the device manufacturer for managing update packages. The OTA 
+ * - The OTA update depends on the server deployed by the device manufacturer for managing update packages. The OTA
  * server IP address is passed by the caller. The request interface is fixed and developed by the device manufacturer.
  * - The factory reset update object provides the API for restoring factory settings.
- * 
+ *
  * > **NOTE**
  * >
  * > The APIs provided by this module are system APIs.
@@ -871,7 +871,7 @@ declare namespace update {
   export interface CheckResult {
     /**
      * Whether a new version is available.
-     * 
+     *
      * The value **true** indicates that a new version is available, and the value **false** indicates the opposite.
      *
      * @syscap SystemCapability.Update.UpdateService
@@ -1233,7 +1233,7 @@ declare namespace update {
   export interface PauseDownloadOptions {
     /**
      * Whether to allow automatic resuming of download.
-     * 
+     *
      * The value **true** indicates that automatic resuming is allowed, and the value **false** indicates the opposite.
      *
      * @syscap SystemCapability.Update.UpdateService
@@ -1295,8 +1295,8 @@ declare namespace update {
   export interface UpgradePolicy {
     /**
      * Automatic download policy.
-     * 
-     * The value **true** indicates that automatic download is supported, and the value **false** indicates the 
+     *
+     * The value **true** indicates that automatic download is supported, and the value **false** indicates the
      * opposite.
      *
      * @syscap SystemCapability.Update.UpdateService
@@ -1308,7 +1308,7 @@ declare namespace update {
 
     /**
      * Automatic update policy.
-     * 
+     *
      * The value **true** indicates that automatic update is supported, and the value **false** indicates the opposite.
      *
      * @syscap SystemCapability.Update.UpdateService
@@ -1370,7 +1370,7 @@ declare namespace update {
   export interface TaskInfo {
     /**
      * Whether a task exists.
-     * 
+     *
      * The value **true** indicates that the task exists, and the value **false** indicates the opposite.
      *
      * @syscap SystemCapability.Update.UpdateService
@@ -1649,7 +1649,7 @@ declare namespace update {
      * @since 26.0.0 dynamic&static
      */
     DATA_AND_OS = 2
-  } 
+  }
 
   /**
    * Describes the information of restoring factory settings.
