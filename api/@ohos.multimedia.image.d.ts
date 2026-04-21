@@ -9088,6 +9088,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     TIFF_METADATA = 21,
 
     /**
+     * XMP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XMP_METADATA = 22,
+
+    /**
      * Metadata of a Avis image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -14329,6 +14338,349 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Enumerates XMP tag type.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum XMPTagType {
+    /**
+     * Unknown XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN = 0,
+
+    /**
+     * String XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STRING = 1,
+
+    /**
+     * Unordered array XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNORDERED_ARRAY = 2,
+
+    /**
+     * Ordered array XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ORDERED_ARRAY = 3,
+
+    /**
+     * Alternate array XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALTERNATE_ARRAY = 4,
+
+    /**
+     * Alternate text XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALTERNATE_TEXT = 5,
+
+    /**
+     * Structure XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STRUCTURE = 6,
+  }
+
+  /**
+   * Describes XMP namespace parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface XMPNamespace {
+    /**
+     * The uri of XMP namespace.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uri: string;
+
+    /**
+     * The prefix of XMP namespace.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    prefix: string;
+  }
+
+  /**
+   * XMP namespace: XMP basic.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const XMP_BASIC: XMPNamespace;
+
+  /**
+   * XMP namespace: XMP rights.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const XMP_RIGHTS: XMPNamespace;
+
+  /**
+   * XMP namespace: exif.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const EXIF: XMPNamespace;
+
+  /**
+   * XMP namespace: dublin core.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const DUBLIN_CORE: XMPNamespace;
+
+  /**
+   * XMP namespace: tiff.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const TIFF: XMPNamespace;
+
+  /**
+   * Describes XMP Tag parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface XMPTag {
+    /**
+     * The namespace of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    xmpNamespace: XMPNamespace;
+
+    /**
+     * The name of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    name: string;
+
+    /**
+     * The type of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    type: XMPTagType;
+
+    /**
+     * The value of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    value?: string;
+  }
+
+  /**
+   * Describes XMP enumerate option parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface XMPEnumerateOptions {
+    /**
+     * The option that controls recursive enabling.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isRecursive?: boolean;
+
+    /**
+     * Whether to return only qualifier data.
+     * <br>Default value:false.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onlyQualifier?: boolean;
+  }
+
+  /**
+   * XMPMetadata instance.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class XMPMetadata {
+    /**
+     * Register a new namespace according to the xml namespace and prefix.
+     *
+     * @param { XMPNamespace } xmpNamespace - The xmp namespace.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Invalid namespace format.
+     *     2. The uri is already registered. 3. The prefix is already registered.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public registerXMPNamespace(xmpNamespace: XMPNamespace): Promise<void>;
+
+    /**
+     * Set the XMP type and value of the XMP tag in the specified path.
+     *
+     * @param { string } path - The specified path of the target XMP tag.(e.g., "dc:title").
+     * @param { XMPTagType } type - The specified XMP tag type.
+     * @param { string } [value] - The specified value. If this parameter is not specified, the default value is empty.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The path syntax is invalid. 3. The path does not match the type. 4. The value is invalid for the type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public setValue(path: string, type: XMPTagType, value?: string): Promise<void>;
+
+    /**
+     * Get a single XMP tag from specified path.
+     *
+     * @param { string } path - The specified path of the target XMP tag.(e.g., "dc:title").
+     * @returns { Promise<XMPTag | null> } Promise used to return the XMP tag.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The path syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public getTag(path: string): Promise<XMPTag | null>;
+
+    /**
+     * Remove the XMP tag from specified path.
+     *
+     * @param { string } path - The specified path of the target XMP tag.(e.g., "dc:title").
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The path syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public removeTag(path: string): Promise<void>;
+
+    /**
+     * Enumerate the XMP tags from specified path and uses a callback to return the result.
+     *
+     * @param { function } callback - Callback used to return the XMP node and the corresponding XMPTag.
+     *     The callback receives a path argument that follows the XMP namespace:path format.
+     * @param { string } [rootPath] - Enumerate root path. If this parameter is not specified, the default value is root
+     *     path.
+     * @param { XMPEnumerateOptions } [options] - XMP enumerate option.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The rootPath syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public enumerateTags(
+      callback: (path: string, tag: XMPTag) => boolean,
+      rootPath?: string,
+      options?: XMPEnumerateOptions
+    ): void;
+
+    /**
+     * Get all XMP tags from specified path.
+     *
+     * @param { string } [rootPath] - The specified path. If this parameter is not specified, the default value is root
+     *     path.
+     * @param { XMPEnumerateOptions } [options] - XMP enumerate option.
+     * @returns { Promise<Record<string, XMPTag>> } A Promise instance used to return all XMP tags.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The rootPath syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public getTags(rootPath?: string, options?: XMPEnumerateOptions): Promise<Record<string, XMPTag>>;
+
+    /**
+     * Set a blob into the XMP metadata.
+     *
+     * @param { ArrayBuffer } buffer - blob data.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. The buffer is empty or invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public setBlob(buffer: ArrayBuffer): Promise<void>;
+
+    /**
+     * Obtains the XMP metadata as a blob.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the ArrayBuffer of blob.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public getBlob(): Promise<ArrayBuffer>;
+  }
+
+  /**
  	 * Enumerates the properties available for the metadata of a Avis image.
  	 *
  	 * @syscap SystemCapability.Multimedia.Image.Core
@@ -14454,6 +14806,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     pngMetadata?: PngMetadata;
+
+    /**
+     * XMP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    xmpMetadata?: XMPMetadata;
 
     /**
      * Avis metadata.
