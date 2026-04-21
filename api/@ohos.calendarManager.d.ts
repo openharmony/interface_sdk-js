@@ -508,6 +508,19 @@ declare namespace calendarManager {
      * @since 18
      */
     queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
+
+    /**
+     * Opens the event edit page.
+     * @param { number } id - The ID of the event to be edited.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 23900001 - Parameter value error.
+     * @throws { BusinessError } 23900005 - This event cannot be edited.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    openEventEditPage(id: number): Promise<void>;
   }
 
   /**
