@@ -14,20 +14,19 @@
  */
 
 /**
- * The **TestRunner** module provides a test framework. You can use the APIs of this module to prepare the unit test 
- * environment and run test cases.
- * To implement your own unit test framework, extend this class and override its APIs.
- * 
- * > **NOTE**
+ * TestRunner模块提供了框架测试的能力。包括准备单元测试环境、运行测试用例。
+ * 如果您想实现自己的单元测试框架，您必须继承这个类并覆盖它的所有方法。
+ *
+ * > **说明：**
  * >
- * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
+ * > 本模块接口仅可在[单元测试框架](docroot://application-test/unittest-guidelines.md)中使用。
  *
  * @file
  * @kit TestKit
  */
 
 /**
- * Prepare the unit testing environment for running test cases.
+ * 为运行测试用例准备单元测试环境。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
@@ -36,7 +35,7 @@
 type OnPrepareFn = () => void;
 
 /**
- * Run all test cases.
+ * 运行测试用例。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
@@ -45,7 +44,7 @@ type OnPrepareFn = () => void;
 type OnRunFn = () => void;
 
 /**
- * Stop all test cases.
+ * 当测试完成时，系统会在测试环境退出前触发该回调。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -55,8 +54,8 @@ type OnRunFn = () => void;
 type OnStopFn = () => void;
 
 /**
- * Base class for the test framework.
- * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
+ * TestRunner模块提供了框架测试的能力。包括准备单元测试环境、运行测试用例。
+ * 如果您想实现自己的单元测试框架，您必须继承这个类并覆盖它的所有方法。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 11]
@@ -65,7 +64,7 @@ type OnStopFn = () => void;
  */
 interface TestRunner {
   /**
-   * Prepare the unit testing environment for running test cases.
+   * 为运行测试用例准备单元测试环境。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -74,7 +73,7 @@ interface TestRunner {
   onPrepare(): void;
 
   /**
-   * Prepare the unit testing environment for running test cases.
+   * 为运行测试用例准备单元测试环境。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -83,7 +82,7 @@ interface TestRunner {
   onPrepare: OnPrepareFn;
 
   /**
-   * Run all test cases.
+   * 运行测试用例。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -92,7 +91,7 @@ interface TestRunner {
   onRun(): void;
 
   /**
-   * Run all test cases.
+   * 运行测试用例。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -101,7 +100,7 @@ interface TestRunner {
   onRun: OnRunFn;
 
   /**
-   * Stop all test cases.
+   * 当测试完成时，系统会在测试环境退出前触发该回调。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

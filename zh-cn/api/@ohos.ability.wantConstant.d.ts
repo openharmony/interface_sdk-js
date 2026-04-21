@@ -19,7 +19,7 @@
  */
 
 /**
- * The module provides the actions, entities, and flags used in Want objects.
+ * wantConstant模块提供want中操作want常数和解释Flags说明的能力。
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 6
@@ -28,7 +28,7 @@
  */
 declare namespace wantConstant {
   /**
-   * Enumerates the action constants of the Want object. **action** specifies the operation to execute.
+   * want操作的常数。用于表示要执行的通用操作。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
@@ -36,7 +36,7 @@ declare namespace wantConstant {
    */
   export enum Action {
     /**
-     * Action of returning to the home page.
+     * 指示返回原点的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -45,7 +45,7 @@ declare namespace wantConstant {
     ACTION_HOME = 'ohos.want.action.home',
 
     /**
-     * Action of launching the numeric keypad.
+     * 指示启动显示小键盘的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -54,7 +54,7 @@ declare namespace wantConstant {
     ACTION_DIAL = 'ohos.want.action.dial',
 
     /**
-     * Action of launching the search function.
+     * 指示启动页面搜索功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -63,7 +63,7 @@ declare namespace wantConstant {
     ACTION_SEARCH = 'ohos.want.action.search',
 
     /**
-     * Action of launching the UI that provides wireless network settings, for example, Wi-Fi options.
+     * 指示启动提供无线网络设置的页面功能的操作，例如，Wi-Fi选项。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -72,7 +72,7 @@ declare namespace wantConstant {
     ACTION_WIRELESS_SETTINGS = 'ohos.settings.wireless',
 
     /**
-     * Action of launching the UI for managing installed applications.
+     * 指示启动管理已安装应用程序的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -81,7 +81,7 @@ declare namespace wantConstant {
     ACTION_MANAGE_APPLICATIONS_SETTINGS = 'ohos.settings.manage.applications',
 
     /**
-     * Action of launching the UI that displays the details of an application.
+     * 指示启动显示指定应用程序详细信息的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -90,7 +90,7 @@ declare namespace wantConstant {
     ACTION_APPLICATION_DETAILS_SETTINGS = 'ohos.settings.application.details',
 
     /**
-     * Action of launching the UI for setting the alarm clock.
+     * 指示启动页面功能以设置闹钟的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -99,7 +99,7 @@ declare namespace wantConstant {
     ACTION_SET_ALARM = 'ohos.want.action.setAlarm',
 
     /**
-     * Action of launching the UI that displays all alarms.
+     * 指示启动显示所有警报的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -108,7 +108,7 @@ declare namespace wantConstant {
     ACTION_SHOW_ALARMS = 'ohos.want.action.showAlarms',
 
     /**
-     * Action of launching the UI for snoozing an alarm.
+     * 指示启动用于使闹钟睡眠的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -117,7 +117,7 @@ declare namespace wantConstant {
     ACTION_SNOOZE_ALARM = 'ohos.want.action.snoozeAlarm',
 
     /**
-     * Action of launching the UI for deleting an alarm.
+     * 指示启动删除闹钟的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -126,7 +126,7 @@ declare namespace wantConstant {
     ACTION_DISMISS_ALARM = 'ohos.want.action.dismissAlarm',
 
     /**
-     * Action of launching the UI for dismissing a timer.
+     * 指示启动页面功能以关闭计时器的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -135,7 +135,7 @@ declare namespace wantConstant {
     ACTION_DISMISS_TIMER = 'ohos.want.action.dismissTimer',
 
     /**
-     * Action of launching the UI for sending an SMS message.
+     * 指示启动发送sms的页面功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -144,7 +144,7 @@ declare namespace wantConstant {
     ACTION_SEND_SMS = 'ohos.want.action.sendSms',
 
     /**
-     * Action of launching the UI for opening a contact or picture.
+     * 指示启动页面功能以打开联系人或图片的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -153,7 +153,7 @@ declare namespace wantConstant {
     ACTION_CHOOSE = 'ohos.want.action.choose',
 
     /**
-     * Action of launching the UI for photographing.
+     * 指示启动页面拍照功能的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -162,7 +162,7 @@ declare namespace wantConstant {
     ACTION_IMAGE_CAPTURE = 'ohos.want.action.imageCapture',
 
     /**
-     * Action of launching the UI for shooting a video.
+     * 指示启动页面功能以拍摄视频的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -171,7 +171,7 @@ declare namespace wantConstant {
     ACTION_VIDEO_CAPTURE = 'ohos.want.action.videoCapture',
 
     /**
-     * Action of launching the UI for application selection.
+     * 指示显示应用程序选择对话框的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -180,7 +180,7 @@ declare namespace wantConstant {
     ACTION_SELECT = 'ohos.want.action.select',
 
     /**
-     * Action of launching the UI for sending a single data record.
+     * 指示发送单个数据记录的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -189,7 +189,7 @@ declare namespace wantConstant {
     ACTION_SEND_DATA = 'ohos.want.action.sendData',
 
     /**
-     * Action of launching the UI for sending multiple data records.
+     * 指示发送多个数据记录的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -198,7 +198,7 @@ declare namespace wantConstant {
     ACTION_SEND_MULTIPLE_DATA = 'ohos.want.action.sendMultipleData',
 
     /**
-     * Action of requesting a media scanner to scan a file and add the file to the media library.
+     * 指示请求媒体扫描仪扫描文件并将文件添加到媒体库的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -207,7 +207,7 @@ declare namespace wantConstant {
     ACTION_SCAN_MEDIA_FILE = 'ohos.want.action.scanMediaFile',
 
     /**
-     * Action of viewing data.
+     * 指示查看数据的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -216,7 +216,7 @@ declare namespace wantConstant {
     ACTION_VIEW_DATA = 'ohos.want.action.viewData',
 
     /**
-     * Action of editing data.
+     * 指示编辑数据的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -225,7 +225,7 @@ declare namespace wantConstant {
     ACTION_EDIT_DATA = 'ohos.want.action.editData',
 
     /**
-     * Action of displaying selection options with an action selector.
+     * 指示用行为选择器来展示选择的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -234,7 +234,7 @@ declare namespace wantConstant {
     INTENT_PARAMS_INTENT = 'ability.want.params.INTENT',
 
     /**
-     * Title of the character sequence dialog box used with the action selector.
+     * 指示与行为选择器一起使用时的字符序列对话框标题。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -243,7 +243,7 @@ declare namespace wantConstant {
     INTENT_PARAMS_TITLE = 'ability.want.params.TITLE',
 
     /**
-     * Action of selecting a file.
+     * 指示选择文件的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 7
@@ -252,8 +252,7 @@ declare namespace wantConstant {
     ACTION_FILE_SELECT = 'ohos.action.fileSelect',
 
     /**
-     * URI of the data stream associated with the target when the data is sent. The value must be an array of the string
-     *  type.
+     * 指示发送数据时与目标关联的数据流的URI。对应的value必须是string类型的数组。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 7
@@ -262,7 +261,7 @@ declare namespace wantConstant {
     PARAMS_STREAM = 'ability.params.stream',
 
     /**
-     * Action of providing the OAuth service.
+     * 指示提供oauth服务的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -272,8 +271,7 @@ declare namespace wantConstant {
   }
 
   /**
-   * Enumerates the entity constants of the Want object. **entity** specifies additional information of the target
-   * ability.
+   * want实体的常数。用于表示目标Ability额外的类别信息。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
@@ -281,7 +279,7 @@ declare namespace wantConstant {
    */
   export enum Entity {
     /**
-     * Default entity. The default entity is used if no entity is specified.
+     * 指示默认实体，如果未指定实体，则使用该实体。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -290,7 +288,7 @@ declare namespace wantConstant {
     ENTITY_DEFAULT = 'entity.system.default',
 
     /**
-     * Home screen entity.
+     * 指示主屏幕实体。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -299,7 +297,7 @@ declare namespace wantConstant {
     ENTITY_HOME = 'entity.system.home',
 
     /**
-     * Voice interaction entity.
+     * 表示语音交互实体。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -308,7 +306,7 @@ declare namespace wantConstant {
     ENTITY_VOICE = 'entity.system.voice',
 
     /**
-     * Browser type entity.
+     * 指示浏览器类别。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -317,7 +315,7 @@ declare namespace wantConstant {
     ENTITY_BROWSABLE = 'entity.system.browsable',
 
     /**
-     * Video type entity.
+     * 指示视频类别。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -327,7 +325,7 @@ declare namespace wantConstant {
   }
 
   /**
-   * Enumerates the flags that specify how the Want will be handled.
+   * Flags说明。用于表示处理Want的方式。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
@@ -336,7 +334,7 @@ declare namespace wantConstant {
    */
   export enum Flags {
     /**
-     * Grants the permission to read the URI.
+     * 指示对URI执行读取操作的授权。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -346,7 +344,7 @@ declare namespace wantConstant {
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
     /**
-     * Grants the permission to write data to the URI.
+     * 指示对URI执行写入操作的授权。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -356,7 +354,7 @@ declare namespace wantConstant {
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
-     * Returns the result to the ability.
+     * 将结果返回给元能力。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -365,7 +363,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_FORWARD_RESULT = 0x00000004,
 
     /**
-     * Indicates whether the ability on the local device can be continued on a remote device.
+     * 确定是否可以将本地设备上的功能迁移到远程设备。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -374,7 +372,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_CONTINUATION = 0x00000008,
 
     /**
-     * Indicates that a component does not belong to OHOS.
+     * 指定组件是否属于OHOS。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -383,7 +381,7 @@ declare namespace wantConstant {
     FLAG_NOT_OHOS_COMPONENT = 0x00000010,
 
     /**
-     * Indicates that an ability is enabled.
+     * 指定是否启动某个能力。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -392,7 +390,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_FORM_ENABLED = 0x00000020,
 
     /**
-     * Grants the permission to make the URI persistent.
+     * 指示URI上可能持久化的授权。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
@@ -402,7 +400,7 @@ declare namespace wantConstant {
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
     /**
-     * Grants the permission to verify URIs by prefix matching.
+     * 按照前缀匹配的方式验证URI权限。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
@@ -412,7 +410,7 @@ declare namespace wantConstant {
     FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
 
     /**
-     * Indicates the support for cross-device startup in the distributed scheduler.
+     * 支持分布式调度系统中的多设备启动。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -421,7 +419,7 @@ declare namespace wantConstant {
     FLAG_ABILITYSLICE_MULTI_DEVICE = 0x00000100,
 
     /**
-     * Indicates that the ServiceAbility is started regardless of whether the host application has been started.
+     * 指示无论主机应用程序是否已启动，都将启动使用服务模板的功能。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -430,7 +428,7 @@ declare namespace wantConstant {
     FLAG_START_FOREGROUND_ABILITY = 0x00000200,
 
     /**
-     * Indicates that ability continuation is reversible.
+     * 表示迁移是可拉回的。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
@@ -440,7 +438,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
 
     /**
-     * Indicates that the specific ability will be installed if it has not been installed.
+     * 如果未安装指定的功能，请安装该功能。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -450,7 +448,7 @@ declare namespace wantConstant {
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
-     * Indicates that the specific ability will be installed in the background if it has not been installed.
+     * 如果未安装，使用后台模式安装该功能。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -459,9 +457,9 @@ declare namespace wantConstant {
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 
     /**
-     * Clears other operation missions. This flag can be set for the Want passed in
+     * 指示清除其他任务的操作。可以为传递给 **FeatureAbility** 中
      * [startAbility]{@link @ohos.ability.featureAbility:featureAbility.startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>)}
-     * . It must be used together with **FLAG_ABILITY_NEW_MISSION**.
+     * 方法的**Want**设置此标志，并且必须与**FLAG_ABILITY_NEW_MISSION**一起使用。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -470,7 +468,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_CLEAR_MISSION = 0x00008000,
 
     /**
-     * Creates a mission on the history mission stack.
+     * 指示在历史任务堆栈上创建任务的操作。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -479,8 +477,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_NEW_MISSION = 0x10000000,
 
     /**
-     * Reuses an ability instance if it is on the top of an existing mission stack; creates an ability instance
-     * otherwise.
+     * 指示如果启动能力的现有实例已位于任务堆栈的顶部，则将重用该实例。否则，将创建一个新的能力实例。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6

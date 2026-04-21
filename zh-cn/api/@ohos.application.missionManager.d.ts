@@ -25,7 +25,7 @@ import { MissionSnapshot } from './application/MissionSnapshot';
 import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
- * The missionManager module provides APIs to lock, unlock, and clear missions, and switch a mission to the foreground.
+ * missionManager模块提供系统任务管理能力，包括对系统任务执行锁定、解锁、清理、切换到前台等操作。
  *
  * @permission ohos.permission.MANAGE_MISSIONS
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -36,12 +36,11 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  */
 declare namespace missionManager {
   /**
-   * Registers a listener to observe the mission status.
+   * 注册系统任务状态监听器。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { MissionListener } listener - Mission status listener to register.
-   * @returns { number } Index of the mission status listener, which is created by the system and allocated when the listener
-   *     is registered.
+   * @param { MissionListener } listener - 系统任务监听器。
+   * @returns { number } 监听器的index值，由系统创建，在注册系统任务状态监听器时分配，和监听器一一对应 。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -51,12 +50,11 @@ declare namespace missionManager {
   function registerMissionListener(listener: MissionListener): number;
 
   /**
-   * Unregisters a mission status listener. This API uses an asynchronous callback to return the result.
+   * 解注册任务状态监听器。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } listenerId - Index of the mission status listener to unregister. It is returned by
-   *     **registerMissionListener()**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } listenerId - 系统任务状态监听器的index值，和监听器一一对应，由registerMissionListener方法返回。
+   * @param { AsyncCallback<void> } callback - 执行结果回调函数。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -66,12 +64,11 @@ declare namespace missionManager {
   function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Unregisters a mission status listener. This API uses a promise to return the result.
+   * 解注册任务状态监听器。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } listenerId - Index of the mission status listener to unregister. It is returned by
-   *     **registerMissionListener()**.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } listenerId - 系统任务状态监听器的index值，和监听器一一对应，由registerMissionListener方法返回。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -81,12 +78,12 @@ declare namespace missionManager {
   function unregisterMissionListener(listenerId: number): Promise<void>;
 
   /**
-   * Obtains the information about a given mission. This API uses an asynchronous callback to return the result.
+   * 获取单个任务信息。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
-   * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<MissionInfo> } callback - Callback used to return the mission information obtained.
+   * @param { string } deviceId - 设备ID，本机默认为空字符串。
+   * @param { number } missionId - 任务ID。
+   * @param { AsyncCallback<MissionInfo> } callback - 回调函数，返回任务信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -96,12 +93,12 @@ declare namespace missionManager {
   function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
 
   /**
-   * Obtains the information about a given mission. This API uses a promise to return the result.
+   * 获取单个任务信息。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
-   * @param { number } missionId - Mission ID.
-   * @returns { Promise<MissionInfo> } Promise used to return the mission information obtained.
+   * @param { string } deviceId - 设备ID，本机默认为空字符串。
+   * @param { number } missionId - 任务ID。
+   * @returns { Promise<MissionInfo> } Promise对象，返回任务信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -111,13 +108,12 @@ declare namespace missionManager {
   function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
   /**
-   * Obtains information about all missions. This API uses an asynchronous callback to return the result.
+   * 获取所有任务信息。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
-   * @param { number } numMax - Maximum number of missions whose information can be obtained.
-   * @param { AsyncCallback<Array<MissionInfo>> } callback - Callback used to return the array of mission information
-   *     obtained.
+   * @param { string } deviceId - 设备ID，本机默认为空字符串。
+   * @param { number } numMax - 任务信息数量上限。
+   * @param { AsyncCallback<Array<MissionInfo>> } callback - 回调函数，返回任务信息数组。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -127,12 +123,12 @@ declare namespace missionManager {
   function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
 
   /**
-   * Obtains information about all missions. This API uses a promise to return the result.
+   * 获取所有任务信息。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
-   * @param { number } numMax - Maximum number of missions whose information can be obtained.
-   * @returns { Promise<Array<MissionInfo>> } Promise used to return the array of mission information obtained.
+   * @param { string } deviceId - 设备ID，本机默认为空字符串。
+   * @param { number } numMax - 任务信息数量上限。
+   * @returns { Promise<Array<MissionInfo>> } Promise对象，返回任务信息数组。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -142,12 +138,12 @@ declare namespace missionManager {
   function getMissionInfos(deviceId: string, numMax: number): Promise<Array<MissionInfo>>;
 
   /**
-   * Obtains the snapshot of a given mission. This API uses an asynchronous callback to return the result.
+   * 获取任务快照。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
-   * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<MissionSnapshot> } callback - Callback used to return the snapshot information obtained.
+   * @param { string } deviceId - 设备ID，本机默认为空字符串。
+   * @param { number } missionId - 任务ID。
+   * @param { AsyncCallback<MissionSnapshot> } callback - 回调函数，返回任务快照信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -157,12 +153,12 @@ declare namespace missionManager {
   function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
 
   /**
-   * Obtains the snapshot of a given mission. This API uses a promise to return the result.
+   * 获取任务快照。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
-   * @param { number } missionId - Mission ID.
-   * @returns { Promise<MissionSnapshot> } Promise used to return the snapshot information obtained.
+   * @param { string } deviceId - 设备ID，本机默认为空字符串。
+   * @param { number } missionId - 任务ID。
+   * @returns { Promise<MissionSnapshot> } Promise对象，返回任务快照信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -172,12 +168,11 @@ declare namespace missionManager {
   function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
   /**
-   * Locks a given mission. This API uses an asynchronous callback to return the result.
+   * 锁定指定任务id的任务。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is locked, **err** is
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { number } missionId - 任务ID。
+   * @param { AsyncCallback<void> } callback - 回调函数，当锁定指定任务id的任务成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -187,11 +182,11 @@ declare namespace missionManager {
   function lockMission(missionId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Locks a given mission. This API uses a promise to return the result.
+   * 锁定指定任务id的任务。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } missionId - 任务ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -201,12 +196,11 @@ declare namespace missionManager {
   function lockMission(missionId: number): Promise<void>;
 
   /**
-   * Unlocks a given mission. This API uses an asynchronous callback to return the result.
+   * 解锁指定任务id的任务。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is unlocked, **err** is
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { number } missionId - 任务ID。
+   * @param { AsyncCallback<void> } callback - 回调函数，当解锁指定任务id的任务成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -216,11 +210,11 @@ declare namespace missionManager {
   function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Unlocks a given mission. This API uses a promise to return the result.
+   * 解锁指定任务id的任务。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } missionId - 任务ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -230,13 +224,11 @@ declare namespace missionManager {
   function unlockMission(missionId: number): Promise<void>;
 
   /**
-   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the
-   * result.
+   * 清理指定任务id的任务，无论该任务是否被锁定。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is cleared, **err** is
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { number } missionId - 任务ID。
+   * @param { AsyncCallback<void> } callback - 回调函数，当清理指定任务id的任务成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -246,11 +238,11 @@ declare namespace missionManager {
   function clearMission(missionId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Clears a given mission, regardless of whether it is locked. This API uses a promise to return the result.
+   * 清理指定任务id的任务，无论该任务是否被锁定。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } missionId - 任务ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -260,11 +252,10 @@ declare namespace missionManager {
   function clearMission(missionId: number): Promise<void>;
 
   /**
-   * Clears all unlocked missions. This API uses an asynchronous callback to return the result.
+   * 清理所有未锁定的任务。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the unlocked missions are cleared,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数，当清理所有未锁定的任务成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -274,10 +265,10 @@ declare namespace missionManager {
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
   /**
-   * Clears all unlocked missions. This API uses a promise to return the result.
+   * 清理所有未锁定的任务。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -287,12 +278,11 @@ declare namespace missionManager {
   function clearAllMissions(): Promise<void>;
 
   /**
-   * Switches a given mission to the foreground. This API uses an asynchronous callback to return the result.
+   * 把指定任务id的任务切到前台。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is switched to the
-   *     foreground, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { number } missionId - 任务ID。
+   * @param { AsyncCallback<void> } callback - 回调函数，当把指定任务id的任务切到前台成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -302,15 +292,12 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
-   * an asynchronous callback to return the result.
+   * 把指定任务id的任务切到前台，同时指定任务切换到前台时的启动参数，例如窗口模式、设备ID等。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @param { StartOptions } options - Startup parameters, which are used to specify the window mode and device ID for
-   *     switching the mission to the foreground.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is switched to the
-   *     foreground, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { number } missionId - 任务ID。
+   * @param { StartOptions } options - 启动参数选项，用于指定任务切到前台时的窗口模式，设备ID等。
+   * @param { AsyncCallback<void> } callback - 回调函数，当把指定任务id的任务切到前台成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -320,14 +307,12 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
-   * a promise to return the result.
+   * 把指定任务id的任务切到前台，同时指定任务切换到前台时的启动参数，例如窗口模式、设备ID等。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Mission ID.
-   * @param { StartOptions } [options] - Startup parameters, which are used to specify the window mode and device ID for
-   *     switching the mission to the foreground.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } missionId - 任务ID。
+   * @param { StartOptions } [options] - 启动参数选项，用于指定任务切到前台时的窗口模式，设备ID等。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8

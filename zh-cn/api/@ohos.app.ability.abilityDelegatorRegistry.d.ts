@@ -26,15 +26,15 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
 import { InteropAbilityMonitor as _InteropAbilityMonitor } from './application/InteropAbilityMonitor';
 
 /**
- * **AbilityDelegatorRegistry**, a module of the automatic test framework, is used to obtain
- * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} and
- * [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} objects. **AbilityDelegator**
- * provides APIs for creating [AbilityMonitor]{@link application/AbilityMonitor:AbilityMonitor} objects, which can be
- * used to listen for ability lifecycle changes. **AbilityDelegatorArgs** provides APIs for obtaining test parameters.
+ * AbilityDelegatorRegistry是自动化测试框架使用指南模块，该模块用于获取[AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator}
+ * 和[AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}对象，其中
+ * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator}对象提供添加用于监视指定ability的生命周期状态更改的
+ * [AbilityMonitor]{@link application/AbilityMonitor:AbilityMonitor}对象的能力，
+ * [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}对象提供获取当前测试参数的能力。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
+ * > 本模块接口仅可在[单元测试框架](docroot://application-test/unittest-guidelines.md)中使用。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 10]
@@ -44,10 +44,9 @@ import { InteropAbilityMonitor as _InteropAbilityMonitor } from './application/I
  */
 declare namespace abilityDelegatorRegistry {
   /**
-   * Obtains an [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object.
+   * 获取应用程序的[AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator}对象，该对象能够使用调度测试框架的相关功能。
    *
-   * @returns { AbilityDelegator } [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object, which can
-   *     be used to schedule the functionalities of the test framework.
+   * @returns { AbilityDelegator } [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator}对象。可以用来调度测试框架相关功能。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -57,10 +56,10 @@ declare namespace abilityDelegatorRegistry {
   function getAbilityDelegator(): AbilityDelegator;
 
   /**
-   * Obtains an [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} object.
+   * 获取单元测试参数[AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}对象。
    *
-   * @returns { AbilityDelegatorArgs } [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}
-   *     object, which can be used to obtain test parameters.
+   * @returns { AbilityDelegatorArgs } [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}对象。
+   *     可以用来获取测试参数。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -70,10 +69,8 @@ declare namespace abilityDelegatorRegistry {
   function getArguments(): AbilityDelegatorArgs;
 
   /**
-   * Enumerates the ability lifecycle states. It can be used in
-   * [getAbilityState(ability)]{@link application/AbilityDelegator:AbilityDelegator.getAbilityState} of
-   * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} to return different ability lifecycle
-   * states.
+   * Ability生命周期状态，该类型为枚举，可配合[AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator}的
+   * [getAbilityState(ability)]{@link application/AbilityDelegator:AbilityDelegator.getAbilityState}方法返回不同ability生命周期。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
@@ -83,7 +80,7 @@ declare namespace abilityDelegatorRegistry {
    */
   export enum AbilityLifecycleState {
     /**
-     * The ability is in an invalid state.
+     * 表示Ability处于无效状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -94,7 +91,7 @@ declare namespace abilityDelegatorRegistry {
     UNINITIALIZED = 0,
 
     /**
-     * The ability is created.
+     * 表示Ability处于已创建状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -105,7 +102,7 @@ declare namespace abilityDelegatorRegistry {
     CREATE = 1,
 
     /**
-     * The ability is running in the foreground.
+     * 表示Ability处于前台状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -116,7 +113,7 @@ declare namespace abilityDelegatorRegistry {
     FOREGROUND = 2,
 
     /**
-     * The ability is running in the background.
+     * 表示Ability处于后台状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -127,7 +124,7 @@ declare namespace abilityDelegatorRegistry {
     BACKGROUND = 3,
 
     /**
-     * The ability is destroyed.
+     * 表示Ability处于已销毁状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -139,7 +136,7 @@ declare namespace abilityDelegatorRegistry {
   }
 
   /**
-   * Represents the **AbilityDelegator** module.
+   * AbilityDelegator模块。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
@@ -150,7 +147,7 @@ declare namespace abilityDelegatorRegistry {
   export type AbilityDelegator = _AbilityDelegator;
 
   /**
-   * Represents the **AbilityDelegatorArgs** module.
+   * AbilityDelegatorArgs模块。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
@@ -161,7 +158,7 @@ declare namespace abilityDelegatorRegistry {
   export type AbilityDelegatorArgs = _AbilityDelegatorArgs;
 
   /**
-   * Represents the **AbilityMonitor** module.
+   * AbilityMonitor模块。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
@@ -172,8 +169,8 @@ declare namespace abilityDelegatorRegistry {
   export type AbilityMonitor = _AbilityMonitor;
 
   /**
-   * Provide methods for matching monitored Ability objects that meet specified conditions.
-   * The most recently matched Ability objects will be saved in the InteropAbilityMonitor object.
+   * 提供匹配满足指定条件的监控对象的方法。
+   * 最近匹配的Ability对象将保存在InteropAbilityMonitor对象中。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -183,7 +180,7 @@ declare namespace abilityDelegatorRegistry {
   export type InteropAbilityMonitor = _InteropAbilityMonitor;
 
   /**
-   * Represents the **ShellCmdResult** module.
+   * ShellCmdResult模块。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -193,7 +190,7 @@ declare namespace abilityDelegatorRegistry {
   export type ShellCmdResult = _ShellCmdResult;
 
   /**
-   * Represents the **AbilityStageMonitor** module.
+   * AbilityStageMonitor模块。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
