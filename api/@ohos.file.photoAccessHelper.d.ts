@@ -3761,7 +3761,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     THUMB_STATUS = 'thumb_status',
     /**
@@ -3770,7 +3770,7 @@ declare namespace photoAccessHelper {
     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
     * @systemapi
     * @stagemodelonly
-    * @since 24 dynamic&static
+    * @since 26.0.0 dynamic&static
     */
     LCD_FILE_SIZE = 'lcd_file_size',
     /**
