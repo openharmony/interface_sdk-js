@@ -9085,7 +9085,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    TIFF_METADATA = 21
+    TIFF_METADATA = 21,
+
+    /**
+     * Metadata of a Avis image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AVIS_METADATA = 23
   }
 
   /**
@@ -14320,6 +14329,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+ 	 * Enumerates the properties available for the metadata of a Avis image.
+ 	 *
+ 	 * @syscap SystemCapability.Multimedia.Image.Core
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 dynamic&static
+ 	 */
+ 	enum AvisPropertyKey {
+ 	  /**
+ 	   * Delay of each frame in milliseconds.
+ 	   * 
+ 	   * @syscap SystemCapability.Multimedia.Image.Core
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic&static
+ 	   */
+ 	  DELAY_TIME = 'AvisDelayTime',
+ 	}
+
+ 	/**
+ 	 * Avis metadata.
+ 	 * 
+ 	 * @syscap SystemCapability.Multimedia.Image.Core
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 dynamic&static
+ 	 */
+ 	class AvisMetadata {
+ 	  /**
+ 	   * Delay of each frame. Unit: ms, The value should be an integer.
+ 	   * <br>Unit:ms.
+ 	   * 
+ 	   * @syscap SystemCapability.Multimedia.Image.Core
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic&static
+ 	   */
+ 	  readonly delayTime?: int;
+ 	}
+
+  /**
    * Metadata set of an image.
    *
    * @typedef ImageMetadata
@@ -14408,6 +14454,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     pngMetadata?: PngMetadata;
+
+    /**
+     * Avis metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    avisMetadata?: AvisMetadata;
   }
 
   /**
