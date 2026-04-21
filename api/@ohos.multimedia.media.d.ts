@@ -339,8 +339,7 @@ declare namespace media {
     id?: string;
 
     /**
-     * The classification label of the time base metadata,
-     * For example, "com.apple.hls.interstitial", indicates an advertisement.
+     * The classification label of the time base metadata.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
