@@ -21,8 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **securityLabel** module provides APIs for managing data security levels of files, including obtaining and
- * setting file security levels.
+ * 该模块提供文件数据安全等级的相关功能：向应用程序提供查询、设置文件数据安全等级的JS接口。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9 dynamic
@@ -31,7 +30,7 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace securityLabel {
 
   /**
-   * Represents the data security level.
+   * 数据安全等级。
    *
    * @unionmember { 's0' } Level S0
    * @unionmember { 's1' } Level S1
@@ -45,12 +44,11 @@ declare namespace securityLabel {
   type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
 
   /**
-   * Sets the data security level for a file or directory. The level can only be adjusted from low to high, or set to
-   * the same level. This API uses a promise to return the result.
+   * 设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。使用Promise异步回调。
    *
-   * @param { string } path - File path.
-   * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } path - 文件路径。
+   * @param { DataLevel } type - 数据安全等级，只支持"s0","s1","s2","s3","s4"。
+   * @returns { Promise<void> } Promise实例，用于异步获取结果。本调用将返回空值。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -66,12 +64,11 @@ declare namespace securityLabel {
   function setSecurityLabel(path: string, type: DataLevel): Promise<void>;
 
   /**
-   * Sets the data security level for a file or directory. The level can only be adjusted from low to high, or set to
-   * the same level. This API uses an asynchronous callback to return the result.
+   * 设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。使用callback异步回调。
    *
-   * @param { string } path - File path.
-   * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the security level.
+   * @param { string } path - 文件路径。
+   * @param { DataLevel } type - 数据安全等级，只支持"s0","s1","s2","s3","s4"。
+   * @param { AsyncCallback<void> } [callback] - 设置数据安全等级之后的回调。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -87,11 +84,10 @@ declare namespace securityLabel {
   function setSecurityLabel(path: string, type: DataLevel, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the data security level for a file or directory in synchronous mode. The level can only be adjusted from low
-   * to high, or set to the same level.
+   * 以同步方法设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。
    *
-   * @param { string } path - File path.
-   * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
+   * @param { string } path - 文件路径。
+   * @param { DataLevel } type - 数据安全等级，只支持"s0","s1","s2","s3","s4"。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -107,11 +103,10 @@ declare namespace securityLabel {
   function setSecurityLabelSync(path: string, type: DataLevel): void;
 
   /**
-   * Obtains the data security level of a file or directory. If no data security level has been set, **s3** is returned
-   * by default. This API uses a promise to return the result.
+   * 获取文件或目录的数据安全等级。若未设置过数据安全等级则默认返回“s3”。使用Promise异步回调。
    *
-   * @param { string } path - File path.
-   * @returns { Promise<string> } Promise used to return the data security level.
+   * @param { string } path - 文件路径。
+   * @returns { Promise<string> } 返回数据安全等级。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -127,11 +122,10 @@ declare namespace securityLabel {
   function getSecurityLabel(path: string): Promise<string>;
 
   /**
-   * Obtains the data security level of a file or directory. If no data security level has been set, **s3** is returned
-   * by default. This API uses an asynchronous callback to return the result.
+   * 获取文件或目录的数据安全等级。若未设置过数据安全等级则默认返回“s3”。使用callback异步回调。
    *
-   * @param { string } path - File path.
-   * @param { AsyncCallback<string> } [callback] - Callback after the data security level is obtained asynchronously.
+   * @param { string } path - 文件路径。
+   * @param { AsyncCallback<string> } [callback] - 异步获取数据安全等级之后的回调。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -147,11 +141,10 @@ declare namespace securityLabel {
   function getSecurityLabel(path: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the data security level of a file or directory in synchronous mode. If no data security level has been set,
-   * **s3** is returned by default.
+   * 以同步方法获取文件或目录的数据安全等级。若未设置过数据安全等级则默认返回“s3”。
    *
-   * @param { string } path - File path.
-   * @returns { string } Promise used to return the data security level.
+   * @param { string } path - 文件路径。
+   * @returns { string } 返回数据安全等级。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
