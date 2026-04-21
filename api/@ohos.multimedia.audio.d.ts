@@ -4974,6 +4974,17 @@ declare namespace audio {
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
 
     /**
+     * Get active output device descriptors in current audio device situaion
+     * The activaion strategy is related to the audio device policy of system.
+     * @returns { Promise<AudioDeviceDescriptor> } Promise used to get the output device descriptors.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 26 dynamic&static
+     */
+    getActiveOutputDeviceDescriptors(): Promise<AudioDeviceDescriptors>;
+
+    /**
      * Restores the output device for the specified audio renderer filter to the default strategy.
      *
      * @param { AudioRendererFilter } filter - Filter of audio renderer to restore.
