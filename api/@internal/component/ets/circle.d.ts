@@ -341,6 +341,22 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   * @since 26.0.0 dynamic
   */
   stroke(value: ResourceColor | ColorMetrics): T;
+  /**
+   * Sets the color of the fill area.
+   * An invalid value is handled as the default value.
+   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
+   *
+   * @param { ResourceColor | ColorMetrics } value - Color of the fill area
+   *     <br>Default value : Color.Black.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fill(value: ResourceColor | ColorMetrics): T;
 }
 
 /**
