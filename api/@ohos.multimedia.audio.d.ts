@@ -2353,6 +2353,53 @@ declare namespace audio {
   }
 
   /**
+   * Describes app ID information.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AppIdInfo {
+    /**
+     * App UID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appUid: int;
+    /**
+     * App PID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appPid: int;
+    /**
+     * App token ID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appTokenId: int;
+    /**
+     * App full token ID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appFullTokenId: long;
+  }
+
+  /**
    * Describes audio stream information.
    * @typedef AudioStreamInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2645,6 +2692,15 @@ declare namespace audio {
      * @since 23 static
      */
     privacyType?: AudioPrivacyType;
+    /**
+     * Indicates the original app ID of the audio stream.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    originalAppIdInfo?: AppIdInfo;
   }
 
   /**
