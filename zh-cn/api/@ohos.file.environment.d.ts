@@ -21,7 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **Environment** module provides ArkTS APIs for obtaining the root directories of the storage and user files.
+ * 该模块提供环境目录能力，获取内存存储根目录、公共文件根目录的ArkTS接口。
  *
  * @syscap SystemCapability.FileManagement.File.Environment
  * @since 11 dynamic
@@ -29,9 +29,9 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace Environment {
   /**
-   * Obtains the root directory of the memory. This API uses a promise to return the result.
+   * 异步方法获取内存存储根目录，使用promise异步回调。
    *
-   * @returns { Promise<string> } Promise used to return the root directory of the memory.
+   * @returns { Promise<string> } 返回存储根目录。
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -43,9 +43,9 @@ declare namespace Environment {
   function getStorageDataDir(): Promise<string>;
 
   /**
-   * Obtains the root directory of the memory. This API uses an asynchronous callback to return the result.
+   * 异步方法获取内存存储根目录，使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } [callback] - Callback used to return the root directory of the memory.
+   * @param { AsyncCallback<string> } [callback] - 异步获取内存存储根目录之后的回调。
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -57,9 +57,9 @@ declare namespace Environment {
   function getStorageDataDir(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the root directory of user files. This API uses a promise to return the result.
+   * 异步方法获取公共文件根目录，使用promise异步回调。
    *
-   * @returns { Promise<string> } Promise used to return the root directory of user files.
+   * @returns { Promise<string> } 返回公共文件根目录。
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -71,9 +71,9 @@ declare namespace Environment {
   function getUserDataDir(): Promise<string>;
 
   /**
-   * Obtains the root directory of user files. This API uses an asynchronous callback to return the result.
+   * 异步方法获取公共文件根目录，使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } [callback] - Callback used to return the root directory of user files.
+   * @param { AsyncCallback<string> } [callback] - 异步获取公共文件根目录之后的回调。
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -85,10 +85,10 @@ declare namespace Environment {
   function getUserDataDir(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the sandbox path of the pre-authorized **Download** directory.
+   * 获取当前用户预授权下载目录的沙箱路径。
    *
    * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY [since 11 - 11]
-   * @returns { string } Sandbox path of the **Download** directory obtained.
+   * @returns { string } 返回当前用户预授权下载目录的沙箱路径。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    *     [since 11 - 11]
    * @throws { BusinessError } 801 - Capability not supported.
@@ -100,10 +100,10 @@ declare namespace Environment {
   function getUserDownloadDir(): string;
 
   /**
-   * Obtains the sandbox path of the pre-authorized **Desktop** directory.
+   * 获取当前用户预授权桌面目录的沙箱路径。
    *
    * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY [since 11 - 11]
-   * @returns { string } Sandbox path of the **Desktop** directory obtained.
+   * @returns { string } 返回当前用户预授权桌面目录的沙箱路径。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    *     [since 11 - 11]
    * @throws { BusinessError } 801 - Capability not supported.
@@ -115,10 +115,10 @@ declare namespace Environment {
   function getUserDesktopDir(): string;
 
   /**
-   * Obtains the sandbox path of the pre-authorized **Document** directory.
+   * 获取当前用户预授权文档目录的沙箱路径。
    *
    * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY [since 11 - 11]
-   * @returns { string } Sandbox path of the **Documents** directory obtained.
+   * @returns { string } 返回当前用户预授权文档目录的沙箱路径。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    *     [since 11 - 11]
    * @throws { BusinessError } 801 - Capability not supported.
@@ -130,11 +130,10 @@ declare namespace Environment {
   function getUserDocumentDir(): string;
 
   /**
-   * Obtains the sandbox path of the root directory of an external storage card. This API is available only to the
-   * devices with the SystemCapability.FileManagement.File.Environment.FolderObtain system capability.
+   * 获取外卡根目录的沙箱路径，该接口仅对具有该系统能力的设备开放。
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Sandbox path of the root directory obtained.
+   * @returns { string } 返回外卡根目录的沙箱路径。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
    *     system API.
@@ -148,11 +147,10 @@ declare namespace Environment {
   function getExternalStorageDir(): string;
 
   /**
-   * Obtains the sandbox path of the built-in card directory of the current user. This API is available only to the
-   * devices with the SystemCapability.FileManagement.File.Environment.FolderObtain system capability.
+   * 获取当前用户下应用沙箱路径的内卡目录，该接口仅对具有该系统能力的设备开放。
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Sandbox path of the built-in card directory obtained.
+   * @returns { string } 返回当前用户下应用沙箱路径的内卡目录。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
    *     system API.

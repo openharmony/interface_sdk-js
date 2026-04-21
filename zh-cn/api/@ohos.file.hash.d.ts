@@ -22,7 +22,7 @@ import type { AsyncCallback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 /**
- * The **FileHash** module implements hash processing on files.
+ * 该模块提供文件哈希处理能力，对文件内容进行哈希处理。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -32,13 +32,11 @@ import stream from './@ohos.util.stream';
  */
 declare namespace hash {
   /**
-   * Calculates a hash value for a file. This API uses a promise to return the result.
+   * 计算文件的哈希值，使用Promise异步回调。
    *
-   * @param { string } path - Path of the file in the application sandbox.
-   * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
-   *     **sha256**. **sha256** is recommended for security purposes.
-   * @returns { Promise<string> } Promise used to return the hash value. The hash value is a hexadecimal string
-   *     consisting of digits and uppercase letters.
+   * @param { string } path - 待计算哈希值文件的应用沙箱路径。
+   * @param { string } algorithm - 哈希计算采用的算法。可选?"md5"、"sha1"?或?"sha256"。建议采用安全强度更高的?"sha256"。
+   * @returns { Promise<string> } Promise对象。返回文件的哈希值。表示为十六进制数字串，所有字母均大写。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -50,13 +48,11 @@ declare namespace hash {
   function hash(path: string, algorithm: string): Promise<string>;
 
   /**
-   * Calculates a hash value for a file. This API uses an asynchronous callback to return the result.
+   * 计算文件的哈希值，使用callback异步回调。
    *
-   * @param { string } path - Path of the file in the application sandbox.
-   * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
-   *     **sha256**. **sha256** is recommended for security purposes.
-   * @param { AsyncCallback<string> } [callback] - Callback used to return the hash value obtained. The hash value is a
-   *     hexadecimal string consisting of digits and uppercase letters.
+   * @param { string } path - 待计算哈希值文件的应用沙箱路径。
+   * @param { string } algorithm - 哈希计算采用的算法。可选?"md5"、"sha1"?或?"sha256"。建议采用安全强度更高的?"sha256"。
+   * @param { AsyncCallback<string> } [callback] - 异步计算文件哈希操作之后的回调函数（其中给定文件哈希值表示为十六进制数字串，所有字母均大写）。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -68,9 +64,7 @@ declare namespace hash {
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 
   /**
-   * The **HashStream** class is a utility for creating a message digest of data. You can use
-   * [createHash](docroot://reference/apis-core-file-kit/js-apis-file-hash.md#hashcreatehash12) to create a
-   * **HashStream** instance.
+   * HashStream 类是用于创建数据的哈希摘要的实用工具。由 [createHash]{@link hash.createHash} 接口获得。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -79,9 +73,9 @@ declare namespace hash {
    */
   class HashStream extends stream.Transform {
     /**
-     * Generates a message digest.
+     * 计算传递给哈希处理的所有数据的摘要。
      *
-     * @returns { string } Hash value, which is a hexadecimal string consisting of digits and uppercase letters.
+     * @returns { string } 返回数据的哈希值。该哈希值表示为十六进制数字串，所有字母均大写。
      * @throws { BusinessError } 401 - Parameter error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -92,7 +86,7 @@ declare namespace hash {
     digest(): string;
 
     /**
-     * Updates the data for generating a message digest. This API can be called multiple times.
+     * 使用给定的 data 更新哈希内容，可多次调用。
      *
      * @param { ArrayBuffer } data - updated data.
      * @throws { BusinessError } 401 - Parameter error
@@ -106,12 +100,10 @@ declare namespace hash {
   }
 
   /**
-   * Creates a **HashStream** instance, which can be used to generate a message digest (a hash value) using the given
-   * algorithm.
+   * 创建并返回 HashStream 对象，该对象可用于使用给定的 algorithm 生成哈希摘要。
    *
-   * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
-   *     **sha256**. **sha256** is recommended for security purposes.
-   * @returns { HashStream } **HashStream** instance created.
+   * @param { string } algorithm - 哈希计算采用的算法。可选 "md5"、"sha1" 或 "sha256"。建议采用安全强度更高的 "sha256"。
+   * @returns { HashStream } HashStream 类的实例。
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error

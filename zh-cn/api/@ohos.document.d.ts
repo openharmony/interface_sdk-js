@@ -35,10 +35,10 @@ declare namespace document {
 }
 
 /**
- * Chooses files of the specified types. This API uses a promise to return the result.
+ * 通过文件管理器选择文件，异步返回文件URI，使用promise形式返回结果。
  *
- * @param { string[] } types - Types of the files to choose.
- * @returns { Promise<string> } Promise used to return the result. An error code is returned.
+ * @param { string[] } types - 限定文件选择的类型
+ * @returns { Promise<string> } 异步返回文件URI（注：当前返回错误码）
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -47,9 +47,9 @@ declare namespace document {
 declare function choose(types?: string[]): Promise<string>;
 
 /**
- * Chooses a file. This API uses an asynchronous callback to return the result.
+ * 通过文件管理器选择文件，异步返回文件URI，使用callback形式返回结果。
  *
- * @param { AsyncCallback<string> } [callback] - Callback used to return the result. An error code is returned.
+ * @param { AsyncCallback<string> } [callback] - 异步获取对应文件URI（注：当前返回错误码）
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -58,10 +58,10 @@ declare function choose(types?: string[]): Promise<string>;
 declare function choose(callback: AsyncCallback<string>): void;
 
 /**
- * Chooses files of the specified types. This API uses an asynchronous callback to return the result.
+ * 通过文件管理器选择文件，异步返回文件URI，使用callback形式返回结果。
  *
- * @param { string[] } types - Types of the files to choose.
- * @param { AsyncCallback<string> } [callback] - Callback used to return the result. An error code is returned.
+ * @param { string[] } types - 限定选择文件的类型
+ * @param { AsyncCallback<string> } [callback] - 异步获取对应文件URI（注：当前返回错误码）
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -70,11 +70,11 @@ declare function choose(callback: AsyncCallback<string>): void;
 declare function choose(types: string[], callback: AsyncCallback<string>): void;
 
 /**
- * Opens a file. This API uses a promise to return the result.
+ * 异步打开URI对应的文件，使用promise形式返回结果。
  *
- * @param { string } uri - URI of the file to open.
- * @param { string } type - Type of the file to open.
- * @returns { Promise<void> } Promise used to return the result. An error code is returned.
+ * @param { string } uri - 待打开的文件URI
+ * @param { string } type - 待打开文件的类型
+ * @returns { Promise<void> } Promise回调返回void表示成功打开文件（注：当前返回错误码）
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -83,11 +83,11 @@ declare function choose(types: string[], callback: AsyncCallback<string>): void;
 declare function show(uri: string, type: string): Promise<void>;
 
 /**
- * Opens a file. This API uses an asynchronous callback to return the result.
+ * 异步打开URI对应的文件，使用callback形式返回结果。
  *
- * @param { string } uri - URI of the file to open.
- * @param { string } type - Type of the file to open.
- * @param { AsyncCallback<void> } [callback] - Callback used to return the result. An error code is returned.
+ * @param { string } uri - 待打开的文件URI
+ * @param { string } type - 待打开文件的类型
+ * @param { AsyncCallback<void> } [callback] - 异步打开uri对应文件（注：当前返回错误码）
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
