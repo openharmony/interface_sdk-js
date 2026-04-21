@@ -645,6 +645,41 @@ declare namespace window {
   }
 
   /**
+   * Describes The type of split ratio preference.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SplitRatioPreference {
+    /**
+     * Equal split ratio preference of the window.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    EQUAL = 0,
+    /**
+     * Maximum split ratio preference of the primary window.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PRIMARY_DOMINANT = 1,
+    /**
+     * Maximum split ratio preference of the secondary window.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SECONDARY_DOMINANT = 2
+  }
+
+  /**
    * Describes the mode of window layout
    *
    * @enum { number }
