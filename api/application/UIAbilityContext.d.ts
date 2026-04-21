@@ -4755,16 +4755,16 @@ declare class UIAbilityContext extends Context {
 
   /**
    * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type for the
-   * specified user.This API uses a promise to return the result.It can be called only on the main thread.
+   * specified user. This API uses a promise to return the result. It can be called only on the main thread.
    * The foreground application is specified by **bundleName** in **want.parameters**. If **bundleName** is left
    * unspecified, or if the application specified by **bundleName** is not running in the foreground or does not exist,
    * the UIExtensionAbility is directly started on the system UI. The UIExtensionAbility to start is determined by the
-   * combination of the **bundleName**,**abilityName**, and **moduleName** fields in **want**, and its type is
+   * combination of the **bundleName**, **abilityName**, and **moduleName** fields in **want**, and its type is
    * determined by the **ability.want.params.uiExtensionType** field in **want.parameters**.
    * 
    * Before starting the UIExtensionAbility, ensure that the foreground application has finished page initialization. 
    * Otherwise, the UIExtensionAbility fails to start and the error message "uiContent is nullptr" is displayed. The
-   * application can determine the time to start the UIExtensionAbility by listening for the page loading status.After
+   * application can determine the time to start the UIExtensionAbility by listening for the page loading status. After
    * the page initialization is successful, the key log information "UIContentImpl: focus again" is recorded.
    *
    * > **NOTE**
