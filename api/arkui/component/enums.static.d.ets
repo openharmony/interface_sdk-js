@@ -4697,3 +4697,116 @@ export declare enum UIMaterialAnimationMode {
    */
   NONE = 1
 }
+
+/**
+ * Define the smart gesture shortcut priority enumeration.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum GestureShortcut {
+    /**
+     * Primary priority.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    PRIMARY = 0
+}
+
+/**
+ * Define the actions for smart gesture shortcut.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum SmartGestureAction {
+    /**
+     * No action.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    NONE = 0,
+    /**
+     * Page forward action.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    PAGE_FORWARD = 1,
+    /**
+     * Scroll forward action.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SCROLL_FORWARD = 2,
+    /**
+     * Select action.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SELECT = 3,
+    /**
+     * Click action.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    CLICK = 4,
+    /**
+     * Back press action.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    BACK_PRESS = 5
+}
+
+/**
+ * Define the smart gesture's operation intention.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum OperateIntention {
+    /**
+     * Tap intention.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    TAP = 0,
+    /**
+     * Slide forward intention.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SLIDE_FORWARD = 1,
+    /**
+     * Back press intention.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    BACK_PRESS = 2
+}
