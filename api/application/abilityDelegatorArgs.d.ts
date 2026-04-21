@@ -19,18 +19,12 @@
  */
 
 /**
- * The **AbilityDelegatorArgs** module provides APIs to obtain an **AbilityDelegatorArgs** object during the execution 
+ * The **AbilityDelegatorArgs** module provides APIs to obtain an **AbilityDelegatorArgs** object during the execution
  * of test cases.
- * 
+ *
  * > **NOTE**
- * 
- * > The APIs of this module can be used only in 
  * >
- * >
- * > [JsUnit](docroot://application-test/unittest-guidelines.md)
- * >
- * >
- * > .
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 10]
@@ -84,6 +78,4 @@ export interface AbilityDelegatorArgs {
   testRunnerClassName: string;
 }
 
-/*** if arkts dynamic */
 export default AbilityDelegatorArgs;
-/*** endif */

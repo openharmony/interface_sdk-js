@@ -19,7 +19,7 @@
  */
 
 /**
- * The ConfigurationConstant module provides the enumerated values of the environment configuration information.
+ * ConfigurationConstant模块提供配置信息枚举值定义的能力。
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
@@ -28,7 +28,7 @@
  */
 declare namespace ConfigurationConstant {
   /**
-   * Enumerates the color modes.
+   * 表示颜色模式的枚举。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
@@ -37,7 +37,7 @@ declare namespace ConfigurationConstant {
    */
   export enum ColorMode {
     /**
-     * Unspecified color mode.
+     * 未设置颜色模式。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -47,7 +47,7 @@ declare namespace ConfigurationConstant {
     COLOR_MODE_NOT_SET = -1,
 
     /**
-     * Dark mode.
+     * 深色模式。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -57,7 +57,7 @@ declare namespace ConfigurationConstant {
     COLOR_MODE_DARK = 0,
 
     /**
-     * Light mode.
+     * 浅色模式。
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8

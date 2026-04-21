@@ -24,10 +24,9 @@ import { AbilityMonitor } from './application/AbilityMonitor';
 import { ShellCmdResult } from './application/shellCmdResult';
 
 /**
- * The **AbilityDelegatorRegistry** module provides APIs for storing global registers of the registered
- * [AbilityDelegator]{@link ./application/AbilityDelegator:AbilityDelegator} and
- * [AbilityDelegatorArgs]{@link ./application/abilityDelegatorArgs:AbilityDelegatorArgs} objects, including obtaining
- * the **AbilityDelegator** and **AbilityDelegatorArgs** objects. The APIs can be used only in the test framework.
+ * AbilityDelegatorRegistry模块提供用于存储已注册的[AbilityDelegator]{@link ./application/AbilityDelegator:AbilityDelegator}和
+ * [AbilityDelegatorArgs]{@link ./application/abilityDelegatorArgs:AbilityDelegatorArgs}对象的全局寄存器的能力，包括获取应用程序的
+ * AbilityDelegator对象、获取单元测试参数AbilityDelegatorArgs对象。该模块中的接口只能用于测试框架中。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
@@ -36,10 +35,10 @@ import { ShellCmdResult } from './application/shellCmdResult';
  */
 declare namespace abilityDelegatorRegistry {
   /**
-   * Obtains the **AbilityDelegator** object of the application.
+   * 获取应用程序的AbilityDelegator对象。
    *
-   * @returns { AbilityDelegator } [AbilityDelegator]{@link ./application/AbilityDelegator:AbilityDelegator} object,
-   *     which can be used to schedule functions related to the test framework.
+   * @returns { AbilityDelegator } [AbilityDelegator]{@link ./application/AbilityDelegator:AbilityDelegator}对象。可以用来调度测试框
+   *     架相关功能。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -48,11 +47,10 @@ declare namespace abilityDelegatorRegistry {
   function getAbilityDelegator(): AbilityDelegator;
 
   /**
-   * Obtains the **AbilityDelegatorArgs** object of the application.
+   * 获取单元测试参数AbilityDelegatorArgs对象。
    *
    * @returns { AbilityDelegatorArgs }
-   *     [AbilityDelegatorArgs]{@link ./application/abilityDelegatorArgs:AbilityDelegatorArgs} object, which can be used
-   *     to obtain test parameters.
+      *     [AbilityDelegatorArgs]{@link ./application/abilityDelegatorArgs:AbilityDelegatorArgs}对象。可以用来获取测试参数。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -61,7 +59,7 @@ declare namespace abilityDelegatorRegistry {
   function getArguments(): AbilityDelegatorArgs;
 
   /**
-   * Enumerates the ability lifecycle states.
+   * Ability生命周期状态。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -70,7 +68,7 @@ declare namespace abilityDelegatorRegistry {
    */
   export enum AbilityLifecycleState {
     /**
-     * The ability is in an invalid state.
+     * 表示无效状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -80,7 +78,7 @@ declare namespace abilityDelegatorRegistry {
     UNINITIALIZED = 0,
 
     /**
-     * The ability is created.
+     * 表示Ability处于已创建状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -90,7 +88,7 @@ declare namespace abilityDelegatorRegistry {
     CREATE = 1,
 
     /**
-     * The ability is running in the foreground.
+     * 表示Ability处于前台状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -100,7 +98,7 @@ declare namespace abilityDelegatorRegistry {
     FOREGROUND = 2,
 
     /**
-     * The ability is running in the background.
+     * 表示Ability处于后台状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -110,7 +108,7 @@ declare namespace abilityDelegatorRegistry {
     BACKGROUND = 3,
 
     /**
-     * The ability is destroyed.
+     * 表示Ability处于已销毁状态。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
