@@ -1194,7 +1194,7 @@ export declare const ComponentDisappear: MethodDecorator;
  */
 export declare interface CustomComponentContext {
   /**
-   * The getCustomComponentReusePool function gets the reuse pool.
+   * The getReusePool function gets the reuse pool.
    * 
    * @returns { IReusePool | undefined } Returns the recyclepool instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1203,7 +1203,7 @@ export declare interface CustomComponentContext {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  getCustomComponentReusePool(): IReusePool | undefined;
+  getReusePool(): IReusePool | undefined;
 }
 
 /**
