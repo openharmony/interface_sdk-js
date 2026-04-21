@@ -696,7 +696,7 @@ declare class Context extends BaseContext {
   createDisplayContext(displayId: long): Context;
 
   /**
-   * Indicates the context type.
+   * Checks if the current instance is associated with the specified context type.
    *
    * @param { contextConstant.ContextType } contextType - Indicates the context type.
    * @returns { boolean } Returns {@code true} if the contextType is matched; returns {@code false} otherwise.
@@ -705,7 +705,7 @@ declare class Context extends BaseContext {
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  contextType(contextType: contextConstant.ContextType): boolean;
+  isContextOf(contextType: contextConstant.ContextType): boolean;
 }
 
 export default Context;
