@@ -139,18 +139,18 @@ export declare interface SubTabBarIndicatorStyle {
 /**
  * Provide an interface for the style of a drawable indicator including margin top.
  *
- * @interface DrawableTabBarIndicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 23 static
  */
-declare interface DrawableTabBarIndicator {
+export declare interface DrawableTabBarIndicator {
   /**
    * Define the drawable object for the indicator.
    *
-   * @type { ?DrawableDescriptor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
@@ -160,10 +160,12 @@ declare interface DrawableTabBarIndicator {
   /**
    * Width of the indicator. It cannot be set in percentage.
    * If it is 0, the width will be equal to the width of the content
+   * <br>Default value:0:0vp.
    *
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
@@ -172,10 +174,13 @@ declare interface DrawableTabBarIndicator {
 
   /**
    * Height of the indicator. It cannot be set in percentage.
+   * <br>Value contraint:(0, +∞).
+   * <br>Default value:2.0vp.
    *
    * @type { ?Length }
    * @default 2vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
@@ -184,10 +189,13 @@ declare interface DrawableTabBarIndicator {
 
   /**
    * Rounded corner radius of the indicator. It cannot be set in percentage.
+   * <br>Value constraint:[0, +∞).
+   * <br>Default value:0.0vp.
    *
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
@@ -196,10 +204,13 @@ declare interface DrawableTabBarIndicator {
 
   /**
    * Spacing between the indicator and text.It cannot be set in percentage.
+   * <br>Value constraint:[0, +∞).
+   * <br>Default value:8.0vp.
    *
    * @type { ?Length }
    * @default 8vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
