@@ -12436,7 +12436,7 @@ declare namespace window {
      * @since 23 static
      */
     getDecorButtonStyle(): DecorButtonStyle;
-     
+
     /**
      * Set touchable areas. By default, the entire window area is touchable.
      * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
