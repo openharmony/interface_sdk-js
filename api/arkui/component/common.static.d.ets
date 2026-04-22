@@ -8905,6 +8905,17 @@ export declare interface ContextMenuOptions {
      */
     minKeyboardAvoidDistance?: LengthMetrics;
     /**
+ 	 * Sets the space between the menu and target.
+ 	 * When both targetSpace and offset are set, they take effect additively. It is recommended to use targetSpace
+ 	 * to set the space between the menu and target, and use offset for additional offset.
+ 	 *
+ 	 * @type { ?LengthMetrics }
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	targetSpace?: LengthMetrics;
+    /**
      * Set system-styled materials for menu. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of menu.
      *
