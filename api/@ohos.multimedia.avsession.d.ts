@@ -2128,6 +2128,34 @@ declare namespace avSession {
      */
     setExtras(extras: Record<string, Object>): Promise<void>;
 
+   /**
+    * Set supported speeds supplied by application.
+    *
+    * @param { Array<double> } speeds - supported speeds
+    * @returns { Promise<void> } Promise that returns no value.
+    * @throws { BusinessError } 6600101 - Session service exception
+    * @throws { BusinessError } 6600102 - The session does not exist.
+    * @syscap SystemCapability.Multimedia.AVSession.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.0.0 dynamic&static
+    */
+    setSupportedPlaySpeeds(speeds: Array<double>): Promise<void>;
+
+    /**
+     * Set supported loop modes supplied by application.
+     *
+     * @param { Array<LoopMode> } loopModes - supported loop modes
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setSupportedLoopModes(loopModes: Array<LoopMode>): Promise<void>;
+
     /**
      * Enable desktop lyric for this session.
      * @param { boolean } enable - The enable status indicating to using system desktop lyric feature or not
@@ -2254,6 +2282,22 @@ declare namespace avSession {
      * @since 24 dynamic&static
      */
     setBackgroundPlayMode(mode: BackgroundPlayMode): Promise<void>;
+
+    /**
+     * Set media control types that can be displayed on the media center.
+     *
+     * @param { Array<AVMediaCenterControlType> } type - The control types that can be displayed on the media center.
+     *     If the priority of control type is not set, the media center will display based on {@link AVSessionType}.
+     *     The control type set must be registered by {@link on}, the media center prioritizes displaying
+     *     the set control type.
+     * @returns { Promise<void> } void promise when executed successfully.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setMediaCenterControlType(type: Array<AVMediaCenterControlType>): Promise<void>;
 
     /**
      * Get the current session's own controller
@@ -8893,6 +8937,32 @@ declare namespace avSession {
     getOutputDeviceSync(): OutputDeviceInfo;
 
     /**
+     * Get supported speeds supplied by application.
+     *
+     * @returns { Promise<Array<double>> } Promise that returns no value.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getSupportedPlaySpeeds(): Promise<Array<double>>;
+
+    /**
+     * Get supported loop modes supplied by application.
+     *
+     * @returns { Promise<Array<LoopMode>> } supported loop modes returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getSupportedLoopModes(): Promise<Array<LoopMode>>;
+
+    /**
      * Send media key event to this session
      * @param { KeyEvent } event - The KeyEvent
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
@@ -9505,6 +9575,45 @@ declare namespace avSession {
      * @since 23 dynamic&static
      */
     offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
+
+    /**
+     * Get media control type that the can be displayed on the media center.
+     *
+     * @returns { Promise<Array<AVMediaCenterControlType>> } The control types that the app sets to be displayed
+     *     on the media center. The default value is empty, indicating that the types of the customized
+     *     display control is not set.
+     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getMediaCenterControlType(): Promise<Array<AVMediaCenterControlType>>;
+
+    /**
+     * Register media center control type changed callback.
+     *
+     * @param { Callback<Array<AVMediaCenterControlType>> } callback - Callback to receive the changed control types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onMediaCenterControlTypeChanged(callback: Callback<Array<AVMediaCenterControlType>>): void;
+
+    /**
+     * Unregister media center control type changed callback.
+     *
+     * @param { Callback<Array<AVMediaCenterControlType>> } [callback] - Callback to receive the changed control types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offMediaCenterControlTypeChanged(callback?: Callback<Array<AVMediaCenterControlType>>): void;
 
     /**
      * Register metadata changed callback
@@ -10562,6 +10671,58 @@ declare namespace avSession {
      * @since 23 static
      */
     offCustomDataChange(callback?: Callback<Record<string, Object>>): void;
+
+    /**
+     * Register listener for supported play speeds.
+     *
+     * @param { Callback<Array<double>> } callback - Callback used to retrieve supported play speeds.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onSupportedPlaySpeedsChange(callback: Callback<Array<double>>): void;
+
+    /**
+     * Unregister listener for supported play speeds.
+     *
+     * @param { Callback<Array<double>> } [callback] - Callback used to retrieve supported play speeds.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offSupportedPlaySpeedsChange(callback?: Callback<Array<double>>): void;
+
+    /**
+     * Register listener for supported loop modes.
+     *
+     * @param { Callback<Array<LoopMode>> } callback - Callback used to retrieve supported loop modes.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onSupportedLoopModesChange(callback: Callback<Array<LoopMode>>): void;
+
+    /**
+     * Unregister listener for supported loop modes.
+     *
+     * @param { Callback<Array<double>> } [callback] - Callback used to retrieve supported loop modes.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offSupportedLoopModesChange(callback?: Callback<Array<LoopMode>>): void;
   }
 
   /**
@@ -10609,6 +10770,16 @@ declare namespace avSession {
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
+
+  /**
+   * The type of media center control command, which can be used to determine the button displayed on the media center.
+   *
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type AVMediaCenterControlType = 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'setSpeed' | 'setLoopMode' |
+    'toggleFavorite';
 
   /**
    * The definition of command to be sent to the session
