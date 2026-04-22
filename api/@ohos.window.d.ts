@@ -12447,17 +12447,18 @@ declare namespace window {
      *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
      * @returns { Promise<void> } Promise that returns no value. [since 26.0.0]
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have
-     *     the permission required or to call the API. [since 26.0.0]
+     *     the permission required or a non-system application calls the API. [since 26.0.0]
      * @throws { BusinessError } 202 - Permission verification failed.
      *     A non-system application calls a system API. [since 12 - 24]
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi [since 12 - 24]
      * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 12 dynamic
+     * @since 23 static
      */
     setTouchableAreas(rects: Array<Rect>): Promise<void>;
 
