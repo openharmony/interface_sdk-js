@@ -4871,7 +4871,8 @@ declare namespace window {
    *                     2. The number of windows has reached the limit.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
-   *     Possible cause: The parent window does not exist or has been destroyed.
+   *     Possible cause: 1. The parent window does not exist or has been destroyed.
+   *                     2. Invalid window type. Only main windows are supported.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
