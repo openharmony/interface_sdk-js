@@ -662,7 +662,7 @@ declare namespace window {
      */
     EQUAL = 0,
     /**
-     * Maximum split ratio preference of the primary window.
+     * Set primary split window to a larger split ratio.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -670,7 +670,7 @@ declare namespace window {
      */
     PRIMARY_DOMINANT = 1,
     /**
-     * Maximum split ratio preference of the secondary window.
+     * Set secondary split window to a larger split ratio.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
