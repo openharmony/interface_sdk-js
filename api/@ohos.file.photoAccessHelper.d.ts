@@ -12733,7 +12733,7 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    setHiddenAttribute(hiddenState: boolean, isInherited:boolean):void;
+    setHiddenAttribute(hiddenState: boolean, isInherited: boolean):void;
 
     /**
      * set album name by filemanger.
