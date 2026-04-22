@@ -5627,13 +5627,12 @@ declare namespace camera {
     /**
      * Query the color tint range.
      *
-     * @returns { Array<number> } The array of color tint range.
-     *         The array contains two elements: [minColorTint, maxColorTint]
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400103 - Session not config.
+     * @returns { Array<int> } The array of color tint range.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 26
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getColorTintRange(): Array<number>;
   }
@@ -5750,26 +5749,26 @@ declare namespace camera {
     setWhiteBalance(whiteBalance: int): void;
  
     /**
-     * Set color tint value.
+     * Sets color tint.
      *
-     * @param { number } colorTint - Color tint value to set.
-     *        Must be within the range returned by getColorTintRange().
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @param { int } colorTint - Color tint.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 26
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     setColorTint(colorTint: number): void;
  
     /**
-     * Get current color tint value.
+     * Gets current color tint.
      *
-     * @returns { number } The current color tint value.
+     * @returns { int } The current color tint.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 26
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getColorTint(): number;
   }
