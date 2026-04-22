@@ -7450,13 +7450,15 @@ declare namespace camera {
    * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro [since 19 - 19]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro [since 20]
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter, AutoDeviceSwitch, Macro,
+   *  ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
    * @since 11 dynamic
    * @since 23 static
    */
   interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization,
-      ColorManagement, ControlCenter, AutoDeviceSwitch, Macro {
+    ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture {
     /**
      * Checks whether this session supports a preconfigured resolution.
      *
@@ -8117,6 +8119,31 @@ declare namespace camera {
      * @since 23 static
      */
     offIsoInfoChange(callback?: Callback<IsoInfo>): void;
+
+    /**
+     * Subscribes exposure info change event callback.
+     *     After exposure parameters are changed, the system will returns the updated exposure infos.
+     *
+     * @param { Callback<ExposureInfo> } callback - Callback used to get the exposure value change
+     *     Exposure information callback listening.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onExposureInfoChange(callback: Callback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes exposure info change event callback. Invoke this method after finishing camera operations.
+     *
+     * @param { Callback<ExposureInfo> } [callback] - Callback used to get the exposure value change.
+     *     Callback listening for canceling exposure information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
   }
 
   /**
