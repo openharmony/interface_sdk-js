@@ -108,7 +108,7 @@ declare interface ComponentOptions {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  poolAccepts?: ReusableComponentConstructor[];
+  poolAccepts?: string[];
 }
 
 /**
@@ -121,17 +121,6 @@ declare interface ComponentOptions {
  * @since 26.0.0 dynamic
  */
 declare type ReusePoolOwnership = 'shared' | 'perInstance';
-
-/**
- * Defining custom component constructor.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare type ReusableComponentConstructor = Function;
 
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
