@@ -44,9 +44,8 @@ declare enum DepthSpaceType {
    * Global mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.0.0 dynamic
    */
   GLOBAL = 1,
@@ -290,7 +289,7 @@ interface DepthComponentInterface {
   /**
    * Defines the DepthComponent constructor.
    *
-   * @param { ResourceStr } background - Background resource (required).
+   * @param { ResourceStr | PixelMap } background - Background resource or PixelMap (required).
    * @param { DepthComponentOptions } [options] - DepthComponent options.
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -299,7 +298,7 @@ interface DepthComponentInterface {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  (background: ResourceStr, options?: DepthComponentOptions): DepthComponentAttribute;
+  (background: ResourceStr | PixelMap, options?: DepthComponentOptions): DepthComponentAttribute;
 }
 
 /**

@@ -3146,6 +3146,42 @@ declare namespace call {
   function stopRtt(callId: int, type: ImsRttMode): Promise<void>;
 
   /**
+   * Preload callUI.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @returns { Promise<boolean> } The promise returned by the preloadCallUI.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 24 dynamic&static
+   */
+  function preloadCallUI(): Promise<boolean>;
+
+  /**
+   * Unload callUI.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @returns { Promise<boolean> } The promise returned by the unloadCallUI.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 24 dynamic&static
+   */
+  function unloadCallUI(): Promise<boolean>;
+  
+  /**
    * Indicates the mode of the ims call.
    *
    * @enum { number }

@@ -2353,6 +2353,53 @@ declare namespace audio {
   }
 
   /**
+   * Describes app ID information.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AppIdInfo {
+    /**
+     * App UID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appUid: int;
+    /**
+     * App PID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appPid: int;
+    /**
+     * App token ID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appTokenId: int;
+    /**
+     * App full token ID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appFullTokenId: long;
+  }
+
+  /**
    * Describes audio stream information.
    * @typedef AudioStreamInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2645,6 +2692,15 @@ declare namespace audio {
      * @since 23 static
      */
     privacyType?: AudioPrivacyType;
+    /**
+     * Indicates the original app ID of the audio stream.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    originalAppIdInfo?: AppIdInfo;
   }
 
   /**
@@ -3852,6 +3908,7 @@ declare namespace audio {
      * @returns { AudioSessionManager } AudioSessionManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -3887,6 +3944,16 @@ declare namespace audio {
      * @since 23 static
      */
     getCollaborativeManager(): AudioCollaborativeManager;
+
+    /**
+     * Obtains a device enhancement manager instance.
+     *
+     * @returns { AudioDeviceEnhanceManager } Returns an instance of audio device enhancement manager.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
 
     /**
      * user disable the safe media volume state.
@@ -4971,6 +5038,20 @@ declare namespace audio {
      * @since 23 static
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Restores the output device for the specified audio renderer filter to the default strategy.
+     *
+     * @param { AudioRendererFilter } filter - Filter of audio renderer to restore.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    restoreOutputDeviceByFilter(filter: AudioRendererFilter): Promise<void>;
   }
 
   /**
@@ -5492,6 +5573,7 @@ declare namespace audio {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
+   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
@@ -5500,6 +5582,7 @@ declare namespace audio {
      * Default concurrency mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5508,6 +5591,7 @@ declare namespace audio {
      * Mix with others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5516,6 +5600,7 @@ declare namespace audio {
      * Duck others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5524,6 +5609,7 @@ declare namespace audio {
      * Pause others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5758,6 +5844,7 @@ declare namespace audio {
    * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
+   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
@@ -5767,6 +5854,7 @@ declare namespace audio {
      * @type { AudioConcurrencyMode }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5924,6 +6012,7 @@ declare namespace audio {
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
+   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
@@ -5940,6 +6029,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5951,6 +6041,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5961,6 +6052,7 @@ declare namespace audio {
      * @returns { boolean } The active audio session status for the current pid application.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
@@ -5977,6 +6069,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
+     * @atomicservice
      * @since 12 dynamic
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
@@ -6001,6 +6094,7 @@ declare namespace audio {
     * @throws { BusinessError } 6800101 - Parameter verification failed.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @crossplatform
+    * @atomicservice
     * @since 12 dynamic
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
@@ -8926,6 +9020,29 @@ declare namespace audio {
   }
 
   /**
+   * Provides enhanced audio device management capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDeviceEnhanceManager {
+    /**
+     * Obtains the sound card information. This method uses a Promise to return the query result.
+     *
+     * @returns { Promise<SoundCardInfo> } Promise used to return the sound card information.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *   Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSoundCardInfo(): Promise<SoundCardInfo>;
+  }
+
+  /**
    * Connect type for device.
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -9253,6 +9370,62 @@ declare namespace audio {
      * @since 23 static
      */
     readonly muted?: boolean;
+  }
+
+  /**
+   * Describes sound card information.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SoundCardInfo {
+    /**
+     * Sound card name.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    name: string;
+    /**
+     * Sound card vendor.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendor: string;
+    /**
+     * Sound card model.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    model: string;
+    /**
+     * Sound card bus address.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    busAddress: string;
+    /**
+     * Sound card driver.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    driver: string;
   }
 
   /**
@@ -14862,6 +15035,33 @@ declare namespace audio {
   }
 
   /**
+   * Describes an audio device pair including both input and output devices.
+   * 
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDevicePair {
+    /**
+     * Input audio device descriptor.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    inputDevice: AudioDeviceDescriptor;
+
+    /**
+     * Output audio device descriptor.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    outputDevice: AudioDeviceDescriptor;
+  }
+
+  /**
    * Provides APIs for audio loopback.
    * When audio loopback is enabled, the system creates fast playback and recording streams to implement low-latency in-ear
    * monitoring. The recorded audio is directly routed back to the playback device internally. For the renderer, its audio
@@ -14896,6 +15096,16 @@ declare namespace audio {
      * @since 23 static
      */
     setVolume(volume: double): Promise<void>;
+
+    /**
+     * Gets the output volume for audio loopback.
+     * 
+     * @returns { double } Current audio loopback output volume value.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getVolume(): double;
 
     /**
      * Subscribes to audio loopback status changes.
@@ -14938,6 +15148,28 @@ declare namespace audio {
      * @since 23 static
      */
     offStatusChange(callback?: Callback<AudioLoopbackStatus>): void;
+
+    /**
+     * Gets supported audio device pairs in current device connection situation.
+     * 
+     * @returns { Array<AudioDevicePair> } Audio device pairs that support loopback,
+     *     if there is no supported device pair, empty array will be returned.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSupportedDevicePairs(): Array<AudioDevicePair>;
+
+    /**
+     * Gets the preferred audio device pair in current device connection situation.
+     * 
+     * @returns { AudioDevicePair | null }  The preferred audio device pair in audio system,
+     *     or null if there is no supported device pair.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getPreferredDevicePair(): AudioDevicePair | null;
 
     /**
      * Enable or disable audio loopback.

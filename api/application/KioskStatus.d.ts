@@ -19,9 +19,9 @@
  */
 
 /**
- * The Kiosk status data.
+ * The module provides the kiosk status information, including whether the system is in kiosk mode and the information 
+ * about the application in kiosk mode.
  *
- * @typedef KioskStatus
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20 dynamic
@@ -29,9 +29,8 @@
  */
 export interface KioskStatus {
   /**
-   * Whether current system is in Kiosk mode.
+   * Whether the system is in kiosk mode. **true** if in kiosk mode, **false** otherwise.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
@@ -40,9 +39,8 @@ export interface KioskStatus {
   isKioskMode: boolean;
 
   /**
-   * The bundle name of Kiosk app.
+   * Bundle name of the application in kiosk mode.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
@@ -51,9 +49,8 @@ export interface KioskStatus {
   kioskBundleName: string;
 
   /**
-   * The budle uid of Kiosk app.
+   * UID of the application in kiosk mode.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic

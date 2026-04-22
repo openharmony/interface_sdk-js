@@ -14,23 +14,26 @@
  */
 
 /**
+ * **CompletionHandlerForAtomicService** is an optional parameter of 
+ * [AtomicServiceOptions]{@link @ohos.app.ability.AtomicServiceOptions:AtomicServiceOptions} and is used to handle the 
+ * result of an atomic service launch request.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
-  * Specific failure codes indicating failure to open atomicservice.
-  *
-  * @enum { number }
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @atomicservice
-  * @since 20 dynamic
-  * @since 23 static
-*/
+ * Enumerates the errors codes available for failures in launching an atomic service.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20 dynamic
+ * @since 23 static
+ */
 declare enum FailureCode {
   /**
-   * Indicates fail to open atomicservice due to the system error, such as redirect dialog crash, alloc memory failed.
+   * The atomic service cannot be launched due to a system error (for example, a crash in the transition dialog box).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -41,7 +44,7 @@ declare enum FailureCode {
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
   /**
-   * Indicates the user cancelled the redirection.
+   * The user canceled the operation.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -52,7 +55,7 @@ declare enum FailureCode {
   FAILURE_CODE_USER_CANCEL = 1,
 
   /**
-   * Indicates the user refused the redirection.
+   * The user refused the operation.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -64,31 +67,33 @@ declare enum FailureCode {
 }
 
 /**
-  * Notify the success result of openAtomicService.
-  *
-  * @typedef { function }
-  * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @since 23 static
-  */
+ * Notify the success result of openAtomicService.
+ *
+ * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 23 static
+ */
 type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
 
 /**
-  * Notify the failure result of openAtomicService.
-  *
-  * @typedef { function }
-  * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
-  * @param { FailureCode } failureCode - Indicates the failure code for open atomic service.
-  * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @since 23 static
-  */
+ * Notify the failure result of openAtomicService.
+ *
+ * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
+ * @param { FailureCode } failureCode - Indicates the failure code for open atomic service.
+ * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 23 static
+ */
 type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
 
 /**
- * CompletionHandlerForAtomicService is a handler to handle the completion events of openAtomicService.
+ * CompletionHandlerForAtomicService provides two callback functions, 
+ * [onAtomicServiceRequestSuccess]{@link CompletionHandlerForAtomicService#onAtomicServiceRequestSuccess(appId: string)}
+ * and 
+ * [onAtomicServiceRequestFailure]{@link CompletionHandlerForAtomicService#onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string)}
+ * , to handle the results of successful and failed atomic service launch requests, respectively.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -98,9 +103,9 @@ type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode,
  */
 declare class CompletionHandlerForAtomicService {
   /**
-   * Notify the success result of openAtomicService.
+   * Called when the atomic service is successfully launched.
    *
-   * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
+   * @param { string } appId - appId of the target atomic service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -109,11 +114,11 @@ declare class CompletionHandlerForAtomicService {
   onAtomicServiceRequestSuccess(appId: string): void;
 
   /**
-   * Notify the failure result of openAtomicService.
+   * Called when the atomic service fails to be launched.
    *
-   * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
-   * @param { FailureCode } failureCode - Indicates the failure code for open atomic service.
-   * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
+   * @param { string } appId - appId of the target atomic service.
+   * @param { FailureCode } failureCode - Error code of the failure cause.
+   * @param { string } failureMessage - Description of the failure cause.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -125,7 +130,6 @@ declare class CompletionHandlerForAtomicService {
   /**
    * Notify the success result of openAtomicService.
    *
-   * @type { OnAtomicServiceRequestSuccessFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -135,7 +139,6 @@ declare class CompletionHandlerForAtomicService {
   /**
    * Notify the failure result of openAtomicService.
    *
-   * @type { OnAtomicServiceRequestFailureFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static

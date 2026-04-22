@@ -24,92 +24,39 @@ import { ElementName } from '../bundleManager/ElementName';
 import Context from './Context';
 
 /**
- * The context of an abilityStage. It allows access to abilityStage-specific resources.
+ * The AbilityStageContext module implements the context of an ability stage. It inherits from 
+ * [Context]{@link ./../app/context}.
+ * This module provides APIs for accessing a specific ability stage. You can use the APIs to obtain the ModuleInfo 
+ * object and environment configuration of an ability stage.
  *
- * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 9
- */
-/**
- * The context of an abilityStage. It allows access to abilityStage-specific resources.
- *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @crossplatform
- * @since 10
- */
-/**
- * The context of an abilityStage. It allows access to abilityStage-specific resources.
- *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare class AbilityStageContext extends Context {
   /**
-   * Indicates configuration information about an module.
+   * ModuleInfo object corresponding to the ability stage.
    *
-   * @type { HapModuleInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
-   * @since 9
-   */
-  /**
-   * Indicates configuration information about an module.
-   *
-   * @type { HapModuleInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates configuration information about an module.
-   *
-   * @type { HapModuleInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
   /**
-   * Indicates configuration information.
+   * Environment variables.
    *
-   * @type { Configuration }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
-   * @since 9
-   */
-  /**
-   * Indicates configuration information.
-   *
-   * @type { Configuration }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates configuration information.
-   *
-   * @type { Configuration }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   config: Configuration;

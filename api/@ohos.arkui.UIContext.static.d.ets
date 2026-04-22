@@ -23,7 +23,7 @@ import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import type observer from '@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
-import { LevelOrder } from './@ohos.promptAction';
+import { LevelOrder, LevelMode } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { SimpleAnimatorOptions } from './@ohos.animator';
@@ -1022,6 +1022,46 @@ export interface OverlayManagerOptions {
    * @since 23 static
    */
   enableBackPressedEvent?: boolean;
+}
+
+/**
+ * Options for opening an overlay with order.
+ *
+ * @interface OrderOverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface OrderOverlayOptions {
+  /**
+   * The display order of the overlay.
+   *
+   * @type { ?LevelOrder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  levelOrder?: LevelOrder;
+
+  /**
+   * The display mode of the overlay.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  levelUniqueId?: int;
 }
 
 /**
@@ -2166,6 +2206,19 @@ export declare class OverlayManager {
    * @since 23 static
    */
   hideAllComponentContents(): void;
+
+  /**
+   * Opens an overlay with the specified ComponentContent and options.
+   *
+   * @param { ComponentContent<Object> } content - The content will be added to the OverlayManager.
+   * @param { OrderOverlayOptions } [ options ] - Options for the overlay.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 103307 - The overlay cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  openOrderOverlay(content: ComponentContent<Object>, options?: OrderOverlayOptions): Promise<void>;
 }
 
 /**
@@ -3408,25 +3461,18 @@ export declare class UIContext {
   /**
    * Registers a local input event monitor.
    *
-   * Parameters:
-   * - eventMask: Event type mask, specifying the types of events to monitor through bitwise operations.
-   * - listener: Event listener callback function.
-   *
-   * Returns:
-   * - InputEventMonitor: Unique identifier object for the monitor, used for subsequent cancellation of registration.
-   *
-   * **Performance Warning**: Do not perform time-consuming operations in the callback!
-   *
-   * **Naming Notes**: The "Local" in the interface name indicates that the monitor is only valid within the current UIContext (i.e., the current window),
+   * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
    * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
    *
-   * **Monitor Object Notes**:
+   * Performance Warning: Do not perform time-consuming operations in the callback!
+   *
+   * Monitor Object Notes:
    * - The returned Monitor object is a unique identifier created by the system.
    * - Developers cannot actively construct or forge this object.
-   * - Must save the returned object reference for subsequent cancellation.
+   * - Must save the returned monitor object reference for subsequent cancellation.
    * - It is recommended to use a variable to save it to avoid losing the reference.
    *
-   * **Usage Examples**:
+   * Usage Examples:
    * ```typescript
    * // Monitor a single event type
    * const monitor1 = uiContext.addLocalInputEventMonitor(
@@ -3459,20 +3505,19 @@ export declare class UIContext {
    * uiContext.removeLocalInputEventMonitor(monitor2);
    * ```
    *
-   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through bitwise operations.
+   * @param { int } eventMask - Event type mask, specifying the types of events to monitor through
+   *     bitwise operations.
    * @param { InputEventListener } listener - Event listener callback function.
-   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
+   *     cancellation of registration.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor;
+  addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
 
   /**
    * Removes a local input event monitor.
-   *
-   * Parameters:
-   * - monitor: Monitor identifier object (returned by addLocalInputEventMonitor).
    *
    * **Important Notes**:
    * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.

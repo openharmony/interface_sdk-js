@@ -758,7 +758,7 @@ export interface NdefTag extends TagSession {
  */
 export interface MifareClassicTag extends TagSession {
   /**
-   * Authenticates a sector with the key.Only successful authentication sector can be operated.
+   * Authenticates a sector with the key. Only successful authentication sector can be operated.
    *
    * @permission ohos.permission.NFC_TAG
    * @param { number } sectorIndex - Index of sector to authenticate.
@@ -797,7 +797,7 @@ export interface MifareClassicTag extends TagSession {
   authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean): Promise<void>;
 
   /**
-   * Authenticates a sector with the key.Only successful authentication sector can be operated.
+   * Authenticates a sector with the key. Only successful authentication sector can be operated.
    *
    * @permission ohos.permission.NFC_TAG
    * @param { number } sectorIndex - Index of sector to authenticate.
@@ -984,7 +984,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { number } blockIndex - The index of block to increment.
-   * @param { number } value - The value to increment, none-negative.
+   * @param { number } value - The value to increment, non-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1000,7 +1000,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { int } blockIndex - The index of block to increment.
-   * @param { int } value - The value to increment, none-negative.
+   * @param { int } value - The value to increment, non-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1021,7 +1021,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { number } blockIndex - The index of block to increment.
-   * @param { number } value - The value to increment, none-negative.
+   * @param { number } value - The value to increment, non-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1037,7 +1037,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { int } blockIndex - The index of block to increment.
-   * @param { int } value - The value to increment, none-negative.
+   * @param { int } value - The value to increment, non-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1058,7 +1058,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { number } blockIndex - The index of block to decrease.
-   * @param { number } value - The value to decrease, none-negative.
+   * @param { number } value - The value to decrease, non-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1074,7 +1074,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { int } blockIndex - The index of block to decrease.
-   * @param { int } value - The value to decrease, none-negative.
+   * @param { int } value - The value to decrease, non-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1095,7 +1095,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { number } blockIndex - The index of block to decrease.
-   * @param { number } value - The value to decrease, none-negative.
+   * @param { number } value - The value to decrease, non-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
@@ -1111,7 +1111,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { int } blockIndex - The index of block to decrease.
-   * @param { int } value - The value to decrease, none-negative.
+   * @param { int } value - The value to decrease, non-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:

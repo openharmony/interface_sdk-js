@@ -155,3 +155,4 @@
 /// <reference path="./styled_string.d.ts" />
 /// <reference path="./content_slot.d.ts" />
 /// <reference path="./dynamic_component.d.ts" />
+/// <reference path="./security_ui_extension_component.d.ts" />

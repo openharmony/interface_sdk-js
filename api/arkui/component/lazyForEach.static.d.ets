@@ -74,6 +74,102 @@ export enum DataOperationType {
 }
 
 /**
+ * Enumerates the release strategies for LazyForEach discarded nodes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export enum LazyForEachReleaseStrategy {
+    /**
+     * Release all discarded nodes during the next idle period.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    BATCH = 0,
+    /**
+     * Release discarded nodes one by one during the next idle period based on the
+     * remaining time of the current frame. Unreleased nodes will continue to be
+     * released in subsequent idle periods based on the available idle time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    PROGRESSIVE = 1
+}
+
+/**
+ * Enumerates the freeze modes for cached custom nodes that have been removed
+ * from the component tree in LazyForEach.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export enum LazyForEachCustomComponentFreezeMode {
+    /**
+     * Follow the enableCustomComponentFreeze field in Metadata to determine
+     * whether freezing takes effect.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    AUTO = 0,
+    /**
+     * Freezing is disabled for cached custom nodes removed from the component tree.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISABLED = 1,
+    /**
+     * Freezing is enabled for cached custom nodes removed from the component tree.
+     * State updates of cached custom components will be frozen.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ENABLED = 2
+}
+
+/**
+ * Defines the options for LazyForEach.
+ *
+ * @interface LazyForEachOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface LazyForEachOptions {
+    /**
+     * Freeze mode for cached custom nodes that have been removed from the
+     * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+     *
+     * @default LazyForEachCustomComponentFreezeMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
+    /**
+     * Resource release strategy for LazyForEach discarded nodes.
+     * Default value: LazyForEachReleaseStrategy.BATCH.
+     *
+     * @default LazyForEachReleaseStrategy.BATCH
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    releaseStrategy?: LazyForEachReleaseStrategy;
+}
+
+/**
  * Defines add operation.
  *
  * @interface DataAddOperation
@@ -407,6 +503,7 @@ export interface DataChangeListener {
      *
      * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataChange(index: int): void;
@@ -415,6 +512,7 @@ export interface DataChangeListener {
      *
      * @param { Array<DataOperation> } dataOperations
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDatasetChange(dataOperations: Array<DataOperation>): void;
@@ -536,4 +634,24 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
+): LazyForEachAttribute;
+
+/**
+ * Enter the value to obtain the LazyForEach.
+ *
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
+ * @returns { LazyForEachAttribute } LazyForEach attribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
+    itemGenerator: ItemGeneratorFunc<T>,
+    keyGenerator?: KeyGeneratorFunc<T>,
+    options?: LazyForEachOptions,
 ): LazyForEachAttribute;

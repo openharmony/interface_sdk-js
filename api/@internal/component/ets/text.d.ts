@@ -1884,6 +1884,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 26.0.0 dynamic
    */
   orphanCharOptimization(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Set the font variation.
+   *
+   * @param { Array<FontVariation> } fontVariations - Indicates the text font variation.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontVariations(fontVariations: Array<FontVariation>): TextAttribute;
 }
 
 /**

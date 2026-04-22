@@ -18,47 +18,32 @@
  * @kit AbilityKit
  */
 
-
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import Context from './Context';
 import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
 
 /**
- * The context of an extension. It allows access to extension-specific resources.
+ * ExtensionContext provides the context environment for an 
+ * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}. It inherits from 
+ * [Context](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context).
+ * This module provides APIs for accessing resources of a specific 
+ * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
  *
- * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 9
- */
-/**
- * The context of an extension. It allows access to extension-specific resources.
- *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @atomicservice
- * @since 11 dynamic
+ * @stagemodelonly
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare class ExtensionContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
-   * @type { HapModuleInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Indicates configuration information about an module.
-   *
-   * @type { HapModuleInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   currentHapModuleInfo: HapModuleInfo;
@@ -66,19 +51,10 @@ declare class ExtensionContext extends Context {
   /**
    * Indicates configuration information.
    *
-   * @type { Configuration }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Indicates configuration information.
-   *
-   * @type { Configuration }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   config: Configuration;
@@ -86,19 +62,10 @@ declare class ExtensionContext extends Context {
   /**
    * Extension information.
    *
-   * @type { ExtensionAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Extension information.
-   *
-   * @type { ExtensionAbilityInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   extensionAbilityInfo: ExtensionAbilityInfo;

@@ -334,6 +334,14 @@ declare namespace webview {
     M132 = 2,
 
     /**
+     * ArkWeb M144 version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    M144 = 3,
+
+    /**
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
@@ -869,17 +877,16 @@ declare namespace webview {
   }
 
   /**
-   * Defines the Web's request info.
+   * Describes the information about the resource request sent by the **Web** component.
    *
-   * @typedef RequestInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   interface RequestInfo {
     /**
-     * Gets the url of the request.
-     * @type { string }
+     * URL of the request.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -887,8 +894,8 @@ declare namespace webview {
     url: string;
 
     /**
-     * Gets the method of the request.
-     * @type { string }
+     * Method of the request.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -896,8 +903,8 @@ declare namespace webview {
     method: string;
 
     /**
-     * Gets the form data of the request.
-     * @type { string }
+     * Form data in the request body.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -3499,17 +3506,18 @@ declare namespace webview {
   }
 
   /**
-   * Options of generating code cache
-   * @typedef CacheOptions
+   * Represents a configuration object for precompiling JavaScript in the **Web** component to generate bytecode cache,
+   * which is designed to control the updating of the bytecode cache.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   interface CacheOptions {
     /**
-     * Response headers used to configure the validation key of code cache.
-     * Currently only support E-Tag and Last-Modified.
+     * Array of response headers from the server when a JavaScript file is requested. They include information such as E
+     * -Tag or Last-Modified to identify the file version and determine whether the bytecode cache needs to be
+     * refreshed.
      *
-     * @type { Array<WebHeader> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -3517,8 +3525,9 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link OfflineResourceMap} for indicating the type of resource.
-   * @enum {number}
+   * Enumerates the offline resource types corresponding to the
+   * [OfflineResourceMap]{@link @ohos.web.webview:webview.OfflineResourceMap} object.
+   * 
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
@@ -3557,43 +3566,52 @@ declare namespace webview {
   }
 
   /**
-   * Define offline resource's content and info.
-   * @typedef OfflineResourceMap
+   * Implements an **OfflineResourceMap** object, which is used to set information related to local offline resources
+   * that will be injected into memory cache through the
+   * [injectOfflineResources]{@link @ohos.web.webview:webview.WebviewController#injectOfflineResources} API. The ArkWeb
+   * engine will generate resource caches based on this information and control the validity period of the cache
+   * accordingly.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   interface OfflineResourceMap {
     /**
-     * Url list of resource. Url of urlList must be HTTP/HTTPS protocol and no longer than 2048.
+     * List of network addresses of the local offline resources. The first item in the list is used as the resources'
+     * origin. If only one network address is provided, this single address is used for the resources' origin. The URL
+     * supports only the HTTP and HTTPS protocols and contains a maximum of 2048 characters.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     urlList: Array<string>,
 
     /**
-     * Arraybuffer of resource. Size must less than 10Mb and cannot be empty.
+     * Content of a local offline resource.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     resource: Uint8Array,
 
     /**
-     * Response headers of resource.
+     * HTTP response headers corresponding to the resources. The **Cache-Control** or **Expires** response header is
+     * used to control the validity period of the resource in the memory cache. If neither of the headers is provided, a
+     * default validity time of 86400 seconds (1 day) will be applied. The **Content-Type** response header is used to
+     * define the MIME type of the resource. For resources of type MODULE_JS, a valid MIME type must be provided. For
+     * other types, the MIME type is optional, with no default value. A non-standard MIME type can lead to the resource
+     * being invalidated in the memory cache. If a **script** tag on the web page uses the **crossorigin** attribute,
+     * the **Cross-Origin** response header must be set in the **responseHeaders** parameter of the API. The value for
+     * this header should be **anonymous** or **use-credentials**.
      *
-     * @type { Array<WebHeader> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     responseHeaders: Array<WebHeader>,
 
     /**
-     * Resource type
+     * Resource type. Currently, only the JavaScript, image, and CSS types are supported.
      *
-     * @type { OfflineResourceType }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -3643,16 +3661,14 @@ declare namespace webview {
   }
 
   /**
-   * Enumerates the error codes of blankless. For details, see {@link setBlanklessLoadingWithKey} or {@link
-   * BlanklessInfo}.
+   * Enumerates the error codes of the blankless loading.
    *
-   * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   enum WebBlanklessErrorCode {
     /**
-     * The operation is successful.
+     * Operation successful.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
@@ -3660,7 +3676,7 @@ declare namespace webview {
     SUCCESS = 0,
 
     /**
-     * Unknown error.
+     * Unknown error or internal status error.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
@@ -3676,7 +3692,7 @@ declare namespace webview {
     ERR_INVALID_PARAM = -2,
 
     /**
-     * The web controller is not bound to any component.
+     * **WebViewController** is not bound to any component.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
@@ -3684,8 +3700,10 @@ declare namespace webview {
     ERR_CONTROLLER_NOT_INITED = -3,
 
     /**
-     * The key value is not matched. This error code is returned when the key values of
-     * setBlanklessLodingWithKey and getBlanklessInfoWithKey are not matched.
+     * No key value is matched.
+     * [setBlanklessLoadingWithKey]{@link @ohos.web.webview:webview.WebviewController#setBlanklessLoadingWithKey} must
+     * be used with [getBlanklessInfoWithKey]{@link @ohos.web.webview:webview.WebviewController#getBlanklessInfoWithKey}
+     * and their key values must be the same. Otherwise, this error code is returned.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
@@ -3693,8 +3711,10 @@ declare namespace webview {
     ERR_KEY_NOT_MATCH = -4,
 
     /**
-     * The system determines that the change is too large when the similarity is less than 0.33. As a result,
-     * the setBlanklessLodingWithKey API fails to enable frame interpolation.
+     * The similarity is low, and the system determines that the scene change is too
+     * large. As a result, the
+     * [setBlanklessLoadingWithKey]{@link @ohos.web.webview:webview.WebviewController#setBlanklessLoadingWithKey} API
+     * does not enable frame interpolation.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
@@ -3702,9 +3722,8 @@ declare namespace webview {
     ERR_SIGNIFICANT_CHANGE = -5,
 
     /**
-     * The value of BlanklessLoadingParam.duration is out of the valid range.
-     *
-     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The frame interpolation duration set in
+     * [BlanklessLoadingParam]{@link @ohos.web.webview:webview.BlanklessLoadingParam} is out of range.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3713,9 +3732,8 @@ declare namespace webview {
     ERR_DURATION_OUT_OF_RANGE = -6,
 
     /**
-     * The value of BlanklessLoadingParam.expirationTime is out of the valid range.
-     *
-     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The historical frame expiration time set in
+     * [BlanklessLoadingParam]{@link @ohos.web.webview:webview.BlanklessLoadingParam} is out of range.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3792,36 +3810,37 @@ declare namespace webview {
   }
 
   /**
-   * Defines the blankless information.
+   * Describes the prediction information about blankless loading, including the first screen similarity, first screen
+   * loading duration, and error code. The application determines whether to enable the blankless loading solution based
+   * on the prediction information.
    *
-   * @typedef BlanklessInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   interface BlanklessInfo {
     /**
-     * Defines the error codes of blankless.
-     * @type { WebBlanklessErrorCode }
+     * Error code of blankless loading. For details, see
+     * [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     errCode: WebBlanklessErrorCode;
 
     /**
-     * Obtains the similarity of snapshots generated by the blankless loading solution based on the last
-     * several snapshots. The value ranges from 0 to 1.0. The value 1.0 indicates that the snapshots are the same. A
-     * value closer to 1 indicates higher similarity. This value has a certain lag, meaning that the similarity of
-     * the current loading will only be reflected in the next loading. It is recommended that the frame interpolation
-     * functionality be disabled when the similarity is 0.
-     * @type { number }
+     * First screen similarity, which is calculated based on the historical first screen content. The value ranges from
+     * 0 to 1.0. 1.0 indicates that the content is the same. A value closer to 1 indicates a higher similarity. This
+     * value is lagging, and the similarity of local loading is displayed in the next loading. You are advised not to
+     * enable the blankless loading solution when the similarity is low.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     similarity: number;
 
     /**
-     * Obtains the loading time based on the historical loading time. The unit is ms and the value is greater
-     * than 0.
+     * Loading duration estimated based on the historical first screen loading durations, in milliseconds. The value
+     * must be greater than 0.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -6367,6 +6386,18 @@ declare namespace webview {
     closeCamera(): void;
 
     /**
+     * Gets URL of frame that sent the latest postMessage to native application.
+     *
+     * @returns { string } The URL of frame that last sent a postMessage.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getLastPostMessageURL(): string;
+
+    /**
      * Pause all WebView timers.
      *
      * @throws { BusinessError } 17100001 - Init error.
@@ -6669,60 +6700,45 @@ declare namespace webview {
     webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
 
     /**
-     * Prefetches resource requests based on specified request information and additional HTTP request headers,
-     * saves the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
-     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported.
-     * A maximum of six POST requests can be pre-obtained. To prefetch the seventh post request,
-     * call API{@link clearPrefetchedResource} to clear the cache of unnecessary post requests.
-     * Otherwise, the cache of the earliest prefetched POST request will be automatically cleared.
-     * To use the prefetched resource cache, you need to add the key value ArkWebPostCacheKey to the header of the POST request.
-     * The content of the key value is the cacheKey of the corresponding cache.
-     * @param { RequestInfo } request - The information of the request.
-     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
-     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
-     *    Only support number and letters.
-     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
-     *    The unit is second. Default value is 300s.
-     *    The value of cacheValidTime must between 1 and 2147483647.
-     * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameter types. 3. Parameter verification failed.
+     * Prefetches resource requests based on specified request information and additional HTTP request headers, saves
+     * the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
+     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported. A maximum of
+     * six POST requests can be pre-obtained. To prefetch the seventh post request, call
+     * [clearPrefetchedResource]{@link webview.WebviewController#clearPrefetchedResource} to clear the cache of
+     * unnecessary post requests. Otherwise, the cache of the earliest prefetched POST request will be automatically
+     * cleared. To use the prefetched resource cache, you need to add the key value **ArkWebPostCacheKey** to the header
+     * of the POST request. The content of the key value is the cacheKey of the corresponding cache.
+     *
+     * @param { RequestInfo } request - Information about the prefetched request.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the prefetched request.<br>If
+     *     **undefined** or **null** is passed, error code **401** will be thrown.
+     * @param { string } [cacheKey] - Key used to query the cache of prefetched resources. The value can contain only
+     *     letters and digits. If this parameter is not passed or is left empty, **url** is used by default.<br>If
+     *     **undefined** or **null** is passed, error code **401** will be thrown.
+     * @param { number } [cacheValidTime] - Validity period for caching prefetched resources.<br>Value range: (0, 214748
+     *     3647]<br>Default value: **300s**<br>Unit: second.<br>If **undefined** or **null** is passed, error code
+     *     **401** will be thrown.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048. [since 12 - 21]
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2\*1024\*1024. [since 22]
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Prefetches resource requests based on specified request information and additional HTTP request headers,
-     * saves the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
-     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported.
-     * A maximum of six POST requests can be pre-obtained. To prefetch the seventh post request,
-     * call API{@link clearPrefetchedResource} to clear the cache of unnecessary post requests.
-     * Otherwise, the cache of the earliest prefetched POST request will be automatically cleared.
-     * To use the prefetched resource cache, you need to add the key value ArkWebPostCacheKey to the header of the
-     * POST request. The content of the key value is the cacheKey of the corresponding cache.
-     * @param { RequestInfo } request - The information of the request.
-     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
-     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
-     *     Only support number and letters.
-     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
-     *     The unit is second. Default value is 300s.
-     *     The value of cacheValidTime must between 1 and 2147483647.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *     length exceeds 2*1024*1024.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 22 dynamic
      */
     static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
       cacheValidTime?: number): void;
 
     /**
-    * Clears the cache of prefetched resources based on the specified cache key list.
-    * The cache key in the input parameter must be the prefetched resource cache key specified by API{@link prefetchResource}.
-    * @param { Array<string> } cacheKeyList - The keys for memory cache.
-    *    The key in cacheKeyList only support number and letters.
+    * Clears the cache of prefetched resources based on the specified cache key list. The cache key in the input
+    * parameter must be the prefetched resource cache key specified by
+    * [prefetchResource]{@link webview.WebviewController.prefetchResource}.
+    * 
+    * @param { Array<string> } cacheKeyList - Key used to query the cache of prefetched resources. The value can
+    *     contain only letters and digits. If this parameter is not passed or is left empty, **url** is used by
+    *     default.
     * @syscap SystemCapability.Web.Webview.Core
     * @atomicservice
     * @since 12 dynamic
@@ -6777,17 +6793,25 @@ declare namespace webview {
     terminateRenderProcess(): boolean;
 
     /**
-     * Compile javascript and generate code cache.
-     * @param { string } url - Url of the javascript. Only support HTTP/HTTPS protocol and length no longer than 2048.
-     * @param { string | Uint8Array } script - Javascript source code. script must not be empty.
-     * @param { CacheOptions } cacheOptions - Generate code cache option.
-     * @returns { Promise<number> } - The promise returned by the function.
-     *    0 means generate code cache successfully, -1 means internal error.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     *    Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameter types. 3. Parameter verification failed.
+     * Precompiles JavaScript to generate the bytecode cache or update the existing bytecode cache based on the provided
+     * parameters.
+     *
+     * The API determines whether to update the existing bytecode cache based on the provided file information, E-Tag
+     * response header, and Last-Modified response header.
+     * 
+     * @param { string } url - Network address corresponding to the local JavaScript file, that is, the network address
+     *     used when the service web page requests the server version of the file. The network address supports only the
+     *     HTTP and HTTPS protocols and contains a maximum of 2048 characters. If the cache corresponding to the network
+     *     address is invalid, the service web page requests the corresponding resource through the network.
+     * @param { string | Uint8Array } script - Text content of the local JavaScript. The content cannot be empty.
+     * @param { CacheOptions } cacheOptions - Whether to update the bytecode cache.
+     * @returns { Promise<number> } - Promise used to return the error code for generating the bytecode cache. The value
+     *     **0** indicates no error, and the value **-1** indicates an internal error.
+     * @throws { BusinessError } 401 -Invalid input parameter.
+     *     Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.3. Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *    The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -6841,31 +6865,39 @@ declare namespace webview {
     static warmupServiceWorker(url: string): void;
 
     /**
-     * Inject offline resources into cache.
+     * Injects local offline resources to the memory cache to improve the initial page startup speed.
      *
-     * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
-     *    The count of array must between 1 and 30.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     *    Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 17100001 - Init error.
-     *    The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 12 dynamic
-     */
-    /**
-     * Inject offline resources into cache.
+     * Resources in the memory cache are automatically managed by the ArkWeb engine. When the injected resources are
+     * excessive and cause significant memory pressure, the engine will automatically release unused resources. It is
+     * advisable to avoid injecting a large number of resources into the memory cache.
      *
-     * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
-     *     The count of array must between 1 and 30.
+     * Under normal circumstances, the validity period of the resources is controlled by the provided Cache-Control or
+     * Expires response header, with a default validity period of 86,400 seconds, which is one day.
+     *
+     * The MIME type of the resources is configured through the provided Content-Type response header. The Content-Type
+     * must comply with standards; otherwise, the resources cannot be used correctly. For resources of type MODULE_JS, a
+     * valid MIME type must be provided. For other types, the MIME type is optional.
+     *
+     * Resources injected in this mode can be loaded only through HTML tags. If a **script** tag on the web page uses
+     * the **crossorigin** attribute, the **Cross-Origin** response header must be set in the **responseHeaders**
+     * parameter of the API. The value for this header should be **anonymous** or **use-credentials**.
+     *
+     * After **webview.WebviewController.SetRenderProcessMode(webview.RenderProcessMode.MULTIPLE)** is called, the
+     * application starts the multi-rendering process mode. This API does not take effect in this scenario.
+     * 
+     * @param { Array<OfflineResourceMap> } resourceMaps - Configuration object for local offline resources. A maximum
+     *     of 30 resources can be injected in a single call, with a maximum size of 10 MB per individual resource.
+     * @throws { BusinessError } 401 - Parameter error.
+     *     Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *     length exceeds 2*1024*1024.
+     *     length exceeds 2048. [since 12 - 21]
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2\*1024\*1024. [since 22]
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 dynamic
+     * @since 12 dynamic
      */
     injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
 
@@ -7299,38 +7331,76 @@ declare namespace webview {
     avoidVisibleViewportBottom(avoidHeight: number): void;
 
     /**
-     * Obtains the prediction information about the blankless loading solution and enables the generation of
-     * the transition frame for the current loading. The application determines whether to enable the blankless
-     * loading solution based on the information.
-     *
-     * @param { string } key  The key value that uniquely identifies the page.
-     * Default value: N/A.
-     * The value cannot be empty or exceed 2048 characters.
-     * When an invalid value is set, this API does not take effect.
-     * @returns { BlanklessInfo } The prediction information about the blankless loading solution.
-     * @throws { BusinessError } 801 Capability not supported.
+     * Obtains the prediction information about blankless loading (for details, see
+     * [BlanklessInfo]{@link @ohos.web.webview:webview.BlanklessInfo}) and starts to generate the loading transition
+     * frame. The application determines whether to enable blankless loading based on the information. This API must be
+     * used together with the [setBlanklessLoadingWithKey]{@link webview.WebviewController#setBlanklessLoadingWithKey}
+     * API before the page loading API is triggered or in **onLoadIntercept**, and after the **WebViewController** is
+     * bound to the **Web** component.
+     * 
+     * > **NOTE**
+     * >
+     * > - The default size of the persistent cache capacity is 30 MB (about 30 pages). You can set the cache capacity
+     * > by calling [setBlanklessLoadingCacheCapacity]{@link webview.WebviewController#setBlanklessLoadingCacheCapacity}
+     * > . For details, see the description of this API. When the maximum capacity is exceeded, the cache is updated
+     * > based on the Least Recently Used (LRU) mechanism. The persistent cache data that has been stored for more than
+     * > seven days is automatically cleared. After the cache is cleared, the optimization effect appears when the page
+     * > is loaded for the third time.
+     * >
+     * > - If the snapshot similarity (**similarity** in [BlanklessInfo]{@link @ohos.web.webview:webview.BlanklessInfo})
+     * > is extremely low, check whether the **key** value is correct.
+     * >
+     * > - After this API is called, page loading snapshot detection and transition frame generation calculation are
+     * > enabled, which generates certain resource overhead.
+     * >
+     * > - Blankless loading consumes certain resources, which depends on the resolution of the **Web** component. When
+     * > the width and height of the resolution are respectively **w** and **h**, the peak memory usage increases by
+     * > about **12 × w × h** B in the page-opening phase. After the page is opened, the memory is reclaimed, which does
+     * > not affect the stable memory usage. When the size of the solid-state application cache is increased, the
+     * > increased cache of each page is about **w × h/10** B and the cache is located in the application cache.
+     * >
+     * > - Add the **ohos.permission.INTERNET** and **ohos.permission.GET_NETWORK_INFO** permissions to **module.json5**
+     * > . For details, see
+     * > [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md#declaring-permissions-in-the-configuration-file).
+     * 
+     * @param { string } key  Key value that uniquely identifies the page.<br>The value cannot be empty and can contain
+     *     a maximum of 2048 characters.<br>Invalid values do not take effect.
+     * @returns { BlanklessInfo } Prediction information about blankless loading, including the first screen similarity
+     *     and first screen loading duration. The application determines whether to enable blankless loading based on
+     *     the prediction information.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     getBlanklessInfoWithKey(key: string) : BlanklessInfo;
 
     /**
-     * Sets whether to enable blankless page loading. This API must be used in pair with the
-     * getBlanklessInfoWithKey API.
+     * Sets whether to enable blankless loading. This API must be used together with
+     * [getBlanklessInfoWithKey]{@link webview.WebviewController#getBlanklessInfoWithKey}.
      *
-     * @param { string } key  The key value that uniquely identifies the current page. It must be the same as
-     * the key value of the getBlanklessInfoWithKey API.
-     * Default value: N/A.
-     * The value cannot be empty or exceed 2048 characters.
-     * When an invalid value is set, the error code WebBlanklessErrorCode is returned, and the API does not
-     * take effect.
-     * @param { boolean } is_start  Whether to enable frame interpolation. The value true indicates to enable
-     * frame interpolation, and the value false indicates the opposite.
-     * The default value is false.
-     * The value can be true or false.
-     * Action for setting an invalid value: N/A.
-     * @returns { WebBlanklessErrorCode } WebBlanklessErrorCode.
-     * @throws { BusinessError } 801 Capability not supported.
+     * > **NOTE**
+     * >
+     * > - This API must be called after the page loading API is triggered. Other restrictions are the same as those of
+     * > [getBlanklessInfoWithKey]{@link webview.WebviewController#getBlanklessInfoWithKey}.
+     * >
+     * > - The page must be loaded in the component that calls this API.
+     * >
+     * > - When the similarity is low, the system will deem the scene change too abrupt and frame insertion will fail.
+     * >
+     * > - Add the **ohos.permission.INTERNET** and **ohos.permission.GET_NETWORK_INFO** permissions to **module.json5**
+     * > . For details, see
+     * > [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md#declaring-permissions-in-the-configuration-file).
+     *
+     * @param { string } key  Key value that uniquely identifies the page. This value must be the same as the **key**
+     *     value of the **getBlanklessInfoWithKey** API.<br>The value cannot be empty and can contain a maximum of 2048
+     *     characters.<br>When an invalid value is set, the error code **WebBlanklessErrorCode** is returned, and the
+     *     API does not take effect.
+     * @param { boolean } is_start  Whether to enable frame interpolation. The value **true** means to enable frame
+     *     interpolation, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the value is
+     *     **false**.
+     * @returns { WebBlanklessErrorCode } Whether the API is successfully called. For details, see
+     *     [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
+     * @throws { BusinessError } 801 The functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -7359,31 +7429,40 @@ declare namespace webview {
     /**
      * Clears the blankless loading cache of the page with a specified key value.
      *
-     * @param { Array<string> } [keys]  The list of key values of pages cached in the blankless loading
-     * solution. These key values are specified in getBlanklessInfoKey.
-     * The default value is the list of key values of all pages cached in the blankless loading solution.
-     * The key length cannot exceed 2048 characters, and the number of keys must be less than or equal to 100.
-     * The URL is the same as that input to the Web component during page loading.
-     * When the key length exceeds 2048 characters, the key does not take effect. When the number of keys
-     * exceeds 100, the first 100 keys are used. If these parameters are left empty, the default values are used.
-     * @throws { BusinessError } 801 Capability not supported.
-     * @static
+     * In an applet or web application, when the content changes significantly during page loading, an obvious scene
+     * change may occur. If you are concerned about this change, you can use this API to clear the page cache.
+     *
+     * > **NOTE**
+     * >
+     * > - After the page is cleared, the optimization effect appears when the page is loaded for the third time.
+     *
+     * @param { Array<string> } [keys] Key value list on the pages using the blankless optimization solution. The 
+     *     **key** value has been specified in
+     *     [getBlanklessInfoWithKey]{@link webview.WebviewController#getBlanklessInfoWithKey}.<br>Default value: key
+     *     list of all pages cached by the blankless optimization solution.<br>Valid value range: The key length cannot
+     *     exceed 2048 characters, and the number of keys must be less than or equal to 100. The key value is the same
+     *     as that input to the **Web** component during page loading.<br>Invalid value setting behavior: If
+     *     **undefined** or **null** is passed, error code **401** is thrown. If the key length exceeds 2048, the key
+     *     does not take effect. If the key length exceeds 100, the first 100 values are used. If the key is empty, the
+     *     default value is used.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static clearBlanklessLoadingCache(keys?: Array<string>) : void;
 
     /**
-     * Sets the cache capacity of the blankless loading solution and returns the value that takes effect. If
-     * this API is not called, the default capacity 30 MB is used. The maximum capacity cannot exceed 100 MB.
+     * Sets the persistent cache capacity of the blankless loading solution and returns the value that takes effect. If
+     * the API is not explicitly called, the default cache capacity is 30 MB. When this limit is exceeded, transition
+     * frames that are not frequently used are eliminated.
      *
-     * @param { number } capacity  Cache capacity, in MB. The maximum value is 100 MB.
-     * The default value is 30 MB.
-     * The value ranges from 0 to 100. If this parameter is set to 0, no cache capacity is available and the
-     * functionality is disabled globally.
-     * When the value is set to a number smaller than 0, the value 0 takes effect. When the value is set to a
-     * number greater than 100, the value 100 takes effect.
-     * @returns { number } The effective value that ranges from 0 MB to 100 MB.
+     * @param { number } capacity Persistent cache capacity, in MB. The maximum value is 100 MB.<br>The value ranges
+     *     from 0 to 100. If this parameter is set to **0**, no cache capacity is available and the functionality is
+     *     disabled globally.<br>When a value less than 0 is set, the value **0** takes effect. When a value greater
+     *     than 100 is set, the value **100** takes effect.
+     * @returns { number } Effective value that ranges from 0 MB to 100 MB.
+     *     <br>When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value
+     *     **100** takes effect.
      * @throws { BusinessError } 801 Capability not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core

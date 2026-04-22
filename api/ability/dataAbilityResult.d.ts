@@ -19,9 +19,10 @@
  */
 
 /**
- * Indicates the return result of the data to be manipulated.
+ * The module defines the operation result on DataAbilities. When you call 
+ * [executeBatch](docroot://reference/apis-ability-kit/js-apis-inner-ability-dataAbilityHelper.md#dataabilityhelperexecutebatch)
+ *  to operate the database, the operation result is returned through the DataAbilityResult object.
  *
- * @typedef DataAbilityResult
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 7 dynamiconly
  */
@@ -29,9 +30,8 @@ export interface DataAbilityResult {
   /**
    * Indicates the path of data to operate.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   uri?: string;
@@ -39,9 +39,8 @@ export interface DataAbilityResult {
   /**
    * Indicates the number of rows affected by the operation.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   count?: number;
