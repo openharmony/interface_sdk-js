@@ -13673,7 +13673,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    readonly linearResponseLimit?: double[];
+    readonly linearResponseLimit?: double;
 
     /**
      * The serial number of the camera.
