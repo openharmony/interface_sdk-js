@@ -725,6 +725,21 @@ interface ImageInterface {
   (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
 
   /**
+   * Set src to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
+   * @param { string } [reloadKey]
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent, reloadKey?: string): ImageAttribute;
+
+  /**
    * Set src and ai options to obtain images
    *
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src
@@ -735,6 +750,21 @@ interface ImageInterface {
    * @since 12 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
+
+  /**
+   * Set src and ai options to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor } src
+   * @param { ImageAIOptions } [imageAIOptions]
+   * @param { string } [reloadKey]
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor,
+    imageAIOptions?: ImageAIOptions, reloadKey?: string): ImageAttribute;
 }
 
 /**
