@@ -21,6 +21,9 @@ import Want from './@ohos.app.ability.Want';
 import { AgentCard } from './application/AgentCard';
 import { AgentProxy } from './application/AgentProxy';
 import { AgentExtensionConnectCallback } from './application/AgentExtensionConnectCallback';
+import agentConstant from './@ohos.app.agent.agentConstant';
+import { ConnectOptions } from './ability/connectOptions';
+import AgentExtensionContext from './application/AgentExtensionContext';
 
 /**
  * The module provides the capability to interact with agents in the system.
@@ -231,6 +234,76 @@ declare namespace agentManager {
    * @since 26.0.0 dynamic&static
    */
   function registerAgentCard(agentCard: AgentCard): Promise<void>;
+
+  /**
+   * Notifies that the specified LOW_CODE agent has completed.
+   *
+   * @permission ohos.permission.CONNECT_AGENT
+   * @param { string } agentId - The agent id to notify.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 35600001 - The specified agentId does not exist.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function notifyLowCodeAgentComplete(agentId: string): Promise<void>;
+
+  /**
+   * Connects an AgentExtensionAbility to a ServiceExtensionAbility.
+   * If the target service extension ability is visible, you can connect to it.
+   * If the target service extension ability is invisible, you need to apply for
+   * permission:ohos.permission.START_INVISIBLE_ABILITY to connect to it.
+   * If the target service extension ability is on a remote device, you need to apply for
+   * permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { AgentExtensionContext } context - The context of the current agent extension ability.
+   * @param { Want } want - Indicates the service extension ability to connect.
+   * @param { ConnectOptions } callback - Indicates the callback of connection.
+   * @returns { long } Returns the connection id.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by enterprise device management (EDM).
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function connectServiceExtensionAbility(context: AgentExtensionContext, want: Want, callback: ConnectOptions): long;
+
+  /**
+   * Disconnects an AgentExtensionAbility from a ServiceExtensionAbility, in contrast to
+   * {@link connectServiceExtensionAbility}.
+   *
+   * @param { AgentExtensionContext } context - The context of the current agent extension ability.
+   * @param { long } connectId - The connection id returned by connectServiceExtensionAbility.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function disconnectServiceExtensionAbility(context: AgentExtensionContext, connectId: long): Promise<void>;
 }
 
 export default agentManager;

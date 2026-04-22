@@ -670,6 +670,15 @@ declare type TextBox = text.TextBox;
 export declare type Paragraph = text.Paragraph;
 
 /**
+ * Define the FontVariation type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type FontVariation = text.FontVariation;
+
+/**
  * Defines the cursor style
  *
  * @interface CaretStyle

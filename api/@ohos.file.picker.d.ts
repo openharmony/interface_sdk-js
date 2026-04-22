@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,169 +23,96 @@ import Context from './application/Context';
 import window from './@ohos.window';
 import type { CustomColors } from './@ohos.arkui.theme';
 /**
- * The Picker module encapsulates APIs of DocumentViewPicker, AudioViewPicker, and PhotoViewPicker
- * to provide capabilities of selecting and saving files of different types.
- * An application can select the API as required. The APIs of this module must be called in UIAbility.
- * Otherwise, the FilePicker, AudioPicker, or PhotoPicker cannot be started.
- * Chinese characters and non-digit characters in the path are compiled into the corresponding ASCII code
- * and concatenated to the URI returned by calling these APIs.
+ * The **Picker** module encapsulates APIs such as **DocumentViewPicker**, **AudioViewPicker**, and **PhotoViewPicker**
+ * to provide capabilities of selecting and saving files of different types. An application can select the API as
+ * required. The APIs of this module must be called in UIAbility. Otherwise, the **FilePicker**, **AudioPicker**, or
+ * **PhotoPicker** cannot be started.
+ * Chinese characters and non-digit characters in the URI are compiled into the corresponding ASCII code and
+ * concatenated to the URI returned by calling these APIs.
  *
- * @namespace picker
  * @syscap SystemCapability.FileManagement.UserFileService
- * @since 9
- */
-/**
- * The Picker module encapsulates APIs of DocumentViewPicker, AudioViewPicker, and PhotoViewPicker
- * to provide capabilities of selecting and saving files of different types.
- * An application can select the API as required. The APIs of this module must be called in UIAbility.
- * Otherwise, the FilePicker, AudioPicker, or PhotoPicker cannot be started.
- * Chinese characters and non-digit characters in the path are compiled into the corresponding ASCII code
- * and concatenated to the URI returned by calling these APIs.
- *
- * @namespace picker
- * @syscap SystemCapability.FileManagement.UserFileService
- * @atomicservice
- * @since 11
- */
-/**
- * The Picker module encapsulates APIs of DocumentViewPicker, AudioViewPicker, and PhotoViewPicker
- * to provide capabilities of selecting and saving files of different types.
- * An application can select the API as required. The APIs of this module must be called in UIAbility.
- * Otherwise, the FilePicker, AudioPicker, or PhotoPicker cannot be started.
- * Chinese characters and non-digit characters in the path are compiled into the corresponding ASCII code
- * and concatenated to the URI returned by calling these APIs.
- *
- * @namespace picker
- * @syscap SystemCapability.FileManagement.UserFileService
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace picker {
   /**
    * Enumerates the media file types that can be selected.
    *
-   * @enum { string } PhotoViewMIMETypes
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Enumerates the media file types that can be selected.
-   *
-   * @enum { string } PhotoViewMIMETypes
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewMIMETypes
    */
   export enum PhotoViewMIMETypes {
     /**
-     * Image type.
+     * Image.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Image type.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_TYPE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE
      */
     IMAGE_TYPE = 'image/*',
 
     /**
-     * Video type.
+     * Video.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Video type.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.VIDEO_TYPE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewMIMETypes.VIDEO_TYPE
      */
     VIDEO_TYPE = 'video/*',
 
     /**
-     * Image and video type.
+     * Image and video.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Image and video type.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
      */
     IMAGE_VIDEO_TYPE = '*/*'
   }
 
   /**
-   * Defines the options for selecting images/videos.
+   * Defines the options for selecting images or videos.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Defines the options for selecting images/videos.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSelectOptions
    */
   class PhotoSelectOptions {
     /**
-     * Media file types to select. IMAGE_VIDEO_TYPE is used by default.
+     * Media file types to select. If this parameter is not specified, **IMAGE_VIDEO_TYPE** is used by default.
      *
-     * @type { ?PhotoViewMIMETypes }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Media file types to select. IMAGE_VIDEO_TYPE is used by default.
+     * **Note**: This API is supported since API version 9 and deprecated since API version 18.
      *
-     * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.MIMEType
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSelectOptions#MIMEType
      */
     MIMEType?: PhotoViewMIMETypes;
 
     /**
-     * Maximum number of media files that can be selected. 
-     * The default value is 50, and the maximum value is 500.
+     * Maximum number of media files that can be selected. The default value is **50**,
+     * and the maximum value is **500**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Maximum number of media files that can be selected. 
-     * The default value is 50, and the maximum value is 500.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.maxSelectNumber
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSelectOptions#maxSelectNumber
      */
     maxSelectNumber?: number;
   }
@@ -194,57 +121,35 @@ declare namespace picker {
    * Defines information about the images or videos selected.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Defines information about the images or videos selected.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSelectResult
    */
   class PhotoSelectResult {
     /**
-     * URIs of the media files selected. 
-     * This URI array can be used only by photoAccessHelper.getAssets. For details, see Using a Media File URI.
+     * URIs of the media files selected. This URI array can be used only by
+     * [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
+     * . For details, see
+     * [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * URIs of the media files selected. 
-     * This URI array can be used only by photoAccessHelper.getAssets. For details, see Using a Media File URI.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.photoUris
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSelectResult#photoUris
      */
     photoUris: Array<string>;
 
     /**
-     * Whether the selected image is the original one. 
-     * The value true means the selected image is the original one; the value false means the opposite.
+     * Whether the selected image is the original one. The value **true** means the selected image is the original one;
+     * the value **false** means the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Whether the selected image is the original one. 
-     * The value true means the selected image is the original one; the value false means the opposite.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.isOriginalPhoto
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSelectResult#isOriginalPhoto
      */
     isOriginalPhoto: boolean;
   }
@@ -255,294 +160,242 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead save_button/SaveButtonOptions
+   * @useinstead SaveButtonOptions
    */
   class PhotoSaveOptions {
     /**
-     * File names of the images or videos to save. If this parameter is not specified, the user needs to enter the file names.
+     * File name of the image or video to save. If this parameter is not specified, the user needs to enter the file
+     * name.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead save_button/SaveButtonOptions
+     * @useinstead SaveButtonOptions
      */
     newFileNames?: Array<string>;
   }
 
   /**
-   * Provides APIs for selecting and saving images or videos.
-   * You are advised to use PhotoViewPicker of PhotoAccessHelper to select files.
-   * Before using the APIs of PhotoViewPicker, you need to create a PhotoViewPicker instance.
+   * Provides APIs for selecting and saving images or videos. You are advised to use
+   * [PhotoViewPicker of PhotoAccessHelper]{@link @ohos.file.photoAccessHelper:photoAccessHelper} to select a file.
+   * Before using the APIs of **PhotoViewPicker**, you need to create a **PhotoViewPicker** instance.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Provides APIs for selecting and saving images or videos.
-   * You are advised to use PhotoViewPicker of PhotoAccessHelper to select files.
-   * Before using the APIs of PhotoViewPicker, you need to create a PhotoViewPicker instance.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewPicker
    */
   class PhotoViewPicker {
     /**
-     * A constructor used to create a PhotoViewPicker instance.
-     * This constructor is not recommended due to the potential risk of operation failure.
+     * A constructor used to create a PhotoViewPicker instance. This constructor is not recommended due to
+     * the potential risk of operation failure.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewPicker
      */
     constructor();
 
     /**
-     * A constructor used to create a PhotoViewPicker instance. This constructor is recommended.
-     * For details about how to obtain the context, see getHostContext.
+     * A constructor used to create a PhotoViewPicker instance. This constructor is recommended. For details about how
+     * to obtain the context, see [getHostContext]{@link @ohos.arkui.UIContext.UIContext#getHostContext}.
      *
-     * @param { Context } context - represents the context.
+     * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
+     *     application context of the stage model, see [Context]{@link ./app/context}.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 12 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewPicker
      */
     constructor(context: Context);
 
     /**
-     * Starts a photoPicker page for the user to select one or more images or videos.
-     * This API uses a promise to return the result.
-     * You can pass in PhotoSelectOptions to specify the type and maximum number of the files to select.
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to
+     * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to
+     * select.
      *
-     * @param { PhotoSelectOptions } option - Options for selecting images or videos.
-     * If this parameter is not specified, images and videos are selected by default.
-     * A maximum of 50 files can be selected.
+     * @param { PhotoSelectOptions } option - Options for selecting images or videos. If this parameter is not
+     *     specified, images and videos are selected by default. A maximum of 50 files can be selected.
      * @returns { Promise<PhotoSelectResult> } Promise used to return the URIs of the images or videos selected.
+     *     <br>**Note**: The **photoUris** in the **PhotoSelectResult** object returned by this API can be used only by
+     *     [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
+     *     . For details, see
+     *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a photoPicker page for the user to select one or more images or videos.
-     * This API uses a promise to return the result.
-     * You can pass in PhotoSelectOptions to specify the type and maximum number of the files to select.
-     *
-     * @param { PhotoSelectOptions } option - Options for selecting images or videos.
-     * If this parameter is not specified, images and videos are selected by default.
-     * A maximum of 50 files can be selected.
-     * @returns { Promise<PhotoSelectResult> } Promise used to return the URIs of the images or videos selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewPicker#select(option?: PhotoSelectOptions)
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
     /**
-     * Starts a photoPicker page for the user to select one or more images or videos.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in PhotoSelectOptions to specify the type and maximum number of the files to select.
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses an asynchronous
+     * callback to return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of
+     * the files to select.
      *
      * @param { PhotoSelectOptions } option - Options for selecting images or videos.
      * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
+     *     <br>**Note**: The **photoUris** in the **PhotoSelectResult** object returned by this API can be used only by
+     *     [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
+     *     . For details, see
+     *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a photoPicker page for the user to select one or more images or videos.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in PhotoSelectOptions to specify the type and maximum number of the files to select.
-     *
-     * @param { PhotoSelectOptions } option - Options for selecting images or videos.
-     * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewPicker#select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>)
      */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
-     * Starts a photoPicker page for the user to select one or more images or videos.
-     * This API uses an asynchronous callback to return the result.
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
+     *     <br>**Note**: The **photoUris** in the **PhotoSelectResult** object returned by this API can be used only by
+     *     [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
+     *     . For details, see
+     *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a photoPicker page for the user to select one or more images or videos.
-     * This API uses an asynchronous callback to return the result.
-     *
-     * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoViewPicker#select(callback: AsyncCallback<PhotoSelectResult>)
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
-     * Starts a photoPicker page for the user to save one or more images or videos.
-     * This API uses a promise to return the result.
-     * You can pass in PhotoSaveOptions to specify the URIs of the images or videos to save.
+     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses a promise to
+     * return the result. You can pass in **PhotoSaveOptions** to specify the URIs of the images or videos to save.
      *
-     * @param { PhotoSaveOptions } option - Options for saving images or videos. If this parameter is not specified,
-     * a photoPicker page will be displayed for the user to enter the names of the files to save.
-     * @returns { Promise<Array<string>> } Returns the uris for the saved files.
+     * @param { PhotoSaveOptions } option - Options for saving images or videos. If this parameter is not specified, a
+     *     **photoPicker** page will be displayed for the user to enter the names of the files to save.
+     * @returns { Promise<Array<string>> } Promise used to return the URIs of the images or videos saved.
+     *     <br>**Note**: This API saves files in **Files**, not in **Gallery**. For details about how to use the
+     *     returned URIs, see [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead save_button/SaveButton
+     * @useinstead SaveButton
      */
     save(option?: PhotoSaveOptions): Promise<Array<string>>;
 
     /**
-     * Starts a photoPicker page for the user to save one or more images or videos.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in PhotoSaveOptions to specify the URIs of the images or videos to save.
+     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses an asynchronous
+     * callback to return the result. You can pass in **PhotoSaveOptions** to specify the URIs of the images or videos
+     * to save.
      *
      * @param { PhotoSaveOptions } option - Options for saving images or videos.
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos saved.
+     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos
+     *     saved.
+     *     <br>**Note**: This API saves files in **Files**, not in **Gallery**. For details about how to use the
+     *     returned URIs, see [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead save_button/SaveButton
+     * @useinstead SaveButton
      */
     save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a photoPicker page for the user to save one or more images or videos.
-     * This API uses an asynchronous callback to return the URIs of the images or videos to save.
+     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses an asynchronous
+     * callback to return the URIs of the images or videos to save.
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos saved.
+     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos
+     *     saved.
+     *     <br>**Note**: This API saves files in **Files**, not in **Gallery**. For details about how to use the
+     *     returned URIs, see [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead save_button/SaveButton
+     * @useinstead SaveButton
      */
     save(callback: AsyncCallback<Array<string>>): void;
   }
 
   /**
    * Enumerates the types of documents selected.
-   * Only 2-in-1 devices are supported.
    *
-   * @enum { number } DocumentSelectMode
    * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-   * @since 11
-   */
-  /**
-   * Enumerates the types of documents selected.
-   * Only 2-in-1 devices are supported.
-   *
-   * @enum { int } DocumentSelectMode
-   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   export enum DocumentSelectMode {
     /**
      * File (default).
-     * Indicates that only files are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @since 11
-     */
-    /**
-     * File (default).
-     * Indicates that only files are allowed to be selected.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     FILE = 0,
 
     /**
      * Folder.
-     * Indicates that only folders are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @since 11
-     */
-    /**
-     * Folder.
-     * Indicates that only folders are allowed to be selected.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     FOLDER = 1,
 
     /**
      * Mixed type of files and folders.
-     * Indicates that files and folders are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @since 11
-     */
-    /**
-     * Mixed type of files and folders.
-     * Indicates that files and folders are allowed to be selected.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
-    MIXED = 2,
+    MIXED = 2
   }
 
   /**
    * Enumerates the modes for saving documents.
    *
-   * @enum { int } DocumentPickerMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
-    export enum DocumentPickerMode {
-      /**
-       * Standard mode.
-       *
-       * @syscap SystemCapability.FileManagement.UserFileService
-       * @atomicservice
-       * @since 12 dynamic
-       * @since 23 static
-       */
-      DEFAULT = 0,
-  
-      /**
-       * Download mode.
-       *
-       * @syscap SystemCapability.FileManagement.UserFileService
-       * @atomicservice
-       * @since 12 dynamic
-       * @since 23 static
-       */
-      DOWNLOAD = 1,
+  export enum DocumentPickerMode {
+    /**
+     * Standard mode.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    DEFAULT = 0,
+
+    /**
+     * Download mode.
+     *
+     * **Note**: The directories created in DOWNLOAD mode are used only to save files. There is no access isolation
+     * between directories. You are advised not to save sensitive application data.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    DOWNLOAD = 1
     }
 
   /**
-   * Enumerates file aggregation types. Only mobile phones are supported.
+   * Enumerates file aggregation types.
    *
-   * @enum { int } DocumentPickerMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 15 dynamic
@@ -561,7 +414,6 @@ declare namespace picker {
 
     /**
      * Audio mode.
-     * Indicates that audios are allowed to be selected
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -572,7 +424,6 @@ declare namespace picker {
 
     /**
      * Video mode.
-     * Indicates that videos are allowed to be selected
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -583,7 +434,6 @@ declare namespace picker {
 
     /**
      * Document mode.
-     * Indicates that documents are allowed to be selected
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -594,133 +444,100 @@ declare namespace picker {
 
     /**
      * Image mode.
-     * Indicates that pictures are allowed to be selected
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
      */
-    PICTURE = 4,
+    PICTURE = 4
   }
 
   /**
    * Defines the options for selecting documents.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Defines the options for selecting documents.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   class DocumentSelectOptions {
+
     /**
-     * Path of the document or directory to select.
-     * It is empty by default (the recently opened page is displayed).
+     * Maximum number of files that can be selected.
      *
-     * @type { ?string }
+     * In API version 20 and earlier versions, a maximum of 500 files can be selected at a time.
+     * The default value is 500. Directories can be selected only on devices that have the system capability.
+     * A maximum of one directory can be selected at a time.
+     *
+     * In API version 21 and later versions, the maximum number of files that can be selected at a time is not limited.
+     * Due to system capability restrictions, if too many files are selected at a time, the functionality may be
+     * abnormal or the processing performance may be poor. It is recommended that a maximum of 10,000 files be selected
+     * at a time.
+     *
+     * In API version 23 and later versions, the maximum number of files that can be selected at a time is not limited.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 10
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
+    maxSelectNumber?: number;
     /**
-     * Path of the document or directory to select.
-     * It is empty by default (the recently opened page is displayed).
+     * URI of the file or directory that can be selected. It is empty by
+     * default (the recently opened page is displayed).
      *
-     * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     defaultFilePathUri?: string;
 
     /**
-     * Document suffix of the document to select. The value is a string array. 
-     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
-     * The first part is the description, and the second part is the document suffix.
-     * If there is no "|", the option does not have the description.
-     * Multiple document suffixes separated by a comma (,) are allowed in an option.
-     * The number of elements in a string array cannot exceed 100.
-     * This parameter is available only to the devices that have the required system capability.
-     * By default, no filtering is performed, that is, all documents are selected.
+     * Suffix of the document to select.
      *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 10
-     */
-    /**
-     * Document suffix of the document to select. The value is a string array. 
-     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
-     * The first part is the description, and the second part is the document suffix.
-     * If there is no "|", the option does not have the description.
-     * Multiple document suffixes separated by a comma (,) are allowed in an option.
-     * The number of elements in a string array cannot exceed 100.
-     * This parameter is available only to the devices that have the required system capability.
-     * By default, no filtering is performed, that is, all documents are selected.
+     * The value is a string array. Each element specifies an option, which includes at most two parts with a vertical
+     * bar (|) in between. The first part is the description, and the second part is the document suffix.
+     * If there is no "|", the option does not have the description. Each filter suffix can contain multiple suffixes,
+     * separated by a comma (,). The length of the input array cannot exceed 100 characters, for example,
+     * ['Images (.png, .jpg)|.png,.jpg', 'Documents|.txt', 'Videos|.mp4', '.pdf'].
      *
-     * @type { ?Array<string> }
+     * By default, no filtering is performed, that is, all documents are selected. The wildcard ['All files (*.*)|.*']
+     * can be used on 2-in-1 devices to display all files. (Mobile phones can support this configuration since API
+     * version 17.)
+     *
+     * This parameter is available only to the devices that have the required system capability.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     fileSuffixFilters?: Array<string>;
 
     /**
-     * Maximum number of documents that can be selected.
-     * Value range: 1 to 500.
-     * Only the devices with the required system capability can select directories,
-     * and only one directory can be selected at a time.
-     * Default value: 1.
+     * Type of the document selected by Picker. The default value is **FILE** (file type).
      *
-     * @type { ?number }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 10
-     */
-    /**
-     * Maximum number of documents that can be selected.
-     * Value range: 1 to 500.
-     * Only the devices with the required system capability can select directories,
-     * and only one directory can be selected at a time.
-     * Default value: 1.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    maxSelectNumber?: number;
-
-    /**
-     * Selection mode. Only 2-in-1 devices are supported. The default value is FILE.
-     *
-     * @type { ?DocumentSelectMode }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @since 11
-     */
-    /**
-     * Selection mode. Only 2-in-1 devices are supported. The default value is FILE.
-     *
-     * @type { ?DocumentSelectMode }
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     selectMode?: DocumentSelectMode;
 
     /**
      * Whether to start Picker.
-     * Default value: false.
-     * If authMode is true, defaultFilePathUri is mandatory, which specifies the URI of the file allowed to access.
      *
-     * @type { ?boolean }
+     * Default value: **false**. If **authMode** is **true**, **defaultFilePathUri** is mandatory, which specifies the
+     * URI of the file allowed to access.
+     *
+     * This parameter can be used on 2-in-1 devices but has no effect on other devices.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
+     * SystemCapability.FileManagement.UserFileService.FolderSelection
+     *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @atomicservice
      * @since 12 dynamic
@@ -729,12 +546,13 @@ declare namespace picker {
 
     /**
      * Whether to enable the batch authorization mode.
-     * The value false (default) means to disable the batch authorization mode;
-     * the value true means to enable the batch authorization mode.
-     * The multiUriArray parameter only takes effect when multAuthMode is set to true.
-     * Only mobile phones are supported.
      *
-     * @type { ?boolean }
+     * The value **false** (default) means to disable the batch authorization mode; the value **true** means to enable
+     * the batch authorization mode. The **multiUriArray** parameter only takes effect when **multiAuthMode** is set to
+     * **true**.
+     *
+     * This parameter can be used on smartphones but has no effect on other devices.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
@@ -742,25 +560,25 @@ declare namespace picker {
     multiAuthMode?: boolean;
 
     /**
-     * 	Whether to pass the URIs for batch authorization (only files are supported).
-     *  This parameter is used with multAuthMode, and does not take effect when multAuthMode is set to false.
-     *  By default, this parameter is left empty.(The files displayed on the batch authorization page are empty.)
-     *  Only mobile phones are supported.
+     * Whether to pass the URIs for batch authorization (only files are supported). This parameter is used together with
+     * **multiAuthMode** and does not take effect when **multiAuthMode** is set to **false**. By default, this parameter
+     * is left empty. (The files displayed on the batch authorization page are empty.)
      *
-     * @type { ?Array<string> }
+     * This parameter can be used on smartphones but has no effect on other devices.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
      */
-    multiUriArray?: Array<string>;  
+    multiUriArray?: Array<string>;
 
     /**
-     * Whether to enable the aggregation view mode for a file management application.
-     * The default value is DEFAULT, indicating that this parameter does not take effect and the aggregation view is disabled.
-     * If this parameter is set to a value other than DEFAULT, other parameters do not take effect.
-     * Only mobile phones are supported.
+     * Whether to enable the aggregation view mode for a file management application. The default value is **DEFAULT**,
+     * indicating that this parameter does not take effect and the aggregation view is disabled. If this parameter is
+     * set to a value other than **DEFAULT**, other parameters do not take effect.
      *
-     * @type { ?MergeTypeMode }
+     * This parameter can be used on smartphones but has no effect on other devices.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
@@ -768,22 +586,22 @@ declare namespace picker {
     mergeMode?: MergeTypeMode;
 
     /**
-     * Whether to support encryption (only files are supported). 
-     * The default value is false.
-     * If this parameter is set to true, the picker will display a button that allows the user, 
-     * files can be encrypted on the Picker page.
+     * Whether to support encryption (only files are supported). The default value is **false**. If this parameter is
+     * set to **true**, files can be encrypted on the Picker page.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 19 dynamic
      */
     isEncryptionSupported?: boolean;
-    
+
     /**
-     * Theme color
+     * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
+     * is set to specific theme color properties, such as
+     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
+     * **FilePicker** will adapt to the theme color accordingly.
+     * This API can be called on smartphones but has no effect on other devices.
      *
-     * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 18 dynamic
@@ -806,83 +624,50 @@ declare namespace picker {
    * Defines the options for saving documents.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Defines the options for saving documents.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   class DocumentSaveOptions {
     /**
-     * Name of the document to save.
-     * If this parameter is not specified, the user needs to enter the the document name.
+     * Name of the document to save. If this parameter is not specified, the user needs to enter the file name.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Name of the document to save.
-     * If this parameter is not specified, the user needs to enter the the document name.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     newFileNames?: Array<string>;
 
     /**
-     * Path of the document or directory to save.
+     * URI of the file or directory that can be selected. It is empty by
+     * default (the recently opened page is displayed).
      *
-     * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 10
-     */
-    /**
-     * Path of the document or directory to save.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     defaultFilePathUri?: string;
 
     /**
-     * Document suffix of the document to save. The value is a string array.
-     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
-     * The first part is the description, and the second part is the document suffix.
+     * Document suffix of the document to save.
+     *
+     * The value is a string array. Each element specifies an option, which includes at most two parts with a vertical
+     * bar (|) in between. The first part is the description, and the second part is the document suffix.
      * If there is no "|", the option does not have the description. By default, all documents are saved.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 10
-     */
-    /**
-     * Document suffix of the document to save. The value is a string array.
-     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
-     * The first part is the description, and the second part is the document suffix.
-     * If there is no "|", the option does not have the description. By default, all documents are saved.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     fileSuffixChoices?: Array<string>;
     /**
-     * Mode for starting Picker. Default value: DEFAULT.
-     * If pickerMode is DOWNLOAD,
-     * the settings of newFileNames, defaultFilePathUri, and fileSuffixChoices do not take effect.
+     * Mode for starting Picker.
      *
-     * @type { ?DocumentPickerMode }
+     * Default value: **DEFAULT**. If **pickerMode** is **DOWNLOAD**, the settings of **newFileNames**,
+     * **defaultFilePathUri**, and **fileSuffixChoices** do not take effect.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
@@ -890,9 +675,12 @@ declare namespace picker {
     pickerMode?: DocumentPickerMode;
 
     /**
-     * Theme color
+     * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
+     * is set to specific theme color properties, such as
+     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
+     * **FilePicker** will adapt to the theme color accordingly.
+     * This API can be called on smartphones but has no effect on other devices.
      *
-     * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 18 dynamic
@@ -900,9 +688,10 @@ declare namespace picker {
     themeColor?: CustomColors;
 
     /**
-     * Whether to create empty files. The default value is true, indicating that empty files will be created.
+     * A Boolean value indicates whether to pre-create empty files when saving files. The default value is **true**, in
+     * which case the Picker pre-creates empty files and returns an array of the file URIs. If it is set to **false**,
+     * no empty files are pre-created, and only an array of the file URIs is returned.
      *
-     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
@@ -914,58 +703,53 @@ declare namespace picker {
   /**
    * Defines the options for selecting documents.
    *
-   * @typedef DocumentSelectOptions
    * @syscap SystemCapability.FileManagement.UserFileService
    * @stagemodelonly
    * @since 23 static
    */
   interface DocumentSelectOptions {
     /**
-      * Path of the document or directory to select.
-      * It is empty by default (the recently opened page is displayed).
-      *
-      * @type { ?string }
-      * @syscap SystemCapability.FileManagement.UserFileService
-      * @stagemodelonly
-      * @since 23 static
-      */
+     * Path of the document or directory to select.
+     * It is empty by default (the recently opened page is displayed).
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
+     * @since 23 static
+     */
     defaultFilePathUri?: string;
 
     /**
-      * Document suffix of the document to select. The value is a string array. 
-      * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
-      * The first part is the description, and the second part is the document suffix.
-      * If there is no "|", the option does not have the description.
-      * Multiple document suffixes separated by a comma (,) are allowed in an option.
-      * The number of elements in a string array cannot exceed 100.
-      * This parameter is available only to the devices that have the required system capability.
-      * By default, no filtering is performed, that is, all documents are selected.
-      *
-      * @type { ?Array<string> }
-      * @syscap SystemCapability.FileManagement.UserFileService
-      * @stagemodelonly
-      * @since 23 static
-      */
+     * Document suffix of the document to select. The value is a string array.
+     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
+     * The first part is the description, and the second part is the document suffix.
+     * If there is no "|", the option does not have the description.
+     * Multiple document suffixes separated by a comma (,) are allowed in an option.
+     * The number of elements in a string array cannot exceed 100.
+     * This parameter is available only to the devices that have the required system capability.
+     * By default, no filtering is performed, that is, all documents are selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
+     * @since 23 static
+     */
     fileSuffixFilters?: Array<string>;
 
     /**
-      * Maximum number of documents that can be selected.
-      * Value range: 1 to 500.
-      * Only the devices with the required system capability can select directories,
-      * and only one directory can be selected at a time.
-      * Default value: 1.
-      *
-      * @type { ?int }
-      * @syscap SystemCapability.FileManagement.UserFileService
-      * @stagemodelonly
-      * @since 23 static
-      */
+     * Maximum number of documents that can be selected.
+     * Value range: 1 to 500.
+     * Only the devices with the required system capability can select directories,
+     * and only one directory can be selected at a time.
+     * Default value: 1.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
+     * @since 23 static
+     */
     maxSelectNumber?: int;
 
     /**
      * Selection mode. Only 2-in-1 devices are supported. The default value is FILE.
      *
-     * @type { ?DocumentSelectMode }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
      * @since 23 static
@@ -977,7 +761,6 @@ declare namespace picker {
      * Default value: false.
      * If authMode is true, defaultFilePathUri is mandatory, which specifies the URI of the file allowed to access.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
      * @since 23 static
@@ -991,7 +774,6 @@ declare namespace picker {
      * The multiUriArray parameter only takes effect when multAuthMode is set to true.
      * Only mobile phones are supported.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -999,12 +781,11 @@ declare namespace picker {
     multiAuthMode?: boolean;
 
     /**
-     * 	Whether to pass the URIs for batch authorization (only files are supported).
-     *  This parameter is used with multAuthMode, and does not take effect when multAuthMode is set to false.
-     *  By default, this parameter is left empty.(The files displayed on the batch authorization page are empty.)
-     *  Only mobile phones are supported.
+     * Whether to pass the URIs for batch authorization (only files are supported).
+     * This parameter is used with multAuthMode, and does not take effect when multAuthMode is set to false.
+     * By default, this parameter is left empty.(The files displayed on the batch authorization page are empty.)
+     * Only mobile phones are supported.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1018,7 +799,6 @@ declare namespace picker {
      * If this parameter is set to a value other than DEFAULT, other parameters do not take effect.
      * Only mobile phones are supported.
      *
-     * @type { ?MergeTypeMode }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1026,22 +806,24 @@ declare namespace picker {
     mergeMode?: MergeTypeMode;
 
     /**
-      * Whether to support encryption (only files are supported). 
-      * The default value is false.
-      * If this parameter is set to true, the picker will display a button that allows the user, 
-      * files can be encrypted on the Picker page.
-      *
-      * @type { ?boolean }
-      * @syscap SystemCapability.FileManagement.UserFileService
-      * @stagemodelonly
-      * @since 23 static
-      */
-    isEncryptionSupported?: boolean;
-    
-    /**
-     * Theme color
+     * Whether to support encryption (only files are supported).
+     * The default value is false.
+     * If this parameter is set to true, the picker will display a button that allows the user,
+     * files can be encrypted on the Picker page.
      *
-     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
+     * @since 23 static
+     */
+    isEncryptionSupported?: boolean;
+
+    /**
+     * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
+     * is set to specific theme color properties, such as
+     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
+     * **FilePicker** will adapt to the theme color accordingly.
+     * This API can be called on smartphones but has no effect on other devices.
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -1063,17 +845,15 @@ declare namespace picker {
   /**
    * Defines the options for saving documents.
    *
-   * @typedef DocumentSaveOptions
    * @syscap SystemCapability.FileManagement.UserFileService
    * @stagemodelonly
    * @since 23 static
    */
-  interface DocumentSaveOptions {  
+  interface DocumentSaveOptions {
     /**
      * Name of the document to save.
      * If this parameter is not specified, the user needs to enter the the document name.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1083,7 +863,6 @@ declare namespace picker {
     /**
      * Path of the document or directory to save.
      *
-     * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1096,7 +875,6 @@ declare namespace picker {
      * The first part is the description, and the second part is the document suffix.
      * If there is no "|", the option does not have the description. By default, all documents are saved.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1107,7 +885,6 @@ declare namespace picker {
      * If pickerMode is DOWNLOAD,
      * the settings of newFileNames, defaultFilePathUri, and fileSuffixChoices do not take effect.
      *
-     * @type { ?DocumentPickerMode }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1115,9 +892,12 @@ declare namespace picker {
     pickerMode?: DocumentPickerMode;
 
     /**
-     * Theme color
+     * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
+     * is set to specific theme color properties, such as
+     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
+     * **FilePicker** will adapt to the theme color accordingly.
+     * This API can be called on smartphones but has no effect on other devices.
      *
-     * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -1126,38 +906,30 @@ declare namespace picker {
     themeColor?: CustomColors;
 
     /**
-      * Whether to create empty files, The default value is true, indicating that empty files will be created.
-      *
-      * @type { ?boolean }
-      * @default true
-      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-      * @stagemodelonly
-      * @since 23 static
-      */
+     * Whether to create empty files, The default value is true, indicating that empty files will be created.
+     *
+     * @default true
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
+     * @since 23 static
+     */
     autoCreateEmptyFile?: boolean;
   }
 
   /**
-   * Provides APIs for selecting and saving documents in different formats.
-   * Before using the APIs of DocumentViewPicker, you need to create a DocumentViewPicker instance.
+   * Provides APIs for selecting and saving documents in different formats. Before using the APIs of
+   * **DocumentViewPicker**, you need to create a **DocumentViewPicker** instance.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Provides APIs for selecting and saving documents in different formats.
-   * Before using the APIs of DocumentViewPicker, you need to create a DocumentViewPicker instance.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   class DocumentViewPicker {
     /**
-     * A constructor used to create a DocumentViewPicker instance.
-     * This constructor is not recommended due to the potential risk of operation failure.
+     * A constructor used to create a **DocumentViewPicker** instance. This constructor is not recommended due to the
+     * potential risk of operation failure.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -1167,11 +939,12 @@ declare namespace picker {
     constructor();
 
     /**
-     * A constructor used to create a DocumentViewPicker instance.
-     * This constructor is recommended. For details about how to obtain the context, see getHostContext.
+     * A constructor used to create a **DocumentViewPicker** instance. This constructor is recommended. For details
+     * about how to obtain the context, see
+     * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12).
      *
-     * @param { Context } context - Application context (only UIAbilityContext is supported).
-     * For details about the application context of the stage model, see Context.
+     * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
+     *     application context of the stage model, see [Context]{@link ./app/context}.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
@@ -1180,11 +953,15 @@ declare namespace picker {
     constructor(context: Context);
 
     /**
-     * A constructor used to create a DocumentViewPicker object in a window created by an application.
-     * In other scenarios, you are advised to use constructor(context: Context) to create a DocumentViewPicker object.
+     * A constructor used to create a **DocumentViewPicker** object in a window created by an application. In other
+     * scenarios, you are advised to use **constructor(context: Context)** to create a **DocumentViewPicker** object.
      *
-     * @param { Context } context - Application context (only UIAbilityContext is supported).
-     * For details about the application context of the stage model, see Context.
+     * > **NOTE**
+     * >
+     * > This method is supported on 2-in-1 devices and tablets since API version 19.
+     *
+     * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
+     *     application context of the stage model, see [Context]{@link ./app/context}.
      * @param { window.Window } window - Window instance created by the application.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 13 dynamic
@@ -1193,162 +970,113 @@ declare namespace picker {
     constructor(context: Context, window: window.Window);
 
     /**
-     * Starts a documentPicker page for the user to select one or more documents.
-     * This API uses a promise to return the result.
-     * You can pass in DocumentSelectOptions to specify the URIs of the documents to select.
+     * Starts a **documentPicker** page for the user to select one or more documents. This API uses a promise to return
+     * the result.
      *
-     * @param { DocumentSelectOptions } option - Options for selecting documents.
-     * If this parameter is not specified, the documentPicker page is displayed by default.
+     * @param { DocumentSelectOptions } option - Options for selecting documents. If this parameter is not specified,
+     *     the **documentPicker** page is displayed by default.
      * @returns { Promise<Array<string>> } Promise used to return the URIs of the documents selected.
+     *     <br> **Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a documentPicker page for the user to select one or more documents.
-     * This API uses a promise to return the result.
-     * You can pass in DocumentSelectOptions to specify the URIs of the documents to select.
-     *
-     * @param { DocumentSelectOptions } option - Options for selecting documents.
-     * If this parameter is not specified, the documentPicker page is displayed by default.
-     * @returns { Promise<Array<string>> } Promise used to return the URIs of the documents selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     select(option?: DocumentSelectOptions): Promise<Array<string>>;
 
     /**
-     * Starts a documentPicker page for the user to select one or more documents.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in DocumentSelectOptions to specify the URIs of the documents to select.
+     * Starts a **documentPicker** page for the user to select one or more documents. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { DocumentSelectOptions } option - Options for selecting documents.
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents selected.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a documentPicker page for the user to select one or more documents.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in DocumentSelectOptions to specify the URIs of the documents to select.
-     *
-     * @param { DocumentSelectOptions } option - Options for selecting documents.
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a documentPicker page for the user to select one or more documents.
-     * This API uses an asynchronous callback to return the URIs of the documents selected.
+     * Starts a **documentPicker** page for the user to select one or more documents. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents selected.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a documentPicker page for the user to select one or more documents.
-     * This API uses an asynchronous callback to return the URIs of the documents selected.
-     *
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a documentPicker page for the user to save one or more documents.
-     * This API uses a promise to return the result.
-     * You can pass in DocumentSaveOptions to specify the URIs of the documents to save.
+     * Starts a **documentPicker** page for the user to save one or more documents. This API uses a promise to return
+     * the result.
      *
-     * @param { DocumentSaveOptions } option - Options for saving the documents. If this parameter is not specified,
-     * a documentPicker page will be displayed for the user to enter the names of the documents to save.
+     * @param { DocumentSaveOptions } option - Options for saving the documents. If this parameter is not specified, a
+     *     **documentPicker** page will be displayed for the user to enter the names of the documents to save.
      * @returns { Promise<Array<string>> } Promise used to return the URIs of the documents saved.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a documentPicker page for the user to save one or more documents.
-     * This API uses a promise to return the result.
-     * You can pass in DocumentSaveOptions to specify the URIs of the documents to save.
-     *
-     * @param { DocumentSaveOptions } option - Options for saving the documents. If this parameter is not specified,
-     * a documentPicker page will be displayed for the user to enter the names of the documents to save.
-     * @returns { Promise<Array<string>> } Promise used to return the URIs of the documents saved.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     save(option?: DocumentSaveOptions): Promise<Array<string>>;
 
     /**
-     * Starts a documentPicker page for the user to save one or more documents.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in DocumentSaveOptions to specify the URIs of the documents to save.
+     * Starts a **documentPicker** page for the user to save one or more documents. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { DocumentSaveOptions } option - Options for saving the documents.
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents saved.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a documentPicker page for the user to save one or more documents.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in DocumentSaveOptions to specify the URIs of the documents to save.
-     *
-     * @param { DocumentSaveOptions } option - Options for saving the documents.
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents saved.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a documentPicker page for the user to save one or more documents.
-     * This API uses an asynchronous callback to return the URIs of the documents to save.
+     * Starts a **documentPicker** page for the user to save one or more documents. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents saved.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts a documentPicker page for the user to save one or more documents.
-     * This API uses an asynchronous callback to return the URIs of the documents to save.
-     *
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents saved.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     save(callback: AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the index of the file suffix type of the file saved.
-     * Only 2-in-1 devices are supported.
-     * This method takes effect only when used with save().
-     * This method can be used only after DocumentSaveOptions.
-     * fileSuffixChoices is configured.
-     * The index (number) returned by this method indicates the location of
-     * the file suffix specified in DocumentSaveOptions.fileSuffixChoices.
-     * If no file suffix is specified, getSelectedIndex() returns -1.
+     * This method takes effect only when used with
+     * [save()]{@link picker.DocumentViewPicker#save(option?: DocumentSaveOptions)}.
+     * This method can be used only after [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions} is
+     * configured.
+     * The index (number) returned by this method indicates the location of the file suffix specified in
+     * [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions}. If no file suffix is specified,
+     * **getSelectedIndex()** returns **-1**.
      *
-     * @returns { int } Returns the index of the suffix array fileSuffixChoices configured by the user in DocumentSaveOptions.
+     * @returns { int } Subscript (number) of the selected suffix type in
+     *     [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions}. The default value is **-1**.
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
@@ -1362,32 +1090,28 @@ declare namespace picker {
    * Defines the options for selecting audio clips.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
+  class AudioSelectOptions {
     /**
-   * Defines the options for selecting audio clips.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-    class AudioSelectOptions {
-      /**
-       * Maximum number of audio clips that can be selected.
-       * Default value: 1. Value range: 1 to 500
-       *
-       * @type { ?number }
-       * @syscap SystemCapability.FileManagement.UserFileService
-       * @crossplatform
-       * @atomicservice
-       * @since 12 dynamic
-       */
-      maxSelectNumber?: number;
+     * Maximum number of audio clips that can be selected.
+     *
+     * Default value: **1**
+     *
+     * Value range: 1 to 500
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    maxSelectNumber?: number;
     }
 
   /**
-   * Defines the options for selecting audio clips.
+   * Defines options for selecting audio clips.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @stagemodelonly
@@ -1398,7 +1122,6 @@ declare namespace picker {
      * Maximum number of audio clips that can be selected.
      * Default value: 1. Value range: 1 to 500
      *
-     * @type { ?int }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
@@ -1410,41 +1133,24 @@ declare namespace picker {
    * Defines the options for saving audio clips.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Defines the options for saving audio clips.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   class AudioSaveOptions {
     /**
-     * File names of the audio clips to save.
-     * If this parameter is not specified, the user needs to enter the file names.
+     * Name of the document to save. If this parameter is not specified, the user needs to enter the file name.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * File names of the audio clips to save.
-     * If this parameter is not specified, the user needs to enter the file names.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     newFileNames?: Array<string>;
   }
   /**
    * Defines the options for saving audio clips.
    *
-   * @typedef AudioSaveOptions
    * @syscap SystemCapability.FileManagement.UserFileService
    * @stagemodelonly
    * @since 23 static
@@ -1454,35 +1160,26 @@ declare namespace picker {
      * File names of the audio clips to save.
      * If this parameter is not specified, the user needs to enter the file names.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @stagemodelonly
      * @since 23 static
      */
     newFileNames?: Array<string>;
   }
-
   /**
-   * Provides APIs for selecting and saving audio clips.
-   * Before using the APIs of AudioViewPicker, you need to create an AudioViewPicker instance.
+   * Provides APIs for selecting and saving audio clips. Before using the APIs of **AudioViewPicker**, you need to
+   * create an **AudioViewPicker** instance.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
-   */
-  /**
-   * Provides APIs for selecting and saving audio clips.
-   * Before using the APIs of AudioViewPicker, you need to create an AudioViewPicker instance.
-   *
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   class AudioViewPicker {
     /**
-     * A constructor used to create an AudioViewPicker instance.
-     * This constructor is not recommended due to the potential risk of operation failure.
+     * A constructor used to create an **AudioViewPicker** instance. This constructor is not recommended due to the
+     * potential risk of operation failure.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -1492,11 +1189,12 @@ declare namespace picker {
     constructor();
 
     /**
-     * A constructor used to create an AudioViewPicker instance.
-     * This constructor is recommended. For details about how to obtain the context, see getHostContext.
+     * A constructor used to create an **AudioViewPicker** instance. This constructor is recommended. For details about
+     * how to obtain the context, see
+     * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12).
      *
-     * @param { Context } context - Application context (only UIAbilityContext is supported).
-     * For details about the application context of the stage model, see Context.
+     * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
+     *     application context of the stage model, see [Context]{@link ./app/context}.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
@@ -1505,149 +1203,96 @@ declare namespace picker {
     constructor(context: Context);
 
     /**
-     * Starts an audioPicker page for the user to select one or more audio clips.
-     * This API uses a promise to return the result.
-     * You can pass in AudioSelectOptions to specify the URIs of the audio clips to select.
+     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses a promise to return
+     * the result.
      *
-     * @param { AudioSelectOptions } option - Options for selecting audio clips.
-     * If this parameter is not specified, the audioPicker page is displayed by default.
+     * @param { AudioSelectOptions } option - Options for selecting audio clips. If this parameter is not specified, the
+     *     **audioPicker** page is displayed by default.
      * @returns { Promise<Array<string>> } Promise used to return the URIs of the audio clips selected.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts an audioPicker page for the user to select one or more audio clips.
-     * This API uses a promise to return the result.
-     * You can pass in AudioSelectOptions to specify the URIs of the audio clips to select.
-     *
-     * @param { AudioSelectOptions } option - Options for selecting audio clips.
-     * If this parameter is not specified, the audioPicker page is displayed by default.
-     * @returns { Promise<Array<string>> } Promise used to return the URIs of the audio clips selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     select(option?: AudioSelectOptions): Promise<Array<string>>;
 
     /**
-     * Starts an audioPicker page for the user to select one or more audio clips.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in AudioSelectOptions to specify the URIs of the audio clips to select.
+     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { AudioSelectOptions } option - Options for selecting audio clips.
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips selected.
+     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips
+     *     selected.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts an audioPicker page for the user to select one or more audio clips.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in AudioSelectOptions to specify the URIs of the audio clips to select.
-     *
-     * @param { AudioSelectOptions } option - Options for selecting audio clips.
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts an audioPicker page for the user to select one or more audio clips.
-     * This API uses an asynchronous callback to return the URIs of the audio clips selected.
+     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses an asynchronous
+     * callback to return the result.
+     * **System capability**: SystemCapability.FileManagement.UserFileService
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips selected.
+     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips
+     *     selected.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts an audioPicker page for the user to select one or more audio clips.
-     * This API uses an asynchronous callback to return the URIs of the audio clips selected.
-     *
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips selected.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts an audioPicker page (currently, a documentPicker page is displayed)
-     * for the user to save one or more audio clips.
-     * This API uses a promise to return the result.
-     * You can pass in AudioSaveOptions to specify the URIs of the audio clips to save.
+     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or
+     * more audio clips. This API uses a promise to return the result.
      *
-     * @param { AudioSaveOptions } option - Options for saving audio clips.If this parameter is not specified,
-     * an audioPicker page will be displayed for the user to enter the names of the files to save.
+     * @param { AudioSaveOptions } option - Options for saving audio clips. If this parameter is not specified, an
+     *     **audioPicker** page will be displayed for the user to enter the names of the files to save.
      * @returns { Promise<Array<string>> } Promise used to return the URIs of the audio clips saved.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts an audioPicker page (currently, a documentPicker page is displayed)
-     * for the user to save one or more audio clips.
-     * This API uses a promise to return the result.
-     * You can pass in AudioSaveOptions to specify the URIs of the audio clips to save.
-     *
-     * @param { AudioSaveOptions } option - Options for saving audio clips.If this parameter is not specified,
-     * an audioPicker page will be displayed for the user to enter the names of the files to save.
-     * @returns { Promise<Array<string>> } Promise used to return the URIs of the audio clips saved.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     save(option?: AudioSaveOptions): Promise<Array<string>>;
 
     /**
-     * Starts an audioPicker page (currently, a documentPicker page is displayed)
-     * for the user to save one or more audio clips.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in AudioSaveOptions to specify the URIs of the audio clips to save.
+     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or
+     * more audio clips. This API uses an asynchronous callback to return the result.
      *
      * @param { AudioSaveOptions } option - Options for saving audio clips.
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts an audioPicker page (currently, a documentPicker page is displayed)
-     * for the user to save one or more audio clips.
-     * This API uses an asynchronous callback to return the result.
-     * You can pass in AudioSaveOptions to specify the URIs of the audio clips to save.
-     *
-     * @param { AudioSaveOptions } option -Options for saving audio clips.
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts an audioPicker page (currently, a documentPicker page is displayed)
-     * for the user to save one or more audio clips.
-     * This API uses an asynchronous callback to return the URIs of the audio clips saved.
+     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or
+     * more audio clips. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
+     *     <br>**Note**: For details about how to use the returned URIs, see
+     *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
-     */
-    /**
-     * Starts an audioPicker page (currently, a documentPicker page is displayed)
-     * for the user to save one or more audio clips.
-     * This API uses an asynchronous callback to return the URIs of the audio clips saved.
-     *
-     * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     save(callback: AsyncCallback<Array<string>>): void;

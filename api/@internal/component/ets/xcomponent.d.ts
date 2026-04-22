@@ -615,7 +615,7 @@ declare enum HdrType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   EDR = 2
 }

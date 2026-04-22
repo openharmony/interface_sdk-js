@@ -1077,6 +1077,20 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
+   * Called when the SymbolGlyph color is set.
+   *
+   * @param { Array<ResourceColor | ColorMetrics> | undefined } value
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontColor(value: Array<ResourceColor | ColorMetrics> | undefined): SymbolGlyphAttribute;
+
+  /**
    * Set the shader style of the symbol, such as lineargradient or radialgradient.
    *
    * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.

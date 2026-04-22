@@ -22,7 +22,7 @@
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
-import promptAction, { LevelOrder } from './@ohos.promptAction';
+import promptAction, { LevelOrder, LevelMode } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode, Frame, LengthMetrics, Edges } from './@ohos.arkui.node';
@@ -1789,6 +1789,54 @@ export interface OverlayManagerOptions {
 }
 
 /**
+ * Options for opening an overlay with order.
+ *
+ * @interface OrderOverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface OrderOverlayOptions {
+  /**
+   * The display order of the overlay.
+   *
+   * @type { ?LevelOrder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelOrder?: LevelOrder;
+
+  /**
+   * The display mode of the overlay.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelUniqueId?: int;
+}
+
+/**
  * Register callbacks to observe ArkUI behavior.
  * In the following API examples, you must first use getUIObserver() in UIContext to obtain a UIObserver instance, and
  * then call the APIs using the obtained instance.
@@ -2999,6 +3047,25 @@ export class OverlayManager {
    * @since 12 dynamic
    */
   hideAllComponentContents(): void;
+
+  /**
+   * Opens an overlay with the specified ComponentContent and options.
+   *
+   * @param { ComponentContent } content - Content to add to the new node on the OverlayManager.
+   *     <p><strong>NOTE</strong>:
+   *     <br>By default, the new node is centered on the page and stacked according to its stacking level.
+   *     </p>
+   *
+   * @param { OrderOverlayOptions } [ options ] - Options for the overlay.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 103307 - The overlay cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  openOrderOverlay(content: ComponentContent, options?: OrderOverlayOptions): Promise<void>;
 }
 
 /**
@@ -5086,25 +5153,18 @@ export class UIContext {
   /**
    * Registers a local input event monitor.
    *
-   * Parameters:
-   * - eventMask: Event type mask, specifying the types of events to monitor through bitwise operations.
-   * - listener: Event listener callback function.
-   *
-   * Returns:
-   * - InputEventMonitor: Unique identifier object for the monitor, used for subsequent cancellation of registration.
-   *
-   * **Performance Warning**: Do not perform time-consuming operations in the callback!
-   *
-   * **Naming Notes**: The "Local" in the interface name indicates that the monitor is only valid within the current UIContext (i.e., the current window),
+   * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
    * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
    *
-   * **Monitor Object Notes**:
+   * Performance Warning: Do not perform time-consuming operations in the callback!
+   *
+   * Monitor Object Notes:
    * - The returned Monitor object is a unique identifier created by the system.
    * - Developers cannot actively construct or forge this object.
-   * - Must save the returned object reference for subsequent cancellation.
+   * - Must save the returned monitor object reference for subsequent cancellation.
    * - It is recommended to use a variable to save it to avoid losing the reference.
    *
-   * **Usage Examples**:
+   * Usage Examples:
    * ```typescript
    * // Monitor a single event type
    * const monitor1 = uiContext.addLocalInputEventMonitor(
@@ -5137,9 +5197,11 @@ export class UIContext {
    * uiContext.removeLocalInputEventMonitor(monitor2);
    * ```
    *
-   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through bitwise operations.
+   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through
+   *     bitwise operations.
    * @param { InputEventListener } listener - Event listener callback function.
-   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
+   *     cancellation of registration.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5150,9 +5212,6 @@ export class UIContext {
 
   /**
    * Removes a local input event monitor.
-   *
-   * Parameters:
-   * - monitor: Monitor identifier object (returned by addLocalInputEventMonitor).
    *
    * **Important Notes**:
    * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.

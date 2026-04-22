@@ -302,6 +302,32 @@ declare namespace uiEffect {
      * @since 23 static
      */
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
+
+    /**
+     * Applies heat distortion effect to simulate hot air distortion.
+     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
+     *
+     * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
+     * @returns { Filter } - Returns the heat distortion Filter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    heatDistortion(param: HeatDistortionEffectParam): Filter;
+
+    /**
+     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
+     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
+     *
+     * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
+     * @returns { Filter } - Returns the blur bubbles rise Filter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
   }
 
   /**
@@ -620,6 +646,121 @@ declare namespace uiEffect {
      * @since 23 static
      */
     fraction : double;
+  }
+
+  /**
+   * The parameters of heat distortion effect.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface HeatDistortionEffectParam {
+    /**
+     * Defines distortion intensity for heat distortion effect.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 means no distortion, and 1 represents the maximum distortion level.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    intensity: double;
+
+    /**
+     * Defines noise scale for heat distortion effect, controls the fineness of the noise texture.
+     * Value range [0.1, 5.0], and values outside the range will be clamped.
+     * The larger the value, the finer the noise texture.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    noiseScale: double;
+
+    /**
+     * Defines rise weight for heat distortion effect, controls the rising speed of bubbles.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * The larger the value, the more obvious the upward movement.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    riseWeight: double;
+
+    /**
+     * Defines animation progress for heat distortion effect.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    progress: double;
+  }
+
+  /**
+   * The parameters of blur bubbles rise effect.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface BlurBubblesRiseEffectParam {
+    /**
+     * Defines gaussian blur intensity for blur bubbles rise effect. 
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 means no blur, and 1 represents the maximum blur level.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    blurIntensity: double;
+
+    /**
+     * Defines mix strength between original and blurred images.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the original image, and 1 corresponds to the blurred image.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    mixStrength: double;
+
+    /**
+     * Defines animation progress for blur bubbles rise effect.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    progress: double;
+
+    /**
+     * Defines mask image for blur bubbles rise effect, controls the blur bubbles area.
+     * The masked area has a blur effect, while the unmasked area has no blur effect.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maskImage: image.PixelMap;
   }
 
   /**

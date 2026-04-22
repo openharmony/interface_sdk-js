@@ -26,6 +26,7 @@ import { ShellCmdResult } from './shellCmdResult';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityStageMonitor } from './AbilityStageMonitor';
+import {InteropAbilityMonitor} from './InteropAbilityMonitor';
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
@@ -148,6 +149,19 @@ export interface AbilityDelegator {
    * @since 23 static
    */
   addAbilityMonitorSync(monitor: AbilityMonitor): void;
+
+  /**
+   * Add an InteropAbilityMonitor object for monitoring the lifecycle state changes of the specified ability
+   *     in this process.
+   * 
+   * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
+   * @throws { BusinessError } 16000100 - Calling InteropAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  addInteropAbilityMonitorSync(monitor: InteropAbilityMonitor): void;
 
   /**
    * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
@@ -340,6 +354,18 @@ export interface AbilityDelegator {
    * @since 23 static
    */
   removeAbilityMonitorSync(monitor: AbilityMonitor): void;
+
+  /**
+   * Remove a specified InteropAbilityMonitor object from the application memory.
+   *
+   * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
+   * @throws { BusinessError } 16000100 - Calling removeInteropAbilityMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  removeInteropAbilityMonitorSync(monitor: InteropAbilityMonitor): void;
 
   /**
    * Remove a specified AbilityStageMonitor object from the application memory.

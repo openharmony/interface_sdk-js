@@ -3950,6 +3950,36 @@ declare namespace text {
     fallbackLineSpacing?: boolean;
 
     /**
+     * Indentation before the first line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    firstLineHeadIndent?: double;
+
+    /**
+     * Indentation after each line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tailIndents?: Array<double>;
+
+    /**
+     * Indentation before each line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    headIndents?: Array<double>;
+
+    /**
      * Whether to enable orphan char optimization.
      *
      * @syscap SystemCapability.Graphics.Drawing

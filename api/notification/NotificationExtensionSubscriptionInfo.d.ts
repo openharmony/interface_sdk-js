@@ -21,18 +21,17 @@
 import type notificationExtensionSubscription from '../@ohos.notificationExtensionSubscription';
 
 /**
- * Describes the notification extension subscription info.
+ * The **NotificationExtensionSubscriptionInfo** module describes the information about notification extension 
+ * subscription.
  *
- * @typedef NotificationExtensionSubscriptionInfo
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
  */
 export interface NotificationExtensionSubscriptionInfo {
   /**
-   * Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * MAC address, which is a unique identifier of the device. Example: 11:22:33:AA:BB:FF
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -40,9 +39,8 @@ export interface NotificationExtensionSubscriptionInfo {
   addr: string;
 
   /**
-   * The type of subscribe.
+   * Subscription type, including Bluetooth.
    *
-   * @type { notificationExtensionSubscription.SubscribeType }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static

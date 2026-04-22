@@ -37,7 +37,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Defines Notification Parameters to describe the key information of wantAgent in the notification.
+ * Describes part of the **wantAgent** information about in [NotificationRequest]{@link NotificationRequest}.
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -45,7 +45,8 @@ import { RecordData } from '../@ohos.base';
  */
 export interface NotificationParameters {
   /**
-   * The action field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   * **action** field passed in **want** when **wantAgent** is created. For details, see 
+   * [action]{@link @ohos.app.ability.Want:Want}.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -54,7 +55,8 @@ export interface NotificationParameters {
   wantAction?:string;
 
   /**
-   * The uri field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   * **uri** field passed in **want** when **wantAgent** is created. For details, see 
+   * [uri]{@link @ohos.app.ability.Want:Want}.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -63,7 +65,8 @@ export interface NotificationParameters {
   wantUri?:string;
 
   /**
-   * The parameters field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   * **parameters** field passed in **want** when **wantAgent** is created. For details, see 
+   * [parameters]{@link @ohos.app.ability.Want:Want}.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -72,7 +75,8 @@ export interface NotificationParameters {
   wantParameters?:Record<string, Object>;
 
   /**
-   * The parameters field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   * **parameters** field passed in **want** when **wantAgent** is created. For details, see 
+   * [parameters]{@link @ohos.app.ability.Want:Want}.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -82,16 +86,15 @@ export interface NotificationParameters {
 }
 
 /**
- * The monitor event of a geofence.
+ * Enumerates the event types of monitoring a geofence.
  *
- * @enum { number }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
  */
 export enum MonitorEvent {
   /**
-   * The entry geofence.
+   * Entering a geofence.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -100,7 +103,7 @@ export enum MonitorEvent {
   MONITOR_TYPE_ENTRY = 1,
 
   /**
-   * The leave geofence.
+   * Exiting a geofence.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -110,16 +113,15 @@ export enum MonitorEvent {
 }
 
 /**
- * The coordinate type of a geofence.
+ * Enumerates the coordinate systems of a geofence.
  *
- * @enum { number }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
  */
 export enum CoordinateSystemType {
   /**
-   * The WGS84 type.
+   * WGS84.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -128,7 +130,7 @@ export enum CoordinateSystemType {
   COORDINATE_TYPE_WGS84 = 1,
 
   /**
-   * The GCJ02 type.
+   * GCJ02.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -138,16 +140,15 @@ export enum CoordinateSystemType {
 }
 
 /**
- * The type of a trigger condition.
+ * Enumerates the trigger types.
  *
- * @enum { number }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
  */
 export enum TriggerType {
   /**
-   * The Geofence trigger type.
+   * Geofence.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -157,48 +158,16 @@ export enum TriggerType {
 }
 
 /**
- * The type of group notification customization information.
+ * Defines the configuration of a geofence.
  *
- * @syscap SystemCapability.Notification.Notification
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 dynamic&static
- */
-export interface GroupInfo {
-  /**
-   * Replaces the group notification icon with the notification icon.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  isGroupIcon?: boolean;
- 	 
-  /**
-   * The title of the group notification.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  groupTitle?: string;
-}
-
-/**
- * Defines a geofence.
- *
- * @typedef Geofence
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
  */
 export interface Geofence {
   /**
-   * The longitude of the geofence.
+   * Longitude of the geofence center. The value ranges from -180 to 180.
    *
-   * @type { double }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -206,9 +175,8 @@ export interface Geofence {
   longitude:double;
 
   /**
-   * The latitude of the geofence.
+   * Latitude of the geofence center. The value ranges from -90 to 90.
    *
-   * @type { double }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -216,9 +184,8 @@ export interface Geofence {
   latitude:double;
 
   /**
-   * The radius of the geofence.
+   * Geofence radius, in meters. The value ranges from 200 to 2000.
    *
-   * @type { double }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -226,9 +193,9 @@ export interface Geofence {
   radius:double;
 
   /**
-   * the delay time of the geofence.
+   * Delay time from geofence entry to event trigger, in seconds. 
+   * The value ranges from 0 to 300. The default value is **0**.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -236,9 +203,8 @@ export interface Geofence {
   delayTime?:int;
 
   /**
-   * the coordinate of the geofence.
+   * Coordinate system type of the center point.
    *
-   * @type { CoordinateSystemType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -246,9 +212,8 @@ export interface Geofence {
   coordinateSystemType:CoordinateSystemType;
 
   /**
-   * the monitor event type of the geofence.
+   * Event type for monitoring a geofence.
    *
-   * @type { MonitorEvent }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -257,18 +222,16 @@ export interface Geofence {
 }
 
 /**
- * Defines a TriggerCondition instance.
+ * Defines the details for triggering a geofence.
  *
- * @typedef Trigger
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
  */
 export interface Trigger {
   /**
-   * trigger type.
+   * Trigger type.
    *
-   * @type { TriggerType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -276,9 +239,8 @@ export interface Trigger {
   type:TriggerType;
 
   /**
-   * Trigger description.
+   * Details about a geofence.
    *
-   * @type { Geofence }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -286,9 +248,8 @@ export interface Trigger {
   condition:Geofence;
   
   /**
-   * The auto delete time to live view.
+   * Display time of a live view, in seconds. The value ranges from 15 to 1800. The default value is **900**.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -297,44 +258,27 @@ export interface Trigger {
 }
 
 /**
- * Defines a NotificationRequest instance.
+ * The **NotificationRequest** module provides APIs for defining the notification request.
  *
- * @typedef NotificationRequest
+ * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
- * @since 7
- */
-/**
- * Defines a NotificationRequest instance.
- *
- * @typedef NotificationRequest
- * @syscap SystemCapability.Notification.Notification
- * @crossplatform
- * @since 12 dynamic
+ * @since 7 dynamic
  * @since 23 static
  */
 export interface NotificationRequest {
   /**
    * Notification content.
    *
-   * @type { NotificationContent }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Notification content.
-   *
-   * @type { NotificationContent }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   content: NotificationContent;
 
   /**
-   * notification trigger
+   * Condition object. This parameter is left empty by default.<br>**System API**: This is a system API.
    *
-   * @type { ?Trigger }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -342,27 +286,25 @@ export interface NotificationRequest {
   trigger?:Trigger;
 
   /**
-   * Notification ID. The default value is 0. If the same notification ID exists, the notification content is updated.
+   * Notification ID. The default value is **0**. If a notification with the same ID exists, the notification is 
+   * updated. If no notification with the same ID exists, a new notification is created.
    *
-   * @type { ?number }
+   * @crossplatform [since 12]
+   * @type { ?number } [since 7 - 11]
+   * @type { ?int } [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Notification ID. The default value is 0. If the same notification ID exists, the notification content is updated.
-   *
-   * @type { ?int }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   id?: int;
 
   /**
-   * Notification priority type, which is used to determine whether the notification needs to be prioritized.
+   * Notification priority type. The default value is **OTHER**. If this parameter is set, the notification is pinned on
+   * the top and displayed in a highlighted manner in the notification center. <!--RP2--><!--RP2End-->The actual display
+   * effect depends on the device capability and notification center UI style.
+   * 
+   * This API can be used only in the stage model.
    *
-   * @type { ?notificationManager.PriorityNotificationType }
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -370,13 +312,12 @@ export interface NotificationRequest {
   priorityNotificationType?: notificationManager.PriorityNotificationType;
 
   /**
-   * Unique ID carried in a notification sent by an app, which is used for notification deduplication.
-   * If an app publishes notifications with the same appMessageId locally or on the cloud, the device displays only one message.
-   * Repeated notifications received later will be silenced and deduplicated, and will not be displayed or notified.
-   * The deduplication flag is valid only within 24 hours after the notification is published. After 24 hours or the device is restarted,
-   * the deduplication flag becomes invalid.
+   * Unique ID carried in a notification sent by an application, which is used for notification deduplication. If an 
+   * application publishes notifications with the same **appMessageId** locally or on the cloud, the device displays 
+   * only one message. Repeated notifications received later will be silenced and deduplicated, and will not be 
+   * displayed or notified. The deduplication flag is valid only within 24 hours after the notification is published. 
+   * After 24 hours or the device is restarted, the deduplication flag becomes invalid.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
    * @since 23 static
@@ -384,9 +325,11 @@ export interface NotificationRequest {
   appMessageId?: string;
 
   /**
-   * Notification slot type.
+   * Notification slot type. The default value is **OTHER_TYPES**.
+   * 
+   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
+   * **notificationSlotType** instead.
    *
-   * @type { ?notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
    * @deprecated since 11
@@ -395,9 +338,9 @@ export interface NotificationRequest {
   slotType?: notification.SlotType;
 
   /**
-   * Notification slot type. The default value is OTHER_TYPES.
+   * Notification slot type. The default value is **OTHER_TYPES**. The notification reminder mode varies depending on 
+   * the notification slot type.
    *
-   * @type { ?notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
    * @since 23 static
@@ -405,27 +348,18 @@ export interface NotificationRequest {
   notificationSlotType?: notificationManager.SlotType;
 
   /**
-   * Whether the notification is an ongoing notification.
+   * Not supported currently.
    *
-   * @type { ?boolean }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Whether the notification is an ongoing notification.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   isOngoing?: boolean;
 
   /**
-   * Whether the notification can be removed.
+   * Not supported currently.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -433,11 +367,13 @@ export interface NotificationRequest {
   isUnremovable?: boolean;
 
   /**
-   * Whether to update notifications only.
-   * - true: If a notification with the same ID exists, the notification is updated; otherwise, the notification fails to update and no notification is created.
-   * - false (default): If a notification with the same ID exists, the notification is updated; otherwise, a notification is created.
+   * Whether to update notifications only. The default value is **false**.
+   * 
+   * - **true**: If a notification with the same ID exists, the notification is updated. If no notification with the 
+   * same ID exists, the update fails and no new notification is created.
+   * - **false**: If a notification with the same ID exists, the notification is updated. If no notification with the 
+   * same ID exists, a new notification is created.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 18 dynamic
    * @since 23 static
@@ -445,71 +381,60 @@ export interface NotificationRequest {
   updateOnly?: boolean;
 
   /**
-   * Time when the notification is sent. This API is automatically generated by the system. Data format: timestamp, in milliseconds.
+   * Time when the notification is sent. This API is automatically generated by the system.
+   * 
+   * Data format: timestamp,
+   * 
+   * in milliseconds.
    *
-   * @type { ?number }
+   * @crossplatform [since 12]
+   * @type { ?number } [since 7 - 11]
+   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Time when the notification is sent. This API is automatically generated by the system. Data format: timestamp, in milliseconds.
-   *
-   * @type { ?long }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   deliveryTime?: long;
 
   /**
-   * Whether the notification is automatically cleared. This parameter is valid only when the notification carries wantAgent or actionButtons.
-   * - true (default): The current notification is automatically cleared after the notification or button is tapped.
-   * - false: The current notification is retained after the notification or button is tapped.
+   * Whether the notification is automatically cleared when the notification carries **wantAgent** or **actionButtons**.
+   * This parameter is valid only when the notification carries **wantAgent** or **actionButtons**. The default value is
+   * **true**.
+   * 
+   * - **true**: The current notification is automatically cleared after the notification or button is tapped.
+   * - **false**: The current notification is retained after the notification or button is tapped.
    *
-   * @type { ?boolean }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Whether the notification is automatically cleared. This parameter is valid only when the notification carries wantAgent or actionButtons.
-   * - true (default): The current notification is automatically cleared after the notification or button is tapped.
-   * - false: The current notification is retained after the notification or button is tapped.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   tapDismissed?: boolean;
 
   /**
-   * Time when the notification is automatically cleared. Data format: timestamp, in milliseconds.
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms),
-   * you can set new Date().getTime() + 3000 to meet this requirement.
+   * Scheduled time for clearing a notification. If this parameter is set, the notification will be automatically 
+   * cleared after the specified time. The default value is **0**.
+   * 
+   * Data format: timestamp,
+   * 
+   * in milliseconds.
+   * 
+   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms), you can set 
+   * **new Date().getTime() + 3000** to meet this requirement.
    *
-   * @type { ?number }
+   * @crossplatform [since 12]
+   * @type { ?number } [since 7 - 11]
+   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Time when the notification is automatically cleared. Data format: timestamp, in milliseconds.
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms),
-   * you can set new Date().getTime() + 3000 to meet this requirement.
-   *
-   * @type { ?long }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   autoDeletedTime?: long;
 
   /**
-   * WantAgent instance to which the notification will be redirected after being clicked.
+   * Behavior intent of an application, which is triggered when a notification is clicked. This parameter is left empty 
+   * by default.
    *
-   * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -517,36 +442,53 @@ export interface NotificationRequest {
   wantAgent?: WantAgent;
 
   /**
-   * Expand parameters to provide customized services for applications.
+   * Extended parameters, used to provide custom services for applications. This parameter is left blank by default.
+   * 
+   * The key value is assigned by the system. Manual modification does not take effect. The system automatically changes
+   * the value to the actual value during data transmission.
+   * 
+   * - **ohos.notificationManager.wantUri**: **uri** field in the [Want]{@link @ohos.app.ability.Want:Want} object, 
+   * which is passed to the application when the user taps a notification. This field can be obtained via the 
+   * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>)}
+   * API call.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    */
   extraInfo?: { [key: string]: any };
 
   /**
-   * Expand parameters to provide customized services for applications.
+   * Extended parameters, used to provide custom services for applications. This parameter is left blank by default.
+   * 
+   * The key value is assigned by the system. Manual modification does not take effect. The system automatically changes
+   * the value to the actual value during data transmission.
+   * 
+   * - **ohos.notificationManager.wantUri**: **uri** field in the [Want]{@link @ohos.app.ability.Want:Want} object, 
+   * which is passed to the application when the user taps a notification. This field can be obtained via the 
+   * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>)}
+   * API call.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
    */
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extended parameter. Recommendation system application usage.
+   * Extended parameters customized for the system applications to publish notifications.
+   * This parameter is left empty by default.
+   * **System API**: This is a system API.
    *
-   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 dynamic
    */
   extendInfo?: Record<string, Object>;
+
   /**
-   * Extended parameter. Recommendation system application usage.
+   * Extended parameters customized for the system applications to publish notifications.
+   * This parameter is left empty by default.
+   * **System API**: This is a system API.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 static
@@ -554,9 +496,8 @@ export interface NotificationRequest {
   extendInfo?: Record<string, RecordData>;
 
   /**
-   * Background color of the notification.
+   * Background color of the notification. Not supported currently.
    *
-   * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -564,9 +505,8 @@ export interface NotificationRequest {
   color?: long;
 
   /**
-   * Whether the notification background color can be enabled.
+   * Whether the notification background color can be enabled. Not supported currently.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -574,33 +514,24 @@ export interface NotificationRequest {
   colorEnabled?: boolean;
 
   /**
-   * Whether to send a notification only once when the notification is published or updated.
-   * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
-   *         the notification mode is changed to LEVEL_MIN.
-   * - false (default): A notification is sent based on the configured notification mode.
+   * Whether to send a notification only once when the notification is published or updated. The default value is 
+   * **false**.
+   * 
+   * - **true**: A notification is sent only when the notification is published for the first time. For subsequent 
+   * update, the notification mode is changed to 
+   * [LEVEL_LOW]{@link @ohos.notificationManager:notificationManager.SlotLevel}.
+   * - **false**: A notification is sent based on the configured notification mode.
    *
-   * @type { ?boolean }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Whether to send a notification only once when the notification is published or updated.
-   * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
-   *         the notification mode is changed to LEVEL_MIN.
-   * - false (default): A notification is sent based on the configured notification mode.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   isAlertOnce?: boolean;
 
   /**
-   * Whether to display the stopwatch.
+   * Whether to display the stopwatch. Not supported currently.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -608,9 +539,8 @@ export interface NotificationRequest {
   isStopwatch?: boolean;
 
   /**
-   * Whether to display the countdown time.
+   * Whether to display the countdown time. Not supported currently.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -618,9 +548,8 @@ export interface NotificationRequest {
   isCountDown?: boolean;
 
   /**
-   * Whether the notification is displayed as a floating icon in the status bar.
+   * Whether the notification is displayed as a floating icon in the status bar. Not supported currently.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -628,10 +557,14 @@ export interface NotificationRequest {
   isFloatingIcon?: boolean;
 
   /**
-   * Notification label. The label field can be used independently, or used together with ID as a notification identifier. ID is preferentially used.
-   * If the label is not empty when a notification is published, you need to specify the label when updating or deleting the notification.
+   * Notification label. This parameter is left empty by default.
+   * 
+   * The **label** field can be used independently, or used together with ID as a notification identifier. ID is 
+   * preferentially used.
+   * 
+   * If the label is not empty when a notification is published, you need to specify the label when updating or deleting
+   * the notification.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -639,9 +572,8 @@ export interface NotificationRequest {
   label?: string;
 
   /**
-   * Notification badge type.
+   * Notification badge type. Not supported currently.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -649,27 +581,19 @@ export interface NotificationRequest {
   badgeIconStyle?: int;
 
   /**
-   * Whether to display the time when the notification is delivered.
+   * Whether to display the time when the notification is delivered. Not supported currently.
    *
-   * @type { ?boolean }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Whether to display the time when the notification is delivered.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 7 dynamic
    * @since 23 static
    */
   showDeliveryTime?: boolean;
 
   /**
-   * Notification button. A notification can contain a maximum of two buttons by default.
+   * Notification button. This parameter is left empty by default. A notification can contain a maximum of two buttons. 
+   * Since API version 16, a notification can contain a maximum of three buttons for wearables.
    *
-   * @type { ?Array<NotificationActionButton> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -677,10 +601,11 @@ export interface NotificationRequest {
   actionButtons?: Array<NotificationActionButton>;
 
   /**
-   * Small notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is
-   * obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
+   * Small notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
+   * exceed 192 KB (which is obtained through 
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
+   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
    *
-   * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -688,10 +613,11 @@ export interface NotificationRequest {
   smallIcon?: image.PixelMap;
 
   /**
-   * Large notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is
-   * obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
+   * Large notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
+   * exceed 192 KB (which is obtained through 
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
+   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
    *
-   * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -699,45 +625,36 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * Overlay notification icon.
+   * Notification overlay icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
+   * exceed 192 KB (which is obtained through 
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}).
+   * 
+   * This API takes effect only when [notificationSlotType]{@link NotificationRequest} is set to 
+   * **SOCIAL_COMMUNICATION**. The recommended icon size is 128 × 128 pixels. The display effect depends on the device 
+   * capability and notification center UI style.
    *
-   * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
+   * @systemapi [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Overlay notification icon.
-   *
-   * @type { ?image.PixelMap }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
-   */
+   * @since 23 static
+   */  
   overlayIcon?: image.PixelMap;
 
   /**
-   * Notification group name. This parameter is left blank by default.
+   * Group to which a notification belongs. If the group names of different notifications are the same, these 
+   * notifications are displayed in a group. This parameter is left blank by default.
    *
-   * @type { ?string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
-   */
-  /**
-   * Notification group name. This parameter is left blank by default.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 8 dynamic
    * @since 23 static
    */
   groupName?: string;
 
   /**
-   * Name of the bundle that creates the notification.
+   * Name of the application that creates the notification.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -745,10 +662,8 @@ export interface NotificationRequest {
   readonly creatorBundleName?: string;
 
   /**
-   * UID used for creating the notification.
+   * UID of the application that creates the notification.
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -758,8 +673,6 @@ export interface NotificationRequest {
   /**
    * PID used for creating the notification.
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -769,8 +682,6 @@ export interface NotificationRequest {
   /**
    * ID of the user who creates the notification.
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static
@@ -778,10 +689,10 @@ export interface NotificationRequest {
   readonly creatorUserId?: int;
 
   /**
-   * Application instance key.
+   * Creator instance key.
+   * This parameter is supported since API version 12 and deprecated since API version 15. You are advised to use **appInstanceKey** instead.
+   * **System API**: This is a system API.
    *
-   * @type { ?number }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamiconly
@@ -791,9 +702,22 @@ export interface NotificationRequest {
   readonly creatorInstanceKey?: number;
 
   /**
-   * Name of the custom ringtone file for application notifications.
+   * Path of the custom application notification ringtone resource. By default, this parameter is left empty. The 
+   * following two types of audio resources are supported:
+   * 
+   * - Resource file: Audio file preconfigured in the application. It must be stored in the **resources/rawfile** 
+   * directory. To use the resource file, directly pass the file name.
+   * - Sandbox file: Audio file downloaded from the network or generated by the user. It must be stored in the **files**
+   * directory or its subdirectory in the EL1 area of the 
+   * [sandbox file directory](docroot://file-management/app-sandbox-directory.md#application-sandbox-directory-and-application-sandbox-path)
+   * . The input format is **uri::{fileUri}**, where **fileUri** is the path obtained through 
+   * [getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}. For example, if an application transfers the 
+   * downloaded audio resource demo.mp3 to the sandbox file directory /data/storage/el1/base/files/, the path 
+   * obtained through **getUriFromPath** is **file://{bundleName}/data/storage/el1/base/files/demo.mp3**. You can use 
+   * this path to release a notification to play the audio resource downloaded by the application.
+   * 
+   * Supported formats: M4A, AAC, MP3, OGG, WAV, FLAC, and AMR.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
    * @since 23 static
@@ -801,9 +725,9 @@ export interface NotificationRequest {
   sound?: string;
 
   /**
-   * Obtains the classification of this notification.
+   * Notification category.
+   * **System API**: This is a system API. Not supported currently.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
@@ -814,8 +738,6 @@ export interface NotificationRequest {
   /**
    * Unique ID of the notification.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -823,32 +745,25 @@ export interface NotificationRequest {
   readonly hashCode?: string;
 
   /**
-   * Whether the notification can be remove.
+   * Whether the notification can be removed. If a notification is not removable, it will not be deleted when the user touches the delete button below the notification, and it also cannot be deleted by swiping left on the notification and touching the delete button. The default value is **true**.<br> - **true**: The notification can be removed.
+   * - **false**: The notification cannot be removed.
+   * **System API**: This is a system API.
+   * **Required permissions**: ohos.permission.SET_UNREMOVABLE_NOTIFICATION
    *
-   * @type { ?boolean }
+   * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION [since 11]
    * @default true
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
-   */
-  /**
-   * Whether the notification can be remove.
-   *
-   * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 11 dynamic
+   * @since 8 dynamic
    * @since 23 static
    */
+  
   isRemoveAllowed?: boolean;
 
   /**
-   * Notification source. enum SourceType
+   * Notification source.
+   * **System API**: This is a system API. Not supported currently. 
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
@@ -857,9 +772,8 @@ export interface NotificationRequest {
   readonly source?: int;
 
   /**
-   * Notification template.
+   * Notification template. This parameter is left empty by default.
    *
-   * @type { ?NotificationTemplate }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static
@@ -869,7 +783,6 @@ export interface NotificationRequest {
   /**
    * Distributed notification options. Not supported currently.
    *
-   * @type { ?DistributedOptions }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static
@@ -877,10 +790,9 @@ export interface NotificationRequest {
   distributedOption?: DistributedOptions;
 
   /**
-   * The device ID of the notification source.
+   * Device ID of the notification source.
+   * **System API**: This is a system API. Not supported currently.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
@@ -889,28 +801,24 @@ export interface NotificationRequest {
   readonly deviceId?: string;
 
   /**
-   * Notification flags.
+   * Notification flags to be set or obtained. This parameter is left empty by default. This parameter is writable since
+   * API version 23. You can set this parameter to reduce the notification reminder modes.
    *
-   * @type { ?NotificationFlags }
-   * @readonly
-   * @syscap SystemCapability.Notification.Notification
-   * @since 8 dynamic
-   */
-  /**
-   * Notification flags.
-   *
-   * @type { ?NotificationFlags }
+   * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
    * @FaAndStageModel
-   * @since 23 dynamic&static
+   * @since 8 dynamic
+   * @since 23 static
    */
   notificationFlags?: NotificationFlags;
 
   /**
-   * WantAgent instance to which the notification will be redirected when it is removed.
-   * Currently, redirection to UIAbility is not supported. Only common events can be published (that is, actionType is set to 4).
+   * Behavior intent of an application, which is triggered when a notification is removed. This parameter is left empty 
+   * by default.
+   * 
+   * Currently, redirection to UIAbility is not supported. Only common events can be published (that is, the 
+   * **actionType** field of [WantAgentInfo]{@link ./wantAgent/wantAgentInfo:WantAgentInfo} is set to **4**).
    *
-   * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
@@ -918,41 +826,39 @@ export interface NotificationRequest {
   removalWantAgent?: WantAgent;
 
   /**
-   * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared;
-   * if the value is greater than 99, 99+ is displayed on the badge.
+   * Number of notifications displayed on the application icon. The value is accumulated. The default value is **0**.
+   * 
+   * If the value of **badgeNumber** is less than or equal to 0, the badge number is not displayed;
+   * 
+   * if the value is greater than 99, **99+** is displayed on the badge.
+   * 
+   * For example, if an application publishes three notifications, and `badgeNumber` is set to **2**, **0**, and **3** 
+   * in sequence, the application displays **2**, **2**, and **5** accordingly.
    *
-   * @type { ?number }
+   * @crossplatform [since 12]
+   * @type { ?number } [since 9 - 11]
+   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
-   */
-  /**
-   * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared;
-   * if the value is greater than 99, 99+ is displayed on the badge.
-   *
-   * @type { ?long }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   badgeNumber?: long;
 
   /**
-   * Whether the notification need to be agent display.
+   * Information about the proxied bundle. This parameter is left empty by default.
+   * **System API**: This is a system API.
    *
-   * @type { ?BundleOption }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
    * @since 23 static
    */
   representativeBundle?: BundleOption;
-  
+
   /**
-   * Proxy identity of creation notification.
-   * 
-   * @type { ?BundleOption }
-   * @readonly
+   * Information about the agent bundle for creating notifications. This parameter is left empty by default.
+   * This is a system API.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -961,9 +867,9 @@ export interface NotificationRequest {
   readonly agentBundle?: BundleOption;
 
   /**
-   * Unified aggregation of information across applications.
+   * Intelligent notification unification information. This parameter is left empty by default.
+   * **System API**: This is a system API.
    *
-   * @type { ?UnifiedGroupInfo }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -972,9 +878,10 @@ export interface NotificationRequest {
   unifiedGroupInfo?: UnifiedGroupInfo;
 
   /**
-   * Notification control flags.
+   * Notification mode control. The default value is **0**.
+   * This API can be used to reduce the notification modes of the current notification. This parameter is obtained by performing the bitwise OR operation with the enumeration of [NotificationControlFlagStatus](@link @ohos.notificationManager:notificationManager.NotificationControlFlagStatus).
+   * **System API**: This is a system API.
    *
-   * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -983,10 +890,9 @@ export interface NotificationRequest {
   notificationControlFlags?: long;
 
   /**
-   * Application instance key.
+   * Application instance key. This parameter is left empty by default.
+   * This is a system API.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 15 dynamic
@@ -995,9 +901,13 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * Force distributed forwarding flag.
+   * Whether notifications are forcibly displayed in all scenario across devices. The default value is **false**.
+   * **NOTE**
+   * This field takes effect only when the application is in the cross-device collaborative management list and **notDistributed** is set to **false**. Check whether the **collaborationFilter** field in the **notification_config.json** file contains the UID or bundle name of the application. For details about the file configuration path, see the **NOTIFICATION_CONFIG_FILE** property in [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h). If yes, the application is on the cross-device collaborative management list.
+   * - **true**: Notifications are displayed on all collaboration devices.
+   * - **false**: Notifications are displayed on the applications that are on the collaborative management list.
+   * **System API**: This is a system API.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1007,9 +917,13 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * Distributed forwarding flag.
+   * Whether notifications are not displayed in all scenarios across devices. The default value is **false**.
+   * **NOTE**
+   * field takes effect.
+   * - **true**: Notifications are displayed only on the local device.
+   * - **false**: Notifications are displayed on all collaboration devices.
+   * **System API**: This is a system API.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1019,7 +933,10 @@ export interface NotificationRequest {
   notDistributed?: boolean;
 
   /**
-   * Group notification customization information.
+   * Custom group notification information. This parameter is left empty by default.
+   * **Model restriction**: This API can be used only in the stage model.
+   * **Since**: 26.0.0
+   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1030,18 +947,19 @@ export interface NotificationRequest {
 }
 
 /**
- * Describes distributed notification options.
+ * Describes options for cross-device notifications. Not supported currently.
  *
- * @typedef DistributedOptions
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
  * @since 23 static
  */
 export interface DistributedOptions {
   /**
-   * Whether the notification is a distributed notification.
+   * Whether cross-device notifications are supported. The default value is **true**.
+   * 
+   * - **true**: cross-device notifications are supported.
+   * - **false**: cross-device notifications are not supported.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
@@ -1052,7 +970,6 @@ export interface DistributedOptions {
   /**
    * List of the devices to which the notification can be synchronized.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static
@@ -1062,7 +979,6 @@ export interface DistributedOptions {
   /**
    * List of the devices on which the notification can be opened.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static
@@ -1070,10 +986,9 @@ export interface DistributedOptions {
   supportOperateDevices?: Array<string>;
 
   /**
-   * Obtains the remind mode of the notification. enum DeviceRemindType.
+   * Notification reminder type.
+   * **System API**: This is a system API.
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
@@ -1083,9 +998,8 @@ export interface DistributedOptions {
 }
 
 /**
- * Describes notification filter.
+ * Describes the filter criteria for querying the live view.
  *
- * @typedef NotificationFilter
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 11 dynamic
@@ -1093,9 +1007,8 @@ export interface DistributedOptions {
  */
 export interface NotificationFilter {
   /**
-   * BundleOption of the notification.
+   * Bundle information of the live view.
    *
-   * @type { BundleOption }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -1104,9 +1017,8 @@ export interface NotificationFilter {
   bundle: BundleOption;
 
   /**
-   * Indicates the label and id of the notification.
+   * Notification information, including the notification ID and label.
    *
-   * @type { notificationSubscribe.NotificationKey }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -1115,9 +1027,8 @@ export interface NotificationFilter {
   notificationKey: notificationSubscribe.NotificationKey;
 
   /**
-   * Indicates the additional information filter keys list.
+   * List of extra keys. If this parameter is left empty, all extra information is included.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -1127,9 +1038,8 @@ export interface NotificationFilter {
 }
 
 /**
- * Describes notification check information.
+ * Describes the notification authentication information.
  *
- * @typedef NotificationCheckRequest
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 11 dynamic
@@ -1137,9 +1047,8 @@ export interface NotificationFilter {
  */
 export interface NotificationCheckRequest {
   /**
-   * The notification content type.
+   * Notification type.
    *
-   * @type { notificationManager.ContentType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -1148,9 +1057,8 @@ export interface NotificationCheckRequest {
   contentType: notificationManager.ContentType;
 
   /**
-   * Type of the notification slot..
+   * Notification slot type. 
    *
-   * @type { notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -1159,9 +1067,8 @@ export interface NotificationCheckRequest {
   slotType: notificationManager.SlotType;
 
   /**
-   * Additional information of the notification.
+   * Extra information about the live view.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -1171,9 +1078,8 @@ export interface NotificationCheckRequest {
 }
 
 /**
- * Unified aggregation of information across applications.
+ * Describes the fields of notification intelligent unification information.
  *
- * @typedef UnifiedGroupInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 12 dynamic
@@ -1181,9 +1087,8 @@ export interface NotificationCheckRequest {
  */
 export interface UnifiedGroupInfo {
   /**
-   * The key is aggregated across applications.
+   * Unified group ID.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -1192,9 +1097,8 @@ export interface UnifiedGroupInfo {
   key?: string;
 
   /**
-   * The title is aggregated across applications.
+   * Unified group title.  
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -1203,9 +1107,8 @@ export interface UnifiedGroupInfo {
   title?: string;
 
   /**
-   * The content is aggregated across applications.
+   * Unified group summary.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -1214,9 +1117,8 @@ export interface UnifiedGroupInfo {
   content?: string;
 
   /**
-   * Aggregation scenario name.
+   * Name of a unification scene.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -1225,9 +1127,8 @@ export interface UnifiedGroupInfo {
   sceneName?: string;
 
   /**
-   * Other information is aggregated across applications.
+   * Other unification information.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -1235,12 +1136,48 @@ export interface UnifiedGroupInfo {
   extraInfo?: { [key: string]: any };
 
   /**
-   * Other information is aggregated across applications.
+   * Other unification information.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 static
    */
   extraInfo?: Record<string, RecordData>;
+}
+
+/**
+ * Defines the group notification information.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface GroupInfo {
+  /**
+   * Whether to use the **smallIcon** field in 
+   * [NotificationRequest](@link ./notification/notificationRequest:NotificationRequest) as the group icon displayed
+   * after notifications are grouped. Whether to use the **smallIcon** field as the group icon when the notification
+   * is the latest one in the notification group and the **smallIcon** field is passed. The default value is **false**.
+   * - **true**: yes.
+   * - **false**: no.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isGroupIcon?: boolean;
+ 	 
+  /**
+   * Group title displayed after notifications are grouped. 
+   * This parameter is valid only when the notification is the latest one in the notification group.
+   * This parameter is left empty by default.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  groupTitle?: string;
 }

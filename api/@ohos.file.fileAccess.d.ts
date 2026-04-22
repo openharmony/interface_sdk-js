@@ -287,7 +287,7 @@ declare namespace fileAccess {
     size: number;
     /**
      * Time when the file or directory was last modified.
-     * <br>Unit: Byte.
+     * <br>Unit: ms.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @syscap SystemCapability.FileManagement.UserFileService

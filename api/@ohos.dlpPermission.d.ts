@@ -1735,6 +1735,15 @@ declare namespace dlpPermission {
      * @since 21
      */
     enterprise: string;
+    /**
+     * Represents query options for DLP files.
+     *
+     * @type { ?DlpFileQueryOptions }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    options?: DlpFileQueryOptions;
   }
 
   /**
@@ -1976,6 +1985,56 @@ declare namespace dlpPermission {
      * @since 21
      */
     static unregisterPlugin(): void;
+  }
+
+  /**
+   * Queries the list of URIs of DLP files that have been opened and matched the specified options.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
+   * @returns { Promise<Array<string>> } Returns list of URIs of the target DLP files that have been opened.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<Array<string>>;
+
+  /**
+   * Closes all currently open DLP files that match the specified options.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function closeOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<void>;
+
+  /**
+   * Represents query options for DLP files.
+   *
+   * @interface DlpFileQueryOptions
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export interface DlpFileQueryOptions {  
+    /**
+     * User-defined classification label for an enterprise DLP file.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    classificationLabel?: string;
   }
 }
 export default dlpPermission;

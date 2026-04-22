@@ -22,7 +22,12 @@ import type NotificationSubscriberExtensionContext from './@ohos.application.Not
 import { NotificationInfo } from './notification/NotificationInfo'
 
 /**
- * class of notification subscriber extension ability.
+ * NotificationSubscriberExtensionAbility is the base class for notification subscription extensions, providing the core
+ * functionality for subscribing to notifications.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -31,9 +36,8 @@ import { NotificationInfo } from './notification/NotificationInfo'
  */
 declare class NotificationSubscriberExtensionAbility {
   /**
-   * Indicates configuration information about an ability context.
+   * Context for the NotificationSubscriberExtensionAbility.
    *
-   * @type { NotificationSubscriberExtensionContext }
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic
@@ -42,7 +46,7 @@ declare class NotificationSubscriberExtensionAbility {
   context: NotificationSubscriberExtensionContext;
  
   /**
-   * Callback when the extensionAbility is destroyed
+   * Called when the notification subscription extension is destroyed.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -52,9 +56,11 @@ declare class NotificationSubscriberExtensionAbility {
   onDestroy(): void;
 
   /**
-   * Callback when a notification is published.
+   * Called when a notification is received.
    *
-   * @param { NotificationInfo } notificationInfo - The notification info to be published.
+   * @param { NotificationInfo } notificationInfo - Notification information delivered to the
+   *     [onReceiveMessage]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility.onReceiveMessage}
+   *     callback of ExtensionAbility for notification subscriptions.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic
@@ -63,9 +69,9 @@ declare class NotificationSubscriberExtensionAbility {
   onReceiveMessage(notificationInfo: NotificationInfo): void;
 
   /**
-   * Callback when notifications is cancelled.
+   * Called when notifications are canceled.
    *
-   * @param { Array<string> } hashCodes - The list of notification to be cancelled.
+   * @param { Array<string> } hashCodes - Array of hash codes representing the notifications to be canceled.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic

@@ -58,7 +58,7 @@ export interface LiveFormInfo {
   rect: formInfo.Rect;
 
   /**
-   * The form border radius.
+   * The form border radius. Unit: vp, The value must be greater than or equal to 0, Restricted to a non-negative number.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.Form

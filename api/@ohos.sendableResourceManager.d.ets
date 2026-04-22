@@ -22,9 +22,16 @@ import { Resource as _Resource } from './global/resource';
 import { SendableResource as _SendableResource } from './global/sendableResource';
 
 /**
- * Provides sendable resource related APIs.
+ * The **sendableResourceManager** module provides the 
+ * [resourceToSendableResource]{@link sendableResourceManager.resourceToSendableResource} and 
+ * [sendableResourceToResource]{@link sendableResourceManager.sendableResourceToResource} APIs to implement conversion 
+ * between [Resource]{@link sendableResourceManager.Resource} and 
+ * [SendableResource]{@link sendableResourceManager.resourceToSendableResource} objects.
+ * A **Resource** object can be held by the [Sendable](docroot://arkts-utils/arkts-sendable.md) class after being 
+ * converted into a **SendableResource** object. After cross-thread transmission, the **Sendable** class converts the 
+ * **SendableResource** object into a **Resource** object and uses it as an input parameter for the API used to obtain 
+ * resources.
  *
- * @namespace sendableResourceManager
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
@@ -33,12 +40,12 @@ import { SendableResource as _SendableResource } from './global/sendableResource
 declare namespace sendableResourceManager {
 
   /**
-   * Convert the resource object to a sendable resource object.
+   * Converts a **Resource** object to a **SendableResource** object.
    *
-   * @param { Resource } resource - The resource object.
-   * @returns { SendableResource } The sendable resource object is returned.
+   * @param { Resource } resource - **Resource** object.
+   * @returns { SendableResource } **SendableResource** object after conversion.
    * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types;
-   *                         2.Parameter verification failed.
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -47,12 +54,12 @@ declare namespace sendableResourceManager {
   export function resourceToSendableResource(resource: Resource): SendableResource;
 
   /**
-   * Convert the sendable resource object to a resource object.
+   * Converts a **SendableResource** object to a **Resource** object.
    *
-   * @param { SendableResource } resource - The sendable resource object.
-   * @returns { Resource } The resource object is returned.
+   * @param { SendableResource } resource - **SendableResource** object.
+   * @returns { Resource } **Resource** object after conversion.
    * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types;
-   *                         2.Parameter verification failed.
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -61,9 +68,8 @@ declare namespace sendableResourceManager {
   export function sendableResourceToResource(resource: SendableResource): Resource;
 
   /**
-   * Contains resource descriptor information.
+   * Defines a Resource object.
    *
-   * @typedef {_Resource}
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -72,14 +78,14 @@ declare namespace sendableResourceManager {
   export type Resource = _Resource;
 
   /**
-   * Contains sendable resource descriptor information.
+   * Defines a SendableResource object.
    *
-   * @typedef {_SendableResource}
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
    */
   export type SendableResource = _SendableResource;
+}
 
-} export default sendableResourceManager;
+export default sendableResourceManager;

@@ -419,6 +419,26 @@ export declare interface VisibleListContentInfo {
     itemIndexInGroup?: int;
 }
 /**
+ * Defines the back press behavior for List component.
+ *
+ * @interface ListBackPressBehavior
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface ListBackPressBehavior {
+    /**
+     * Whether to close the swipe menu when back key is pressed.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    closeSwipeAction?: boolean;
+}
+/**
  * Called when a child component enters or leaves the list display area.
  *
  * @typedef {function} OnScrollVisibleContentChangeCallback
@@ -930,6 +950,18 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @since 24 static
      */
     default scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed | undefined): this;
+    /**
+     * Sets the back press behavior for the List component.
+     *
+     * @param { ListBackPressBehavior } [behavior] - The back press behavior options.
+     *     <br>If set, the back key behavior will be customized according to the options.
+     *     <br>If set to undefined or not set, the default back press behavior will be restored.
+     * @returns { this } The attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default backPressBehavior(behavior: ListBackPressBehavior | undefined): this;
     /**
      * Triggered when a child component enters or leaves the list display area.
      *

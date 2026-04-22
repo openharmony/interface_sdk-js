@@ -45,6 +45,16 @@ declare namespace restrictions {
      * @since 24
      */
     WIFI_P2P = 0,
+
+    /**
+     * Local input.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    LOCAL_INPUT = 2,
+    
     /**
      * Core dump
      *
@@ -53,7 +63,34 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     CORE_DUMP = 6
-  } 
+  }
+
+  /**
+   * The feature of device for account.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum FeatureForAccount {
+    /**
+     * Multi-Window.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MULTI_WINDOW = 0,
+
+    /**
+     * Super hub.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SUPER_HUB = 2
+  }
 
   /**
    * Disable or enable the printing function of the device
@@ -901,6 +938,51 @@ declare namespace restrictions {
    * @since 24
    */
   function getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice): boolean;
+
+  /**
+   * Disallows the specific feature of the device for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { FeatureForAccount } feature - feature indicates the specific feature to be disallowed or allowed.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setDisallowedPolicyForAccount(admin: Want, feature: FeatureForAccount, disallow: boolean, accountId: number): void;
+
+  /**
+   * Queries whether the specific feature of the device is disallowed for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   * @param { FeatureForAccount } feature - feature indicates the specific feature to be queried.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   *     <br>Length range:[0, ∞).
+   *
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedPolicyForAccount(admin: Want | null, feature: FeatureForAccount, accountId: number): boolean;
 }
 
 export default restrictions;
