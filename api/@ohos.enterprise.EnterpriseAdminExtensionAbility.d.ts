@@ -271,4 +271,14 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 26.0.0
    */
   onBundleUpdated(bundleName: string, accountId: number): void;
+
+  /**
+   * Called back when the policy changes.
+   *
+   * @param { common.PolicyChangedEvent } event - event indicates the information about the policy change.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onAdminPolicyChanged(event: common.PolicyChangedEvent): void;
 }
