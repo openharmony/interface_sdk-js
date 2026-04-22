@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable, MenuKeyboardAvoidMode } from './common';
+import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable, MenuKeyboardAvoidMode, DistortionMode, EdgeLightMode } from './common';
 import { ControlSize } from './button';
 import { LengthMetrics } from '../Graphics';
 import { DividerOptions } from './textPicker';
@@ -589,6 +589,29 @@ export declare interface SelectAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default menuBackgroundEffect(effect: BackgroundEffectOptions | undefined): this;
+    /**
+     * Sets the distortion animation mode of the select with the new material.
+     *
+     * @param { DistortionMode | undefined } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
+     * @returns { SelectAttribute } - the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuDistortionMode(mode: DistortionMode | undefined): this;
+    /**
+     * Sets the edgelight animation mode of the select with the new material.
+     *
+     * @param { EdgeLightMode | undefined } mode - Animation mode.
+     *     The default value is EdgeLightMode.EDGELIGHT_DISABLED.
+     * @returns { SelectAttribute } - the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuEdgeLightMode(mode: EdgeLightMode | undefined): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.
