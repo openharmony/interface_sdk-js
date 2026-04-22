@@ -4422,7 +4422,7 @@ export enum SystemProperties {
    * @stagemodelonly
    * @since 24 static
    */
-  WINDOW_SIZE_PX = 'system.window.size.px'
+  WINDOW_SIZE_PX = 'system.window.size.px',
  /**
     * System environment windowisfocused key that is used to obtain whether the window is focused or not.
     *
@@ -4438,7 +4438,7 @@ export enum SystemProperties {
     * @stagemodelonly
     * @since 26.0.0 static
     */
-   WINDOW_IS_HIGHLIGHTED = 'system.window.highlighted',
+   WINDOW_IS_HIGHLIGHTED = 'system.window.highlighted'
 }
 
 /**
