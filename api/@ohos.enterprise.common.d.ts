@@ -201,6 +201,51 @@ declare namespace common {
     }
 
     /**
+     * The policy event.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    export interface PolicyChangedEvent {
+      /**
+       * The bundle name of the application that sets the policy.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      bundleName : string;
+
+      /**
+       * The function name for setting policy.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      functionName : string;
+
+      /**
+       * The JSON string containing policy parameters.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      parameters: string;
+
+      /**
+       * The time when the function for setting policy.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      time: number;
+    }
+
+    /**
      * The context of enterprise admin extension context. It allows access to ability-specific resources.
      *
      * @typedef { _EnterpriseAdminExtensionContext.default }
