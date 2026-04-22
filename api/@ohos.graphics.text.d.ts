@@ -7626,11 +7626,12 @@ declare namespace text {
 
     /**
      * Obtains the text style of this run.
+     *
      * @returns { TextStyle } Text style of this run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
+     * @stagemodelonly
      * @atomicservice
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getTextStyle(): TextStyle;
   }
