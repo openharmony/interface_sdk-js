@@ -21,6 +21,7 @@
 
 import { ChipSize, ChipSymbolGlyphOptions, CloseOptions, ChipSuffixSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines icon options.
@@ -616,6 +617,19 @@ export declare struct IconGroupSuffix {
      */
     @Require @Prop
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
+
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @type { ?uiMaterial.Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    @Prop
+    iconBackgroundSystemMaterial?: uiMaterial.Material;
 }
 
 
@@ -700,8 +714,21 @@ export declare struct ChipGroup {
      * @atomicservice
      * @since 12 dynamic
      */
+     @Prop
+     chipGroupPadding?: ChipGroupPaddingOptions;
+
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @type { ?uiMaterial.Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
     @Prop
-    chipGroupPadding?: ChipGroupPaddingOptions;
+    backgroundSystemMaterial?: uiMaterial.Material;
 
     /**
      * Chip group callback. when chip status is changed, this onChange is called.
