@@ -915,7 +915,7 @@ declare namespace mindSporeLite {
     shape: int[];
 
     /**
-      * The data size of the tensor.
+      * The number of elements in the tensor.
       * @type {int}
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
@@ -926,7 +926,7 @@ declare namespace mindSporeLite {
 
     /**
       * The data size of the tensor.
-      * @type {int}
+      * @type {int} Byte
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
