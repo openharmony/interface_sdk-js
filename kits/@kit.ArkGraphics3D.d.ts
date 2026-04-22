@@ -30,8 +30,8 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings,
   RenderConfiguration, UnlitShadowAlphaMaterial, OcclusionMaterial, Mat4x4,
-  BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
-  BoidsSimRepulsionParameters } from '@ohos.graphics.scene';
+  BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters, BoidsSimRepulsionParameters,
+  SoftShadowConfig, PCFConfig, ShadowAlgorithmType } from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
@@ -44,6 +44,6 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings,
   RenderConfiguration, UnlitShadowAlphaMaterial, OcclusionMaterial, Mat4x4,
-  BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
-  BoidsSimRepulsionParameters };
+  BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters, BoidsSimRepulsionParameters,
+  SoftShadowConfig, PCFConfig, ShadowAlgorithmType };
 /*** endif */
