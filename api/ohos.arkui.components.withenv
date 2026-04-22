@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
- declare enum WritableSystemProperties {
+export declare enum WritableSystemProperties {
     /**
      * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
      *
@@ -28,9 +28,9 @@
      */
     Layout_Direction = 'system.arkui.layout.direction',
 
-}
-;
-interface WritableEnvProperties {
+};
+
+export interface WritableEnvProperties {
     [WritableSystemProperties.Layout_Direction]: boolean,
 };
 
@@ -43,9 +43,10 @@ interface WritableEnvProperties {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-declare class WithEnvAttribute {
-  env<T extends keyof WritableEnvProperties>(key: T, value: WritableEnvProperties[T]):  this { return this }
-  customEnv<T>(key: string, value: T): this { return this }
+export declare class WithEnvAttribute {
+  env(key: WritableSystemProperties, value: WritableEnvProperties[WritableSystemProperties]): WithEnvAttribute;
+  customEnv<T>(key: string, value: T): WithEnvAttribute; 
+  testEnv(key: string, value: string): WithEnvAttribute; //for test
 }
 
 
@@ -59,7 +60,7 @@ declare class WithEnvAttribute {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-declare type WithEnvInterface = () => WithEnvAttribute;
+export declare type WithEnvInterface = () => WithEnvAttribute;
 /**
  * Define the WithEnv component that allows setting environment properties for child components.
  *
@@ -69,7 +70,7 @@ declare type WithEnvInterface = () => WithEnvAttribute;
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-declare const WithEnv: WithEnvInterface;
+export declare const WithEnv: WithEnvInterface;
 /**
  * Define WithEnv Logic Component Instance.
  *
@@ -79,7 +80,7 @@ declare const WithEnv: WithEnvInterface;
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-declare const WithEnvInstance: WithEnvAttribute;
+export declare const WithEnvInstance: WithEnvAttribute;
 
 
 
