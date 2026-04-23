@@ -362,6 +362,42 @@ declare namespace hilog {
    * @since 23 static
    */
   function setLogLevel(level: LogLevel, prefer: PreferStrategy): void;
+  
+  /**
+   * Sets the output type of hilog.
+   * 
+   * @param { OutputType } type - output type of hilog.
+   * @returns { OutputType } previous output type of hilog.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
+  function setOutputType(type: OutputType): OutputType;
+
+  /**
+   * Sets the output type for hilog for domainID list.
+   * 
+   * @param { OutputType } type - output type of hilog.
+   * @param { Array<int> } domainIDs - domainID list, if isExclude is true, the output type for the domainID
+   *     list is set to DEFAULT, and the outout type for the remaining domainIDs is set to the currently
+   *     specified output type; if isExclude is false, the output type for the domainID list is set to the
+   *     currently specified output type, and the output type for the remaining domainIDs is set to DEFAULT
+   * @param { bool } isExclude - determine whether the domainIDs take effect for the currently specified output type.
+   * @returns { OutputType } previous output type of hilog.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
+  function setOutputTypeByDomainID(type: OutputType, domainIDs: Array<int>, isExclude: bool): OutputType;
+  function getOutputType(): OutputType;
+  function getOutputDir(): string;
+  function clean(): void;
+  function flush(): void;
+  function getLogFile(latestSeconds: int): Array<string>;
 
   /**
    * Log level define
@@ -547,6 +583,73 @@ declare namespace hilog {
        * @since 23 static
        */
       PREFER_OPEN_LOG = 2,
+  }
+
+  /**
+   * Enumerates output type of hilog.
+   * 
+   * @enum { int }
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
+  enum OutputType {
+      /**
+       * DEFAULT Default output type, equivalent to CONSOLE_ONLY.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @FaAndStageModel
+       * @crossplatform
+       * @atomicservice
+       * @since 26 dynamic&static
+       */
+      DEFAULT = 0,
+      /**
+       * CONSOLE_ONLY Hilog is output to the console only, equivalent to DEFAULT.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @FaAndStageModel
+       * @crossplatform
+       * @atomicservice
+       * @since 26 dynamic&static
+       */
+      CONSOLE_ONLY = 0,
+      /**
+       * PRIVATE_SANDBOX_ONLY Hilog is output to files in its own private sandbox.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @FaAndStageModel
+       * @crossplatform
+       * @atomicservice
+       * @since 26 dynamic&static
+       */
+      PRIVATE_SANDBOX_ONLY = 1,
+      /**
+       * SHARE_SANGBOX_ONLY Hilog is output to files in its own sandbox, accessible to itself and the hiview service.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @FaAndStageModel
+       * @crossplatform
+       * @atomicservice
+       * @since 26 dynamic&static
+       */
+      SHARE_SANGBOX_ONLY = 2,
+      /**
+       * PRIVATE_SANDBOX_WITH_CONSOLE Enable both CONSOLE_ONLY and PRIVATE_SANDBOX_ONLY at the same time.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @FaAndStageModel
+       * @crossplatform
+       * @atomicservice
+       * @since 26 dynamic&static
+       */
+      PRIVATE_SANDBOX_WITH_CONSOLE = 3,
+      /**
+       * PUBLIC_SANDBOX_WITH_CONSOLE Enable both CONSOLE_ONLY and SHARE_SANGBOX_ONLY at the same time.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @FaAndStageModel
+       * @crossplatform
+       * @atomicservice
+       * @since 26 dynamic&static
+       */
+      PUBLIC_SANDBOX_WITH_CONSOLE = 4
   }
 }
 
