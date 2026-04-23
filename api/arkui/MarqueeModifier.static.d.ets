@@ -29,6 +29,7 @@ import { MarqueeAttribute } from '@ohos.arkui.component';
  *
  * @implements { MarqueeAttribute, AttributeModifier<MarqueeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

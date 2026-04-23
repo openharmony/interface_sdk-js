@@ -536,6 +536,7 @@ declare namespace matrix4 {
    *
    * @interface Point
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -547,6 +548,7 @@ declare namespace matrix4 {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -558,6 +560,7 @@ declare namespace matrix4 {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -570,6 +573,7 @@ declare namespace matrix4 {
    *
    * @interface PolyToPolyOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -581,6 +585,7 @@ declare namespace matrix4 {
      *
      * @type { Array<Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -592,6 +597,7 @@ declare namespace matrix4 {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -603,6 +609,7 @@ declare namespace matrix4 {
      *
      * @type { Array<Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -615,6 +622,7 @@ declare namespace matrix4 {
      * @type { ?number }
      * @default src.Length/2
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -629,6 +637,7 @@ declare namespace matrix4 {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -809,6 +818,7 @@ declare namespace matrix4 {
      * @param { number } y - the shear factor of y-axis.
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -879,6 +889,7 @@ declare namespace matrix4 {
      * @param { PolyToPolyOptions } options - polyToPoly options
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic

@@ -104,6 +104,7 @@ declare type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInf
  *
  * @interface GridLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -112,6 +113,7 @@ declare type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInf
  *
  * @interface GridLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -122,6 +124,7 @@ declare interface GridLayoutOptions {
    *
    * @type { [number, number] } regularSize
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -130,6 +133,7 @@ declare interface GridLayoutOptions {
    *
    * @type { [number, number] } regularSize
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -142,6 +146,7 @@ declare interface GridLayoutOptions {
    * @type { ?number[] } irregularIndexes
    * @default number[] no irregular grid item
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -151,6 +156,7 @@ declare interface GridLayoutOptions {
    * @type { ?number[] } irregularIndexes
    * @default number[] no irregular grid item
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -163,6 +169,7 @@ declare interface GridLayoutOptions {
    * @type { ?function } onGetIrregularSizeByIndex, 
    * all irregular grid items will occupy an entire line if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -172,6 +179,7 @@ declare interface GridLayoutOptions {
    * @type { ?function } onGetIrregularSizeByIndex, 
    * all irregular grid items will occupy an entire line if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -184,6 +192,7 @@ declare interface GridLayoutOptions {
    *
    * @type { ?function } onGetRectByIndex
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -193,6 +202,7 @@ declare interface GridLayoutOptions {
    *
    * @type { ?function } onGetRectByIndex
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -410,6 +420,7 @@ declare enum GridDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -420,6 +431,7 @@ declare enum GridItemAlignment {
    * Use the default alignment of the Grid.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -431,6 +443,7 @@ declare enum GridItemAlignment {
    * will be used as the height for the other items in the same line
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -443,6 +456,7 @@ declare enum GridItemAlignment {
  *
  * @interface ComputedBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -451,6 +465,7 @@ declare enum GridItemAlignment {
  *
  * @interface ComputedBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -461,6 +476,7 @@ declare interface ComputedBarAttribute {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -469,6 +485,7 @@ declare interface ComputedBarAttribute {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -480,6 +497,7 @@ declare interface ComputedBarAttribute {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -488,6 +506,7 @@ declare interface ComputedBarAttribute {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -501,6 +520,7 @@ declare interface ComputedBarAttribute {
  * @extends UIScrollableCommonEvent
  * @interface UIGridEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -511,6 +531,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    *
    * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -522,6 +543,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    *
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -534,6 +556,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
    *     end positions of the display change.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -548,6 +571,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
  * @param {number} first - the first index in visible content.
  * @param {number} last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -617,6 +641,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { string | ItemFillPolicy } value
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -781,6 +806,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -825,6 +851,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * return ComputedBarAttribute to update scrollbar position and height.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -836,6 +863,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * return ComputedBarAttribute to update scrollbar position and height.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -919,6 +947,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>false</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1353,6 +1382,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>EdgeEffect.None</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1366,6 +1396,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>{ alwaysEnabled: false }</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1380,6 +1411,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</em>
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1390,6 +1422,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</em>
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1402,6 +1435,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1412,6 +1446,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1424,6 +1459,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { number | Resource } value - options for scrolling friction.
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1438,6 +1474,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1450,6 +1487,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { Optional<GridItemAlignment> } alignment - Items alignment<br>Default value: <em>GridItemAlignment.DEFAULT</em>
    * @returns { GridAttribute } The attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1463,6 +1501,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
      * <br>Default value: **FocusWrapMode.DEFAULT**.
      * @returns { GridAttribute } the attribute of the grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -1476,6 +1515,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>true<em/>
    * @returns { GridAttribute } The attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1489,6 +1529,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
    * @returns { GridAttribute } The attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -1502,6 +1543,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1512,6 +1554,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -1526,6 +1569,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1535,6 +1579,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1547,6 +1592,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1556,6 +1602,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1568,6 +1615,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1577,6 +1625,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1589,6 +1638,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1598,6 +1648,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1612,6 +1663,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * return number to actual sliding offset.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1623,6 +1675,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * return number to actual sliding offset.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1634,6 +1687,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
    * @returns { GridAttribute } Returns the instance of the GridAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic

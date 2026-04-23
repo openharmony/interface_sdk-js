@@ -37,6 +37,7 @@ export declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   NONE = 0,
@@ -46,6 +47,7 @@ export declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   CHARGE_MOTION = 1,
@@ -55,6 +57,7 @@ export declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   CHARGE_TEXT = 2
@@ -76,6 +79,7 @@ export declare interface EffectComponentOptions {
    * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   effectLayer?: EffectLayer;
@@ -87,6 +91,7 @@ export declare interface EffectComponentOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface EffectComponentAttribute extends CommonMethod {

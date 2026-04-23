@@ -26,6 +26,7 @@ import { Length } from './units';
  *
  * @interface PolylineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PolylineOptions {
@@ -34,6 +35,7 @@ export declare interface PolylineOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width?: Length;
@@ -42,6 +44,7 @@ export declare interface PolylineOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height?: Length;
@@ -52,6 +55,7 @@ export declare interface PolylineOptions {
  * @extends CommonShapeMethod
  * @interface PolylineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PolylineAttribute extends CommonShapeMethod {
@@ -61,6 +65,7 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @param { Array<ShapePoint> | undefined } value
      * @returns { PolylineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default points(value: Array<ShapePoint> | undefined): this;
@@ -70,6 +75,7 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PolylineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined): this;

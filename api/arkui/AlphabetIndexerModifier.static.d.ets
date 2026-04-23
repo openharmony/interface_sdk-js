@@ -29,6 +29,7 @@ import { AlphabetIndexerAttribute } from './component/alphabetIndexer';
  *
  * @implements { AlphabetIndexerAttribute, AttributeModifier<AlphabetIndexerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

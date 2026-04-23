@@ -27,6 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum RouteType {
@@ -34,6 +35,7 @@ export declare enum RouteType {
      * The page is not redirected.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     None,
@@ -41,6 +43,7 @@ export declare enum RouteType {
      * Go to the next page.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Push,
@@ -48,6 +51,7 @@ export declare enum RouteType {
      * Redirect to a specified page.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Pop
@@ -57,6 +61,7 @@ export declare enum RouteType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SlideEffect {
@@ -64,6 +69,7 @@ export declare enum SlideEffect {
      * Swipe left.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Left,
@@ -71,6 +77,7 @@ export declare enum SlideEffect {
      * Swipe right.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Right,
@@ -78,6 +85,7 @@ export declare enum SlideEffect {
      * Swipe top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Top,
@@ -85,6 +93,7 @@ export declare enum SlideEffect {
      * Swipe bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Bottom,
@@ -92,6 +101,7 @@ export declare enum SlideEffect {
      * Swipe start.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     START = 5,
@@ -99,6 +109,7 @@ export declare enum SlideEffect {
      * Swipe end.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     END = 6
@@ -107,6 +118,7 @@ export declare enum SlideEffect {
  * Provides interfaces for common transitions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class CommonTransition {
@@ -116,6 +128,7 @@ export declare class CommonTransition {
      * @param { SlideEffect } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     slide(value: SlideEffect): this;
@@ -125,6 +138,7 @@ export declare class CommonTransition {
      * @param { TranslateOptions } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     translate(value: TranslateOptions): this;
@@ -134,6 +148,7 @@ export declare class CommonTransition {
      * @param { ScaleOptions } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scale(value: ScaleOptions): this;
@@ -143,6 +158,7 @@ export declare class CommonTransition {
      * @param { double } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     opacity(value: double): this;
@@ -152,6 +168,7 @@ export declare class CommonTransition {
  *
  * @interface PageTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PageTransitionOptions {
@@ -159,6 +176,7 @@ export declare interface PageTransitionOptions {
      * RouteType in which the pageTransition can work.
      * @type { ?RouteType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type?: RouteType;
@@ -166,6 +184,7 @@ export declare interface PageTransitionOptions {
      * PageTransition animation duration, in ms.
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     duration?: int;
@@ -174,6 +193,7 @@ export declare interface PageTransitionOptions {
      * @type { ?(Curve | string | ICurve) }
      * @default Curve.Linear
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     curve?: Curve | string | ICurve;
@@ -182,6 +202,7 @@ export declare interface PageTransitionOptions {
      * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     delay?: int;
@@ -193,6 +214,7 @@ export declare interface PageTransitionOptions {
  * @param { RouteType } type - transition route type
  * @param { double } progress - transition progess
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type PageTransitionCallback = (type: RouteType, progress: double) => void;
@@ -201,6 +223,7 @@ export type PageTransitionCallback = (type: RouteType, progress: double) => void
  *
  * @extends CommonTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class PageTransitionEnter extends CommonTransition {
@@ -211,6 +234,7 @@ export declare class PageTransitionEnter extends CommonTransition {
      * @returns { PageTransitionEnter }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     static $_invoke(value: PageTransitionOptions): PageTransitionEnter;
@@ -221,6 +245,7 @@ export declare class PageTransitionEnter extends CommonTransition {
      * @param { PageTransitionCallback } event - animation callback frame by frame
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onEnter(event: PageTransitionCallback): this;
@@ -230,6 +255,7 @@ export declare class PageTransitionEnter extends CommonTransition {
  *
  * @extends CommonTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class PageTransitionExit extends CommonTransition {
@@ -240,6 +266,7 @@ export declare class PageTransitionExit extends CommonTransition {
      * @returns { PageTransitionExit }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     static $_invoke(value: PageTransitionOptions): PageTransitionExit;
@@ -250,6 +277,7 @@ export declare class PageTransitionExit extends CommonTransition {
      * @param { PageTransitionCallback } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onExit(event: PageTransitionCallback): this;

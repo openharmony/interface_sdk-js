@@ -92,12 +92,14 @@ declare enum SideBarContainerType {
   /**
    * The sidebar display mode is automatically selected based on the container size. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * The sidebar display mode is automatically selected based on the container size. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -182,6 +184,7 @@ declare enum SideBarPosition {
  *
  * @typedef ButtonIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -535,6 +538,7 @@ interface SideBarContainerInterface {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -544,6 +548,7 @@ interface SideBarContainerInterface {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -555,6 +560,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -564,6 +570,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -575,6 +582,7 @@ interface DividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -583,6 +591,7 @@ interface DividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -594,6 +603,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -602,6 +612,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -613,6 +624,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -621,6 +633,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1028,6 +1041,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1037,6 +1051,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1050,6 +1065,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1060,6 +1076,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
