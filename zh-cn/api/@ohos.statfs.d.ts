@@ -21,8 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * The **statfs** module provides APIs for obtaining file system information, including the total size and free size of
- * a file system, in bytes.
+ * 该模块提供文件系统相关存储信息的功能，向应用程序提供获取文件系统总字节数、空闲字节数的JS接口。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 8
@@ -31,11 +30,10 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace Statfs {
   /**
-   * Obtains the free size of the specified file system, in bytes. This API uses an asynchronous callback to return the
-   * result.
+   * 异步方法获取指定文件系统空闲字节数，使用callback形式返回结果。
    *
-   * @param { string } path - Path of the file system.
-   * @param { AsyncCallback<number> } callback - Callback used to return the free size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径
+   * @param { AsyncCallback<number> } callback - 异步获取空闲字节数之后的回调
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
@@ -44,10 +42,10 @@ declare namespace Statfs {
   function getFreeBytes(path: string, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the free size of the specified file system, in bytes. This API uses a promise to return the result.
+   * 异步方法获取指定文件系统空闲字节数，以Promise形式返回结果。
    *
-   * @param { string } path - Path of the file system.
-   * @returns { Promise<number> } Promise used to return the free size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径
+   * @returns { Promise<number> } 返回空闲字节数
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
@@ -55,11 +53,10 @@ declare namespace Statfs {
    */
   function getFreeBytes(path: string): Promise<number>;
   /**
-   * Obtains the total size of the specified file system, in bytes. This API uses an asynchronous callback to return the
-   * result.
+   * 异步方法获取指定文件系统总字节数，使用callback形式返回结果。
    *
-   * @param { string } path - Path of the file system.
-   * @param { AsyncCallback<number> } callback - Callback used to return the total size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径
+   * @param { AsyncCallback<number> } callback - 异步获取总字节数之后的回调
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
@@ -68,10 +65,10 @@ declare namespace Statfs {
   function getTotalBytes(path: string, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the total size of the specified file system, in byte. This API uses a promise to return the result.
+   * 异步方法获取指定文件系统总字节数，以Promise形式返回结果。
    *
-   * @param { string } path - Path of the file system.
-   * @returns { Promise<number> } Promise used to return the total size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径
+   * @returns { Promise<number> } 返回总字节数
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
