@@ -21,19 +21,17 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **update** module implements update of the entire system, including built-in resources and preset applications,
- * but not third-party applications.
- *
- * There are three types of updates: SD card update, over the air (OTA) update, and factory reset update.
- *
- * - The SD card update depends on the update packages and SD cards.
- * - The OTA update depends on the server deployed by the device manufacturer for managing update packages. The OTA
- * server IP address is passed by the caller. The request interface is fixed and developed by the device manufacturer.
- * - The factory reset update object provides the API for restoring factory settings.
- *
- * > **NOTE**
+ * 升级范围：升级整个系统，包括内置资源和预置应用，不包括三方应用。
+ * 
+ * 升级类型：SD卡升级、在线升级、恢复出厂升级。
+ * 
+ * - SD卡升级依赖升级包和SD卡安装。
+ * - 在线升级依赖设备厂商部署的用于管理升级包的服务器。服务器由设备厂商部署，IP由调用者传入，请求的request接口是固定的，由设备厂商开发。
+ * - 恢复出厂升级对象提供恢复出厂相关接口。
+ * 
+ * > **说明：**
  * >
- * > The APIs provided by this module are system APIs.
+ * > 本模块接口为系统接口。
  *
  * @syscap SystemCapability.Update.UpdateService
  * @systemapi hide for inner use.
@@ -42,10 +40,10 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace update {
   /**
-   * Obtains an **OnlineUpdater** object.
+   * 获取在线升级对象。
    *
-   * @param { UpgradeInfo } upgradeInfo - **OnlineUpdater** object information.
-   * @returns { Updater } **OnlineUpdater** object.
+   * @param { UpgradeInfo } upgradeInfo - 升级对象信息。
+   * @returns { Updater } 升级对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -55,9 +53,9 @@ declare namespace update {
   function getOnlineUpdater(upgradeInfo: UpgradeInfo): Updater;
 
   /**
-   * Obtains a **Restorer** object for restoring factory settings.
+   * 获取恢复出厂设置对象。
    *
-   * @returns { Restorer } **Restorer** object for restoring factory settings.
+   * @returns { Restorer } 恢复出厂对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -67,9 +65,9 @@ declare namespace update {
   function getRestorer(): Restorer;
 
   /**
-   * Obtains a **LocalUpdater** object.
+   * 获取本地升级对象。
    *
-   * @returns { LocalUpdater } **LocalUpdater** object.
+   * @returns { LocalUpdater } 本地升级对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -87,10 +85,10 @@ declare namespace update {
    */
   export interface Updater {
     /**
-     * Checks whether a new version is available. This API uses an asynchronous callback to return the result.
+     * 检查新版本信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<CheckResult> } callback - Callback used to return the result.
+     * @param { AsyncCallback<CheckResult> } callback - 回调函数，返回搜包结果对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -102,10 +100,10 @@ declare namespace update {
     checkNewVersion(callback: AsyncCallback<CheckResult>): void;
 
     /**
-     * Checks whether a new version is available. This API uses a promise to return the result.
+     * 检查新版本信息。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<CheckResult> } Promise used to return the result.
+     * @returns { Promise<CheckResult> } Promise对象，返回搜包结果对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -117,10 +115,10 @@ declare namespace update {
     checkNewVersion(): Promise<CheckResult>;
 
     /**
-     * Obtains information about the new version. This API uses an asynchronous callback to return the result.
+     * 获取新版本信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<NewVersionInfo> } callback - 回调函数，返回新版本信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -132,10 +130,10 @@ declare namespace update {
     getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
 
     /**
-     * Obtains information about the new version. This API uses a promise to return the result.
+     * 获取新版本信息。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<NewVersionInfo> } Promise used to return the result.
+     * @returns { Promise<NewVersionInfo> } Promise对象，返回新版本信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -147,12 +145,12 @@ declare namespace update {
     getNewVersionInfo(): Promise<NewVersionInfo>;
 
     /**
-     * Obtains the description file of the new version. This API uses an asynchronous callback to return the result.
+     * 获取新版本描述文件。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
+     * @param { AsyncCallback<Array<ComponentDescription>> } callback - 回调函数，返回新版本描述文件。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -169,12 +167,12 @@ declare namespace update {
     ): void;
 
     /**
-     * Obtains the description file of the new version. This API uses a promise to return the result.
+     * 获取新版本描述文件。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
+     * @returns { Promise<Array<ComponentDescription>> } Promise对象，返回新版本描述文件。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -190,10 +188,10 @@ declare namespace update {
     ): Promise<Array<ComponentDescription>>;
 
     /**
-     * Obtains information about the current version. This API uses an asynchronous callback to return the result.
+     * 获取当前版本信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<CurrentVersionInfo> } callback - 回调函数，返回当前版本信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -205,10 +203,10 @@ declare namespace update {
     getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
 
     /**
-     * Obtains information about the current version. This API uses a promise to return the result.
+     * 获取当前版本信息。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<CurrentVersionInfo> } Promise used to return the result.
+     * @returns { Promise<CurrentVersionInfo> } Promise对象，返回当前版本信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -220,11 +218,11 @@ declare namespace update {
     getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
     /**
-     * Obtains the description file of the current version. This API uses an asynchronous callback to return the result.
+     * 获取当前版本描述文件。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
+     * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
+     * @param { AsyncCallback<Array<ComponentDescription>> } callback - 回调函数，返回当前版本描述文件。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -240,11 +238,11 @@ declare namespace update {
     ): void;
 
     /**
-     * Obtains the description file of the current version. This API uses a promise to return the result.
+     * 获取当前版本描述文件。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
+     * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
+     * @returns { Promise<Array<ComponentDescription>> } Promise对象，返回当前版本描述文件。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -257,10 +255,10 @@ declare namespace update {
     getCurrentVersionDescription(descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
     /**
-     * Obtains information about the update task. This API uses an asynchronous callback to return the result.
+     * 获取升级任务信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<TaskInfo> } callback - 回调函数，返回升级任务信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -272,10 +270,10 @@ declare namespace update {
     getTaskInfo(callback: AsyncCallback<TaskInfo>): void;
 
     /**
-     * Obtains information about the update task. This API uses a promise to return the result.
+     * 获取升级任务信息。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<TaskInfo> } Promise used to return the result.
+     * @returns { Promise<TaskInfo> } Promise对象，返回任务信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -287,13 +285,12 @@ declare namespace update {
     getTaskInfo(): Promise<TaskInfo>;
 
     /**
-     * Downloads the new version. This API uses an asynchronous callback to return the result.
+     * 下载新版本。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { DownloadOptions } downloadOptions - 下载选项。
+     * @param { AsyncCallback<void> } callback - 回调函数。当下载成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -310,12 +307,12 @@ declare namespace update {
     ): void;
 
     /**
-     * Downloads the new version. This API uses a promise to return the result.
+     * 下载新版本。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { DownloadOptions } downloadOptions - Download options.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { DownloadOptions } downloadOptions - 下载选项。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -328,13 +325,12 @@ declare namespace update {
     download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions): Promise<void>;
 
     /**
-     * Resumes download of the new version. This API uses an asynchronous callback to return the result.
+     * 恢复下载新版本。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { ResumeDownloadOptions } resumeDownloadOptions - 恢复下载选项。
+     * @param { AsyncCallback<void> } callback - 回调函数。当恢复下载成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -351,12 +347,12 @@ declare namespace update {
     ): void;
 
     /**
-     * Resumes download of the new version. This API uses a promise to return the result.
+     * 恢复下载新版本。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { ResumeDownloadOptions } resumeDownloadOptions - 恢复下载选项。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -369,13 +365,12 @@ declare namespace update {
     resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions): Promise<void>;
 
     /**
-     * Pauses download of the new version. This API uses an asynchronous callback to return the result.
+     * 暂停下载新版本。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { PauseDownloadOptions } pauseDownloadOptions - 暂停下载选项。
+     * @param { AsyncCallback<void> } callback - 回调函数。当暂停下载成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -392,12 +387,12 @@ declare namespace update {
     ): void;
 
     /**
-     * Pauses download of the new version. This API uses a promise to return the result.
+     * 暂停下载新版本。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { PauseDownloadOptions } pauseDownloadOptions - 暂停下载选项。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -410,13 +405,12 @@ declare namespace update {
     pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions): Promise<void>;
 
     /**
-     * Updates the version. This API uses an asynchronous callback to return the result.
+     * 升级新版本。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { UpgradeOptions } upgradeOptions - 更新选项。
+     * @param { AsyncCallback<void> } callback - 回调函数。当升级执行成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -429,12 +423,12 @@ declare namespace update {
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the version. This API uses a promise to return the result.
+     * 升级新版本。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { UpgradeOptions } upgradeOptions - 更新选项。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -447,14 +441,12 @@ declare namespace update {
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
     /**
-     * Clears errors. If an exception occurs during version download or installation, the upgrade package and upgrade 
-     * status are cleared. This API uses an asynchronous callback to return the result.
+     * 清除异常状态，版本下载、安装异常时，清理升级包文件及升级状态。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ClearOptions } clearOptions - Clear options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { ClearOptions } clearOptions - 清除选项。
+     * @param { AsyncCallback<void> } callback - 回调函数。当清除异常成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -467,13 +459,12 @@ declare namespace update {
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Clears errors. If an exception occurs during version download or installation, the upgrade package and upgrade 
-     * status are cleared. This API uses a promise to return the result.
+     * 清除异常状态，版本下载、安装异常时，清理升级包文件及升级状态。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ClearOptions } clearOptions - Update options.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
+     * @param { ClearOptions } clearOptions - 更新选项。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -486,10 +477,10 @@ declare namespace update {
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions): Promise<void>;
 
     /**
-     * Obtains the update policy. This API uses an asynchronous callback to return the result.
+     * 获取升级策略信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the result.
+     * @param { AsyncCallback<UpgradePolicy> } callback - 回调函数，返回升级策略信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -501,10 +492,10 @@ declare namespace update {
     getUpgradePolicy(callback: AsyncCallback<UpgradePolicy>): void;
 
     /**
-     * Obtains the update policy. This API uses a promise to return the result.
+     * 获取升级策略。通过promise方式作为异步方法。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<UpgradePolicy> } Promise used to return the result.
+     * @returns { Promise<UpgradePolicy> } Promise对象，返回升级策略信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -516,11 +507,11 @@ declare namespace update {
     getUpgradePolicy(): Promise<UpgradePolicy>;
 
     /**
-     * Sets the update policy. This API uses an asynchronous callback to return the result.
+     * 设置升级策略。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { UpgradePolicy } policy - Update policy.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { UpgradePolicy } policy - 升级策略。
+     * @param { AsyncCallback<void> } callback - 回调函数，返回设置结果对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -532,11 +523,11 @@ declare namespace update {
     setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the update policy. This API uses a promise to return the result.
+     * 设置升级策略。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { UpgradePolicy } policy - Update policy.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { UpgradePolicy } policy - 升级策略。
+     * @returns { Promise<void> } Promise对象。 无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -548,11 +539,10 @@ declare namespace update {
     setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
     /**
-     * Terminates the update. This API uses an asynchronous callback to return the result.
+     * 终止升级。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当清除升级缓存成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -564,10 +554,10 @@ declare namespace update {
     terminateUpgrade(callback: AsyncCallback<void>): void;
 
     /**
-     * Terminates the update. This API uses a promise to return the result.
+     * 终止升级。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -579,10 +569,10 @@ declare namespace update {
     terminateUpgrade(): Promise<void>;
 
     /**
-     * Enables listening for update events. This API uses an asynchronous callback to return the result.
+     * 注册事件监听。使用callback异步回调。
      *
-     * @param { EventClassifyInfo } eventClassifyInfo - Event information.
-     * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @param { EventClassifyInfo } eventClassifyInfo - 事件信息。
+     * @param { UpgradeTaskCallback } taskCallback - 事件回调。
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -592,10 +582,10 @@ declare namespace update {
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
     /**
-     * Disables listening for update events. This API uses an asynchronous callback to return the result.
+     * 取消注册事件监听。使用callback异步回调。
      *
-     * @param { EventClassifyInfo } eventClassifyInfo - Event information.
-     * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @param { EventClassifyInfo } eventClassifyInfo - 事件信息。
+     * @param { UpgradeTaskCallback } taskCallback - 事件回调。
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -614,12 +604,10 @@ declare namespace update {
    */
   export interface Restorer {
     /**
-     * Clears the user data partition. This API uses an asynchronous callback to return the result.
+     * 清除用户数据分区。使用callback异步回调。
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, **err** is
-     *     an error object and a callback is returned. If the operation is successful, **err** is undefined and no
-     *     callback is returned.
+     * @param { AsyncCallback<void> } callback - 回调函数。当恢复出厂执行失败时，err为错误对象，有回调；执行成功时，err为undefined，无回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -631,11 +619,10 @@ declare namespace update {
     factoryReset(callback: AsyncCallback<void>): void;
 
     /**
-     * Clears the user data partition. This API uses a promise to return the result.
+     * 清除用户数据分区。使用Promise异步回调。
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @returns { Promise<void> } Promise that returns no value. If the operation fails, a callback is returned. If the
-     *     operation is successful, no callback is returned.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。当恢复出厂执行失败时，有回调；执行成功无回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -647,10 +634,10 @@ declare namespace update {
     factoryReset(): Promise<void>;
 
     /**
-     * Clears the user data partition and the file key. This API uses a promise to return the result.
+     * 清除用户数据分区，同步清除文件秘钥。使用Promise异步回调。
      *
      * @permission ohos.permission.FORCE_FACTORY_RESET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -661,12 +648,11 @@ declare namespace update {
     forceFactoryReset(): Promise<void>;
 
     /**
-     * Clears the user data partition and OS partition by means of overwriting. This API uses a promise to return the 
-     * result.
+     * 通过覆写等方式，深度清除用户数据分区、操作系统分区。使用 Promise 异步回调。
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { FactoryResetStrategy } factoryResetStrategy - Factory reset strategy.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { FactoryResetStrategy } factoryResetStrategy - 恢复出厂设置策略。
+     * @returns { Promise<void> } Promise 对象。无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -678,11 +664,11 @@ declare namespace update {
     deepFactoryReset(factoryResetStrategy: FactoryResetStrategy): Promise<void>;
 
     /**
-     * Obtains the factory reset information. This API uses a promise to return the result.
+     * 获取深度恢复出厂设置信息。使用 Promise 异步回调。
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { FactoryResetStrategy } factoryResetStrategy - Factory reset strategy.
-     * @returns { Promise<FactoryResetInfo> } Promise used to return the factory reset information.
+     * @param { FactoryResetStrategy } factoryResetStrategy - 恢复出厂设置策略。
+     * @returns { Promise<FactoryResetInfo> } Promise对象，返回深度恢复出厂设置信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -703,12 +689,12 @@ declare namespace update {
    */
   export interface LocalUpdater {
     /**
-     * Verifies the update package. This API uses an asynchronous callback to return the result.
+     * 校验升级包。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { UpgradeFile } upgradeFile - Update file.
-     * @param { string } certsFile - Path of the certificate file.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { UpgradeFile } upgradeFile - 升级文件。
+     * @param { string } certsFile - 证书文件路径。
+     * @param { AsyncCallback<void> } callback - 回调函数，返回升级包校验结果对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -721,12 +707,12 @@ declare namespace update {
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Verifies the update package. This API uses a promise to return the result.
+     * 校验升级包。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { UpgradeFile } upgradeFile - Update file.
-     * @param { string } certsFile - Path of the certificate file.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { UpgradeFile } upgradeFile - 升级文件。
+     * @param { string } certsFile - 证书文件路径。
+     * @returns { Promise<void> } Promise对象，返回升级包校验结果对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -739,12 +725,11 @@ declare namespace update {
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
     /**
-     * Installs the update package. This API uses an asynchronous callback to return the result.
+     * 安装升级包。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { Array<UpgradeFile> } upgradeFiles - Update file.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { Array<UpgradeFile> } upgradeFiles - 升级文件。
+     * @param { AsyncCallback<void> } callback - 回调函数。当安装升级包执行成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -757,11 +742,11 @@ declare namespace update {
     applyNewVersion(upgradeFiles: Array<UpgradeFile>, callback: AsyncCallback<void>): void;
 
     /**
-     * Installs the update package. This API uses a promise to return the result.
+     * 安装升级包。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { Array<UpgradeFile> } upgradeFiles - Update file.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Array<UpgradeFile> } upgradeFiles - 升级文件。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -774,10 +759,10 @@ declare namespace update {
     applyNewVersion(upgradeFiles: Array<UpgradeFile>): Promise<void>;
 
     /**
-     * Enables listening for update events. This API uses an asynchronous callback to return the result.
+     * 注册事件监听。使用callback异步回调。
      *
-     * @param { EventClassifyInfo } eventClassifyInfo - Event information.
-     * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @param { EventClassifyInfo } eventClassifyInfo - 事件信息。
+     * @param { UpgradeTaskCallback } taskCallback - 事件回调。
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -787,10 +772,10 @@ declare namespace update {
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
     /**
-     * Disables listening for update events. This API uses an asynchronous callback to return the result.
+     * 取消注册事件监听。使用callback异步回调。
      *
-     * @param { EventClassifyInfo } eventClassifyInfo - Event information.
-     * @param { UpgradeTaskCallback } taskCallback - Event callback.
+     * @param { EventClassifyInfo } eventClassifyInfo - 事件信息。
+     * @param { UpgradeTaskCallback } taskCallback - 事件回调。
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -801,7 +786,7 @@ declare namespace update {
   }
 
   /**
-   * Represents update information.
+   * 升级信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -810,7 +795,7 @@ declare namespace update {
    */
   export interface UpgradeInfo {
     /**
-     * Application package name.
+     * 调用方包名。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -820,7 +805,7 @@ declare namespace update {
     upgradeApp: string;
 
     /**
-     * Update service type.
+     * 升级业务类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -831,7 +816,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an update service type.
+   * 升级业务类型。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -840,7 +825,7 @@ declare namespace update {
    */
   export interface BusinessType {
     /**
-     * Supplier or vendor.
+     * 供应商/厂家。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -850,7 +835,7 @@ declare namespace update {
     vendor: BusinessVendor;
 
     /**
-     * Represents an update type.
+     * 升级类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -861,7 +846,7 @@ declare namespace update {
   }
 
   /**
-   * Represents the package check result.
+   * 搜包结果。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -870,9 +855,9 @@ declare namespace update {
    */
   export interface CheckResult {
     /**
-     * Whether a new version is available.
-     *
-     * The value **true** indicates that a new version is available, and the value **false** indicates the opposite.
+     * 是否有新版本。
+     * 
+     * true表示有新版本，false表示没有新版本。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -882,7 +867,7 @@ declare namespace update {
     isExistNewVersion: boolean;
 
     /**
-     * Information about the new version.
+     * 新版本数据。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -893,7 +878,7 @@ declare namespace update {
   }
 
   /**
-   * Represents information about the new version.
+   * 新版本数据。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -902,7 +887,7 @@ declare namespace update {
    */
   export interface NewVersionInfo {
     /**
-     * Version digest information.
+     * 版本摘要。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -912,7 +897,7 @@ declare namespace update {
     versionDigestInfo: VersionDigestInfo;
 
     /**
-     * Version components.
+     * 版本组件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -923,7 +908,7 @@ declare namespace update {
   }
 
   /**
-   * Represents version digest information.
+   * 版本摘要。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -932,7 +917,7 @@ declare namespace update {
    */
   export interface VersionDigestInfo {
     /**
-     * Version digest information.
+     * 版本摘要。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -943,7 +928,7 @@ declare namespace update {
   }
 
   /**
-   * Represents a version component.
+   * 版本组件。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -952,7 +937,7 @@ declare namespace update {
    */
   export interface VersionComponent {
     /**
-     * Component ID.
+     * 组件标识。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -962,7 +947,7 @@ declare namespace update {
     componentId: string;
 
     /**
-     * Component type.
+     * 组件类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -972,7 +957,7 @@ declare namespace update {
     componentType: ComponentType;
 
     /**
-     * Update mode.
+     * 升级方式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -982,7 +967,7 @@ declare namespace update {
     upgradeAction: UpgradeAction;
 
     /**
-     * Display version number.
+     * 显示版本号。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -992,7 +977,7 @@ declare namespace update {
     displayVersion: string;
 
     /**
-     * Internal version number.
+     * 版本号。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1002,7 +987,7 @@ declare namespace update {
     innerVersion: string;
 
     /**
-     * Size of the update package, in bytes.
+     * 升级包大小，单位为B。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1012,7 +997,7 @@ declare namespace update {
     size: int;
 
     /**
-     * Effective mode.
+     * 生效模式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1022,7 +1007,7 @@ declare namespace update {
     effectiveMode: EffectiveMode;
 
     /**
-     * Information about the version description file.
+     * 版本描述文件信息。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1032,7 +1017,7 @@ declare namespace update {
     descriptionInfo: DescriptionInfo;
 
     /**
-     * OTA mode.
+     * 升级模式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1043,7 +1028,7 @@ declare namespace update {
   }
 
   /**
-   * Represents options of the description file.
+   * 描述文件选项。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1052,7 +1037,7 @@ declare namespace update {
    */
   export interface DescriptionOptions {
     /**
-     * Format of the description file.
+     * 描述文件格式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1062,7 +1047,7 @@ declare namespace update {
     format: DescriptionFormat;
 
     /**
-     * Language of the description file.
+     * 描述文件语言。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1073,7 +1058,7 @@ declare namespace update {
   }
 
   /**
-   * Represents a component description file.
+   * 组件描述文件。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1082,7 +1067,7 @@ declare namespace update {
    */
   export interface ComponentDescription {
     /**
-     * Component ID.
+     * 组件标识。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1092,7 +1077,7 @@ declare namespace update {
     componentId: string;
 
     /**
-     * Information about the description file.
+     * 描述文件信息。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1103,7 +1088,7 @@ declare namespace update {
   }
 
   /**
-   * Represents information about the version description file.
+   * 版本描述文件信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1112,7 +1097,7 @@ declare namespace update {
    */
   export interface DescriptionInfo {
     /**
-     * Type of the description file.
+     * 描述文件类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1122,7 +1107,7 @@ declare namespace update {
     descriptionType: DescriptionType;
 
     /**
-     * Content of the description file.
+     * 描述文件内容。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1133,7 +1118,7 @@ declare namespace update {
   }
 
   /**
-   * Represents information about the current version.
+   * 当前版本信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1142,7 +1127,7 @@ declare namespace update {
    */
   export interface CurrentVersionInfo {
     /**
-     * System version number.
+     * 系统版本号。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1152,7 +1137,7 @@ declare namespace update {
     osVersion: string;
 
     /**
-     * Device name.
+     * 设备名。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1162,7 +1147,7 @@ declare namespace update {
     deviceName: string;
 
     /**
-     * Version components.
+     * 版本组件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1173,7 +1158,7 @@ declare namespace update {
   }
 
   /**
-   * Represents download options.
+   * 下载选项。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1182,7 +1167,7 @@ declare namespace update {
    */
   export interface DownloadOptions {
     /**
-     * Network type.
+     * 网络类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1192,7 +1177,7 @@ declare namespace update {
     allowNetwork: NetType;
 
     /**
-     * Update command.
+     * 升级指令。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1203,7 +1188,7 @@ declare namespace update {
   }
 
   /**
-   * Represents options for resuming download.
+   * 恢复下载选项。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1212,7 +1197,7 @@ declare namespace update {
    */
   export interface ResumeDownloadOptions {
     /**
-     * Network type.
+     * 网络类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1223,7 +1208,7 @@ declare namespace update {
   }
 
   /**
-   * Represents options for pausing download.
+   * 暂停下载选项。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1232,9 +1217,9 @@ declare namespace update {
    */
   export interface PauseDownloadOptions {
     /**
-     * Whether to allow automatic resuming of download.
-     *
-     * The value **true** indicates that automatic resuming is allowed, and the value **false** indicates the opposite.
+     * 是否允许自动恢复。
+     * 
+     * true表示允许自动恢复，false表示不允许。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1245,7 +1230,7 @@ declare namespace update {
   }
 
   /**
-   * Represents update options.
+   * 升级选项。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1254,7 +1239,7 @@ declare namespace update {
    */
   export interface UpgradeOptions {
     /**
-     * Update command.
+     * 升级指令。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1265,7 +1250,7 @@ declare namespace update {
   }
 
   /**
-   * Represents options for clearing errors.
+   * 清除异常选项。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1274,7 +1259,7 @@ declare namespace update {
    */
   export interface ClearOptions {
     /**
-     * Error status.
+     * 异常状态。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1285,7 +1270,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an update policy.
+   * 升级策略。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1294,10 +1279,9 @@ declare namespace update {
    */
   export interface UpgradePolicy {
     /**
-     * Automatic download policy.
-     *
-     * The value **true** indicates that automatic download is supported, and the value **false** indicates the
-     * opposite.
+     * 自动下载策略。 
+     * 
+     * true表示可自动下载，false表示不可自动下载。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1307,9 +1291,9 @@ declare namespace update {
     downloadStrategy: boolean;
 
     /**
-     * Automatic update policy.
-     *
-     * The value **true** indicates that automatic update is supported, and the value **false** indicates the opposite.
+     * 自动升级策略。 
+     * 
+     * true表示可自动升级，false表示不可自动升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1319,7 +1303,7 @@ declare namespace update {
     autoUpgradeStrategy: boolean;
 
     /**
-     * Automatic update period.
+     * 自动升级时间段。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1330,7 +1314,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an automatic update period.
+   * 升级时间段。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1339,7 +1323,7 @@ declare namespace update {
    */
   export interface UpgradePeriod {
     /**
-     * Start time.
+     * 开始时间。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1349,7 +1333,7 @@ declare namespace update {
     start: int;
 
     /**
-     * End time.
+     * 结束时间。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1360,7 +1344,7 @@ declare namespace update {
   }
 
   /**
-   * Task information.
+   * 任务信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1369,9 +1353,9 @@ declare namespace update {
    */
   export interface TaskInfo {
     /**
-     * Whether a task exists.
-     *
-     * The value **true** indicates that the task exists, and the value **false** indicates the opposite.
+     * 是否存在任务。
+     * 
+     * true表示存在，false表示不存在。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1381,7 +1365,7 @@ declare namespace update {
     existTask: boolean;
 
     /**
-     * Task data.
+     * 任务数据。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1392,7 +1376,7 @@ declare namespace update {
   }
 
   /**
-   * Describes event information.
+   * 事件信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1401,7 +1385,7 @@ declare namespace update {
    */
   export interface EventInfo {
     /**
-     * Event ID.
+     * 事件ID。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1411,7 +1395,7 @@ declare namespace update {
     eventId: EventId;
 
     /**
-     * Task data.
+     * 任务数据。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1422,7 +1406,7 @@ declare namespace update {
   }
 
   /**
-   * Represents task data.
+   * 任务数据。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1431,7 +1415,7 @@ declare namespace update {
    */
   export interface TaskBody {
     /**
-     * Version digest information.
+     * 版本摘要。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1441,7 +1425,7 @@ declare namespace update {
     versionDigestInfo: VersionDigestInfo;
 
     /**
-     * Update status.
+     * 升级状态。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1451,7 +1435,7 @@ declare namespace update {
     status: UpgradeStatus;
 
     /**
-     * Sub-status.
+     * 子状态。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1461,7 +1445,7 @@ declare namespace update {
     subStatus: int;
 
     /**
-     * Progress.
+     * 进度。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1471,7 +1455,7 @@ declare namespace update {
     progress: int;
 
     /**
-     * Installation mode.
+     * 安装模式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1481,7 +1465,7 @@ declare namespace update {
     installMode: int;
 
     /**
-     * Error message.
+     * 错误信息。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1491,7 +1475,7 @@ declare namespace update {
     errorMessages: Array<ErrorMessage>;
 
     /**
-     * Version components.
+     * 版本组件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1502,7 +1486,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an error message.
+   * 错误信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1511,7 +1495,7 @@ declare namespace update {
    */
   export interface ErrorMessage {
     /**
-     * Error code.
+     * 错误码。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1521,7 +1505,7 @@ declare namespace update {
     errorCode: int;
 
     /**
-     * Error message.
+     * 错误描述。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1532,7 +1516,7 @@ declare namespace update {
   }
 
   /**
-   * Describes event type information.
+   * 事件信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1541,7 +1525,7 @@ declare namespace update {
    */
   export interface EventClassifyInfo {
     /**
-     * Event type.
+     * 事件类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1551,7 +1535,7 @@ declare namespace update {
     eventClassify: EventClassify;
 
     /**
-     * Additional information.
+     * 额外信息。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1562,7 +1546,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an update file.
+   * 升级文件。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1571,7 +1555,7 @@ declare namespace update {
    */
   export interface UpgradeFile {
     /**
-     * File type.
+     * 文件类型。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1581,7 +1565,7 @@ declare namespace update {
     fileType: ComponentType;
 
     /**
-     * File path.
+     * 文件路径。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1592,7 +1576,7 @@ declare namespace update {
   }
 
   /**
-   * Describes the factory reset strategy.
+   * 恢复出厂设置策略。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1601,7 +1585,7 @@ declare namespace update {
    */
   export interface FactoryResetStrategy {
     /**
-     * Reset scope.
+     * 重置范围。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1611,7 +1595,7 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset strategy.
+     * 重置策略。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1622,7 +1606,7 @@ declare namespace update {
   }
 
   /**
-   * Describes the scope of restoring factory settings.
+   * 恢复出厂设置范围。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1631,7 +1615,7 @@ declare namespace update {
    */
   export enum FactoryResetScope {
     /**
-     * User data.
+     * 用户数据。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1641,7 +1625,7 @@ declare namespace update {
     DATA = 1,
 
     /**
-     * User data and operating system.
+     * 用户数据和操作系统。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1649,10 +1633,10 @@ declare namespace update {
      * @since 26.0.0 dynamic&static
      */
     DATA_AND_OS = 2
-  }
+  } 
 
   /**
-   * Describes the information of restoring factory settings.
+   * 恢复出厂设置信息。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1661,7 +1645,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * Duration required for restoring factory settings.
+     * 恢复出厂设置所需持续时间。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1672,7 +1656,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an event callback.
+   * 事件回调。
    *
    * @typedef UpgradeTaskCallback [since 9 - 22]
    * @typedef { function } UpgradeTaskCallback [since 23]
@@ -1685,7 +1669,7 @@ declare namespace update {
   export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
 
   /**
-   * Represents a device vendor.
+   * 设备厂家。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1694,7 +1678,7 @@ declare namespace update {
    */
   export enum BusinessVendor {
     /**
-     * Open source.
+     * 开源。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1705,7 +1689,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an update type.
+   * 升级类型。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1714,7 +1698,7 @@ declare namespace update {
    */
   export enum BusinessSubType {
     /**
-     * Firmware.
+     * 固件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1725,7 +1709,7 @@ declare namespace update {
   }
 
   /**
-   * Represents a component type.
+   * 组件类型。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1734,7 +1718,7 @@ declare namespace update {
    */
   export enum ComponentType {
     /**
-     * Firmware.
+     * 固件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1745,7 +1729,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates update actions.
+   * 升级方式。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1754,7 +1738,7 @@ declare namespace update {
    */
   export enum UpgradeAction {
     /**
-     * Differential package.
+     * 差分包。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1764,7 +1748,7 @@ declare namespace update {
     UPGRADE = 'upgrade',
 
     /**
-     * Recovery package.
+     * 修复包。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1775,7 +1759,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates effective modes.
+   * 生效模式。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1784,7 +1768,7 @@ declare namespace update {
    */
   export enum EffectiveMode {
     /**
-     * Cold update.
+     * 冷升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1794,7 +1778,7 @@ declare namespace update {
     COLD = 1,
 
     /**
-     * Live update.
+     * 热升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1804,7 +1788,7 @@ declare namespace update {
     LIVE = 2,
 
     /**
-     * Hybrid live and cold update.
+     * 融合升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1815,7 +1799,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates the update modes.
+   * 升级模式。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1824,7 +1808,7 @@ declare namespace update {
    */
   export enum OtaMode {
     /**
-     * Regular update.
+     * 正常升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1834,7 +1818,7 @@ declare namespace update {
     REGULAR_OTA = 0,
 
     /**
-     * Streaming update.
+     * 流式升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1844,7 +1828,7 @@ declare namespace update {
     STREAM_OTA = 1,
 
     /**
-     * Regular A/B update.
+     * AB正常升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1854,7 +1838,7 @@ declare namespace update {
     AB_REGULAR_OTA = 2,
 
     /**
-     * Streaming A/B update.
+     * AB流式升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1865,7 +1849,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates description file types.
+   * 描述文件类型。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1874,7 +1858,7 @@ declare namespace update {
    */
   export enum DescriptionType {
     /**
-     * Content.
+     * 内容。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1884,7 +1868,7 @@ declare namespace update {
     CONTENT = 0,
 
     /**
-     * Link.
+     * 链接。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1895,7 +1879,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates description file formats.
+   * 描述文件格式。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1904,7 +1888,7 @@ declare namespace update {
    */
   export enum DescriptionFormat {
     /**
-     * Standard format.
+     * 标准格式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1914,7 +1898,7 @@ declare namespace update {
     STANDARD = 0,
 
     /**
-     * Simple format.
+     * 简易格式。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1925,7 +1909,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates network types.
+   * 网络类型。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1934,7 +1918,7 @@ declare namespace update {
    */
   export enum NetType {
     /**
-     * Data network.
+     * 数据网络。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1944,7 +1928,7 @@ declare namespace update {
     CELLULAR = 1,
 
     /**
-     * Wi-Fi hotspot.
+     * 热点WIFI。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1954,7 +1938,7 @@ declare namespace update {
     METERED_WIFI = 2,
 
     /**
-     * Non Wi-Fi hotspot.
+     * 非热点WIFI。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1964,7 +1948,7 @@ declare namespace update {
     NOT_METERED_WIFI = 4,
 
     /**
-     * Wi-Fi.
+     * WIFI。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1974,7 +1958,7 @@ declare namespace update {
     WIFI = 6,
 
     /**
-     * Data network and Wi-Fi.
+     * 数据网络和WIFI。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1985,7 +1969,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates update commands.
+   * 升级指令。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1994,7 +1978,7 @@ declare namespace update {
    */
   export enum Order {
     /**
-     * Download.
+     * 下载。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2004,7 +1988,7 @@ declare namespace update {
     DOWNLOAD = 1,
 
     /**
-     * Install.
+     * 安装。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2014,7 +1998,7 @@ declare namespace update {
     INSTALL = 2,
 
     /**
-     * Download and install.
+     * 下载并安装。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2024,7 +2008,7 @@ declare namespace update {
     DOWNLOAD_AND_INSTALL = 3,
 
     /**
-     * Apply.
+     * 生效。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2034,7 +2018,7 @@ declare namespace update {
     APPLY = 4,
 
     /**
-     * Install and apply.
+     * 安装并生效。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2045,7 +2029,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates update states.
+   * 升级状态。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -2054,7 +2038,7 @@ declare namespace update {
    */
   export enum UpgradeStatus {
     /**
-     * Waiting for download.
+     * 待下载。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2064,7 +2048,7 @@ declare namespace update {
     WAITING_DOWNLOAD = 20,
 
     /**
-     * Downloading.
+     * 下载中。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2074,7 +2058,7 @@ declare namespace update {
     DOWNLOADING = 21,
 
     /**
-     * Download paused.
+     * 下载暂停。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2084,7 +2068,7 @@ declare namespace update {
     DOWNLOAD_PAUSED = 22,
 
     /**
-     * Download failed.
+     * 下载失败。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2094,7 +2078,7 @@ declare namespace update {
     DOWNLOAD_FAIL = 23,
 
     /**
-     * Waiting for installation.
+     * 待安装。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2104,7 +2088,7 @@ declare namespace update {
     WAITING_INSTALL = 30,
 
     /**
-     * Updating.
+     * 更新中。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2114,7 +2098,7 @@ declare namespace update {
     UPDATING = 31,
 
     /**
-     * Waiting for applying the update.
+     * 待生效。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2124,7 +2108,7 @@ declare namespace update {
     WAITING_APPLY = 40,
 
     /**
-     * Applying the update.
+     * 生效中。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2134,7 +2118,7 @@ declare namespace update {
     APPLYING = 41,
 
     /**
-     * Update succeeded.
+     * 升级成功。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2144,7 +2128,7 @@ declare namespace update {
     UPGRADE_SUCCESS = 50,
 
     /**
-     * Update failed.
+     * 升级失败。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2155,7 +2139,7 @@ declare namespace update {
   }
 
   /**
-   * Represents an event type.
+   * 事件类型。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -2164,7 +2148,7 @@ declare namespace update {
    */
   export enum EventClassify {
     /**
-     * Task event.
+     * 任务事件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2175,7 +2159,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates event IDs.
+   * 事件ID。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -2184,7 +2168,7 @@ declare namespace update {
    */
   export enum EventId {
     /**
-     * Task event.
+     * 任务事件。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2194,7 +2178,7 @@ declare namespace update {
     EVENT_TASK_BASE = EventClassify.TASK,
 
     /**
-     * Task received.
+     * 收到任务。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2204,7 +2188,7 @@ declare namespace update {
     EVENT_TASK_RECEIVE = 0x01000001,
 
     /**
-     * Task cancelled.
+     * 取消任务。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2214,7 +2198,7 @@ declare namespace update {
     EVENT_TASK_CANCEL = 0x01000002,
 
     /**
-     * Waiting for download.
+     * 待下载。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2224,7 +2208,7 @@ declare namespace update {
     EVENT_DOWNLOAD_WAIT = 0x01000003,
 
     /**
-     * Download started.
+     * 开始下载。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2234,7 +2218,7 @@ declare namespace update {
     EVENT_DOWNLOAD_START = 0x01000004,
 
     /**
-     * Download progress update.
+     * 下载进度更新。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2244,7 +2228,7 @@ declare namespace update {
     EVENT_DOWNLOAD_UPDATE = 0x01000005,
 
     /**
-     * Download paused.
+     * 下载暂停。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2254,7 +2238,7 @@ declare namespace update {
     EVENT_DOWNLOAD_PAUSE = 0x01000006,
 
     /**
-     * Download resumed.
+     * 恢复下载。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2264,7 +2248,7 @@ declare namespace update {
     EVENT_DOWNLOAD_RESUME = 0x01000007,
 
     /**
-     * Download succeeded.
+     * 下载成功。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2274,7 +2258,7 @@ declare namespace update {
     EVENT_DOWNLOAD_SUCCESS = 0x01000008,
 
     /**
-     * Download failed.
+     * 下载失败。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2284,7 +2268,7 @@ declare namespace update {
     EVENT_DOWNLOAD_FAIL = 0x01000009,
 
     /**
-     * Waiting for update.
+     * 待升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2294,7 +2278,7 @@ declare namespace update {
     EVENT_UPGRADE_WAIT = 0x0100000a,
 
     /**
-     * Update started.
+     * 开始升级。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2304,7 +2288,7 @@ declare namespace update {
     EVENT_UPGRADE_START = 0x0100000b,
 
     /**
-     * Update in progress.
+     * 升级中。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2314,7 +2298,7 @@ declare namespace update {
     EVENT_UPGRADE_UPDATE = 0x0100000c,
 
     /**
-     * Waiting for applying the update.
+     * 待生效。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2324,7 +2308,7 @@ declare namespace update {
     EVENT_APPLY_WAIT = 0x0100000d,
 
     /**
-     * Applying the update.
+     * 开始生效。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2334,7 +2318,7 @@ declare namespace update {
     EVENT_APPLY_START = 0x0100000e,
 
     /**
-     * Update succeeded.
+     * 更新成功。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2344,7 +2328,7 @@ declare namespace update {
     EVENT_UPGRADE_SUCCESS = 0x0100000f,
 
     /**
-     * Update failed.
+     * 更新失败。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
