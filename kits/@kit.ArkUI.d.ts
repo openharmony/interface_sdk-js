@@ -118,6 +118,7 @@ import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding, CustomComponentLifecycle, CustomComponentLifecycleObserver, 
 CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, 
+ComponentActive, ComponentInactive,
 ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections,
 CustomComponentContext, IReusePool, IReusableInfo } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
@@ -330,6 +331,7 @@ export {
   GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
   ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
   ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
+  ComponentActive, ComponentInactive,
   CollectionType, ConnectOptionsCollections, uiMaterial,
   RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute,
   LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute, CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button
