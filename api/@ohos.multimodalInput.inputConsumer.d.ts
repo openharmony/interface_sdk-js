@@ -174,6 +174,13 @@ declare namespace inputConsumer {
      * @since 21 dynamic
      * @since 23 static
      */
+    /**
+     * Key value. One of KEYCODE_VOLUME_UP/KEYCODE_VOLUME_DOWN/KEYCODE_MEDIA_PLAY_PAUSE/
+     * KEYCODE_MEDIA_PREVIOUS/KEYCODE_MEDIA_NEXT/KEYCODE_FINGERPRINT_SLIDE_DOWN/KEYCODE_FINGERPRINT_SLIDE_UP.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 26.0.0 dynamic&static
+     */
     key: int;
 
     /**
