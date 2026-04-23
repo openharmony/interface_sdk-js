@@ -283,7 +283,9 @@ function parseJSDocVisitEachChild1(context, node) {
           convertedText = fullMatch.replace(linkContent, convertedContent);
         } else {
           const typePart = fullMatch.replace(/\{@link|\}/gi, '').replace(/\*+/g, '').trim();
-          if (!/(int|long|double)/.test(typePart)) continue;
+          if (!/(int|long|double)/.test(typePart)){
+            continue;
+          }
           const types = typePart.split(/\s*\|\s*/);
           const newTypes = types.map(t => t.replace(/\b(int|long|double)\b/g, 'number'));
           const uniqueTypes = [...new Set(newTypes)];
