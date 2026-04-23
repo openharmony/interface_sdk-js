@@ -8804,6 +8804,34 @@ declare namespace photoAccessHelper {
      */
     CLOUD_ENHANCEMENT = 1
   }
+  /**
+   * Enumerates the flags of asset source.
+   * 
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum AssetSourceType {
+    /**
+     * Asset from media.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MEDIA = 0,
+    /**
+     * Asset from filemanager.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_MANAGER = 1
+  }
 
   /**
    * Defines the photo asset change infos.
@@ -9123,6 +9151,16 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     dateModifiedMs?: long;
+
+    /**
+     * The asset source type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetSourceType?: AssetSourceType;
   }
 
   /**
