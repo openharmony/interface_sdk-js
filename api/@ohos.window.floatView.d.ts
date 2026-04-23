@@ -121,6 +121,7 @@ declare namespace floatView {
   /**
    * Get the window limits of current float view window measured in px.
    *
+   * @param { FloatViewTemplateType } templateType - The template type of the float view.
    * @returns { FloatViewLimits } - Returns the limits of float view window,
    *     including the maximum and minimum size limits.
    * @throws { BusinessError } 801 - Capability not supported. Possible cause:
@@ -129,11 +130,12 @@ declare namespace floatView {
    *     System error, such as a null pointer, insufficient memory or a JS engine exception.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
    *     Internal IPC error.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid template type.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function getFloatViewLimits(): FloatViewLimits;
+  function getFloatViewLimits(templateType: FloatViewTemplateType): FloatViewLimits;
 
   /**
    * FloatViewConfiguration
@@ -410,7 +412,16 @@ declare namespace floatView {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface FloatViewProperties {  
+  interface FloatViewProperties {
+    /**
+     * The template type of the float view.
+     * 
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    templateType: FloatViewTemplateType;
+
     /**
      * The window id of the float view.
      *
@@ -449,13 +460,13 @@ declare namespace floatView {
     windowScale: double;
 
     /**
-     * The title bar rect of the float view.
+     * The avoid area rect of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    titleBarRect: window.Rect;
+    avoidArea: window.AvoidArea;
 
     /**
      * Whether the float view is in the sidebar.
