@@ -3257,5 +3257,23 @@ export declare enum KeyCode {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  KEYCODE_XKEY = 3232
+  KEYCODE_XKEY = 3232,
+ 
+  /**
+   * KEYCODE_FINGERPRINT_SLIDE_UP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_FINGERPRINT_SLIDE_UP = 3233,
+ 
+  /**
+   * KEYCODE_FINGERPRINT_SLIDE_DOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_FINGERPRINT_SLIDE_DOWN = 3234
 }
