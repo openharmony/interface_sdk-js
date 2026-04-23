@@ -64,7 +64,7 @@ declare enum SideBarContainerType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Embed,
+  Embed = 0,
 
   /**
    * The sidebar overlays on top of the main content area.
@@ -87,7 +87,7 @@ declare enum SideBarContainerType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Overlay,
+  Overlay = 1,
 
   /**
    * The sidebar display mode is automatically selected based on the container size. 
@@ -102,7 +102,16 @@ declare enum SideBarContainerType {
    * @atomicservice
    * @since 11 dynamic
    */
-  AUTO,
+  AUTO = 2,
+  /**
+   * The sideBar Displace. Sidebar is visible, content will offscreen to make space for sideBar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISPLACE = 3,
 }
 
 /**
