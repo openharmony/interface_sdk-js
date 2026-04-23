@@ -19,7 +19,7 @@
  */
 import { Callback, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
-import { ResourceStr } from './units';
+import { ResourceStr, Resource } from './units';
 import { ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
@@ -146,6 +146,16 @@ export declare interface RefreshAttribute extends CommonMethod {
      */
     default refreshOffset(value: double | undefined): this;
     /**
+     * The pull-down offset to trigger refresh.
+     *
+     * @param { Resource | undefined } value - The pull-down offset to trigger refresh.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default refreshOffset(value: Resource | undefined): this;
+    /**
      * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
      *
      * @param { boolean | undefined } value
@@ -192,6 +202,17 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @since 24 static
      */
     default maxPullDownDistance(distance: double | undefined): this;
+    /**
+     * The max pull down distance for Refresh.
+     *
+     * @param { Resource | undefined } distance - The max pull down distance for Refresh,
+     * value range is [0, +∞), default value is { undefined }.
+     * @returns { this } The attribute of the Refresh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default maxPullDownDistance(distance: Resource | undefined): this;
     /**
      * Called attributeModifier.
      *
