@@ -250,7 +250,17 @@ export enum AccessibilityAction {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  INJECT_ACTION = 21
+  INJECT_ACTION = 21,
+
+  /**
+   * Execute custom action on a component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  EXECUTE_CUSTOM_ACTION = 22
 }
 
 /**
@@ -975,7 +985,27 @@ export enum AccessibilityEventType {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  TYPE_NOTIFICATION_UPDATE = 70
+  TYPE_NOTIFICATION_UPDATE = 70,
+
+  /**
+   * accessibility focus element is invisible type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_FOCUS_INVISIBLE = 71,
+
+  /**
+   * one finger double tap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_ONE_FINGER_DOUBLE_TAP = 72
 }
 
 /**
@@ -1069,19 +1099,33 @@ declare namespace accessibility {
    * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' }
    *
    * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
-  *     'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' |
-  *     'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' |
-  *     'notificationCenter' | 'controlCenter' | 'common'}
-  * @syscap SystemCapability.BarrierFree.Accessibility.Core
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic&static
-  */
+   *     'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' |
+   *     'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' |
+   *     'notificationCenter' | 'controlCenter' | 'common'}
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  /**
+   * The action that the ability can execute.
+   * value range: { 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
+   * 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
+   * 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
+   * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' | 'injectAction' |
+   * 'executeCustomAction' }
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
   'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
   'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
-  'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common';
+  'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' | 'injectAction' | 'executeCustomAction';
 
   /**
    * The type of the accessibility event.
@@ -1145,7 +1189,7 @@ declare namespace accessibility {
    * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
    * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-   * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' }
+   * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' | 'focusInvisible'}
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
@@ -1157,7 +1201,7 @@ declare namespace accessibility {
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
   'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate';
+  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' | 'focusInvisible';
 
   /**
    * The change type of the windowsChange event.
@@ -3076,4 +3120,42 @@ export enum InjectActionType {
    * @since 26.0.0 dynamic&static
    */
   LONG_CLICK = 3
+}
+
+/**
+ * Enumeration of scenes of accessibility focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum AccessibilityFocusScene {
+  /**
+   * Hover to move the accessibility focus.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  HOVER_FOCUS = 1,
+  /**
+   * Swipe finger to move the accessibility focus.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  SWIPE_FOCUS = 2,
+  /**
+   * Move the accessibility focus after scrolling the component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  SCROLL_FOCUS = 3
 }
