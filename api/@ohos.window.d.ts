@@ -12736,7 +12736,7 @@ declare namespace window {
      *  Set the window mask using a per-pixel alpha array
      *
      * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparentcy values.
-     *     Valid range: 0(full transparent) to 255(full opaque), size must equal width * height.
+     *     Valid range: 0(full transparent) to 255(full opaque), size must equal maskWidth * maskHeight.
      * @param { int } maskWidth - Mask width in pixels. Must equal the target window width.
      * @param { int } maskHeight - Mask height in pixels. Must equal the target window height.
      * @returns { Promise<void> } Promise that returns no value.
@@ -12750,7 +12750,7 @@ declare namespace window {
      *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     setWindowMask(windowMask: Uint8Array, maskWidth: int, maskHeight: int): Promise<void>;
 
