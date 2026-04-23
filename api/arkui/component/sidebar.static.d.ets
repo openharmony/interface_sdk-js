@@ -36,24 +36,36 @@ export declare enum SideBarContainerType {
    * The sidebar invisible
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  Embed,
+  Embed = 0,
 
   /**
    * The sidebar visible
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  Overlay,
+  Overlay = 1,
 
   /**
    * The sidebar AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  AUTO
+  AUTO = 2,
+
+  /**
+   * The sideBar Displace. Sidebar is visible, content will offscreen to make space for sideBar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISPLACE = 3,
 }
 
 /**
