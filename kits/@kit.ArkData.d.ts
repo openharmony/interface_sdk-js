@@ -56,8 +56,9 @@ import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 import { ContentFormCard, FormType } from '@ohos.data.UdmfComponents';
 import relationalStore from '@ohos.data.relationalStore';
+import preferences from '@ohos.data.preferences';
 export {
   cloudData, cloudExtension, commonType, distributedDataObject, unifiedDataChannel, uniformTypeDescriptor,
-  uniformDataStruct, ContentFormCard, FormType, relationalStore
+  uniformDataStruct, ContentFormCard, FormType, relationalStore, preferences
 };
 /*** endif */
