@@ -13520,6 +13520,20 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      */
     default scrollBarWidth(value: double | string | undefined): this;
     /**
+     * Sets the scrollbar width.
+     *
+     * @param { Resource | undefined } value  - Scrollbar width.
+     *     <br>Unit: vp
+     *     <br>Default value: <em>4</em>
+     *     <br>If this parameter is set to a value less than or equal to 0, the default value is used.
+     *     The value <em>0</em> means not to show the scrollbar.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollBarWidth(value: Resource | undefined): this;
+    /**
      * Margin of the scrollbar.
      *
      * @param { ScrollBarMargin | undefined } margin - Margin of the scrollbar.

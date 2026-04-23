@@ -1132,6 +1132,29 @@ interface ListOptions {
    */
   space?: number | string;
   /**
+   * Spacing between list items along the main axis.
+   *
+   * <p><strong>NOTE</strong>
+   * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
+   * content area, the default value is used.
+   * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider
+   * is used as the spacing.
+   * <br> Child components of <em>ListItemGroup</em> whose <em>visibility</em> attribute is set to <em>None</em>
+   * are not displayed, but the spacing above and below them still takes effect.
+   * <br> If both spaceWidth and space are set, spaceWidth will take precedence.
+   * </p>
+   *
+   * @type { ?Dimension }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  spaceWidth?: Dimension;
+  /**
    * Set scroller.
    *
    * @type { ?Scroller }

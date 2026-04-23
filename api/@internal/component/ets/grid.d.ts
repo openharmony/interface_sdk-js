@@ -744,6 +744,23 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   scrollBarWidth(value: number | string): GridAttribute;
 
   /**
+   * Sets the scrollbar width.
+   *
+   * @param { number | string | Resource } value - Scrollbar width.
+   *     <br>Unit: vp
+   *     <br>Default value: <em>4</em>
+   *     <br>If this parameter is set to a value less than 0, the default value is used.
+   *     The value <em>0</em> means not to show the scrollbar.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollBarWidth(value: number | string | Resource): GridAttribute;
+
+  /**
    * Set the color of the scroll bar.
    *
    * @param { Color | number | string } value - Scrollbar color.<br>Default value: '#182431'
