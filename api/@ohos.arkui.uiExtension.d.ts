@@ -71,6 +71,7 @@ declare namespace uiExtension {
      * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -85,6 +86,7 @@ declare namespace uiExtension {
      * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onAvoidAreaChange(callback: Callback<AvoidAreaInfo>): void;
@@ -105,6 +107,7 @@ declare namespace uiExtension {
      * <br> 3. The listener has not been registered.
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -121,6 +124,7 @@ declare namespace uiExtension {
      * <br> 3. The listener has not been registered.
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     offAvoidAreaChange(callback?: Callback<AvoidAreaInfo>): void;
@@ -141,6 +145,7 @@ declare namespace uiExtension {
      * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -155,6 +160,7 @@ declare namespace uiExtension {
      * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onWindowSizeChange(callback: Callback<window.Size>): void;
@@ -176,6 +182,7 @@ declare namespace uiExtension {
      * <br> 3. The listener has not been registered.
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -192,6 +199,7 @@ declare namespace uiExtension {
      * <br> 3. The listener has not been registered.
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     offWindowSizeChange(callback?: Callback<window.Size>): void;
@@ -213,6 +221,7 @@ declare namespace uiExtension {
      * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      */
@@ -231,6 +240,7 @@ declare namespace uiExtension {
      * <br> 2. The listener has been registered.
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onRectChange(reasons: int, callback: Callback<RectChangeOptions>): void;
@@ -253,6 +263,7 @@ declare namespace uiExtension {
      * <br> 3. The listener has not been registered.
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      */
@@ -272,6 +283,7 @@ declare namespace uiExtension {
      * <br> 3. The listener has not been registered.
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     offRectChange(callback?: Callback<RectChangeOptions>): void;

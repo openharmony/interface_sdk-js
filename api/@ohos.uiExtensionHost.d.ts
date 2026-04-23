@@ -69,6 +69,7 @@ declare namespace uiExtensionHost {
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      */
     on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
@@ -84,6 +85,7 @@ declare namespace uiExtensionHost {
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onAvoidAreaChange(callback: Callback<uiExtension.AvoidAreaInfo>): void;
@@ -104,6 +106,7 @@ declare namespace uiExtensionHost {
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
@@ -120,6 +123,7 @@ declare namespace uiExtensionHost {
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     offAvoidAreaChange(callback?: Callback<uiExtension.AvoidAreaInfo>): void;
@@ -141,6 +145,7 @@ declare namespace uiExtensionHost {
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
@@ -155,6 +160,7 @@ declare namespace uiExtensionHost {
      * <br> 3. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onWindowSizeChange(callback: Callback<window.Size>): void;
@@ -177,6 +183,7 @@ declare namespace uiExtensionHost {
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
@@ -193,6 +200,7 @@ declare namespace uiExtensionHost {
      * <br> 4. The UIExtension window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     offWindowSizeChange(callback?: Callback<window.Size>): void;
