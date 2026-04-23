@@ -30470,6 +30470,18 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
+
+  /**
+   * Enable or disable specific smart gesture shortcuts, and set response priorities for them.
+   *
+   * @param { SmartGestureShortcutOptions } [options] - Options for configuring smart gesture shortcuts.
+   * @returns { T } return component instance who call the method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  smartGestureShortcut(options?: SmartGestureShortcutOptions): T;
 }
 
 /**
@@ -35980,4 +35992,48 @@ declare interface GravityCenterOptions {
    * @since 26.0.0 dynamic
    */
   gravityIntensity?: double;
+}
+
+/**
+ * Options for configuring smart gesture shortcuts.
+ *
+ * @interface SmartGestureShortcutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface SmartGestureShortcutOptions {
+  /**
+   * Set the response priority.
+   *
+   * @type { ?GestureShortcut }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  action?: GestureShortcut;
+
+  /**
+   * Whether to enable the specific smart gesture shortcuts.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enabled?: boolean;
+
+  /**
+   * Whether to enable the selection state effect of the component's smart gesture.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  selectable?: boolean;
 }
