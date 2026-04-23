@@ -22,8 +22,7 @@ import type common from '@ohos.app.ability.common';
 import type certificateManager from '@ohos.security.certManager';
 
 /**
- * The **certificateManagerDialog** module provides APIs for opening the certificate management pages, on which the
- * certificates are installed, stored, used, and destroyed.
+ * 证书管理对话框主要提供拉起证书管理界面的能力，用户在拉起的证书管理对话框可对证书进行管理（安装，存储，使用，销毁）。
  *
  * @syscap SystemCapability.Security.CertificateManagerDialog
  * @stagemodelonly
@@ -32,7 +31,7 @@ import type certificateManager from '@ohos.security.certManager';
  */
 declare namespace certificateManagerDialog {
   /**
-   * Enumerates the error codes reported when the certificate management dialog box APIs are called.
+   * 表示调用证书管理对话框相关API的错误码。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -41,7 +40,7 @@ declare namespace certificateManagerDialog {
    */
   export enum CertificateDialogErrorCode {
     /**
-     * Internal error.
+     * 表示调用接口时发生内部错误。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -51,7 +50,7 @@ declare namespace certificateManagerDialog {
     ERROR_GENERIC = 29700001,
 
     /**
-     * The user canceled the operation when the API is called.
+     * 表示调用接口时用户取消操作。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -61,7 +60,7 @@ declare namespace certificateManagerDialog {
     ERROR_OPERATION_CANCELED = 29700002,
 
     /**
-     * The certificate installation fails.
+     * 表示调用接口时安装证书失败。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -71,7 +70,7 @@ declare namespace certificateManagerDialog {
     ERROR_OPERATION_FAILED = 29700003,
 
     /**
-     * The device does not support the API called.
+     * 表示调用接口时设备类型不支持。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -81,7 +80,7 @@ declare namespace certificateManagerDialog {
     ERROR_DEVICE_NOT_SUPPORTED = 29700004,
 
     /**
-     * The device security policy is not met when the API is called.
+     * 表示调用接口时不符合设备安全策略。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -91,9 +90,9 @@ declare namespace certificateManagerDialog {
     ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
 
     /**
-     * The parameter verification fails when the API is called.
-     *
-     * For example, the parameter format is incorrect or the parameter range is invalid.
+     * 表示调用接口时参数校验失败。
+     * 
+     * 例如：参数格式不正确、参数范围无效
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -103,7 +102,7 @@ declare namespace certificateManagerDialog {
     ERROR_PARAMETER_VALIDATION_FAILED = 29700006,
 
     /**
-     * No certificate is available.
+     * 表示没有可用证书。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -114,7 +113,7 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Enumerates the page types of the certificate management dialog box.
+   * 表示证书管理对话框的页面类型。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -123,7 +122,7 @@ declare namespace certificateManagerDialog {
    */
   export enum CertificateDialogPageType {
     /**
-     * Main page of the Certificate Manager application.
+     * 证书管理应用主页面。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -133,7 +132,7 @@ declare namespace certificateManagerDialog {
     PAGE_MAIN = 1,
 
     /**
-     * CA certificate list page.
+     * CA证书列表页面。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -143,7 +142,7 @@ declare namespace certificateManagerDialog {
     PAGE_CA_CERTIFICATE = 2,
 
     /**
-     * Credential list page.
+     * 凭据列表页面。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -153,7 +152,7 @@ declare namespace certificateManagerDialog {
     PAGE_CREDENTIAL = 3,
 
     /**
-     * Certificate installation page.
+     * 安装证书页面。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -164,13 +163,12 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the certificate management dialog box and displays the page of the specified type. This API uses a promise to
-   * return the result.
+   * 表示拉起证书管理对话框，显示相应的页面。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @param { CertificateDialogPageType } pageType - Type of the page to display.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @param { CertificateDialogPageType } pageType - 表示页面类型。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -185,7 +183,7 @@ declare namespace certificateManagerDialog {
   function openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise<void>;
 
   /**
-   * Enumerates the types of the certificate to be installed.
+   * 表示安装证书的类型。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -194,7 +192,7 @@ declare namespace certificateManagerDialog {
    */
   export enum CertificateType {
     /**
-     * CA certificate.
+     * CA证书。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -204,7 +202,7 @@ declare namespace certificateManagerDialog {
     CA_CERT = 1,
 
     /**
-     * User public credential.
+     * 用户公共凭据。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -214,7 +212,7 @@ declare namespace certificateManagerDialog {
     CREDENTIAL_USER = 2,
 
     /**
-     * Private credential of an application.
+     * 应用私有凭据。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -224,7 +222,7 @@ declare namespace certificateManagerDialog {
     CREDENTIAL_APP = 3,
 
     /**
-     * USB credential.
+     * USB凭据。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -234,7 +232,7 @@ declare namespace certificateManagerDialog {
     CREDENTIAL_UKEY = 4,
 
     /**
-     * System credential.
+     * 系统凭据。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -244,7 +242,7 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Defines the usage scope of the certificate to be installed.
+   * 表示安装证书的使用范围。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -253,7 +251,7 @@ declare namespace certificateManagerDialog {
    */
   export enum CertificateScope {
     /**
-     * No user is specified.
+     * 不指定使用范围，用户可在证书安装界面选择。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -263,7 +261,7 @@ declare namespace certificateManagerDialog {
     NOT_SPECIFIED = 0,
 
     /**
-     * The installed certificate is accessible only to the current user.
+     * 当前用户。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -273,7 +271,7 @@ declare namespace certificateManagerDialog {
     CURRENT_USER = 1,
 
     /**
-     * The installed certificate is accessible to all users.
+     * 公共目录。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -284,18 +282,17 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens a dialog box for installing a certificate. This API uses a promise to return the result. In API version 26.0.
-   * 0 and later versions, you can use [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to
-   * check whether the CA certificate management dialog box can be opened.
+   * 表示拉起证书管理安装证书向导，显示相应的页面。使用Promise异步回调。从版本26.0.0开始，可以通过
+   * [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog}来判断是否支持打开CA证书管理对话框。
+   * > **说明**
+   * > 检查是否可以打开CA证书管理对话框。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @param { CertificateType } certType - Type of the certificate to install. **CA_CERT**, **CREDENTIAL_USER**, and
-   *     **CREDENTIAL_SYSTEM** are currently supported.
-   * @param { CertificateScope } certScope - Usage scope of the certificate to install. **CURRENT_USER** and
-   *     **NOT_SPECIFIED** are currently supported.
-   * @param { Uint8Array } cert - Data of the certificate to install.
-   * @returns { Promise<string> } Promise used to return the certificate URI. The value contains up to 256 bytes.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @param { CertificateType } certType - 表示安装证书类型，目前支持CA_CERT、CREDENTIAL_USER、CREDENTIAL_SYSTEM。
+   * @param { CertificateScope } certScope - 表示安装证书的使用范围，目前支持CURRENT_USER、NOT_SPECIFIED。
+   * @param { Uint8Array } cert - 表示安装证书数据。
+   * @returns { Promise<string> } Promise对象。表示返回证书uri的结果，最大长度为256字节。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -320,13 +317,12 @@ declare namespace certificateManagerDialog {
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
   /**
-   * Opens the authorization page of the certificate management dialog box to grant a certificate to the application.
-   * This API uses a promise to return the result.
+   * 打开证书管理对话框的授权页面。在弹出的页面中，用户可以为应用授权证书。使用Promise异步回调。
+   * 该接口使用promise返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @returns { Promise<string> } Promise used to return the URI of the certificate authorized. The value contains up to
-   *     256 bytes.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @returns { Promise<string> } Promise对象。表示返回授权证书uri的结果，最大长度为256字节。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. A mandatory parameter is left
@@ -345,16 +341,14 @@ declare namespace certificateManagerDialog {
   function openAuthorizeDialog(context: common.Context): Promise<string>;
 
   /**
-   * Opens the certificate management dialog box and displays the certificate details. This API uses a promise to return
-   * the result. In API version 26.0.0 and later versions, you can use
-   * [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to check whether the CA certificate
-   * management dialog box can be opened.
+   * 表示拉起证书管理对话框显示证书的详情。使用Promise异步回调。从版本26.0.0开始，可以通过
+   * [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog}来判断是否支持打开CA证书管理对话框。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @param { Uint8Array } cert - Data of the certificate to install.
-   * @param { CertificateDialogProperty } property - Property of the certificate management dialog box.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @param { Uint8Array } cert - 表示安装证书数据。
+   * @param { CertificateDialogProperty } property - 表示拉起证书管理对话框的属性。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -372,15 +366,14 @@ declare namespace certificateManagerDialog {
   function openCertificateDetailDialog(context: common.Context,cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 
   /**
-   * Opens a dialog box for deleting a certificate. This API uses a promise to return the result. In API version 26.0.0
-   * and later versions, you can use [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to
-   * check whether the CA certificate management dialog box can be opened.
+   * 表示拉起证书管理删除证书向导，显示相应的页面。使用Promise异步回调。从版本26.0.0开始，可以通过
+   * [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog}来判断是否支持打开CA证书管理对话框。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @param { CertificateType } certType - Type of the certificate to delete.
-   * @param { string } certUri - Unique identifier of the certificate to delete. The value contains up to 256 bytes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @param { CertificateType } certType - 表示删除证书类型。
+   * @param { string } certUri - 表示待删除证书的唯一标识符，最大长度为256字节。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -401,7 +394,7 @@ declare namespace certificateManagerDialog {
   function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>;
 
   /**
-   * Defines the property of the certificate management dialog box.
+   * 表示证书管理对话框的属性。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -411,8 +404,7 @@ declare namespace certificateManagerDialog {
   export interface CertificateDialogProperty {
 
     /**
-     * Whether to display the button for installing the certificate. The value **true** means to display the button; the
-     * value **false** means the opposite.
+     * 表示是否显示安装证书的按钮，true为显示，false为不显示。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -423,14 +415,12 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the PIN authentication dialog box of the USB credential. On the displayed page, the user authorizes the
-   * certificate for the application. The certificate types that can be authorized include the application private
-   * credential, user public credential, and USB credential. This API uses a promise to return the result.
+   * 打开USB凭据PIN码认证对话框的授权页面。在弹出的页面中，用户为应用程序授权证书，可授权的证书类型包括应用私有凭据、用户公共凭据和USB凭据。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @param { AuthorizeRequest } authorizeRequest - Authorization request information.
-   * @returns { Promise<CertReference> } Promise used to return the result of the authorization certificate reference.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @param { AuthorizeRequest } authorizeRequest - 表示授权请求信息。
+   * @returns { Promise<CertReference> } Promise对象，返回授权证书引用的结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -448,7 +438,7 @@ declare namespace certificateManagerDialog {
   function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertReference>;
 
   /**
-   * Represents the authorization request information of the certificate.
+   * 证书授权请求信息。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -457,7 +447,7 @@ declare namespace certificateManagerDialog {
    */
   export interface AuthorizeRequest {
     /**
-     * List of certificate types.
+     * 表示证书类型的列表。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -467,10 +457,9 @@ declare namespace certificateManagerDialog {
     certTypes: Array<CertificateType>;
 
     /**
-     * Certificate usage.
-     *
-     * If the **certTypes** parameter contains the **CertificateType.CREDENTIAL_UKEY** type, the **certPurpose**
-     * parameter takes effect.
+     * 表示证书用途。
+     * 
+     * 若certTypes参数中存在CertificateType.CREDENTIAL_UKEY类型，则certPurpose参数生效。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -480,11 +469,13 @@ declare namespace certificateManagerDialog {
     certPurpose?: certificateManager.CertificatePurpose;
 
     /**
-     * Indicates the algorithm type of the public key of the certificate. It is used to filter the list of
-     * certificates that can be selected in the authorization dialog box. Only the certificates that match
-     * the public key algorithm are displayed.
-     * The value can only be RSA, EC, or ECDSA. If the keyAlgIDs array contains an unsupported algorithm type,
-     * the keyAlgIDs filter does not take effect.
+     * 表示证书公钥的算法类型，用于筛选凭据授权对话框中的证书列表，仅显示匹配的证书。支持的取值为RSA、EC或ECDSA。
+     * 
+     * 若 keyAlgIDs包含不支持的算法，则该筛选器无效。
+     * 
+     * 数组最大长度为20。
+     * 
+     * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -493,9 +484,13 @@ declare namespace certificateManagerDialog {
     keyAlgIDs?: Array<string>;
 
     /**
-     * Indicates the certificate issuer, which is encoded in DER format. This parameter is used to filter the list
-     * of certificates that can be selected by users in the Authorization dialog box. Only the certificates that
-     * match the certificate issuer are displayed.
+     * 表示以DER格式编码的证书颁发者，用于筛选凭据授权对话框中的证书列表，仅显示匹配的证书。
+     * 
+     * 如果issuers数组中存在长度为0的元素，则issuers筛选器不会生效。
+     * 
+     * 数组最大长度为20。
+     * 
+     * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -504,8 +499,9 @@ declare namespace certificateManagerDialog {
     issuers?: Array<Uint8Array>;
 
     /**
-     * This URI is displayed in the authorization dialog box, providing users with more information about the server
-     * context for which the certificate credential is requested for authorization.
+     * 表示应用请求使用凭据用于验证服务器的地址，此uri显示在凭据授权对话框中。
+     * 
+     * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -515,7 +511,7 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Represents the reference information of the credential.
+   * 表示证书凭据的引用信息。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -524,7 +520,7 @@ declare namespace certificateManagerDialog {
    */
   export interface CertReference {
     /**
-     * Certificate type.
+     * 表示证书类型。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -534,7 +530,7 @@ declare namespace certificateManagerDialog {
     certType: CertificateType;
 
     /**
-     * Unique identifier of the credential. The value contains up to 256 bytes.
+     * 表示证书凭据的唯一标识符，长度限制256字节以内。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -545,13 +541,12 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the PIN authentication dialog box of the USB credential. On the displayed page, the user can enter the PIN to
-   * authorize the USB credential. This API uses a promise to return the result.
+   * 打开USB凭据PIN码认证对话框的授权页面。在弹出的页面中，用户可以输入PIN码授权USB证书凭据。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Context of the application.
-   * @param { UkeyAuthRequest } ukeyAuthRequest - Authorization request information of the USB credential.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { common.Context } context - 表示应用的上下文信息。
+   * @param { UkeyAuthRequest } ukeyAuthRequest - 表示USB凭据授权请求信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -570,7 +565,7 @@ declare namespace certificateManagerDialog {
   function openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise<void>;
 
   /**
-   * Represents the authorization request information of the USB credential.
+   * USB证书凭据授权请求信息。
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -579,7 +574,7 @@ declare namespace certificateManagerDialog {
    */
   export interface UkeyAuthRequest {
     /**
-     * Unique identifier of the USB credential. The value contains up to 256 bytes.
+     * 表示USB证书凭据的唯一标识符，长度限制256字节以内。
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -590,10 +585,9 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Checks whether the CA certificate management dialog box can be opened.
+   * 判断设备是否支持打开CA证书管理对话框。
    *
-   * @returns { boolean } Whether the CA certificate management dialog box can be opened. **true**: supported; **false**
-   *     : not supported
+   * @returns { boolean } 设备是否支持打开CA证书管理对话框。true：支持，false：不支持。
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManagerDialog
