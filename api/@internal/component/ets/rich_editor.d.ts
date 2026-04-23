@@ -3245,6 +3245,18 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   getPreviewText(): PreviewText;
 
   /**
+   * Scroll the input field component to make the specified content visible.
+   *
+   * @param { TextRange } [range] - The visible range.
+   *      If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollToVisible(range?: TextRange): void;
+
+  /**
    * Get CaretRect.
    *
    * @returns { RectResult | undefined } - Return the caret rect or undefined value.
