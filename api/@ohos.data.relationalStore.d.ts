@@ -7945,14 +7945,14 @@ declare namespace relationalStore {
 
     /**
      * Cleans dirty data deleted in the cross-device sync.
-     *
-     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
-     * otherwise clean all.
+     * If a cursor is specified, data whose cursor is smaller than the specified cursor is cleaned.
+     *     Otherwise, all data is cleaned.
      *
      * @param { string } table - Indicates the name of the table to check.
-     *     <br>Length range:[1， 256].Value constraint:Only letters, digits, and underscores (_) are allowed.
-     * @param { long } [cursor] - Indicates the cursor.
-     *     <br>Value range:>0.Default value:Default behavior: Clear all dirty data.
+     *     The maximum length is 256 and cannot be empty,
+     *     Value constraint:Only letters, digits, and underscores (_) are allowed.
+     * @param { number } [cursor] - Indicates the cursor.
+     *     The value must be greater than 0. Default behavior: Clear all dirty data.
      * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
@@ -7962,8 +7962,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800043 - DB is not support this scenario. Possible causes: 1. DB type is not support;
-     *     <br>2. Table type is not support; 3. This is a readonly db.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not support;2. The table type is not supported;
+     *     3. This is a read-only database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
@@ -9093,7 +9094,7 @@ declare namespace relationalStore {
      *
      * @param { Record<string, Array<string>> } [retainDevices] -
      *     key is the name of the table where the data is to be deleted,
-     *     <br>value is the device ID list of cross device end needs to be retained.
+     *     value is the device ID list of cross device end needs to be retained.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
@@ -9106,7 +9107,7 @@ declare namespace relationalStore {
      *     <br>2. The database is not created.
      * @throws { BusinessError } 14800043 - The database does not support this scenario.
      *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
-     *     <br>3. This is a read-only database.
+     *     3. This is a read-only database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
@@ -9131,7 +9132,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800043 - The database does not support this scenario.
      *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
-     *     <br>3. This is a read-only database.
+     *     3. This is a read-only database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
@@ -9296,7 +9297,7 @@ declare namespace relationalStore {
      *     <br>Only SYNC_MODE_PUSH and SYNC_MODE_PULL are supported.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object
      *     of {@link RdbPredicates}.
-     * @returns { Promise<Array<SyncResult>> } 201 - the application does not have permission to call this function.
+     * @returns { Promise<Array<SyncResult>> } devices sync result array, see {@link SyncResult} for details.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -9328,8 +9329,7 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback -
-     *     {Array<[string, int]>}: devices sync status array, {string}: device id, {int}: device sync status.
+     * @param { AsyncCallback<void> } callback - The callback of cloudSync.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
@@ -9362,7 +9362,7 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : devices sync status array, {string}: device id, {int}: device sync status.
+     * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
@@ -9398,8 +9398,7 @@ declare namespace relationalStore {
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback -
-     *     {Array<[string, int]>}: devices sync status array, {string}: device id, {int}: device sync status.
+     * @param { AsyncCallback<void> } callback - The callback of cloudSync.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
@@ -9440,7 +9439,7 @@ declare namespace relationalStore {
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : devices sync status array, {string}: device id, {int}: device sync status.
+     * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
@@ -9543,21 +9542,6 @@ declare namespace relationalStore {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { RdbPredicates } predicates -
-     *     The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 26.0.0 dynamic&static
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -10536,8 +10520,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800043 - DB is not support this scenario. Possible causes: 1. DB type is not support;
-     *     <br>2. This is a readonly db.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not support;2. The table is not supported;
+     *     3. This is a read-only database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
      * @crossplatform
