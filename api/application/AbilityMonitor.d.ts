@@ -21,251 +21,112 @@
 import UIAbility from '../@ohos.app.ability.UIAbility';
 
 /**
- * Provide methods for matching monitored Ability objects that meet specified conditions.
- * The most recently matched Ability objects will be saved in the AbilityMonitor object.
+ * The module provides the capability of listening for lifecycle state changes of a specified 
+ * [UIAbility]{@link @ohos.app.ability.UIAbility}. You can use AbilityMonitor as an input parameter of 
+ * [abilityDelegator.addAbilityMonitor]{@link ./application/AbilityDelegator:AbilityDelegator.addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>)}
+ *  to register a listener.
  *
- * @interface AbilityMonitor
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * Provide methods for matching monitored Ability objects that meet specified conditions.
- * The most recently matched Ability objects will be saved in the AbilityMonitor object.
- *
- * @interface AbilityMonitor
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Provide methods for matching monitored Ability objects that meet specified conditions.
- * The most recently matched Ability objects will be saved in the AbilityMonitor object.
- *
- * @interface AbilityMonitor
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface AbilityMonitor {
   /**
-   * The name of the ability to monitor.
+   * Name of the UIAbility object to be listened.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The name of the ability to monitor.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The name of the ability to monitor.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   abilityName: string;
 
   /**
-   * The name of the module to monitor.
+   * Module name of the UIAbility object.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The name of the module to monitor.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The name of the module to monitor.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   moduleName?: string;
 
   /**
-   * Called back when the ability is created.
+   * Callback invoked when the UIAbility object is created.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back when the ability is created.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when the ability is created.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityCreate?: (ability: UIAbility) => void;
 
   /**
-   * Called back when the state of the ability changes to foreground.
+   * Callback invoked when the UIAbility object transitions to the foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back when the state of the ability changes to foreground.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when the state of the ability changes to foreground.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityForeground?: (ability: UIAbility) => void;
 
   /**
-   * Called back when the state of the ability changes to background.
+   * Callback invoked when the UIAbility object transitions to the background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back when the state of the ability changes to background.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when the state of the ability changes to background.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityBackground?: (ability: UIAbility) => void;
 
   /**
-   * Called back before the ability is destroyed.
+   * Callback invoked when the UIAbility object is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back before the ability is destroyed.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back before the ability is destroyed.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityDestroy?: (ability: UIAbility) => void;
 
   /**
-   * Called back when an ability window stage is created.
+   * Callback invoked when a WindowStage instance is created.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back when an ability window stage is created.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when an ability window stage is created.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageCreate?: (ability: UIAbility) => void;
 
   /**
-   * Called back when an ability window stage is restored.
+   * Callback invoked when the page stack is restored for the target UIAbility during cross-device migration.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back when an ability window stage is restored.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageRestore?: (ability: UIAbility) => void;
 
   /**
-   * Called back when an ability window stage is destroyed.
+   * Callback invoked when the WindowStage instance is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Called back when an ability window stage is destroyed.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when an ability window stage is destroyed.
-   *
-   * @type { ?function }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageDestroy?: (ability: UIAbility) => void;

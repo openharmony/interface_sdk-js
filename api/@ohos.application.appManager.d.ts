@@ -25,15 +25,9 @@ import AppStateData from './application/AppStateData';
 import { ProcessRunningInfo } from './application/ProcessRunningInfo';
 
 /**
- * The appManager module provides APIs for application management. For example, you can query whether the system is 
+ * The appManager module provides APIs for application management. For example, you can query whether the system is
  * undergoing a stability test, determine whether the device is RAM-constrained, obtain the maximum memory available to
  * the current application, and retrieve information about running processes.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.appManager]{@link @ohos.app.ability.appManager:appManager} instead. Newly added APIs will be
- * > marked with a superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
@@ -141,16 +135,16 @@ declare namespace appManager {
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether the system is undergoing a stability test. This API uses an asynchronous callback to return the 
+   * Checks whether the system is undergoing a stability test. This API uses an asynchronous callback to return the
    * result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > A stability test scenario refers to a specific testing environment designed to verify application reliability 
+   * > A stability test scenario refers to a specific testing environment designed to verify application reliability
    * > under complex, extreme, or long-term operating conditions.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the API call result and the result indicating 
-   *     whether the system is undergoing a stability test. You can perform error handling or custom processing in this 
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the API call result and the result indicating
+   *     whether the system is undergoing a stability test. You can perform error handling or custom processing in this
    *     callback. **true** if the system is undergoing a stability test, **false** otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -161,14 +155,14 @@ declare namespace appManager {
 
   /**
    * Checks whether the system is undergoing a stability test. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > A stability test scenario refers to a specific testing environment designed to verify application reliability 
+   * > A stability test scenario refers to a specific testing environment designed to verify application reliability
    * > under complex, extreme, or long-term operating conditions.
    *
    * @returns { Promise<boolean> } Promise used to return the API call result and the result indicating whether the system is
-   *     undergoing a stability test. You can perform error handling or custom processing in this callback. **true** if the 
+   *     undergoing a stability test. You can perform error handling or custom processing in this callback. **true** if the
    *     system is undergoing a stability test, **false** otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -179,8 +173,8 @@ declare namespace appManager {
 
   /**
    * Obtains information about the running processes. This API uses a promise to return the result.
-   * 
-   * > This API is deprecated since API version 9. You are advised to use 
+   *
+   * > This API is deprecated since API version 9. You are advised to use
    * > [appManager.getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()}
    * >  instead.
    *
@@ -196,7 +190,7 @@ declare namespace appManager {
   /**
    * Obtains information about the running processes. This API uses an asynchronous callback to return the result.
    *
-   * > This API is deprecated since API version 9. You are advised to use 
+   * > This API is deprecated since API version 9. You are advised to use
    * > [appManager.getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()}
    * >  instead.
    *
@@ -267,7 +261,7 @@ declare namespace appManager {
   function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 
   /**
-   * Checks whether the current device is a RAM-constrained device (a device with severely limited memory resources). 
+   * Checks whether the current device is a RAM-constrained device (a device with severely limited memory resources).
    * This API uses a promise to return the result.
    *
    * @returns { Promise<boolean> } Promise used to return the API call result and the result indicating whether the device is
@@ -281,11 +275,11 @@ declare namespace appManager {
   function isRamConstrainedDevice(): Promise<boolean>;
 
   /**
-   * Checks whether the current device is a RAM-constrained device (a device with severely limited memory resources). 
+   * Checks whether the current device is a RAM-constrained device (a device with severely limited memory resources).
    * This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the API call result and the result indicating 
-   *     whether the device is RAM-constrained. You can perform error handling or custom processing in this callback. 
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the API call result and the result indicating
+   *     whether the device is RAM-constrained. You can perform error handling or custom processing in this callback.
    *     **true** if the device is RAM-constrained, **false** otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -298,7 +292,7 @@ declare namespace appManager {
    * Obtains the maximum memory (RAM allocation) available to the current application. This API uses a promise to return
    *  the result.
    *
-   * @returns { Promise<number> } Promise used to return the maximum memory (RAM allocation) size, in MB. You can perform 
+   * @returns { Promise<number> } Promise used to return the maximum memory (RAM allocation) size, in MB. You can perform
    *     error processing or other custom processing based on the size.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -308,7 +302,7 @@ declare namespace appManager {
   function getAppMemorySize(): Promise<number>;
 
   /**
-   * Obtains the maximum memory (RAM allocation) available to the current application. This API uses an asynchronous 
+   * Obtains the maximum memory (RAM allocation) available to the current application. This API uses an asynchronous
    * callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the maximum memory (RAM allocation) size, in MB. You

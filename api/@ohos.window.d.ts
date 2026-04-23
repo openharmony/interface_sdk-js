@@ -1632,6 +1632,28 @@ declare namespace window {
      * @since 24 dynamic&static
      */
     parentWindowStatusChangeCallback?: Callback<WindowStatusType>;
+
+    /**
+     * Whether to use the intersection of the width limits of both windows in the attachment.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isIntersectedWidthLimit?: boolean;
+
+    /**
+     * Whether to use the intersection of the height limits of both windows in the attachment.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isIntersectedHeightLimit?: boolean;
   }
 
   /**
@@ -4304,13 +4326,11 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not created or destoryed.
+   *     Possible cause: The window is not found or has been destoryed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
    *     1. DisplayId is a negative number or not exist.
-   * @throws { BusinessError } 1300009 - Invalid window. Possible cause:
-   *     1. The window is not a main window.
-   *     2. The window is not found or has been destoryed.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -4851,7 +4871,8 @@ declare namespace window {
    *                     2. The number of windows has reached the limit.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
-   *     Possible cause: The parent window does not exist or has been destroyed.
+   *     Possible cause: 1. The parent window does not exist or has been destroyed.
+   *                     2. Invalid window type. Only main windows are supported.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -7503,6 +7524,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
+     * @atomicservice
      * @since 26.0.0 dynamic&static
      */
     setFloatNavigationAvoidAreaEnabled(enabled: boolean): Promise<void>;
@@ -7517,6 +7539,7 @@ declare namespace window {
      *                     2. Create js value failed.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
+     * @atomicservice
      * @since 26.0.0 dynamic&static
      */
     isFloatNavigationAvoidAreaEnabled(): boolean;
@@ -12414,47 +12437,32 @@ declare namespace window {
      * @since 23 static
      */
     getDecorButtonStyle(): DecorButtonStyle;
-    
+
     /**
      * Set touchable areas. By default, the entire window area is touchable.
      * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
      * If the window area changes, you need to reset it.
      *
+     * @permission ohos.permission.SET_WINDOW_TOUCH_AREAS [since 26.0.0]
      * @param { Array<Rect> } rects - Touchable areas.
      *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
+     * @returns { Promise<void> } Promise that returns no value. [since 26.0.0]
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API. [since 26.0.0]
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API. [since 12 - 24]
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
+     * @systemapi [since 12 - 24]
+     * @publicapi [since 26.0.0]
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
-    /**
-     * Set touchable areas. By default, the entire window area is touchable.
-     * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
-     * If the window area changes, you need to reset it.
-     *
-     * @permission ohos.permission.SET_WINDOW_TOUCH_AREAS
-     * @param { Array<Rect> } rects - Touchable areas.
-     *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
-     *     the permission required or to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0 dynamic&static
-     */
-    setTouchableAreas(rects: Array<Rect>): void;
-	
+    setTouchableAreas(rects: Array<Rect>): Promise<void>;
+
     /**
      * Get the area of window title buttons.
      *
@@ -15121,6 +15129,26 @@ declare namespace window {
      * @since 22 dynamic
      * @since 23 static
      */
+     /**
+     * Sets Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @param { long | image.PixelMap } imageResource - imageResourceId or pixelMap for recent image.
+     *     imageResourceId Value Range: [0x1000000, 0xffffffff].
+     * @param { ImageFit } value - Sets the zoom type of an image.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
+     *     1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     setImageForRecent(imageResource: long | image.PixelMap, value: ImageFit): Promise<void>;
 
     /**
@@ -15137,6 +15165,21 @@ declare namespace window {
      * @stagemodelonly
      * @since 22 dynamic
      * @since 23 static
+     */
+    /**
+     * Remove Image for recent.
+     *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     removeImageForRecent(): Promise<void>;
   }

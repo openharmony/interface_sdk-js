@@ -440,12 +440,12 @@ declare namespace st {
         /**
          * Creates a new array populated with the results of calling a provided function on every element in the calling array.
          *
-         * @param {(value: T, index: number, array: Array<T>) => T} callbackfn - The function to produce an element of the new array.
-         * @returns {Array<T>} Returns a new array with each element being the result of the callback function.
+         * @param {(value: T, index: number, array: Array<T>) => U} callbackfn - The function to produce an element of the new array.
+         * @returns {Array<U>} Returns a new array with each element being the result of the callback function.
          * @syscap SystemCapability.ArkTS.ArkTS
          * @since 24
          */
-        map(callbackfn: (value: T, index: number, array: Array<T>) => T): Array<T>;
+        map<U>(callbackfn: (value: T, index: number, array: Array<T>) => U): Array<U>;
     }
 
     /**

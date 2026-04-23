@@ -22,9 +22,10 @@ import { ElementName } from '../bundleManager/ElementName';
 import bundle from '../@ohos.bundle.bundleManager';
 
 /**
- * The class of an extension running information.
+ * The ExtensionRunningInfo module encapsulates ExtensionAbility running information, which can be obtained through 
+ * [getExtensionRunningInfos]{@link @ohos.app.ability.abilityManager:abilityManager.getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>)}
+ * .
  *
- * @typedef ExtensionRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 9 dynamic
@@ -32,7 +33,7 @@ import bundle from '../@ohos.bundle.bundleManager';
  */
 export interface ExtensionRunningInfo {
   /**
-   * @type { ElementName }
+   *
    * @default Indicates the extension of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -42,7 +43,7 @@ export interface ExtensionRunningInfo {
   extension: ElementName;
 
   /**
-   * @type { int }
+   *
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -52,7 +53,7 @@ export interface ExtensionRunningInfo {
   pid: int;
 
   /**
-   * @type { int }
+   *
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -62,7 +63,7 @@ export interface ExtensionRunningInfo {
   uid: int;
 
   /**
-   * @type { string }
+   *
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -72,7 +73,7 @@ export interface ExtensionRunningInfo {
   processName: string;
 
   /**
-   * @type { long }
+   *
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -82,7 +83,7 @@ export interface ExtensionRunningInfo {
   startTime: long;
 
   /**
-   * @type { Array<String> }
+   *
    * @default All package names under the current process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -92,7 +93,7 @@ export interface ExtensionRunningInfo {
   clientPackage: Array<String>;
 
   /**
-   * @type { bundle.ExtensionAbilityType }
+   *
    * @default Enumerates types of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

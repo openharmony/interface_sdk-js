@@ -46,6 +46,32 @@ export declare enum ListItemGroupStyle {
      */
     CARD = 1
 }
+
+/**
+ * Defines the list item group header/footer style.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ListItemGroupHeaderFooterStyle {
+ 	  /**
+ 	   * Show none style.
+ 	   *
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+ 	   * @since 26.0.0 static
+ 	   */
+ 	  NONE = 0,
+ 	  /**
+ 	   * Show floating style.
+ 	   *
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+ 	   * @since 26.0.0 static
+ 	   */
+ 	  FLOATING = 1
+}
 /**
  * Defines the list item group options.
  *
@@ -102,6 +128,22 @@ export declare interface ListItemGroupOptions {
      * @since 23 static
      */
     style?: ListItemGroupStyle;
+    /**
+ 	   * Describes the ListItemGroup header style.
+ 	   * @default ListItemGroupHeaderFooterStyle.NONE
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+ 	   * @since 26.0.0 static
+ 	   */
+ 	  headerStyle?: ListItemGroupHeaderFooterStyle;
+ 	  /**
+ 	   * Describes the ListItemGroup footer style.
+ 	   * @default ListItemGroupHeaderFooterStyle.NONE
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+ 	   * @since 26.0.0 static
+ 	   */
+ 	  footerStyle?: ListItemGroupHeaderFooterStyle;
 }
 
 /**

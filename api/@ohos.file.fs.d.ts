@@ -12386,11 +12386,10 @@ export interface ListFileOptions {
 }
 
 /**
- * Defines the file name filtering interface used by listFile().
+ * Defines the file name filtering interface used by listFileExt().
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
- * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface FileFilter {
@@ -12403,7 +12402,6 @@ export interface FileFilter {
    * @returns { boolean } Returns true if the file should be included, false otherwise.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
-   * @atomicservice
    * @since 26.0.0 dynamic
    */
   filter(name: string): boolean;
