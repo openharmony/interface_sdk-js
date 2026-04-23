@@ -1715,6 +1715,16 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     getCaretRect(): RectResult | undefined;
 
     /**
+     * Scroll the input field component to make the specified content visible.
+     *
+     * @param { TextRange } [range] - The visible range.
+     *      If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 26.0.0 static
+     */
+    scrollToVisible(range?: TextRange): void;
+
+    /**
     * Delete the character before the caret of the input field component in editing state.
     * Otherwise, delete the last character of the input field component.
     *
