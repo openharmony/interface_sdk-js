@@ -468,6 +468,19 @@ declare namespace image {
     ALPHA_U8 = 15,
 
     /**
+     * Indicates that each pixel is stored on 16 bits.
+     * Each pixel contains 1 component: ALPHA(16bits) and is stored from the higher-order to the lower-order bits in
+     * FP16.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    ALPHA_F16 = 16,
+
+    /**
      * The storage format is ASTC 4x4 format, and the memory usage is only 1/4 of RGBA_8888.
      * This format is only used for direct display scenes and does not support pixel access or post-
      * processing editing.
