@@ -1,5 +1,5 @@
-﻿/*
- * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
+/*
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36484,6 +36484,22 @@ declare interface EditModeOptions {
    * @since 23 dynamic
    */
   onGetPreviewBadge?: OnGetPreviewBadgeCallback;
+
+  /**
+   * Use default multi-select style.
+   * {@code true} indicates that the check box is displayed for GridItem or ListItem after entering the
+   * multi-select state.
+   * {@code false} indicates that there is no default style after entering the multi-select state.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  useDefaultMultiSelectStyle?: boolean;
 }
 
 /**
