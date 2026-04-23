@@ -79,6 +79,7 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
+   * A static class to do online update.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -606,6 +607,7 @@ declare namespace update {
   }
 
   /**
+   * A static class to do restore.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -695,6 +697,7 @@ declare namespace update {
   }
 
   /**
+   * A static class to do local update.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.

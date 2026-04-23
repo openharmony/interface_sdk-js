@@ -77,6 +77,7 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
+   * 一个用于执行在线更新的静态类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -596,6 +597,7 @@ declare namespace update {
   }
 
   /**
+   * 一个用于执行恢复操作的静态类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -681,6 +683,7 @@ declare namespace update {
   }
 
   /**
+   * 一个用于执行本地更新的静态类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
