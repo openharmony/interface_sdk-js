@@ -12737,8 +12737,8 @@ declare namespace window {
      *
      * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparentcy values.
      *     Valid range: 0(full transparent) to 255(full opaque), size must equal width * height.
-     * @param { int } width - Mask width in pixels. Must equal the target window width.
-     * @param { int } height - Mask height in pixels. Must equal the target window height.
+     * @param { int } maskWidth - Mask width in pixels. Must equal the target window width.
+     * @param { int } maskHeight - Mask height in pixels. Must equal the target window height.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -12752,7 +12752,7 @@ declare namespace window {
      * @atomicservice
      * @since 26 dynamic&static
      */
-    setWindowMask(windowMask: Uint8Array, width: int, height: int): Promise<void>;
+    setWindowMask(windowMask: Uint8Array, maskWidth: int, maskHeight: int): Promise<void>;
 
     /**
      *  Clear the window mask of window
