@@ -12733,10 +12733,12 @@ declare namespace window {
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
     /**
-     *  Set the window mask of window
+     *  Set the window mask using a per-pixel alpha array
      *
-     * @param { Array<Uint8Array> } windowMask - The mask of window.
-     *     The value of the uint8Array is 0 and 1, the other number is illegal value.
+     * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparentcy values.
+     *     Valid range: 0(full transparent) to 255(full opaque), size must equal width * height.
+     * @param { int } width - Mask width in pixels. Must equal the target window width.
+     * @param { int } height - Mask height in pixels. Must equal the target window height.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -12750,27 +12752,7 @@ declare namespace window {
      * @atomicservice
      * @since 26 dynamic&static
      */
-    setWindowMask(windowMask: Array<Uint8Array>): Promise<void>;
-
-    /**
-     *  Set the window mask of window
-     *
-     * @param { Uint8Array } windowMask - The mask of window.
-     *     The value of the uint8Array is 0 and 1, the other number is illegal value.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
-     *                     2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 26 dynamic&static
-     */
-    setWindowMask(windowMask: Uint8Array): Promise<void>;
+    setWindowMask(windowMask: Uint8Array, width: int, height: int): Promise<void>;
 
     /**
      *  Clear the window mask of window
