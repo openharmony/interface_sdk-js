@@ -375,6 +375,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900020 - Invalid tokenID
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @stagemodelonly
@@ -391,9 +392,12 @@ declare namespace fileShare {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types; 3.Invalid policy size.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900020 - Invalid tokenID
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @stagemodelonly
@@ -412,6 +416,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900020 - Invalid tokenID
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @stagemodelonly
