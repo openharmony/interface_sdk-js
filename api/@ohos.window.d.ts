@@ -645,7 +645,7 @@ declare namespace window {
   }
 
   /**
-   * Describes The type of split ratio preference.
+   * Describes the type of split ratio preference.
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
