@@ -2071,8 +2071,9 @@ declare namespace media {
    */
   interface PixelMapParams {
     /**
-     * Width of the thumbnail. The value must be greater than 0 and less than or equal to the width of the original
-     * video. Otherwise, the returned thumbnail will not be scaled.
+     * Width of the thumbnail. Unit: px.
+     * The value must be greater than 0 and less than or equal to the width of the original video.
+     * Otherwise, the returned thumbnail will not be scaled.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
@@ -2081,8 +2082,9 @@ declare namespace media {
     width?: int;
 
     /**
-     * Height of the thumbnail. The value must be greater than 0 and less than or equal to the height of the original
-     * video. Otherwise, the returned thumbnail will not be scaled.
+     * Height of the thumbnail. Unit: px.
+     * The value must be greater than 0 and less than or equal to the height of the original video.
+     * Otherwise, the returned thumbnail will not be scaled.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
