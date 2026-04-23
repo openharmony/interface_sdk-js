@@ -23,6 +23,7 @@
  *
  * @extends DynamicNode<ForEachAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice

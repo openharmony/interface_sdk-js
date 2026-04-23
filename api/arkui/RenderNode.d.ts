@@ -24,6 +24,7 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * Defines RenderNode. Contains node tree operations and render property operations on node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -31,6 +32,7 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * Defines RenderNode. Contains node tree operations and render property operations on node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -40,6 +42,7 @@ export class RenderNode {
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -47,6 +50,7 @@ export class RenderNode {
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -58,6 +62,7 @@ export class RenderNode {
    *
    * @param { RenderNode } node - The node will be added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -66,6 +71,7 @@ export class RenderNode {
    *
    * @param { RenderNode } node - The node will be added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -78,6 +84,7 @@ export class RenderNode {
    *     are included in the error message. For example: "The parameter 'node' is invalid: its corresponding FrameNode
    *     cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -91,6 +98,7 @@ export class RenderNode {
    * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
    *     the first children of the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -101,6 +109,7 @@ export class RenderNode {
    * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
    *     the first children of the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -115,6 +124,7 @@ export class RenderNode {
    *     are included in the error message. For example: "The parameter 'child' is invalid: its corresponding FrameNode
    *     cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -126,6 +136,7 @@ export class RenderNode {
    *
    * @param { RenderNode } node - The node will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -134,6 +145,7 @@ export class RenderNode {
    *
    * @param { RenderNode } node - The node will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -144,6 +156,7 @@ export class RenderNode {
    * Clear children of the current RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -151,6 +164,7 @@ export class RenderNode {
    * Clear children of the current RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -163,6 +177,7 @@ export class RenderNode {
    * @param { number } index - The index of the desired node in the children of RenderNode.
    * @returns { RenderNode | null } - Returns a RenderNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -172,6 +187,7 @@ export class RenderNode {
    * @param { number } index - The index of the desired node in the children of RenderNode.
    * @returns { RenderNode | null } - Returns a RenderNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -184,6 +200,7 @@ export class RenderNode {
    * @returns {  RenderNode | null } - Returns a RenderNode, which is first child of the current RenderNode.
    * If current RenderNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -193,6 +210,7 @@ export class RenderNode {
    * @returns {  RenderNode | null } - Returns a RenderNode, which is first child of the current RenderNode.
    * If current RenderNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -204,6 +222,7 @@ export class RenderNode {
    *
    * @returns { RenderNode | null } - Returns a RenderNode. If current RenderNode does not have next sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -212,6 +231,7 @@ export class RenderNode {
    *
    * @returns { RenderNode | null } - Returns a RenderNode. If current RenderNode does not have next sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -223,6 +243,7 @@ export class RenderNode {
    *
    * @returns { RenderNode | null } - Returns a RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -231,6 +252,7 @@ export class RenderNode {
    *
    * @returns { RenderNode | null } - Returns a RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -242,6 +264,7 @@ export class RenderNode {
    *
    * @param { number } color - The background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -250,6 +273,7 @@ export class RenderNode {
    *
    * @param { number } color - The background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -262,6 +286,7 @@ export class RenderNode {
    * @returns { number } - Returns a background color. Colors are defined as ARGB format represented by number.
    * @default 0X00000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -270,6 +295,7 @@ export class RenderNode {
    *
    * @returns { number } - Returns a background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -281,6 +307,7 @@ export class RenderNode {
    *
    * @param { boolean } useClip - Whether the RenderNode clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -289,6 +316,7 @@ export class RenderNode {
    *
    * @param { boolean } useClip - Whether the RenderNode clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -301,6 +329,7 @@ export class RenderNode {
    * @returns { boolean } - Returns whether the RenderNode clip to frame.
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -309,6 +338,7 @@ export class RenderNode {
    *
    * @returns { boolean } - Returns whether the RenderNode clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -320,6 +350,7 @@ export class RenderNode {
    *
    * @param { number } value - The opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -328,6 +359,7 @@ export class RenderNode {
    *
    * @param { number } value - The opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -340,6 +372,7 @@ export class RenderNode {
    * @returns { number } Returns the opacity of the RenderNode.
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -348,6 +381,7 @@ export class RenderNode {
    *
    * @returns { number } Returns the opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -359,6 +393,7 @@ export class RenderNode {
    *
    * @param { Size } size - The size of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -367,6 +402,7 @@ export class RenderNode {
    *
    * @param { Size } size - The size of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -379,6 +415,7 @@ export class RenderNode {
    * @returns { Size } The size of the RenderNode frame.
    * @default Size { width: 0, height: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -387,6 +424,7 @@ export class RenderNode {
    *
    * @returns { Size } The size of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -398,6 +436,7 @@ export class RenderNode {
    *
    * @param { Position } position - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -406,6 +445,7 @@ export class RenderNode {
    *
    * @param { Position } position - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -418,6 +458,7 @@ export class RenderNode {
    * @returns { Position } - The position of the RenderNode frame.
    * @default Position { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -426,6 +467,7 @@ export class RenderNode {
    *
    * @returns { Position } - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -437,6 +479,7 @@ export class RenderNode {
    *
    * @param { Frame } frame - The frame info of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -445,6 +488,7 @@ export class RenderNode {
    *
    * @param { Frame } frame - The frame info of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -457,6 +501,7 @@ export class RenderNode {
    * @returns { Frame } - Returns frame info of the RenderNode.
    * @default Frame { x: 0, y: 0, width: 0, height: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -465,6 +510,7 @@ export class RenderNode {
    *
    * @returns { Frame } - Returns frame info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -476,6 +522,7 @@ export class RenderNode {
    *
    * @param { Pivot } pivot - The pivot of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -484,6 +531,7 @@ export class RenderNode {
    *
    * @param { Pivot } pivot - The pivot of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -496,6 +544,7 @@ export class RenderNode {
    * @returns { Pivot } - Returns pivot vector of the RenderNode.
    * @default Pivot { x: 0.5, y: 0.5 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -504,6 +553,7 @@ export class RenderNode {
    *
    * @returns { Pivot } - Returns pivot vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -515,6 +565,7 @@ export class RenderNode {
    *
    * @param { Scale } scale - The scale of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -523,6 +574,7 @@ export class RenderNode {
    *
    * @param { Scale } scale - The scale of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -535,6 +587,7 @@ export class RenderNode {
    * @returns { Scale } - Returns scale vector of the RenderNode.
    * @default Scale { x: 1, y: 1 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -543,6 +596,7 @@ export class RenderNode {
    *
    * @returns { Scale } - Returns scale vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -554,6 +608,7 @@ export class RenderNode {
    *
    * @param { Translation } translation - the translate vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -562,6 +617,7 @@ export class RenderNode {
    *
    * @param { Translation } translation - the translate vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -574,6 +630,7 @@ export class RenderNode {
    * @returns { Translation } - Returns translation vector of the RenderNode.
    * @default Translation { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -582,6 +639,7 @@ export class RenderNode {
    *
    * @returns { Translation } - Returns translation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -593,6 +651,7 @@ export class RenderNode {
    *
    * @param { Rotation } rotation - The rotation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -601,6 +660,7 @@ export class RenderNode {
    *
    * @param { Rotation } rotation - The rotation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -613,6 +673,7 @@ export class RenderNode {
    * @returns { Rotation } - Returns rotation vector of the RenderNode.
    * @default Rotation { x: 0, y: 0, z: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -621,6 +682,7 @@ export class RenderNode {
    *
    * @returns { Rotation } - Returns rotation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -632,6 +694,7 @@ export class RenderNode {
    *
    * @param { Matrix4 } transform - the transform info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -640,6 +703,7 @@ export class RenderNode {
    *
    * @param { Matrix4 } transform - the transform info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -652,6 +716,7 @@ export class RenderNode {
    * @returns {Matrix4 } - Returns transform info of the RenderNode.
    * @default Matrix4 [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -660,6 +725,7 @@ export class RenderNode {
    *
    * @returns {Matrix4 } - Returns transform info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -671,6 +737,7 @@ export class RenderNode {
    *
    * @param { number } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -679,6 +746,7 @@ export class RenderNode {
    *
    * @param { number } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -691,6 +759,7 @@ export class RenderNode {
    * @returns { number } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
    * @default 0X00000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -699,6 +768,7 @@ export class RenderNode {
    *
    * @returns { number } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -710,6 +780,7 @@ export class RenderNode {
    *
    * @param { Offset } offset - the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -718,6 +789,7 @@ export class RenderNode {
    *
    * @param { Offset } offset - the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -730,6 +802,7 @@ export class RenderNode {
    * @returns { Offset } - Returns the shadow offset of the RenderNode.
    * @default Offset { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -738,6 +811,7 @@ export class RenderNode {
    *
    * @returns { Offset } - Returns the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -749,6 +823,7 @@ export class RenderNode {
    *
    * @param { string } label - the label of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -760,6 +835,7 @@ export class RenderNode {
    *
    * @returns { string } - Returns the label of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -771,6 +847,7 @@ export class RenderNode {
    *
    * @param { number } alpha - the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -779,6 +856,7 @@ export class RenderNode {
    *
    * @param { number } alpha - the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -791,6 +869,7 @@ export class RenderNode {
    * @returns { number } - Returns the shadow alpha of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -799,6 +878,7 @@ export class RenderNode {
    *
    * @returns { number } - Returns the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -810,6 +890,7 @@ export class RenderNode {
    *
    * @param { number } elevation - the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -818,6 +899,7 @@ export class RenderNode {
    *
    * @param { number } elevation - the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -830,6 +912,7 @@ export class RenderNode {
    * @returns { number } - Returns the shadow elevation of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -838,6 +921,7 @@ export class RenderNode {
    *
    * @returns { number } - Returns the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -849,6 +933,7 @@ export class RenderNode {
    *
    * @param { number } radius - the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -857,6 +942,7 @@ export class RenderNode {
    *
    * @param { number } radius - the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -869,6 +955,7 @@ export class RenderNode {
    * @returns { number } - Returns the shadow radius of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -877,6 +964,7 @@ export class RenderNode {
    *
    * @returns { number } - Returns the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -888,6 +976,7 @@ export class RenderNode {
    *
    * @param { Edges<BorderStyle> } style - the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -899,6 +988,7 @@ export class RenderNode {
    *
    * @returns { Edges<BorderStyle> } - Returns the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -910,6 +1000,7 @@ export class RenderNode {
    *
    * @param { Edges<number> } width - the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -922,6 +1013,7 @@ export class RenderNode {
    * @returns { Edges<number> } - Returns the border width of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -933,6 +1025,7 @@ export class RenderNode {
    *
    * @param { Edges<number> } color - the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -945,6 +1038,7 @@ export class RenderNode {
    * @returns { Edges<number> } - Returns the border color of the RenderNode.
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -956,6 +1050,7 @@ export class RenderNode {
    *
    * @param { BorderRadiuses } radius - the border radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -968,6 +1063,7 @@ export class RenderNode {
    * @returns { BorderRadiuses } - Returns the border radius of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -979,6 +1075,7 @@ export class RenderNode {
    *
    * @param { ShapeMask } shapeMask - the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -990,6 +1087,7 @@ export class RenderNode {
    *
    * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1001,6 +1099,7 @@ export class RenderNode {
    *
    * @param { ShapeClip } shapeClip - the shape clip of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1012,6 +1111,7 @@ export class RenderNode {
    *
    * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1023,6 +1123,7 @@ export class RenderNode {
    *
    * @param { boolean } isNodeGroup - The parameter indicates whether to preferentially draw the node and its children.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1035,6 +1136,7 @@ export class RenderNode {
    * @returns { boolean } - Return whether to preferentially draw the node and its children.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1046,6 +1148,7 @@ export class RenderNode {
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1054,6 +1157,7 @@ export class RenderNode {
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1064,6 +1168,7 @@ export class RenderNode {
    * Invalidate the RenderNode, which will cause a re-render of the RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1071,6 +1176,7 @@ export class RenderNode {
    * Invalidate the RenderNode, which will cause a re-render of the RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1081,6 +1187,7 @@ export class RenderNode {
    * Dispose the RenderNode immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1092,6 +1199,7 @@ export class RenderNode {
    *
    * @param { LengthMetricsUnit } unit - The length metrics unit of RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1104,6 +1212,7 @@ export class RenderNode {
    * @returns { LengthMetricsUnit } - Return the length metrics unit of RenderNode.
    * @default LengthMetricsUnit.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1115,6 +1224,7 @@ export class RenderNode {
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic

@@ -23,6 +23,7 @@
  *
  * @interface StackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -240,6 +241,7 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @returns { StackAttribute } The attribute of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): StackAttribute;

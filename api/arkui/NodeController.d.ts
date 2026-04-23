@@ -27,6 +27,7 @@ import { Size } from './Graphics';
  * and methods to control the child node of the NodeContainer.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -35,6 +36,7 @@ import { Size } from './Graphics';
  * and methods to control the child node of the NodeContainer.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -48,6 +50,7 @@ export abstract class NodeController {
    * @param { UIContext } uiContext - uiContext used to makeNode
    * @returns { FrameNode | null } - Returns a FrameNode or null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -59,6 +62,7 @@ export abstract class NodeController {
    * @param { UIContext } uiContext - uiContext used to makeNode
    * @returns { FrameNode | null } - Returns a FrameNode or null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -70,6 +74,7 @@ export abstract class NodeController {
    *
    * @param { Size } size - size used to resize
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -78,6 +83,7 @@ export abstract class NodeController {
    *
    * @param { Size } size - size used to resize
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -88,6 +94,7 @@ export abstract class NodeController {
    * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -95,6 +102,7 @@ export abstract class NodeController {
    * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -105,6 +113,7 @@ export abstract class NodeController {
    * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -112,6 +121,7 @@ export abstract class NodeController {
    * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -122,6 +132,7 @@ export abstract class NodeController {
    * Rebuild Method. Used to invoke the makeNode method.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -129,6 +140,7 @@ export abstract class NodeController {
    * Rebuild Method. Used to re-invoke the makeNode method.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -140,6 +152,7 @@ export abstract class NodeController {
    *
    * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -148,6 +161,7 @@ export abstract class NodeController {
    *
    * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -158,6 +172,7 @@ export abstract class NodeController {
    * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -168,6 +183,7 @@ export abstract class NodeController {
    * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -179,6 +195,7 @@ export abstract class NodeController {
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -190,6 +207,7 @@ export abstract class NodeController {
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -201,6 +219,7 @@ export abstract class NodeController {
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -212,6 +231,7 @@ export abstract class NodeController {
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic

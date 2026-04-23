@@ -504,6 +504,7 @@ declare namespace curves {
    * @param { function } interpolate - fraction range is [0,1], the return number must between [0,1].
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -520,6 +521,7 @@ declare namespace curves {
    * </p>
    * @returns { ICurve } Interpolation curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -816,6 +818,7 @@ declare namespace curves {
    * Note: If the value is less than or equal to 0, the value 1 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -848,6 +851,7 @@ declare namespace curves {
    * </p>
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

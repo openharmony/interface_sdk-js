@@ -31,6 +31,7 @@ import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon"
  *
  * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextBackgroundStyle {
@@ -39,6 +40,7 @@ export declare interface TextBackgroundStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     color?: ResourceColor;
@@ -47,6 +49,7 @@ export declare interface TextBackgroundStyle {
      *
      * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     radius?: Dimension | BorderRadiuses;
@@ -56,6 +59,7 @@ export declare interface TextBackgroundStyle {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -66,6 +70,7 @@ export declare interface BaseSpan extends CommonMethod {
      * @param { TextBackgroundStyle | undefined } style - The background style of span.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
@@ -75,6 +80,7 @@ export declare interface BaseSpan extends CommonMethod {
      * @param { LengthMetrics | undefined } value - The base line offset of the Span.
      * @returns { T } The attribute of the Span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
@@ -83,6 +89,7 @@ export declare interface BaseSpan extends CommonMethod {
  * Define the Span attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -112,6 +119,7 @@ export declare interface SpanAttribute {
      * @param { ResourceColor | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
@@ -121,6 +129,7 @@ export declare interface SpanAttribute {
      * @param { double | string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
@@ -130,6 +139,7 @@ export declare interface SpanAttribute {
      * @param { FontStyle | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
@@ -159,6 +169,7 @@ export declare interface SpanAttribute {
      * @param { string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontFamily(value: string | Resource | undefined): this;
@@ -168,6 +179,7 @@ export declare interface SpanAttribute {
      * @param { DecorationStyleInterface | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default decoration(value: DecorationStyleInterface | undefined): this;
@@ -177,6 +189,7 @@ export declare interface SpanAttribute {
     * @param { double | string | undefined } value
     * @returns { SpanAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     default letterSpacing(value: double | string | undefined): this;
@@ -186,6 +199,7 @@ export declare interface SpanAttribute {
      * @param { TextCase | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textCase(value: TextCase | undefined): this;
@@ -195,6 +209,7 @@ export declare interface SpanAttribute {
      * @param { Length | undefined } value - The line height of the span.
      * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineHeight(value: Length | undefined): this;
@@ -204,6 +219,7 @@ export declare interface SpanAttribute {
      * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
@@ -214,6 +230,7 @@ export declare interface SpanAttribute {
      *     Passing `undefined` resets it to the default value.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
@@ -224,6 +241,7 @@ export declare interface SpanAttribute {
      *     Passing `undefined` resets it to the default value.
      * @returns { SpanAttribute } The attribute of the Span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
@@ -233,6 +251,7 @@ export declare interface SpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @test
      */
@@ -243,6 +262,7 @@ export declare interface SpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default id(value: string | undefined): this;
@@ -256,6 +276,7 @@ export declare interface SpanAttribute {
      * @param { Callback<ClickEvent> | undefined } event - The click event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onClick(event: Callback<ClickEvent> | undefined): this;
@@ -270,6 +291,7 @@ export declare interface SpanAttribute {
      * @param { double | undefined } distanceThreshold
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onClick(event: Callback<ClickEvent> | undefined, distanceThreshold: double | undefined): this;
@@ -279,6 +301,7 @@ export declare interface SpanAttribute {
      * @param { HoverCallback | undefined } event - The hover event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onHover(event: HoverCallback | undefined): this;
@@ -299,6 +322,7 @@ export declare interface SpanAttribute {
      *     Passing `undefined` will do nothing.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;

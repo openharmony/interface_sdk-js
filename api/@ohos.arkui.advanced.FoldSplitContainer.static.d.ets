@@ -32,6 +32,7 @@ import { AnimateParam } from './arkui/component/common';
  *
  * @typedef  { function } RegionBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 staticonly
  */
 @Builder
@@ -42,6 +43,7 @@ type RegionBuilder = () => void;
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -50,6 +52,7 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     TOP = 1,
@@ -57,6 +60,7 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     BOTTOM = 2
@@ -66,6 +70,7 @@ export declare enum ExtraRegionPosition {
  *
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -75,6 +80,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?PresetSplitRatio }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     horizontalSplitRatio?: PresetSplitRatio;
@@ -83,6 +89,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?PresetSplitRatio }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     verticalSplitRatio?: PresetSplitRatio;
@@ -91,6 +98,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isExtraRegionPerpendicular?: boolean;
@@ -99,6 +107,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     extraRegionPosition?: ExtraRegionPosition;
@@ -108,6 +117,7 @@ export interface ExpandedRegionLayoutOptions {
  *
  * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -117,6 +127,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?PresetSplitRatio }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     horizontalSplitRatio?: PresetSplitRatio;
@@ -125,6 +136,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     showExtraRegion?: boolean;
@@ -133,6 +145,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     extraRegionPosition?: ExtraRegionPosition;
@@ -142,6 +155,7 @@ export interface HoverModeRegionLayoutOptions {
  *
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -151,6 +165,7 @@ export interface FoldedRegionLayoutOptions {
      *
      * @type { ?PresetSplitRatio }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     verticalSplitRatio?: PresetSplitRatio;
@@ -160,6 +175,7 @@ export interface FoldedRegionLayoutOptions {
  *
  * @enum { double }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum PresetSplitRatio {
@@ -167,6 +183,7 @@ export declare enum PresetSplitRatio {
    * 1:1
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   LAYOUT_1V1 = 1.0,
@@ -174,6 +191,7 @@ export declare enum PresetSplitRatio {
    * 2:3
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   LAYOUT_2V3 = 0.6666666666666666,
@@ -181,6 +199,7 @@ export declare enum PresetSplitRatio {
    * 3:2
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   LAYOUT_3V2 = 1.5,
@@ -190,6 +209,7 @@ export declare enum PresetSplitRatio {
  *
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -199,6 +219,7 @@ export interface HoverModeStatus {
      *
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     foldStatus: display.FoldStatus;
@@ -208,6 +229,7 @@ export interface HoverModeStatus {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isHoverMode: boolean;
@@ -216,6 +238,7 @@ export interface HoverModeStatus {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     appRotation: double;
@@ -224,6 +247,7 @@ export interface HoverModeStatus {
      *
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     windowStatusType: window.WindowStatusType;
@@ -234,6 +258,7 @@ export interface HoverModeStatus {
  * @typedef { function } OnHoverStatusChangeHandler
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -243,6 +268,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  *
  * @interface FoldSplitContainer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -253,6 +279,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { RegionBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @BuilderParam
@@ -262,6 +289,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { RegionBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @BuilderParam
@@ -271,6 +299,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?RegionBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @BuilderParam
@@ -280,6 +309,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @PropRef
@@ -289,6 +319,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @PropRef
@@ -298,6 +329,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @PropRef
@@ -307,6 +339,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?AnimateParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @PropRef
@@ -317,6 +350,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onHoverStatusChange?: OnHoverStatusChangeHandler;
@@ -324,6 +358,7 @@ export declare struct FoldSplitContainer {
      * The method to build component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 staticonly
      */
     @Builder

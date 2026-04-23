@@ -27,6 +27,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  *
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -35,6 +36,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  *
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -45,6 +47,7 @@ declare namespace componentSnapshot {
    *
    * @typedef SnapshotRegion
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -55,6 +58,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -66,6 +70,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -77,6 +82,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -88,6 +94,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -101,6 +108,7 @@ declare namespace componentSnapshot {
    *
    * @typedef LocalizedSnapshotRegion
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -111,6 +119,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -122,6 +131,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -133,6 +143,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -144,6 +155,7 @@ declare namespace componentSnapshot {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -156,6 +168,7 @@ declare namespace componentSnapshot {
    *
    * @typedef { SnapshotRegion | LocalizedSnapshotRegion } SnapshotRegionType
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -173,6 +186,7 @@ declare namespace componentSnapshot {
    *
    * @typedef ColorModeOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
@@ -182,6 +196,7 @@ declare namespace componentSnapshot {
      *
      * @type { ?colorSpaceManager.ColorSpace }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic
      */
@@ -199,6 +214,7 @@ declare namespace componentSnapshot {
      *     actual component situation. False means using the value set via the colorSpace field.
      *     The default value is false.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic
      */
@@ -214,6 +230,7 @@ declare namespace componentSnapshot {
    *
    * @typedef DynamicRangeModeOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
@@ -223,6 +240,7 @@ declare namespace componentSnapshot {
      *
      * @type { ?DynamicRangeMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic
      */
@@ -240,6 +258,7 @@ declare namespace componentSnapshot {
      *     based on the actual component situation. False means using the value set via the dynamicRangeMode field.
      *     The default value is false.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic
      */
@@ -286,6 +305,7 @@ declare namespace componentSnapshot {
    *
    * @typedef SnapshotOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -296,6 +316,7 @@ declare namespace componentSnapshot {
      *
      * @type {?number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -307,6 +328,7 @@ declare namespace componentSnapshot {
      *
      * @type {?boolean}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -318,6 +340,7 @@ declare namespace componentSnapshot {
      *
      * @type {?SnapshotRegionType}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -329,6 +352,7 @@ declare namespace componentSnapshot {
      *
      * @type { ?ColorModeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic
      */
@@ -339,6 +363,7 @@ declare namespace componentSnapshot {
      *
      * @type { ?DynamicRangeModeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic
      */
@@ -356,6 +381,7 @@ declare namespace componentSnapshot {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -371,6 +397,7 @@ declare namespace componentSnapshot {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
@@ -390,6 +417,7 @@ declare namespace componentSnapshot {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -405,6 +433,7 @@ declare namespace componentSnapshot {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
@@ -424,6 +453,7 @@ declare namespace componentSnapshot {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -443,6 +473,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    * the ready state is required when the checkImageStatus option is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
@@ -463,6 +494,7 @@ declare namespace componentSnapshot {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -482,6 +514,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    * the ready state is required when the checkImageStatus option is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
@@ -506,6 +539,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -526,6 +560,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 160002 - Timeout.
    * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
