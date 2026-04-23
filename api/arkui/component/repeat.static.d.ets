@@ -25,6 +25,48 @@ import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common';
 
 /**
+* Defines type for memory optimization strategy.
+*
+* @enum { number }
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 26.0.0 static
+*/
+export enum RepeatMemOptStrategy {
+    /**
+    * No memory optimization.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 26.0.0 static
+    */
+    DEFAULT = 0,
+    /**
+    * Repeat handle the memory optimization.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 26.0.0 static
+    */
+    ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0,
+}
+
+/**
+* Options for Repeat.
+*
+* @interface RepeatOptions
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 26.0.0 static
+*/
+export interface RepeatOptions {
+    /**
+    * Memory optimization strategy for Repeat
+    *
+    * @type { ?RepeatMemOptStrategy }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 26.0.0 static
+    */
+    memoryOptimizationStrategy?: RepeatMemOptStrategy;
+}
+
+/**
  * Indicates the type of Repeat's Data Source.
  *
  * @unionmember { Array<T> }
@@ -174,14 +216,13 @@ export interface VirtualScrollOptions {
    * @since 23 static
    */
   disableVirtualScroll?: boolean;
-
   /**
-   * Memory optimization strategy for Repeat.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
+  * Memory optimization strategy for Repeat
+  *
+  * @type { ?RepeatMemOptStrategy }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 26.0.0 static
+  */
   memoryOptimizationStrategy?: RepeatMemOptStrategy;
 }
 
