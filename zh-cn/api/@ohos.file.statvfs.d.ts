@@ -21,8 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides APIs for obtaining file system information, including the total size and free size of a file
- * system, in bytes.
+ * 该模块提供文件系统相关存储信息的功能：向应用程序提供获取文件系统总字节数、空闲字节数的JS接口。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -31,10 +30,10 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace statfs {
   /**
-   * Obtains the free size of the specified file system, in bytes. This API uses a promise to return the result.
+   * 异步方法获取指定文件系统空闲字节数，以Promise形式返回结果。
    *
-   * @param { string } path - File path of the file system.
-   * @returns { Promise<long> } Promise used to return the free size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径。
+   * @returns { Promise<long> } Promise对象，返回空闲字节数。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -56,11 +55,10 @@ declare namespace statfs {
   function getFreeSize(path: string): Promise<long>;
 
   /**
-   * Obtains the free size of the specified file system, in bytes. This API uses an asynchronous callback to return the
-   * result.
+   * 异步方法获取指定文件系统空闲字节数，使用callback形式返回结果。
    *
-   * @param { string } path - File path of the file system.
-   * @param { AsyncCallback<long> } [callback] - Callback used to return the free size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径。
+   * @param { AsyncCallback<long> } [callback] - 异步获取空闲字节数之后的回调。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -82,10 +80,10 @@ declare namespace statfs {
   function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the free size of the specified file system, in bytes. This API returns the result synchronously.
+   * 以同步方法获取指定文件系统空闲字节数。
    *
-   * @param { string } path - File path of the file system.
-   * @returns { long } Free size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径。
+   * @returns { long } 返回空闲字节数。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -107,10 +105,10 @@ declare namespace statfs {
   function getFreeSizeSync(path: string): long;
 
   /**
-   * Obtains the total size of the specified file system, in bytes. This API uses a promise to return the result.
+   * 异步方法获取指定文件系统总字节数，以Promise形式返回结果。
    *
-   * @param { string } path - File path of the file system.
-   * @returns { Promise<long> } Promise used to return the total size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径。
+   * @returns { Promise<long> } Promise对象，返回总字节数。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -132,11 +130,10 @@ declare namespace statfs {
   function getTotalSize(path: string): Promise<long>;
 
   /**
-   * Obtains the total size of the specified file system, in bytes. This API uses an asynchronous callback to return the
-   * result.
+   * 异步方法获取指定文件系统总字节数，使用callback形式返回结果。
    *
-   * @param { string } path - File path of the file system.
-   * @param { AsyncCallback<long> } [callback] - Callback used to return the total size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径。
+   * @param { AsyncCallback<long> } [callback] - 异步获取总字节数之后的回调。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -158,10 +155,10 @@ declare namespace statfs {
   function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the total size of the specified file system, in bytes. This API returns the result synchronously.
+   * 以同步方法获取指定文件系统总字节数。
    *
-   * @param { string } path - File path of the file system.
-   * @returns { long } Total size obtained, in bytes.
+   * @param { string } path - 需要查询的文件系统的文件路径。
+   * @returns { long } 返回总字节数。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error

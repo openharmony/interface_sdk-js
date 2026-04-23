@@ -19,7 +19,7 @@
  */
 
 /**
- * Returns a file, including the file information.
+ * 文件返回。包含文件的信息。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -28,7 +28,7 @@
  */
 export interface FileResponse {
   /**
-   * URI of the file.
+   * 文件的URI。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -38,7 +38,7 @@ export interface FileResponse {
   uri: string;
 
   /**
-   * File length, in bytes.
+   * 文件长度，单位为Byte。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -48,9 +48,7 @@ export interface FileResponse {
   length: number;
 
   /**
-   * Timestamp when the file is stored the last time, which is the number of milliseconds elapsed since
-   * 1970/01/01 00:00:00 GMT. For lite wearables, the value is fixed to 0, because this parameter
-   * is restricted by the underlying file system.
+   * 文件保存时的时间戳，从1970/01/01?00:00:00到当前时间的毫秒数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -60,9 +58,9 @@ export interface FileResponse {
   lastModifiedTime: number;
 
   /**
-   * File type. Available values are as follows:
-   * **dir**: directory
-   * **file**: file
+   * 文件类型，可选值为：
+   * -dir：目录；
+   * -file：文件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -72,8 +70,7 @@ export interface FileResponse {
   type: 'dir' | 'file';
 
   /**
-   * List of files. When the recursive value is true and the type is dir, the file information under the
-   * subdirectory will be returned. Otherwise, no value will be returned.
+   * 文件列表。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -84,7 +81,7 @@ export interface FileResponse {
 }
 
 /**
- * Defines the options used in move().
+ * 可选项类型，支持move接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -93,9 +90,8 @@ export interface FileResponse {
  */
 export interface FileMoveOption {
   /**
-   * URI of the file to move. Restricted by the underlying file system of lite wearables, the value must meet the
-   * following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 要移动的文件的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：“\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -105,9 +101,8 @@ export interface FileMoveOption {
   srcUri: string;
 
   /**
-   * URI of the location to which the file is to move. Restricted by the underlying file system of lite wearables, the
-   * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 文件要移动到的位置的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -117,7 +112,7 @@ export interface FileMoveOption {
   dstUri: string;
 
   /**
-   * Callback invoked when the API call is successful. This API returns the URI of the destination location.
+   * 接口调用成功的回调函数，返回文件要移动到的位置的URI。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -127,12 +122,7 @@ export interface FileMoveOption {
   success?: (uri: string) => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -142,7 +132,7 @@ export interface FileMoveOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -153,7 +143,7 @@ export interface FileMoveOption {
 }
 
 /**
- * Returns a file list, including the file list information.
+ * 文件列表返回，包含文件列表信息。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -162,7 +152,7 @@ export interface FileMoveOption {
  */
 export interface FileListResponse {
   /**
-   * File list. The format of each file is as follows:
+   * 获取的文件列表，其中每个文件的信息的格式为：
    * {
    * uri:'file1',
    * lastModifiedTime:1589965924479,
@@ -179,7 +169,7 @@ export interface FileListResponse {
 }
 
 /**
- * Defines the options used in list().
+ * 可选项类型，支持list接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -188,9 +178,8 @@ export interface FileListResponse {
  */
 export interface FileListOption {
   /**
-   * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
-   * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 目录URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -200,7 +189,7 @@ export interface FileListOption {
   uri: string;
 
   /**
-   * Callback invoked when the API call is successful. **data** is [FileListResponse]{@link FileListResponse}.
+   * 接口调用成功的回调函数。返回[FileListResponse]{@link FileListResponse}。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -210,12 +199,7 @@ export interface FileListOption {
   success?: (data: FileListResponse) => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -225,7 +209,7 @@ export interface FileListOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -236,7 +220,7 @@ export interface FileListOption {
 }
 
 /**
- * Defines the options used in copy().
+ * 可选项类型，支持copy接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -245,9 +229,8 @@ export interface FileListOption {
  */
 export interface FileCopyOption {
   /**
-   * URI of the file to copy. Restricted by the underlying file system of lite wearables, the value must meet the
-   * following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 要拷贝的文件的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -257,9 +240,8 @@ export interface FileCopyOption {
   srcUri: string;
 
   /**
-   * URI of the location to which the file is to move. Restricted by the underlying file system of lite wearables, the
-   * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 文件要移动到的位置的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -269,7 +251,7 @@ export interface FileCopyOption {
   dstUri: string;
 
   /**
-   * Callback invoked when the API call is successful. This API returns the URI of the destination location.
+   * 接口调用成功的回调函数，返回文件要移动到的位置的URI。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -279,12 +261,7 @@ export interface FileCopyOption {
   success?: (uri: string) => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -294,7 +271,7 @@ export interface FileCopyOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -305,7 +282,7 @@ export interface FileCopyOption {
 }
 
 /**
- * Defines the options used in get().
+ * 可选项类型，支持get接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -314,9 +291,8 @@ export interface FileCopyOption {
  */
 export interface FileGetOption {
   /**
-   * URI of the file. Restricted by the underlying file system of lite wearables, the value must meet the following
-   * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 文件的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -326,8 +302,7 @@ export interface FileGetOption {
   uri: string;
 
   /**
-   * Indicates whether to recursively obtain the file list in a subdirectory. The value **true** indicates to
-   * recursively obtain the file list, and **false** indicates the opposite. The default value is **false**.
+   * 是否进行递归获取子目录文件列表，true为进行该操作，缺省为false。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -337,7 +312,7 @@ export interface FileGetOption {
   recursive?: boolean;
 
   /**
-   * Callback invoked when the API call is successful. **file** is [FileResponse]{@link FileResponse}.
+   * 接口调用成功的回调函数。 返回[FileResponse]{@link FileResponse}。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -347,12 +322,7 @@ export interface FileGetOption {
   success?: (file: FileResponse) => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -362,7 +332,7 @@ export interface FileGetOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -373,7 +343,7 @@ export interface FileGetOption {
 }
 
 /**
- * Defines the options used in delete().
+ * 可选项类型，支持delete接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -382,9 +352,8 @@ export interface FileGetOption {
  */
 export interface FileDeleteOption {
   /**
-   * URI of the file to delete, which cannot be an application resource path. Restricted by the underlying file system
-   * of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 删除文件的URI，不能是应用资源路径。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -394,7 +363,7 @@ export interface FileDeleteOption {
   uri: string;
 
   /**
-   * Callback invoked when the API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -404,12 +373,7 @@ export interface FileDeleteOption {
   success?: () => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -419,7 +383,7 @@ export interface FileDeleteOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -430,7 +394,7 @@ export interface FileDeleteOption {
 }
 
 /**
- * Defines the options used in writeText().
+ * 可选项类型，支持writeText接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -439,9 +403,8 @@ export interface FileDeleteOption {
  */
 export interface FileWriteTextOption {
   /**
-   * URI of a local file. If it does not exist, a file will be created. Restricted by the underlying file system of lite
-   * wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 本地文件URI，如果文件不存在会创建文件。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -451,7 +414,7 @@ export interface FileWriteTextOption {
   uri: string;
 
   /**
-   * String to write into the file.
+   * 写入的字符串。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -461,7 +424,7 @@ export interface FileWriteTextOption {
   text: string;
 
   /**
-   * Encoding format. The default format is **UTF-8**.
+   * 编码格式，默认为UTF-8。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -471,8 +434,7 @@ export interface FileWriteTextOption {
   encoding?: string;
 
   /**
-   * Whether to enable the append mode. The default value is **false**. The value **true** means to enable the append
-   * mode; the value **false** means the opposite.
+   * 是否追加模式，默认为false。true为追加，false为不追加。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -482,7 +444,7 @@ export interface FileWriteTextOption {
   append?: boolean;
 
   /**
-   * Callback invoked when the API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -492,11 +454,7 @@ export interface FileWriteTextOption {
   success?: () => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -506,7 +464,7 @@ export interface FileWriteTextOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -517,7 +475,7 @@ export interface FileWriteTextOption {
 }
 
 /**
- * Returns the text read, including the text content.
+ * 文本读取返回，包含读取到的文本内容。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -526,7 +484,7 @@ export interface FileWriteTextOption {
  */
 export interface FileReadTextResponse {
   /**
-   * File list. The format of each file is as follows:
+   * 获取的文件列表，其中每个文件的信息的格式为：
    * {
    * uri:'file1',
    * lastModifiedTime:1589965924479,
@@ -543,7 +501,7 @@ export interface FileReadTextResponse {
 }
 
 /**
- * Defines the options used in readText().
+ * 可选项类型，支持readText接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -552,9 +510,8 @@ export interface FileReadTextResponse {
  */
 export interface FileReadTextOption {
   /**
-   * URI of the file to which the content is written. Restricted by the underlying file system of lite wearables, the
-   * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 本地文件URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -564,7 +521,7 @@ export interface FileReadTextOption {
   uri: string;
 
   /**
-   * Encoding format. The default format is **UTF-8**.
+   * 编码格式，默认为UTF-8。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -574,7 +531,7 @@ export interface FileReadTextOption {
   encoding?: string;
 
   /**
-   * Position where the reading starts, in bytes. The default value is the start position of the file.
+   * 读取的起始位置，单位为Byte，默认为文件的起始位置。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -584,7 +541,7 @@ export interface FileReadTextOption {
   position?: number;
 
   /**
-   * Length of the text to be read, in bytes. The default value is **4096**.
+   * 读取的长度，单位为Byte，默认值为4096。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -594,7 +551,7 @@ export interface FileReadTextOption {
   length?: number;
 
   /**
-   * Callback invoked when the API call is successful. **data** is [FileReadTextResponse]{@link FileReadTextResponse}.
+   * 接口调用成功的回调函数。返回[FileReadTextResponse]{@link FileReadTextResponse}。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -604,13 +561,7 @@ export interface FileReadTextOption {
   success?: (data: FileReadTextResponse) => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
-   * **302**: text to read exceeding 4 KB
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -620,7 +571,7 @@ export interface FileReadTextOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -631,7 +582,7 @@ export interface FileReadTextOption {
 }
 
 /**
- * Defines the options used in writeArrayBuffer().
+ * 可选项类型，支持writeArrayBuffer接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -640,9 +591,8 @@ export interface FileReadTextOption {
  */
 export interface FileWriteArrayBufferOption {
   /**
-   * URI of a local file. If it does not exist, a file will be created. Restricted by the underlying file system of lite
-   * wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 本地文件URI，如果文件不存在会创建文件。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -652,7 +602,7 @@ export interface FileWriteArrayBufferOption {
   uri: string;
 
   /**
-   * Buffer from which the data is derived.
+   * 写入的Buffer。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -662,7 +612,7 @@ export interface FileWriteArrayBufferOption {
   buffer: Uint8Array;
 
   /**
-   * Offset of the position in the file where writing starts, in bytes. The default value is **0**.
+   * 文件写入的起始偏移位置，单位为Byte，默认为0。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -672,9 +622,7 @@ export interface FileWriteArrayBufferOption {
   position?: number;
 
   /**
-   * Whether to enable the append mode. The default value is **false**. If the value is **true**, the **position**
-   * parameter will become invalid. The value **true** means to enable the append mode; the value **false** means the
-   * opposite.
+   * 是否追加模式，默认为false。当设置为true时，position参数无效。true为追加，false为不追加。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -684,7 +632,7 @@ export interface FileWriteArrayBufferOption {
   append?: boolean;
 
   /**
-   * Callback invoked when the API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -694,11 +642,7 @@ export interface FileWriteArrayBufferOption {
   success?: () => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -708,7 +652,7 @@ export interface FileWriteArrayBufferOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -719,7 +663,7 @@ export interface FileWriteArrayBufferOption {
 }
 
 /**
- * Returns the file read, including the file content.
+ * 文件读取返回，包含读取到的文件内容。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -728,7 +672,7 @@ export interface FileWriteArrayBufferOption {
  */
 export interface FileReadArrayBufferResponse {
   /**
-   * File list. The format of each file is as follows:
+   * 获取的文件列表，其中每个文件的信息的格式为：
    * {
    * uri:'file1',
    * lastModifiedTime:1589965924479,
@@ -745,7 +689,7 @@ export interface FileReadArrayBufferResponse {
 }
 
 /**
- * Defines the options used in readArrayBuffer().
+ * 可选项类型，支持readArrayBuffer接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -754,9 +698,8 @@ export interface FileReadArrayBufferResponse {
  */
 export interface FileReadArrayBufferOption {
   /**
-   * URI of the file to which the content is written. Restricted by the underlying file system of lite wearables, the
-   * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 本地文件URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -766,7 +709,7 @@ export interface FileReadArrayBufferOption {
   uri: string;
 
   /**
-   * Position where the reading starts, in bytes. The default value is the start position of the file.
+   * 读取的起始位置，单位为Byte，默认为文件的起始位置。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -776,7 +719,7 @@ export interface FileReadArrayBufferOption {
   position?: number;
 
   /**
-   * Length of the text to be read, in bytes. The default value is **4096**.
+   * 读取的长度，单位为Byte，默认值为4096。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -786,8 +729,7 @@ export interface FileReadArrayBufferOption {
   length?: number;
 
   /**
-   * Callback invoked when the API call is successful. **data** is
-   * [FileReadArrayBufferResponse]{@link FileReadArrayBufferResponse}.
+   * 接口调用成功的回调函数。返回[FileReadArrayBufferResponse]{@link FileReadArrayBufferResponse}。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -797,12 +739,7 @@ export interface FileReadArrayBufferOption {
   success?: (data: FileReadArrayBufferResponse) => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -812,7 +749,7 @@ export interface FileReadArrayBufferOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -823,7 +760,7 @@ export interface FileReadArrayBufferOption {
 }
 
 /**
- * Defines the options used in access().
+ * 可选项类型，支持access接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -832,9 +769,8 @@ export interface FileReadArrayBufferOption {
  */
 export interface FileAccessOption {
   /**
-   * URI of the directory or file. Restricted by the underlying file system of lite wearables, the value must meet the
-   * following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 目录或文件URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -844,7 +780,7 @@ export interface FileAccessOption {
   uri: string;
 
   /**
-   * Callback invoked when the API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -854,12 +790,7 @@ export interface FileAccessOption {
   success?: () => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -869,7 +800,7 @@ export interface FileAccessOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -880,7 +811,7 @@ export interface FileAccessOption {
 }
 
 /**
- * Defines the options used in mkdir().
+ * 可选项类型，支持mkdir接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -889,9 +820,8 @@ export interface FileAccessOption {
  */
 export interface FileMkdirOption {
   /**
-   * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
-   * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 目录URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -901,8 +831,7 @@ export interface FileMkdirOption {
   uri: string;
 
   /**
-   * Whether to recursively create the upper-level directory of the specified directory. The default value is **false**.
-   * The value **true** means to create upper-level directory recursively; the value false means the opposite.
+   * 是否递归创建该目录的上级目录，缺省为false。true为递归创建，false是不递归创建。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -912,7 +841,7 @@ export interface FileMkdirOption {
   recursive?: boolean;
 
   /**
-   * Callback invoked when the API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -922,11 +851,7 @@ export interface FileMkdirOption {
   success?: () => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -936,7 +861,7 @@ export interface FileMkdirOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -947,7 +872,7 @@ export interface FileMkdirOption {
 }
 
 /**
- * Defines the options used in rmdir().
+ * 可选项类型，支持rmdir接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -956,9 +881,8 @@ export interface FileMkdirOption {
  */
 export interface FileRmdirOption {
   /**
-   * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
-   * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 目录URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -968,9 +892,7 @@ export interface FileRmdirOption {
   uri: string;
 
   /**
-   * Whether to recursively delete files and subdirectories of the specified directory. The default value is **false**.
-   * The value **true** means to recursively delete files and subdirectories of the specified directory; the value
-   * **false** means the opposite.
+   * 是否递归删除子文件和子目录，缺省为false。true为递归删除，false为不递归删除。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -980,7 +902,7 @@ export interface FileRmdirOption {
   recursive?: boolean;
 
   /**
-   * Callback invoked when the API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -990,12 +912,7 @@ export interface FileRmdirOption {
   success?: () => void;
 
   /**
-   * Callback invoked when the API call fails.
-   * **data** indicates the error information.
-   * **code** indicates the returned error code:
-   * **202**: invalid parameter
-   * **300**: I/O error
-   * **301**: file or directory not found
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -1005,7 +922,7 @@ export interface FileRmdirOption {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Callback invoked when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -1016,7 +933,7 @@ export interface FileRmdirOption {
 }
 
 /**
- * File
+ * 文件类。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
@@ -1025,9 +942,9 @@ export interface FileRmdirOption {
  */
 export default class File {
   /**
-   * Moves a specified file to a given location.
+   * 将指定文件移动到其他指定位置。
    *
-   * @param { FileMoveOption } options - Options for moving the files.
+   * @param { FileMoveOption } options - 文件过滤选项。默认不进行过滤。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1037,9 +954,9 @@ export default class File {
   static move(options: FileMoveOption): void;
 
   /**
-   * Copies a file to the given URI.
+   * 将指定文件拷贝并存储到指定位置。
    *
-   * @param { FileCopyOption } options - Options for copying the files.
+   * @param { FileCopyOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1049,9 +966,9 @@ export default class File {
   static copy(options: FileCopyOption): void;
 
   /**
-   * Obtains all files in the specified directory.
+   * 获取指定路径下全部文件的列表。
    *
-   * @param { FileListOption } options - Options for obtaining all files in the specified directory.
+   * @param { FileListOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1061,9 +978,9 @@ export default class File {
   static list(options: FileListOption): void;
 
   /**
-   * Obtains information about a local file.
+   * 获取指定本地文件的信息。
    *
-   * @param { FileGetOption } options - Options for obtaining information about a local file.
+   * @param { FileGetOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1073,9 +990,9 @@ export default class File {
   static get(options: FileGetOption): void;
 
   /**
-   * Deletes a local file.
+   * 删除本地文件。
    *
-   * @param { FileDeleteOption } options - Options for deleting a local file.
+   * @param { FileDeleteOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1085,9 +1002,9 @@ export default class File {
   static delete(options: FileDeleteOption): void;
 
   /**
-   * Writes text into a file. Only text files can be read and written.
+   * 写文本内容到指定文件。仅支持文本文档读写。
    *
-   * @param { FileWriteTextOption } options - Options for writing text into a file.
+   * @param { FileWriteTextOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1097,9 +1014,9 @@ export default class File {
   static writeText(options: FileWriteTextOption): void;
 
   /**
-   * Reads text from a file. Only text files can be read and written.
+   * 从指定文件中读取文本内容。仅支持文本文档读写。
    *
-   * @param { FileReadTextOption } options - Options for reading text from a file.
+   * @param { FileReadTextOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1109,9 +1026,9 @@ export default class File {
   static readText(options: FileReadTextOption): void;
 
   /**
-   * Writes buffer data into a file. Only text files can be read and written.
+   * 写Buffer内容到指定文件。仅支持文本文档读写。
    *
-   * @param { FileWriteArrayBufferOption } options - Options for writing buffer data into a file.
+   * @param { FileWriteArrayBufferOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1121,9 +1038,9 @@ export default class File {
   static writeArrayBuffer(options: FileWriteArrayBufferOption): void;
 
   /**
-   * Reads buffer data from a file. Only text files can be read and written.
+   * 从指定文件中读取Buffer内容。仅支持文本文档读写。
    *
-   * @param { FileReadArrayBufferOption } options - Options for reading buffer data from a file.
+   * @param { FileReadArrayBufferOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1133,9 +1050,9 @@ export default class File {
   static readArrayBuffer(options: FileReadArrayBufferOption): void;
 
   /**
-   * Checks whether a file or directory exists.
+   * 判断指定文件或目录是否存在。
    *
-   * @param { FileAccessOption } options - Options for checking whether a file or directory exists.
+   * @param { FileAccessOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1145,9 +1062,9 @@ export default class File {
   static access(options: FileAccessOption): void;
 
   /**
-   * Creates a directory.
+   * 创建指定目录。
    *
-   * @param { FileMkdirOption } options - Options for creating a directory.
+   * @param { FileMkdirOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -1157,9 +1074,9 @@ export default class File {
   static mkdir(options: FileMkdirOption): void;
 
   /**
-   * Deletes a directory.
+   * 删除指定目录。
    *
-   * @param { FileRmdirOption } options - Options for deleting a directory.
+   * @param { FileRmdirOption } options - 接口选项。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
