@@ -115,6 +115,7 @@
     "SystemCapability.Security.Asset",
     "SystemCapability.USB.USBManager",
     "SystemCapability.USB.USBManager.Serial",
+    "SystemCapability.BusManager.Serial",
     "SystemCapability.Security.AccessToken",
     "SystemCapability.Security.ScreenLockFileManager",
     "SystemCapability.Communication.NetManager.Core",
