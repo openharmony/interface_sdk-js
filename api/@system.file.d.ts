@@ -95,7 +95,8 @@ export interface FileMoveOption {
   /**
    * URI of the file to move. Restricted by the underlying file system of lite wearables, the value must meet the
    * following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -107,7 +108,8 @@ export interface FileMoveOption {
   /**
    * URI of the location to which the file is to move. Restricted by the underlying file system of lite wearables, the
    * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -190,7 +192,8 @@ export interface FileListOption {
   /**
    * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
    * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -247,7 +250,8 @@ export interface FileCopyOption {
   /**
    * URI of the file to copy. Restricted by the underlying file system of lite wearables, the value must meet the
    * following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -257,9 +261,11 @@ export interface FileCopyOption {
   srcUri: string;
 
   /**
-   * URI of the location to which the file is to move. Restricted by the underlying file system of lite wearables, the
-   * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * URI of the location to which the copy is to be saved. The directory of application resources and URI of the tmp
+   * type are not supported. Restricted by the underlying file system of lite wearables, the value must meet the
+   * following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -316,7 +322,8 @@ export interface FileGetOption {
   /**
    * URI of the file. Restricted by the underlying file system of lite wearables, the value must meet the following
    * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -384,7 +391,8 @@ export interface FileDeleteOption {
   /**
    * URI of the file to delete, which cannot be an application resource path. Restricted by the underlying file system
    * of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -441,7 +449,8 @@ export interface FileWriteTextOption {
   /**
    * URI of a local file. If it does not exist, a file will be created. Restricted by the underlying file system of lite
    * wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -526,13 +535,7 @@ export interface FileWriteTextOption {
  */
 export interface FileReadTextResponse {
   /**
-   * File list. The format of each file is as follows:
-   * {
-   * uri:'file1',
-   * lastModifiedTime:1589965924479,
-   * length:10240,
-   * type:?'file'
-   * }
+   * Text read from the specified file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -554,7 +557,8 @@ export interface FileReadTextOption {
   /**
    * URI of the file to which the content is written. Restricted by the underlying file system of lite wearables, the
    * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -642,7 +646,8 @@ export interface FileWriteArrayBufferOption {
   /**
    * URI of a local file. If it does not exist, a file will be created. Restricted by the underlying file system of lite
    * wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -756,7 +761,8 @@ export interface FileReadArrayBufferOption {
   /**
    * URI of the file to which the content is written. Restricted by the underlying file system of lite wearables, the
    * value must meet the following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -776,7 +782,7 @@ export interface FileReadArrayBufferOption {
   position?: number;
 
   /**
-   * Length of the text to be read, in bytes. The default value is **4096**.
+   * Length of data to read, in bytes. If this parameter is not set, the reading proceeds until the end of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -834,7 +840,8 @@ export interface FileAccessOption {
   /**
    * URI of the directory or file. Restricted by the underlying file system of lite wearables, the value must meet the
    * following requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -891,7 +898,8 @@ export interface FileMkdirOption {
   /**
    * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
    * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -958,7 +966,8 @@ export interface FileRmdirOption {
   /**
    * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
    * requirements:
-   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]\
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
