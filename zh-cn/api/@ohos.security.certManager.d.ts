@@ -21,8 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **certManager** module provides system-level certificate management capabilities to implement management and
- * secure use of certificates throughout their lifecycle (installation, storage, use, and destruction).
+ * 证书管理主要提供系统级的证书管理能力，实现证书全生命周期（安装，存储，使用，销毁）的管理和安全使用。
  *
  * @syscap SystemCapability.Security.CertificateManager
  * @since 11 dynamic
@@ -30,7 +29,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace certificateManager {
   /**
-   * Enumerates the error codes used in the certificate management APIs.
+   * 表示调用证书管理相关API的错误码。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -38,7 +37,7 @@ declare namespace certificateManager {
    */
   export enum CMErrorCode {
     /**
-     * The application does not have the permission to call the API.
+     * 表示应用程序无权限调用接口。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -47,9 +46,9 @@ declare namespace certificateManager {
     CM_ERROR_NO_PERMISSION = 201,
 
     /**
-     * The caller is not a system application.
-     *
-     * This is a system API.
+     * 表示应用程序不是系统应用程序。 
+     * 
+     * 此接口为系统接口。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
@@ -59,7 +58,7 @@ declare namespace certificateManager {
     CM_ERROR_NOT_SYSTEM_APP = 202,
 
     /**
-     * Invalid input parameter is found.
+     * 表示输入参数无效。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -68,7 +67,7 @@ declare namespace certificateManager {
     CM_ERROR_INVALID_PARAMS = 401,
 
     /**
-     * An internal error occurs when the interface is called.
+     * 表示调用接口时发生内部错误。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -77,7 +76,7 @@ declare namespace certificateManager {
     CM_ERROR_GENERIC = 17500001,
 
     /**
-     * The certificate or credential does not exist.
+     * 表示证书或凭据不存在。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -86,7 +85,7 @@ declare namespace certificateManager {
     CM_ERROR_NO_FOUND = 17500002,
 
     /**
-     * The certificate or credential is in invalid format.
+     * 表示输入证书或凭据的数据格式无效。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -95,7 +94,7 @@ declare namespace certificateManager {
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
     /**
-     * The number of certificates or credentials has reached the limit.
+     * 表示证书或凭据数量达到上限。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12 dynamic
@@ -104,7 +103,7 @@ declare namespace certificateManager {
     CM_ERROR_MAX_CERT_COUNT_REACHED = 17500004,
 
     /**
-     * The application has not obtained user authorization.
+     * 表示应用未经用户授权。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12 dynamic
@@ -113,7 +112,7 @@ declare namespace certificateManager {
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
     /**
-     * The device enters the advanced security mode.
+     * 表示设备进入坚盾守护模式。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -122,7 +121,11 @@ declare namespace certificateManager {
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
 
     /**
-     * Indicates that the password is incorrect.
+     * 表示密码错误。 
+     * 
+     * 此接口为系统接口。
+     * 
+     * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
@@ -132,7 +135,7 @@ declare namespace certificateManager {
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
 
     /**
-     * The device does not support the specified certificate storage path.
+     * 表示不支持指定的证书存储路径。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -141,7 +144,7 @@ declare namespace certificateManager {
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
 
     /**
-     * The USB credential service fails to be accessed.
+     * 表示访问USB凭据服务失败。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -150,9 +153,9 @@ declare namespace certificateManager {
     CM_ERROR_ACCESS_UKEY_SERVICE_FAILED = 17500010,
 
     /**
-     * The input parameter validation fails.
-     *
-     * For example, the parameter format is incorrect or the parameter range is invalid.
+     * 表示输入参数校验失败。
+     * 
+     * 例如：参数格式不正确、参数范围无效。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -162,7 +165,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents detailed information about a certificate.
+   * 表示证书详细信息。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -170,7 +173,7 @@ declare namespace certificateManager {
    */
   export interface CertInfo {
     /**
-     * Unique identifier of a certificate. The value contains up to 256 bytes.
+     * 表示证书的唯一标识符，最大长度为256字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -179,7 +182,7 @@ declare namespace certificateManager {
     uri: string;
 
     /**
-     * Alias of a certificate. The value contains up to 128 bytes.
+     * 表示证书的别名，最大长度为128字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -188,8 +191,7 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the
-     * opposite.
+     * 表示证书的状态，true为启用状态、false为禁用状态。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -198,7 +200,7 @@ declare namespace certificateManager {
     state: boolean;
 
     /**
-     * Name of the certificate issuer. The value contains up to 256 bytes.
+     * 表示证书的颁发者名称，最大长度为256字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -207,7 +209,7 @@ declare namespace certificateManager {
     issuerName: string;
 
     /**
-     * Name of the certificate subject. The value contains up to 1024 bytes.
+     * 表示证书的使用者名称，最大长度为1024字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -216,8 +218,7 @@ declare namespace certificateManager {
     subjectName: string;
 
     /**
-     * Serial number of a certificate. The value contains up to 64 bytes. The value is a hexadecimal string, for example
-     * , **62C2CB4DE8405E96**.
+     * 表示证书的序列号，最大长度为64字节。格式为16进制字符串，例如：62C2CB4DE8405E96。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -226,7 +227,7 @@ declare namespace certificateManager {
     serial: string;
 
     /**
-     * Start date of a certificate. The value contains up to 32 bytes.
+     * 表示证书有效期起始日期，最大长度为32字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -235,7 +236,7 @@ declare namespace certificateManager {
     notBefore: string;
 
     /**
-     * Expiry date of a certificate. The value contains up to 32 bytes.
+     * 表示证书有效期截止日期，最大长度为32字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -244,7 +245,7 @@ declare namespace certificateManager {
     notAfter: string;
 
     /**
-     * Fingerprint of a certificate. The value contains up to 128 bytes.
+     * 表示证书的指纹值，最大长度为128字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -253,7 +254,7 @@ declare namespace certificateManager {
     fingerprintSha256: string;
 
     /**
-     * Binary data of a certificate. The value contains up to 8196 bytes.
+     * 表示证书二进制数据，最大长度为8196字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -263,7 +264,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents brief information about a certificate.
+   * 表示证书简要信息。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -271,7 +272,7 @@ declare namespace certificateManager {
    */
   export interface CertAbstract {
     /**
-     * Unique identifier of a certificate. The value contains up to 256 bytes.
+     * 表示证书的唯一标识符，最大长度为256字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -280,7 +281,7 @@ declare namespace certificateManager {
     uri: string;
 
     /**
-     * Alias of a certificate. The value contains up to 128 bytes.
+     * 表示证书的别名，最大长度为128字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -289,8 +290,7 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the
-     * opposite.
+     * 表示证书的状态，true为启用状态、false为禁用状态。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -299,7 +299,7 @@ declare namespace certificateManager {
     state: boolean;
 
     /**
-     * Name of the certificate subject. The value contains up to 1024 bytes.
+     * 表示证书的使用者名称，最大长度为1024字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -309,7 +309,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents detailed information about a credential.
+   * 表示凭据详细信息。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -317,7 +317,7 @@ declare namespace certificateManager {
    */
   export interface Credential {
     /**
-     * Type of a credential. The value contains up to 8 bytes.
+     * 表示凭据的类型，最大长度为8字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -326,7 +326,7 @@ declare namespace certificateManager {
     type: string;
 
     /**
-     * Alias of a credential. The value contains up to 128 bytes.
+     * 表示凭据的别名，最大长度为128字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -335,7 +335,7 @@ declare namespace certificateManager {
     alias: string;
 
     /**
-     * Unique identifier of a credential. The value contains up to 256 bytes.
+     * 表示凭据的唯一标识符，最大长度为256字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -344,7 +344,7 @@ declare namespace certificateManager {
     keyUri: string;
 
     /**
-     * Number of certificates contained in the credential.
+     * 表示凭据中包含的证书个数。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -353,7 +353,7 @@ declare namespace certificateManager {
     certNum: int;
 
     /**
-     * Number of keys contained in the credential.
+     * 表示凭据中包含的密钥个数。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -362,7 +362,7 @@ declare namespace certificateManager {
     keyNum: int;
 
     /**
-     * Binary data of a credential. The value contains up to 20480 bytes.
+     * 表示凭据二进制数据，最大长度为20480字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -371,7 +371,7 @@ declare namespace certificateManager {
     credentialData: Uint8Array;
 
     /**
-     * Credential usage. The default value is **CertificatePurpose.PURPOSE_DEFAULT**.
+     * 表示凭据的用途。默认值为CertificatePurpose.PURPOSE_DEFAULT。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -381,7 +381,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents brief information about a credential.
+   * 表示凭据的简要信息。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -389,7 +389,7 @@ declare namespace certificateManager {
    */
   export interface CredentialAbstract {
     /**
-     * Type of a credential. The value contains up to 8 bytes.
+     * 表示凭据的类型，最大长度为8字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -398,7 +398,7 @@ declare namespace certificateManager {
     type: string;
 
     /**
-     * Alias of a credential. The value contains up to 128 bytes.
+     * 表示凭据的别名，最大长度为128字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -407,7 +407,7 @@ declare namespace certificateManager {
     alias: string;
 
     /**
-     * Unique identifier of a credential. The value contains up to 256 bytes.
+     * 表示凭据的唯一标识符，最大长度为256字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -417,7 +417,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents the result returned.
+   * 表示接口的返回结果。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -425,7 +425,7 @@ declare namespace certificateManager {
    */
   export interface CMResult {
     /**
-     * Brief certificate information.
+     * 表示证书简要信息的列表。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -434,7 +434,7 @@ declare namespace certificateManager {
     certList?: Array<CertAbstract>;
 
     /**
-     * Detailed certificate information.
+     * 表示证书详情。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -443,7 +443,7 @@ declare namespace certificateManager {
     certInfo?: CertInfo;
 
     /**
-     * Brief credential information.
+     * 表示凭据简要信息的列表。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -452,7 +452,7 @@ declare namespace certificateManager {
     credentialList?: Array<CredentialAbstract>;
 
     /**
-     * Detailed credential information.
+     * 表示凭据详情。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -461,7 +461,7 @@ declare namespace certificateManager {
     credential?: Credential;
 
     /**
-     * List of authorized applications.
+     * 表示授权应用列表。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -470,7 +470,7 @@ declare namespace certificateManager {
     appUidList?: Array<string>;
 
     /**
-     * Unique identifier of a certificate or credential. The value contains up to 256 bytes.
+     * 表示证书或凭据的唯一标识符，最大长度为256字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -479,7 +479,7 @@ declare namespace certificateManager {
     uri?: string;
 
     /**
-     * Signature generated.
+     * 表示签名结果。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -488,7 +488,7 @@ declare namespace certificateManager {
     outData?: Uint8Array;
 
     /**
-     * Represents detailed information about a credential.
+     * 表示凭据详细信息。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -497,9 +497,9 @@ declare namespace certificateManager {
     credentialDetailList?: Array<Credential>;
 
     /**
-     * Certificate URI list.
-     *
-     * **Since**: 26.0.0
+     * 表示证书URI列表。
+     * 
+     * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
@@ -509,7 +509,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enumerates the purposes of using the key.
+   * 表示密钥使用目的的枚举，用于签名、验签。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -517,7 +517,7 @@ declare namespace certificateManager {
    */
   export enum CmKeyPurpose {
     /**
-     * Signs data.
+     * 签名。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -526,7 +526,7 @@ declare namespace certificateManager {
     CM_KEY_PURPOSE_SIGN = 4,
 
     /**
-     * Verifies a signature.
+     * 验签。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -536,7 +536,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enumerates the digest algorithms that can be used for signing and signature verification.
+   * 表示签名、验签使用的摘要算法的枚举。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -544,8 +544,7 @@ declare namespace certificateManager {
    */
   export enum CmKeyDigest {
     /**
-     * No digest algorithm is required. If this option is used, the service needs to pass in the data with the digest
-     * generated for signing or signature verification.
+     * 不需要摘要算法，选用此项时，需要业务传入已经计算过摘要的数据进行签名、验签。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -554,7 +553,7 @@ declare namespace certificateManager {
     CM_DIGEST_NONE = 0,
 
     /**
-     * MD5.
+     * MD5摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -563,7 +562,7 @@ declare namespace certificateManager {
     CM_DIGEST_MD5 = 1,
 
     /**
-     * SHA-1.
+     * SHA1摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -572,7 +571,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA1 = 2,
 
     /**
-     * SHA-224.
+     * SHA224摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -581,7 +580,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA224 = 3,
 
     /**
-     * SHA-256.
+     * SHA256摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -590,7 +589,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA256 = 4,
 
     /**
-     * SHA-384.
+     * SHA384摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -599,7 +598,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA384 = 5,
 
     /**
-     * SHA-512.
+     * SHA512摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -608,7 +607,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA512 = 6,
 
     /**
-     * SM3.
+     * SM3摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -618,7 +617,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enumerates the padding modes that can be used for signing and signature verification.
+   * 表示签名、验签使用的填充方式的枚举。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -626,7 +625,7 @@ declare namespace certificateManager {
    */
   export enum CmKeyPadding {
     /**
-     * No padding.
+     * 无填充。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -635,7 +634,7 @@ declare namespace certificateManager {
     CM_PADDING_NONE = 0,
 
     /**
-     * PSS.
+     * PSS方式填充。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -644,7 +643,7 @@ declare namespace certificateManager {
     CM_PADDING_PSS = 1,
 
     /**
-     * PKCS1-V1_5.
+     * PKCS1_V1_5方式填充。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -654,8 +653,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents a set of parameters used for signing or signature verification, including the key usage purpose, padding
-   * mode, and digest algorithm.
+   * 表示签名、验签操作使用的参数集合，包括密钥使用目的、填充方式和摘要算法。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -663,7 +661,7 @@ declare namespace certificateManager {
    */
   export interface CMSignatureSpec {
     /**
-     * Purpose of using the key.
+     * 表示密钥使用目的的枚举。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -672,7 +670,7 @@ declare namespace certificateManager {
     purpose: CmKeyPurpose;
 
     /**
-     * Padding mode.
+     * 表示填充方式的枚举。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -681,7 +679,7 @@ declare namespace certificateManager {
     padding?: CmKeyPadding;
 
     /**
-     * Digest algorithm.
+     * 表示摘要算法的枚举。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -691,7 +689,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents the handle to a signing or signature verification operation.
+   * 表示签名、验签的初始化操作句柄。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -699,7 +697,7 @@ declare namespace certificateManager {
    */
   export interface CMHandle {
     /**
-     * Handle of the initialization for signing and signature verification. The value contains up to 8 bytes.
+     * 签名、验签的初始化操作句柄，最大长度为8字节。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -709,17 +707,14 @@ declare namespace certificateManager {
   }
 
   /**
-   * Installs a private credential. This API uses an asynchronous callback to return the result.
+   * 表示安装私有凭据，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Keystore file with a key pair and certificate. The value contains up to 20480
-   *     bytes.
-   * @param { string } keystorePwd - Password of the keystore file. The password cannot exceed 32 bytes.
-   * @param { string } certAlias - Credential alias. Currently, the alias can contain only digits, letters, and
-   *     underscores (_) and should not exceed 32 bytes.
-   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null** and **data** is **uri** in the [CMResult]{@link certificateManager.CMResult} object.
-   *     Otherwise, **err** is an error object.
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，最大长度为20480字节。
+   * @param { string } keystorePwd - 表示密钥库文件的密码，长度限制32字节以内。
+   * @param { string } certAlias - 表示用户输入的凭据别名，当前仅支持传入数字、字母或下划线，长度建议32字节以内。
+   * @param { AsyncCallback<CMResult> } callback - 回调函数。当安装私有凭据成功时，err为null，data为
+   *     [CMResult]{@link certificateManager.CMResult}对象中的uri属性；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -741,16 +736,13 @@ declare namespace certificateManager {
   ): void;
 
   /**
-   * Installs a private credential. This API uses a promise to return the result.
+   * 表示安装私有凭据。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Keystore file with a key pair and certificate. The value contains up to 20480
-   *     bytes.
-   * @param { string } keystorePwd - Password of the keystore file. The password cannot exceed 32 bytes.
-   * @param { string } certAlias - Credential alias. Currently, the alias can contain only digits, letters, and
-   *     underscores (_) and should not exceed 32 bytes.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
-   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，最大长度为20480字节。
+   * @param { string } keystorePwd - 表示密钥库文件的密码，长度限制32字节以内。
+   * @param { string } certAlias - 表示用户输入的凭据别名，当前仅支持传入数字、字母或下划线，长度建议32字节以内。
+   * @returns { Promise<CMResult> } Promise对象，返回安装私有凭据的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -767,13 +759,11 @@ declare namespace certificateManager {
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
   /**
-   * Uninstalls a private credential. This API uses an asynchronous callback to return the result.
+   * 表示卸载指定的私有凭据，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of the credential to be uninstalled. The value contains up to 256
-   *     bytes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @param { string } keyUri - 表示待卸载凭据的唯一标识符，长度限制256字节以内。
+   * @param { AsyncCallback<void> } callback - 回调函数。当卸载私有凭据成功时，err为null，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -788,12 +778,11 @@ declare namespace certificateManager {
   function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstalls a private credential. This API uses a promise to return the result.
+   * 表示卸载指定的私有凭据。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of the credential to be uninstalled. The value contains up to 256
-   *     bytes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } keyUri - 表示待卸载凭据的唯一标识符，长度限制256字节以内。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -808,13 +797,11 @@ declare namespace certificateManager {
   function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
   /**
-   * Obtains all private credentials. This API uses an asynchronous callback to return the result.
+   * 表示获取所有私有凭据列表，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If all private credentials are
-   *     obtained, **err** is **null**, and **data** is the **credentialList** attribute in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object. Otherwise, **err** is an error
-   *     object.
+   * @param { AsyncCallback<CMResult> } callback - 回调函数。当获取所有私有凭据列表成功时，err为null，data为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的credentialList属性；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -830,11 +817,11 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificates(callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Obtains all private credentials. This API uses a promise to return the result.
+   * 表示获取所有私有凭据列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } Promise used to return the result, which is the value of **credentialList** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @returns { Promise<CMResult> } Promise对象，返回获取所有私有凭据列表的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的credentialList属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -848,14 +835,12 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains detailed information about a private credential. This API uses an asynchronous callback to return the
-   * result.
+   * 表示获取私有凭据的详细信息，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of the credential to be obtained. The value contains up to 256 bytes.
-   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null** and **data** is **credential** in the [CMResult]{@link certificateManager.CMResult} object.
-   *     Otherwise, **err** is an error object.
+   * @param { string } keyUri - 表示待获取凭据的唯一标识符，长度限制256字节以内。
+   * @param { AsyncCallback<CMResult> } callback - 回调函数。当获取私有凭据的详细信息成功时，err为null，data为
+   *     [CMResult]{@link certificateManager.CMResult}对象中的credential属性；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -870,12 +855,12 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Obtains detailed information about a private credential. This API uses a promise to return the result.
+   * 表示获取私有凭据详情。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of the credential to be obtained. The value contains up to 256 bytes.
-   * @returns { Promise<CMResult> } Promise used to return the private credential details obtained, that is,
-   *     **credential** in the [CMResult]{@link certificateManager.CMResult} object.
+   * @param { string } keyUri - 表示待获取凭据的唯一标识符，长度限制256字节以内。
+   * @returns { Promise<CMResult> } Promise对象，返回获取私有凭据详细信息的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     credential属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -890,14 +875,12 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Initializes the signing or signature verification operation using the specified credential. This API uses an
-   * asynchronous callback to return the result.
+   * 表示使用凭据进行签名、验签的初始化操作，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } authUri - Unique identifier of the credential to be used. The value contains up to 256 bytes.
-   * @param { CMSignatureSpec } spec - Parameters for the signing or signature verification operation.
-   * @param { AsyncCallback<CMHandle> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null** and **data** is the obtained **CMHandle**. Otherwise, **err** is an error object.
+   * @param { string } authUri - 表示使用凭据的唯一标识符，长度限制256字节以内。
+   * @param { CMSignatureSpec } spec - 表示签名、验签的属性。
+   * @param { AsyncCallback<CMHandle> } callback - 回调函数。当签名、验签的初始化操作成功时，err为null，data为获取到的CMHandle；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -913,13 +896,12 @@ declare namespace certificateManager {
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
   /**
-   * Initializes the signing or signature verification operation using the specified credential. This API uses a promise
-   * to return the result.
+   * 表示使用凭据进行签名、验签的初始化操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } authUri - Unique identifier of the credential to be used. The value contains up to 256 bytes.
-   * @param { CMSignatureSpec } spec - Parameters for the signing or signature verification operation.
-   * @returns { Promise<CMHandle> } Promise used to return the operation result, that is, the **CMHandle** object.
+   * @param { string } authUri - 表示使用凭据的唯一标识符，长度限制256字节以内。
+   * @param { CMSignatureSpec } spec - 表示签名、验签的属性。
+   * @returns { Promise<CMHandle> } Promise对象，返回签名、验签的初始化操作结果，返回值为CMHandle对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -935,14 +917,12 @@ declare namespace certificateManager {
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
   /**
-   * Updates the data for the signing or signature verification operation. This API uses an asynchronous callback to
-   * return the result.
+   * 表示签名、验签的数据更新操作，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { Uint8Array } data - Data to be signed or verified.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } data - 表示待签名、验签的数据。
+   * @param { AsyncCallback<void> } callback - 回调函数。当签名、验签的数据更新操作成功时，err为null，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -956,12 +936,12 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the data for the signing or signature verification operation. This API uses a promise to return the result.
+   * 表示签名、验签的数据更新操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { Uint8Array } data - Data to be signed or verified.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } data - 表示待签名、验签的数据。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -975,13 +955,12 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
   /**
-   * Finishes the signing operation. This API uses an asynchronous callback to return the result.
+   * 表示完成签名的操作，Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null** and **data** is the signature, that is, **outData** of the
-   *     [CMResult]{@link certificateManager.CMResult} object. Otherwise, **err** is an error object.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { AsyncCallback<CMResult> } callback - 回调函数。当签名成功时，err为null，data为
+   *     [CMResult]{@link certificateManager.CMResult}对象中的outData属性，表示签名数据；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -995,13 +974,12 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Finishes the signature verification operation. This API uses an asynchronous callback to return the result.
+   * 表示完成验签的操作，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { Uint8Array } signature - Data to sign or verify.
-   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } signature - 表示签名数据。
+   * @param { AsyncCallback<CMResult> } callback - 回调函数。当验签成功时，err为null；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1015,15 +993,13 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Finishes the signing or signature verification operation. This API uses a promise to return the result.
+   * 表示完成签名、验签的操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { Uint8Array } signature - Signature data used for signature verification. This parameter needs to be
-   *     specified only for signature verification.
-   * @returns { Promise<CMResult> } Promise used to return the signature of a signing operation, that is, **outData** in
-   *     the [CMResult]{@link certificateManager.CMResult} object. For a signature verification operation, the promise
-   *     returns no value.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } signature - 表示用于验签操作的签名数据，仅验签操作需要指定。
+   * @returns { Promise<CMResult> } Promise对象。执行签名操作时，返回签名的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     outData属性；执行验签操作时，无返回值。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1037,13 +1013,11 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
   /**
-   * Aborts the signing or signature verification operation. This API uses an asynchronous callback to return the
-   * result.
+   * 表示中止签名、验签的操作，使用Callback回调异步返回结果。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { AsyncCallback<void> } callback - 回调函数。当中止签名、验签成功时，err为null，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1057,11 +1031,11 @@ declare namespace certificateManager {
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * Aborts the signing or signature verification operation. This API uses a promise to return the result.
+   * 表示中止签名、验签的操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1075,12 +1049,12 @@ declare namespace certificateManager {
   function abort(handle: Uint8Array): Promise<void>;
 
   /**
-   * Obtains detailed information about a public credential. This API uses a promise to return the result.
+   * 表示获取用户公共凭据的详细信息。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of a user's public credential. The value contains up to 256 bytes.
-   * @returns { Promise<CMResult> } Promise used to return the detailed information about the user's public credential
-   *     obtained, that is, **credential** in the [CMResult]{@link certificateManager.CMResult} object.
+   * @param { string } keyUri - 表示用户公共凭据的唯一标识符，长度限制256字节以内。
+   * @returns { Promise<CMResult> } Promise对象，返回获取用户公共凭据详细信息的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     credential属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1096,14 +1070,11 @@ declare namespace certificateManager {
   function getPublicCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Checks whether this application is authorized by the specified user credential. This API uses a promise to return
-   * the result.
+   * 表示当前应用是否由指定的用户凭据授权。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of the credential authorized by the user to the application. The value
-   *     contains up to 256 bytes.
-   * @returns { Promise<boolean> } Promise used to return whether the application is authorized. The value **true**
-   *     means authorized; the value **false** means the opposite.
+   * @param { string } keyUri - 表示用户授权给应用使用的凭据的唯一标识符，长度限制256字节以内。
+   * @returns { Promise<boolean> } Promise对象，返回查询应用是否被授权的结果，true为已授权，false为未授权。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1117,11 +1088,11 @@ declare namespace certificateManager {
   function isAuthorizedApp(keyUri: string): Promise<boolean>;
 
   /**
-   * Obtains all user trusted root CA certificates of the device. This API uses a promise to return the result.
+   * 表示获取当前用户和设备公共位置的所有用户根CA证书列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
-   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @returns { Promise<CMResult> } Promise对象，返回获取用户根CA证书列表的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     certList属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
@@ -1133,12 +1104,12 @@ declare namespace certificateManager {
   function getAllUserTrustedCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains the detailed information about a user root CA certificate. This API uses a promise to return the result.
+   * 表示获取用户根CA证书的详细信息。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } certUri - Unique identifier of a user's root CA certificate. The value contains up to 256 bytes.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certInfo** in the
-   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @param { string } certUri - 表示用户根CA证书的唯一标识符，长度限制256字节以内。
+   * @returns { Promise<CMResult> } Promise对象，返回获取用户根CA证书详细信息的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     certInfo属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1153,11 +1124,11 @@ declare namespace certificateManager {
   function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
 
   /**
-   * Obtains all system credentials. This API uses a promise to return the result.
+   * 表示获取所有系统凭据列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @returns { Promise<CMResult> } Promise used to return the result, which is the value of **credentialList** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @returns { Promise<CMResult> } Promise对象，返回获取所有系统凭据列表的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的credentialList属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1171,12 +1142,11 @@ declare namespace certificateManager {
   function getAllSystemAppCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains the credentials for installing the application. This API uses a promise to return the result
-   * asynchronously.
+   * 表示获取应用安装的凭据列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @returns { Promise<CMResult> } Promise used to return credentials obtained, which is **credentialList** in
-   *     [CMResult]{@link certificateManager.CMResult}.
+   * @returns { Promise<CMResult> } Promise对象，返回获取应用安装的凭据列表的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     credentialList属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
@@ -1188,10 +1158,10 @@ declare namespace certificateManager {
   function getPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains the certificate storage path.
+   * 表示获取证书的存储路径。
    *
-   * @param { CertStoreProperty } property - Storage information about the target certificate.
-   * @returns { string } Certificate storage path.
+   * @param { CertStoreProperty } property - 表示获取证书存储路径的参数集合。
+   * @returns { string } 表示证书的存储路径。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed. For example, CertStoreProperty.certType
@@ -1207,13 +1177,12 @@ declare namespace certificateManager {
   function getCertificateStorePath(property: CertStoreProperty): string;
 
   /**
-   * Installs a user CA certificate.
+   * 表示安装用户CA证书。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { Uint8Array } cert - CA certificate data. The value contains up to 8196 bytes.
-   * @param { CertScope } certScope - Scope of the CA certificate.
-   * @returns { CMResult } CA certificate installation result. The **uri** property in **CMResult** is returned if the
-   *     certificate is installed successfully.
+   * @param { Uint8Array } cert - 表示CA证书数据，最大长度为8196字节。
+   * @param { CertScope } certScope - 表示CA证书安装的位置。
+   * @returns { CMResult } 表示CA证书的安装结果，返回值为CMResult对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1231,7 +1200,7 @@ declare namespace certificateManager {
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope): CMResult;
 
   /**
-   * Enumerates the credential storage levels.
+   * 表示凭据的存储级别。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
@@ -1239,7 +1208,7 @@ declare namespace certificateManager {
    */
   export enum AuthStorageLevel {
     /**
-     * The credential can be accessed after the device is started.
+     * EL1级别，表示设备启动后可以访问。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1248,7 +1217,7 @@ declare namespace certificateManager {
     EL1 = 1,
 
     /**
-     * The credential can be accessed after the device is unlocked for the first time.
+     * EL2级别，表示设备首次解锁后可以访问。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1257,7 +1226,7 @@ declare namespace certificateManager {
     EL2 = 2,
 
     /**
-     * The credential can be accessed after the device is unlocked.
+     * EL4级别，表示设备解锁时可以访问。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1267,7 +1236,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents the storage information about a certificate, including the certificate type and location.
+   * 表示获取证书存储位置的参数集合，包括证书的类型及证书的位置。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
@@ -1275,7 +1244,7 @@ declare namespace certificateManager {
    */
   export interface CertStoreProperty {
     /**
-     * Type of the certificate.
+     * 表示证书的类型。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1284,7 +1253,7 @@ declare namespace certificateManager {
     certType: CertType;
 
     /**
-     * Scope of the certificate. This parameter is mandatory when **certType** is **CA_CERT_USER**.
+     * 表示证书的存储位置。当证书类型为CA_CERT_USER时，此项为必选项。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1293,8 +1262,7 @@ declare namespace certificateManager {
     certScope?: CertScope;
 
     /**
-     * Certificate algorithm. This parameter is valid only when **certType** is set to **CA_CERT_SYSTEM**. The default
-     * value is **INTERNATIONAL**.
+     * 表示证书算法类型。仅当certType为CA_CERT_SYSTEM时有效，默认值为INTERNATIONAL。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1304,7 +1272,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enumerates the certificate types.
+   * 表示证书类型。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
@@ -1312,7 +1280,7 @@ declare namespace certificateManager {
    */
   export enum CertType {
     /**
-     * System CA certificate.
+     * 表示系统CA证书。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1321,7 +1289,7 @@ declare namespace certificateManager {
     CA_CERT_SYSTEM = 0,
 
     /**
-     * User CA certificate.
+     * 表示用户CA证书。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1331,17 +1299,14 @@ declare namespace certificateManager {
   }
 
   /**
-   * Installs a private credential and specifies its storage level. This API uses a promise to return the result.
+   * 表示安装私有凭据并指定凭据的存储级别。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Keystore file with a key pair and certificate. The value contains up to 20480
-   *     bytes.
-   * @param { string } keystorePwd - Password of the keystore file.<br>The value contains up to 32 bytes.
-   * @param { string } certAlias - Alias of the credential entered by the user. Only digits, letters, and underscores (_
-   *     ) are supported.<br>The value should contain up to 32 bytes.
-   * @param { AuthStorageLevel } level - Credential storage level.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
-   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，最大长度为20480字节。
+   * @param { string } keystorePwd - 表示密钥库文件的密码。<br>长度限制：32字节以内。
+   * @param { string } certAlias - 表示用户输入的凭据别名，当前仅支持传入数字、字母或下划线。<br>长度建议：32字节以内。
+   * @param { AuthStorageLevel } level - 表示凭据的存储级别。
+   * @returns { Promise<CMResult> } Promise对象，返回安装私有凭据的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1357,12 +1322,12 @@ declare namespace certificateManager {
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
 
   /**
-   * Obtains the user root CA certificates based on the certificate scope. This API uses a promise to return the result.
+   * 表示根据证书的位置获取用户根CA证书列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { CertScope } scope - Scope of the certificates to obtain.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
-   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @param { CertScope } scope - 表示证书的位置。
+   * @returns { Promise<CMResult> } Promise对象，返回获取用户根CA证书列表的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     certList属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1376,7 +1341,7 @@ declare namespace certificateManager {
   function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
 
   /**
-   * Enumerates the certificate scopes.
+   * 表示证书的位置。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
@@ -1384,7 +1349,7 @@ declare namespace certificateManager {
    */
   export enum CertScope {
     /**
-     * The certificate is accessible only to the current user.
+     * 表示当前用户。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1393,7 +1358,7 @@ declare namespace certificateManager {
     CURRENT_USER = 1,
 
     /**
-     * The certificate is accessible to all users.
+     * 表示设备公共，即所有用户都可以访问的位置。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1403,11 +1368,10 @@ declare namespace certificateManager {
   }
 
   /**
-   * Uninstalls a user CA certificate.
+   * 表示删除用户CA证书。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Unique identifier of the certificate to be uninstalled. The value contains up to 256
-   *     bytes.
+   * @param { string } certUri - 表示待卸删除证书的唯一标识符，长度限制256字节以内。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1422,7 +1386,7 @@ declare namespace certificateManager {
   function uninstallUserTrustedCertificateSync(certUri: string): void;
 
   /**
-   * Enumerates the certificate algorithms.
+   * 表示证书的算法类型。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20 dynamic
@@ -1430,7 +1394,7 @@ declare namespace certificateManager {
    */
   export enum CertAlgorithm {
     /**
-     * International cryptographic algorithm, such as RSA and NIST ECC.
+     * 表示国际密码算法，如RSA、NIST ECC等。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1439,7 +1403,7 @@ declare namespace certificateManager {
     INTERNATIONAL = 1,
 
     /**
-     * Commercial cryptographic algorithm, such as SM2 and SM4.
+     * 表示商用密码算法，如SM2、SM4等。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1449,7 +1413,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enumerates the usage of a credential.
+   * 表示凭据用途的枚举。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic
@@ -1457,7 +1421,7 @@ declare namespace certificateManager {
    */
   export enum CertificatePurpose {
     /**
-     * Default usage, which is used for credential signing.
+     * 默认用途，用于凭据签名。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1466,7 +1430,7 @@ declare namespace certificateManager {
     PURPOSE_DEFAULT = 0,
 
     /**
-     * Query of all credentials.
+     * 用于查询所有凭据。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1475,7 +1439,7 @@ declare namespace certificateManager {
     PURPOSE_ALL = 1,
 
     /**
-     * Credential signing.
+     * 用于凭据签名。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1484,7 +1448,7 @@ declare namespace certificateManager {
     PURPOSE_SIGN = 2,
 
     /**
-     * Credential encryption.
+     * 用于凭据加密。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1494,12 +1458,12 @@ declare namespace certificateManager {
   }
 
   /**
-   * Obtains the details of a USB credential. This API uses a promise to return the result.
+   * 表示获取USB凭据详细信息。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of a USB credential. The value contains up to 256 bytes.
-   * @param { UkeyInfo } ukeyInfo - Attributes of a USB credential.
-   * @returns { Promise<CMResult> } Promise used to return the obtained USB credential details.
+   * @param { string } keyUri - 表示USB凭据的唯一标识符，长度限制256字节以内。
+   * @param { UkeyInfo } ukeyInfo - 表示USB凭据的属性信息。
+   * @returns { Promise<CMResult> } Promise对象，返回获取到的USB凭据详情的结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    *     The application does not have the permission required to call the API.
@@ -1516,7 +1480,7 @@ declare namespace certificateManager {
   function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * Provides USB credential attributes.
+   * 提供USB凭据属性信息。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic
@@ -1524,7 +1488,7 @@ declare namespace certificateManager {
    */
   export interface UkeyInfo {
     /**
-     * Credential usage.
+     * 表示凭据用途。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1534,12 +1498,11 @@ declare namespace certificateManager {
   }
 
   /**
-   * Obtains the list of CA certificates trusted by the system. This API is called only by the certificate management
-   * application. This API uses a promise to return the result.
+   * 获取系统信任的CA证书列表，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @returns { Promise<CMResult> } Promise对象，返回获取系统信任CA证书列表的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的certList属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1553,14 +1516,13 @@ declare namespace certificateManager {
   function getSystemTrustedCertificateList(): Promise<CMResult>;
 
   /**
-   * Obtains details about a CA certificate trusted by the system. This API is called only by the certificate management
-   * application. This API uses a promise to return the result.
+   * 获取系统信任的CA证书详情，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } certUri - Unique identifier of the certificate. You can obtain the value through
-   *     [getSystemTrustedCertificateList]{@link certificateManager.getSystemTrustedCertificateList}.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certInfo** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @param { string } certUri - 表示证书的唯一标识符。可通过
+   *     [getSystemTrustedCertificateList]{@link certificateManager.getSystemTrustedCertificateList}接口获取。
+   * @returns { Promise<CMResult> } Promise对象，返回获取系统信任CA证书详细信息的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的certInfo属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1577,16 +1539,13 @@ declare namespace certificateManager {
   function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
 
   /**
-   * Sets the status of a CA certificate. Currently, only the status of a user's CA certificate can be set. This API is
-   * called only by the certificate management application. This API uses a promise to return the result.
+   * 设置CA证书的状态，当前仅支持设置用户CA证书状态，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Unique identifier of the certificate. Currently, only user CA certificates are
-   *     supported.
-   * @param { CertType } certType - Certificate type. Currently, only the status of user CA certificates (
-   *     **CA_CERT_USER**) can be set.
-   * @param { boolean } enabled - Whether the certificate is enabled. **true**: enabled; **false**: disabled.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } certUri - 表示证书的唯一标识符。当前仅支持用户CA证书。
+   * @param { CertType } certType - 表示证书类型。当前仅支持设置用户CA证书（CA_CERT_USER）的状态。
+   * @param { boolean } enabled - 表示证书状态是否启用。true：已启用，false：已禁用。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1604,7 +1563,7 @@ declare namespace certificateManager {
   function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
 
   /**
-   * Represents the certificate file format.
+   * 表示证书文件格式。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @FaAndStageModel
@@ -1612,7 +1571,7 @@ declare namespace certificateManager {
    */
   export enum CertFileFormat {
     /**
-     * The certificate file format is PEM or DER.
+     * 表示证书文件格式为PEM或DER。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
@@ -1621,7 +1580,7 @@ declare namespace certificateManager {
     PEM_DER = 0,
 
     /**
-     * The certificate file format is P7B.
+     * 表示证书文件格式为P7B。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
@@ -1631,7 +1590,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Represents the certificate data in binary format.
+   * 表示证书二进制数据。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @FaAndStageModel
@@ -1639,7 +1598,7 @@ declare namespace certificateManager {
    */
   export interface CertBlob {
     /**
-     * Certificate file data.
+     * 表示证书文件数据。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
@@ -1648,7 +1607,7 @@ declare namespace certificateManager {
     certData: Uint8Array;
 
     /**
-     * Certificate file format.
+     * 表示证书文件格式。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
@@ -1657,7 +1616,7 @@ declare namespace certificateManager {
     certFormat? : CertFileFormat;
 
     /**
-     * Scope of the CA certificate.
+     * 表示用户CA证书的存储位置。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
@@ -1667,12 +1626,11 @@ declare namespace certificateManager {
   }
 
   /**
-   * Installs a user CA certificate. This API uses a promise to return the result.
+   * 安装用户CA证书。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { CertBlob } certificate - Certificate information.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
-   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @param { CertBlob } certificate - 表示证书信息。
+   * @returns { Promise<CMResult> } Promise对象，返回安装用户CA证书的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter verification failed. Possible causes:
@@ -1690,11 +1648,10 @@ declare namespace certificateManager {
   function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
 
   /**
-   * Uninstalls all CA certificates trusted by the user. This API is called only by the certificate management
-   * application. This API uses a promise to return the result.
+   * 卸载所有用户信任的CA证书，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1708,15 +1665,13 @@ declare namespace certificateManager {
   function uninstallAllUserTrustedCertificate() : Promise<void>;
 
   /**
-   * Installs the public credential of the user. This API is called only by the certificate management application. This
-   * API uses a promise to return the result.
+   * 安装用户的公共凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { Uint8Array } keystore - Keystore file containing the key pair and certificate. Only the P12 format is
-   *     supported.
-   * @param { string } keystorePwd - Password of the keystore file.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，仅支持P12格式。
+   * @param { string } keystorePwd - 表示密钥库文件的密码。
+   * @returns { Promise<CMResult> } Promise对象，返回安装用户公共凭据的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1735,12 +1690,11 @@ declare namespace certificateManager {
   function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
 
   /**
-   * Uninstalls the public credential of the user. This API is called only by the certificate management application.
-   * This API uses a promise to return the result.
+   * 卸载用的户公共凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Unique identifier of a user's public credential.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } keyUri - 表示用户公共凭据的唯一标识符。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1757,13 +1711,12 @@ declare namespace certificateManager {
   function uninstallPublicCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * Obtains the public credentials of all users. This API is called only by the certificate management application.
-   * This API uses a promise to return the result.
+   * 获取所有用户的公共凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
-   *     the [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
-   *     <br>Note: If the number of public credentials is 0, the value of **CMResult** is **undefined**.
+   * @returns { Promise<CMResult> } Promise对象，返回获取所有用户公共凭据的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的credentialDetailList属性。
+   *     <br>**说明**：用户公共凭据个数为0时，返回CMResult为undefined。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1777,14 +1730,13 @@ declare namespace certificateManager {
   function getAllPublicCertificates() : Promise<CMResult>;
 
   /**
-   * Grants the permission for an application to use the public credentials of a user. This API is called only by the
-   * certificate management application. This API uses a promise to return the result.
+   * 授予应用使用用户公共凭据的权限，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Unique identifier of a user's public credential.
-   * @param { int } clientAppUid - Application UID.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @param { string } keyUri - 表示用户公共凭据的唯一标识符。
+   * @param { int } clientAppUid - 表示应用UID。
+   * @returns { Promise<CMResult> } Promise对象，返回授予应用使用用户公共凭据权限的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1801,13 +1753,12 @@ declare namespace certificateManager {
   function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
 
   /**
-   * Obtains the list of authorized applications of a user's public credential. This API is called only by the
-   * certificate management application. This API uses a promise to return the result.
+   * 获取用户公共凭据的授权应用列表，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Unique identifier of a user's public credential.
-   * @returns { Promise<CMResult> } Promise used to return the result, which is the value of **appUidList** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @param { string } keyUri - 表示用户公共凭据的唯一标识符。
+   * @returns { Promise<CMResult> } Promise对象，返回获取授权应用列表的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的appUidList属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1824,13 +1775,12 @@ declare namespace certificateManager {
   function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
 
   /**
-   * Removes the permission for an application to use the public credentials of a user. This API is called only by the
-   * certificate management application. This API uses a promise to return the result.
+   * 移除应用使用用户公共凭据的权限，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Unique identifier of a user's public credential.
-   * @param { int } clientAppUid - Application UID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } keyUri - 表示用户公共凭据的唯一标识符。
+   * @param { int } clientAppUid - 表示应用UID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1847,14 +1797,13 @@ declare namespace certificateManager {
   function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
 
   /**
-   * Obtains all private credentials of a specified application. This API is called only by the certificate management
-   * application. This API uses a promise to return the result.
+   * 获取指定应用的所有私有凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { int } appUid - Application UID.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
-   *     the [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
-   *     <br>Note: If the number of private credentials is 0, the returned **CMResult** is **undefined**.
+   * @param { int } appUid - 表示应用UID。
+   * @returns { Promise<CMResult> } Promise对象，返回获取指定应用的所有私有凭据的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的credentialDetailList属性。
+   *     <br>**说明**：私有凭据个数为0时，返回CMResult为undefined。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1868,15 +1817,13 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
 
   /**
-   * Installs the system application credential. This API is called only by the certificate management application. This
-   * API uses a promise to return the result.
+   * 安装系统应用凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @param { Uint8Array } keystore - Keystore file containing the key pair and certificate. Only the P12 format is
-   *     supported.
-   * @param { string } keystorePwd - Password of the keystore file.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，仅支持P12格式。
+   * @param { string } keystorePwd - 表示密钥库文件的密码。
+   * @returns { Promise<CMResult> } Promise对象，返回安装系统应用凭据的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1895,13 +1842,12 @@ declare namespace certificateManager {
   function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
 
   /**
-   * Obtains the credential details of the system application. This API is called only by the certificate management
-   * application. This API uses a promise to return the result.
+   * 获取系统应用的凭据详情，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @param { string } keyUri - Unique identifier of a system application credential.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credential** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @param { string } keyUri - 表示系统应用凭据的唯一标识符。
+   * @returns { Promise<CMResult> } Promise对象，返回获取系统应用凭据详细信息的结果，返回值为
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult}对象中的credential属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1918,12 +1864,11 @@ declare namespace certificateManager {
   function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
 
   /**
-   * Uninstalls the credential of the system application. This API is called only by the certificate management
-   * application. This API uses a promise to return the result.
+   * 卸载系统应用的凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @param { string } keyUri - Unique identifier of a system application credential.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } keyUri - 表示系统应用凭据的唯一标识符。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1940,13 +1885,13 @@ declare namespace certificateManager {
   function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * Obtains the list of USB credential certificates. This API uses a promise to return the result.
+   * 获取USB凭据证书列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } ukeyProvider - USB credential provider.
-   * @param { UkeyInfo } ukeyInfo - Attributes of a USB credential.
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
-   *     the [CMResult]{@link certificateManager.CMResult} object.
+   * @param { string } ukeyProvider - 表示USB凭据提供商。
+   * @param { UkeyInfo } ukeyInfo - 表示USB凭据的属性信息。
+   * @returns { Promise<CMResult> } Promise对象，返回获取USB凭据证书列表的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   *     credentialDetailList属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1963,12 +1908,11 @@ declare namespace certificateManager {
   function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * Uninstalls all system application credentials and public user credentials. This API is called only by the
-   * certificate management application. This API uses a promise to return the result.
+   * 卸载所有系统应用凭据和用户公共凭据，仅证书管理应用调用。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
    *     and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1982,17 +1926,16 @@ declare namespace certificateManager {
   function uninstallAllAppCertificate() : Promise<void>;
 
   /**
-   * Import the certificate to the USB key.
+   * 导入证书到USB Key
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates the USB key certificate URI.
-   *     <br>The keyUri parameter identifies a certificate entity, which can be obtained
-   *     <br>by calling the getUkeyCertificateList interface.
-   * @param { Uint8Array } cert - Indicates the certificate data to be imported.
-   *     <br>The certificate data format complies with the SKF specification.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
-   *     <br>The value of <br>UkeyInfo.CertificatePurpose must be PURPOSE_SIGN or PURPOSE_ENCRYPT.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } keyUri - 表示USB key证书的uri.
+   *     <br>keyUri参数用于标识证书实体，可以通过调用getUkeyCertificateList接口得到。
+   * @param { Uint8Array } cert - 表示待导入的证书数据
+   *     <br>证书数据格式遵循SKF规范的定义
+   * @param { UkeyInfo } ukeyInfo - 表示USB key证书属性信息
+   *     <br>UkeyInfo.CertificatePurpose只能取值为PURPOSE_SIGN或PURPOSE_ENCRYPT
+   * @returns { Promise<void> } 201 - 能力不支持。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
