@@ -3692,7 +3692,7 @@ declare namespace media {
      * calling resourceManager.getRawFd.
      * The caller is responsible to close the file descriptor.
      * @param { long } offset : The offset into the file where the data to be read, in bytes.
-     * By default, the offset is zero.
+     * By default, the offset is zero.unit:Byte.
      * @param { long } length : The length in bytes of the data to be read.
      * By default, the length is the rest of bytes in the file from the offset.
      * @returns { Promise<void> } Promise used to return the result.
