@@ -2443,7 +2443,7 @@ declare namespace audio {
      * @crossplatform
      * @since 26.0.0 dynamic&static
      */
-    samplingRate: AudioSamplingRate | number;
+    samplingRate: AudioSamplingRate | int;
     /**
      * Audio channels.
      * @type { AudioChannel }
