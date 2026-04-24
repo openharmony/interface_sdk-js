@@ -280,12 +280,11 @@ function parseJSDocVisitEachChild1(context, node) {
     const fullMatch = match[0];
     const linkContent = match[1];
     let convertedText = fullMatch;
-    if (/\(.*\)/.test(linkContent)) {
-      const processedContent = processSignatureContent(linkContent);
-      convertedText = fullMatch.replace(linkContent, processedContent);
-    } else {
+    if (!/\(.*\)/.test(linkContent)) {
       return;
     }
+    const processedContent = processSignatureContent(linkContent);
+    convertedText = fullMatch.replace(linkContent, processedContent);
     if (convertedText !== fullMatch) {
       tagDataList.push({
         pos: globalPosStart + match.index,
