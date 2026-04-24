@@ -8804,6 +8804,7 @@ declare namespace photoAccessHelper {
      */
     CLOUD_ENHANCEMENT = 1
   }
+  
   /**
    * Enumerates the flags of asset source.
    * 
