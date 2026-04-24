@@ -1304,6 +1304,33 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 23 dynamic
    */
   menuSystemMaterial(material: Optional<SystemUiMaterial>): SelectAttribute;
+
+  /**
+   * Defines the select menu's background blur style with options
+   *
+   * @param { Optional<BackgroundBlurStyleOptions> } blurStyle - The background blur style of menu.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  menuBackgroundBlurStyleOptions(blurStyle: Optional<BackgroundBlurStyleOptions>): SelectAttribute;
+
+  /**
+   * Defines the select menu's background effect with options
+   *
+   * @param { Optional<BackgroundEffectOptions> } effect - Background effect, including saturation, brightness, and color.
+   *     <br>The configuration does not take effect when it is undefined.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>): SelectAttribute;
 }
 
 /**
