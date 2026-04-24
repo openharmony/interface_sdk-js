@@ -370,27 +370,25 @@ declare namespace hilog {
    * @returns { OutputType } previous output type of hilog.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function setOutputType(type: OutputType): OutputType;
 
   /**
-   * Sets the output type for hilog for domainID list.
+   * Sets the output type for hilog for the domainID list.
    * 
-   * @param { OutputType } type - output type of hilog.
+   * @param { OutputType } type - output type for hilog.
    * @param { Array<int> } domainIDs - domainID list, if isExclude is true, the output type for the domainID
-   *     list is set to DEFAULT, and the outout type for the remaining domainIDs is set to the currently
+   *     list is set to DEFAULT, and the output type for the remaining domainIDs is set to the currently
    *     specified output type; if isExclude is false, the output type for the domainID list is set to the
    *     currently specified output type, and the output type for the remaining domainIDs is set to DEFAULT
    * @param { bool } isExclude - determine whether the domainIDs take effect for the currently specified output type.
-   * @returns { OutputType } previous output type of hilog.
+   * @returns { OutputType } previous value of output type.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function setOutputTypeByDomainID(type: OutputType, domainIDs: Array<int>, isExclude: bool): OutputType;
   
@@ -400,22 +398,20 @@ declare namespace hilog {
    * @returns { OutputType } current output type for hilog.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getOutputType(): OutputType;
   
   /**
    * Returns the directory path of hilog logs in the sandbox.
-   *     If the output of hilog is DEFAULT, an empty string is returned.
+   *     If the output type of hilog is DEFAULT, an empty string is returned.
    * 
    * @returns { string } the directory path of hilog logs in the sandbox.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getOutputDir(): string;
   
@@ -424,9 +420,8 @@ declare namespace hilog {
    * 
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function clean(): void;
   
@@ -435,9 +430,8 @@ declare namespace hilog {
    * 
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function flush(): void;
   
@@ -445,13 +439,12 @@ declare namespace hilog {
    * Returns the list of hilog log file paths in the sandbox for the specified recent time period.
    * 
    * @param { int } latestSeconds - the specified time period from a given number of seconds in the past to the present.
-   * @returns { Array<string> } list of hilog log file path in the sandbox for the specified rencent time period,
+   * @returns { Array<string> } list of hilog log file paths in the sandbox for the specified rencent time period,
    *                            with newer files appearing first in the list.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel
-   * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getLogFile(latestSeconds: int): Array<string>;
 
@@ -649,63 +642,69 @@ declare namespace hilog {
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   enum OutputType {
       /**
        * DEFAULT Default output type, equivalent to CONSOLE_ONLY.
+       * 
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @FaAndStageModel
        * @crossplatform
        * @atomicservice
-       * @since 26 dynamic&static
+       * @since 26.0.0 dynamic&static
        */
       DEFAULT = 0,
       /**
        * CONSOLE_ONLY Hilog is output to the console only, equivalent to DEFAULT.
+       * 
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @FaAndStageModel
        * @crossplatform
        * @atomicservice
-       * @since 26 dynamic&static
+       * @since 26.0.0 dynamic&static
        */
       CONSOLE_ONLY = 0,
       /**
        * PRIVATE_SANDBOX_ONLY Hilog is output to files in its own private sandbox.
+       * 
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @FaAndStageModel
        * @crossplatform
        * @atomicservice
-       * @since 26 dynamic&static
+       * @since 26.0.0 dynamic&static
        */
       PRIVATE_SANDBOX_ONLY = 1,
       /**
-       * SHARE_SANGBOX_ONLY Hilog is output to files in its own sandbox, accessible to itself and the hiview service.
+       * SHARE_SANDBOX_ONLY Hilog is output to files in its own sandbox, accessible to itself and the hiview service.
+       * 
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @FaAndStageModel
        * @crossplatform
        * @atomicservice
-       * @since 26 dynamic&static
+       * @since 26.0.0 dynamic&static
        */
-      SHARE_SANGBOX_ONLY = 2,
+      SHARE_SANDBOX_ONLY = 2,
       /**
        * PRIVATE_SANDBOX_WITH_CONSOLE Enable both CONSOLE_ONLY and PRIVATE_SANDBOX_ONLY at the same time.
+       * 
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @FaAndStageModel
        * @crossplatform
        * @atomicservice
-       * @since 26 dynamic&static
+       * @since 26.0.0 dynamic&static
        */
       PRIVATE_SANDBOX_WITH_CONSOLE = 3,
       /**
-       * PUBLIC_SANDBOX_WITH_CONSOLE Enable both CONSOLE_ONLY and SHARE_SANGBOX_ONLY at the same time.
+       * SHARE_SANDBOX_WITH_CONSOLE Enable both CONSOLE_ONLY and SHARE_SANGBOX_ONLY at the same time.
+       * 
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @FaAndStageModel
        * @crossplatform
        * @atomicservice
-       * @since 26 dynamic&static
+       * @since 26.0.0 dynamic&static
        */
-      PUBLIC_SANDBOX_WITH_CONSOLE = 4
+      SHARE_SANDBOX_WITH_CONSOLE = 4
   }
 }
 
