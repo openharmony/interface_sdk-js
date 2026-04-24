@@ -10135,6 +10135,16 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 static
      */
     assetCompatibleCapability?: AssetCompatibleCapability;
+    
+    /**
+     * Preferred compatibility mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    preferredCompatibleMode?: PreferredCompatibleMode;
   }
 
   /**
