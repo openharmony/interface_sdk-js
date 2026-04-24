@@ -77,6 +77,7 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
+   *  提供系统在线更新功能的工具类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -596,6 +597,7 @@ declare namespace update {
   }
 
   /**
+   * 提供设备恢复出厂设置功能的工具类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -681,6 +683,7 @@ declare namespace update {
   }
 
   /**
+   * 提供本地固件更新功能的工具类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
