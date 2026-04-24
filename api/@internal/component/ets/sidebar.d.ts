@@ -1074,6 +1074,22 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @since 11 dynamic
    */
   minContentWidth(value: Dimension): SideBarContainerAttribute;
+
+  /**
+   * Specifies whether sideBar can be presented or dismissed by gesture.
+   * 
+   * @param { boolean } value - Indicates whether sidebar can be presented or dismissed by gesture.
+   *    <br>Default value: **false**.
+   *    **true**: Sidebar can be presented or dismissed by gesture.
+   *    **false**: Sidebar cannot be presented or dismissed by gesture.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  showSideBarWithGesture(value: boolean): SideBarContainerAttribute;
 }
 
 /**
