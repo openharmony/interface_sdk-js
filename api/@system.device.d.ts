@@ -93,7 +93,7 @@ export interface DeviceResponse {
   region: string;
 
   /**
-   * Window width.
+   * Window width, unit px.
    *
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
@@ -104,7 +104,7 @@ export interface DeviceResponse {
   windowWidth: number;
 
   /**
-   * Window Height.
+   * Window Height, unit px.
    *
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
@@ -115,7 +115,7 @@ export interface DeviceResponse {
   windowHeight: number;
 
   /**
-   * Screen density.
+   * Screen density, unit dpi.
    *
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
