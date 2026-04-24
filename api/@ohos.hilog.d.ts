@@ -390,7 +390,7 @@ declare namespace hilog {
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  function setOutputTypeByDomainID(type: OutputType, domainIDs: Array<int>, isExclude: bool): OutputType;
+  function setOutputTypeByDomainID(type: OutputType, domainIDs: Array<int>, isExclude: boolean): OutputType;
   
   /**
    * Returns the current output type of hilog.
