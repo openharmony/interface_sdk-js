@@ -79,7 +79,7 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
-   * A static class to do online update.
+   * Define a tool class for updating the system online.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -607,7 +607,7 @@ declare namespace update {
   }
 
   /**
-   * A static class to do restore.
+   * Defines a tool class for restoring factory settings.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -697,7 +697,7 @@ declare namespace update {
   }
 
   /**
-   * A static class to do local update.
+   * Defines a tool class for updating the local firmware.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
