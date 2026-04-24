@@ -19,76 +19,36 @@
  */
 
 /**
- * The observer will be called by system when an error occurs.
+ * The ErrorObserver module defines an observer to listen for application errors. It can be used as an input parameter 
+ * in 
+ * [ErrorManager.on]{@link ./../@ohos.app.ability.errorManager:errorManager.on(type: 'error', observer: ErrorObserver)} 
+ * to listen for errors that occur in the current application.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * The observer will be called by system when an error occurs.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11
- */
-/**
- * The observer will be called by system when an error occurs.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 19 dynamiconly
+ * @crossplatform [since 19]
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  */
 export default class ErrorObserver {
   /**
-   * Will be called when the js runtime throws an exception which hasn't been caught by user.
+   * Called when an uncaught exception occurs in the application.
    *
-   * @param { string } errMsg - the message and error stacktrace about the exception.
+   * @param { string } errMsg - Message and error stack trace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Will be called when the js runtime throws an exception which hasn't been caught by user.
-   *
-   * @param { string } errMsg - the message and error stacktrace about the exception.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Will be called when the js runtime throws an exception which hasn't been caught by user.
-   *
-   * @param { string } errMsg - the message and error stacktrace about the exception.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 19 dynamiconly
+   * @crossplatform [since 19]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    */
   onUnhandledException(errMsg: string): void;
 
   /**
-   * Will be called when the js runtime throws an exception which hasn't been caught by user.
+   * Called when the application encounters an exception and reports it to the JavaScript layer.
    *
-   * @param { Error } errObject - the error object about the exception.
+   * @param { Error } errObject - Event name, message, and error stack of the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 10
-   */
-  /**
-   * Will be called when the js runtime throws an exception which hasn't been caught by user.
-   *
-   * @param { Error } errObject - the error object about the exception.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Will be called when the js runtime throws an exception which hasn't been caught by user.
-   *
-   * @param { Error } errObject - the error object about the exception.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 19 dynamiconly
+   * @crossplatform [since 19]
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    */
   onException?(errObject: Error): void;
 }

@@ -19,9 +19,9 @@
  */
 
 /**
- * The module defines an observer to listen for event processing timeout. It can be used as an input parameter in 
+ * 定义异常监听，可以作为
  * [ErrorManager.on]{@link ./../@ohos.app.ability.errorManager:errorManager.on(type: 'loopObserver', timeout: number, observer: LoopObserver)}
- * to listen for the event processing timeout of the current application's main thread.
+ * 的入参监听当前应用主线程事件处理事件。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 19]
@@ -29,14 +29,14 @@
  * @since 12 dynamiconly
  */
 export interface LoopObserver {
-  /**
-   * Called when a timeout occurs for the main thread to process an event in the JS runtime.
-   *
-   * @param { int } timeout - Actual execution time of the main thread.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform [since 19]
-   * @atomicservice
-   * @since 12 dynamiconly
-   */
-  onLoopTimeOut?(timeout: int): void;
-}
+    /**
+     * 将在js运行时应用主线程处理事件超时的回调。
+     *
+     * @param { int } timeout - 返回应用主线程消息实际执行时间。
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform [since 19]
+     * @atomicservice
+     * @since 12 dynamiconly
+     */
+    onLoopTimeOut?(timeout: int): void;
+  }
