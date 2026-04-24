@@ -393,10 +393,66 @@ declare namespace hilog {
    * @since 26 dynamic&static
    */
   function setOutputTypeByDomainID(type: OutputType, domainIDs: Array<int>, isExclude: bool): OutputType;
+  
+  /**
+   * Returns the current output type of hilog.
+   * 
+   * @returns { OutputType } current output type for hilog.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
   function getOutputType(): OutputType;
+  
+  /**
+   * Returns the directory path of hilog logs in the sandbox.
+   *     If the output of hilog is DEFAULT, an empty string is returned.
+   * 
+   * @returns { string } the directory path of hilog logs in the sandbox.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
   function getOutputDir(): string;
+  
+  /**
+   * Delete all hilog logs in the sandbox.
+   * 
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
   function clean(): void;
+  
+  /**
+   * Flush hilog logs in the sandbox.
+   * 
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
   function flush(): void;
+  
+  /**
+   * Returns the list of hilog log file paths in the sandbox for the specified recent time period.
+   * 
+   * @param { int } latestSeconds - the specified time period from a given number of seconds in the past to the present.
+   * @returns { Array<string> } list of hilog log file path in the sandbox for the specified rencent time period,
+   *                            with newer files appearing first in the list.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 26 dynamic&static
+   */
   function getLogFile(latestSeconds: int): Array<string>;
 
   /**
