@@ -146,6 +146,14 @@ export interface PlayParameters {
    */
   rightVolume?: double;
   /**
+   * Pitch of the sound. The value ranges from 0.25 to 4.0 with a step size of 0.001. The Deault pitch is 1.0.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pitch?: double;
+  /**
    * Playback priority. The value **0** means the lowest priority. A larger value indicates a higher priority.
    * The value is an integer greater than or equal to 0. Default value: **0**.
    *
@@ -505,6 +513,32 @@ export declare interface SoundPool {
    * @since 23 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
+  /**
+   * Sets the pitch for an audio stream. This API uses a promise to return the result.
+   *
+   * @param { int } streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param { double } pitch - pitch of the sound. The value ranges from 0.25 to 4.0 with a step size of 0.001.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+   * @throws { BusinessError } 5400105 - Service died. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  setPitch(streamID: int, pitch: double): Promise<void>;
+  /**
+   * Sets the pitch for an audio stream. This API uses an asynchronous callback to return the result.
+   *
+   * @param { int } streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param { double } pitch - pitch of the sound. The value ranges from 0.25 to 4.0 with a step size of 0.001.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+   * @throws { BusinessError } 5400105 - Service died. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  setPitch(streamID: int, pitch: double, callback: AsyncCallback<void>): void;
   /**
    * Sets the interrupt mode for sound parallel play. The default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
    *
