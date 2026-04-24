@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import * as _EnterpriseAdminExtensionContext from './application/EnterpriseAdminExtensionContext';
+
 /**
  * @file
  * @kit MDMKit
@@ -24,7 +26,7 @@
  * @namespace common
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
- * @since 22 dynamic&static
+ * @since 22
  */
 declare namespace common {
     /**
@@ -33,7 +35,7 @@ declare namespace common {
      * @typedef ApplicationInstance
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22
      */
     export interface ApplicationInstance {
       /**
@@ -44,7 +46,7 @@ declare namespace common {
        * @type { string }
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 22 dynamic&static
+       * @since 22
        */
       appIdentifier: string;
 
@@ -54,7 +56,7 @@ declare namespace common {
        * @type { number }
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 22 dynamic&static
+       * @since 22
        */
       accountId: number;
   
@@ -64,7 +66,7 @@ declare namespace common {
        * @type { number }
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 22 dynamic&static
+       * @since 22
        */
       appIndex: number;
     }
@@ -79,7 +81,7 @@ declare namespace common {
      */
     export enum ManagedPolicy {
       /**
-       * Not managed the feature of the device
+       * No management policy applied to the device feature
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -97,7 +99,7 @@ declare namespace common {
       DISALLOW = 1,
   
       /**
-       * Force open the feature of the device
+       * Forces the device feature to be enabled
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -162,6 +164,51 @@ declare namespace common {
        */
       FAIL = -1,
     }
+
+    /**
+     * Enum for start up scene.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    export enum StartupScene {
+      /**
+       * Indicates the startup scene of user setup.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      USER_SETUP = 0,
+      /**
+       * Indicates the startup scene of ota.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      OTA = 1,
+      /**
+       * Indicates the startup scene of device provision.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      DEVICE_PROVISION = 2,
+    }
+
+    /**
+     * The context of enterprise admin extension context. It allows access to ability-specific resources.
+     *
+     * @typedef { _EnterpriseAdminExtensionContext.default }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    export type EnterpriseAdminExtensionContext = _EnterpriseAdminExtensionContext.default;
 }
 
 export default common;

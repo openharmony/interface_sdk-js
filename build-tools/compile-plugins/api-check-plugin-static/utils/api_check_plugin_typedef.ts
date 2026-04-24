@@ -77,6 +77,7 @@ export interface ProjectConfig extends ApiCheckConfig {
   runtimeOS: string;
   dependentModuleList: DependentModuleConfig[];
   entryFiles: string[];
+  compileFiles: string[];
   getHvigorConsoleLogger: Function;
 }
 
@@ -154,7 +155,7 @@ export interface ExtensionAbilities {
 export interface MetaData {
   name: string;
   value: string;
-  resource: string;
+  resource: string
 }
 
 export interface ModuleJson {

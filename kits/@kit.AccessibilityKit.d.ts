@@ -28,7 +28,7 @@ import AccessibilityExtensionAbility, {
   ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent, AccessibilityEventInfo,
   Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
-import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode } from '@ohos.accessibility';
+import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode, InjectActionType } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts static */
@@ -36,9 +36,9 @@ import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo,
-  FocusRule, FocusCondition, FocusMoveResult
+  Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
-import { AccessibilityEventType } from '@ohos.accessibility';
+import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode, InjectActionType } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -47,14 +47,14 @@ export {
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
   AccessibilityAction, AccessibilityEventType, Parameter,
-  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
+  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode, InjectActionType
 };
 /*** endif */
 
 /*** if arkts static */
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
-  WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityEventType,
-  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
+  WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType,
+  Parameter, FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode, InjectActionType
 };
 /*** endif */

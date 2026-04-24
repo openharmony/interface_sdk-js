@@ -1,7 +1,7 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,32 +13,53 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
 
-import { memo } from './runtime';
-import { MemoState } from './memorize/state';
+import { Builder } from '../component/builder';
 
 /**
- * function for capturing external state values.
+ * Mutable state variable declared with rememberVariable.
  *
- * @typedef { function } RememberFactory<T>
- * @returns { T }
+ * @interface MutableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-type RememberFactory<T> = () => T;
+export declare interface MutableVariable<T> {
+  /**
+   * Mutable variable value.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  value: T;
+}
 
 /**
-* Copies external state values for safe use in parallel context.
-*
-* @param { RememberFactory<T> } factory - factory to create the initial state value.
-* @returns { MemoState<T> }
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
-*/
-@memo
-export declare function memorizeUpdatedState<T>(factory: RememberFactory<T>): MemoState<T>;
+ * Type of initial value for rememberVariable.
+ *
+ * @typedef { (() => T) | T } RememberInitialType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+type RememberInitialType<T> = (() => T) | T;
+
+/**
+ * Create variable within @Builder functions or build().
+ *
+ * @param { RememberInitialType<T> } initialValue - directly pass primitives
+ *     or use callback to pass class, interface and builtins.
+ *     The callback is only executed once.
+ * @returns { MutableVariable<T> } mutable state variable.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+@Builder
+export declare function rememberVariable<T>(initialValue: RememberInitialType<T>): MutableVariable<T>;

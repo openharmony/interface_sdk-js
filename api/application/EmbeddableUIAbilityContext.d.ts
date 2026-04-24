@@ -21,13 +21,21 @@
 import UIAbilityContext from './UIAbilityContext';
 
 /**
- * The context of an embeddable UIAbility.
+ * EmbeddableUIAbilityContext provides the context environment for the 
+ * [EmbeddableUIAbility]{@link ./../@ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. It inherits from 
+ * [UIAbilityContext]{@link UIAbilityContext:UIAbilityContext}.
+ * 
+ * When an EmbeddableUIAbility component is instantiated, the system automatically creates the corresponding 
+ * EmbeddableUIAbilityContext.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
  *
- * @extends UIAbilityContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export default class EmbeddableUIAbilityContext extends UIAbilityContext {
 }

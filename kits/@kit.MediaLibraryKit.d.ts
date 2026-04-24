@@ -20,28 +20,36 @@
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
-import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
+import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute, PixelMapFormat, DynamicRangeMode } from '@ohos.multimedia.movingphotoview';
 import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback, AlbumPickerController } from '@ohos.file.AlbumPickerComponent';
 import {
     PhotoPickerComponent, PickerController, PickerOptions,
     DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
-    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
+    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs, SingleLineConfig,
+    BadgeConfig, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio, ScrollStopAtStartCallback,
+    ItemClickedNotifyCallback, ScrollStopAtEndCallback, PhotoBrowserChangeStartCallback, PinchGridSwitchedCallback,
+    ErrorCallback, ClickResult, PickerError
 } from '@ohos.file.PhotoPickerComponent';
 import {
-    RecentPhotoComponent, RecentPhotoCheckResultCallback,
+    RecentPhotoComponent, RecentPhotoCheckResultCallback, RecentPhotoInfo, RecentPhotoCheckInfoCallback, 
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource
 } from '@ohos.file.RecentPhotoComponent';
 export {
     photoAccessHelper, sendablePhotoAccessHelper,
-    MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute,
+    MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute, PixelMapFormat, DynamicRangeMode,
     PhotoPickerComponent, PickerController, PickerOptions,
     DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
     AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback, AlbumPickerController,
-    RecentPhotoComponent, RecentPhotoCheckResultCallback,
+    RecentPhotoComponent, RecentPhotoCheckResultCallback, RecentPhotoInfo, RecentPhotoCheckInfoCallback, 
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
-    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
+    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs, SingleLineConfig,
+    BadgeConfig, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio, ScrollStopAtStartCallback,
+    ItemClickedNotifyCallback, ScrollStopAtEndCallback, PhotoBrowserChangeStartCallback, PinchGridSwitchedCallback,
+    ErrorCallback, ClickResult, PickerError
 };

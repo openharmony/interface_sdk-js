@@ -29,7 +29,7 @@ import formInfo from './@ohos.app.form.formInfo';
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace formObserver {
   /**
@@ -54,7 +54,6 @@ declare namespace formObserver {
    * <p>You can use this method to listen to the event of add form.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formAdd' } type - Indicates event type.
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running  form info.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -62,7 +61,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onFormAdd(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -97,7 +96,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onFormAdd(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -132,7 +131,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offFormAdd(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -165,7 +164,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onFormRemove(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -200,7 +199,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onFormRemove(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -235,7 +234,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offFormRemove(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -269,7 +268,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onNotifyVisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -308,7 +307,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onNotifyVisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -342,7 +341,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onNotifyInvisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -382,7 +381,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onNotifyInvisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -421,7 +420,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offNotifyVisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -460,7 +459,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offNotifyInvisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -480,7 +479,7 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
 
@@ -501,7 +500,7 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfos(
     callback: AsyncCallback<Array<formInfo.RunningFormInfo>>,
@@ -524,7 +523,7 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfos(hostBundleName?: string): Promise<Array<formInfo.RunningFormInfo>>;
 
@@ -544,7 +543,7 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfos(
     isUnusedIncluded: boolean,
@@ -568,7 +567,7 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter
@@ -591,7 +590,7 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter,
@@ -615,7 +614,7 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
 
@@ -637,7 +636,7 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfoById(formId: string, isUnusedIncluded: boolean): Promise<formInfo.RunningFormInfo>;
 
@@ -658,7 +657,7 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfoById(formId: string, callback: AsyncCallback<formInfo.RunningFormInfo>): void;
 
@@ -680,7 +679,7 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRunningFormInfoById(
     formId: string,
@@ -717,7 +716,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onRouter(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -752,7 +751,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onRouter(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -786,7 +785,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offRouter(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -820,7 +819,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onMessage(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -856,7 +855,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onMessage(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -890,7 +889,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offMessage(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -924,7 +923,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onCall(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -960,7 +959,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onCall(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -994,7 +993,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offCall(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 }

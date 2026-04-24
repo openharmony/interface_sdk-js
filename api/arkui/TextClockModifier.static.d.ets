@@ -26,6 +26,6 @@ import { TextClockAttribute } from '@ohos.arkui.component';
  *
  * @implements { TextClockAttribute, AttributeModifier<TextClockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class TextClockModifier implements TextClockAttribute, AttributeModifier<TextClockAttribute> {}

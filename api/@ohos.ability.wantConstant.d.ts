@@ -15,12 +15,12 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 /**
- * the constant for action and entity in the want
+ * The module provides the actions, entities, and flags used in Want objects.
  *
- * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 6
  * @deprecated since 9
@@ -28,16 +28,15 @@
  */
 declare namespace wantConstant {
   /**
-   * the constant for action of the want
+   * Enumerates the action constants of the Want object. **action** specifies the operation to execute.
    *
-   * @enum { string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
    */
   export enum Action {
     /**
-     * Indicates the action of backing home.
+     * Action of returning to the home page.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -46,7 +45,7 @@ declare namespace wantConstant {
     ACTION_HOME = 'ohos.want.action.home',
 
     /**
-     * Indicates the action of starting a Page ability that displays a keypad.
+     * Action of launching the numeric keypad.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -55,7 +54,7 @@ declare namespace wantConstant {
     ACTION_DIAL = 'ohos.want.action.dial',
 
     /**
-     * Indicates the action of starting a Page ability for search.
+     * Action of launching the search function.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -64,8 +63,7 @@ declare namespace wantConstant {
     ACTION_SEARCH = 'ohos.want.action.search',
 
     /**
-     * Indicates the action of starting a Page ability that provides wireless network settings, for example,
-     * Wi-Fi options.
+     * Action of launching the UI that provides wireless network settings, for example, Wi-Fi options.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -74,7 +72,7 @@ declare namespace wantConstant {
     ACTION_WIRELESS_SETTINGS = 'ohos.settings.wireless',
 
     /**
-     * Indicates the action of starting a Page ability that manages installed applications.
+     * Action of launching the UI for managing installed applications.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -83,9 +81,7 @@ declare namespace wantConstant {
     ACTION_MANAGE_APPLICATIONS_SETTINGS = 'ohos.settings.manage.applications',
 
     /**
-     * Indicates the action of starting a Page ability that displays details of a specified application.
-     * <p>You must specify the application bundle name in the {@code package} attribute of the {@code Intent}
-     * containing this action.
+     * Action of launching the UI that displays the details of an application.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -94,7 +90,7 @@ declare namespace wantConstant {
     ACTION_APPLICATION_DETAILS_SETTINGS = 'ohos.settings.application.details',
 
     /**
-     * Indicates the action of starting a Page ability for setting an alarm clock.
+     * Action of launching the UI for setting the alarm clock.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -103,8 +99,7 @@ declare namespace wantConstant {
     ACTION_SET_ALARM = 'ohos.want.action.setAlarm',
 
     /**
-     * Indicates the action of starting a Page ability that displays all alarm
-     * clocks.
+     * Action of launching the UI that displays all alarms.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -113,7 +108,7 @@ declare namespace wantConstant {
     ACTION_SHOW_ALARMS = 'ohos.want.action.showAlarms',
 
     /**
-     * Indicates the action of starting a Page ability for snoozing an alarm clock.
+     * Action of launching the UI for snoozing an alarm.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -122,7 +117,7 @@ declare namespace wantConstant {
     ACTION_SNOOZE_ALARM = 'ohos.want.action.snoozeAlarm',
 
     /**
-     * Indicates the action of starting a Page ability for deleting an alarm clock.
+     * Action of launching the UI for deleting an alarm.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -131,7 +126,7 @@ declare namespace wantConstant {
     ACTION_DISMISS_ALARM = 'ohos.want.action.dismissAlarm',
 
     /**
-     * Indicates the action of starting a Page ability for dismissing a timer.
+     * Action of launching the UI for dismissing a timer.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -140,7 +135,7 @@ declare namespace wantConstant {
     ACTION_DISMISS_TIMER = 'ohos.want.action.dismissTimer',
 
     /**
-     * Indicates the action of starting a Page ability for sending a sms.
+     * Action of launching the UI for sending an SMS message.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -149,7 +144,7 @@ declare namespace wantConstant {
     ACTION_SEND_SMS = 'ohos.want.action.sendSms',
 
     /**
-     * Indicates the action of starting a Page ability for opening contacts or pictures.
+     * Action of launching the UI for opening a contact or picture.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -158,7 +153,7 @@ declare namespace wantConstant {
     ACTION_CHOOSE = 'ohos.want.action.choose',
 
     /**
-     * Indicates the action of starting a Page ability for take a picture.
+     * Action of launching the UI for photographing.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -167,7 +162,7 @@ declare namespace wantConstant {
     ACTION_IMAGE_CAPTURE = 'ohos.want.action.imageCapture',
 
     /**
-     * Indicates the action of starting a Page ability for Take a video.
+     * Action of launching the UI for shooting a video.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -176,7 +171,7 @@ declare namespace wantConstant {
     ACTION_VIDEO_CAPTURE = 'ohos.want.action.videoCapture',
 
     /**
-     * Indicates the action of showing the application selection dialog box.
+     * Action of launching the UI for application selection.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -185,7 +180,7 @@ declare namespace wantConstant {
     ACTION_SELECT = 'ohos.want.action.select',
 
     /**
-     * Indicates the action of sending a single data record.
+     * Action of launching the UI for sending a single data record.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -194,7 +189,7 @@ declare namespace wantConstant {
     ACTION_SEND_DATA = 'ohos.want.action.sendData',
 
     /**
-     * Indicates the action of sending multiple data records.
+     * Action of launching the UI for sending multiple data records.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -203,7 +198,7 @@ declare namespace wantConstant {
     ACTION_SEND_MULTIPLE_DATA = 'ohos.want.action.sendMultipleData',
 
     /**
-     * Indicates the action of requesting the media scanner to scan files and adding the files to the media library.
+     * Action of requesting a media scanner to scan a file and add the file to the media library.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -212,7 +207,7 @@ declare namespace wantConstant {
     ACTION_SCAN_MEDIA_FILE = 'ohos.want.action.scanMediaFile',
 
     /**
-     * Indicates the action of viewing data.
+     * Action of viewing data.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -221,7 +216,7 @@ declare namespace wantConstant {
     ACTION_VIEW_DATA = 'ohos.want.action.viewData',
 
     /**
-     * Indicates the action of editing data.
+     * Action of editing data.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -230,7 +225,7 @@ declare namespace wantConstant {
     ACTION_EDIT_DATA = 'ohos.want.action.editData',
 
     /**
-     * Indicates the choices you will show with {@link #ACTION_PICKER}.
+     * Action of displaying selection options with an action selector.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -239,7 +234,7 @@ declare namespace wantConstant {
     INTENT_PARAMS_INTENT = 'ability.want.params.INTENT',
 
     /**
-     * Indicates the CharSequence dialog title when used with a {@link #ACTION_PICKER}.
+     * Title of the character sequence dialog box used with the action selector.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -248,7 +243,7 @@ declare namespace wantConstant {
     INTENT_PARAMS_TITLE = 'ability.want.params.TITLE',
 
     /**
-     * Indicates the action of select file.
+     * Action of selecting a file.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 7
@@ -257,7 +252,8 @@ declare namespace wantConstant {
     ACTION_FILE_SELECT = 'ohos.action.fileSelect',
 
     /**
-     * Indicates the URI holding a stream of data associated with the Intent when used with a {@link #ACTION_SEND_DATA}.
+     * URI of the data stream associated with the target when the data is sent. The value must be an array of the string
+     *  type.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 7
@@ -266,7 +262,7 @@ declare namespace wantConstant {
     PARAMS_STREAM = 'ability.params.stream',
 
     /**
-     * Indicates the action of providing oauth service.
+     * Action of providing the OAuth service.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
@@ -276,16 +272,16 @@ declare namespace wantConstant {
   }
 
   /**
-   * the constant for Entity of the want
+   * Enumerates the entity constants of the Want object. **entity** specifies additional information of the target
+   * ability.
    *
-   * @enum { string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
    */
   export enum Entity {
     /**
-     * Indicates the default entity, which is used if the entity is not specified.
+     * Default entity. The default entity is used if no entity is specified.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -294,7 +290,7 @@ declare namespace wantConstant {
     ENTITY_DEFAULT = 'entity.system.default',
 
     /**
-     * Indicates the home screen entity.
+     * Home screen entity.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -303,7 +299,7 @@ declare namespace wantConstant {
     ENTITY_HOME = 'entity.system.home',
 
     /**
-     * Indicates the voice interaction entity.
+     * Voice interaction entity.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -312,7 +308,7 @@ declare namespace wantConstant {
     ENTITY_VOICE = 'entity.system.voice',
 
     /**
-     * Indicates the browser category.
+     * Browser type entity.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -321,7 +317,7 @@ declare namespace wantConstant {
     ENTITY_BROWSABLE = 'entity.system.browsable',
 
     /**
-     * Indicates the video category.
+     * Video type entity.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -331,9 +327,8 @@ declare namespace wantConstant {
   }
 
   /**
-   * Used to indicate how Want is handled.
+   * Enumerates the flags that specify how the Want will be handled.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -341,7 +336,7 @@ declare namespace wantConstant {
    */
   export enum Flags {
     /**
-     * Indicates the grant to perform read operations on the URI.
+     * Grants the permission to read the URI.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -351,7 +346,7 @@ declare namespace wantConstant {
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
     /**
-     * Indicates the grant to perform write operations on the URI.
+     * Grants the permission to write data to the URI.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -361,7 +356,7 @@ declare namespace wantConstant {
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
-     * Returns the result to the source ability.
+     * Returns the result to the ability.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -370,7 +365,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_FORWARD_RESULT = 0x00000004,
 
     /**
-     * Determines whether an ability on the local device can be migrated to a remote device.
+     * Indicates whether the ability on the local device can be continued on a remote device.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -379,7 +374,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_CONTINUATION = 0x00000008,
 
     /**
-     * Specifies whether a component does not belong to OHOS.
+     * Indicates that a component does not belong to OHOS.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -388,7 +383,7 @@ declare namespace wantConstant {
     FLAG_NOT_OHOS_COMPONENT = 0x00000010,
 
     /**
-     * Specifies whether an ability is started.
+     * Indicates that an ability is enabled.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -397,7 +392,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_FORM_ENABLED = 0x00000020,
 
     /**
-     * Indicates the grant for possible persisting on the URI.
+     * Grants the permission to make the URI persistent.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
@@ -407,7 +402,7 @@ declare namespace wantConstant {
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
     /**
-     * Returns the result to the source ability slice.
+     * Grants the permission to verify URIs by prefix matching.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
@@ -417,7 +412,7 @@ declare namespace wantConstant {
     FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
 
     /**
-     * Supports multi-device startup in the distributed scheduling system.
+     * Indicates the support for cross-device startup in the distributed scheduler.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -426,8 +421,7 @@ declare namespace wantConstant {
     FLAG_ABILITYSLICE_MULTI_DEVICE = 0x00000100,
 
     /**
-     * Indicates that an ability using the Service template is started regardless of whether the host application has
-     * been started.
+     * Indicates that the ServiceAbility is started regardless of whether the host application has been started.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -436,7 +430,7 @@ declare namespace wantConstant {
     FLAG_START_FOREGROUND_ABILITY = 0x00000200,
 
     /**
-     * Indicates the continuation is reversible.
+     * Indicates that ability continuation is reversible.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
@@ -446,7 +440,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
 
     /**
-     * Install the specified ability if it's not installed.
+     * Indicates that the specific ability will be installed if it has not been installed.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -456,7 +450,7 @@ declare namespace wantConstant {
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
-     * Install the specified ability with background mode if it's not installed.
+     * Indicates that the specific ability will be installed in the background if it has not been installed.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -465,8 +459,9 @@ declare namespace wantConstant {
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 
     /**
-     * Indicates the operation of clearing other missions. This flag can be set for the {@code Intent} passed to
-     * {@link ohos.app.Context#startAbility} and must be used together with {@link FLAG_ABILITY_NEW_MISSION}.
+     * Clears other operation missions. This flag can be set for the Want passed in
+     * [startAbility]{@link @ohos.ability.featureAbility:featureAbility.startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>)}
+     * . It must be used together with **FLAG_ABILITY_NEW_MISSION**.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -475,7 +470,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_CLEAR_MISSION = 0x00008000,
 
     /**
-     * Indicates the operation of creating a task on the historical mission stack.
+     * Creates a mission on the history mission stack.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
@@ -484,8 +479,8 @@ declare namespace wantConstant {
     FLAG_ABILITY_NEW_MISSION = 0x10000000,
 
     /**
-     * Indicates that the existing instance of the ability to start will be reused if it is already at the top of
-     * the mission stack. Otherwise, a new ability instance will be created.
+     * Reuses an ability instance if it is on the top of an existing mission stack; creates an ability instance
+     * otherwise.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6

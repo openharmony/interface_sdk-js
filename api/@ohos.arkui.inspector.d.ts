@@ -161,6 +161,58 @@ declare namespace inspector {
      * @since 20 dynamic
      */
     off(type: 'drawChildren', callback?: Callback<void>): void;
+
+    /**
+      * Registers a callback with the corresponding query condition by using the handle.
+      * This callback is triggered when the child of component draw complete.
+      * 
+      * @param { Callback<int[]> } callback - callback of the listened event.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @crossplatform
+      * @atomicservice
+      * @since 24 dynamic
+      */
+     onDrawChildren(callback: Callback<int[]>): void;
+     
+     /**
+      * Deregisters a callback with the corresponding query condition by using the handle.
+      * This callback is not triggered when the child of component draw complete.
+      * 
+      * @param { Callback<int[]> } [callback] - callback of the listened event.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @crossplatform
+      * @atomicservice
+      * @since 24 dynamic
+      */
+     offDrawChildren(callback?: Callback<int[]>): void;
+
+    /**
+     * Registers a callback with the corresponding query condition by using the handle.
+     * This callback will be triggered when the child of component layout is complete.
+     *
+     * @param { Callback<void> } callback - callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    onLayoutChildren(callback: Callback<void>): void;
+    
+    /**
+     * Deregisters a callback with the corresponding query condition by using the handle.
+     * This callback will not be triggered when the child of component layout is complete.
+     *
+     * @param { Callback<void> } [callback] - callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    offLayoutChildren(callback?: Callback<void>): void;
   }
 
   /**

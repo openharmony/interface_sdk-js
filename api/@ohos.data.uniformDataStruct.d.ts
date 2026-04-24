@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,6 +26,7 @@ import image from './@ohos.multimedia.image';
  * @namespace uniformDataStruct
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace uniformDataStruct {
   /**
@@ -34,15 +35,17 @@ declare namespace uniformDataStruct {
    * @interface PlainText
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface PlainText {
     /**
      * Indicates the uniform data type of this data struct.
-     * 
+     *
      * @type { 'general.plain-text' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.plain-text';
     /**
@@ -51,6 +54,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     textContent: string;
 
@@ -61,6 +65,15 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      */
     abstract?: string;
+
+    /**
+     * Indicates the abstract of the PlainText.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 23 static
+     */
+    textAbstract?: string;
+    
     /**
      * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
      * object are of the string type. For example, the following is a details object used to describe the properties of
@@ -74,8 +87,9 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -84,23 +98,26 @@ declare namespace uniformDataStruct {
    * @interface Hyperlink
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface Hyperlink {
     /**
      * Indicates the uniform data type of this data struct.
-     * 
+     *
      * @type { 'general.hyperlink' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.hyperlink';
     /**
-     * Indicates the url of of the Hyperlink.
+     * Indicates the url of the Hyperlink.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     url: string;
     /**
@@ -108,6 +125,7 @@ declare namespace uniformDataStruct {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     description?: string;
     /**
@@ -123,8 +141,9 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -133,15 +152,17 @@ declare namespace uniformDataStruct {
    * @interface HTML
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface HTML {
     /**
      * Indicates the uniform data type of this data struct.
-     * 
+     *
      * @type { 'general.html' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.html';
 
@@ -151,6 +172,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     htmlContent: string;
     /**
@@ -159,6 +181,7 @@ declare namespace uniformDataStruct {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     plainContent?: string;
     /**
@@ -174,8 +197,19 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<int>;
   }
 
   /**
@@ -184,15 +218,17 @@ declare namespace uniformDataStruct {
    * @interface OpenHarmonyAppItem
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface OpenHarmonyAppItem {
     /**
      * Uniform data type, which has a fixed value of openharmony.app-item. For details, see UniformDataType.
-     * 
+     *
      * @type { 'openharmony.app-item' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'openharmony.app-item';
     /**
@@ -201,6 +237,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appId: string;
     /**
@@ -209,6 +246,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appName: string;
     /**
@@ -217,6 +255,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appIconId: string;
     /**
@@ -225,6 +264,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appLabelId: string;
     /**
@@ -233,6 +273,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     bundleName: string;
     /**
@@ -241,6 +282,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     abilityName: string;
     /**
@@ -250,6 +292,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }
@@ -260,6 +303,7 @@ declare namespace uniformDataStruct {
    * @interface ContentForm
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 14 dynamic
+   * @since 23 static
    */
   interface ContentForm {
     /**
@@ -269,6 +313,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.content-form';
 
@@ -278,6 +323,7 @@ declare namespace uniformDataStruct {
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     thumbData?: Uint8Array;
 
@@ -287,6 +333,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     description?: string;
 
@@ -296,6 +343,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     title: string;
 
@@ -305,24 +353,27 @@ declare namespace uniformDataStruct {
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     appIcon?: Uint8Array;
 
     /**
      * Indicates the app name of content form.
      *
-     * @type { appName }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     appName?: string;
 
     /**
      * Indicates the link url of content form.
      *
-     * @type { linkUri }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     linkUri?: string;
   }
@@ -333,6 +384,7 @@ declare namespace uniformDataStruct {
    * @interface Form
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface Form {
     /**
@@ -342,6 +394,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'openharmony.form';
 
@@ -351,6 +404,7 @@ declare namespace uniformDataStruct {
      * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     formId: int;
 
@@ -360,6 +414,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     formName: string;
 
@@ -369,6 +424,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
@@ -378,6 +434,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     abilityName: string;
 
@@ -387,6 +444,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     module: string;
 
@@ -396,6 +454,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }
@@ -406,6 +465,7 @@ declare namespace uniformDataStruct {
    * @interface FileUri
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface FileUri {
     /**
@@ -415,6 +475,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.file-uri';
 
@@ -424,6 +485,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     oriUri: string;
 
@@ -433,6 +495,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     fileType: string;
 
@@ -442,8 +505,19 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<int>;
   }
 
   /**
@@ -452,6 +526,7 @@ declare namespace uniformDataStruct {
    * @interface PixelMap
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface PixelMap {
     /**
@@ -461,6 +536,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'openharmony.pixel-map';
 
@@ -470,6 +546,7 @@ declare namespace uniformDataStruct {
      * @type { image.PixelMap }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
 
@@ -479,6 +556,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }

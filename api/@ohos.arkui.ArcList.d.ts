@@ -289,7 +289,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   onScrollIndex(handler: Optional<ArcScrollIndexHandler>): ArcListAttribute;
 
   /**
-   * Called when the list begins to arrive.
+   * Called when the arc list reaches the start.
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
@@ -301,7 +301,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   onReachStart(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
-   * Called when the list reaches the end.
+   * Called when the arc list reaches the end.
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
@@ -313,7 +313,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   onReachEnd(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
-   * Called when the slider start.
+   * Called when the arc list starts scrolling.
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
@@ -325,7 +325,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   onScrollStart(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
-   * Called when the slider stops.
+   * Called when the arc list stops scrolling.
    *
    * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }

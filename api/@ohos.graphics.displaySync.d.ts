@@ -24,114 +24,133 @@ import { ExpectedFrameRateRange } from './arkui/component/common';
 /*** endif */
 
 /**
- * Provides functions of applying an independent draw frame rate used for drawing the UI.
+ * The displaySync module allows your application to draw its custom UI content at a specified frame rate.
  *
- * @namespace displaySync
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace displaySync {
   /**
-   * Provides the IntervalInfo interface, which includes timestamp and targetTimestamp.
-   * @interface IntervalInfo
+   * You can obtain the timestamp information from the event callback, including the timestamp when the current frame 
+   * arrives and the timestamp when the next frame is expected to arrive.
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface IntervalInfo {
     /**
-     * The timestamp means the current drawing frame time.
-     * @type { long }
+     * Time when the current frame arrives, in nanoseconds.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timestamp: long;
 
     /**
-     * The timestamp means the next drawing frame time.
-     * @type { long }
+     * Expected arrival time of the next frame, in nanoseconds.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     targetTimestamp: long;
   }
 
   /**
-   * Provides the DisplaySync interface, which can be used to control
-   * the frequency of triggering callback function.
-   * @interface DisplaySync
+   * An object that implements the setting of the frame rate and callback. It provides APIs for you to set the frame 
+   * rate, register a callback, and start/stop the callback.
+   * Before calling any of the following APIs, you must use [displaySync.create()]{@link displaySync.create} to create
+   * a **DisplaySync** instance.
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DisplaySync {
     /**
-     * The expected frame rate of dynamical rate range.
-     * If the function isn't be called. The DisplaySync's
-     * minimum/maximum/expected rate default value is 60.
-     * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
+     * Sets the expected frame rate range.
+     * 
+     * @param { ExpectedFrameRateRange } rateRange - Expected frame rate range.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * or check ExpectedFrameRateRange if valid.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
+     *     check if ExpectedFrameRateRange is valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when DisplaySync dispatching.
-     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
-     * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
+     * Subscribes to change events of each frame.
+     * 
+     * @param { 'frame' } type - Event type. The value is fixed at **'frame'**.
+     * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'frame', callback: Callback<IntervalInfo>): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when DisplaySync dispatching.
-     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
-     * @param { Callback<IntervalInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-     *                                                will be removed.
+     * Subscribes to change events of each frame.
+     * 
+     * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    onFrame(callback: Callback<IntervalInfo>): void;
+
+    /**
+     * Unsubscribes from change events of each frame.
+     * 
+     * @param { 'frame' } type - Event type. The value is fixed at **'frame'**.
+     * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'frame', callback?: Callback<IntervalInfo>): void;
 
     /**
-     * Add DisplaySync to Pipeline. It means that
-     * the callback function be enabled.
+     * Unsubscribes from change events of each frame.
+     * 
+     * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    offFrame(callback?: Callback<IntervalInfo>): void;
+
+    /**
+     * Starts callback for each frame.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): void;
 
     /**
-     * Delete DisplaySync from Pipeline. It means that
-     * the callback function be disabled.
+     * Stops callback for each frame.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): void;
   }
 
   /**
-   * Create a new DisplaySync object.
-   * @returns { DisplaySync } DisplaySync
+   * Creates a **DisplaySync** object, through which you can set the frame rate of the custom UI content.
+   * 
+   * @returns { DisplaySync } **DisplaySync** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(): DisplaySync;
 }

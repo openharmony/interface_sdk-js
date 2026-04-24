@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+
 /**
  * Provides the method of switching the cursor position.
  *
@@ -372,6 +373,7 @@ declare interface SearchOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -403,8 +405,10 @@ declare interface SearchOptions {
    * Text displayed when there is no input.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -442,6 +446,7 @@ declare interface SearchOptions {
    * 
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -466,8 +471,10 @@ declare interface SearchOptions {
    * Controller of the <Search> component.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?SearchController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -758,6 +765,7 @@ interface CancelButtonSymbolOptions {
    * 
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1411,6 +1419,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onCopy(callback: Callback<string>): SearchAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): SearchAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback
@@ -1449,6 +1470,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 18 dynamic
    */
   onCut(callback: Callback<string>): SearchAttribute;
+
+  /**
+   * Called before using the Clipboard cut menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCut(callback: Callback<string, boolean>): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1792,7 +1826,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+   *  <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
    * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
    * </p>
    * 
@@ -1802,7 +1836,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard.
@@ -2084,6 +2118,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 15 dynamic
    */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 
   /**
@@ -2149,6 +2193,83 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 20 dynamic
    */
   enableAutoSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set the divider color.
+   * 
+   * @param { Optional<ColorMetrics> } color - Color of the divider.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  dividerColor(color: Optional<ColorMetrics>): SearchAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   *     True means enable the feature, false means disable the feature.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): SearchAttribute;
+
+  
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): SearchAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): SearchAttribute
 }
 
 /**

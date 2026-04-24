@@ -26,6 +26,7 @@ import { ShellCmdResult } from './shellCmdResult';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityStageMonitor } from './AbilityStageMonitor';
+import {InteropAbilityMonitor} from './InteropAbilityMonitor';
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
@@ -50,7 +51,7 @@ import { AbilityStageMonitor } from './AbilityStageMonitor';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AbilityDelegator {
   /**
@@ -85,7 +86,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -121,7 +122,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
@@ -145,9 +146,22 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAbilityMonitorSync(monitor: AbilityMonitor): void;
+
+  /**
+   * Add an InteropAbilityMonitor object for monitoring the lifecycle state changes of the specified ability
+   *     in this process.
+   * 
+   * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
+   * @throws { BusinessError } 16000100 - Calling InteropAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  addInteropAbilityMonitorSync(monitor: InteropAbilityMonitor): void;
 
   /**
    * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
@@ -181,7 +195,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
@@ -217,7 +231,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
@@ -241,7 +255,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -277,7 +291,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -313,7 +327,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
@@ -337,9 +351,21 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAbilityMonitorSync(monitor: AbilityMonitor): void;
+
+  /**
+   * Remove a specified InteropAbilityMonitor object from the application memory.
+   *
+   * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
+   * @throws { BusinessError } 16000100 - Calling removeInteropAbilityMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  removeInteropAbilityMonitorSync(monitor: InteropAbilityMonitor): void;
 
   /**
    * Remove a specified AbilityStageMonitor object from the application memory.
@@ -373,7 +399,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
@@ -409,7 +435,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
@@ -433,7 +459,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -469,7 +495,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>): void;
 
@@ -508,7 +534,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout: long, callback: AsyncCallback<UIAbility>): void;
 
@@ -547,7 +573,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout?: long): Promise<UIAbility>;
 
@@ -583,7 +609,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void;
 
@@ -622,7 +648,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: long, callback: AsyncCallback<AbilityStage>): void;
 
@@ -661,7 +687,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: long): Promise<AbilityStage>;
 
@@ -688,7 +714,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getAppContext(): Context;
 
@@ -721,7 +747,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getAbilityState(ability: UIAbility): int;
 
@@ -754,7 +780,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void;
 
@@ -784,7 +810,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCurrentTopAbility(): Promise<UIAbility>;
 
@@ -860,7 +886,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -936,7 +962,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -972,7 +998,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -1008,7 +1034,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   doAbilityForeground(ability: UIAbility): Promise<void>;
 
@@ -1044,7 +1070,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -1080,13 +1106,13 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   doAbilityBackground(ability: UIAbility): Promise<void>;
 
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
@@ -1095,7 +1121,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
@@ -1105,7 +1131,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
@@ -1113,13 +1139,13 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   print(msg: string, callback: AsyncCallback<void>): void;
 
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
@@ -1128,7 +1154,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
@@ -1138,7 +1164,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
@@ -1146,13 +1172,13 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   print(msg: string): Promise<void>;
 
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -1161,7 +1187,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -1171,7 +1197,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -1179,7 +1205,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   printSync(msg: string): void;
 
@@ -1199,7 +1225,7 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
 
@@ -1216,14 +1242,14 @@ export interface AbilityDelegator {
    * Execute the given command in the aa tools side.
    *
    * @param { string } cmd - Shell command
-   * @param { number } timeoutSecs - Timeout, in seconds
+   * @param { long } timeoutSecs - Timeout, in seconds
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
+  executeShellCommand(cmd: string, timeoutSecs: long, callback: AsyncCallback<ShellCmdResult>): void;
 
   /**
    * Execute the given command in the aa tools side.
@@ -1238,14 +1264,14 @@ export interface AbilityDelegator {
    * Execute the given command in the aa tools side.
    *
    * @param { string } cmd - Shell command
-   * @param { number } [timeoutSecs] - Timeout, in seconds
+   * @param { long } [timeoutSecs] - Timeout, in seconds
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
+  executeShellCommand(cmd: string, timeoutSecs?: long): Promise<ShellCmdResult>;
 
   /**
    * Finish the test and print log information to the unit testing console.
@@ -1285,7 +1311,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   finishTest(msg: string, code: long, callback: AsyncCallback<void>): void;
 
@@ -1327,7 +1353,7 @@ export interface AbilityDelegator {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   finishTest(msg: string, code: long): Promise<void>;
 
@@ -1340,7 +1366,7 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   setMockList(mockList: Record<string, string>): void;
 }

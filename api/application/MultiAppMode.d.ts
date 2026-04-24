@@ -19,45 +19,54 @@
  */
 
 /**
- * Type of app multi app mode.
- * @enum { number }
+ * # How to Use
+ * 
+ * The **MultiAppMode** property is obtained from 
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
+ * **appManager**.
+ */
+/**
+ * The module defines whether an application supports the multi-app mode.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum MultiAppMode {
   /**
-   * Indicates the type of not support app multi instance.
+   * The application does not support the multi-app mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NOT_SUPPORTED = 0,
 
   /**
-   * Indicates the type of multi instance.
+   * The application supports the multi-instance mode.
+   * 
+   * Note: This property is valid only for 2-in-1 devices.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MULTI_INSTANCE = 1,
 
   /**
-   * Indicates the type of app clone.
+   * The application supports the app-clone mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   APP_CLONE = 2
 }

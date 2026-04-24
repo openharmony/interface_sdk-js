@@ -16,14 +16,14 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, Callback, PixelMap } from './common';
+import { CommonMethod, PixelMap } from './common';
 import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
-import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
+import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics, ColorMetrics } from './units';
 import { Size } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { AttributeModifier, CommonMethod, Callback } from './common';
 import { Color } from './enums'
 
 /**
@@ -34,7 +34,7 @@ import { Color } from './enums'
  *
  * @typedef { 'evenodd' | 'nonzero' } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CanvasFillRule = 'evenodd' | 'nonzero';
 
@@ -47,7 +47,7 @@ export type CanvasFillRule = 'evenodd' | 'nonzero';
  *
  * @typedef { 'butt' | 'round' | 'square' } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CanvasLineCap = 'butt' | 'round' | 'square';
 
@@ -63,7 +63,7 @@ export type CanvasLineCap = 'butt' | 'round' | 'square';
  *
  * @typedef { 'bevel' | 'miter' | 'round' } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CanvasLineJoin = 'bevel' | 'miter' | 'round';
 
@@ -75,7 +75,7 @@ export type CanvasLineJoin = 'bevel' | 'miter' | 'round';
  *
  * @typedef { 'inherit' | 'ltr' | 'rtl' } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CanvasDirection = 'inherit' | 'ltr' | 'rtl';
 
@@ -91,7 +91,7 @@ export type CanvasDirection = 'inherit' | 'ltr' | 'rtl';
  *
  * @typedef { 'center' | 'end' | 'left' | 'right' | 'start' } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CanvasTextAlign = 'center' | 'end' | 'left' | 'right' | 'start';
 
@@ -108,7 +108,7 @@ export type CanvasTextAlign = 'center' | 'end' | 'left' | 'right' | 'start';
  *
  * @typedef { 'alphabetic' | 'bottom' | 'hanging' | 'ideographic' | 'middle' | 'top' } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | 'ideographic' | 'middle' | 'top';
 
@@ -120,7 +120,7 @@ export type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | 'ideograp
  *
  * @typedef { 'high' | 'low' | 'medium' } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type ImageSmoothingQuality = 'high' | 'low' | 'medium';
 
@@ -128,26 +128,26 @@ export type ImageSmoothingQuality = 'high' | 'low' | 'medium';
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class CanvasGradient {
   /**
    * Add a breakpoint defined by offset and color to the gradient
    *
-   * @param { double } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - Set the gradient color.
-   *     a SYNTAX_ERR error is thrown.
+   * @param { double } offset - Value between 0 and 1.
+   * @param { string | ColorMetrics } color - Set the gradient color.
+   * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  addColorStop(offset: double, color: string): void;
+  addColorStop(offset: double, color: string | ColorMetrics): void;
 }
 
 /**
  * Path object, which provides basic methods for drawing paths.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class CanvasPath {
   /**
@@ -162,7 +162,7 @@ export declare class CanvasPath {
    * @param { boolean } [counterclockwise] - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *     the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   arc(x: double, y: double, radius: double, startAngle: double, endAngle: double, counterclockwise?: boolean): void;
   /**
@@ -174,7 +174,7 @@ export declare class CanvasPath {
    * @param { double } y2 - The y-axis coordinate of the second control point.
    * @param { double } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   arcTo(x1: double, y1: double, x2: double, y2: double, radius: double): void;
   /**
@@ -187,14 +187,14 @@ export declare class CanvasPath {
    * @param { double } x - x-axis coordinate of the end point.
    * @param { double } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   bezierCurveTo(cp1x: double, cp1y: double, cp2x: double, cp2y: double, x: double, y: double): void;
   /**
    * Returns the pen point to the start point of the current sub-path
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   closePath(): void;
   /**
@@ -211,7 +211,7 @@ export declare class CanvasPath {
    * @param { boolean } [counterclockwise] - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *     the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ellipse(x: double, y: double, radiusX: double, radiusY: double, rotation: double, startAngle: double,
     endAngle: double, counterclockwise?: boolean): void;
@@ -221,7 +221,7 @@ export declare class CanvasPath {
    * @param { double } x - The x-axis coordinate of the end point of the line.
    * @param { double } y - The y-axis coordinate of the end point of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   lineTo(x: double, y: double): void;
   /**
@@ -230,7 +230,7 @@ export declare class CanvasPath {
    * @param { double } x - The x-axis coordinate of the point.
    * @param { double } y - The y-axis coordinate of the point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   moveTo(x: double, y: double): void;
   /**
@@ -241,7 +241,7 @@ export declare class CanvasPath {
    * @param { double } x - x-axis coordinate of the end point.
    * @param { double } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   quadraticCurveTo(cpx: double, cpy: double, x: double, y: double): void;
   /**
@@ -252,9 +252,26 @@ export declare class CanvasPath {
    * @param { double } w - Width of the rectangle.
    * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   rect(x: double, y: double, w: double, h: double): void;
+
+  /**
+   * Draw rounded Rectangular Paths
+   *
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
+   * @param { double | Array<double> } [radii] - A number or list specifying the radii of the circular arc
+   *     to be used for the corners of the rectangle. The default value is 0.
+   * @throws { BusinessError } 103701 - Parameter error. Possible causes: 
+   * <br> 1. The param radii is a list that has zero or more than four elements.
+   * <br> 2. The param radii contains negative value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  roundRect(x: double, y: double, w: double, h: double, radii?: double | Array<double>): void;
 }
 
 /**
@@ -262,7 +279,7 @@ export declare class CanvasPath {
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class Path2D extends CanvasPath {
   /**
@@ -271,14 +288,14 @@ export declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Indicates the path object to be added.
    * @param { Matrix2D } [transform] - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
   /**
    * Create an empty path object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -286,7 +303,7 @@ export declare class Path2D extends CanvasPath {
    *
    * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(unit: LengthMetricsUnit);
   /**
@@ -294,7 +311,7 @@ export declare class Path2D extends CanvasPath {
    *
    * @param { Path2D } path - Path object to be copied
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(path: Path2D);
   /**
@@ -303,7 +320,7 @@ export declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Path object to be copied
    * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(path: Path2D, unit: LengthMetricsUnit);
   /**
@@ -311,7 +328,7 @@ export declare class Path2D extends CanvasPath {
    *
    * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(d: string);
   /**
@@ -321,7 +338,7 @@ export declare class Path2D extends CanvasPath {
    *     the SVG path description specifications.
    * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(description: string, unit: LengthMetricsUnit);
 }
@@ -331,7 +348,7 @@ export declare class Path2D extends CanvasPath {
  *
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface CanvasPattern {
   /**
@@ -339,7 +356,7 @@ export declare interface CanvasPattern {
    *
    * @param { Matrix2D } [transform] - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -349,7 +366,7 @@ export declare interface CanvasPattern {
  *
  * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextMetrics {
   /**
@@ -359,7 +376,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly actualBoundingBoxAscent: double;
   /**
@@ -369,7 +386,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly actualBoundingBoxDescent: double;
   /**
@@ -379,7 +396,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly actualBoundingBoxLeft: double;
   /**
@@ -389,7 +406,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly actualBoundingBoxRight: double;
   /**
@@ -399,7 +416,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly alphabeticBaseline: double;
   /**
@@ -409,7 +426,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly emHeightAscent: double;
   /**
@@ -419,7 +436,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly emHeightDescent: double;
   /**
@@ -429,7 +446,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly fontBoundingBoxAscent: double;
   /**
@@ -439,7 +456,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly fontBoundingBoxDescent: double;
   /**
@@ -449,7 +466,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly hangingBaseline: double;
   /**
@@ -459,7 +476,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly ideographicBaseline: double;
   /**
@@ -468,7 +485,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly width: double;
   /**
@@ -477,7 +494,7 @@ export declare interface TextMetrics {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly height: double;
 }
@@ -486,7 +503,7 @@ export declare interface TextMetrics {
  * Bitmap image object that can be drawn onto the current Canvas
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class ImageBitmap {
   /**
@@ -494,7 +511,7 @@ export declare class ImageBitmap {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get height(): double;
   /**
@@ -502,14 +519,14 @@ export declare class ImageBitmap {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get width(): double;
   /**
    * Releases all graphics resources associated with an ImageBitmap.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   close(): void;
   /**
@@ -518,7 +535,7 @@ export declare class ImageBitmap {
    * @param { PixelMap | string } src - image path or PixelMap object
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(src: PixelMap | string, unit?: LengthMetricsUnit);
 }
@@ -527,23 +544,23 @@ export declare class ImageBitmap {
  * Image data object
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class ImageData {
   /**
    * Array containing image pixel data
    *
-   * @returns { Uint8ClampedArray }
+   * @returns { Uint8ClampedArray | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  get data(): Uint8ClampedArray;
+  get data(): Uint8ClampedArray | undefined;
   /**
    * Height of the image.
    *
    * @returns { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get height(): int;
   /**
@@ -551,7 +568,7 @@ export declare class ImageData {
    *
    * @returns { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get width(): int;
   /**
@@ -563,7 +580,7 @@ export declare class ImageData {
    *     If this parameter is not specified, the default value is a black rectangular image.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(width: double, height: double, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
 }
@@ -572,7 +589,7 @@ export declare class ImageData {
  * This object allows you to set properties when creating a rendering context
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class RenderingContextSettings {
   /**
@@ -580,7 +597,7 @@ export declare class RenderingContextSettings {
    *
    * @return { boolean | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get antialias(): boolean | undefined;
   /**
@@ -588,7 +605,7 @@ export declare class RenderingContextSettings {
    *
    * @param { boolean | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set antialias(antialias: boolean | undefined);
   /**
@@ -596,9 +613,30 @@ export declare class RenderingContextSettings {
    *
    * @param { boolean } [antialias] - Indicates whether anti-aliasing is enabled for canvas
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(antialias?: boolean);
+}
+
+/**
+ * Defines the options for rendering context.
+ *
+ * @interface RenderingContextOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface RenderingContextOptions {
+  /**
+   * Indicates whether anti-aliasing is enabled for rendering context.
+   * Default value is false, undefined means setting to default value.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  antialias?: boolean;
 }
 
 /**
@@ -606,7 +644,7 @@ export declare class RenderingContextSettings {
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class CanvasRenderer extends CanvasPath {
   /**
@@ -614,7 +652,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { LengthMetrics | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get letterSpacing(): LengthMetrics | string;
   /**
@@ -622,7 +660,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { LengthMetrics | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set letterSpacing(letterSpacing: LengthMetrics | string);
   /**
@@ -631,7 +669,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get globalAlpha(): double;
   /**
@@ -641,7 +679,7 @@ export declare class CanvasRenderer extends CanvasPath {
  * @param { double } globalAlpha - The alpha value that is applied to shapes and images
  *     before they are drawn onto the canvas.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
   set globalAlpha(globalAlpha: double);
   /**
@@ -663,7 +701,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get globalCompositeOperation(): string;
   /**
@@ -685,7 +723,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set globalCompositeOperation(globalCompositeOperation: string);
   /**
@@ -695,7 +733,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
    * @param { double } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   drawImage(image: ImageBitmap | PixelMap, dx: double, dy: double): void;
   /**
@@ -709,7 +747,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } dh - Specifies the drawing height of the image on the target canvas.
    *     The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   drawImage(image: ImageBitmap | PixelMap, dx: double, dy: double, dw: double, dh: double): void;
   /**
@@ -729,7 +767,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } dh - Specifies the drawing height of the image on the target canvas.
    *     The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   drawImage(image: ImageBitmap | PixelMap, sx: double, sy: double, sw: double, sh: double, dx: double, dy: double,
     dw: double, dh: double): void;
@@ -737,7 +775,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * Clear the sub-path list and start a new path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   beginPath(): void;
   /**
@@ -745,7 +783,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   clip(fillRule?: CanvasFillRule): void;
   /**
@@ -754,7 +792,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Path to be cut.
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
   /**
@@ -762,7 +800,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   fill(fillRule?: CanvasFillRule): void;
   /**
@@ -771,7 +809,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Path to be filled.
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
   /**
@@ -779,7 +817,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { Path2D } [path] - Specified stroke path object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   stroke(path?: Path2D): void;
   /**
@@ -792,7 +830,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get fillStyle(): string | Color | int | CanvasGradient | CanvasPattern;
   /**
@@ -805,7 +843,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set fillStyle(fillStyle: string | Color | int | CanvasGradient | CanvasPattern);
   /**
@@ -819,7 +857,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get strokeStyle(): string | Color | int | CanvasGradient | CanvasPattern;
   /**
@@ -833,7 +871,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set strokeStyle(strokeStyle: string | Color | int | CanvasGradient | CanvasPattern);
   /**
@@ -845,7 +883,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } y1 - y-axis coordinate of the end point.
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createLinearGradient(x0: double, y0: double, x1: double, y1: double): CanvasGradient;
   /**
@@ -862,7 +900,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *         alternating mirror images so that adjacent images always seam.
    * @returns { CanvasPattern | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
   /**
@@ -876,7 +914,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } r1 - Radius of the end circle.
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createRadialGradient(x0: double, y0: double, r0: double, x1: double, y1: double, r1: double): CanvasGradient;
   /**
@@ -888,7 +926,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } y - The y-axis coordinate of the center of the gradient.
    * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createConicGradient(startAngle: double, x: double, y: double): CanvasGradient;
   /**
@@ -919,7 +957,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get filter(): string;
   /**
@@ -946,7 +984,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set filter(filter: string);
   /**
@@ -956,7 +994,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } sh - Height of the ImageData object.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createImageData(sw: double, sh: double): ImageData;
   /**
@@ -966,7 +1004,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { ImageData } imageData - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createImageData(imageData: ImageData): ImageData;
   /**
@@ -980,7 +1018,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getImageData(sx: double, sy: double, sw: double, sh: double): ImageData;
   /**
@@ -992,11 +1030,11 @@ export declare class CanvasRenderer extends CanvasPath {
    *     to be extracted.
    * @param { double } sw - The width of the rectangular area of the PixelMap to be extracted.
    * @param { double } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { PixelMap }
+   * @returns { PixelMap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap;
+  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap | undefined;
   /**
    * Draws the specified ImageData object onto the canvas
    *
@@ -1006,7 +1044,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double | string } dy - Position offset of the source image data
    *     in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   putImageData(imageData: ImageData, dx: double | string, dy: double | string): void;
   /**
@@ -1028,7 +1066,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double | string } dirtyHeight - Height of the rectangular area in the source image data.
    *     The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   putImageData(imageData: ImageData, dx: double | string, dy: double | string, dirtyX: double | string,
     dirtyY: double | string, dirtyWidth: double | string, dirtyHeight: double | string): void;
@@ -1038,7 +1076,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get imageSmoothingEnabled(): boolean;
   /**
@@ -1047,7 +1085,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set imageSmoothingEnabled(imageSmoothingEnabled: boolean);
   /**
@@ -1055,7 +1093,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { ImageSmoothingQuality }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get imageSmoothingQuality(): ImageSmoothingQuality;
   /**
@@ -1063,7 +1101,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { ImageSmoothingQuality }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set imageSmoothingQuality(imageSmoothingQuality: ImageSmoothingQuality);
   /**
@@ -1071,7 +1109,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { CanvasLineCap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get lineCap(): CanvasLineCap;
   /**
@@ -1079,7 +1117,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasLineCap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set lineCap(lineCap: CanvasLineCap);
   /**
@@ -1087,7 +1125,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get lineDashOffset(): double;
   /**
@@ -1095,7 +1133,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { double } lineDashOffset - The line dash offset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set lineDashOffset(lineDashOffset: double);
   /**
@@ -1103,7 +1141,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { CanvasLineJoin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get lineJoin(): CanvasLineJoin;
   /**
@@ -1111,7 +1149,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasLineJoin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set lineJoin(lineJoin: CanvasLineJoin);
   /**
@@ -1119,7 +1157,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get lineWidth(): double;
   /**
@@ -1127,7 +1165,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { double } lineWidth - The thickness of lines.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set lineWidth(lineWidth: double);
   /**
@@ -1135,7 +1173,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get miterLimit(): double;
   /**
@@ -1143,7 +1181,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { double } miterLimit - The miter limit ratio.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set miterLimit(miterLimit: double);
   /**
@@ -1151,7 +1189,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getLineDash(): double[];
   /**
@@ -1160,7 +1198,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double[] } segments - A set of doubles that describe the length of alternating drawn lines segments and
    *     spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setLineDash(segments: double[]): void;
   /**
@@ -1171,7 +1209,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } w - Width of the rectangle.
    * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   clearRect(x: double, y: double, w: double, h: double): void;
   /**
@@ -1182,7 +1220,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } w - Width of the rectangle.
    * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   fillRect(x: double, y: double, w: double, h: double): void;
   /**
@@ -1193,7 +1231,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } w - Width of the rectangle.
    * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   strokeRect(x: double, y: double, w: double, h: double): void;
   /**
@@ -1201,7 +1239,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowBlur(): double;
   /**
@@ -1209,7 +1247,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { double } shadowBlur - The amount of blur applied to shadows.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowBlur(shadowBlur: double);
   /**
@@ -1217,7 +1255,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowColor(): string;
   /**
@@ -1225,7 +1263,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowColor(shadowColor: string);
   /**
@@ -1233,7 +1271,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowOffsetX(): double;
   /**
@@ -1241,7 +1279,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { double } shadowOffsetX - The distance that shadows will be offset horizontally.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowOffsetX(shadowOffsetX: double);
   /**
@@ -1249,7 +1287,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowOffsetY(): double;
   /**
@@ -1257,21 +1295,21 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { double } shadowOffsetY - The distance that shadows will be offset vertically.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowOffsetY(shadowOffsetY: double);
   /**
    * Top of the stack pop-up state in the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   restore(): void;
   /**
    * Saves the current drawing state to the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   save(): void;
   /**
@@ -1282,7 +1320,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } y - The y-axis coordinate of the start point of the text.
    * @param { double } [maxWidth] - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   fillText(text: string, x: double, y: double, maxWidth?: double): void;
   /**
@@ -1291,7 +1329,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be measured.
    * @returns { TextMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   measureText(text: string): TextMetrics;
   /**
@@ -1302,7 +1340,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } y - The y-axis-axis coordinate of the start point of the text.
    * @param { double } [maxWidth] - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   strokeText(text: string, x: double, y: double, maxWidth?: double): void;
   /**
@@ -1310,7 +1348,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get direction(): CanvasDirection;
   /**
@@ -1318,7 +1356,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set direction(direction: CanvasDirection);
   /**
@@ -1326,7 +1364,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get font(): string;
   /**
@@ -1334,7 +1372,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set font(font: string);
   /**
@@ -1342,7 +1380,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { CanvasTextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get textAlign(): CanvasTextAlign;
   /**
@@ -1350,7 +1388,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasTextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set textAlign(textAlign: CanvasTextAlign);
   /**
@@ -1358,7 +1396,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { CanvasTextBaseline }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get textBaseline(): CanvasTextBaseline;
   /**
@@ -1366,7 +1404,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasTextBaseline }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set textBaseline(textBaseline: CanvasTextBaseline);
   /**
@@ -1374,14 +1412,14 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getTransform(): Matrix2D;
   /**
    * Resets the current transformation matrix using the identity matrix
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   resetTransform(): void;
   /**
@@ -1390,7 +1428,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } angle - The radian of clockwise rotation, 
    *     which can be converted to an angle value using the formula: degree * Math.PI / 180.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   rotate(angle: double): void;
   /**
@@ -1399,7 +1437,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } x - Horizontal scaling factor
    * @param { double } y - Vertical scaling factor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   scale(x: double, y: double): void;
   /**
@@ -1413,7 +1451,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } e - Horizontal movement
    * @param { double } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setTransform(a: double, b: double, c: double, d: double, e: double, f: double): void;
   /**
@@ -1422,7 +1460,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { Matrix2D } [transform] - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setTransform(transform?: Matrix2D): void;
   /**
@@ -1436,7 +1474,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } e - Horizontal movement
    * @param { double } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   transform(a: double, b: double, c: double, d: double, e: double, f: double): void;
   /**
@@ -1445,7 +1483,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { double } x - Horizontal movement distance
    * @param { double } y - Vertical travel distance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   translate(x: double, y: double): void;
   /**
@@ -1453,7 +1491,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { PixelMap } [value] - PixelMap object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setPixelMap(value?: PixelMap): void;
   /**
@@ -1461,30 +1499,52 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
   /**
    * Allocate a layer for subsequent drawing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   saveLayer(): void;
   /**
    * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   restoreLayer(): void;
   /**
    * Clear the backing buffer, drawing state stack, any defined paths, and styles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   reset(): void;
+  /**
+   * Get the status whether anti-aliasing is enabled for canvas. The value true indicates that anti-aliasing is enabled.
+   * The value false indicates that anti-aliasing is disabled. The value undefined indicates that anti-aliasing
+   * is determined by the RenderingContextSettings#antialias property. The default value is undefined.
+   *
+   * @returns { boolean | undefined } Returns the antialias value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  get antialias(): boolean | undefined;
+  /**
+   * Set the status whether anti-aliasing is enabled for canvas. The value true indicates that anti-aliasing is enabled.
+   * The value false indicates that anti-aliasing is disabled. The value undefined indicates that anti-aliasing
+   * is determined by the RenderingContextSettings#antialias property. The default value is undefined.
+   *
+   * @param { boolean | undefined } antialias - The antialias value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  set antialias(antialias: boolean | undefined);
 }
 
 /**
@@ -1492,7 +1552,7 @@ export declare class CanvasRenderer extends CanvasPath {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -1500,7 +1560,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get height(): double;
   /**
@@ -1508,17 +1568,17 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get width(): double;
   /**
    * Frame node of the canvas. The default value is null.
    *
-   * @returns { FrameNode }
+   * @returns { FrameNode | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  get canvas(): FrameNode;
+  get canvas(): FrameNode | null;
   /**
    * Generate a character string in the data url format.
    *
@@ -1528,7 +1588,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   toDataURL(type?: string, quality?: double): string;
   /**
@@ -1540,13 +1600,13 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
   /**
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   stopImageAnalyzer(): void;
   /**
@@ -1556,61 +1616,72 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     For details, see {@link RenderingContextSettings}.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
   /**
    * Register the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
    *
-   * @param { 'onAttach' } type Indicates the type of event.
-   * @param { Callback<void> } callback Indicates the listener.
+   * @param { VoidCallback } callback Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  on(type: 'onAttach', callback: Callback<void>): void;
+  onAttach(callback: VoidCallback): void;
   /**
    * Unregister the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
    *
-   * @param { 'onAttach' } type Indicates the type of event.
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { VoidCallback } [callback] Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  off(type: 'onAttach', callback?: Callback<void>): void;
+  offAttach(callback?: VoidCallback): void;
   /**
    * Register the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
    *
-   * @param { 'onDetach' } type Indicates the type of event.
-   * @param { Callback<void> } callback Indicates the listener.
+   * @param { VoidCallback } callback Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  on(type: 'onDetach', callback: Callback<void>): void;
+  onDetach(callback: VoidCallback): void;
   /**
    * Unregister the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
    *
-   * @param { 'onDetach' } type Indicates the type of event.
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { VoidCallback } [callback] Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  off(type: 'onDetach', callback?: Callback<void>): void;
+  offDetach(callback?: VoidCallback): void;
+
+  /**
+   * Retrieves a 2D rendering context from the specified drawing context.
+   *
+   * @param { DrawingRenderingContext } drawingContext - A drawing rendering context.
+   * @param { RenderingContextOptions } [options] - options of the 2D rendering context.
+   * @returns { CanvasRenderingContext2D } - Returns a 2D rendering context that is bound to
+   *     the same canvas component as the input drawingContext.
+   * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  static getContext2DFromDrawingContext(drawingContext: DrawingRenderingContext, options?: RenderingContextOptions): CanvasRenderingContext2D;
 }
 
 /**
@@ -1618,7 +1689,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -1630,17 +1701,17 @@ export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *     If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   toDataURL(type?: string, quality?: double): string;
   /**
    * transfer the content to ImageBitmap
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  transferToImageBitmap(): ImageBitmap;
+  transferToImageBitmap(): ImageBitmap | undefined;
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
@@ -1650,7 +1721,7 @@ export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *     For details, see {@link RenderingContextSettings}.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(width: double, height: double, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 }
@@ -1658,7 +1729,7 @@ export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class OffscreenCanvas {
   /**
@@ -1666,7 +1737,7 @@ export declare class OffscreenCanvas {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get height(): double;
   /**
@@ -1674,7 +1745,7 @@ export declare class OffscreenCanvas {
    *
    * @param { double } height - The height of an off-screen canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set height(height: double);
   /**
@@ -1682,7 +1753,7 @@ export declare class OffscreenCanvas {
    *
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get width(): double;
   /**
@@ -1690,17 +1761,17 @@ export declare class OffscreenCanvas {
    *
    * @param { double } width - The width of an off-screen canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set width(width: double);
   /**
    * Exports rendered content as an ImageBitmap object
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  transferToImageBitmap(): ImageBitmap;
+  transferToImageBitmap(): ImageBitmap | undefined;
   /**
    * Creates the context from the current OffscreenCanvas.
    *
@@ -1712,7 +1783,7 @@ export declare class OffscreenCanvas {
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas,
    *     see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getContext(contextType: '2d', options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
   /**
@@ -1722,7 +1793,7 @@ export declare class OffscreenCanvas {
    * @param { double } height - Height of the off-screen canvas.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(width: double, height: double, unit?: LengthMetricsUnit);
 }
@@ -1731,7 +1802,7 @@ export declare class OffscreenCanvas {
  * Defines DrawingRenderingContext.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class DrawingRenderingContext {
   /**
@@ -1739,7 +1810,7 @@ export declare class DrawingRenderingContext {
    *
    * @returns { Size } The size of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get size(): Size;
   /**
@@ -1747,14 +1818,14 @@ export declare class DrawingRenderingContext {
    *
    * @returns { DrawingCanvas | undefined } The canvas of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get canvas(): DrawingCanvas | undefined; 
   /**
    * Invalidate the component, which will cause a re-render of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   invalidate(): void;
   /**
@@ -1762,9 +1833,41 @@ export declare class DrawingRenderingContext {
    *
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(unit?: LengthMetricsUnit);
+}
+
+/**
+ * Defines the parameters for creating Canvas.
+ *
+ * @interface CanvasParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface CanvasParams {
+  /**
+   * Indicates the unit mode employed by Canvas during drawing.
+   * Default value is LengthMetricsUnit.DEFAULT, undefined means setting to default value.
+   *
+   * @type { ?LengthMetricsUnit }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  unit?: LengthMetricsUnit;
+
+  /**
+   * AI image analysis options.
+   * You can configure the analysis type or bind an analyzer controller through this parameter.
+   *
+   * @type { ?ImageAIOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  imageAIOptions?: ImageAIOptions;
 }
 
 /**
@@ -1773,26 +1876,30 @@ export declare class DrawingRenderingContext {
  * @extends CommonMethod
  * @interface CanvasAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface CanvasAttribute extends CommonMethod {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { VoidCallback | undefined } event
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Passing undefined
+   *     means unbinding the callback.Returns a { @link DrawingRenderingContext } object
+   *     if the canvas is constructed by { @link CanvasParams },
+   *     otherwise returns undefined.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  onReady(event: VoidCallback | undefined): this;
+  onReady(event: Callback<DrawingRenderingContext | undefined> | undefined): this;
   /**
    * Enable image analyzer for Canvas.
    *
    * @param { boolean | undefined } enable - If enable image analyzer for Canvas. The default value is false.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   enableAnalyzer(enable: boolean | undefined): this;
   /**
@@ -1801,7 +1908,7 @@ export declare interface CanvasAttribute extends CommonMethod {
    * @param { AttributeModifier<CanvasAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<CanvasAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -1811,16 +1918,30 @@ export declare interface CanvasAttribute extends CommonMethod {
  *
  * @param { CanvasRenderingContext2D | DrawingRenderingContext } [context] - Canvas context object.
  * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
- * @param { function } [content_]
  * @returns { CanvasAttribute } The attribute of the Canvas.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Canvas(
-  context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions,
-  @memo
-  content_?: () => void,
-): CanvasAttribute
+  context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions
+): CanvasAttribute;
+
+/**
+ * Create a canvas component using { @link CanvasParams }.
+ * This canvas component will not respond to drawing commands when invisible for memory optimization,
+ * You can get a rendering context in { @link onReady }.
+ *
+ * @param { CanvasParams } params - Parameters for creating Canvas.
+ * @returns { CanvasAttribute } The attribute of the Canvas.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function Canvas(
+  params: CanvasParams
+): CanvasAttribute;

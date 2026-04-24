@@ -20,6 +20,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type constant from './@ohos.bluetooth.constant';
+import type common from './@ohos.bluetooth.common';
 
 /**
  * Provides methods to operate or manage Bluetooth.
@@ -44,7 +45,7 @@ import type constant from './@ohos.bluetooth.constant';
  * @crossplatform
  * @atomicservice
  * @since 13 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace ble {
   /**
@@ -69,10 +70,17 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
-
+  /**
+   * Bluetooth device address.
+   *
+   * @typedef { common.BluetoothAddress } BluetoothAddress
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
+   */
+  type BluetoothAddress = common.BluetoothAddress;
   /**
    * create a Gatt server instance.
    *
@@ -96,7 +104,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createGattServer(): GattServer;
 
@@ -135,7 +143,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createGattClientDevice(deviceId: string): GattClientDevice;
 
@@ -147,6 +155,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   function createBleScanner(): BleScanner;
 
@@ -176,6 +185,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 23 static
    */
   function getConnectedBLEDevices(): Array<string>;
 
@@ -193,7 +203,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getConnectedBLEDevices(profile: BleProfile): Array<string>;
 
@@ -262,6 +272,27 @@ declare namespace ble {
   function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
 
   /**
+   * Starts scanning for specified BLE devices with filters.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Array<ScanFilter> | null } filters - Indicates the list of filters used to filter out specified devices.
+   * If you do not want to use filter, set this parameter to {@code null}.
+   * @param { ScanOptions } [options] - Indicates the parameters for scanning and if the user does not assign a value, the default value will be used.
+   * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+   * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+   * and {@link ScanOptions#phyType} set to {@link PHY_LE_ALL_SUPPORTED}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 23 static
+   */
+  function startBLEScan(filters: Array<ScanFilter> | null, options?: ScanOptions): void;
+
+  /**
    * Stops BLE scanning.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -299,7 +330,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopBLEScan(): void;
 
@@ -378,6 +409,36 @@ declare namespace ble {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Starts BLE advertising.
+   * - If only {@link AdvertiseData#includeDeviceName} is set to true,
+   *   the local name will be carried in the broadcast packet.
+   * - If only {@link AdvertiseData#advertiseName} is set,
+   *   its value will be used as a custom name and carried in the broadcast packet.
+   * - If {@link AdvertiseData#includeDeviceName} is set to true and {@link AdvertiseData#advertiseName} is specified,
+   *   the {@link AdvertiseData#advertiseName} property will take effect.
+   * - To set {@link AdvertiseData#advertiseName},
+   *   ensure that ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME has been added.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+   * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
+   * @param { AdvertiseData } advData - Indicates the advertising data.
+   * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900010 - The number of advertising resources reaches the upper limit.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
   function startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
 
   /**
@@ -418,7 +479,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopAdvertising(): void;
 
@@ -469,7 +530,7 @@ declare namespace ble {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { AdvertisingParams } advertisingParams - Indicates the params for BLE advertising.
-   * @param { AsyncCallback<number> } callback - the callback of advertise ID.
+   * @param { AsyncCallback<int> } callback - the callback of advertise ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -483,7 +544,38 @@ declare namespace ble {
    * @crossplatform
    * @since 20 dynamic
    */
-  function startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback<number>): void;
+  /**
+   * Starts BLE advertising.
+   * The API returns a advertising ID. The ID can be used to temporarily enable or disable this advertising
+   * using the API {@link enableAdvertising} or {@link disableAdvertising}.
+   * To completely stop the advertising corresponding to the ID, invoke the API {@link stopAdvertising} with ID.
+   * - If only {@link AdvertiseData#includeDeviceName} is set to true,
+   *   the local name will be carried in the broadcast packet.
+   * - If only {@link AdvertiseData#advertiseName} is set,
+   *   its value will be used as a custom name and carried in the broadcast packet.
+   * - If {@link AdvertiseData#includeDeviceName} is set to true and {@link AdvertiseData#advertiseName} is specified,
+   *   the {@link AdvertiseData#advertiseName} property will take effect.
+   * - To set {@link AdvertiseData#advertiseName},
+   *   ensure that ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME has been added.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+   * @param { AdvertisingParams } advertisingParams - Indicates the params for BLE advertising.
+   * @param { AsyncCallback<int> } callback - the callback of advertise ID.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900010 - The number of advertising resources reaches the upper limit.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  function startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback<int>): void;
 
   /**
    * Starts BLE advertising.
@@ -532,7 +624,7 @@ declare namespace ble {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { AdvertisingParams } advertisingParams - Indicates the param for BLE advertising.
-   * @returns { Promise<number> } Returns the promise object.
+   * @returns { Promise<int> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -546,7 +638,38 @@ declare namespace ble {
    * @crossplatform
    * @since 20 dynamic
    */
-  function startAdvertising(advertisingParams: AdvertisingParams): Promise<number>;
+  /**
+   * Starts BLE advertising.
+   * The API returns a advertising ID. The ID can be used to temporarily enable or disable this advertising
+   * using the API {@link enableAdvertising} or {@link disableAdvertising}.
+   * To completely stop the advertising corresponding to the ID, invoke the API {@link stopAdvertising} with ID.
+   * - If only {@link AdvertiseData#includeDeviceName} is set to true,
+   *   the local name will be carried in the broadcast packet.
+   * - If only {@link AdvertiseData#advertiseName} is set,
+   *   its value will be used as a custom name and carried in the broadcast packet.
+   * - If {@link AdvertiseData#includeDeviceName} is set to true and {@link AdvertiseData#advertiseName} is specified,
+   *   the {@link AdvertiseData#advertiseName} property will take effect.
+   * - To set {@link AdvertiseData#advertiseName},
+   *   ensure that ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME has been added.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+   * @param { AdvertisingParams } advertisingParams - Indicates the param for BLE advertising.
+   * @returns { Promise<int> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900010 - The number of advertising resources reaches the upper limit.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  function startAdvertising(advertisingParams: AdvertisingParams): Promise<int>;
 
   /**
    * Enable the advertising with a specific ID temporarily.
@@ -580,6 +703,7 @@ declare namespace ble {
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function enableAdvertising(advertisingEnableParams: AdvertisingEnableParams, callback: AsyncCallback<void>): void;
 
@@ -615,6 +739,7 @@ declare namespace ble {
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function enableAdvertising(advertisingEnableParams: AdvertisingEnableParams): Promise<void>;
 
@@ -650,6 +775,7 @@ declare namespace ble {
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function disableAdvertising(advertisingDisableParams: AdvertisingDisableParams, callback: AsyncCallback<void>): void;
 
@@ -685,6 +811,7 @@ declare namespace ble {
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function disableAdvertising(advertisingDisableParams: AdvertisingDisableParams): Promise<void>;
 
@@ -979,7 +1106,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GattServer {
     /**
@@ -1032,6 +1159,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     addService(service: GattService): void;
 
@@ -1085,6 +1213,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     removeService(serviceUuid: string): void;
 
@@ -1160,7 +1289,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     close(): void;
 
@@ -1220,6 +1349,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     notifyCharacteristicChanged(
       deviceId: string,
@@ -1283,6 +1413,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): Promise<void>;
 
@@ -1333,6 +1464,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     sendResponse(serverResponse: ServerResponse): void;
 
@@ -1352,6 +1484,60 @@ declare namespace ble {
      * @since 22 dynamic
      */
     getConnectedState(deviceId: string): ProfileConnectionState;
+
+    /**
+     * Read the phy associated with the connection.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<PhyValue> } Promise used to return the phy value read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readPhy(deviceId: string): Promise<PhyValue>;
+
+    /**
+     * Set the preferred phy associated with the connection.
+     * Whether the phy value will be changed depends on the strategy of the Bluetooth chip.
+     * A successful call to this interface does not guarantee that the chip's phy value has been successfully set.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { PhyValue } phyValue - Indicates the phy to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setPhy(deviceId: string, phyValue: PhyValue): Promise<void>;
+
+    /**
+     * Removes all services from the list of GATT services offered by this device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API because the short-range chip is not inserted on the 2in1 device.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    removeAllServices(): void;
 
     /**
      * Subscribe characteristic read event.
@@ -1850,6 +2036,32 @@ declare namespace ble {
      * @since 13 dynamic
      */
     off(type: 'BLEMtuChange', callback?: Callback<number>): void;
+
+    /**
+     * Subscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } callback - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onBlePhyUpdate(callback: Callback<PhyValue>): void;
+
+    /**
+     * Unsubscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } [callback] - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offBlePhyUpdate(callback?: Callback<PhyValue>): void;
   }
 
   /**
@@ -1875,7 +2087,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GattClientDevice {
     /**
@@ -1919,7 +2131,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connect(): void;
 
@@ -1961,7 +2173,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     disconnect(): void;
 
@@ -2006,7 +2218,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     close(): void;
 
@@ -2054,6 +2266,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     getDeviceName(callback: AsyncCallback<string>): void;
 
@@ -2101,6 +2314,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     getDeviceName(): Promise<string>;
 
@@ -2269,9 +2483,11 @@ declare namespace ble {
      * @throws { BusinessError } 2901006 - The connection is not authenticated.
      * @throws { BusinessError } 2901007 - The connection is not authorized.
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
+     * @since 24 static
      */
     readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
 
@@ -2349,6 +2565,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     readCharacteristicValue(characteristic: BLECharacteristic): Promise<BLECharacteristic>;
 
@@ -2426,6 +2643,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback<BLEDescriptor>): void;
 
@@ -2503,6 +2721,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     readDescriptorValue(descriptor: BLEDescriptor): Promise<BLEDescriptor>;
 
@@ -2671,6 +2890,32 @@ declare namespace ble {
      * @since 20 dynamic
      */
     writeCharacteristicValue(characteristic: BLECharacteristic, writeType: GattWriteType): Promise<void>;
+
+    /**
+     * Writes the characteristic of a BLE peripheral device with context.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
+     * @param { GattWriteType } writeType - Write type of the characteristic.
+     *     The interface currently only supports {@link GattWriteType#WRITE} mode.
+     * @returns { Promise<GattRspContext> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900011 - The operation is busy. The last operation is not complete.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901001 - Write forbidden.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @throws { BusinessError } 2901004 - The connection is congested.
+     * @throws { BusinessError } 2901005 - The connection is not encrypted.
+     * @throws { BusinessError } 2901006 - The connection is not authenticated.
+     * @throws { BusinessError } 2901007 - The connection is not authorized.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    writeCharacteristicValueWithContext(
+      characteristic: BLECharacteristic, writeType: GattWriteType): Promise<GattRspContext>;
 
     /**
      * Writes the descriptor of a BLE peripheral device.
@@ -2990,7 +3235,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setBLEMtuSize(mtu: int): void;
 
@@ -3166,6 +3411,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     setCharacteristicChangeIndication(
       characteristic: BLECharacteristic,
@@ -3227,6 +3473,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     setCharacteristicChangeIndication(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
 
@@ -3263,6 +3510,41 @@ declare namespace ble {
      * @since 22 dynamic
      */
     updateConnectionParam(param: ConnectionParam): Promise<void>;
+
+    /**
+     * Read the phy associated with the connection.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<PhyValue> } Promise used to return the phy value read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readPhy(): Promise<PhyValue>;
+
+    /**
+     * Set the preferred phy associated with the connection.
+     * Whether the phy value will be changed depends on the strategy of the Bluetooth chip.
+     * A successful call to this interface does not guarantee that the chip's phy value has been successfully set.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { PhyValue } phyValue - Indicates the phy to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setPhy(phyValue: PhyValue): Promise<void>;
 
     /**
      * Subscribe characteristic value changed event.
@@ -3526,6 +3808,32 @@ declare namespace ble {
      * @since 22 dynamic
      */
     off(type: 'serviceChange', callback?: Callback<void>): void;
+
+    /**
+     * Subscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } callback - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onBlePhyUpdate(callback: Callback<PhyValue>): void;
+
+    /**
+     * Unsubscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } [callback] - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offBlePhyUpdate(callback?: Callback<PhyValue>): void;
   }
 
   /**
@@ -3537,6 +3845,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   interface BleScanner {
     /**
@@ -3567,6 +3876,32 @@ declare namespace ble {
      * @since 15 dynamic
      */
     startScan(filters: Array<ScanFilter>, options?: ScanOptions): Promise<void>;
+
+    /**
+     * Starts scanning for specified BLE devices with filters.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Array<ScanFilter> | null } filters - Indicates the list of filters used to filter out specified devices.
+     * If you do not want to use filter, set this parameter to {@code null}.
+     * @param { ScanOptions } [options] - Indicates the parameters for scanning and if the user does not assign a value,
+     * the default value will be used. {@link ScanOptions#interval} set to 0,
+     * and {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+     * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+     * and {@link ScanOptions#phyType} set to {@link PHY_LE_ALL_SUPPORTED}.
+     * and {@link ScanOptions#reportMode} set to {@link ScanReportMode#NORMAL}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900009 - Fails to start scan as it is out of hardware resources.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2902050 - Failed to start scan as Ble scan is already started by the app.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    startScan(filters: Array<ScanFilter> | null, options?: ScanOptions): Promise<void>;
     /**
      * Stops BLE scanning.
      *
@@ -3581,6 +3916,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     stopScan(): Promise<void>;
     /**
@@ -3642,7 +3978,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GattService {
     /**
@@ -3668,7 +4004,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
     /**
@@ -3694,7 +4030,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPrimary: boolean;
     /**
@@ -3720,7 +4056,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristics: Array<BLECharacteristic>;
     /**
@@ -3737,6 +4073,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     includeServices?: Array<GattService>;
   }
@@ -3764,7 +4101,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BLECharacteristic {
     /**
@@ -3790,7 +4127,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
     /**
@@ -3816,7 +4153,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -3842,7 +4179,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicValue: ArrayBuffer;
     /**
@@ -3868,7 +4205,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptors: Array<BLEDescriptor>;
     /**
@@ -3894,19 +4231,20 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     properties?: GattProperties;
     /**
      * The characteristic value handle of a BLECharacteristic instance
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
-    characteristicValueHandle?: number;
+    characteristicValueHandle?: int;
 
     /**
      * The permissions of a BLECharacteristic instance. The default value is Readable and Writable.
@@ -3916,7 +4254,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     permissions?: GattPermissions;
   }
@@ -3944,7 +4282,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BLEDescriptor {
     /**
@@ -3970,7 +4308,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
     /**
@@ -3996,7 +4334,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -4022,7 +4360,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptorUuid: string;
     /**
@@ -4048,19 +4386,20 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptorValue: ArrayBuffer;
     /**
      * The descriptor handle of the BLEDescriptor instance
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
-    descriptorHandle?: number;
+    descriptorHandle?: int;
 
     /**
      * The permissions of a BLEDescriptor instance. The default value is Readable and Writable.
@@ -4070,7 +4409,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     permissions?: GattPermissions;
   }
@@ -4098,7 +4437,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface NotifyCharacteristic {
     /**
@@ -4124,7 +4463,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
     /**
@@ -4150,7 +4489,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -4176,7 +4515,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicValue: ArrayBuffer;
     /**
@@ -4195,7 +4534,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     confirm: boolean;
   }
@@ -4223,7 +4562,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CharacteristicReadRequest {
     /**
@@ -4249,7 +4588,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
@@ -4275,7 +4614,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transId: int;
     /**
@@ -4292,7 +4631,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
     /**
@@ -4318,7 +4657,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -4344,7 +4683,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
   }
@@ -4372,7 +4711,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CharacteristicWriteRequest {
     /**
@@ -4398,7 +4737,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
@@ -4424,7 +4763,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transId: int;
     /**
@@ -4441,7 +4780,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
     /**
@@ -4458,6 +4797,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     isPrepared: boolean;
     /**
@@ -4474,6 +4814,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     needRsp: boolean;
     /**
@@ -4499,7 +4840,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: ArrayBuffer;
     /**
@@ -4525,7 +4866,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -4551,7 +4892,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
   }
@@ -4579,7 +4920,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DescriptorReadRequest {
     /**
@@ -4605,7 +4946,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
@@ -4631,7 +4972,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transId: int;
     /**
@@ -4648,7 +4989,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
     /**
@@ -4674,7 +5015,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptorUuid: string;
     /**
@@ -4700,7 +5041,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -4726,7 +5067,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
   }
@@ -4754,7 +5095,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DescriptorWriteRequest {
     /**
@@ -4780,7 +5121,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
@@ -4806,7 +5147,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transId: int;
     /**
@@ -4823,7 +5164,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
     /**
@@ -4840,6 +5181,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     isPrepared: boolean;
     /**
@@ -4856,6 +5198,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     needRsp: boolean;
     /**
@@ -4881,7 +5224,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: ArrayBuffer;
     /**
@@ -4907,7 +5250,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptorUuid: string;
     /**
@@ -4933,7 +5276,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     characteristicUuid: string;
     /**
@@ -4959,7 +5302,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
   }
@@ -4987,7 +5330,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ServerResponse {
     /**
@@ -5013,7 +5356,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
@@ -5039,7 +5382,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transId: int;
     /**
@@ -5065,7 +5408,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     status: int;
     /**
@@ -5082,7 +5425,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
     /**
@@ -5108,7 +5451,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: ArrayBuffer;
   }
@@ -5136,7 +5479,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BLEConnectionChangeState {
     /**
@@ -5162,7 +5505,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
@@ -5188,7 +5531,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: ProfileConnectionState;
     /**
@@ -5199,7 +5542,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reason?: GattDisconnectReason;
   }
@@ -5227,7 +5570,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScanResult {
     /**
@@ -5253,10 +5596,18 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
     /**
+     * The address object of a BLE peripheral device, including the address type.
+     *
+     * @type { ?BluetoothAddress }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic&static
+     */
+    address?: BluetoothAddress;
+    /**
      * RSSI of the remote device
      *
      * @type { number }
@@ -5274,13 +5625,14 @@ declare namespace ble {
     /**
      * RSSI of the remote device
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
-    rssi: number;
+    rssi: int;
     /**
      * The raw data of broadcast packet
      *
@@ -5304,7 +5656,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: ArrayBuffer;
     /**
@@ -5330,6 +5682,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     deviceName: string;
     /**
@@ -5355,7 +5708,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connectable: boolean;
 
@@ -5434,6 +5787,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   interface ScanReport {
     /**
@@ -5444,6 +5798,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     reportType: ScanReportType;
     /**
@@ -5454,7 +5809,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     scanResult: Array<ScanResult>;
   }
@@ -5482,7 +5837,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AdvertiseSetting {
     /**
@@ -5503,7 +5858,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     interval?: int;
     /**
@@ -5524,7 +5879,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     txPower?: int;
     /**
@@ -5550,7 +5905,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connectable?: boolean;
   }
@@ -5578,7 +5933,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AdvertiseData {
     /**
@@ -5604,7 +5959,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuids: Array<string>;
     /**
@@ -5630,7 +5985,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     manufactureData: Array<ManufactureData>;
     /**
@@ -5656,7 +6011,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceData: Array<ServiceData>;
     /**
@@ -5682,6 +6037,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     includeDeviceName?: boolean;
     /**
@@ -5692,8 +6048,22 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     includeTxPower?: boolean;
+    /**
+     * Indicates the local name data type in the advertisement packet. If both the property and
+     * {@link AdvertiseData#includeDeviceName} property are used together,
+     * the {@link AdvertiseData#advertiseName} property will ultimately take effect.
+     *
+     * @permission ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    advertiseName?: string;
   }
 
   /**
@@ -5710,7 +6080,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AdvertisingParams {
     /**
@@ -5727,7 +6097,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     advertisingSettings: AdvertiseSetting;
     /**
@@ -5744,7 +6114,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     advertisingData: AdvertiseData;
     /**
@@ -5761,7 +6131,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     advertisingResponse?: AdvertiseData;
     /**
@@ -5772,7 +6142,7 @@ declare namespace ble {
      * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration?: int;
   }
@@ -5783,16 +6153,18 @@ declare namespace ble {
    * @typedef AdvertisingEnableParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 23 static
    */
   interface AdvertisingEnableParams {
     /**
      * Indicates the ID of current advertising.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11 dynamic
+     * @since 23 static
      */
-    advertisingId: number;
+    advertisingId: int;
     /**
      * Indicates the duration for advertising continuously.
      * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
@@ -5801,7 +6173,7 @@ declare namespace ble {
      * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration?: int;
   }
@@ -5812,16 +6184,18 @@ declare namespace ble {
    * @typedef AdvertisingDisableParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 23 static
    */
   interface AdvertisingDisableParams {
     /**
      * Indicates the ID of current advertising.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11 dynamic
+     * @since 23 static
      */
-    advertisingId: number;
+    advertisingId: int;
   }
 
   /**
@@ -5838,7 +6212,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AdvertisingStateChangeInfo {
     /**
@@ -5851,12 +6225,13 @@ declare namespace ble {
     /**
      * Indicates the ID of current advertising.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
+     * @since 23 static
      */
-    advertisingId: number;
+    advertisingId: int;
     /**
      * Indicates the advertising state.
      *
@@ -5871,7 +6246,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: AdvertisingState;
   }
@@ -5899,7 +6274,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ManufactureData {
     /**
@@ -5920,13 +6295,14 @@ declare namespace ble {
     /**
      * Indicates the manufacturer ID assigned by Bluetooth SIG
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
-    manufactureId: number;
+    manufactureId: int;
     /**
      * Indicates the manufacturer data to add
      *
@@ -5950,6 +6326,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     manufactureValue: ArrayBuffer;
   }
@@ -5977,7 +6354,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ServiceData {
     /**
@@ -6003,7 +6380,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid: string;
     /**
@@ -6029,6 +6406,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     serviceValue: ArrayBuffer;
   }
@@ -6056,7 +6434,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScanFilter {
     /**
@@ -6082,9 +6460,27 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId?: string;
+    /**
+     * The address object of a BLE peripheral device, including the address type.
+     *
+     * @type { ?BluetoothAddress }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic&static
+     */
+    address?: BluetoothAddress;
+    /**
+     * Identity Resolving Key of BLE peripheral device.
+     * {@link ScanFilter#irk} needs to be used with {@link ScanFilter#address}.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    irk?: Uint8Array;
 
     /**
      * The name of a BLE peripheral device
@@ -6109,6 +6505,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     name?: string;
 
@@ -6135,7 +6532,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceUuid?: string;
 
@@ -6162,6 +6559,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     serviceUuidMask?: string;
 
@@ -6188,6 +6586,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     serviceSolicitationUuid?: string;
 
@@ -6214,6 +6613,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     serviceSolicitationUuidMask?: string;
 
@@ -6240,7 +6640,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serviceData?: ArrayBuffer;
 
@@ -6267,6 +6667,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     serviceDataMask?: ArrayBuffer;
 
@@ -6288,13 +6689,14 @@ declare namespace ble {
     /**
      * Manufacture id.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
-    manufactureId?: number;
+    manufactureId?: int;
 
     /**
      * Manufacture data.
@@ -6319,7 +6721,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     manufactureData?: ArrayBuffer;
 
@@ -6346,8 +6748,20 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     manufactureDataMask?: ArrayBuffer;
+
+    /**
+     * RSSI threshold for filtering advertising that pass through.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    rssiThreshold?: int;
   }
 
   /**
@@ -6373,7 +6787,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScanOptions {
     /**
@@ -6399,7 +6813,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     interval?: int;
     /**
@@ -6425,7 +6839,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dutyMode?: ScanDuty;
     /**
@@ -6442,7 +6856,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     matchMode?: MatchMode;
     /**
@@ -6461,6 +6875,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     phyType?: PhyType;
     /**
@@ -6471,6 +6886,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     reportMode?: ScanReportMode;
   }
@@ -6498,7 +6914,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GattProperties {
     /**
@@ -6524,7 +6940,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     write?: boolean;
     /**
@@ -6550,7 +6966,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     writeNoResponse?: boolean;
     /**
@@ -6576,7 +6992,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     read?: boolean;
     /**
@@ -6602,7 +7018,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     notify?: boolean;
     /**
@@ -6619,7 +7035,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     indicate?: boolean;
 
@@ -6630,7 +7046,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     broadcast?: boolean;
 
@@ -6641,7 +7057,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authenticatedSignedWrite?: boolean;
 
@@ -6652,7 +7068,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     extendedProperties?: boolean;
   }
@@ -6680,7 +7096,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum GattWriteType {
     /**
@@ -6703,7 +7119,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WRITE = 1,
     /**
@@ -6726,7 +7142,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WRITE_NO_RESPONSE = 2
   }
@@ -6754,7 +7170,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ScanDuty {
     /**
@@ -6777,7 +7193,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCAN_MODE_LOW_POWER = 0,
     /**
@@ -6800,6 +7216,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     SCAN_MODE_BALANCED = 1,
     /**
@@ -6822,6 +7239,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     SCAN_MODE_LOW_LATENCY = 2
   }
@@ -6840,7 +7258,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MatchMode {
     /**
@@ -6855,7 +7273,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MATCH_MODE_AGGRESSIVE = 1,
     /**
@@ -6870,7 +7288,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MATCH_MODE_STICKY = 2
   }
@@ -6885,11 +7303,11 @@ declare namespace ble {
   /**
    * The enum of BLE advertising state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AdvertisingState {
     /**
@@ -6904,7 +7322,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STARTED = 1,
     /**
@@ -6912,7 +7330,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENABLED = 2,
     /**
@@ -6920,7 +7338,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISABLED = 3,
     /**
@@ -6935,7 +7353,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STOPPED = 4
   }
@@ -6951,11 +7369,12 @@ declare namespace ble {
   /**
    * Phy type used during scan.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
+   * @since 23 static
    */
   enum PhyType {
     /**
@@ -6972,6 +7391,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     PHY_LE_1M = 1,
     /**
@@ -6988,6 +7408,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 23 static
      */
     PHY_LE_ALL_SUPPORTED = 255
   }
@@ -6995,12 +7416,12 @@ declare namespace ble {
   /**
    * Report mode used during scan.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ScanReportMode {
     /**
@@ -7010,6 +7431,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     NORMAL = 1,
     /**
@@ -7018,7 +7440,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BATCH = 2,
     /**
@@ -7029,6 +7451,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     FENCE_SENSITIVITY_LOW = 10,
     /**
@@ -7039,6 +7462,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     FENCE_SENSITIVITY_HIGH = 11,
   }
@@ -7046,12 +7470,12 @@ declare namespace ble {
   /**
    * Scan report type used during scan.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ScanReportType {
     /**
@@ -7061,6 +7485,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     ON_FOUND = 1,
     /**
@@ -7070,6 +7495,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     ON_LOST = 2,
     /**
@@ -7078,7 +7504,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ON_BATCH = 3,
   }
@@ -7086,10 +7512,10 @@ declare namespace ble {
   /**
    * The Profile of the BLE protocol.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum BleProfile {
     /**
@@ -7097,7 +7523,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GATT = 1,
     /**
@@ -7105,7 +7531,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GATT_CLIENT = 2,
     /**
@@ -7113,7 +7539,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GATT_SERVER = 3
   }
@@ -7156,12 +7582,12 @@ declare namespace ble {
   /**
    * The enum of gatt disconnection reasons.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum GattDisconnectReason {
 
@@ -7172,7 +7598,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONN_TIMEOUT = 1,
 
@@ -7183,7 +7609,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONN_TERMINATE_PEER_USER = 2,
 
@@ -7194,7 +7620,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONN_TERMINATE_LOCAL_HOST = 3,
 
@@ -7205,9 +7631,70 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONN_UNKNOWN = 4
+  }
+
+  /**
+   * Phy type for advertising or connection.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum BlePhy {
+    /**
+     * Use 1M phy for advertising or connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_1M = 1,
+    /**
+     * Use 2M phy for advertising or connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_2M = 2,
+    /**
+     * Use coded phy for advertising or connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_CODED = 3
+  }
+  /**
+   * Coded phy mode for advertising or connection.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum CodedPhyMode {
+    /**
+     * Use coded S2 phy for advertising or connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_CODED_S2 = 1,
+    /**
+     * Use coded S8 phy for advertising or connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_CODED_S8 = 2
   }
 
   /**
@@ -7218,7 +7705,7 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GattPermissions {
 
@@ -7229,7 +7716,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     read?: boolean;
 
@@ -7240,7 +7727,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readEncrypted?: boolean;
 
@@ -7251,7 +7738,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readEncryptedMitm?: boolean;
 
@@ -7262,7 +7749,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     write?: boolean;
 
@@ -7273,7 +7760,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     writeEncrypted?: boolean;
 
@@ -7284,7 +7771,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     writeEncryptedMitm?: boolean;
 
@@ -7295,7 +7782,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     writeSigned?: boolean;
 
@@ -7306,9 +7793,67 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     writeSignedMitm?: boolean;
+  }
+
+  /**
+   * Describe the context of GATT responses.
+   *
+   * @typedef GattRspContext
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface GattRspContext {
+    /**
+     * Timestamp of when Bluetooth received the response command.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    timestamp: long;
+  }
+
+  /**
+   * Describes the parameters of the Ble phy.
+   *
+   * @typedef PhyValue
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface PhyValue {
+    /**
+     * Transmitter phy.
+     *
+     * @type { BlePhy }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    txPhy: BlePhy;
+    /**
+     * Receiver phy.
+     *
+     * @type { BlePhy }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    rxPhy: BlePhy;
+    /**
+     * Preferred coded phy mode.
+     *
+     * @type { ?CodedPhyMode }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    phyMode?: CodedPhyMode;
   }
 }
 

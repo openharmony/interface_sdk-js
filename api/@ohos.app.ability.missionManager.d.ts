@@ -20,517 +20,597 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { MissionInfo as _MissionInfo } from './application/MissionInfo';
-/*** if arkts dynamic */
 import { MissionListener as _MissionListener } from './application/MissionListener';
 import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
 import StartOptions from './@ohos.app.ability.StartOptions';
-/*** endif */
 
 /**
- * This module provides the capability to manage abilities and obtaining system task information.
+ * # Required Permissions
+ * 
+ * ohos.permission.MANAGE_MISSIONS
+ */
+/**
+ * The missionManager module provides APIs to lock, unlock, and clear missions, and switch a mission to the foreground.
  *
- * @namespace missionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace missionManager {
+  /**
+   * Registers a listener to observe the mission status.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'mission' } type - Name of the target mission. The value is fixed at **'mission'**, indicating the system
+   *     mission status listener.
+   * @param { MissionListener } listener - Mission status listener to register.
+   * @returns { long } Index of the mission status listener, which is created by the system and allocated when the
+   *     listener is registered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9 dynamic
+   */
+  function on(type: 'mission', listener: MissionListener): long;
+
   /**
    * Register the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { 'mission' } type - mission.
    * @param { MissionListener } listener - Indicates the MissionListener to be registered.
-   * @returns { number } Returns the index number of the MissionListener.
+   * @returns { long } Returns the index number of the MissionListener.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 23 static
+   */
+  function onMission(listener: MissionListener): long;
+
+  /**
+   * Deregisters a mission status listener. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'mission' } type - Name of the target mission. The value is fixed at **'mission'**, indicating the system
+   *     mission status listener.
+   * @param { long } listenerId - Index of the mission status listener to deregister. It is returned by **on()**.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
    */
-  function on(type: 'mission', listener: MissionListener): number;
+  function off(type: 'mission', listenerId: long, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { 'mission' } type - mission.
-   * @param { number } listenerId - Indicates the listener id to be unregistered.
+   * @param { long } listenerId - Indicates the listener id to be unregistered.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 23 static
+   */
+  function offMission(listenerId: long, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters a mission status listener. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'mission' } type - Name of the target mission. The value is fixed at **'mission'**, indicating the system
+   *     mission status listener.
+   * @param { long } listenerId - Index of the mission status listener to deregister. It is returned by **on()**.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
    */
-  function off(type: 'mission', listenerId: number, callback: AsyncCallback<void>): void;
+  function off(type: 'mission', listenerId: long): Promise<void>;
 
   /**
    * Unregister the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { 'mission' } type - mission.
-   * @param { number } listenerId - Indicates the listener id to be unregistered.
+   * @param { long } listenerId - Indicates the listener id to be unregistered.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9 dynamic
+   * @since 23 static
    */
-  function off(type: 'mission', listenerId: number): Promise<void>;
+  function offMission(listenerId: long): Promise<void>;
 
   /**
-   * Get the missionInfo with the given missionId.
+   * Obtains the mission information. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { int } missionId - Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionInfo> } callback - The callback is used to return the MissionInfo of the given id.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<MissionInfo> } callback - Callback used to return the mission information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>): void;
 
   /**
-   * Get the missionInfo with the given missionId.
+   * Obtains the mission information. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { int } missionId - Indicates mission id to be queried.
-   * @returns { Promise<MissionInfo> } Returns the MissionInfo of the given id.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } missionId - Mission ID.
+   * @returns { Promise<MissionInfo> } Promise used to return the mission information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionInfo(deviceId: string, missionId: int): Promise<MissionInfo>;
 
   /**
-   * Get missionInfos in the given deviceId with maximum number of numMax.
+   * Obtains information about all missions. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } numMax - Indicates the maximum number of returned missions.
-   * @param { AsyncCallback<Array<MissionInfo>> } callback - The callback is used to return the array of the MissionInfo.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } numMax - Maximum number of missions whose information can be obtained.
+   * @param { AsyncCallback<Array<MissionInfo>> } callback - Callback used to return the array of mission information
+   *     obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
+  function getMissionInfos(deviceId: string, numMax: int, callback: AsyncCallback<Array<MissionInfo>>): void;
 
   /**
-   * Get missionInfos in the given deviceId with maximum number of numMax.
+   * Obtains information about all missions. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } numMax - Indicates the maximum number of returned missions.
-   * @returns { Promise<Array<MissionInfo>> } Returns the array of the MissionInfo.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } numMax - Maximum number of missions whose information can be obtained.
+   * @returns { Promise<Array<MissionInfo>> } Promise used to return the array of mission information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getMissionInfos(deviceId: string, numMax: number): Promise<Array<MissionInfo>>;
+  function getMissionInfos(deviceId: string, numMax: int): Promise<Array<MissionInfo>>;
 
   /**
-   * Get the mission snapshot with the given missionId.
+   * Obtains the snapshot of a given mission. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of
-   *                                                      the given id.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<MissionSnapshot> } callback - Callback used to return the snapshot information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
+  function getMissionSnapShot(deviceId: string, missionId: int, callback: AsyncCallback<MissionSnapshot>): void;
 
   /**
-   * Get the mission snapshot with the given missionId.
+   * Obtains the snapshot of a given mission. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
-   * @returns { Promise<MissionSnapshot> } Returns the MissionSnapshot of the given id.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } missionId - Mission ID.
+   * @returns { Promise<MissionSnapshot> } Promise used to return the snapshot information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
+  function getMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
   /**
-   * Get the mission low resolution snapshot with the given missionId.
+   * Obtains the low-resolution snapshot of a given mission. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of
-   *                                                      the given id.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<MissionSnapshot> } callback - Callback used to return the snapshot information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getLowResolutionMissionSnapShot(
     deviceId: string,
-    missionId: number,
+    missionId: int,
     callback: AsyncCallback<MissionSnapshot>
   ): void;
 
   /**
-   * Get the mission low resolution snapshot with the given missionId.
+   * Obtains the low-resolution snapshot of a given mission. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
-   * @returns { Promise<MissionSnapshot> } Returns the MissionSnapshot of the given id.
+   * @param { string } deviceId - Device ID. It is a null string by default for the local device.
+   * @param { int } missionId - Mission ID.
+   * @returns { Promise<MissionSnapshot> } Promise used to return the snapshot information obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
+  function getLowResolutionMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
   /**
-   * Lock the mission.
+   * Locks a given mission. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be locked.
-   * @param { AsyncCallback<void> } callback - The callback of lockMission.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function lockMission(missionId: number, callback: AsyncCallback<void>): void;
+  function lockMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Lock the mission.
+   * Locks a given mission. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be locked.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } missionId - Mission ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function lockMission(missionId: number): Promise<void>;
+  function lockMission(missionId: int): Promise<void>;
 
   /**
-   * Unlock the mission.
+   * Unlocks a given mission. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be unlocked.
-   * @param { AsyncCallback<void> } callback - The callback of unlockMission.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
+  function unlockMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Unlock the mission.
+   * Unlocks a given mission. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be unlocked.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } missionId - Mission ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function unlockMission(missionId: number): Promise<void>;
+  function unlockMission(missionId: int): Promise<void>;
 
   /**
-   * Clear the given mission in the ability manager service.
+   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be cleared.
-   * @param { AsyncCallback<void> } callback - The callback of clearMission.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function clearMission(missionId: number, callback: AsyncCallback<void>): void;
+  function clearMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Clear the given mission in the ability manager service.
+   * Clears a given mission, regardless of whether it is locked. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be cleared.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } missionId - Mission ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function clearMission(missionId: number): Promise<void>;
+  function clearMission(missionId: int): Promise<void>;
 
   /**
-   * Clear all missions in the ability manager service.
+   * Clears all unlocked missions. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { AsyncCallback<void> } callback - The callback of clearAllMissions.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
   /**
-   * Clear all missions in the ability manager service.
+   * Clears all unlocked missions. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearAllMissions(): Promise<void>;
 
   /**
-   * Schedule the given mission to foreground.
+   * Switches a given mission to the foreground. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be moved to foreground.
-   * @param { AsyncCallback<void> } callback - The callback of moveMissionToFront.
+   * @param { int } missionId - Mission ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
+  function moveMissionToFront(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Schedule the given mission to foreground.
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be moved to foreground.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of moveMissionToFront.
+   * @param { int } missionId - Mission ID.
+   * @param { StartOptions } options - Startup parameters, which are used to specify the window mode and device ID for
+   *     switching the mission to the foreground.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+  function moveMissionToFront(missionId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Schedule the given mission to foreground.
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - Indicates mission id to be moved to foreground.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } missionId - Mission ID.
+   * @param { StartOptions } [options] - Startup parameters, which are used to specify the window mode and device ID for
+   *     switching the mission to the foreground. By default, no value is passed in, indicating that the default startup
+   *     parameters are used.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
+  function moveMissionToFront(missionId: int, options?: StartOptions): Promise<void>;
 
   /**
-   * Schedule the given missions to foreground.
+   * Switches a batch of missions to the foreground. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
-   * @param { AsyncCallback<void> } callback - The callback of moveMissionsToForeground.
+   * @param { Array<int> } missionIds - Array holding the mission IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
-  function moveMissionsToForeground(missionIds: Array<number>, callback: AsyncCallback<void>): void;
+  function moveMissionsToForeground(missionIds: Array<int>, callback: AsyncCallback<void>): void;
 
   /**
-   * Schedule the given missions to foreground.
+   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API 
+   * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
-   * @param { number } topMission - Indicates mission id to be moved to top.
-   * @param { AsyncCallback<void> } callback - The callback of moveMissionsToForeground.
+   * @param { Array<int> } missionIds - Array holding the mission IDs.
+   * @param { int } topMission - ID of the mission to be moved to the top.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
-  function moveMissionsToForeground(missionIds: Array<number>, topMission: number, callback: AsyncCallback<void>): void;
+  function moveMissionsToForeground(missionIds: Array<int>, topMission: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Schedule the given missions to foreground.
+   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API 
+   * uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
-   * @param { number } topMission - Indicates mission id to be moved to top.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<int> } missionIds - Array holding the mission IDs.
+   * @param { int } topMission - ID of the mission to be moved to the top. The default value is **-1**, indicating that
+   *     the default mission is moved to the top.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
-  function moveMissionsToForeground(missionIds: Array<number>, topMission?: number): Promise<void>;
+  function moveMissionsToForeground(missionIds: Array<int>, topMission?: int): Promise<void>;
 
   /**
-   * Schedule the given missions to background.
+   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the 
+   * missions are switched. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { Array<number> } missionIds - Indicates mission ids will be moved to background
-   * @param { AsyncCallback<Array<number>> } callback - The callback of moveMissionsToForeground.
+   * @param { Array<int> } missionIds - Array holding the mission IDs.
+   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
-  function moveMissionsToBackground(missionIds: Array<number>, callback: AsyncCallback<Array<number>>): void;
+  function moveMissionsToBackground(missionIds: Array<int>, callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Schedule the given missions to background.
+   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the 
+   * missions are switched. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { Array<number> } missionIds - Indicates mission ids will be moved to background
-   * @returns { Promise<Array<number>> } - The promise returned by the function.
+   * @param { Array<int> } missionIds - Array holding the mission IDs.
+   * @returns { Promise<Array<int>> } Promise used to return an array of mission IDs.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
-  function moveMissionsToBackground(missionIds: Array<number>): Promise<Array<number>>;
+  function moveMissionsToBackground(missionIds: Array<int>): Promise<Array<int>>;
 
   /**
    * Mission information corresponding to ability.
    *
-   * @typedef { _MissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type MissionInfo = _MissionInfo;
 
   /**
    * MissionListener registered by app.
    *
-   * @typedef { _MissionListener }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   export type MissionListener = _MissionListener;
 
   /**
    * Mission snapshot corresponding to mission.
    *
-   * @typedef { _MissionSnapshot }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   export type MissionSnapshot = _MissionSnapshot;
 }

@@ -250,7 +250,7 @@ declare interface GridColColumnOption {
  */
 declare interface GridColOptions {
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -258,7 +258,7 @@ declare interface GridColOptions {
    * @since 9
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -267,7 +267,7 @@ declare interface GridColOptions {
    * @since 10
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -279,7 +279,7 @@ declare interface GridColOptions {
   span?: number | GridColColumnOption;
 
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -287,7 +287,7 @@ declare interface GridColOptions {
    * @since 9
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -296,7 +296,7 @@ declare interface GridColOptions {
    * @since 10
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -308,7 +308,7 @@ declare interface GridColOptions {
   offset?: number | GridColColumnOption;
 
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -316,7 +316,7 @@ declare interface GridColOptions {
    * @since 9
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -325,7 +325,7 @@ declare interface GridColOptions {
    * @since 10
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -338,7 +338,7 @@ declare interface GridColOptions {
 }
 
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the new version of grid-container child component.
  *
  * @interface GridColInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -346,7 +346,7 @@ declare interface GridColOptions {
  * @since 9
  */
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the new version of grid-container child component.
  *
  * @interface GridColInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -355,7 +355,7 @@ declare interface GridColOptions {
  * @since 10
  */
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the new version of grid-container child component.
  *
  * @interface GridColInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -427,7 +427,7 @@ interface GridColInterface {
  */
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -436,7 +436,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 9
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -446,7 +446,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 10
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -459,7 +459,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   span(value: number | GridColColumnOption): GridColAttribute;
 
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -468,7 +468,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 9
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -478,7 +478,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 10
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -491,7 +491,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -500,7 +500,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 9
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -510,7 +510,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 10
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }

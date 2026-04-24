@@ -22,13 +22,14 @@ import { CommonMethod, AttributeModifier } from "./common";
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Provides attribute for SymbolSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
+ * @noninterop
  */
 export declare interface SymbolSpanAttribute {
     /**
@@ -37,7 +38,7 @@ export declare interface SymbolSpanAttribute {
      * @param { double | string | Resource | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
     /**
@@ -46,7 +47,7 @@ export declare interface SymbolSpanAttribute {
      * @param { Array<ResourceColor> | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
     /**
@@ -55,7 +56,7 @@ export declare interface SymbolSpanAttribute {
      * @param { int | FontWeight | string | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
@@ -64,7 +65,7 @@ export declare interface SymbolSpanAttribute {
      * @param { SymbolEffectStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
     /**
@@ -73,7 +74,7 @@ export declare interface SymbolSpanAttribute {
      * @param { SymbolRenderingStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
     /**
@@ -82,7 +83,7 @@ export declare interface SymbolSpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @test
      */
     default key(value: string | undefined): this;
@@ -92,7 +93,7 @@ export declare interface SymbolSpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default id(value: string | undefined): this;
     /**
@@ -102,24 +103,32 @@ export declare interface SymbolSpanAttribute {
      *     Passing `undefined` will do nothing.
      * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 
 /**
  * Defines SymbolSpan Component.
  *
  * @param { Resource } value
- * @param { function } [content_]
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function SymbolSpan(
-    value: Resource, 
-    @memo
-    content_?: () => void,
+    value: Resource
 ): SymbolSpanAttribute

@@ -26,26 +26,28 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace data
  * @syscap SystemCapability.Telephony.CellularData
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace data {
   /**
    * Get the default cellular data card.
    *
-   * @param { AsyncCallback<number> } callback - Indicates the default cellular data slot id.
+   * @param { AsyncCallback<int> } callback - Indicates the default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
+   * @since 23 static
    */
-  function getDefaultCellularDataSlotId(callback: AsyncCallback<number>): void;
+  function getDefaultCellularDataSlotId(callback: AsyncCallback<int>): void;
 
   /**
    * Get the default cellular data card.
    *
-   * @returns { Promise<number> } Returns the default cellular data slot id.
+   * @returns { Promise<int> } Returns the default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
+   * @since 23 static
    */
-  function getDefaultCellularDataSlotId(): Promise<number>;
+  function getDefaultCellularDataSlotId(): Promise<int>;
 
   /**
    * Get the default cellular data card.
@@ -53,7 +55,7 @@ declare namespace data {
    * @returns { int } Returns default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultCellularDataSlotIdSync(): int;
 
@@ -61,7 +63,7 @@ declare namespace data {
    * Switch cellular data services to another card, without changing the default settings.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the ID of the target card slot.
+   * @param { int } slotId - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { AsyncCallback<void> } callback - The callback of setDefaultCellularDataSlotId.
    * @throws { BusinessError } 201 - Permission denied.
@@ -77,14 +79,15 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
-  function setDefaultCellularDataSlotId(slotId: number, callback: AsyncCallback<void>): void;
+  function setDefaultCellularDataSlotId(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Switch cellular data services to another card, without changing the default settings.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the ID of the target card slot.
+   * @param { int } slotId - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @returns { Promise<void> } The promise returned by the setDefaultCellularDataSlotId.
    * @throws { BusinessError } 201 - Permission denied.
@@ -100,8 +103,9 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
-  function setDefaultCellularDataSlotId(slotId: number): Promise<void>;
+  function setDefaultCellularDataSlotId(slotId: int): Promise<void>;
 
   /**
    * Indicates that there is no uplink or downlink data.
@@ -110,6 +114,17 @@ declare namespace data {
    * @param { AsyncCallback<DataFlowType> } callback - Indicates the data flow type.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
+   */
+  /**
+   * Indicates that there is no uplink or downlink data.
+   *
+   * <p>It is a return value of service state query of cellular data services.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<DataFlowType> } callback - Indicates the data flow type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void;
 
@@ -121,40 +136,86 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    */
+  /**
+   * Indicates that there is no uplink or downlink data.
+   *
+   * <p>It is a return value of service state query of cellular data services.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<DataFlowType> } Returns the data flow type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 22 dynamic
+   * @since 23 static
+   */
   function getCellularDataFlowType(): Promise<DataFlowType>;
 
   /**
    * Obtain the connection state of the PS domain.
    *
    * @param { AsyncCallback<DataConnectState> } callback - Indicates the callback for getting the connection state,
-   * which can be any of the following:
-   * <ul>
-   * <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
-   * <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTING}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
-   * </ul>
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   */
+  /**
+   * Obtain the connection state of the PS domain.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<DataConnectState> } callback - Indicates the callback for getting the connection state,
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCellularDataState(callback: AsyncCallback<DataConnectState>): void;
 
   /**
    * Obtain the connection state of the PS domain.
    *
-   * @returns { Promise<DataConnectState> } Returns the connection state, which can be any of the following:
-   * <ul>
-   * <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
-   * <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTING}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
-   * </ul>
+   * @returns { Promise<DataConnectState> } Returns the connection state,
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   */
+  /**
+   * Obtain the connection state of the PS domain.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<DataConnectState> } Returns the connection state,
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCellularDataState(): Promise<DataConnectState>;
 
@@ -173,7 +234,7 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isCellularDataEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -189,7 +250,7 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isCellularDataEnabled(): Promise<boolean>;
 
@@ -205,6 +266,7 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 12 dynamic
+   * @since 23 static
    */
   function isCellularDataEnabledSync(): boolean;
 
@@ -224,7 +286,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableCellularData(callback: AsyncCallback<void>): void;
 
@@ -241,7 +303,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableCellularData(): Promise<void>;
 
@@ -261,7 +323,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableCellularData(callback: AsyncCallback<void>): void;
 
@@ -278,7 +340,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableCellularData(): Promise<void>;
 
@@ -286,7 +348,7 @@ declare namespace data {
    * Check whether roaming is enabled for cellular data services.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether roaming is enabled
    * for cellular data services. Returns {@code true} if roaming is enabled for cellular data services;
@@ -300,14 +362,15 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
+   * @since 23 static
    */
-  function isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isCellularDataRoamingEnabled(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Check whether roaming is enabled for cellular data services.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @returns { Promise<boolean> } Returns {@code true} if roaming is enabled for cellular data services.
    * Returns {@code false} otherwise.
@@ -320,14 +383,15 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
+   * @since 23 static
    */
-  function isCellularDataRoamingEnabled(slotId: number): Promise<boolean>;
+  function isCellularDataRoamingEnabled(slotId: int): Promise<boolean>;
 
   /**
    * Check whether roaming is enabled for cellular data services.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @returns { boolean } Returns {@code true} if roaming is enabled for cellular data services.
    * Returns {@code false} otherwise.
@@ -340,14 +404,15 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 12 dynamic
+   * @since 23 static
    */
-  function isCellularDataRoamingEnabledSync(slotId: number): boolean;
+  function isCellularDataRoamingEnabledSync(slotId: int): boolean;
 
   /**
    * Enable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { AsyncCallback<void> } callback - The callback of enableCellularDataRoaming.
    * @throws { BusinessError } 201 - Permission denied.
@@ -361,14 +426,15 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
-  function enableCellularDataRoaming(slotId: number, callback: AsyncCallback<void>): void;
+  function enableCellularDataRoaming(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Enable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @returns { Promise<void> } The promise returned by the enableCellularDataRoaming.
    * @throws { BusinessError } 201 - Permission denied.
@@ -382,14 +448,15 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
-  function enableCellularDataRoaming(slotId: number): Promise<void>;
+  function enableCellularDataRoaming(slotId: int): Promise<void>;
 
   /**
    * Disable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { AsyncCallback<void> } callback - The callback of disableCellularDataRoaming.
    * @throws { BusinessError } 201 - Permission denied.
@@ -403,14 +470,15 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
-  function disableCellularDataRoaming(slotId: number, callback: AsyncCallback<void>): void;
+  function disableCellularDataRoaming(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Disable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the ID of a card slot.
+   * @param { int } slotId - Indicates the ID of a card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @returns { Promise<void> } The promise returned by the disableCellularDataRoaming.
    * @throws { BusinessError } 201 - Permission denied.
@@ -424,17 +492,19 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
-  function disableCellularDataRoaming(slotId: number): Promise<void>;
+  function disableCellularDataRoaming(slotId: int): Promise<void>;
 
   /**
    * Obtains the default cellular data SIM ID.
    *
-   * @returns { number } Returns the SIM ID of the default cellular data sim and SIM ID will increase from 1.
+   * @returns { int } Returns the SIM ID of the default cellular data sim and SIM ID will increase from 1.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getDefaultCellularDataSimId(): number;
+  function getDefaultCellularDataSimId(): int;
 
   /**
    * Query all APN info.
@@ -444,6 +514,7 @@ declare namespace data {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
+   * @since 23 static
    */
   function queryAllApns(): Promise<Array<ApnInfo>>;
 
@@ -455,6 +526,7 @@ declare namespace data {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 20 dynamic
+   * @since 23 static
    */
   function getActiveApnName(): Promise<string>;
 
@@ -463,24 +535,26 @@ declare namespace data {
    *
    * @permission ohos.permission.MANAGE_APN_SETTING
    * @param { ApnInfo } apnInfo - The APN information that needs to be queried.
-   * @returns { Promise<Array<number>> } Returns IDs of all APNs that meet the query conditions.
+   * @returns { Promise<Array<int>> } Returns IDs of all APNs that meet the query conditions.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
+   * @since 23 static
    */
-  function queryApnIds(apnInfo: ApnInfo): Promise<Array<number>>;
+  function queryApnIds(apnInfo: ApnInfo): Promise<Array<int>>;
 
   /**
    * Set preferred APN.
    *
    * @permission ohos.permission.MANAGE_APN_SETTING
-   * @param { number } apnId - The APN ID which is used to be set.
+   * @param { int } apnId - The APN ID which is used to be set.
    * @returns { Promise<boolean> } Returns {@code true} if preferred APN set success; returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
+   * @since 23 static
    */
-  function setPreferredApn(apnId: number): Promise<boolean>;
+  function setPreferredApn(apnId: int): Promise<boolean>;
 
   /**
    * Defines the APN info.
@@ -488,6 +562,7 @@ declare namespace data {
    * @interface ApnInfo
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
+   * @since 23 static
    */
   interface ApnInfo {
     /**
@@ -496,6 +571,7 @@ declare namespace data {
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     apnName: string;
     /**
@@ -504,6 +580,7 @@ declare namespace data {
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     apn: string;
     /**
@@ -512,6 +589,7 @@ declare namespace data {
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     mcc: string;
     /**
@@ -520,6 +598,7 @@ declare namespace data {
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     mnc: string;
     /**
@@ -528,6 +607,7 @@ declare namespace data {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     user?: string;
     /**
@@ -536,6 +616,7 @@ declare namespace data {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     type?: string;
     /**
@@ -544,6 +625,7 @@ declare namespace data {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     proxy?: string;
     /**
@@ -552,6 +634,7 @@ declare namespace data {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
+     * @since 23 static
      */
     mmsproxy?: string;
   }
@@ -562,7 +645,7 @@ declare namespace data {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DataFlowType {
     /**
@@ -570,7 +653,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_FLOW_TYPE_NONE = 0,
 
@@ -579,7 +662,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_FLOW_TYPE_DOWN = 1,
 
@@ -588,7 +671,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_FLOW_TYPE_UP = 2,
 
@@ -597,7 +680,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_FLOW_TYPE_UP_DOWN = 3,
 
@@ -606,7 +689,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_FLOW_TYPE_DORMANT = 4
   }
@@ -617,7 +700,7 @@ declare namespace data {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DataConnectState {
     /**
@@ -625,7 +708,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_STATE_UNKNOWN = -1,
 
@@ -634,7 +717,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_STATE_DISCONNECTED = 0,
 
@@ -643,7 +726,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_STATE_CONNECTING = 1,
 
@@ -652,7 +735,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_STATE_CONNECTED = 2,
 
@@ -661,7 +744,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_STATE_SUSPENDED = 3
   }

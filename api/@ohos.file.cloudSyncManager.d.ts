@@ -26,7 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace cloudSyncManager {
   /**
@@ -43,7 +43,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
@@ -61,7 +61,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function changeAppCloudSwitch(
     accountId: string,
@@ -83,7 +83,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
@@ -100,7 +100,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -118,7 +118,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
@@ -136,7 +136,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>, callback: AsyncCallback<void>): void;
 
@@ -153,7 +153,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableCloud(accountId: string): Promise<void>;
 
@@ -170,7 +170,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
@@ -181,7 +181,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum Action {
     /**
@@ -190,7 +190,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RETAIN_DATA,
 
@@ -200,7 +200,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLEAR_DATA
   }
@@ -219,7 +219,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
@@ -237,7 +237,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
@@ -256,7 +256,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
@@ -275,7 +275,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
@@ -286,7 +286,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ExtraData {
     /**
@@ -296,7 +296,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventId: string;
     /**
@@ -306,7 +306,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     extraData: string;
   }
@@ -316,7 +316,7 @@ declare namespace cloudSyncManager {
    * @enum { int } DownloadStopReason
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DownloadStopReason {
 
@@ -324,7 +324,7 @@ declare namespace cloudSyncManager {
      * download task is not stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_STOP = 0,
 
@@ -332,7 +332,7 @@ declare namespace cloudSyncManager {
      * Network is unavailable.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NETWORK_UNAVAILABLE = 1,
 
@@ -340,7 +340,7 @@ declare namespace cloudSyncManager {
      * The local storage space is full.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCAL_STORAGE_FULL = 2,
 
@@ -348,7 +348,7 @@ declare namespace cloudSyncManager {
      * Temperature control Limits.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEMPERATURE_LIMIT = 3,
 
@@ -356,7 +356,7 @@ declare namespace cloudSyncManager {
      * User stopped the download task.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_STOPPED = 4,
 
@@ -364,7 +364,7 @@ declare namespace cloudSyncManager {
      * The local application has been unloaded.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_UNLOAD = 5,
 
@@ -372,7 +372,7 @@ declare namespace cloudSyncManager {
      * Other reasons of some internal error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OTHER_REASON = 6
   }
@@ -382,7 +382,7 @@ declare namespace cloudSyncManager {
    * @enum { int } DownloadState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DownloadState {
 
@@ -390,7 +390,7 @@ declare namespace cloudSyncManager {
      * Indicates that the download task in process now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RUNNING = 0,
 
@@ -398,7 +398,7 @@ declare namespace cloudSyncManager {
      * Indicates that the download task finished.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMPLETED = 1,
 
@@ -406,9 +406,19 @@ declare namespace cloudSyncManager {
      * Indicates that the download task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    STOPPED = 2
+    STOPPED = 2,
+
+    /**
+     * Indicates that the download task is missing.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MISSING = 3
   }
 
   /**
@@ -416,61 +426,76 @@ declare namespace cloudSyncManager {
    * @typedef CloudFileInfo
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CloudFileInfo {
 
     /**
      * Total number of files located in the cloud.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cloudFileCount: int;
 
     /**
      * Total size of files located in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cloudFileTotalSize: long;
 
     /**
      * Total number of files located locally.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     localFileCount: int;
 
     /**
      * Total size of files located locally, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     localFileTotalSize: long;
 
     /**
      * Total number of files located both locally and in the cloud.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bothFileCount: int;
 
     /**
      * Total size of files located both locally and in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bothFileTotalSize: long;
   }
@@ -479,7 +504,7 @@ declare namespace cloudSyncManager {
    * Defines DownloadProgress object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class DownloadProgress {
 
@@ -488,52 +513,65 @@ declare namespace cloudSyncManager {
      * @type { DownloadState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: DownloadState;
 
     /**
      * The number of files that downloaded successfully
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     successfulCount: int;
 
     /**
      * The number of files that fail to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     failedCount: int;
 
     /**
      * Total number of all files to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     totalCount: int;
 
     /**
      * Total size of downloaded files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     downloadedSize: long;
 
     /**
      * Total size of all files to be downloaded.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     totalSize: long;
 
@@ -542,7 +580,7 @@ declare namespace cloudSyncManager {
      * @type { DownloadStopReason }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stopReason: DownloadStopReason;
   }
@@ -553,7 +591,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class DowngradeDownload {
 
@@ -572,7 +610,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(bundleName: string);
 
@@ -592,7 +630,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCloudFileInfo(): Promise<CloudFileInfo>;
 
@@ -616,7 +654,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startDownload(callback: Callback<DownloadProgress>): Promise<void>;
 
@@ -635,10 +673,85 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stopDownload(): Promise<void>;
   }
+
+/**
+   * Supports querying the execution status of full data download tasks for integrated cloud drive applications.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { Array<string> } bundleNames - array of bundleName.
+   * @returns { Promise<Array<DownloadProgress>> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13900010 - Try again.
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+   *     <br>1.Mandatory parameter are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+   *     <br>3.The input parameter contains an invalid bundleName.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getDowngradeDownloadTaskState(bundleNames: Array<string>): Promise<Array<DownloadProgress>>;
+
+  /**
+   * The existence status of files
+   *     <br>that have not been uploaded to the cloud for application that has been connected to the cloud disk.
+   * 
+   * @interface LocalFilePresentStatus
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface LocalFilePresentStatus {
+    /**
+     * BundleName of the application that has been connected to the cloud disk.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    bundleName: string;
+    /**
+     * The existence status of files that have not been uploaded to the cloud.
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    isLocalFilePresent: boolean;
+  }
+
+  /**
+   * Check whether there are files in the applications that have been connected to the cloud disk
+   *     <br>that have not been uploaded to the cloud.
+   * 
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { Array<string> } bundleNames - The bundle names of the applications
+   *     <br>that have been connected to the cloud disk.
+   * @returns { Promise<Array<LocalFilePresentStatus>> } - Return the existence status of files
+   *     <br>that have not been uploaded to the cloud for the queried applications.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+   *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+   * @throws { BusinessError } 13900010 - Try again.
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+   *     <br>1.Mandatory parameter are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+   *     <br>3.The input parameter contains an invalid bundleName.
+   * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+   *     <br>1.Failed to access the database or execute the SQL statement.
+   *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getBundlesLocalFilePresentStatus(bundleNames: Array<string>): Promise<Array<LocalFilePresentStatus>>;
 }
 
 export default cloudSyncManager;

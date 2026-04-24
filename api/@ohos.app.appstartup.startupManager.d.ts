@@ -22,43 +22,61 @@ import StartupConfig from './@ohos.app.appstartup.StartupConfig';
 import common from './@ohos.app.ability.common';
 
 /**
- * Startup task manager.
+ * The module provides the capability to manage startup tasks in 
+ * [AppStartup](docroot://application-models/app-startup.md). The APIs of this module can be called only on the main 
+ * thread.
+ * 
+ * > **NOTE**
+ * >
+ * > This module supports .so file preloading since API version 18.
  *
- * @namespace startupManager
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace startupManager {
   /**
-   * Runs startup tasks.
+   * Runs startup tasks or loads .so files.
+   * 
+   * > **NOTE**
+   * >
+   * > This API cannot be used to run startup tasks defined in a feature-type HAP. To run those tasks, use 
+   * > [startupManager.run]{@link startupManager.run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig)}
+   * > .
    *
-   * @param { Array<string> } startupTasks - Indicates all tasks ready to run.
-   * @param { StartupConfig } [config] - Indicates the configuration of startup tasks.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } startupTasks - Array of [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask}
+   *     names or names of .so files to be preloaded.
+   * @param { StartupConfig } [config] - Configuration for the timeout duration and listener of startup tasks in
+   *     AppStartup.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 28800001 - Startup task or its dependency not found.
    * @throws { BusinessError } 28800002 - The startup tasks have circular dependencies.
    * @throws { BusinessError } 28800003 - An error occurred while running the startup tasks.
    * @throws { BusinessError } 28800004 - Running startup tasks timeout.
-   *
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function run(startupTasks: Array<string>, config?: StartupConfig): Promise<void>;
 
   /**
-   * Runs the startup tasks with the specified ability stage context.
+   * Runs startup tasks or loads .so files. You can specify 
+   * [AbilityStageContext]{@link ./application/AbilityStageContext:AbilityStageContext} for loading startup tasks. This 
+   * API uses a promise to return the result.
    *
-   * @param { Array<string> } startupTasks - Indicates all tasks ready to run.
-   * @param { common.AbilityStageContext } context - Indicates the ability stage context, which is used to initialize the startup tasks.
-   * @param { StartupConfig } config - Indicates the configuration of startup tasks.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } startupTasks - Array of [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask}
+   *     names or names of .so files to be preloaded.
+   * @param { common.AbilityStageContext } context - AbilityStage context that executes the
+   *     [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask}. It is passed as an input parameter to
+   *     [init]{@link @ohos.app.appstartup.StartupTask:StartupTask#init(context: AbilityStageContext)} of the task.
+   * @param { StartupConfig } config - Configuration for the timeout duration and listener of startup tasks in
+   *     AppStartup.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 28800001 - Startup task or its dependency not found.
    * @throws { BusinessError } 28800002 - The startup tasks have circular dependencies.
@@ -67,27 +85,34 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig): Promise<void>;
 
   /**
-   * Removes all startup tasks result.
+   * Removes all startup task results.
+   * 
+   * If there are preloading tasks for .so files, the corresponding .so files is set to the unloaded state. However, .so
+   * files that have already been loaded in the cache will not be removed.
    *
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeAllStartupTaskResults(): void;
 
   /**
-   * Obtains specific startup task result.
+   * Obtains the execution result of a startup task or .so file preloading task.
    *
-   * @param { string } startupTask - Indicates name of specific startup task.
-   * @returns { Object } The result of specific startup task.
+   * @param { string } startupTask - Name of the [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask} or
+   *     name of the .so file to be preloaded.
+   * @returns { Object } Execution result of
+   *     [init]{@link @ohos.app.appstartup.StartupTask:StartupTask#init(context: AbilityStageContext)} of the startup
+   *     task if a startup task name is passed.
+   *     <br>undefined if a .so file name is passed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
@@ -101,34 +126,41 @@ declare namespace startupManager {
    * @returns { Any } The result of specific startup task.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   function getStartupTaskResult(startupTask: string): Any;
 
   /**
-   * Obtains whether specific startup task has already been initialized.
+   * Checks whether a startup task or .so file preloading task is initialized.
    *
-   * @param { string } startupTask - Indicates name of specific startup task.
-   * @returns { boolean } Whether specific startup task has already been initialized.
+   * @param { string } startupTask - Name of the [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask} or
+   *     name of the .so file to be preloaded.
+   * @returns { boolean } Check result for whether the task is initialized. **true** if initialized, **false**
+   *     otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isStartupTaskInitialized(startupTask: string): boolean;
 
   /**
-   * Removes specific startup task result.
+   * Removes the initialization result of a startup task or .so file preloading task.
+   * 
+   * - If a startup task name is passed, the initialization result of that startup task is removed.
+   * - If a .so file is passed, the .so file is set to the unloaded state, but the loaded .so file in the cache is not 
+   * removed.
    *
-   * @param { string } startupTask - Indicates name of specific startup task.
+   * @param { string } startupTask - Name of the [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask} or
+   *     name of the .so file to be preloaded.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeStartupTaskResult(startupTask: string): void;
 }

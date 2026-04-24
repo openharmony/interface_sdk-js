@@ -657,6 +657,7 @@ declare interface ScanEffectOptions {
  * @extends CommonProgressStyleOptions
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1021,14 +1022,14 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
 }
 
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1036,7 +1037,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @since 9
  */
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1045,7 +1046,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @since 10
  */
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1228,6 +1229,7 @@ declare enum ProgressStyle {
  *
  * @interface ProgressStyleMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1243,11 +1245,11 @@ declare interface ProgressStyleMap {
    *
    * @type { LinearStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   [ProgressType.Linear]: LinearStyleOptions | ProgressStyleOptions;
-
   /**
    * Defines the map for Ring progress.
    *
@@ -1259,11 +1261,11 @@ declare interface ProgressStyleMap {
    *
    * @type { RingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   [ProgressType.Ring]: RingStyleOptions | ProgressStyleOptions;
-
   /**
    * Defines the map for Eclipse progress.
    *
@@ -1275,11 +1277,11 @@ declare interface ProgressStyleMap {
    *
    * @type { EclipseStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   [ProgressType.Eclipse]: EclipseStyleOptions | ProgressStyleOptions;
-
   /**
    * Defines the map for ScaleRing progress.
    *
@@ -1291,11 +1293,11 @@ declare interface ProgressStyleMap {
    *
    * @type { ScaleRingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   [ProgressType.ScaleRing]: ScaleRingStyleOptions | ProgressStyleOptions;
-
   /**
    * Defines the map for Capsule progress.
    *
@@ -1307,6 +1309,7 @@ declare interface ProgressStyleMap {
    *
    * @type { CapsuleStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */

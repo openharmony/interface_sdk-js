@@ -18,11 +18,9 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
-/*** endif */
+import AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
@@ -30,24 +28,52 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * The context of service extension. It allows access to
- * serviceExtension-specific resources.
+ * # Usage
+ * 
+ * Before using the ServiceExtensionContext module, you must define a child class that inherits from 
+ * ServiceExtensionAbility.
+ * 
+ * **Example**
+ * 
+ * ```ts
+ * import { ServiceExtensionAbility } from '@kit.AbilityKit';
+ * import { rpc } from '@kit.IPCKit';
+ * 
+ * let commRemote: rpc.IRemoteObject | null; // Release the instance when the connection is disconnected.
+ * 
+ * class EntryAbility extends ServiceExtensionAbility {
+ *   onCreate() {
+ *     let context = this.context; // Obtain a ServiceExtensionContext instance.
+ *   }
+ * }
+ * ```
+ */
+/**
+ * The ServiceExtensionContext module provides the context environment for the ServiceExtensionAbility. It inherits from
+ * ExtensionContext.
+ * 
+ * You can use the APIs of this module to start, terminate, connect, and disconnect an ability.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used on the main thread, but not in child threads such as Worker and TaskPool.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ServiceExtensionContext extends ExtensionContext {
   /**
-   * Service extension uses this method to start a specific ability.
+   * Starts an ability. This API can be called only on the main thread. It uses an asynchronous callback to return the 
+   * result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -61,268 +87,79 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability.
+   * Starts an ability. This API can be called only on the main thread. It uses an asynchronous callback to return the 
+   * result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { StartOptions } options - Parameters used for starting the ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 11]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
+   *     forbidden. [since 9 - 11]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability.
+   * Starts an ability. This API can be called only on the main thread. It uses a promise to return the result 
+   * asynchronously.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { StartOptions } [options] - Parameters used for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -336,176 +173,96 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension uses this method to start a specific ability. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Service extension uses this method to start a specific ability by implicit want. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts a UIAbility through App Linking. This API can be called only on the main thread. It uses a promise to return
+   * the result asynchronously.
+   * 
+   * A URL in the standard format is passed in to the **link** field to start the target UIAbility based on the implicit
+   * Want matching rules. The target UIAbility must have the following filter characteristics to process links of App 
+   * Linking:
+   * 
+   * - The **actions** field must contain **ohos.want.action.viewData**.
+   * - The **entities** field must contain **entity.system.browsable**.
+   * - The **uris** field must contain elements whose **scheme** is **https** and **domainVerify** is **true**.
+   * 
+   * If an input parameter is invalid, for example, a mandatory parameter is not set or the URL set in **link** is not 
+   * in the standard format, an exception is thrown. If the parameter verification is successful but an error occurs 
+   * when starting the target UIAbility, the error information is returned through promise.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { string } link - Indicates the ability to start.
-   * @param { OpenLinkOptions } [options] - Indicates the open link options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } link - URL to open, which must be in the standard format.
+   * @param { OpenLinkOptions } [options] - Options of the URL.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000136 - The UIAbility is prohibited from launching itself via App Linking. [since 23]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   openLink(link: string, options?: OpenLinkOptions): Promise<void>;
 
   /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability with the caller information specified. The caller information is carried in **Want** and 
+   * identified at the system service layer. The ability can obtain the caller information from the **Want** parameter 
+   * in the **onCreate** lifecycle callback. When this API is used to start an ability, the caller information carried 
+   * in **Want** is not overwritten by the current application information. The system service layer can obtain the 
+   * initial caller information. This API can be called only on the main thread. It uses an asynchronous callback to 
+   * return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -521,105 +278,43 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
+   * @since 10 dynamic
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability with the caller information and start options specified. The caller information is carried in 
+   * **Want** and identified at the system service layer. The ability can obtain the caller information from the 
+   * **Want** parameter in the **onCreate** lifecycle callback. When this API is used to start an ability, the caller 
+   * information carried in **Want** is not overwritten by the current application information. The system service layer
+   * can obtain the initial caller information. This API can be called only on the main thread. It uses an asynchronous 
+   * callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { StartOptions } options - Parameters used for starting the ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -633,103 +328,42 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
+   * @since 10 dynamic
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability with the start options specified. The caller information is carried in **Want** and identified at
+   * the system service layer. The ability can obtain the caller information from the **Want** parameter in the 
+   * **onCreate** lifecycle callback. When this API is used to start an ability, the caller information carried in 
+   * **Want** is not overwritten by the current application information. The system service layer can obtain the initial
+   * caller information. This API can be called only on the main thread. It uses a promise to return the result 
+   * asynchronously.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @param { StartOptions } options - Parameters used for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -745,108 +379,40 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension start an ability using the original caller information. If the caller application is in
-   * foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
+   * @since 10 dynamic
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability with the account ID specified. This API can be called only on the main thread. It uses an 
+   * asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -862,261 +428,93 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
-   */
-  startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability with account.
+   * Starts an ability with the account ID and start options specified. This API can be called only on the main thread. 
+   * It uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @param { StartOptions } options - Parameters used for starting the ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 13]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
+   *     forbidden. [since 9 - 13]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
-   */
-  startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability with the account ID specified. This API can be called only on the main thread. It uses a promise 
+   * to return the result asynchronously.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @param { StartOptions } [options] - Parameters used for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -1132,107 +530,33 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 12]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
-  /**
-   * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
-   */
-  startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+  startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts a new service extension ability.
+   * Starts a ServiceExtensionAbility. This API uses an asynchronous callback to return the result.
    *
-   * @param { Want } want - Indicates the want info to start.
-   * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ServiceExtensionAbility is
+   *     started, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1241,82 +565,27 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Starts a new service extension ability.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the want info to start.
-   * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Starts a new service extension ability.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the want info to start.
-   * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new service extension ability.
+   * Starts a ServiceExtensionAbility. This API uses a promise to return the result asynchronously.
    *
-   * @param { Want } want - Indicates the want info to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1325,84 +594,37 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Starts a new service extension ability.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the want info to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Starts a new service extension ability.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the want info to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Starts a new service extension ability with account.
+   * Starts a ServiceExtensionAbility with the account ID specified. This API uses an asynchronous callback to return 
+   * the result.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ServiceExtensionAbility is
+   *     started, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1411,87 +633,36 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Starts a new service extension ability with account.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Starts a new service extension ability with account.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
-   */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new service extension ability with account.
+   * Starts a ServiceExtensionAbility with the account ID specified. This API uses a promise to return the result 
+   * asynchronously.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1500,84 +671,27 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
+   * @throws { BusinessError } 16000019 - No matching ability is found. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Starts a new service extension ability with account.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Starts a new service extension ability with account.
-   * If the target service extension ability is visible, you can start the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
-   */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
-   * Stops a service within the same application.
+   * Stops a ServiceExtensionAbility. This API uses an asynchronous callback to return the result.
    *
-   * @param { Want } want - Indicates the want info to start.
-   * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ServiceExtensionAbility is
+   *     stopped, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1585,48 +699,24 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Stops other service extension ability.
-   * If the target service extension ability is visible, you can stop the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the want info to start.
-   * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops a service within the same application.
+   * Stops a ServiceExtensionAbility. This API uses a promise to return the result asynchronously.
    *
-   * @param { Want } want - Indicates the want info to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1634,51 +724,33 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Stops other service extension ability.
-   * If the target service extension ability is visible, you can stop the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the want info to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Stops a service within the same application with account.
+   * Stops a ServiceExtensionAbility with the specified account. This API uses an asynchronous callback to return the 
+   * result.
+   * 
+   * > **NOTE**
+   * >
+   * > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ServiceExtensionAbility is
+   *     stopped, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1686,52 +758,31 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Stops other service extension ability with account.
-   * If the target service extension ability is visible, you can stop the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops a service within the same application with account.
+   * Stops a ServiceExtensionAbility with the specified account. This API uses a promise to return the result 
+   * asynchronously.
+   * 
+   * > **NOTE**
+   * >
+   * > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -1739,323 +790,238 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Stops other service extension ability with account.
-   * If the target service extension ability is visible, you can stop the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
-   * Destroys this service extension.
+   * Terminates this ability. This API can be called only on the main thread. It uses an asynchronous callback to return
+   * the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is terminated, **err**
+   *     is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Destroys this service extension.
-   *
-   * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this service extension.
+   * Terminates this ability. This API can be called only on the main thread. It uses a promise to return the result 
+   * asynchronously.
    *
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Destroys this service extension.
-   *
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   terminateSelf(): Promise<void>;
 
   /**
-   * Connects an ability to a Service extension.
-   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-   * service extension when the Service extension is connected.</p>
+   * Connects this ability to a ServiceExtensionAbility. This API can be called only on the main thread.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the service extension to connect.
-   * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { ConnectOptions } options - Callback used to return the information indicating that the connection is
+   *     successful, interrupted, or failed.
+   * @returns { long } A number, based on which the connection will be interrupted.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 10]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
+   * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Connects an ability to a service extension ability.
-   * If the target service extension ability is visible, you can connect the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-   * service extension when the Service extension is connected.</p>
-   *
-   * @param { Want } want - Indicates the service extension to connect.
-   * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { long } Returns the connection id.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
-   * Connects an ability to a Service extension with account.
-   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-   * service extension when the Service extension is connected.</p>
+   * Connects this ability to a ServiceExtensionAbility of a given account. This API can be called only on the main 
+   * thread.
+   * 
+   * This API can be properly called on phones and tablets. If it is called on other devices, error code 16000006 is 
+   * returned.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the service extension to connect.
-   * @param { number } accountId - Indicates the account to connect.
-   * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @param { Want } want - Want information about the target ability.
+   * @param { int } accountId - ID of the target system account.
+   * @param { ConnectOptions } options - Remote object instance.
+   * @returns { long } Result code of the connection.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 10]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
+   * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  /**
-   * Connects an ability to a service extension ability with account.
-   * If the target service extension ability is visible, you can connect the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-   * service extension when the Service extension is connected.</p>
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the service extension to connect.
-   * @param { number } accountId - Indicates the account to connect.
-   * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
-   */
-  connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+  connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
   /**
-   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
+   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote 
+   * object returned upon the connection to void. This API can be called only on the main thread. It uses an 
+   * asynchronous callback to return the result.
    *
-   * @param { long } connection - the connection id returned from connectAbility api.
-   * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
+   * @param { long } connection - Number returned after **connectServiceExtensionAbility** is called.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is disconnected,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
+   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote 
+   * object returned upon the connection to void. This API can be called only on the main thread. It uses a promise to 
+   * return the result asynchronously.
    *
-   * @param { long } connection - the connection id returned from connectAbility api.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { long } connection - Number returned after **connectServiceExtensionAbility** is called.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
-   * Get the caller object of the startup capability.
+   * Starts an ability in the foreground or background and obtains the caller object for communicating with the ability.
+   * This API can be called only on the main thread. It uses a promise to return the result asynchronously.
+   * 
+   * This API cannot be used to start the UIAbility with the launch type set to 
+   * [specified](docroot://application-models/uiability-launch-type.md#specified).
+   * 
+   * Observe the following when using this API:
+   * 
+   * - If an application running in the background needs to call this API to start an ability, it must have the 
+   * ohos.permission.START_ABILITIES_FROM_BACKGROUND permission.
+   * - If **exported** of the target ability is **false** in cross-application scenarios, the caller must have the 
+   * ohos.permission.START_INVISIBLE_ABILITY permission.
+   * - The rules for using this API in the same-device and cross-device scenarios are different. For details, see 
+   * [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
-   * @param { Want } want - Indicates the ability to start.
-   * @returns { Promise<Caller> } Returns the Caller interface.
+   * @param { Want } want - Information about the ability to start, including **abilityName**, **moduleName**,
+   *     **bundleName**, **deviceId**, and **parameters** (optional). If **parameters** is left blank or null, the
+   *     ability is started in the background.
+   * @returns { Promise<Caller> } Promise used to return the caller object to communicate with.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released. [since 9 - 9]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Get the caller object of the startup capability.
-   * If the local device starts a new ability, you need to apply for permission:ohos.permission.ABILITY_BACKGROUND_COMMUNICATION to use this method.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
-   * @param { Want } want - Indicates the ability to start.
-   * @returns { Promise<Caller> } Returns the Caller interface.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10 dynamic
+   * @since 9 dynamic
+   * @since 23 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
-
+  
   /**
-   * Get the caller object that specifies the accountId startup capability
-   * If the local device starts a new ability, you need to apply for permission:ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
-   * and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS to use this method.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * Starts an ability with the account ID specified and obtains the caller object for communicating with the ability. 
+   * This API can be called only on the main thread. It uses a promise to return the result asynchronously.
+   * 
+   * This API cannot be used to start the UIAbility with the launch type set to 
+   * [specified](docroot://application-models/uiability-launch-type.md#specified).
+   * 
+   * Observe the following when using this API:
+   * 
+   * - If an application needs to call this API to start an ability that belongs to another user, it must have the 
+   * ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permissions.
+   * - If an application running in the background needs to call this API to start an ability, it must have the 
+   * ohos.permission.START_ABILITIES_FROM_BACKGROUND permission.
+   * - If **exported** of the target ability is **false** in cross-application scenarios, the caller must have the 
+   * ohos.permission.START_INVISIBLE_ABILITY permission.
+   * - The rules for using this API in the same-device and cross-device scenarios are different. For details, see 
+   * [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the account to start.
-   * @returns { Promise<Caller> } Returns the Caller interface.
+   * @param { Want } want - Information about the ability to start, including **abilityName**, **moduleName**,
+   *     **bundleName**, **deviceId** (optional), and **parameters** (optional). If **deviceId** is left blank or null,
+   *     the local ability is started. If **parameters** is left blank or null, the ability is started in the
+   *     background.
+   * @param { int } accountId - ID of the target system account. The value **-1** indicates the current user.
+   * @returns { Promise<Caller> } Promise used to return the caller object to communicate with.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -2071,17 +1037,24 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
-  startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
+  startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
   /**
-   * Service extension uses this method to start a specific ability,
-   * if ability is multi instance, will start a recent instance.
+   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API can be called 
+   * only on the main thread. It uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -2095,191 +1068,87 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api. [since 14]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Service extension uses this method to start a specific ability, if ability is multi instance, will start a recent instance.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability, if ability is multi instance, will start a recent instance.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
+   * @since 9 dynamic
+   * @since 23 static
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability,
-   * if ability is multi instance, will start a recent instance.
+   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API can be called 
+   * only on the main thread. It uses an asynchronous callback to return the result.
+   * 
+   * You can use this API to carry start options.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Want information about the target ability.
+   * @param { StartOptions } options - Parameters used for starting the ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 13]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
+   *     forbidden. [since 9 - 13]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api. [since 14]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Service extension uses this method to start a specific ability, if ability is multi instance, will start a recent instance.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability, if ability is multi instance, will start a recent instance.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
+   * @since 9 dynamic
+   * @since 23 static
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability,
-   * if ability is multi instance, will start a recent instance.
+   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API uses a promise 
+   * to return the result asynchronously. It can be called only on the main thread.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
+   * @param { Want } want - Want information about the target ability.
+   * @param { StartOptions } [options] - Parameters used for starting the ability.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -2293,185 +1162,116 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 10]
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api. [since 14]
+   * @throws { BusinessError } 16000071 - App clone is not supported. [since 14]
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000073 - The app clone index is invalid. [since 14]
+   * @throws { BusinessError } 16000076 - The app instance key is invalid. [since 14]
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit. [since 14]
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported. [since 14]
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified. [since 14]
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Service extension uses this method to start a specific ability, if ability is multi instance, will start a recent instance.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Service extension uses this method to start a specific ability, if ability is multi instance, will start a recent instance.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
-   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 16000073 - The app clone index is invalid.
-   * @throws { BusinessError } 16000076 - The app instance key is invalid.
-   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
-   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
-   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
-   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 14 dynamic
+   * @since 9 dynamic
+   * @since 23 static
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Requests the Modal UIExtensionAbility.
-   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type. The focused 
+   * application is specified by **bundleName** in **want.parameters**. If **bundleName** is left unspecified, or if the
+   * specified application does not gain focus, the UIExtensionAbility is directly started on the system UI. The 
+   * UIExtensionAbility to start is determined by the combination of the **bundleName**, **abilityName**, and 
+   * **moduleName** fields in **Want**, and its type is determined by the **ability.want.params.uiExtensionType** field 
+   * in **want.parameters**. This API can be called only on the main thread. It uses an asynchronous callback to return 
+   * the result.
+   * 
+   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
+   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
+   * UIExtensionAbility by listening for the page loading status.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
-   * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @param { Want } pickerWant - Want information used to start the UIExtensionAbility.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the UIExtensionAbility is started,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 11 - 11]
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 11 - 11]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 11 - 11]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 11 - 11]
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released. [since 11 - 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
-   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
-   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
-   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
-   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
-   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
-   *
-   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
-   * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 11 dynamic
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
-
+  
   /**
-   * Requests the Modal UIExtensionAbility.
-   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type. The focused 
+   * application is specified by **bundleName** in **want.parameters**. If **bundleName** is left unspecified, or if the
+   * specified application does not gain focus, the UIExtensionAbility is directly started on the system UI. The 
+   * UIExtensionAbility to start is determined by the combination of the **bundleName**, **abilityName**, and 
+   * **moduleName** fields in **Want**, and its type is determined by the **ability.want.params.uiExtensionType** field 
+   * in **want.parameters**. This API can be called only on the main thread. It uses a promise to return the result 
+   * asynchronously.
+   * 
+   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
+   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
+   * UIExtensionAbility by listening for the page loading status.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
-   * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @param { Want } pickerWant - Want information used to start the UIExtensionAbility.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 11 - 11]
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 11 - 11]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 11 - 11]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 11 - 11]
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released. [since 11 - 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
-   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
-   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
-   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
-   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
-   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
-   *
-   * @param { Want } pickerWant - Indicates the UIExtensionAbility to start.
-   * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 11 dynamic
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
   /**
-   * preStartMission opens an atomic service window without popping up a loading window
+   * Starts an atomic service and pre-opens the window, with the loading box skipped. This API uses a promise to return 
+   * the result.
+   * 
+   * If parameter verification is successful but the atomic service fails to start, you need to implement an exception 
+   * mechanism to capture the error.
    *
    * @permission ohos.permission.PRE_START_ATOMIC_SERVICE
-   * @param { string } bundleName - The bundle name of the atomic service.
-   * @param { string } moduleName - The module name of the atomic service.
-   * @param { string } abilityName - The ability name of the atomic service.
-   * @param { string } startTime - The start time of the atomic service.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } bundleName - Bundle name of the atomic service.
+   * @param { string } moduleName - Module name of the atomic service.
+   * @param { string } abilityName - Ability name of the atomic service.
+   * @param { string } startTime - Start time to open the atomic service, in milliseconds.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300007 - The target free-installation task does not exist.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -2479,21 +1279,26 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   */  
+   * @since 23 static
+   */
   preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 
   /**
-   * Starts a UI service extension ability.
-   * If the target UI service extension ability is visible, you can start the target UI service extension ability;
-   * If the target UI service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UI service extension ability.
+   * Starts a new 
+   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. This
+   * API uses a promise to return the result asynchronously.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Indicates the want info to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -2510,22 +1315,25 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Full-screen pop-up startup atomic service.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * Starts an atomic service based on an application ID. This API uses a promise to return the result asynchronously.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
-   * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } appId - Unique ID of the application, which is allocated by the cloud.
+   * @param { AtomicServiceOptions } [options] - Parameter carried in the request for starting the atomic service in
+   *     jump-out mode.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -2536,18 +1344,31 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 23 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 
   /**
-   * Starts multi UIAbility simultaneously. If the caller application is in foreground, you can use
-   * this method to start abilities; If the caller application is in the background, you need to apply
-   * for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND. If the target ability is visible,
-   * you can start the target ability; If the target ability is invisible,you need to apply for
-   * permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * Starts multiple UIAbility components simultaneously. This API uses a promise to return the result asynchronously.
+   * 
+   * You can pass the Want information of multiple UIAbility instances, which can point to one or more applications. If 
+   * all the UIAbility instances can be started successfully, the system displays these UIAbility instances in multiple 
+   * windows simultaneously. Depending on the window handling, different devices may have varying display effects (
+   * including window shape, quantity, and layout).
+   * 
+   * This API can be properly called on phones and tablets. If it is called on other devices, error code 801 is 
+   * returned.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
-   * @param { Array<Want> } wantList - Indicates the want info list to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<Want> } wantList - List of launch parameters for multiple UIAbility components to be started
+   *     simultaneously. A maximum of four Want objects can be passed. The **Want** parameter does not support implicit
+   *     launch, cross-user launch, distributed launch, instant installation, or on-demand loading. By default, the main
+   *     application is launched unless specified otherwise.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2564,10 +1385,10 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000076 - The app instance key is invalid.
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @throws { BusinessError } 16000120 - A maximum of four UIAbility instances can be started simultaneously.
-   *                                      The current parameter exceeds the maximum number or is less than 1.
+   *     The current parameter exceeds the maximum number or is less than 1.
    * @throws { BusinessError } 16000121 - The target component type is not a UIAbility.
    * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
-   *                                      does not support startup.
+   *     does not support startup.
    * @throws { BusinessError } 16000123 - Implicit startup is not supported.
    * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
    * @throws { BusinessError } 16000125 - Starting a plugin UIAbility is not supported.
@@ -2576,6 +1397,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 }

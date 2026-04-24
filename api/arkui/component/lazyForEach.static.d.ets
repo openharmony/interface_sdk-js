@@ -18,59 +18,155 @@
  */
 
 import { Builder } from './builder';
-import { ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common';
 
 /**
- * Defines type to operation data source.
+ * Defines the types of data source operations.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export enum DataOperationType {
     /**
      * Add data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ADD = 'add',
     /**
      * Delete data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     DELETE = 'delete',
     /**
      * Exchange data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     EXCHANGE = 'exchange',
     /**
      * Move data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     MOVE = 'move',
     /**
      * Change data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     CHANGE = 'change',
     /**
      * Reload data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     RELOAD = 'reload'
+}
+
+/**
+ * Enumerates the release strategies for LazyForEach discarded nodes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export enum LazyForEachReleaseStrategy {
+    /**
+     * Release all discarded nodes during the next idle period.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    BATCH = 0,
+    /**
+     * Release discarded nodes one by one during the next idle period based on the
+     * remaining time of the current frame. Unreleased nodes will continue to be
+     * released in subsequent idle periods based on the available idle time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    PROGRESSIVE = 1
+}
+
+/**
+ * Enumerates the freeze modes for cached custom nodes that have been removed
+ * from the component tree in LazyForEach.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export enum LazyForEachCustomComponentFreezeMode {
+    /**
+     * Follow the enableCustomComponentFreeze field in Metadata to determine
+     * whether freezing takes effect.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    AUTO = 0,
+    /**
+     * Freezing is disabled for cached custom nodes removed from the component tree.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISABLED = 1,
+    /**
+     * Freezing is enabled for cached custom nodes removed from the component tree.
+     * State updates of cached custom components will be frozen.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ENABLED = 2
+}
+
+/**
+ * Defines the options for LazyForEach.
+ *
+ * @interface LazyForEachOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface LazyForEachOptions {
+    /**
+     * Freeze mode for cached custom nodes that have been removed from the
+     * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+     *
+     * @default LazyForEachCustomComponentFreezeMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
+    /**
+     * Resource release strategy for LazyForEach discarded nodes.
+     * Default value: LazyForEachReleaseStrategy.BATCH.
+     *
+     * @default LazyForEachReleaseStrategy.BATCH
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    releaseStrategy?: LazyForEachReleaseStrategy;
 }
 
 /**
@@ -78,7 +174,7 @@ export enum DataOperationType {
  *
  * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataAddOperation {
     /**
@@ -86,33 +182,33 @@ export interface DataAddOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: DataOperationType;
     /**
      * Index of added data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    index: number;
+    index: int;
     /**
-     * Count of added data in one operation
+     * Count of added data in one operation.
      * Only validate for ADD and DELETE.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    count?: number;
+    count?: int;
     /**
      * Key of added data.
      *
      * @type { ?(string | Array<string>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     key?: string | Array<string>;
 }
@@ -122,7 +218,7 @@ export interface DataAddOperation {
  *
  * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataDeleteOperation {
     /**
@@ -130,7 +226,7 @@ export interface DataDeleteOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: DataOperationType;
     /**
@@ -138,19 +234,19 @@ export interface DataDeleteOperation {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    index: number;
+    index: int;
     /**
-     * Count of deleted data in one operation
+     * Count of deleted data in one operation.
      * Only validate for ADD and DELETE.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    count?: number;
+    count?: int;
 }
 
 /**
@@ -158,7 +254,7 @@ export interface DataDeleteOperation {
  *
  * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataChangeOperation {
     /**
@@ -166,23 +262,23 @@ export interface DataChangeOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: DataOperationType;
     /**
      * Index of changed data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    index: number;
+    index: int;
     /**
      * Key of changed data.
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     key?: string;
 }
@@ -192,25 +288,25 @@ export interface DataChangeOperation {
  *
  * @interface MoveIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface MoveIndex {
     /**
      * Index of moved data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    from: number;
+    from: int;
     /**
      * Destination of moved data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    to: number;
+    to: int;
 }
 
 /**
@@ -218,25 +314,25 @@ export interface MoveIndex {
  *
  * @interface ExchangeIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface ExchangeIndex {
     /**
      * Index of the first exchange data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    start: number;
+    start: int;
     /**
      * Index of the second exchange data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    end: number;
+    end: int;
 }
 
 /**
@@ -244,7 +340,7 @@ export interface ExchangeIndex {
  *
  * @interface ExchangeKey
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface ExchangeKey {
     /**
@@ -252,7 +348,7 @@ export interface ExchangeKey {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     start: string;
     /**
@@ -260,7 +356,7 @@ export interface ExchangeKey {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     end: string;
 }
@@ -270,7 +366,7 @@ export interface ExchangeKey {
  *
  * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataMoveOperation {
     /**
@@ -278,7 +374,7 @@ export interface DataMoveOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: DataOperationType;
     /**
@@ -286,7 +382,7 @@ export interface DataMoveOperation {
      *
      * @type { MoveIndex }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     index: MoveIndex;
     /**
@@ -294,7 +390,7 @@ export interface DataMoveOperation {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     key?: string;
 }
@@ -304,7 +400,7 @@ export interface DataMoveOperation {
  *
  * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataExchangeOperation {
     /**
@@ -312,7 +408,7 @@ export interface DataExchangeOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: DataOperationType;
     /**
@@ -320,7 +416,7 @@ export interface DataExchangeOperation {
      *
      * @type { ExchangeIndex }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     index: ExchangeIndex;
     /**
@@ -328,7 +424,7 @@ export interface DataExchangeOperation {
      *
      * @type { ?ExchangeKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     key?: ExchangeKey;
 }
@@ -338,7 +434,7 @@ export interface DataExchangeOperation {
  *
  * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataReloadOperation {
     /**
@@ -346,18 +442,18 @@ export interface DataReloadOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: DataOperationType;
 }
 
 /**
- * All data operation type
+ * All data operation types.
  *
  * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation
  *  | DataReloadOperation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation |
     DataExchangeOperation | DataReloadOperation;
@@ -367,55 +463,57 @@ export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeO
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DataChangeListener {
     /**
      * Data ready.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onDataReloaded(): void;
     /**
      * Data added.
      *
-     * @param { number } index
+     * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    onDataAdd(index: number): void;
+    onDataAdd(index: int): void;
     /**
      * Data moved.
      *
-     * @param { number } from
-     * @param { number } to
+     * @param { int } from
+     * @param { int } to
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    onDataMove(from: number, to: number): void;
+    onDataMove(from: int, to: int): void;
     /**
      * Data deleted.
      *
-     * @param { number } index
+     * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    onDataDelete(index: number): void;
+    onDataDelete(index: int): void;
     /**
-     * Call when has data change.
+     * Called when there is a data change.
      *
-     * @param { number } index
+     * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    onDataChange(index: number): void;
+    onDataChange(index: int): void;
     /**
-     * Call when multiple data change.
+     * Called when multiple data changes occur.
      *
      * @param { Array<DataOperation> } dataOperations
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onDatasetChange(dataOperations: Array<DataOperation>): void;
 }
@@ -425,32 +523,32 @@ export interface DataChangeListener {
  *
  * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface IDataSource<T> {
     /**
      * Total data count.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    totalCount(): number;
+    totalCount(): int;
     /**
      * Return the data of index.
      *
-     * @param { number } index
+     * @param { int } index
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getData(index: number): T;
+    getData(index: int): T;
     /**
      * Register data change listener.
      *
      * @param { DataChangeListener } listener
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     registerDataChangeListener(listener: DataChangeListener): void;
     /**
@@ -458,45 +556,56 @@ export interface IDataSource<T> {
      *
      * @param { DataChangeListener } listener
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     unregisterDataChangeListener(listener: DataChangeListener): void;
 }
 
 /**
- * declare LazyForEachAttribute
+ * Declare LazyForEachAttribute.
  *
  * @extends DynamicNode
  * @interface LazyForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
-export interface LazyForEachAttribute extends DynamicNode {}
+export interface LazyForEachAttribute extends DynamicNode {
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    debugLine(sourceLine: string, moduleName?: string): this;
+}
 
 /**
- * Define item generator function.
+ * Defines item generator function.
  *
  * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
+ * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Builder
-declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
+declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
- * Define key generator function.
+ * Defines key generator function.
  *
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
- * @returns {string} Character string generated based on item and index
+ * @param { int } index - index corresponding to an array item.
+ * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
-declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
+declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
  * Enter the value to obtain the LazyForEach.
@@ -506,11 +615,43 @@ declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
  * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
  * @returns { LazyForEachAttribute } LazyForEach attribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
+ * @noninterop
+ */
+/**
+ * Enter the value to obtain the LazyForEach.
+ *
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @returns { LazyForEachAttribute } LazyForEach attribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
  * @noninterop
  */
 @ComponentBuilder
-export declare function LazyForEach<T>(dataSource: IDataSource<T>,
+export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
+): LazyForEachAttribute;
+
+/**
+ * Enter the value to obtain the LazyForEach.
+ *
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
+ * @returns { LazyForEachAttribute } LazyForEach attribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
+    itemGenerator: ItemGeneratorFunc<T>,
+    keyGenerator?: KeyGeneratorFunc<T>,
+    options?: LazyForEachOptions,
 ): LazyForEachAttribute;

@@ -19,352 +19,174 @@
  */
 
 /**
- * Provides internationalization related APIs.
+ * The **intl** module provides basic i18n capabilities, such as time and date formatting, number formatting, and string
+ * sorting, through the standard i18n APIs defined in ECMA 402.
  *
- * @namespace intl
  * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-/**
- * Provides internationalization related APIs.
- *
- * @namespace intl
- * @syscap SystemCapability.Global.I18n
- * @crossplatform
- * @since 10
- */
-/**
- * Provides internationalization related APIs.
- *
- * @namespace intl
- * @syscap SystemCapability.Global.I18n
- * @crossplatform
- * @form
- * @since 11
- */
-/**
- * Provides internationalization related APIs.
- *
- * @namespace intl
- * @syscap SystemCapability.Global.I18n
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @crossplatform [since 10]
+ * @form [since 11]
+ * @atomicservice [since 12]
+ * @since 6 dynamic
  */
 declare namespace intl {
   /**
-   * Provides the options of Locale.
+   * Options for initializing the **Locale** object. Since API version 9, the **LocaleOptions** attribute is changed 
+   * from mandatory to optional.
+   * 
+   * > **NOTE**
+   * >
+   * > - For details about **calendar**, see Table 1 in 
+   * > [Calendar Setting](docroot://internationalization/i18n-calendar.md).
    *
-   * @interface LocaleOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 6
-   */
-  /**
-   * Provides the options of Locale.
-   *
-   * @interface LocaleOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the options of Locale.
-   *
-   * @interface LocaleOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @since 11
-   */
-  /**
-   * Provides the options of Locale.
-   *
-   * @interface LocaleOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @form [since 11]
+   * @atomicservice [since 12]
+   * @since 6 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.LocaleOptions
    */
   export interface LocaleOptions {
     /**
-     * Indicates the calendar.
+     * Calendar parameter. The value can be:
+     * 
+     * "buddhist", "chinese", "coptic", "dangi", "ethioaa", "ethiopic", "gregory", "hebrew", "indian", "islamic", "
+     * islamic-umalqura", "islamic-tbla", "islamic-civil", "islamic-rgsa", "iso8601", "japanese", "persian", "roc",
+     * or "islamicc".
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the calendar.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the calendar.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the calendar.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Calendar parameter. The value can be: "buddhist", "chinese", "coptic", "dangi", "ethioaa", "ethiopic",
-     * "gregory", "hebrew", "indian", "islamic", "islamic-umalqura", "islamic-tbla", "islamic-civil",
-     * "islamic-rgsa", "iso8601", "japanese", "persian", "roc", or "islamicc".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.calendar
      */
     calendar?: string;
 
     /**
-     * Indicates the collation.
+     * Collation rules for the locale. The value can be:
+     * 
+     * **big5han**: Pinyin sorting for Latin letters.
+     * 
+     * **compat**: compatibility sorting, only for Arabic.
+     * 
+     * **dict**: dictionary-style sorting, only for Singhalese.
+     * 
+     * **direct**: binary code point sorting.
+     * 
+     * **ducet**: sorting according to the Unicode collation element table.
+     * 
+     * **eor**: sorting according to the European collation rules.
+     * 
+     * **gb2312**: Pinyin sorting, only for Chinese.
+     * 
+     * **phonebk**: phone book-style sorting.
+     * 
+     * **phonetic**: phonetic sorting.
+     * 
+     * **pinyin**: Pinyin sorting.
+     * 
+     * **reformed**: reformed sorting, only for Swedish.
+     * 
+     * **searchjl**: special sorting for Korean initial consonant search.
+     * 
+     * **stroke**: stroke sorting for Chinese.
+     * 
+     * **trad**: traditional-style sorting, for example, Spanish.
+     * 
+     * **unihan**: radical-stroke sorting for Han characters, only for Chinese, Japanese, and Korean.
+     * 
+     * **zhuyin**: Zhuyin sorting, only for Chinese.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the collation.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the collation.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the collation.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Collation parameter. The value can be: "big5han", "compat", "dict", "direct", "ducet", "emoji", "eor", "gb2312",
-     * "phonebk", "phonetic", "pinyin", "reformed, "search", "searchjl", "standard", "stroke", "trad", "unihan", "zhuyin"
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.collation
      */
     collation?: string;
 
     /**
-     * Indicates the hourCycle.
+     * Hour cycle. The value can be:
+     * 
+     * "h11", "h12", "h23", or  "h24".
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the hourCycle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the hourCycle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the hourCycle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.hourCycle
      */
     hourCycle?: string;
 
     /**
-     * Indicates the numberingSystem.
+     * Numbering system. The value can be:
+     * 
+     * **adlm**, **ahom**, **arab**, **arabext**, **bali**, **beng**, **bhks**, **brah**, **cakm**, **cham**, **deva**, 
+     * **diak**, **fullwide**, **gong**, **gonm**, **gujr**, **guru**, **hanidec**, **hmng**, **hmnp**, **java**, 
+     * **kali**, **khmr**, **knda**, **lana**, **lanatham**, **laoo**, **latn**, **lepc**, **limb**, **mathbold**, 
+     * **mathdbl**, **mathmono**, **mathsanb**, **mathsans**, **mlym**, **modi**, **mong**, **mroo**, **mtei**, **mymr**, 
+     * **mymrshan**, **mymrtlng**, **newa**, **nkoo**, **olck**, **orya**, **osma**, **rohg**, **saur**, **segment**, 
+     * **shrd**, **sind**, **sinh**, **sora**, **sund**, **takr**, **talu**, **tamldec**, **telu**, **thai**, **tibt**, 
+     * **tirh**, **vaii**, **wara**, or **wcho**.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm",
-     * "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali",
-     * "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono",
-     * "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo",
-     * "olck", "orya*", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu",
-     * "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.numberingSystem
      */
     numberingSystem?: string;
 
     /**
-     * Indicates the numeric.
+     * Whether to treat numeric characters as numbers for sorting. The value true means to treat numeric characters as 
+     * numbers for sorting, and the value **false** means to treat numeric characters as ordinary characters for 
+     * sorting. For example, when this parameter is set to **true**, comparing the string **21** with the string **123**
+     * is equivalent to comparing the number 21 with the number 123. The default value is **false**.
      *
-     * @type { boolean }
+     * @type { boolean } [since 6 - 8]
+     * @type { ?boolean } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the numeric.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the numeric.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the numeric.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Wether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
-     * and the value "false" means the opposite. The default value is "false".
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.numeric
      */
     numeric?: boolean;
 
     /**
-     * Indicates the caseFirst.
+     * Whether case is taken into account for the locale's collation rules. The value can be:
+     * 
+     * **upper**: Uppercase letters come first.
+     * 
+     * **lower**: Lowercase letters come first.
+     * 
+     * **false**: The default collation rules of the locale are used.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the caseFirst.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the caseFirst.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the caseFirst.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Whether upper case or lower case is sorted first. The value can be "upper", "lower", or "false".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.caseFirst
      */
@@ -375,586 +197,246 @@ declare namespace intl {
    * Provides APIs for obtaining locale information.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 6
-   */
-  /**
-   * Provides APIs for obtaining locale information.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides APIs for obtaining locale information.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @since 11
-   */
-  /**
-   * Provides APIs for obtaining locale information.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @form [since 11]
+   * @atomicservice [since 12]
+   * @since 6 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.Locale
    */
   export class Locale {
     /**
-     * A constructor used to create a Locale object.
+     * Creates a **Locale** object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create a Locale object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a Locale object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Creates a Locale object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead i18n.System.getSystemLocaleInstance
+     * @useinstead Intl.Locale.constructor
      */
     constructor();
 
     /**
-     * A constructor used to create a Locale object.
-     *
-     * @param { string } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region.
-     * @param { LocaleOptions } options - Indicates Locale option object use to initialize the Locale object.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * A constructor used to create a Locale object.
-     *
-     * @param { string } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region.
-     * @param { LocaleOptions } options - Indicates Locale option object use to initialize the Locale object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a Locale object.
-     *
-     * @param { string } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region.
-     * @param { LocaleOptions } options - Indicates Locale option object use to initialize the Locale object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Creates a Locale object.
+     * Creates a **Locale** object.
      *
      * @param { string } locale - Locale information, which consists of the language, script, and country/region.
-     * @param { LocaleOptions } [options] -  Options for creating the Locale object.
+     * @param { LocaleOptions } options - Options for creating the **Locale** object. [since 6 - 11]
+     * @param { LocaleOptions } [options] - Options for creating the **Locale** object. [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.constructor
      */
     constructor(locale: string, options?: LocaleOptions);
 
     /**
-     * Indicates the language of the locale.
+     * Language associated with the locale, for example, **zh**. The value complies with the ISO 639 standard.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the language of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the language of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Language associated with the locale, for example, "zh". The value complies with the ISO 639 standard.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.language
      */
     language: string;
 
     /**
-     * Indicates the script of the locale.
+     * Script type of the language, for example, **Hans**. The value complies with the Unicode ISO 15924 standard.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the script of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the script of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Script type of the language, for example, "Hans". The value complies with the Unicode ISO 15924 standard.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.script
      */
     script: string;
 
     /**
-     * Indicates the region of the locale.
+     * Country/region associated with the locale, for example, **CN**. The value complies with the ISO 3166 standard.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the region of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the region of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Country/region associated with the locale, for example, "CN". The value complies with the ISO 3166 standard.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.region
      */
     region: string;
 
     /**
-     * Indicates the basic locale information, which is returned as a substring of
-     * a complete locale string.
+     * Locale information, which consists of the language, script, and country/region, for example, **zh-Hans-CN**.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the basic locale information, which is returned as a substring of
-     * a complete locale string.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the basic locale information, which is returned as a substring of
-     * a complete locale string.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Locale information, which consists of the language, script, and country/region, for example, "zh-Hans-CN".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.baseName
      */
     baseName: string;
 
     /**
-     * Indicates the case first style of the locale.
+     * Whether case is taken into account for the locale's collation rules. The value can be:
+     *        **upper**: Uppercase letters come first.
+     *        **lower**: Lowercase letters come first.
+     *        **false**: The default collation rules of the locale are used.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the case first style of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the case first style of the locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Whether case is taken into account for the locale's collation rules. The value can be: "upper", "lower", or
-     * "false".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.caseFirst
      */
     caseFirst: string;
 
     /**
-     * Indicates the calendar.
+     * Calendar for the locale. The value can be:
+     * The value can be any of the following: **buddhist**, **chinese**, 
+     * **coptic**, **dangi**, **ethioaa**, **ethiopic**, **gregory**, **hebrew**, **indian**, **islamic**, 
+     * **islamic-umalqura**, **islamic-tbla**, **islamic-civil**, **islamic-rgsa**, **iso8601**, **japanese**, 
+     * **persian**, **roc**, or **islamicc**.
+     *  For details about their meanings, see Table 1 in 
+     * [Calendar Setting](docroot://internationalization/i18n-calendar.md).
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the calendar.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the calendar.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Calendar for the locale. The value can be: "buddhist", "chinese", "coptic", "dangi", "ethioaa", "ethiopic",
-     * "gregory", "hebrew", "indian", "islamic", "islamic-umalqura", "islamic-tbla", "islamic-civil", "islamic-rgsa",
-     * "iso8601", "japanese", "persian", "roc", or "islamicc".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.calendar
      */
     calendar: string;
 
     /**
-     * Indicates the collation.
+     * Collation rules for the locale. The value can be:
+     * **big5han**: Pinyin sorting for Latin letters.
+     * **compat** : compatibility sorting, only for Arabic.
+     * **dict**: dictionary-style sorting, only for Singhalese.
+     * **direct**: binary code point sorting.
+     * **ducet**: sorting according to the Unicode collation element table.
+     * **eor**: sorting according to the European collation rules.
+     * **gb2312**: Pinyin sorting, only for Chinese.
+     * **phonebk**: phone book-style sorting.
+     * **phonetic**: phonetic sorting.
+     * **pinyin**: Pinyin sorting.
+     * **reformed**: reformed sorting, only for Swedish.
+     * **searchjl**: special sorting for Korean initial consonant search.
+     * **stroke**: stroke sorting for Chinese.
+     * **trad**: traditional-style sorting, for example, Spanish.
+     * **unihan**: radical-stroke sorting for Han characters, only for Chinese, Japanese, and Korean.
+     * **zhuyin**: Zhuyin  sorting, only for Chinese.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the collation.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the collation.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Collation rules for the locale. The value can be: "big5han", "compat", "dict", "direct", "ducet", "eor",
-     * "gb2312", "phonebk", "phonetic", "pinyin", "reformed", "searchjl", "stroke", "trad", "unihan", or "zhuyin".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.collation
      */
     collation: string;
 
     /**
-     * Indicates the hour cycle.
+     * Time system for the locale. The value can be:
+     * "h11", "h12", "h23", or "h24".
+     * For details about their 
+     * display effects, see [Table 5](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the hour cycle.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the hour cycle.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Time system for the locale. The value can be: "h11", "h12", "h23", or "h24".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.hourCycle
      */
     hourCycle: string;
 
     /**
-     * Indicates the numbering system.
+     * Numbering system for the locale. The value can be:
+     * **adlm**, **ahom**, **arab**, **arabext**, **bali**, 
+     * **beng**, **bhks**, **brah**, **cakm**, **cham**, **deva**, **diak**, **fullwide**, **gong**, **gonm**, **gujr**,
+     * **guru**, **hanidec**, **hmng**, **hmnp**, **java**, **kali**, **khmr**, **knda**, **lana**, **lanatham**, 
+     * **laoo**, **latn**, **lepc**, **limb**, **mathbold**, **mathdbl**, **mathmono**, **mathsanb**, **mathsans**, 
+     * **mlym**, **modi**, **mong**, **mroo**, **mtei**, **mymr**, **mymrshan**, **mymrtlng**, **newa**, **nkoo**, 
+     * **olck**, **orya**, **osma**, **rohg**, **saur**, **segment**, **shrd**, **sind**, **sinh**, **sora**, **sund**, 
+     * **takr**, **talu**, **tamldec**, **telu**, **thai**, **tibt**, **tirh**, **vaii**, **wara**, or **wcho**.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the numbering system.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the numbering system.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Numbering system for the locale. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
-     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
-     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
-     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
-     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
-     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.numberingSystem
      */
     numberingSystem: string;
 
     /**
-     * Indicates whether it is numeric.
+     * Whether to use special sorting rules for digits. The value **true** means to use special sorting rules for digits, 
+     * and the value **false** means the opposite.The default value is **false**.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates whether it is numeric.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates whether it is numeric.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Wether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
-     * and the value "false" means the opposite. The default value is "false".
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.numeric
      */
     numeric: boolean;
 
     /**
-     * Convert the locale information to string.
+     * Obtains the string that represents a **Locale** object.
      *
-     * @returns { string } locale information in string form.
+     * @returns { string } String that represents the **Locale** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Convert the locale information to string.
-     *
-     * @returns { string } locale information in string form.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Convert the locale information to string.
-     *
-     * @returns { string } locale information in string form.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Obtains the string that represents a Locale object.
-     *
-     * @returns { string } String that represents the Locale object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.toString
      */
     toString(): string;
 
     /**
-     * Maximize the locale's base information.
-     *
-     * @returns { Locale } maximized locale.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Maximize the locale's base information.
-     *
-     * @returns { Locale } maximized locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Maximize the locale's base information.
-     *
-     * @returns { Locale } maximized locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Maximizes locale information by supplementing the missing script and country/region information.
      *
-     * @returns { Locale } Locale object with the script and country/region information.
+     * @returns { Locale } **Locale** object with the script and country/region information.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.maximize
      */
     maximize(): Locale;
 
     /**
-     * Minimize the locale's base information.
-     *
-     * @returns { Locale } minimized locale.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Minimize the locale's base information.
-     *
-     * @returns { Locale } minimized locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimize the locale's base information.
-     *
-     * @returns { Locale } minimized locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Minimizes locale information by removing the script and country/region information.
      *
-     * @returns { Locale } Locale object without the script and country/region information.
+     * @returns { Locale } **Locale** object without the script and country/region information.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.minimize
      */
@@ -962,923 +444,375 @@ declare namespace intl {
   }
 
   /**
-   * Provides the options of date time format.
+   * Defines the options for a **DateTimeOptions** object. Since API version 9, the **DateTimeOptions** attribute is 
+   * changed from mandatory to optional.
    *
-   * @interface DateTimeOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 6
-   */
-  /**
-   * Provides the options of date time format.
-   *
-   * @interface DateTimeOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the options of date time format.
-   *
-   * @interface DateTimeOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @since 11
-   */
-  /**
-   * Defines the options for a DateTimeOptions object. Since API version 9, the DateTimeOptions attribute is changed
-   * from mandatory to optional.
-   *
-   * @interface DateTimeOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @form [since 11]
+   * @atomicservice [since 12]
+   * @since 6 dynamic
    * @deprecated since 20
    * @useinstead Intl.DateTimeFormatOptions
    */
   export interface DateTimeOptions {
     /**
-     * Indicates the locale.
+     * Valid locale ID, for example, **zh-Hans-CN**.
+     * 
+     * The default value is the current system locale.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      */
     locale?: string;
 
     /**
-     * Indicates the dateStyle.
+     * Date display format. The value can be:
+     * 
+     * "long", "short", "medium", "full", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 1](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the dateStyle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the dateStyle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the dateStyle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Date display format. The value can be: "long", "short", "medium", "full", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.dateStyle
      */
     dateStyle?: string;
 
     /**
-     * Indicates the timeStyle.
+     * Time display format. The value can be:
+     * 
+     * "long", "short", "medium", "full", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 2](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the timeStyle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the timeStyle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the timeStyle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Time display format. The value can be: "long", "short", "medium", "full", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.timeStyle
      */
     timeStyle?: string;
 
     /**
-     * Indicates the hourCycle.
+     * Hour cycle. The value can be:
+     * 
+     * "h11", "h12", "h23", or  "h24".
+     * 
+     * For the display effects when **dateStyle** or **timeStyle** is not set, see 
+     * [Table 5](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
+     * 
+     * For the display effects when **dateStyle** or **timeStyle** is not set, see 
+     * [Table 6](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the hourCycle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the hourCycle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the hourCycle.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.hourCycle
      */
     hourCycle?: string;
 
     /**
-     * Indicates the timeZone.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the timeZone.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the timeZone.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the timeZone.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Time zone in use. The value is a valid IANA time zone ID.
      *
-     * @type { ?string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.timeZone
      */
     timeZone?: string;
 
     /**
-     * Indicates the numberingSystem.
+     * Numbering system. The value can be:
+     * 
+     * **adlm**, **ahom**, **arab**, **arabext**, **bali**, **beng**, **bhks**, **brah**, **cakm**, **cham**, **deva**, 
+     * **diak**, **fullwide**, **gong**, **gonm**, **gujr**, **guru**, **hanidec**, **hmng**, **hmnp**, **java**, 
+     * **kali**, **khmr**, **knda**, **lana**, **lanatham**, **laoo**, **latn**, **lepc**, **limb**, **mathbold**, 
+     * **mathdbl**, **mathmono**, **mathsanb**, **mathsans**, **mlym**, **modi**, **mong**, **mroo**, **mtei**, **mymr**
+     * , **mymrshan**, **mymrtlng**, **newa**, **nkoo**, **olck**, **orya**, **osma**, **rohg**, **saur**, **segment**, 
+     * **shrd**, **sind**, **sinh**, **sora**, **sund**, **takr**, **talu**, **tamldec**, **telu**, **thai**, **tibt**, 
+     * **tirh**, **vaii**, **wara**, or **wcho**.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
-     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
-     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
-     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
-     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
-     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.numberingSystem
      */
     numberingSystem?: string;
 
     /**
-     * Indicates the hour12.
+     * Whether to use the 12-hour clock. The value **true** means to use the 12-hour clock, and the value **false** 
+     * means the opposite.
+     * 
+     * If both **hour12** and **hourCycle** are set, **hourCycle** does not take effect.
+     * 
+     * If **hour12** and **hourCycle** are not set and the 24-hour clock is turned on, the default value of **hour12** 
+     * is **false**.
      *
-     * @type { boolean }
+     * @type { boolean } [since 6 - 8]
+     * @type { ?boolean } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the hour12.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the hour12.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the hour12.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Whether to use the 12-hour clock. The value true means to use the 12-hour clock, and the value false means the
-     * opposite. If both hour12 and hourCycle are set, hourCycle does not take effect. If hour12 and hourCycle are not
-     * set and the 24-hour clock is turned on, the default value of hour12 is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.hour12
      */
     hour12?: boolean;
 
     /**
-     * Indicates the weekday.
+     * Week display format. The value can be:
+     * 
+     * "long", "short", "narrow", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 4](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the weekday.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the weekday.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the weekday.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Week display format. The value can be: "long", "short", "narrow", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.weekday
      */
     weekday?: string;
 
     /**
-     * Indicates the era.
+     * Epoch display format. The value can be:
+     * 
+     * "long", "short", "narrow", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 9](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the era.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the era.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the era.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Epoch display format. The value can be: "long", "short", "narrow", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.era
      */
     era?: string;
 
     /**
-     * Indicates the year.
+     * Year display format. The value can be:
+     * 
+     * "numeric" or  "2-digit".
+     * 
+     * For details about their display effects, see 
+     * [Table 3](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the year.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the year.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the year.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Year display format. The value can be: "numeric" or "2-digit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.year
      */
     year?: string;
 
     /**
-     * Indicates the month.
+     * Month display format. The value can be:
+     * 
+     * "numeric", "2-digit", "long", "short", "narrow", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 7](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the month.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the month.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the month.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Month display format. The value can be: "numeric", "2-digit", "long", "short", "narrow", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.month
      */
     month?: string;
 
     /**
-     * Indicates the day.
+     * Day display format. The value can be:
+     * 
+     * "numeric" or  "2-digit".
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the day.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the day.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the day.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Day display format. The value can be: "numeric" or "2-digit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.day
      */
     day?: string;
 
     /**
-     * Indicates the hour.
+     * Hour display format. The value can be:
+     * 
+     * "numeric" or  "2-digit".
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the hour.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the hour.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the hour.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Hour display format. The value can be: "numeric" or "2-digit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.hour
      */
     hour?: string;
 
     /**
-     * Indicates the minute.
+     * Minute display format. The value can be:
+     * 
+     * "numeric" or  "2-digit".
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the minute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the minute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the minute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Minute display format. The value can be: "numeric" or "2-digit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.minute
      */
     minute?: string;
 
     /**
-     * Indicates the second.
+     * Second display format. The value can be:
+     * 
+     * "numeric" or  "2-digit".
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the second.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the second.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the second.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Second display format. The value can be: "numeric" or "2-digit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.second
      */
     second?: string;
 
     /**
-     * Indicates the timeZoneName.
+     * Localized representation of a time zone name. The value can be:
+     * 
+     * "long", "short", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 8](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the timeZoneName.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the timeZoneName.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the timeZoneName.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Localized representation of a time zone name. The value can be: "long", "short", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.timeZoneName
      */
     timeZoneName?: string;
 
     /**
-     * Indicates the dayPeriod.
+     * Time period display format. The value can be:
+     * 
+     * "long", "short", "narrow", or  "auto".
+     * 
+     * For details about their display effects, see 
+     * [Table 10](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the dayPeriod.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the dayPeriod.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the dayPeriod.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Time period display format. The value can be: "long", "short", "narrow", or "auto".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.dayPeriod
      */
     dayPeriod?: string;
 
     /**
-     * Indicates the localeMatcher.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the localeMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the localeMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the localeMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Locale matching algorithm. The value can be:
-     * "lookup": exact match.
-     * "best fit": best match.
+     * 
+     * - "lookup": exact match.
+     * - "best fit": best match.
      *
-     * @type { ?string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.localeMatcher
      */
     localeMatcher?: string;
 
     /**
-     * Indicates the formatMatcher.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the formatMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the formatMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the formatMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Format matching algorithm. The value can be:
-     * "basic": exact match.
-     * "best fit": best match.
+     * 
+     * - "basic": exact match.
+     * - "best fit": best match.
      *
-     * @type { ?string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.formatMatcher
      */
@@ -1886,247 +820,89 @@ declare namespace intl {
   }
 
   /**
-   * Provides the API for formatting date strings.
+   * Performs date and time formatting.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 6
-   */
-  /**
-   * Provides the API for formatting date strings.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the API for formatting date strings.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @since 11
-   */
-  /**
-   * Provides the API for formatting date strings.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @form [since 11]
+   * @atomicservice [since 12]
+   * @since 6 dynamic
    * @deprecated since 20
    * @useinstead Intl.DateTimeFormat
    */
   export class DateTimeFormat {
     /**
-     * A constructor used to create a DateTimeFormat object.
+     * Creates a **DateTimeOptions** object for the specified locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create a DateTimeFormat object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a DateTimeFormat object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Creates a DateTimeOptions object for the specified locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.constructor
      */
     constructor();
 
     /**
-     * A constructor used to create a DateTimeFormat object.
-     *
-     * @param { string | Array<string> } locale - Indicates character string containing the locale information, including
-     *               the language and optionally the script and region, for the DateTimeFormat object.
-     * @param { DateTimeOptions } [options] - Indicates the options used to format the date.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * A constructor used to create a DateTimeFormat object.
-     *
-     * @param { string | Array<string> } locale - Indicates character string containing the locale information, including
-     *               the language and optionally the script and region, for the DateTimeFormat object.
-     * @param { DateTimeOptions } [options] - Indicates the options used to format the date.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a DateTimeFormat object.
-     *
-     * @param { string | Array<string> } locale - Indicates character string containing the locale information, including
-     *               the language and optionally the script and region, for the DateTimeFormat object.
-     * @param { DateTimeOptions } [options] - Indicates the options used to format the date.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Creates a DateTimeOptions object for the specified locale.
+     * Creates a **DateTimeOptions** object for the specified locale.
      *
      * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
-     *                                            first valid locale ID is used.
-     * @param { DateTimeOptions } [options] - Options for creating the DateTimeOptions object.<br>If no options are
-     *                                        set, the default values of year, month, and day are numeric.
+     *     first valid locale ID is used.
+     * @param { DateTimeOptions } [options] - Options for creating the **DateTimeOptions** object.
+     * If no options are set, the default values of **year**, **month**, and **day** are **numeric**.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.constructor
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
     /**
-     * Obtains the formatted date strings.
-     *
-     * @param { Date } date - Indicates the Date object to be formatted.
-     * @returns { string } a date string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Obtains the formatted date strings.
-     *
-     * @param { Date } date - Indicates the Date object to be formatted.
-     * @returns { string } a date string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the formatted date strings.
-     *
-     * @param { Date } date - Indicates the Date object to be formatted.
-     * @returns { string } a date string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Formats the date and time.
      *
-     * @param { Date } date - Date and time. Note: The month starts from 0. For example, 0 indicates January.
+     * @param { Date } date - Date and time. Note: The month starts from **0**. For example, **0** indicates January.
      * @returns { string } A string containing the formatted date and time.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.format
      */
     format(date: Date): string;
 
     /**
-     * Obtains the formatted date strings of a date range.
-     *
-     * @param { Date } startDate - Indicates the start date of the date range.
-     * @param { Date } endDate - Indicates the end date of the date range.
-     * @returns { string } a date string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Obtains the formatted date strings of a date range.
-     *
-     * @param { Date } startDate - Indicates the start date of the date range.
-     * @param { Date } endDate - Indicates the end date of the date range.
-     * @returns { string } a date string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the formatted date strings of a date range.
-     *
-     * @param { Date } startDate - Indicates the start date of the date range.
-     * @param { Date } endDate - Indicates the end date of the date range.
-     * @returns { string } a date string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
      * Formats date and time ranges.
      *
-     * @param { Date } startDate - Start date and time. Note: The month starts from 0. For example, 0 indicates
-     *                             January.
-     * @param { Date } endDate - End date and time. Note: The month starts from 0. For example, 0 indicates January.
-     * @returns { string } a date string formatted based on the specified locale.
+     * @param { Date } startDate - Start date and time. Note: The month starts from **0**. For example, **0** indicates
+     *     January.
+     * @param { Date } endDate - End date and time. Note: The month starts from **0**. For example, **0** indicates
+     *     January.
+     * @returns { string } A string containing the formatted date and time ranges.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.formatRange
      */
     formatRange(startDate: Date, endDate: Date): string;
 
     /**
-     * Obtains the options of the DateTimeFormat object.
+     * Obtains the options for creating a **DateTimeOptions** object.
      *
-     * @returns { DateTimeOptions } the options of the DateTimeFormat object.
+     * @returns { DateTimeOptions } Options for the **DateTimeOptions** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Obtains the options of the DateTimeFormat object.
-     *
-     * @returns { DateTimeOptions } the options of the DateTimeFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the options of the DateTimeFormat object.
-     *
-     * @returns { DateTimeOptions } the options of the DateTimeFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @since 11
-     */
-    /**
-     * Obtains the options for creating a DateTimeOptions object.
-     *
-     * @returns { DateTimeOptions } Options for the DateTimeOptions object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @form [since 11]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.resolvedOptions
      */
@@ -2134,756 +910,433 @@ declare namespace intl {
   }
 
   /**
-   * Provides the options of number format.
+   * Options for creating the **NumberFormat** object. Since API version 9, the **NumberOptions** attribute is changed 
+   * from mandatory to optional.
    *
-   * @interface NumberOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 6
-   */
-  /**
-   * Provides the options of number format.
-   *
-   * @interface NumberOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Options for creating the NumberFormat object. Since API version 9, the NumberOptions attribute is changed from
-   * mandatory to optional.
-   *
-   * @interface NumberOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 6 dynamic
    */
   export interface NumberOptions {
     /**
-     * Indicates the locale.
+     * Valid locale ID, for example, **zh-Hans-CN**.
+     * 
+     * The default value is the current system locale.
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     locale?: string;
 
     /**
-     * Indicates the currency.
+     * Currency unit. The value must comply with the 
+     * [ISO-4217 standard](https://www.iso.org/iso-4217-currency-codes.html), for example, EUR, CNY, and USD.
+     * 
+     * From API version 12, a three-digit number is supported, for example, **978**, **156**, or **840**.
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the currency.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the currency.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Currency unit. The value must comply with the [ISO-4217 standard](https://www.iso.org/iso-4217-currency-codes.html),
-     * for example, "EUR", "CNY", and "USD". From API version 12, a three-digit number is supported, for example, "978",
-     * "156", or "840".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     currency?: string;
 
     /**
-     * Indicates the currencySign.
+     * Currency unit symbol. The value can be **standard** or **accounting**.
+     * 
+     * The default value is **standard**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 19](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the currencySign.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the currencySign.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * urrency unit symbol. The value can be "standard" or "accounting". The default value is "standard".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     currencySign?: string;
 
     /**
-     * Indicates the currencyDisplay.
+     * Currency display mode. The value can be **symbol**, **narrowSymbol**, **code**, or **name**.
+     * 
+     * The default value is **symbol**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 20](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the currencyDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the currencyDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Currency display mode. The value can be "symbol", "narrowSymbol", "code", or "name".
-     * The default value is "symbol".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     currencyDisplay?: string;
 
     /**
-     * Indicates the unit.
+     * Unit name, for example, **meter**, **inch**, or **hectare**.
+     * 
+     * The combination units supported since API version 18 are as follows: beat-per-minute, body-weight-per-second, 
+     * breath-per-minute, foot-per-hour, jump-rope-per-minute, meter-per-hour, milliliter-per-minute-per-kilogram, 
+     * rotation-per-minute, step-per-minute, and stroke-per-minute.
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the unit.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the unit.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Unit name, for example, "meter", "inch", or "hectare". The combination units supported since API version 18 are
-     * as follows: "beat-per-minute", "body-weight-per-second", "breath-per-minute", "foot-per-hour",
-     * "jump-rope-per-minute", "meter-per-hour", "milliliter-per-minute-per-kilogram", "rotation-per-minute",
-     * "step-per-minute", and "stroke-per-minute".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     unit?: string;
 
     /**
-     * Indicates the unitDisplay.
+     * Display format of units. The value can be **long**, **short**, or **narrow**.
+     * 
+     * The default value is **short**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 21](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the unitDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the unitDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Display format of units. The value can be "long", "short", or "narrow". The default value is "short".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     unitDisplay?: string;
 
     /**
-     * Indicates the unitUsage.
+     * Application scenario of units. The value can be any of the following: **default**, **area-land-agricult**, **area-
+     * land-commercl**, **area-land-residntl**, **length-person**, **length-person-small**, **length-rainfall**, **
+     * length-road**, **length-road-small**, **length-snowfall**, **length-vehicle**, **length-visiblty**, **length-
+     * visiblty-small**, **length-person-informal**, **length-person-small-informal**, **length-road-informal**, **speed
+     * -road-travel**, **speed-wind**, **temperature-person**, **temperature-weather**, **volume-vehicle-fuel**, **
+     * elapsed-time-second**, **size-file-byte**, or **size-shortfile-byte**.
+     * 
+     * The default value is **default**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 22](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Indicates the unitUsage.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the unitUsage.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Application scenario of units. The value can be any of the following: "default", "area-land-agricult",
-     * "area-land-commercl", "area-land-residntl", "length-person", "length-person-small", "length-rainfall",
-     * "length-road", "length-road-small", "length-snowfall", "length-vehicle", "length-visiblty",
-     * "length-visiblty-small", "length-person-informal", "length-person-small-informal", "length-road-informal",
-     * "speed-road-travel", "speed-wind", "temperature-person", "temperature-weather", "volume-vehicle-fuel",
-     * "elapsed-time-second", "size-file-byte", or "size-shortfile-byte". The default value is "default".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     unitUsage?: string;
 
     /**
-     * Indicates the signDisplay.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the signDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the signDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Number sign display format. The value can be:
-     * "auto": automatically determines whether to display the plus or minus sign.
-     * "never": do not display the plus or minus sign.
-     * "always": always displays the plus or minus sign.
-     * "exceptZero": displays the plus or minus sign for all values except 0.
-     * Default value: "auto".
+     * 
+     * - "auto": automatically determines whether to display the plus or minus sign.
+     * - "never": do not display the plus or minus sign.
+     * - "always": always displays the plus or minus sign.
+     * - "exceptZero": displays the plus or minus sign for all values except 0.
+     * 
+     * Default value: **"auto"**
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { ?string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     signDisplay?: string;
 
     /**
-     * Indicates the compactDisplay.
+     * Compact display format. The value can be **long** or **short**.
+     * 
+     * The default value is **short**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 18](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the compactDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the compactDisplay.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Compact display format. The value can be "long" or "short". The default value is "short".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     compactDisplay?: string;
 
     /**
-     * Indicates the notation.
+     * Number notation. The value can be **standard**, **scientific**, **engineering**, or **compact**.
+     * 
+     * The default value is **standard**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 17](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the notation.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the notation.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Number notation. The value can be: "standard", "scientific", "engineering", or "compact".
-     * The default value is "standard".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     notation?: string;
 
     /**
-     * Indicates the localeMatcher.
+     * Locale matching algorithm. The value can be **lookup** or **best fit**.
+     * 
+     * The default value is **best fit**.
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the localeMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the localeMatcher.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     localeMatcher?: string;
 
     /**
-     * Indicates the style.
+     * Number display format. The value can be **decimal**, **currency**, **percent**, or **unit**.
+     * 
+     * The default value is **decimal**.
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the style.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the style.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Number display format. The value can be "decimal", "currency", "percent", or "unit".
-     * The default value is "decimal".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     style?: string;
 
     /**
-     * Indicates the numberingSystem.
+     * Numbering system. The value can be:
+     * 
+     * **adlm**, **ahom**, **arab**, **arabext**, **bali**, **beng**, **bhks**, **brah**, **cakm**, **cham**, **deva**, 
+     * **diak**, **fullwide**, **gong**, **gonm**, **gujr**, **guru**, **hanidec**, **hmng**, **hmnp**, **java**, 
+     * **kali**, **khmr**, **knda**, **lana**, **lanatham**, **laoo**, **latn**, **lepc**, **limb**, **mathbold**, 
+     * **mathdbl**, **mathmono**, **mathsanb**, **mathsans**, **mlym**, **modi**, **mong**, **mroo**, **mtei**, **mymr**
+     * , **mymrshan**, **mymrtlng**, **newa**, **nkoo**, **olck**, **orya**, **osma**, **rohg**, **saur**, **segment**, 
+     * **shrd**, **sind**, **sinh**, **sora**, **sund**, **takr**, **talu**, **tamldec**, **telu**, **thai**, **tibt**, 
+     * **tirh**, **vaii**, **wara**, or **wcho**.
+     * 
+     * The default value is the default numbering system of the locale.
+     * 
+     * This API can be used in atomic services since API version 12.
      *
-     * @type { string }
+     * @type { string } [since 6 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the numberingSystem.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
-     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
-     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
-     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
-     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
-     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     numberingSystem?: string;
 
     /**
-     * Indicates the useGrouping.
+     * Whether to enable grouping for display. The value **true** means to enable grouping for display, and the value 
+     * **false** means the opposite.
+     * 
+     * The default value is **true**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 16](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { boolean }
+     * @type { boolean } [since 6 - 8]
+     * @type { ?boolean } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the useGrouping.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the useGrouping.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to enable grouping for display. The value "true" means to enable grouping for display, and the value
-     * "false" means the opposite. The default value is "true".
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     useGrouping?: boolean;
 
     /**
-     * Indicates the minimumIntegerDigits.
+     * Minimum number of digits allowed in the integer part of a number. The value ranges from **1** to **21**.
+     * 
+     * The default value is **1**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 11](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { int }
+     * @type { int } [since 6 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the minimumIntegerDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the minimumIntegerDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
-     * The default value is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     minimumIntegerDigits?: int;
 
     /**
-     * Indicates the minimumFractionDigits.
+     * Minimum number of digits in the fraction part of a number. The value ranges from **0** to **20**.
+     * 
+     * The default value is **0**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 12](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { int }
+     * @type { int } [since 6 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the minimumFractionDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the minimumFractionDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
-     * The default value is 0.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     minimumFractionDigits?: int;
 
     /**
-     * Indicates the maximumFractionDigits.
+     * Maximum number of digits in the fraction part of a number. The value ranges from **1** to **21**.
+     * 
+     * The default value is **3**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 13](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { int }
+     * @type { int } [since 6 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the maximumFractionDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the maximumFractionDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
-     * The default value is 3.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     maximumFractionDigits?: int;
 
     /**
-     * Indicates the minimumSignificantDigits.
+     * Minimum number of the least significant digits. The value ranges from **1** to **21**.
+     * 
+     * The default value is **1**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 14](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { int }
+     * @type { int } [since 6 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the minimumSignificantDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the minimumSignificantDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     minimumSignificantDigits?: int;
 
     /**
-     * Indicates the maximumSignificantDigits.
+     * Maximum number of the least significant digits. The value ranges from **1** to **21**.
+     * 
+     * The default value is **21**.
+     * 
+     * This API can be used in atomic services since API version 12.
+     * 
+     * For details about their display effects, see 
+     * [Table 15](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { int }
+     * @type { int } [since 6 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Indicates the maximumSignificantDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Indicates the maximumSignificantDigits.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     maximumSignificantDigits?: int;
 
     /**
-     * Rounding priority used when both the maximum number of fraction digits and the maximum number of valid digits
-     * are set. The value can be: "auto", "morePrecision", or "lessPrecision". The value "morePrecision" indicates that
-     * the maximum number of fraction digits is used. The value "lessPrecision" indicates that the maximum number of
-     * valid digits is used. The default value is "auto".
+     * Rounding priority used when both the maximum number of fraction digits and the maximum number of valid digits are
+     * set. The value can be **auto**, **morePrecision**, or **lessPrecision**. The value **morePrecision** indicates 
+     * that the maximum number of fraction digits is used. The value **lessPrecision** indicates that the maximum number
+     * of valid digits is used.
+     * 
+     * The default value is **auto**.
+     * 
+     * This API can be used in atomic services since API version 18.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     roundingPriority?: string;
 
     /**
-     * Rounding increment. The value can be: 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, or 5000.
-     * The default value is 1.
+     * Rounding increment. The value can be **1**, **2**, **5**, **10**, **20**, **25**, **50**, **100**, **200**, 
+     * **250**, **500**, **1000**, **2000**, **2500**, or **5000**.
+     * 
+     * The default value is **1**.
+     * 
+     * This API can be used in atomic services since API version 18.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     roundingIncrement?: int;
 
     /**
      * Rounding mode. The value can be:
-     * "ceil": rounding up.
-     * "floor": rounding down.
-     * "expand": rounding away from 0.
-     * "trunc": rounding toward 0.
-     * "halfCeil": half-rounding up; that is, rounding up when the decimal number is greater than or equal to half of
-     *             the increment, and rounding down otherwise.
-     * "halfFloor": half-rounding down; that is, rounding up when the decimal number is greater than half of the
-     *              increment, and rounding down otherwise.
-     * "halfExpand": half-rounding away from 0; that is, rounding away from 0 when the decimal number is greater than
-     *               or equal to half of the increment, and rounding toward 0 otherwise.
-     * "halfTrunc": half-rounding toward 0; that is, rounding away from 0 when the decimal number is greater than half
-     *              of the increment, and rounding toward 0 otherwise.
-     * "halfEven": half-rounding to the nearest even number; that is, rounding away from 0 when the decimal number is
-     *             greater than half of the increment, rounding toward 0 when the decimal number is less than half of
-     *             the increment, and rounding to the nearest even number when the decimal number is exactly half of
-     *             the increment.
-     * The default value is "halfExpand".
+     * 
+     * - **ceil**: rounding up.
+     * - **floor**: rounding down.
+     * - **expand**: rounding away from 0.
+     * - **trunc**: rounding toward 0.
+     * - **halfCeil**: half-rounding up; that is, rounding up when the decimal number is greater than or equal to half 
+     * of the increment, and rounding down otherwise.
+     * - **halfFloor**: half-rounding down; that is, rounding up when the decimal number is greater than half of the 
+     * increment, and rounding down otherwise.
+     * - **halfExpand**: half-rounding away from 0; that is, rounding away from 0 when the decimal number is greater 
+     * than or equal to half of the increment, and rounding toward 0 otherwise.
+     * - **halfTrunc**: half-rounding toward 0; that is, rounding away from 0 when the decimal number is greater than 
+     * half of the increment, and rounding toward 0 otherwise.
+     * - "halfEven": half-rounding to the nearest even number; that is, rounding away from 0 when the decimal number is 
+     * greater than half of the increment, rounding toward 0 when the decimal number is less than half of the increment,
+     * and rounding to the nearest even number when the decimal number is exactly half of the increment.
+     * 
+     * The default value is **halfExpand**.
+     * 
+     * This API can be used in atomic services since API version 18.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     roundingMode?: string;
   }
@@ -2892,109 +1345,44 @@ declare namespace intl {
    * Provides the API for formatting number strings.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 6
-   */
-  /**
-   * Provides the API for formatting number strings.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the API for formatting number strings.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 6 dynamic
    */
   export class NumberFormat {
     /**
-     * A constructor used to create a NumberFormat object.
+     * Creates a **NumberFormat** object for the current system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create a NumberFormat object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a NumberFormat object for the specified locale.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     constructor();
 
     /**
-     * A constructor used to create a NumberFormat object.
+     * Creates a **NumberFormat** object based on the specified locale and options.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @param { NumberOptions } [options] - Indicates the options used to format the number.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
+     *     first valid locale ID is used.
+     * @param { NumberOptions } [options] - Options for creating the **NumberFormat** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * A constructor used to create a NumberFormat object.
-     *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @param { NumberOptions } [options] - Indicates the options used to format the number.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a NumberFormat object for the specified locale.
-     *
-     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
-     *                                            the first valid locale ID is used.
-     * @param { NumberOptions } [options] - Options for creating the NumberFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
     /**
-     * Obtains the formatted number string.
-     *
-     * @param { double } number Indicates the number to be formatted.
-     * @returns { string } a number string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Obtains the formatted number string.
-     *
-     * @param { double } number Indicates the number to be formatted.
-     * @returns { string } a number string formatted based on the specified locale.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Formats a number.
      *
-     * @param { double } num - Number to be formatted.
+     * @param { double } number Indicates the number to be formatted. [since 6 - 11]
+     * @param { double } num - Number to be formatted. [since 12]
      * @returns { string } Formatted number.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     format(num: double): string;
 
@@ -3007,335 +1395,183 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     formatRange(startRange: double, endRange: double): string;
 
     /**
-     * Obtains the options of the NumberFormat object.
+     * Obtains the options for creating a **NumberFormat** object.
      *
-     * @returns { NumberOptions } the options of the NumberFormat object.
+     * @returns { NumberOptions } Options for creating the **NumberFormat** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 6
-     */
-    /**
-     * Obtains the options of the NumberFormat object.
-     *
-     * @returns { NumberOptions } the options of the NumberFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the options for creating a NumberFormat object.
-     *
-     * @returns { NumberOptions } Options for creating the NumberFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 6 dynamic
      */
     resolvedOptions(): NumberOptions;
   }
 
   /**
-   * Provides the options of Collator
+   * Defines the options for creating a **Collator** object.
+   * Since API version 9, the attributes in **CollatorOptions** are optional.
    *
-   * @interface CollatorOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Provides the options of Collator
-   *
-   * @interface CollatorOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the options for creating a Collator object.
-   *
-   * @interface CollatorOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   export interface CollatorOptions {
     /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     * Locale matching algorithm. The options are as follows:
+     * 
+     * **lookup**: fuzzy match.
+     * 
+     * **best fit**: exact match.
+     * 
+     * The default value is **best fit**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     localeMatcher?: string;
 
     /**
-     * Whether the comparison is for sorting or for searching for matching strings.
-     * Possible values are "sort" and "search"; the default is "sort".
+     * Purpose of comparison. The options are as follows:
+     * 
+     * - **sort**: sorting.
+     * - **search**: search for matched strings.
+     * 
+     * The default value is **sort**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Whether the comparison is for sorting or for searching for matching strings.
-     * Possible values are "sort" and "search"; the default is "sort".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Whether the comparison is for sorting or for searching for matching strings.
-     * Possible values are "sort" and "search"; the default is "sort".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether the comparison is for sorting or for searching. The value can be "sort" or "search".
-     * The default value is "sort".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     usage?: string;
 
     /**
-     * Which differences in the strings should lead to non-zero result values.
-     * Possible values are "base", "accent", "case", "variant".
-     * "base" are used when only strings that differ in base letters compare as unequal.
-     * "accent" are used when only strings that differ in base letters or accents and
-     *  other diacritic marks compare as unequal.
-     * "case" are used when only strings that differ in base letters or case compare as unequal.
-     * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
-     *  or case compare as unequal.
+     * Differences in the strings that lead to non-zero return values. The options are as follows:
+     * 
+     * - **base**: Different letters are considered unequal, for example, 'a' ≠ 'b', 'a' = 'á', 'a' = 'A'.
+     * - **accent**: Different letters or same letters with different pronunciations are considered unequal, for example
+     * , 'a' ≠ 'b', 'a' ≠ 'á', 'a' = 'A'.
+     * - **case**: Different letters or same letters with different cases are considered unequal, for example, 'a' ≠ 'b'
+     * , 'a' = 'á', 'a' ≠ 'A'.
+     * - **variant**: Different letters, pronunciations, other distinguishing marks, or cases are all considered unequal
+     * , for example, 'a' ≠ 'b', 'a' ≠ 'á', 'a' ≠ 'A'.
+     * 
+     * The default value is **variant**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Which differences in the strings should lead to non-zero result values.
-     * Possible values are "base", "accent", "case", "variant".
-     * "base" are used when only strings that differ in base letters compare as unequal.
-     * "accent" are used when only strings that differ in base letters or accents and
-     *  other diacritic marks compare as unequal.
-     * "case" are used when only strings that differ in base letters or case compare as unequal.
-     * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
-     *  or case compare as unequal.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Which differences in the strings should lead to non-zero result values.
-     * Possible values are "base", "accent", "case", "variant".
-     * "base" are used when only strings that differ in base letters compare as unequal.
-     * "accent" are used when only strings that differ in base letters or accents and
-     *  other diacritic marks compare as unequal.
-     * "case" are used when only strings that differ in base letters or case compare as unequal.
-     * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
-     *  or case compare as unequal.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Differences in the strings that lead to non-zero return values. The value can be "base", "accent", "case", or
-     * "letiant". The default value is "variant".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     sensitivity?: string;
 
     /**
-     * Whether punctuation should be ignored. default value is false.
+     * Whether to ignore punctuation. The value **true** means to ignore punctuation, and the value **false** means the 
+     * opposite.
+     * 
+     * The default value is **false**.
      *
-     * @type { boolean }
+     * @type { boolean } [since 8 - 8]
+     * @type { ?boolean } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Whether punctuation should be ignored. Default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Whether punctuation should be ignored. Default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore punctuation. The value "true" means to ignore punctuation, and the value "false" means the
-     * opposite. The default value is "false".
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     ignorePunctuation?: boolean;
     /**
-     * Variant collations for certain locales.
+     * Collation rules for the locale. The value can be:
+     * 
+     * **big5han**: Pinyin sorting for Latin letters.
+     * 
+     * **compat**: compatibility sorting, only for Arabic.
+     * 
+     * **dict**: dictionary-style sorting, only for Singhalese.
+     * 
+     * **direct**: binary code point sorting.
+     * 
+     * **ducet**: sorting according to the Unicode collation element table.
+     * 
+     * **eor**: sorting according to the European collation rules.
+     * 
+     * **gb2312**: Pinyin sorting, only for Chinese.
+     * 
+     * **phonebk**: phone book-style sorting.
+     * 
+     * **phonetic**: phonetic sorting.
+     * 
+     * **pinyin**: Pinyin sorting.
+     * 
+     * **reformed**: reformed sorting, only for Swedish.
+     * 
+     * **searchjl**: special sorting for Korean initial consonant search.
+     * 
+     * **stroke**: stroke sorting for Chinese.
+     * 
+     * **trad**: traditional-style sorting, for example, Spanish.
+     * 
+     * **unihan**: radical-stroke sorting for Han characters, only for Chinese, Japanese, and Korean.
+     * 
+     * **zhuyin**: Zhuyin sorting, only for Chinese.
+     * 
+     * The default value is **default**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Variant collations for certain locales.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Variant collations for certain locales.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Collation rule. The value can be any of the following: "big5han", "compat", "dict", "direct", "ducet", "eor",
-     * "gb2312", "phonebk", "phonetic", "pinyin", "reformed", "searchjl", "stroke", "trad", "unihan", or "zhuyin".
-     * The default value is "default".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     collation?: string;
 
     /**
-     * Whether numeric collation should be used. Default value is false.
+     * Whether numeric sorting is used. The options are as follows:
+     * 
+     * - **true**: Numeric sorting is used. For example, '1' < '2' < '10' < '11'.
+     * - **false**: Numeric sorting is not used. For example, '1' < '10' < '11' < '2'.
+     * 
+     * The default value is **false**.
      *
-     * @type { boolean }
+     * @type { boolean } [since 8 - 8]
+     * @type { ?boolean } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Whether numeric collation should be used. Default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Whether numeric collation should be used. Default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to use numeric collation. The value "true" means to use numeric collation, and the value "false" means
-     * the opposite. The default value is "false".
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     numeric?: boolean;
 
     /**
-     * Whether upper case or lower case should sort first.
-     * Possible values are "upper", "lower", or "false" (use the locale's default).
+     * Whether case is taken into account for the locale's collation rules. The value can be:
+     * 
+     * **upper**: Uppercase letters come first.
+     * 
+     * **lower**: Lowercase letters come first.
+     * 
+     * - **false**: The default collation rules of the locale are used.
+     * 
+     * The default value is **false**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Whether upper case or lower case should sort first.
-     * Possible values are "upper", "lower", or "false" (use the locale's default).
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * Whether upper case or lower case should sort first.
-     * Possible values are "upper", "lower", or "false" (use the locale's default).
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether upper case or lower case is sorted first. The value can be "upper", "lower", or "false".
-     * The default value is "false".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     caseFirst?: string;
   }
@@ -3344,444 +1580,183 @@ declare namespace intl {
    * Enable language-sensitive string comparison.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Enable language-sensitive string comparison.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enable language-sensitive string comparison.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   export class Collator {
     /**
-     * A constructor used to create Collator object.
+     * Creates a **Collator** object for the current system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create Collator object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a Collator object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     constructor();
     /**
-     * A constructor used to create Collator Object;
+     * Creates a **Collator** object based on the specified locale and options.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the Collator object.
-     * @param { CollatorOptions } [options] - Indicates the options used to initialize Collator object.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
+     *     first valid locale ID is used.
+     * @param { CollatorOptions } [options] - Options for creating a **Collator** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create Collator Object;
-     *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the Collator object.
-     * @param { CollatorOptions } [options] - Indicates the options used to initialize Collator object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a Collator object.
-     *
-     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
-     *                                            the first valid locale ID is used.
-     * @param { CollatorOptions } [options] - Options for creating a Collator object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
-    /**
-     * compares two strings according to the sort order of this Collator object
-     *
-     * @param { string } first - The first string to compare.
-     * @param { string } second - The second string to compare.
-     * @returns { int } a number indicating how first compare to second:
-     *         a negative value if string1 comes before string2;
-     *         a positive value if string1 comes after string2;
-     *         0 if they are considered equal.
-     * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * compares two strings according to the sort order of this Collator object
-     *
-     * @param { string } first - The first string to compare.
-     * @param { string } second - The second string to compare.
-     * @returns { int } a number indicating how first compare to second:
-     *         a negative value if string1 comes before string2;
-     *         a positive value if string1 comes after string2;
-     *         0 if they are considered equal.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
     /**
      * Compares two strings based on the specified collation rules.
      *
      * @param { string } first - First string to compare.
      * @param { string } second - Second string to compare.
-     * @returns { int } Comparison result. If the value is a negative number, the first string comes before the
-     *                     second string. If the value is 0, the first and second strings are in the same sequence.
-     *                     If the value is a positive number, the first string is comes after the second string.
+     * @returns { int } Comparison result.
+     *     - If the value is a negative number, the first string comes before the second string.
+     *     - If the value is **0**, the first and second strings are in the same sequence.
+     *     - If the value is a positive number, the first string is comes after the second string.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     compare(first: string, second: string): int;
 
     /**
-     * Returns a new object with properties that reflect the locale and collation options computed
-     * during initialization of the object.
+     * Obtains the options for creating a **Collator** object.
      *
-     * @returns { CollatorOptions } a CollatorOptions object with properties that reflect the properties of this object.
+     * @returns { CollatorOptions } Options for creating a **Collator** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Returns a new object with properties that reflect the locale and collation options computed
-     * during initialization of the object.
-     *
-     * @returns { CollatorOptions } a CollatorOptions object with properties that reflect the properties of this object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the options for creating a Collator object.
-     *
-     * @returns { CollatorOptions } Options for creating a Collator object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     resolvedOptions(): CollatorOptions;
   }
 
   /**
-   * Provides the options of PluralRules
+   * Defines the options for creating a **PluralRules** object. Since API version 9, the **PluralRulesOptions** 
+   * attribute is changed from mandatory to optional.
    *
-   * @interface PluralRulesOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Provides the options of PluralRules
-   *
-   * @interface PluralRulesOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the options of PluralRules
-   *
-   * @interface PluralRulesOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.PluralRulesOptions
    */
   export interface PluralRulesOptions {
     /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     * Locale matching algorithm. The value can be **lookup** or **best fit**.
+     * 
+     * The default value is **best fit**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.localeMatcher
      */
     localeMatcher?: string;
 
     /**
-     * The type to use. Possible values are: "cardinal", "ordinal"
+     * Collation type. The value can be **cardinal** or **ordinal**.
+     * 
+     * The default value is **cardinal**.
+     * 
+     * The value **cardinal** indicates a cardinal number and the value **ordinal** indicates an ordinal number.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The type to use. Possible values are: "cardinal", "ordinal"
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The type to use. Possible values are: "cardinal", "ordinal"
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Collation type. The value can be "cardinal" or "ordinal". The default value is "cardinal". The value "cardinal"
-     * indicates a cardinal number and the value "ordinal" indicates an ordinal number.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.type
      */
     type?: string;
 
     /**
-     * The minimum number of integer digits to use.
-     * Possible values are from 1 to 21; the default is 1.
+     * Minimum number of digits allowed in the integer part of a number. The value ranges from **1** to **21**.
+     * 
+     * The default value is **1**.
      *
-     * @type { int }
+     * @type { int } [since 8 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The minimum number of integer digits to use.
-     * Possible values are from 1 to 21; the default is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The minimum number of integer digits to use.
-     * Possible values are from 1 to 21; the default is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
-     * The default value is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.minimumIntegerDigits
      */
     minimumIntegerDigits?: int;
 
     /**
-     * The minimum number of fraction digits to use.
-     * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
+     * Minimum number of digits in the fraction part of a number. The value ranges from **0** to **20**.
+     * 
+     * The default value is **0**.
      *
-     * @type { int }
+     * @type { int } [since 8 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The minimum number of fraction digits to use.
-     * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The minimum number of fraction digits to use.
-     * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
-     * The default value is 0.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.minimumFractionDigits
      */
     minimumFractionDigits?: int;
 
     /**
-     * The maximum number of fraction digits to use.
-     * Possible values are from 0 to 20;
-     * the default for plain number formatting is the larger of minimumFractionDigits and 3;
+     * Maximum number of digits in the fraction part of a number. The value ranges from **1** to **21**.
+     * 
+     * The default value is **3**.
      *
-     * @type { int }
+     * @type { int } [since 8 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The maximum number of fraction digits to use.
-     * Possible values are from 0 to 20;
-     * the default for plain number formatting is the larger of minimumFractionDigits and 3;
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The maximum number of fraction digits to use.
-     * Possible values are from 0 to 20;
-     * the default for plain number formatting is the larger of minimumFractionDigits and 3;
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
-     * The default value is 3.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.maximumFractionDigits
      */
     maximumFractionDigits?: int;
 
     /**
-     * The minimum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 1.
+     * Minimum number of the least significant digits. The value ranges from **1** to **21**.
+     * 
+     * The default value is **1**.
      *
-     * @type { int }
+     * @type { int } [since 8 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The minimum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The minimum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.minimumSignificantDigits
      */
     minimumSignificantDigits?: int;
 
     /**
-     * The maximum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 21.
+     * Maximum number of the least significant digits. The value ranges from **1** to **21**.
+     * 
+     * The default value is **21**.
      *
-     * @type { int }
+     * @type { int } [since 8 - 8]
+     * @type { ?int } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The maximum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 21.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The maximum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 21.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.maximumSignificantDigits
      */
@@ -3792,115 +1767,52 @@ declare namespace intl {
    * Enables plural-sensitive formatting and plural-related language rules.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Enables plural-sensitive formatting and plural-related language rules.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enables plural-sensitive formatting and plural-related language rules.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.PluralRules
    */
   export class PluralRules {
     /**
-     * A constructor used to create PluralRules object.
+     * Creates a **PluralRules** object to obtain the singular-plural type of numbers.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create PluralRules object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PluralRules object to obtain the singular-plural type of numbers.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRules.constructor
      */
     constructor();
 
     /**
-     * A constructor used to create PluralRules object.
+     * Creates a **PluralRules** object to obtain the singular-plural type of numbers.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the PluralRules object.
-     * @param { PluralRulesOptions } [options] - Indicates the options used to initialize PluralRules object.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
+     *     first valid locale ID is used.
+     * @param { PluralRulesOptions } [options] - Options for creating a **PluralRules** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create PluralRules object.
-     *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the PluralRules object.
-     * @param { PluralRulesOptions } [options] - Indicates the options used to initialize PluralRules object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PluralRules object to obtain the singular-plural type of numbers.
-     *
-     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
-     *                                            the first valid locale ID is used.
-     * @param { PluralRulesOptions } [options] - Options for creating a PluralRules object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRules.constructor
      */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
 
     /**
-     * Returns a string indicating which plural rule to use for locale-aware formatting.
-     *
-     * @param { double } n - The number to get a plural rule for.
-     * @returns { string } A string representing the pluralization category of the number,
-     *         can be one of zero, one, two, few, many or other.
-     * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Returns a string indicating which plural rule to use for locale-aware formatting.
-     *
-     * @param { double } n - The number to get a plural rule for.
-     * @returns { string } A string representing the pluralization category of the number,
-     *         can be one of zero, one, two, few, many or other.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the singular-plural type of the specified number.
      *
      * @param { double } n - Number for which the singular-plural type is to be obtained.
-     * @returns { string } Singular-plural type. The value can be any of the following: "zero", "one", "two", "few",
-     *                     "many", "others". For details about the meanings of different values, see
-     *                     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @returns { string } Singular-plural type. The value can be any of the following: **zero**, **one**, **two**,
+     *     **few**, **many**, **others**.
+     *     For details about the meanings of different values, see
+     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRules.select
      */
@@ -3908,142 +1820,64 @@ declare namespace intl {
   }
 
   /**
-   * Provides the input options of RelativeTimeFormat.
+   * Defines the configuration options for a **RelativeTimeFormat** object.
+   * Since API version 9, the attributes in **RelativeTimeFormatInputOptions** are optional.
    *
-   * @interface RelativeTimeFormatInputOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Provides the input options of RelativeTimeFormat.
-   *
-   * @interface RelativeTimeFormatInputOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the input options of RelativeTimeFormat.
-   *
-   * @interface RelativeTimeFormatInputOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.RelativeTimeFormatOptions
    */
   export interface RelativeTimeFormatInputOptions {
     /**
-     * The locale matching algorithm to use.
-     * Possible values are: lookup, best fit
+     * Locale matching algorithm. The value can be **lookup** or **best fit**.
+     * 
+     * The default value is **best fit**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The locale matching algorithm to use.
-     * Possible values are: lookup, best fit
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The locale matching algorithm to use.
-     * Possible values are: lookup, best fit
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormatOptions.localeMatcher
      */
     localeMatcher?: string;
 
     /**
-     * The format of output message.
-     * Possible values are: always, auto
+     * Format of the output result. It determines whether numeric values are used to represent relative dates or times 
+     * in the formatting result. The value can be **always** or **auto**.
+     * 
+     * The default value is **always**.
+     * 
+     * For details about their display effects, see 
+     * [Table 23](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The format of output message.
-     * Possible values are: always, auto
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The format of output message.
-     * Possible values are: always, auto
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Format of the output message. The value can be "always" or "auto". The default value is "always".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormatOptions.numeric
      */
     numeric?: string;
 
     /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
+     * Length of an internationalized message. The value can be **long**, **short**, or **narrow**.
+     * 
+     * The default value is **long**.
      *
-     * @type { string }
+     * @type { string } [since 8 - 8]
+     * @type { ?string } [since 9]
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 9
-     */
-    /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Length of an internationalized message. The value can be "long", "short", or "narrow".
-     * The default value is "long".
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormatOptions.style
      */
@@ -4051,140 +1885,74 @@ declare namespace intl {
   }
 
   /**
-   * Provides the resolved options of RelativeTimeFormat.
+   * Represents the formatting options for the **RelativeTimeFormat** object.
    *
-   * @interface RelativeTimeFormatResolvedOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Provides the resolved options of RelativeTimeFormat.
-   *
-   * @interface RelativeTimeFormatResolvedOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the resolved options of RelativeTimeFormat.
-   *
-   * @interface RelativeTimeFormatResolvedOptions
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.ResolvedRelativeTimeFormatOptions
    */
   export interface RelativeTimeFormatResolvedOptions {
     /**
-     * The BCP 47 language tag for the locale actually used.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The BCP 47 language tag for the locale actually used.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Locale ID, including the language, script, and region.
      *
-     * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.locale
      */
     locale: string;
 
     /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
+     * Length of an internationalized message. The value can be **long**, **short**, or **narrow**.
+     * 
+     * For details about their display effects, see 
+     * [Table 24](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Length of an internationalized message. The value can be "long", "short", or "narrow".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.style
      */
     style: string;
 
     /**
-     * The format of output message.
-     * Possible values are: always, auto
+     * Format of the output result. It determines whether numeric values are used to represent relative dates or times 
+     * in the formatting result. The value can be **always** or **auto**.
+     * 
+     * For details about their display effects, see 
+     * [Table 23](docroot://reference/apis-localization-kit/js-apis-intl.md#appendix).
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The format of output message.
-     * Possible values are: always, auto
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Format of the output message. The value can be "always" or "auto".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.numeric
      */
     numeric: string;
 
     /**
-     * The value requested using the Unicode extension key "nu" or filled in as a default.
+     * Numbering system. The value can be:
+     * 
+     * **adlm**, **ahom**, **arab**, **arabext**, **bali**, **beng**, **bhks**, **brah**, **cakm**, **cham**, **deva**, 
+     * **diak**, **fullwide**, **gong**, **gonm**, **gujr**, **guru**, **hanidec**, **hmng**, **hmnp**, **java**, 
+     * **kali**, **khmr**, **knda**, **lana**, **lanatham**, **laoo**, **latn**, **lepc**, **limb**, **mathbold**, 
+     * **mathdbl**, **mathmono**, **mathsanb**, **mathsans**, **mlym**, **modi**, **mong**, **mroo**, **mtei**, **mymr**
+     * , **mymrshan**, **mymrtlng**, **newa**, **nkoo**, **olck**, **orya**, **osma**, **rohg**, **saur**, **segment**, 
+     * **shrd**, **sind**, **sinh**, **sora**, **sund**, **takr**, **talu**, **tamldec**, **telu**, **thai**, **tibt**, 
+     * **tirh**, **vaii**, **wara**, or **wcho**.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * The value requested using the Unicode extension key "nu" or filled in as a default.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
-     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
-     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
-     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
-     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
-     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.numberingSystem
      */
@@ -4196,188 +1964,82 @@ declare namespace intl {
    * language-sensitive relative time formatting.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 8
-   */
-  /**
-   * Given a Time period length value and a unit, RelativeTimeFormat object enables
-   * language-sensitive relative time formatting.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Given a Time period length value and a unit, RelativeTimeFormat object enables
-   * language-sensitive relative time formatting.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.RelativeTimeFormat
    */
   export class RelativeTimeFormat {
     /**
-     * A constructor used to create RelativeTimeFormat object.
+     * Creates a **RelativeTimeFormat** object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create RelativeTimeFormat object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a RelativeTimeFormat object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.constructor
      */
     constructor();
 
     /**
-     * A constructor used to create RelativeTimeFormat object.
+     * Creates a **RelativeTimeFormat** object.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the RelativeTimeFormat object.
-     * @param { RelativeTimeFormatInputOptions } [options] - Indicates the options used to initialize RelativeTimeFormat object.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
+     *     first valid locale ID is used.
+     * @param { RelativeTimeFormatInputOptions } [options] - Options for creating a **RelativeTimeFormat** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * A constructor used to create RelativeTimeFormat object.
-     *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the RelativeTimeFormat object.
-     * @param { RelativeTimeFormatInputOptions } [options] - Indicates the options used to initialize RelativeTimeFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a RelativeTimeFormat object.
-     *
-     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
-     *                                            the first valid locale ID is used.
-     * @param { RelativeTimeFormatInputOptions } [options] - Options for creating a RelativeTimeFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.constructor
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
 
     /**
-     * formats a value and unit according to the locale and formatting options of this object.
-     *
-     * @param { double } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - Unit to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { string } formatted language-sensitive relative time.
-     * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * formats a value and unit according to the locale and formatting options of this object.
-     *
-     * @param { double } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - Unit to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { string } formatted language-sensitive relative time.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Formats a relative time.
      *
      * @param { double } value - Value to format.
-     * @param { string } unit - Unit of the relative time.<br>The value can be any of the following: "year", "quarter",
-     * "month", "week", "day", "hour", "minute", or "second".
+     * @param { string } unit - Unit of the relative time.
+     *   The value can be any of the following: **year**,
+     *     **quarter**, month**, **week**, **day**, **hour**, **minute**, or **second**.
      * @returns { string } Relative time after formatting.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.format
      */
     format(value: double, unit: string): string;
 
     /**
-     * returns an Array of objects representing the relative time format in parts that can be used for
-     * custom locale-aware formatting
-     *
-     * @param { double } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { Array<object> } an Array of objects representing the relative time format in parts
-     * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * returns an Array of objects representing the relative time format in parts that can be used for
-     * custom locale-aware formatting
-     *
-     * @param { double } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { Array<object> } an Array of objects representing the relative time format in parts
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Formats the relative time.
+     * Formats the relative time
      *
      * @param { double } value - Value to format.
-     * @param { string } unit - Unit of the relative time.<br>The value can be any of the following: "year", "quarter",
-     * "month", "week", "day", "hour", "minute", or "second".
+     * @param { string } unit - Unit of the relative time.
+     *     The value can be any of the following: **year**,
+     *     **quarter**, month**, **week**, **day**, **hour**, **minute**, or **second**.
      * @returns { Array<object> } to parts.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.formatToParts
      */
     formatToParts(value: double, unit: string): Array<object>;
 
     /**
-     * Returns a new object with properties that reflect the locale and formatting options computed during
-     * initialization of the object.
+     * Defines the formatting options for a **RelativeTimeFormat** object.
      *
-     * @returns { RelativeTimeFormatResolvedOptions } RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
+     * @returns { RelativeTimeFormatResolvedOptions } Options for the **RelativeTimeFormat** object.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
-     */
-    /**
-     * Returns a new object with properties that reflect the locale and formatting options computed during
-     * initialization of the object.
-     *
-     * @returns { RelativeTimeFormatResolvedOptions } RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Defines the formatting options for a RelativeTimeFormat object.
-     *
-     * @returns { RelativeTimeFormatResolvedOptions } Options for the RelativeTimeFormat object.
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.resolvedOptions
      */

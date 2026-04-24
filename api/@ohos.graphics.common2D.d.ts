@@ -18,403 +18,220 @@
  * @kit ArkGraphics2D
  */
 /**
- * The date structure that provides the basis for graphics.
+ * This module defines some common data types in the 2D graphics field.
  *
- * @namespace common2D
- * @syscap SystemCapability.Graphics.Drawing
- * @since 11
- */
-/**
- * The date structure that provides the basis for graphics.
+ * > **NOTE**
+ * >
+ * > - This module uses the physical pixel unit, px.
  *
- * @namespace common2D
  * @syscap SystemCapability.Graphics.Drawing
- * @crossplatform
- * @since 20 dynamic&static
- */
-
-/**
- * The date structure that provides the basis for graphics.
- *
- * @namespace common2D
- * @syscap SystemCapability.Graphics.Drawing
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic&static
+ * @crossplatform [since 20]
+ * @atomicservice [since 22]
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace common2D {
   /**
    * Describes a color in ARGB format.
-   * @typedef Color
+   *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
-   */
-  /**
-   * Describes a color in ARGB format.
-   * @typedef Color
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @since 20 dynamic&static
-   */
-  /**
-   * Describes a color in ARGB format.
-   * @typedef Color
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic&static
+   * @crossplatform [since 20]
+   * @atomicservice [since 22]
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface Color {
     /**
      * Alpha component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * Alpha component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Alpha component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     alpha: int;
     /**
      * Red component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * Red component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Red component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     red: int;
     /**
      * Green component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * Green component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Green component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     green: int;
     /**
      * Blue component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * Blue component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Blue component of the color. The value is an integer ranging from 0 to 255.
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     blue: int;
   }
 
   /**
-   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
-   * @typedef Rect
+   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right
+   * corner point.
+   *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
-   */
-  /**
-   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
-   * @typedef Rect
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @since 20 dynamic&static
-   */
-  /**
-   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
-   * @typedef Rect
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic&static
+   * @crossplatform [since 20]
+   * @atomicservice [since 22]
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface Rect {
     /**
      * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     left: double;
     /**
      * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     top: double;
     /**
      * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     right: double;
     /**
      * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
-     */
-    /**
-     * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 11 dynamic
+     * @since 23 static
      */
     bottom: double;
   }
 
   /**
    * Describes a coordinate point.
-   * @typedef Point
+   *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  /**
-   * Describes a coordinate point.
-   * @typedef Point
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @since 20 dynamic&static
-   */
-  /**
-   * Describes a coordinate point.
-   * @typedef Point
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic&static
+   * @crossplatform [since 20]
+   * @atomicservice [since 22]
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Point {
     /**
      * Horizontal coordinate. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Horizontal coordinate. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Horizontal coordinate. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 12 dynamic
+     * @since 23 static
      */
     x: double;
 
     /**
      * Vertical coordinate. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Vertical coordinate. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic&static
-     */
-    /**
-     * Vertical coordinate. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @crossplatform [since 20]
+     * @atomicservice [since 22]
+     * @since 12 dynamic
+     * @since 23 static
      */
     y: double;
   }
 
   /**
-   * Describes a 3D coordinate point.
+   * Describes a 3D coordinate point. It inherits from [Point]{@link common2D.Point}.
    *
-   * @typedef Point3d
-   * @extends Point
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
-   */
-  /**
-   * Describes a 3D coordinate point.
-   *
-   * @typedef Point3d
-   * @extends Point
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Point3d extends Point {
     /**
      * Z-axis coordinate. The value is a floating point number.
-     * @type { double }
+     *
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Z-axis coordinate. The value is a floating point number.
-     * @type { double }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     * @since 22 static
+     * @crossplatform [since 20]
+     * @since 12 dynamic
+     * @since 23 static
      */
     z: double;
   }
-  
+
   /**
-   * Provide a color with an ARGB structure described by floating point numbers.
-   * @typedef Color4f
+   * Describes a color in ARGB format.
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Color4f {
     /**
-     * Alpha component of color, represented as a floating point number between 0 and 1.
-     * @type { double }
+     * Alpha component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alpha: double;
     /**
-     * Red component of color, represented as a floating point number between 0 and 1.
-     * @type { double }
+     * Red component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     red: double;
     /**
-     * Green component of color, represented as a floating point number between 0 and 1.
-     * @type { double }
+     * Green component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     green: double;
     /**
-     * Blue component of color, represented as a floating point number between 0 and 1.
-     * @type { double }
+     * Blue component of the color. The value is a floating point number ranging from 0.0 to 1.0.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     blue: double;
   }

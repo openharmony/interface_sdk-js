@@ -20,10 +20,8 @@
 import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
-/*** if arkts dynamic */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
 import window from './@ohos.window';
-/*** endif */
 
 /**
  * StartOptions is the basic communication component of the system.
@@ -39,7 +37,7 @@ import window from './@ohos.window';
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class StartOptions {
   /**
@@ -52,9 +50,18 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowMode?: int;
+
+  /**
+   * The type of split ratio preference
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  splitRatio?: window.SplitRatioPreference;
 
   /**
    * The type of displayId
@@ -72,7 +79,7 @@ declare class StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   displayId?: long;
 
@@ -83,51 +90,51 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   withAnimation?: boolean;
 
   /**
-   * The left position of window rectangle
+   * The left position of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowLeft?: int;
 
   /**
-   * The top position of window rectangle
+   * The top position of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowTop?: int;
 
   /**
-   * The width of window rectangle
+   * The width of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowWidth?: int;
 
   /**
-   * The height of window rectangle
+   * The height of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowHeight?: int;
 
@@ -139,7 +146,7 @@ declare class StartOptions {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowFocused?: boolean;
 
@@ -152,7 +159,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   processMode?: contextConstant.ProcessMode;
 
@@ -165,7 +172,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startupVisibility?: contextConstant.StartupVisibility;
 
@@ -176,7 +183,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startWindowIcon?: image.PixelMap;
 
@@ -187,7 +194,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startWindowBackgroundColor?: string;
 
@@ -198,51 +205,51 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
 
   /**
-   * The min width of window rectangle.
+   * The min width of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   minWindowWidth?: int;
 
   /**
-   * The min height of window rectangle.
+   * The min height of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   minWindowHeight?: int;
 
   /**
-   * The max width of window rectangle.
+   * The max width of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   maxWindowWidth?: int;
 
   /**
-   * The max height of window rectangle.
+   * The max height of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   maxWindowHeight?: int;
 
@@ -254,6 +261,7 @@ declare class StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   completionHandler?: CompletionHandler;
 
@@ -264,6 +272,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   hideStartWindow?: boolean;
 
@@ -274,6 +283,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   windowCreateParams?: window.WindowCreateParams;
 }

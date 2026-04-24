@@ -286,6 +286,17 @@ interface GaugeInterface {
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Defines the options of gauge track shadow.
+ *
+ * @extends MultiShadowOptions
+ * @interface GaugeShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface GaugeShadowOptions extends MultiShadowOptions {}
 
 /**
@@ -305,11 +316,20 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Defines the options of gauge indicator.
+ *
+ * @interface GaugeIndicatorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface GaugeIndicatorOptions {
-
   /**
    * Current indicator icon path.
-   * 
+   *
    * @type { ?ResourceStr } option type - the current option type.
    * @default system style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -318,19 +338,30 @@ declare interface GaugeIndicatorOptions {
    */
   /**
    * Current indicator icon path.
-   * 
+   *
    * @type { ?ResourceStr } option type - the current option type.
    * @default system style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Current indicator icon path.
+   *
+   * @type { ?ResourceStr } option type - the current option type.
+   * @default system style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   icon?: ResourceStr;
 
   /**
    * Current indicator space.
-   * 
+   *
    * @type { ?Dimension } indicator space - the current indicator space.
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -339,13 +370,24 @@ declare interface GaugeIndicatorOptions {
    */
   /**
    * Current indicator space.
-   * 
+   *
    * @type { ?Dimension } indicator space - the current indicator space.
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Current indicator space.
+   *
+   * @type { ?Dimension } indicator space - the current indicator space.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   space?: Dimension;
 }
@@ -626,7 +668,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets description content of the ring chart.
    *
    * @param { CustomBuilder } value - description content builder of the gauge drawing.
-   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -635,11 +677,22 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets description content of the ring chart.
    *
    * @param { CustomBuilder } value - description content builder of the gauge drawing.
-   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Sets description content of the ring chart.
+   *
+   * @param { CustomBuilder } value - description content builder of the gauge drawing.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   description(value: CustomBuilder): GaugeAttribute;
 
@@ -647,7 +700,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets track shadow of the ring chart.
    *
    * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
-   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -656,11 +709,22 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets track shadow of the ring chart.
    *
    * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
-   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Sets track shadow of the ring chart.
+   *
+   * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   trackShadow(value: GaugeShadowOptions): GaugeAttribute;
 
@@ -668,7 +732,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets indicator options of the ring chart.
    *
    * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
-   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -677,11 +741,22 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets indicator options of the ring chart.
    *
    * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
-   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Sets indicator options of the ring chart.
+   *
+   * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
+   * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;
 

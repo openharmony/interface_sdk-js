@@ -53,26 +53,9 @@ export default class ApplicationStateChangeCallback {
  * @typedef ApplicationStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
- * @since 10
- */
-/**
- * The application state change callback.
- *
- * @typedef ApplicationStateChangeCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
- */
-/**
- * The application state change callback.
- *
- * @typedef ApplicationStateChangeCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 declare interface ApplicationStateChangeCallback {
 /*** endif */
@@ -99,7 +82,7 @@ declare interface ApplicationStateChangeCallback {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onApplicationForeground(): void;
 
@@ -126,7 +109,7 @@ declare interface ApplicationStateChangeCallback {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onApplicationBackground(): void;
 }

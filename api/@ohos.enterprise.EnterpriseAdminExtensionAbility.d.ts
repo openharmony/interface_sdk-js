@@ -20,6 +20,7 @@
 
 import type systemManager from './@ohos.enterprise.systemManager';
 import common from './@ohos.enterprise.common';
+import EnterpriseAdminExtensionContext from './application/EnterpriseAdminExtensionContext';
 
 /**
  * Class of the enterprise admin extension ability.
@@ -29,6 +30,16 @@ import common from './@ohos.enterprise.common';
  * @since 12
  */
 export default class EnterpriseAdminExtensionAbility {
+  /**
+   * Indicates enterpriseAdmin extension context.
+   *
+   * @type { EnterpriseAdminExtensionContext }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  context: EnterpriseAdminExtensionContext;
+
   /**
    * Called back when an application is enabled.
    *
@@ -110,7 +121,7 @@ export default class EnterpriseAdminExtensionAbility {
   onAppStop(bundleName: string): void;
 
   /**
-   * Called back when a system version need to update. 
+   * Called back when a system version needs to update. 
    *
    * @param { systemManager.SystemUpdateInfo } systemUpdateInfo - the information of the system version.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -181,6 +192,26 @@ export default class EnterpriseAdminExtensionAbility {
   onKioskModeExiting(bundleName: string, accountId: number): void;
 
   /**
+   * Called back when an application is enabled as a device administrator.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the enabled admin.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onDeviceAdminEnabled(bundleName: string): void;
+
+  /**
+   * Called back when a device administrator is disabled.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the disabled admin.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onDeviceAdminDisabled(bundleName: string): void;
+
+  /**
    * Called back when the installation status of an application that installed by the application market changes.
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle.
@@ -190,4 +221,54 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 22
    */
   onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void;
+
+  /**
+   * Called back when the log has collected.
+   *
+   * @param { common.Result } result - result indicates the result of collect log.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onLogCollected(result: common.Result): void;
+
+  /**
+   * Called back when the key event happens.
+   *
+   * @param { systemManager.KeyEvent } keyEvent - keyEvent indicates the information of key event.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onKeyEvent(keyEvent: systemManager.KeyEvent): void;
+
+  /**
+   * Called back when startup guide is completed.
+   *
+   * @param { common.StartupScene } scene - scene indicates the scene of startup guide completed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  onStartupGuideCompleted(scene: common.StartupScene): void;
+
+  /**
+   * Called back when the device boot is completed.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  onDeviceBootCompleted(): void;
+
+  /**
+   * Called back when a bundle is updated under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onBundleUpdated(bundleName: string, accountId: number): void;
 }

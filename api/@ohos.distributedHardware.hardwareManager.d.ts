@@ -21,145 +21,163 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Providers interfaces to control distributed hardware.
+ * The **hardwareManager** module provides the capability of controlling distributed hardware, including pausing,
+ * resuming, and stopping the distributed hardware service on the controlled device.
+ *
+ * > **NOTE**
+ *
+ * > The APIs provided by this module are system APIs.
+ *
  * @namespace hardwareManager
  * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hardwareManager {
   /**
-   * Distributed hardware Type definitions
-   * @enum {int}
+   * Enumerates the types of the distributed hardware.
+   *
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DistributedHardwareType {
     /**
-     * Indicates all hardware
+     * All distributed hardware.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALL = 0,
     /**
-     * Distributed camera
+     * Distributed camera.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA = 1,
     /**
-     * Distributed screen
+     * Distributed screen.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN = 8,
     /**
-     * Mic of distributed modem
+     * Distributed microphone for mobile calls.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODEM_MIC = 256,
     /**
-     * Speaker of distributed modem
+     * Distributed speaker for mobile calls.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODEM_SPEAKER = 512,
     /**
-     * Distributed mic
+     * Distributed microphone.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIC = 1024,
     /**
-     * Distributed speaker
+     * Distributed speaker.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEAKER = 2048
   }
 
   /**
-   * Enum for distributed hardware error code.
-   * @enum {number}
+   * Enumerates the error codes used for the distributed hardware.
+   *
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
+   * @since 23 static
    */
   enum DistributedHardwareErrorCode {
     /**
      * The distributed hardware is not started.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CODE_DISTRIBUTED_HARDWARE_NOT_STARTED = 24200101,
 
     /**
      * The source device is not connected.
+     *
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CODE_DEVICE_NOT_CONNECTED = 24200102
   }
 
   /**
-   * The description of the distributed hardware
+   * Represents the distributed hardware information.
+   *
    * @typedef HardwareDescriptor
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HardwareDescriptor {
     /**
-     * Indicates the type of distributed hardware {@link DistributedHardwareType}
+     * Type of the distributed hardware.
+     *
      * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-     * @type {DistributedHardwareType}
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: DistributedHardwareType;
 
     /**
-     * Indicates the source device. Not providing this parameter means all.
+     * Source device. If this parameter is not specified, it indicates all source devices.
+     *
      * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-     * @type {?string}
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     srcNetworkId?: string;
   }
 
   /**
-   * Pause the distributed hardware service from the controlled device.
+   * Pauses the distributed hardware service on the controlled device. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-   * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
-   * @returns {Promise<void>} pause result.
+   * @param { HardwareDescriptor } description - Hardware information.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws {BusinessError} 201 - Permission verification failed.
    * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - Input parameter error.
@@ -168,15 +186,16 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function pauseDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
   /**
-   * Resume the distributed hardware service from the controlled device.
+   * Resumes the distributed hardware service on the controlled device. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-   * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
-   * @returns {Promise<void>} resume result.
+   * @param { HardwareDescriptor } description - Hardware information.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws {BusinessError} 201 - Permission verification failed.
    * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - Input parameter error.
@@ -185,15 +204,16 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resumeDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
   /**
-   * Stop the distributed hardware service from the controlled device.
+   * Stops the distributed hardware service on the controlled device. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-   * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
-   * @returns {Promise<void>} stop result.
+   * @param { HardwareDescriptor } description - Hardware information.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws {BusinessError} 201 - Permission verification failed.
    * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - Input parameter error.
@@ -202,7 +222,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopDistributedHardware(description: HardwareDescriptor): Promise<void>;
 }

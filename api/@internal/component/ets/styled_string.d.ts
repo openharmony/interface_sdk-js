@@ -157,6 +157,21 @@ declare class StyledString {
      * @atomicservice
      * @since 12 dynamic
      */
+    /**
+     * Returns StyledString from the provided HTML string.
+     *
+     * @param { string } html - the html text will be converted to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
     static fromHtml(html: string): Promise<StyledString>;
 
     /**
@@ -459,6 +474,30 @@ declare class TextStyle {
      * @since 20 dynamic
      */
     readonly superscript?: SuperscriptStyle;
+
+    /**
+     * Get the fontConfigs of the StyledString.
+     *
+     * @type { ?FontConfigs } - the fontConfigs of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    readonly fontConfigs?: FontConfigs;
+
+    /**
+     * Get the font variation of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -558,6 +597,29 @@ declare interface TextStyleInterface {
      * @since 20 dynamic
      */
     superscript?: SuperscriptStyle;
+
+    /**
+     * The fontConfigs value of the text.
+     *
+     * @type { ?FontConfigs }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    fontConfigs?: FontConfigs;
+
+    /**
+     * The font variation value of the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -1065,6 +1127,18 @@ declare class ParagraphStyle {
      * @since 22 dynamic
      */
     readonly leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Get the text direction of the StyledString.
+     *
+     * @type { ?TextDirection } - the text direction of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    readonly textDirection?: TextDirection;
 }
 
 /**
@@ -1175,6 +1249,17 @@ declare interface ParagraphStyleInterface {
      * @since 22 dynamic
      */
     leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Set the text direction of the StyledString.
+     *
+     * @type { ?TextDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textDirection?: TextDirection;
 }
 
 /**
@@ -1199,6 +1284,19 @@ declare class LineHeightStyle {
     constructor(lineHeight: LengthMetrics);
 
     /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineHeight - line height value.
+     * @param { number } [lineHeightMultiple] - line height multiple value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(lineHeight: LengthMetrics, lineHeightMultiple?: number);
+
+    /**
      * Get the lineHeight value of the StyledString.
      * The unit is vp.
      * 
@@ -1210,6 +1308,65 @@ declare class LineHeightStyle {
      * @since 12 dynamic
      */
     readonly lineHeight: number;
+
+    /**
+     * Get the line height multiple value of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly lineHeightMultiple?: number;
+}
+
+/**
+ * Defines LineSpacingStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class LineSpacingStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineSpacing - line spacing value.
+     * @param { LineSpacingOptions } [options] - line spacing options value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
+
+    /**
+     * Get the lineSpacing value of the StyledString.
+     * The unit is vp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly lineSpacing: number;
+
+    /**
+     * Get the lineSpacing options value of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly options?: LineSpacingOptions;
 }
 
 /**
@@ -1254,9 +1411,10 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
  * UserDataSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 
 /**
@@ -1266,13 +1424,23 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
  * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
  */
+/**
+ * Defines the StyledString style type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan | BackgroundColorStyle;
+UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
 
 /**
  * MutableStyledString
@@ -1532,6 +1700,16 @@ declare enum StyledStringKey {
      * @since 14 dynamic
      */
     URL = 7,
+    /**
+     * The key of LineSpacingStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    LINE_SPACING = 8,
     /**
      * The key of GestureStyle.
      *
@@ -2063,7 +2241,7 @@ declare interface CustomSpanMeasureInfo {
     /**
      * Current component's fontSize value.
      * The unit is fp.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -2071,6 +2249,29 @@ declare interface CustomSpanMeasureInfo {
      * @since 12 dynamic
      */
     fontSize: number;
+    /**
+     * The max width constraint of custom span.
+     * The unit is px.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    maxWidth?: number;
+    /**
+     * The layoutPolicy of custom span.
+     *
+     * @type { ?LayoutPolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    layoutPolicy?: LayoutPolicy;
 }
 
 /**
@@ -2132,10 +2333,12 @@ declare interface LeadingMarginSpanDrawInfo {
     baseline: number;
 
     /**
-     * The direction of text.
+     * The direction of text. The default value is TextDirection.DEFAULT.
      *
      * @type { TextDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
      * @since 22 dynamic
      */
     direction: TextDirection;

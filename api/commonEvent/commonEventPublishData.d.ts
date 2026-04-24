@@ -18,161 +18,122 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
- * The CommonEventPublishData module provides APIs for defining common event content and attributes.
+ * The **CommonEventPublishData** module provides APIs for defining common event content and attributes.
  *
- * @typedef CommonEventPublishData
- * @syscap SystemCapability.Notification.CommonEvent
- * @since 7
- */
-/**
- * The CommonEventPublishData module provides APIs for defining common event content and attributes.
+ * > **NOTE**
+ * >
+ * > If there is no restriction, any application can subscribe to common events and read related information. In this
+ * > case, sensitive information should not be carried in common events. The **subscriberPermissions** and
+ * > **bundleName** parameters of this module can be used to restrict the receiving scope of common events.
  *
- * @typedef CommonEventPublishData
  * @syscap SystemCapability.Notification.CommonEvent
- * @atomicservice
- * @since 11
- */
-/**
- * The CommonEventPublishData module provides APIs for defining common event content and attributes.
- *
- * @typedef CommonEventPublishData
- * @syscap SystemCapability.Notification.CommonEvent
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface CommonEventPublishData {
   /**
    * Bundle name of the subscriber that can receive the common event.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Bundle name of the subscriber that can receive the common event.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   bundleName?: string;
 
   /**
-   * Common event data transferred by the publisher. The default value is 0.
+   * Common event data transferred by the publisher. The default value is **0**.
    *
-   * @type { ?number }
+   * @type { ?number } [since 7 - 10]
+   * @type { ?int } [since 11]
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Common event data transferred by the publisher. The default value is 0.
-   *
-   * @type { ?int }
-   * @default 0
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   code?: int;
 
   /**
    * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   data?: string;
 
   /**
    * Permissions required for subscribers to receive the common event.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Permissions required for subscribers to receive the common event.
-   *
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   subscriberPermissions?: Array<string>;
 
   /**
-   * Whether the common event is an ordered one.
+   * Whether the common event is an ordered one. The default value is **false**.
    *
-   * @type { ?boolean }
+   * - **true**: This event is an ordered common event. Based on the priority set by the subscriber, the common event is
+   * preferentially sent to the subscriber with a higher priority. After the subscriber successfully receives the event,
+   * the public event is sent to the subscriber with a lower priority. Subscribers with the same priority receive common
+   * events in a random order.
+   * - **false**: This event is an unordered common event. Whether subscribers receive the event is not considered, and
+   * the common event which subscribers receive may not comply with the subscription sequence.
+   *
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isOrdered?: boolean;
 
   /**
-   * Whether the common event is a sticky one. Only system applications and system services are allowed to send sticky events.
+   * Whether the common event is a sticky one. The default value is **false**.
+   *
+   * - **true**: This event is a sticky common event, which allows subscribers to receive common events that have been
+   * sent before subscription.
+   * - **false**: This event is not a sticky common event, which allows subscribers to receive common events sent after
+   * subscription.
+   *
+   * Only system applications and system services are allowed to send sticky events.
+   *
+   * **Required Permissions**:
+   * [ohos.permission.COMMONEVENT_STICKY](docroot://security/AccessToken/permissions-for-all.md#ohospermissioncommonevent_sticky)
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isSticky?: boolean;
 
   /**
    * Additional information about the common event transferred by the publisher.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Additional information about the common event transferred by the publisher.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   parameters?: { [key: string]: any };
 
   /**
-   * The description of the parameters in a common event.
+   * Additional information about the common event transferred by the publisher.
    *
-   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 22 static
+   * @since 23 static
    */
-  parameters?: Record<string, Object>;
+  parameters?: Record<string, RecordData>;
 }

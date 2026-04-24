@@ -18,7 +18,7 @@
  * @kit MediaKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 import audio from './@ohos.multimedia.audio';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
@@ -44,7 +44,7 @@ import type drm from './@ohos.multimedia.drm';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace media {
   /**
@@ -69,7 +69,7 @@ declare namespace media {
    * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
    * playback scenarios.
    * 
-   * The actual number of instances that can be created may be different. 
+   * The actual number of instances that can be created may be different.
    * It depends on the specifications of the device chip in use.
    * 
    * @param { AsyncCallback<AVPlayer> } callback - used to return the result. If the operation is successful, an
@@ -88,7 +88,7 @@ declare namespace media {
    * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
    * playback scenarios.
    * 
-   * The actual number of instances that can be created may be different. 
+   * The actual number of instances that can be created may be different.
    * It depends on the specifications of the device chip in use.
    * 
    * @param { AsyncCallback<AVPlayer | undefined> } callback - used to return the result. If the operation is successful, an
@@ -97,7 +97,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   function createAVPlayer(callback: AsyncCallback<AVPlayer | undefined>): void;
 
@@ -150,7 +150,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   function createAVPlayer(): Promise<AVPlayer | undefined>;
 
@@ -180,7 +180,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   function createAVRecorder(callback: AsyncCallback<AVRecorder | undefined>): void;
 
@@ -211,7 +211,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   function createAVRecorder(): Promise<AVRecorder | undefined>;
 
@@ -236,6 +236,31 @@ declare namespace media {
   function createAudioRecorder(): AudioRecorder;
 
   /**
+   * Creates a media source from file descriptor.
+   *
+   * @param { AVFileDescriptor } fdSrc - file descriptor handler.
+   *     <br>file descriptor handler.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource | undefined;
+
+  /**
+   * Creates a media source from a custom data source.
+   *
+   * @param { AVDataSrcDescriptor } dataSrc - Interface definition for obtaining media data.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithDataSource(dataSrc: AVDataSrcDescriptor): MediaSource | undefined;
+
+  /**
    * Create MediaSource from url.
    * @param { string } url : The location for the media source.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
@@ -250,7 +275,7 @@ declare namespace media {
    * Creates a media source for streaming media to be pre-downloaded.
    * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
    *  HTTP-FLV, DASH, and HTTPS.
-   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @param { Record<string, string> } [headers] : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -270,7 +295,7 @@ declare namespace media {
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory.
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 22 static
+   * @since 23 static
    */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource | undefined;
 
@@ -292,9 +317,67 @@ declare namespace media {
    * The supported streaming media format is HTTP-FLV.
    * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 22 static
+   * @since 23 static
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource | undefined;
+
+ /** Interface for defining time base metadata
+  *
+  * @syscap SystemCapability.Multimedia.Media.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  interface AVTimedMetaData {
+    /**
+     * Defines the unique token of the time base metadata,
+     * The tag must be unique in other time metadata of the video source.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    id?: string;
+
+    /**
+     * The classification label of the time base metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    classify?: string;
+
+    /**
+     * Defines the offset value of the time primitive information relative to the start time of the entire media.
+     * The value should be an integer.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    start: int;
+
+    /**
+     * Duration of the time primitive information
+     * The value should be an integer.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    duration: int;
+
+    /**
+     * Key-value pair set corresponding to time primitive information
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    contents: Record<string, object>;
+  }
 
   /**
    * Creates an VideoPlayer instance.
@@ -344,7 +427,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder | undefined>): void;
 
@@ -376,7 +459,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function createVideoRecorder(): Promise<VideoRecorder | undefined>;
 
@@ -427,7 +510,7 @@ declare namespace media {
    * The instance is used for loading and playback.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   function createSoundPool(
     maxStreams: int,
@@ -472,29 +555,30 @@ declare namespace media {
    * The instance is used for loading and playback.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   function createSoundPool(maxStreams: int, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool | undefined>;
 
   /**
    * Creates a **SoundPool** instance. This API uses a promise to return the result.
    *
-   * If a **SoundPool** instance created using [createSoundPool]{@link #createSoundPool} is used to play the same sound again,
-   * it stops the current audio and restarts the audio. However, if the instance is created using
+   * If a **SoundPool** instance created using [createSoundPool]{@link #createSoundPool} is used to play the same sound
+   * again, it stops the current audio and restarts the audio. However, if the instance is created using
    * **createParallelSoundPool**, it keeps playing the first audio and starts the new one alongside it.
    *
-   * @param {number} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
-   * The value is an integer ranging from 1 to 32.
-   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters.
-   * @returns {Promise<SoundPool>} Promise used to return the result. If the operation is successful, a **SoundPool**
-   * instance is returned; otherwise, **null** is returned. The instance is used for loading and playback.
+   * @param { int } maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
+   *     The value is an integer ranging from 1 to 32.
+   * @param { audio.AudioRendererInfo } audioRenderInfo - Audio renderer parameters.
+   * @returns { Promise<SoundPool> } Promise used to return the result. If the operation is successful, a **SoundPool**
+   *     instance is returned; otherwise, **null** is returned. The instance is used for loading and playback.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @throws { BusinessError } 202 - System API error. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
-  function createParallelSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
+  function createParallelSoundPool(maxStreams: int, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
    * Creates an **AVScreenCaptureRecorder** instance. This API uses a promise to return the result.
@@ -527,7 +611,7 @@ declare namespace media {
    * The instance can be used for screen capture.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 22 static
+   * @since 23 static
    * @example
    * import { BusinessError } from '@kit.BasicServicesKit';
    *
@@ -562,7 +646,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    * @example
    * import { BusinessError } from '@kit.BasicServicesKit';
    * import { media } from '@kit.MediaKit';
@@ -590,16 +674,16 @@ declare namespace media {
   /**
    * get Configurations which user can changes from AVScreenCapture server
    * 
-   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @param { int } sessionId The AVScreenCapture server session ID.
    * @returns { Promise<string> } Returns a configurable configuration item string.
    * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  function getAVScreenCaptureConfigurableParameters(sessionId: int): Promise<string>;
   
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
@@ -639,12 +723,12 @@ declare namespace media {
    *
    * A maximum of 2 **AVTranscoder** instances can be created.
    *
-   * @returns {Promise<AVTranscoder | undefined>} Promise used to return the result. If the operation is successful, an
+   * @returns { Promise<AVTranscoder | undefined> } Promise used to return the result. If the operation is successful, an
    * **AVTranscoder** instance is returned; otherwise, **undefined** is returned. The instance can be used for video
    * transcoding.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-   * @since 22 static
+   * @since 23 static
    */
   function createAVTranscoder(): Promise<AVTranscoder | undefined>;
 
@@ -678,7 +762,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    * @example
    * let screenCaptureMonitor: media.ScreenCaptureMonitor;
    * try {
@@ -696,7 +780,7 @@ declare namespace media {
    * @typedef { _SoundPool }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type SoundPool = _SoundPool;
 
@@ -706,9 +790,33 @@ declare namespace media {
    * @typedef { _PlayParameters }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type PlayParameters = _PlayParameters;
+
+  /**
+   * Enumerates the sound interrupt mode.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum SoundInterruptMode {
+    /**
+     * Multiple sounds can be played parallelly, without interrupting each other.
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NO_INTERRUPT = 0,
+    /**
+     * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SAME_SOUND_INTERRUPT = 1
+  }
 
   /**
    * Enumerates state change reason.
@@ -729,12 +837,12 @@ declare namespace media {
    * Enumerates the reasons for the state transition of the **AVPlayer** or **AVRecorder** instance.
    * The enum value is reported together with **state**.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum StateChangeReason {
     /**
@@ -754,7 +862,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER = 1,
 
@@ -776,7 +884,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKGROUND = 2,
   }
@@ -806,7 +914,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   function createAVMetadataExtractor(): Promise<AVMetadataExtractor | undefined>;
 
@@ -837,7 +945,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor | undefined>): void;
 
@@ -858,7 +966,7 @@ declare namespace media {
    * The API can be used to obtain a video thumbnail.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 22 static
+   * @since 23 static
    */
   function createAVImageGenerator(): Promise<AVImageGenerator | undefined>;
 
@@ -879,7 +987,7 @@ declare namespace media {
    * The API can be used to obtain a video thumbnail.
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 22 static
+   * @since 23 static
    */
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator | undefined>): void;
 
@@ -899,7 +1007,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVMetadataExtractor {
     /**
@@ -927,7 +1035,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -947,7 +1055,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dataSrc ?: AVDataSrcDescriptor;
 
@@ -962,23 +1070,35 @@ declare namespace media {
     /**
      * Obtains media metadata. This API uses an asynchronous callback to return the result.
      * @param { AsyncCallback<AVMetadata> } callback - Callback used to return the result,
-     * which is an **AVMetadata** instance.
+     *     which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
      */
+    /**
+     * Obtains media metadata. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AVMetadata> } callback - Callback used to return the result,
+     *     which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @crossplatform
+     * @since 23 dynamic
+     */
     fetchMetadata(callback: AsyncCallback<AVMetadata>): void;
     /**
      * Obtains media metadata. This API uses an asynchronous callback to return the result.
      * @param { AsyncCallback<AVMetadata | undefined> } callback - Callback used to return the result,
-     * which is an **AVMetadata** instance.
+     *     which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     fetchMetadata(callback: AsyncCallback<AVMetadata | undefined>): void;
 
@@ -999,17 +1119,47 @@ declare namespace media {
      * @crossplatform
      * @since 12 dynamic
      */
+    /**
+     * Obtains media metadata. This API uses a promise to return the result.
+     * @returns { Promise<AVMetadata> } Promise used to return the result, which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @crossplatform
+     * @since 23 dynamic
+     */
     fetchMetadata(): Promise<AVMetadata>;
     /**
      * Obtains media metadata. This API uses a promise to return the result.
-     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result, which is an **AVMetadata** instance.
+     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result,
+     *     which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     fetchMetadata(): Promise<AVMetadata | undefined>;
+
+    /**
+     * Obtains media metadata. This API uses a promise to return the result.
+     *
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result,
+     *     which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Operation timeout.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchMetadataWithTimeout(timeoutMs: long): Promise<AVMetadata | undefined>;
 
     /**
      * It will extract the audio resource to fetch an album cover.
@@ -1039,7 +1189,7 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     fetchAlbumCover(callback: AsyncCallback<image.PixelMap | undefined>): void;
 
@@ -1068,7 +1218,7 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     fetchAlbumCover(): Promise<image.PixelMap | undefined>;
 
@@ -1078,6 +1228,7 @@ declare namespace media {
      * @param { Record<string, string> } [headers] - Optional request headers.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
+     * @since 23 static
      */
     setUrlSource(url: string, headers?: Record<string, string>): void;
 
@@ -1097,7 +1248,124 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
      */
+    /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { number } timeUs - The time expected to fetch picture from the video resource.
+     * The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     * between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @returns { Promise<image.PixelMap> } A Promise instance used to return the pixel map
+     * when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 23 dynamic
+     */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
+
+    /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     * The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     * between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
+     * when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 23 static
+     */
+    fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
+
+    /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     *     The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
+     *     when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Operation timeout.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchFrameByTimeWithTimeout(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams,
+        timeoutMs: long): Promise<image.PixelMap | undefined>;
+
+    /**
+     * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
+     * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
+     * Please note that, the callback order is not same as the time order in @timesUs array.
+     * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
+     *     The unit of time is microsecond(us). The max size of array is 4096.
+     * @param { AVImageQueryOptions } queryOption - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions.
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
+     * @param { OnFrameFetched } callback - the callback function when a fetch is succeeded\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter check failed. e.g. The size of timesUs is larger than 4096.
+     * @throws { BusinessError } 5411012 - Http cleartext not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    fetchFramesByTimes(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
+        callback: OnFrameFetched): void;
+
+    /**
+     * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
+     * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
+     * Please note that, the callback order is not same as the time order in @timesUs array.
+     * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
+     *     The unit of time is microsecond(us). The max size of array is 4096.
+     * @param { AVImageQueryOptions } queryOption - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions.
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter check failed. e.g. The size of timesUs is larger than 4096.
+     * @throws { BusinessError } 5411012 - Http cleartext not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchFramesByTimesWithTimeout(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
+        timeoutMs: long, callback: OnFrameFetched): void;
+
+    /**
+     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFramesByTimes }
+     * will be called with cancelled result.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cancelAllFetchFrames(): void;
 
     /**
      * Obtains the video timestamp corresponding to a video frame number. Only MP4 video files are supported.
@@ -1109,7 +1377,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTimeByFrameIndex(index: int): Promise<long>;
 
@@ -1123,7 +1391,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFrameIndexByTime(timeUs: long): Promise<int>;
 
@@ -1142,7 +1410,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -1160,7 +1428,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
   }
@@ -1179,7 +1447,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVMetadata {
     /**
@@ -1195,7 +1463,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     album?: string;
 
@@ -1212,7 +1480,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     albumArtist?: string;
 
@@ -1229,7 +1497,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     artist?: string;
 
@@ -1246,7 +1514,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     author?: string;
 
@@ -1263,7 +1531,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateTime?: string;
 
@@ -1281,7 +1549,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateTimeFormat?: string;
 
@@ -1298,7 +1566,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     composer?: string;
 
@@ -1314,7 +1582,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration?: string;
 
@@ -1331,7 +1599,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     genre?: string;
 
@@ -1347,7 +1615,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasAudio?: string;
 
@@ -1363,7 +1631,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasVideo?: string;
 
@@ -1381,7 +1649,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mimeType?: string;
 
@@ -1398,7 +1666,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     trackCount?: string;
 
@@ -1414,7 +1682,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sampleRate?: string;
 
@@ -1431,7 +1699,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     title?: string;
 
@@ -1455,7 +1723,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoHeight?: string;
 
@@ -1471,7 +1739,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoWidth?: string;
 
@@ -1488,17 +1756,17 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoOrientation?: string;
 
-     /**
+    /**
      * HDR type of the media asset. This parameter is read-only in the current version.
      * @type { ?HdrType }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hdrType?: HdrType;
 
@@ -1507,7 +1775,7 @@ declare namespace media {
      * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     location?: Location;
 
@@ -1516,7 +1784,7 @@ declare namespace media {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     customInfo?: Record<string, string>;
 
@@ -1525,7 +1793,7 @@ declare namespace media {
      * @type { ?Array<MediaDescription> }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tracks?: Array<MediaDescription>;
 
@@ -1536,9 +1804,19 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     gltf_offset?: string;
+
+    /**
+     * The identifier that represents the software or hardware and settings used for encoding.
+     * This parameter is not supported in AVRecorder settings.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    encoder?: string;
   }
 
   /**
@@ -1546,37 +1824,40 @@ declare namespace media {
    * @typedef OutputSize
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 20 dynamic
+   * @since 23 static
    */
-  declare interface OutputSize {  
+  interface OutputSize {
     /**
      * The expected output frame image width.
      * If the value is less than 0, the width will be the orginal width of the video.
      * If the value is 0 or no value is assigned, the scaling ratio will follow the specified height.
      * If both width and height is not assigned, the output will be the original size of video frame.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 20 dynamic
+     * @since 23 static
      */
-    width?:number;
+    width?:int;
     /**
      * The expected output frame image height.
      * If the value is less than 0, the height will be the orginal height of the video.
      * If the value is 0 or no value is assigned, the scaling ratio will follow the specified width.
      * If both width and height is not assigned, the output will be the original size of video frame.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 20 dynamic
+     * @since 23 static
      */
-    height?: number;
+    height?: int;
   }
 
   /**
    * Enumerates options about the HDR Type of the video.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HdrType {
     /**
@@ -1584,7 +1865,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AV_HDR_TYPE_NONE = 0,
 
@@ -1593,7 +1874,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AV_HDR_TYPE_VIVID = 1,
   }
@@ -1605,7 +1886,7 @@ declare namespace media {
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVImageGenerator {
     /**
@@ -1625,7 +1906,7 @@ declare namespace media {
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -1655,7 +1936,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 22 static
+     * @since 23 static
      */
     fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams,
       callback: AsyncCallback<image.PixelMap | undefined>): void;
@@ -1681,7 +1962,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 22 static
+     * @since 23 static
      */
     fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
 
@@ -1701,13 +1982,28 @@ declare namespace media {
       Promise<image.PixelMap>;
 
     /**
+     * Supports extracting video thumbnails by proportional scaling
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     *     The unit is microsecond(us).
+     * @param { AVImageQueryOptions } queryMode - Specify how to position the video frame
+     * @param { OutputSize } [outputSize] - This field is used to define the output size of frame.
+     * @returns { Promise<image.PixelMap | undefined> }  Returns the output image object
+     * @throws { BusinessError } 5400102 Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @since 23 static
+     */
+    fetchScaledFrameByTime(timeUs: long, queryMode: AVImageQueryOptions, outputSize?: OutputSize):
+      Promise<image.PixelMap | undefined>;
+
+    /**
      * Releases this **AVImageGenerator** instance. This API uses an asynchronous callback to return the result.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -1717,7 +2013,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
   }
@@ -1727,17 +2023,17 @@ declare namespace media {
    *
    * The time passed in for obtaining the thumbnail may be different from the time of the video frame for which
    * the thumbnail is actually obtained. Therefore, you need to specify their relationship.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AVImageQueryOptions {
     /**
      * The key frame at or next to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AV_IMAGE_QUERY_NEXT_SYNC,
 
@@ -1745,7 +2041,7 @@ declare namespace media {
      * The key frame at or prior to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AV_IMAGE_QUERY_PREVIOUS_SYNC,
 
@@ -1753,7 +2049,7 @@ declare namespace media {
      * The key frame closest to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
 
@@ -1761,7 +2057,7 @@ declare namespace media {
      * The frame (not necessarily a key frame) closest to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AV_IMAGE_QUERY_CLOSEST,
   }
@@ -1771,26 +2067,28 @@ declare namespace media {
    * @typedef PixelMapParams
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PixelMapParams {
     /**
-     * Width of the thumbnail. The value must be greater than 0 and less than or equal to the width of the original
-     * video. Otherwise, the returned thumbnail will not be scaled.
+     * Width of the thumbnail. Unit: px.
+     * The value must be greater than 0 and less than or equal to the width of the original video.
+     * Otherwise, the returned thumbnail will not be scaled.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width?: int;
 
     /**
-     * Height of the thumbnail. The value must be greater than 0 and less than or equal to the height of the original
-     * video. Otherwise, the returned thumbnail will not be scaled.
+     * Height of the thumbnail. Unit: px.
+     * The value must be greater than 0 and less than or equal to the height of the original video.
+     * Otherwise, the returned thumbnail will not be scaled.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height?: int;
 
@@ -1802,7 +2100,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     colorFormat?: PixelFormat;
 
@@ -1814,18 +2112,18 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     autoFlip?: boolean;
   }
 
   /**
    * Enumerates the color formats supported by the video thumbnail.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PixelFormat {
     /**
@@ -1833,7 +2131,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RGB_565 = 2,
 
@@ -1842,7 +2140,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RGBA_8888 = 3,
 
@@ -1851,10 +2149,99 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RGB_888 = 5,
   }
+
+  /**
+   * Enumerates the fetch result code.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum FetchResult {
+    /**
+     * Fetch picture from video failed.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_FAILED = 0,
+
+    /**
+     * Fetch picture from video success.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_SUCCEEDED = 1,
+
+    /**
+     * Fetch picture from video is cancelled by user.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_CANCELED = 2,
+  }
+
+  /**
+   * Defines the frame info when fetch picture form a video.
+   * @typedef FrameInfo
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface FrameInfo {
+    /**
+     * The requested frame time.
+     * @type { long }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    requestedTimeUs: long;
+
+    /**
+     * The actual frame time.
+     * @type { ?long }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    actualTimeUs?: long;
+
+    /**
+     * The image extracted from video.
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    image?: image.PixelMap;
+
+    /**
+     * The fetch result code - succeed, failed or cancelled.
+     * @type { FetchResult }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    result: FetchResult;
+  }
+
+  /**
+   * Defines the OnFrameFetched callback.
+   * @typedef { function } OnFrameFetched
+   * @param { FrameInfo } frameInfo - the fetched data.
+   * @param { BusinessError<void> } [err] - the error occurred during fetch.
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError<void>) => void;
 
   /**
     * Enumerates ErrorCode types, return in BusinessError::code.
@@ -1874,12 +2261,12 @@ declare namespace media {
   /**
    * Enumerates the media error codes, return in BusinessError::code.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AVErrorCode {
     /**
@@ -1899,7 +2286,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_OK = 0,
 
@@ -1920,7 +2307,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_NO_PERMISSION = 201,
 
@@ -1941,7 +2328,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_INVALID_PARAMETER = 401,
 
@@ -1962,7 +2349,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_UNSUPPORT_CAPABILITY = 801,
 
@@ -1983,7 +2370,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_NO_MEMORY = 5400101,
 
@@ -2004,7 +2391,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_OPERATE_NOT_PERMIT = 5400102,
 
@@ -2025,7 +2412,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO = 5400103,
 
@@ -2046,7 +2433,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_TIMEOUT = 5400104,
 
@@ -2067,7 +2454,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_SERVICE_DIED = 5400105,
 
@@ -2088,7 +2475,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_UNSUPPORT_FORMAT = 5400106,
 
@@ -2104,7 +2491,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
@@ -2112,7 +2499,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_SESSION_NOT_EXIST = 5400109,
     /**
@@ -2121,7 +2508,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_HOST_NOT_FOUND = 5411001,
     /**
@@ -2130,7 +2517,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_CONNECTION_TIMEOUT = 5411002,
     /**
@@ -2139,7 +2526,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_NETWORK_ABNORMAL = 5411003,
     /**
@@ -2148,7 +2535,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_NETWORK_UNAVAILABLE = 5411004,
     /**
@@ -2157,7 +2544,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_NO_PERMISSION = 5411005,
     /**
@@ -2166,7 +2553,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_REQUEST_DENIED = 5411006,
     /**
@@ -2175,7 +2562,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_RESOURCE_NOT_FOUND = 5411007,
     /**
@@ -2185,7 +2572,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
     /**
@@ -2195,7 +2582,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_SSL_CONNECTION_FAILED = 5411009,
     /**
@@ -2204,7 +2591,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010,
     /**
@@ -2213,7 +2600,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
     /**
@@ -2221,7 +2608,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
 
@@ -2230,7 +2617,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_SUPER_RESOLUTION_UNSUPPORTED = 5410003,
 
@@ -2239,20 +2626,272 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
+
+    /**
+     * Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AVERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012,
 
     /**
      * The parameter value is out of the specified range.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVERR_PARAMETER_OUT_OF_RANGE = 5400108,
   }
 
+  /**
+   * Enumerates the Metrics event supported by media kit.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 23 dynamic&static
+   */
+  enum AVMetricsEventType {
+    /**
+     * stalling event, include the duration and the media type info.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 23 dynamic&static
+     */
+    AV_METRICS_EVENT_STALLING = 1,
+  }
+
+  /**
+   * Describes the video Dimensions.
+   * 
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface VideoSize {
+    /**
+     * width of the video resolution.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Pixel.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    width?: int;
+
+    /**
+     * height of the video resolution.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Pixel.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    height?: int;
+  }
+
+  /**
+   * Describes the information of an Metrics Event.
+   *
+   * @typedef AVMetricsEvent
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @since 23 dynamic&static
+   */
+  interface AVMetricsEvent {
+    /**
+     * Type of the metrics event.
+     *
+     * @type { AVMetricsEventType }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    event: AVMetricsEventType;
+
+    /**
+     * Absolute timestamp when the event occurred.
+     * @type { long }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    timeStamp: long;
+
+    /**
+     * The playback progress position when the event occurs.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    playbackPosition: int;
+
+    /**
+     * The detailed information of the event.
+     *
+     * @type { Record<string, Object> }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    details: Record<string, Object>;
+  }
+
+  /**
+   * Describes the filter conditions for track selection.
+   * 
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface TrackSelectionFilter {
+    /**
+     * Maximum allowed video bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Bits/sec.Default value:If this parameter is not specified, the maximum video bitrate is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxVideoBitrate?: int;
+
+    /**
+     * Minimum allowed video bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Bits/sec.Default value:If no value is assigned, the minimum video bitrate is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    minVideoBitrate?: int;
+
+    /**
+     * Maximum allowed video frame rate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:frame/sec.Default value:If not specified, the maximum video frame rate is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxVideoFrameRate?: int;
+
+    /**
+     * Minimum allowed video frame rate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:frame/sec.Default value:If not specified, the minimum frame rate is not specified.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    minVideoFrameRate?: int;
+
+    /**
+     * Maximum allowed video resolution.
+     * <br>Default value:If not specified, the maximum video resolution is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxVideoResolution?: VideoSize;
+
+    /**
+     * Minimum allowed video resolution.
+     * <br>Default value:If not specified, the minimum video resolution is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    minVideoResolution?: VideoSize;
+
+    /**
+     * The preferred sample MIME types for video tracks in order of preference,
+     * Multiple MIMEs are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:Format as a MIME string or a codec string in HLS or DASH.
+     * <br>Default value:If not specified or an empty array is set, the Mime type is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredVideoMimeTypes?: Array<string>;
+
+    /**
+     * Maximum allowed audio bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer (greater than 0).
+     * <br>Unit:bit/s.Default value:If this parameter is not set, the maximum audio bitrate is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxAudioBitrate?: int;
+
+    /**
+     * Minimum allowed audio bitrate.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Unit:Bits/sec.Default value:If this parameter is not set, the minimum audio bitate is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    minAudioBitrate?: int;
+
+    /**
+     * Maximum allowed audio channel count.
+     * The value should be an integer.Value constraint:The value must be a positive integer.
+     * <br>Default value:If this parameter is not specified, the number of audio channels is not limited.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxAudioChannels?: int;
+
+    /**
+     * Indicates the preferred encoding MIME type of the audio track.
+     * Multiple MIMEs are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:Format as a MIME string or a codec string in HLS or DASH.
+     * <br>Default value:If not specified or an empty array is set, the MIME type of the audio is not restricted.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredAudioMimeTypes?: Array<string>;
+
+    /**
+     * The preferred languages for audio tracks.
+     * Multiple languages are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:Language strings comply with the IETF BCP 47 definition.
+     * <br>Default value:If this parameter is not specified or the array is empty, the audio language is not restricted.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredAudioLanguages?: Array<string>;
+
+    /**
+     * Preferred language set for subtitles.
+     * Multiple languages are arranged in the order of the array, with priorities in descending order.
+     * Value constraint:The language string complies with the IETF BCP 47 definition.
+     * <br>Default value:If this parameter is not specified or the array is empty, the subtitle language is not restricted.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredSubtitleLanguages?: Array<string>;
+  }
   /**
    * Describes AVPlayer states.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
@@ -2277,7 +2916,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
@@ -2289,7 +2928,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnTrackChangeHandler = (index: int, isSelected: boolean) => void;
 
@@ -2303,7 +2942,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
 
@@ -2317,7 +2956,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: int) => void;
 
@@ -2331,7 +2970,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnVideoSizeChangeHandler = (width: int, height: int) => void;
 
@@ -2356,7 +2995,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnSuperResolutionChanged = (enabled: boolean) => void;
 
@@ -2367,7 +3006,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SeiMessage {
     /**
@@ -2376,7 +3015,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     payloadType: int;
 
@@ -2386,7 +3025,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     payload: ArrayBuffer;
   }
@@ -2401,7 +3040,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: int) => void;
 
@@ -2409,12 +3048,13 @@ declare namespace media {
    * Defines the OnPlaybackRateDone callback.
    *
    * @typedef { function } OnPlaybackRateDone
-   * @param { number } rate - playback rate.
+   * @param { double } rate - playback rate.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
-  type OnPlaybackRateDone = (rate: number) => void;
+  type OnPlaybackRateDone = (rate: double) => void;
 
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
@@ -2450,7 +3090,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVPlayer {
     /**
@@ -2488,7 +3128,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prepare(callback: AsyncCallback<void>): void;
 
@@ -2527,7 +3167,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prepare(): Promise<void>;
 
@@ -2554,7 +3194,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     play(callback: AsyncCallback<void>): void;
 
@@ -2581,7 +3221,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     play(): Promise<void>;
 
@@ -2608,7 +3248,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -2635,7 +3275,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pause(): Promise<void>;
 
@@ -2665,7 +3305,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -2695,7 +3335,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
 
@@ -2725,7 +3365,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reset(callback: AsyncCallback<void>): void;
 
@@ -2755,7 +3395,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reset(): Promise<void>;
 
@@ -2782,7 +3422,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -2809,13 +3449,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
 
     /**
      * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
      * playing, paused, or completed state.
+     * 
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2831,19 +3472,36 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
-     * playing, paused, or completed state.
+     * Jumps to the specified playback position.
+     * This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
      * This API is not supported in live mode.
-     * @param { int } timeMs - Playback position to jump, should be in [0, duration]. In SEEK_CONTINUOU mode,
-     * the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
-     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
-     * Set this parameter only for video playback.
+     * 
+     * @param { int } timeMs - Playback position to jump, should be in [0, duration].
+     *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**.
+     *     Set this parameter only for video playback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
+     */
+    /**
+     * Jumps to the specified playback position.
+     * This API can be called only when the AVPlayer is in the prepared,playing, paused, or completed state.
+     * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
+     * 
+     * @param { int } timeMs - Playback position to jump, should be in [0, duration].
+     *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     *     The value should be an integer.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
+     *     Set this parameter only for video playback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     seek(timeMs: int, mode?: SeekMode): void;
 
@@ -2863,7 +3521,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setVolume(volume: double): void;
 
@@ -2894,7 +3552,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void;
 
@@ -2922,7 +3580,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
@@ -2934,23 +3592,41 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSelectedTracks(): Promise<Array<int>>;
 
     /**
      * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
      * This API uses a promise to return the result.
+     * 
      * @param { int } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
      * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
-     * This parameter takes effect only for the switch of a video track for DASH streams.
+     *     This parameter takes effect only for the switch of a video track for DASH streams.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
+     */
+    /**
+     * Allows users to switch to a specified track in a specified mode to continue playing.
+     * 
+     * @param { int } index - Specifies the track index of the switching target.
+     *     The value should be an integer.Value constraint:
+     *     Extract the value of MD_KEY_TRACK_INDEX using the getTrackDescription().
+     * @param { SwitchMode } [mode] - Sets the mode for rail switching.
+     *     <br>Value constraint:This mode applies only to video track switching.
+     *     <br>Default value:SMOOTH: Switches at the end of a segment to ensure video continuity.
+     * @returns { Promise<void> } A Promise instance used to return when select track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     selectTrack(index: int, mode?: SwitchMode): Promise<void>;
 
@@ -2964,7 +3640,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deselectTrack(index: int): Promise<void>;
 
@@ -2981,9 +3657,33 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Get the track selection filter currently configured for the player.
+     * 
+     * @returns { Promise<TrackSelectionFilter> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getTrackSelectionFilter(): Promise<TrackSelectionFilter>;
+
+    /**
+     * Set the media track filter to the player,
+     * and the player uses the filter to select available tracks for rendering.
+     * 
+     * @param { TrackSelectionFilter } filter - Track selection filter object assigned to the player.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setTrackSelectionFilter(filter : TrackSelectionFilter): Promise<void>;
 
     /**
      * Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
@@ -2992,7 +3692,7 @@ declare namespace media {
      * calling resourceManager.getRawFd.
      * The caller is responsible to close the file descriptor.
      * @param { long } offset : The offset into the file where the data to be read, in bytes.
-     * By default, the offset is zero.
+     * By default, the offset is zero.unit:Byte.
      * @param { long } length : The length in bytes of the data to be read.
      * By default, the length is the rest of bytes in the file from the offset.
      * @returns { Promise<void> } Promise used to return the result.
@@ -3001,7 +3701,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addSubtitleFromFd(fd: int, offset?: long, length?: long): Promise<void>;
 
@@ -3016,19 +3716,65 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,
-     * playing, or paused state.
+     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,	 
+     * playing, or paused state. 
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
+
+    /**
+     * To obtain the loaded time ranges;
+     * For local media sources, it is the entire media duration;
+     * For network loading, it is the progress cached locally.
+     * 
+     * @returns { Promise<Array<Range>> } return the currently loaded time ranges of the player,
+     *     expressed as [start, end] positions on the playback timeline in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getLoadedTimeRanges(): Promise<Array<Range>>;
+
+    /**
+     * To obtain the seekable time ranges;
+     * For local media resources and media sources that support segmented requests, it is the entire media duration.
+     * For media sources that only support chunked transmission, there is no seekable range.
+     * 
+     * @returns { Promise<Array<Range>> } return the currently seekable time ranges of the player,
+     *     expressed as [start, end] positions on the playback timeline in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSeekableTimeRanges(): Promise<Array<Range>>;
+
+    /**
+     * Seek to the default access point of the playback source.
+     * for live streaming it's the currently recommended new access point,
+     * and for video-on-demand it usually corresponds to the beginning of the video, similar to seek(0).
+     * 
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    seekToDefaultPosition(): void;
+
+    /**
+     * Get statistic metrics info of current player.
+     * @returns { Promise<PlaybackMetrics> } metrics info of current player.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    getPlaybackStatisticMetrics(): Promise<PlaybackMetrics>;
 
     /**
      * Set playback strategy to AVPlayer. This API can be called only when the AVPlayer is in the initialized state.
@@ -3039,7 +3785,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
 
@@ -3054,7 +3800,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
@@ -3077,7 +3823,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPlaybackRange(startTimeMs: int, endTimeMs: int, mode?: SeekMode) : Promise<void>;
 
@@ -3092,7 +3838,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isSeekContinuousSupported() : boolean;
 
@@ -3103,9 +3849,22 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPlaybackPosition() : int;
+
+    /**
+     * Get the PresentationTime value at current playback position.
+     * This API can be used in the playing, paused, or completed state.
+     *
+     * @returns { long } returns the time of current playback position - microseconds(us)
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getCurrentPresentationTimestamp() : long;
 
     /**
      * Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
@@ -3121,7 +3880,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSuperResolution(enabled: boolean) : Promise<void>;
 
@@ -3143,9 +3902,117 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setVideoWindowSize(width: int, height: int) : Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the next mediasource in the mediasource list.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed . Return by promise.
+	   * @throws { BusinessError } 5400108 - The previous mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToNextMediaSource() : Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the previous mediasource in the mediasource list.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+	   * @throws { BusinessError } 5400108 - The next mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToPrevMediaSource(): Promise<void>;
+
+    /**
+     * Return the current mediasource.
+     *
+     * @returns { MediaSource | undefined } current mediasource if the operation is successful; returns null otherwise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getCurrentMediaSource(): MediaSource | undefined;
+
+    /**
+     * Add a new playback source to the player's playlist.
+     *
+     * @param { MediaSource } src - Playback source to be added to the playlist.
+     * @param { string } [id] - Indicates the ID of a media source in the playlist.
+     *     The newly added media source is inserted before the specified media source.
+     *     <br>Default value:if empty, it means adding to the end of the list
+     * @returns { Promise<string> } Promise used to return the result,
+     *     if success, a unique ID corresponding to the media resource will be returned.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    addPlaybackMediaSource(src: MediaSource, id?: string): Promise<string>;
+
+    /**
+     * Removes the specified playback media source from the player's playlist.
+     * If the id does not exist in the current playlist, the method returns immediately.
+     *
+     * @param { string } id - ID returned after a media source is added to the playlist.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    removePlaybackMediaSource(id: string): Promise<void>;
+
+    /**
+     * Clears all the items in the player's playlist. Currently playing media will be terminated immediately.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed or no next mediasource in the list. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    clearPlaybackList(): Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the specified mediasource in the mediasource list.
+     *
+     * @param { string } id - Indicates the ID of the media source to play.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToMediaSource(id: string): Promise<void>;
+
+    /**
+     * Return the array of mediasources in the playlist.
+     *
+     * @returns { Array<MediaSource | undefined> } array of mediasources in the playlist.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getMediaSources(): Array<MediaSource | undefined>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -3183,7 +4050,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     url?: string;
 
@@ -3212,7 +4079,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fdSrc?: AVFileDescriptor;
 
@@ -3237,7 +4104,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dataSrc?: AVDataSrcDescriptor;
 
@@ -3255,9 +4122,20 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     loop: boolean;
+
+    /**
+     * Set the loopmode when playing the media source playlist.
+     * <br>Default value:PLAYLIST_LOOP_MODE_ALL, which means loops all items in the playlist.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    playlistLoopMode?: PlaylistLoopMode;
 
     /**
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
@@ -3275,7 +4153,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioInterruptMode?: audio.InterruptMode;
 
@@ -3296,7 +4174,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioRendererInfo?: audio.AudioRendererInfo;
 
@@ -3313,7 +4191,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioEffectMode ?: audio.AudioEffectMode;
 
@@ -3332,7 +4210,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly currentTime: int;
 
@@ -3357,7 +4235,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly duration: int;
 
@@ -3374,7 +4252,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly state: AVPlayerState;
 
@@ -3400,7 +4278,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     surfaceId?: string;
 
@@ -3418,7 +4296,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly width: int;
 
@@ -3436,7 +4314,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly height: int;
 
@@ -3454,7 +4332,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoScaleType?: VideoScaleType;
 
@@ -3473,21 +4351,30 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSpeed(speed: PlaybackSpeed): void;
 
     /**
      * Set playback rate.
      * Supported states: prepared/playing/paused/completed.
-     * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
+     * @param { double } rate - playback rate, valid range is 0.125 ~ 4.
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
-    setPlaybackRate(rate: number): void;
+    setPlaybackRate(rate: double): void;
+
+    /**
+     * Get the current player playback rate
+     * @returns { Promise<double> } the current player playback rate.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    getPlaybackRate(): Promise<double>;
 
     /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
@@ -3515,7 +4402,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setBitrate(bitrate: int): void;
 
@@ -3528,15 +4415,9 @@ declare namespace media {
      * @param { double } loudnessGain - Loudness gain to set, expressed in dB. The value is a 
      *     floating int ranging from -90.0 dB to 24.0 dB.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     *     e.g. The function is called in an incorrect state, or the stream usage of audioRendererInfo is not one of
-     *     {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
-     *     {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
-     * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setLoudnessGain(loudnessGain: double): Promise<void>;
 
@@ -3561,7 +4442,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void;
 
@@ -3577,7 +4458,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
 
@@ -3597,7 +4478,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -3615,7 +4495,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'mediaKeySystemInfoUpdate', callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -3643,7 +4522,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void;
     /**
@@ -3667,7 +4545,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void;
     /**
@@ -3686,7 +4563,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'volumeChange', callback: Callback<double>): void;
     /**
@@ -3713,7 +4589,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'volumeChange', callback?: Callback<double>): void;
     /**
@@ -3734,7 +4609,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
     /**
@@ -3759,7 +4633,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
@@ -3791,7 +4664,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'seekDone', callback: Callback<int>): void;
     /**
@@ -3820,7 +4692,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'seekDone', callback?: Callback<int>): void;
     /**
@@ -3840,7 +4711,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'speedDone', callback: Callback<int>): void;
     /**
@@ -3867,7 +4737,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'speedDone', callback?: Callback<int>): void;
     /**
@@ -3883,7 +4752,7 @@ declare namespace media {
     /**
      * Unregister listens for media playbackRateDone event.
      * @param { 'playbackRateDone' } type - Type of the playback event to listen for.
-     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @param { OnPlaybackRateDone } [callback] - Callback used to listen for the playbackRateDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 20 dynamic
@@ -3905,7 +4774,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'bitrateDone', callback: Callback<int>): void;
     /**
@@ -3917,7 +4785,7 @@ declare namespace media {
     /**
      * Unsubscribes from the event that checks whether the bit rate is successfully set.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<int> } [callback] - Callback invoked when the event is triggered.
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -3930,9 +4798,9 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'bitrateDone', callback?: Callback<int>): void;
+
     /**
      * Register listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
@@ -3958,7 +4826,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'timeUpdate', callback: Callback<int>): void;
     /**
@@ -3977,12 +4844,11 @@ declare namespace media {
     /**
      * Unsubscribes from playback position changes.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<int> } callback - Callback used to return the current time.
+     * @param { Callback<int> } [callback] - Callback used to return the current time.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'timeUpdate', callback?: Callback<int>): void;
     /**
@@ -4002,7 +4868,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'durationUpdate', callback: Callback<int>): void;
     /**
@@ -4022,12 +4887,11 @@ declare namespace media {
     /**
      * Unsubscribes from media asset duration changes.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<int> } callback - Callback used to return the resource duration.
+     * @param { Callback<int> } [callback] - Callback used to return the resource duration.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'durationUpdate', callback?: Callback<int>): void;
 
@@ -4049,7 +4913,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void;
 
@@ -4063,13 +4926,12 @@ declare namespace media {
     /**
      * Unsubscribes from audio and video buffer changes.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered.,
+     * @param { OnBufferingUpdateHandler } [callback] - Callback invoked when the event is triggered.,
 	   * and return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'bufferingUpdate', callback?: OnBufferingUpdateHandler): void;
     /**
@@ -4089,7 +4951,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'startRenderFrame', callback: Callback<void>): void;
     /**
@@ -4112,7 +4973,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'startRenderFrame', callback?: Callback<void>): void;
 
@@ -4133,7 +4993,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void;
     /**
@@ -4145,12 +5004,11 @@ declare namespace media {
     /**
      * Unsubscribes from video size changes.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
+     * @param { OnVideoSizeChangeHandler } [callback] - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'videoSizeChange', callback?: OnVideoSizeChangeHandler): void;
     /**
@@ -4170,7 +5028,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
     /**
@@ -4182,12 +5039,11 @@ declare namespace media {
     /**
      * Unregister listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
-     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return audio interrupt info.
+     * @param { Callback<audio.InterruptEvent> } [callback] - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
     /**
@@ -4209,7 +5065,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'availableBitrates', callback: Callback<Array<int>>): void;
     /**
@@ -4228,7 +5083,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'availableBitrates', callback?: Callback<Array<int>>): void;
     /**
@@ -4342,7 +5196,36 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Register listens for playback error events.
+     * @param { 'error' } type - Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @throws { BusinessError } 5410002 - Seek continuous unsupported.
+     * @throws { BusinessError } 5411001 - IO can not find host.
+     * @throws { BusinessError } 5411002 - IO connection timeout.
+     * @throws { BusinessError } 5411003 - IO network abnormal.
+     * @throws { BusinessError } 5411004 - IO network unavailable.
+     * @throws { BusinessError } 5411005 - IO no permission.
+     * @throws { BusinessError } 5411006 - IO request denied.
+     * @throws { BusinessError } 5411007 - IO resource not found.
+     * @throws { BusinessError } 5411008 - IO SSL client cert needed.
+     * @throws { BusinessError } 5411009 - IO SSL connect fail.
+     * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
+     * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
@@ -4366,7 +5249,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -4395,7 +5277,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
@@ -4419,7 +5300,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
@@ -4433,9 +5313,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
-    on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
+    on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void;
 
     /**
      * Unsubscribes from subtitle update events.
@@ -4445,9 +5324,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
-    off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
+    off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void;
 
     /**
      * Subscribes to track change events. When the track changes, the system notifies the application through
@@ -4459,9 +5337,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
-    on(type: 'trackChange', callback: OnTrackChangeHandler): void
+    on(type: 'trackChange', callback: OnTrackChangeHandler): void;
 
     /**
      * Unsubscribes from track change events.
@@ -4471,9 +5348,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
-    off(type: 'trackChange', callback?: OnTrackChangeHandler): void
+    off(type: 'trackChange', callback?: OnTrackChangeHandler): void;
 
     /**
      * Subscribes to track information update events. When the track information is updated, the system notifies the
@@ -4485,9 +5361,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
-    on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
+    on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void;
 
     /**
      * Unsubscribes from track information update events.
@@ -4498,9 +5373,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
-    off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
+    off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void;
 
     /**
      * Subscribes to update events of the maximum audio level value, which is periodically reported when audio
@@ -4510,9 +5384,8 @@ declare namespace media {
      * @param { Callback<Array<double>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13 dynamic
-     * @since 22 static
      */
-    on(type: 'amplitudeUpdate', callback: Callback<Array<double>>): void
+    on(type: 'amplitudeUpdate', callback: Callback<Array<double>>): void;
 
     /**
      * Unsubscribes from update events of the maximum amplitude.
@@ -4521,9 +5394,8 @@ declare namespace media {
      * @param { Callback<Array<double>> } callback - Callback that has been registered to listen for amplitude updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13 dynamic
-     * @since 22 static
      */
-    off(type: 'amplitudeUpdate', callback?: Callback<Array<double>>): void
+    off(type: 'amplitudeUpdate', callback?: Callback<Array<double>>): void;
 
     /**
      * Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
@@ -4539,7 +5411,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type: 'seiMessageReceived', payloadTypes: Array<int>, callback: OnSeiMessageHandle): void;
 
@@ -4555,7 +5426,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     off(type: 'seiMessageReceived', payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
 
@@ -4567,7 +5437,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
 
@@ -4579,10 +5448,675 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
-    off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;    
+    off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;
+
+    /**
+     * Subscribe to Metrics events during playback.
+     * @param { Callback<Array<AVMetricsEvent>> } callback - reports an metrics event info.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    onMetricsEvent(callback: Callback<Array<AVMetricsEvent>>): void;
+
+    /**
+     * Unsubscribe from Metrics events during playback.
+     * @param { Callback<Array<AVMetricsEvent>> } [callback] - reports an metrics event info.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    offMetricsEvent(callback?: Callback<Array<AVMetricsEvent>>): void;
+
+    /**
+     * Register listens for mediaKeySystemInfoUpdate events.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
+     *     It reports a **MediaKeySystemInfo** array.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onMediaKeySystemInfoUpdate( callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
+
+    /**
+     * Register listens for media playback stateChange event.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onStateChange(callback: OnAVPlayerStateChangeHandle): void;
+
+    /**
+     * Subscribes to the event to check whether the volume is successfully set.
+     * @param { Callback<double> } callback - Callback invoked when the event is triggered.
+     *     It reports the effective volume.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onVolumeChange(callback: Callback<double>): void;
+
+    /**
+     * Subscribes to the event that indicates the end of the stream being played. If {@link #loop} = true is set,
+     * the AVPlayer seeks to the beginning of the stream and plays the stream again. If loop is not set,
+     * the completed state is reported through the {@link #stateChange} event.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onEndOfStream(callback: Callback<void>): void;
+
+    /**
+     * Subscribes to the event to check whether the seek operation takes effect.
+     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
+     *     It reports the time position requested by the user.
+     *     For video playback, {@link #SeekMode} may cause the actual position to be different from that 
+     *     requested by the user.The exact position can be obtained from the currentTime attribute. The time
+     *     in this callback only means that the requested seek operation is complete.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onSeekDone(callback: Callback<int>): void;
+
+    /**
+     * Subscribes to the event to check whether the playback speed is successfully set.
+     * @param { Callback<int> } callback - Callback used to return the result. When the call of
+     *     setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onSpeedDone(callback: Callback<int>): void;
+
+    /**
+     * Register listens for media playbackRateDone event.
+     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onPlaybackRateDone(callback: OnPlaybackRateDone): void;
+
+    /**
+     * Subscribes to the event to check whether the bit rate is successfully set.
+     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
+     *     It reports the effective bit rate.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onBitrateDone(callback: Callback<int>): void;
+
+    /**
+     * Subscribes to playback position changes. It is used to refresh the current position of the progress bar.
+     * By default, this event is reported every 100 ms. However, it is reported immediately upon
+     * a successful seek operation.
+     * @param { Callback<int> } callback - Callback used to return the current time.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onTimeUpdate(callback: Callback<int>): void;
+
+    /**
+     * Subscribes to media asset duration changes. It is used to refresh the length of the progress bar. By
+     * default, this event is reported once in the prepared state. However, it can be repeatedly reported for
+     * special streams that trigger duration changes. The **'durationUpdate'** event is not supported in live mode.
+     * @param { Callback<int> } callback - Callback used to return the resource duration.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onDurationUpdate(callback: Callback<int>): void;
+
+    /**
+     * Subscribes to audio and video buffer changes. This subscription is supported only in network
+     * playback scenarios.
+     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered,
+     *     and return BufferingInfoType and the value.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onBufferingUpdate(callback: OnBufferingUpdateHandler): void;
+
+    /**
+     * Subscribes to the event that indicates rendering starts for the first frame. This subscription is
+     * supported only in video playback scenarios. This event only means that the playback service sends
+     * the first frame to the display module. The actual rendering effect depends on the rendering performance
+     * of the display service.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onStartRenderFrame(callback: Callback<void>): void;
+
+    /**
+     * Subscribes to video size (width and height) changes. This subscription is supported only in video playback
+     * scenarios. By default, this event is reported only once in the prepared state. However, it is also reported
+     * upon resolution changes in the case of HLS streams.
+     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onVideoSizeChange(callback: OnVideoSizeChangeHandler): void;
+
+    /**
+     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}.
+     * The application needs to perform corresponding processing based on different audio interruption events.
+     * For details, see Handling Audio Interruption Events.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return
+     *     audio interrupt info.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
+
+    /**
+     * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
+     * This event will be reported after the {@link #prepare} called.
+     * @param { Callback<Array<int>> } callback - Callback used to listen for the playback event return
+     *     available bitrate list. It returns an array that holds the available bit rates.
+     *     If the array length is 0, no bit rate can be set.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onAvailableBitrates(callback: Callback<Array<int>>): void;
+
+    /**
+     * Register listens for playback error events.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @throws { BusinessError } 5410002 - Seek continuous unsupported.
+     * @throws { BusinessError } 5411001 - IO can not find host.
+     * @throws { BusinessError } 5411002 - IO connection timeout.
+     * @throws { BusinessError } 5411003 - IO network abnormal.
+     * @throws { BusinessError } 5411004 - IO network unavailable.
+     * @throws { BusinessError } 5411005 - IO no permission.
+     * @throws { BusinessError } 5411006 - IO request denied.
+     * @throws { BusinessError } 5411007 - IO resource not found.
+     * @throws { BusinessError } 5411008 - IO SSL client cert needed.
+     * @throws { BusinessError } 5411009 - IO SSL connect fail.
+     * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
+     * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onError(callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to audio stream output device changes and reasons. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * When subscribing to this event, you are advised to implement the player behavior when the device is
+     * connected or disconnected by referring to Responding to Audio Output Device Changes.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onAudioOutputDeviceChangeWithInfo(callback: Callback<audio.AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Subscribes to subtitle update events. When external subtitles exist, the system notifies the application
+     * through the subscribed-to callback. An application can subscribe to only one subtitle update event. When
+     * the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * The event is triggered when the external subtitle is updated.
+     * @param { Callback<SubtitleInfo> } callback - Callback invoked when the subtitle is updated.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onSubtitleUpdate(callback: Callback<SubtitleInfo>): void;
+
+    /**
+     * Subscribes to track change events. When the track changes, the system notifies the application through
+     * the subscribed-to callback. An application can subscribe to only one track change event. When the
+     * application initiates multiple subscriptions to this event, the last subscription is applied.
+     * The event is triggered when the track changes.
+     * @param { OnTrackChangeHandler } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onTrackChange(callback: OnTrackChangeHandler): void;
+
+    /**
+     * Subscribes to track information update events. When the track information is updated, the system notifies the
+     * application through the subscribed-to callback. An application can subscribe to only one track change event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * The event is triggered when the track information is updated.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onTrackInfoUpdate(callback: Callback<Array<MediaDescription>>): void;
+
+    /**
+     * Subscribes to update events of the maximum audio level value, which is periodically reported when audio
+     * resources are played.
+     * The event is triggered when the amplitude changes.
+     * @param { Callback<Array<double>> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onAmplitudeUpdate(callback: Callback<Array<double>>): void;
+
+    /**
+     * Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
+     * applies only to HTTP-FLV live streaming and is triggered when SEI messages are present in the video stream.
+     * You must initiate the subscription before calling {@link #prepare}. If you initiate multiple subscriptions
+     * to this event, the last subscription is applied.
+     * @param { Array<int> } payloadTypes - Array of subscribed-to payload types of SEI messages. Currently,
+     *     only payloadType = 5 is supported.
+     * @param { OnSeiMessageHandle } callback - Callback used to listen for SEI message events and receive the
+     *     subscribed-to payload types.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onSeiMessageReceived(payloadTypes: Array<int>, callback: OnSeiMessageHandle): void;
+
+    /**
+     * Subscribes to the event indicating that super resolution is enabled or disabled.
+     * The event is triggered when super resolution is enabled or disabled.
+     * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    onSuperResolutionChanged(callback: OnSuperResolutionChanged): void;
+
+    /**
+     * Unsubscribes from the event indicating that super resolution is enabled or disabled.
+     * The event is triggered when super resolution is enabled or disabled.
+     * @param { OnSuperResolutionChanged } [callback] - Callback used to listen for the super-resolution changed event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offSuperResolutionChanged(callback?: OnSuperResolutionChanged): void;
+
+    /**
+     * Unregister listens for media playback stateChange event.
+     * @param { OnAVPlayerStateChangeHandle } [callback] - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offStateChange(callback?: OnAVPlayerStateChangeHandle): void;
+
+    /**
+     * Unsubscribes from the event that checks whether the volume is successfully set.
+     * @param { Callback<double> } [callback] - Callback invoked when the event is triggered.
+     *     It reports the effective volume.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offVolumeChange(callback?: Callback<double>): void;
+
+    /**
+     * Unregister listens for mediaKeySystemInfoUpdate events.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } [callback] - Callback for event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offMediaKeySystemInfoUpdate(callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
+
+    /**
+     * Unregister listens for media playback endOfStream event.
+     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offEndOfStream(callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the event that checks whether the seek operation takes effect.
+     * @param { Callback<int> } [callback] - Callback invoked when the event is triggered.
+     *     It reports the time position requested by the user.
+     *     For video playback, SeekMode may cause the actual position to be different from that requested by the user.
+     *     The exact position can be obtained from the currentTime attribute. The time in this callback
+     *     only means that the requested seek operation is complete.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offSeekDone(callback?: Callback<int>): void;
+
+    /**
+     * Unsubscribes from the event that checks whether the playback speed is successfully set.
+     * @param { Callback<int> } [callback] - Callback used to return the result. When the call of setSpeed is
+     *     successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offSpeedDone(callback?: Callback<int>): void;
+
+    /**
+     * Unregister listens for media playbackRateDone event.
+     * @param { OnPlaybackRateDone } [callback] - Callback used to listen for the playbackRateDone event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offPlaybackRateDone(callback?: OnPlaybackRateDone): void;
+
+    /**
+     * Unsubscribes from the event that checks whether the bit rate is successfully set.
+     * @param { Callback<int> } [callback] - Callback invoked when the event is triggered.
+     *     It reports the effective bit rate.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offBitrateDone(callback?: Callback<int>): void;
+
+    /**
+     * Unsubscribes from playback position changes.
+     * @param { Callback<int> } [callback] - Callback used to return the current time.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offTimeUpdate(callback?: Callback<int>): void;
+
+    /**
+     * Unsubscribes from media asset duration changes.
+     * @param { Callback<int> } [callback] - Callback used to return the resource duration.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offDurationUpdate(callback?: Callback<int>): void;
+
+    /**
+     * Unsubscribes from audio and video buffer changes.
+     * @param { OnBufferingUpdateHandler } [callback] - Callback invoked when the event is triggered,
+     *     and return BufferingInfoType and the value.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offBufferingUpdate(callback?: OnBufferingUpdateHandler): void;
+
+    /**
+     * Unregister listens for start render video frame events.
+     * @param { Callback<void> } [callback] - Callback used to listen for the playback event return .
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offStartRenderFrame(callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from video size changes.
+     * @param { OnVideoSizeChangeHandler } [callback] - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offVideoSizeChange(callback?: OnVideoSizeChangeHandler): void;
+
+    /**
+     * Unregister listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * @param { Callback<audio.InterruptEvent> } [callback] - Callback used to listen for 
+     *     the playback event return audio interrupt info.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offAudioInterrupt(callback?: Callback<audio.InterruptEvent>): void;
+
+    /**
+     * Unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
+     * This event will be reported after the {@link #prepare} called.
+     * @param { Callback<Array<int>> } [callback] - Callback used to listen for the playback
+     *     event return available bitrate list.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offAvailableBitrates(callback?: Callback<Array<int>>): void;
+
+    /**
+     * Unsubscribes from AVPlayer errors.
+     * @param { ErrorCallback } [callback] - Callback used to return the error code ID and error message.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offError(callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from audio stream output device changes and reasons. This API uses an asynchronous callback
+     * to return the result.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } [callback] - Callback used to return the output device
+     *     descriptor of the current audio stream and the change reason.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offAudioOutputDeviceChangeWithInfo(callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Unsubscribes from subtitle update events.
+     * @param { Callback<SubtitleInfo> } [callback] - Callback that has been registered to listen for subtitle
+     *     update events.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offSubtitleUpdate(callback?: Callback<SubtitleInfo>): void;
+
+    /**
+     * Unsubscribes from track change events.
+     * The event is triggered when the track changes.
+     * @param { OnTrackChangeHandler } [callback] - Callback that has been registered to listen for track changes.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offTrackChange(callback?: OnTrackChangeHandler): void;
+
+    /**
+     * Unsubscribes from track information update events.
+     * The event is triggered when the track information is updated.
+     * @param { Callback<Array<MediaDescription>> } [callback] - Callback that has been registered to listen for track
+     *     information updates.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offTrackInfoUpdate(callback?: Callback<Array<MediaDescription>>): void;
+
+    /**
+     * Unsubscribes from update events of the maximum amplitude.
+     * The event is triggered when the amplitude changes.
+     * @param { Callback<Array<double>> } [callback] - Callback that has been registered to listen for amplitude updates.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offAmplitudeUpdate(callback?: Callback<Array<double>>): void;
+
+    /**
+     * Unsubscribes from the events indicating that an SEI message is received.
+     * The event is triggered when an SEI message is received.
+     * @param { Array<int> } [payloadTypes] - The payload types of the SEI message.
+     *     Null means unsubscribe all payload types.
+     * @param { OnSeiMessageHandle } [callback] - Callback used to listen for SEI message events and receive the
+     *     subscribed-to payload types.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 static
+     */
+    offSeiMessageReceived(payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
+
+    /**
+     * Registers a listener to detect when the playback content has changed.
+     * The value carried in the callback function is the ID of the media source that is being played in the playlist.
+     *
+     * @param { Callback<string> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onPlaybackContentChanged(callback: Callback<string>):void;
+
+    /**
+     * Unregisters listener to detect when changes occur in the playback content.
+     *
+     * @param { Callback<string> } [callback] - Callback invoked when the event is triggered.
+     *     <br>Default value:If this parameter is not specified, all callback functions for the event are unsubscribed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offPlaybackContentChanged(callback?: Callback<string>):void;
+
+    /**
+     * Register listener to detect time-based metadata,
+     * Currently, only the #EXT-X-DATERANGE data of HLS and the Event Streams information of DASH are supported.
+     *
+     * @param { Callback<AVTimedMetaData> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onTimedMetaData(callback: Callback<AVTimedMetaData>): void;
+
+    /**
+     * Unregister listener to detect time-based metadata,
+     * Currently, only the #EXT-X-DATERANGE data of HLS and the Event Streams information of DASH are supported.
+     *
+     * @param { Callback<AVTimedMetaData> } [callback] - Callback invoked when the event is triggered.
+     *     <br>Default value:If this parameter is not specified, all callback functions for the event are unsubscribed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offTimedMetaData(callback?: Callback<AVTimedMetaData>): void;
   }
+
+  /**
+   * Enumerates loop mode keys for playback.
+   *
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum PlaylistLoopMode {  
+    /**
+     * loops all items in the playlist
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ALL = 1,
+ 
+    /**
+     * Loops a single playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ONE = 2,
+
+    /**
+     * Loops shuffle playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_SHUFFLE = 3,
+  
+    /**
+     * No looping
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_NONE = 4
+  }
+
+  /**
+   * Enumerates Metrics info keys for player.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @since 23 dynamic&static
+   */
+  enum PlaybackMetricsKey {
+    /**
+     * The time it takes for the prepare interface to be called and ready, in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    PREPARE_DURATION = 'prepare_duration',
+
+    /**
+     * Resource link establishment time.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    RESOURCE_CONNECTION_DURATION = 'resource_connection_duration',
+
+    /**
+     * Decapsulation time of the first sample frame include downloader.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    FIRST_FRAME_DECAPSULATION_DURATION = 'first_frame_decapsulation_duration',
+
+    /**
+     * The cumulative duration of the player in the playing state.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_PLAYING_TIME = 'total_playback_time',
+
+    /**
+     * Cumulative times of media resource loading.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOWNLOAD_REQUESTS_COUNT = 'loading_requests_count',
+
+    /**
+     * The total time spent loading the media resource.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_DOWNLOAD_TIME = 'total_loading_time',
+
+    /**
+     * Size of loaded media resources.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    TOTAL_DOWNLOAD_SIZE = 'total_loading_bytes',
+
+    /**
+     * Cumulative stalling count.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    STALLING_COUNT = 'stalling_count',
+
+    /**
+     * The cumulative time the player is in stalling state.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_STALLING_TIME = 'total_stalling_time'
+  }
+
+  /**
+   * Provides the container definition for playback metrics key-value pairs.
+   *
+   * @typedef { Record<PlaybackMetricsKey, Object> }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 23 dynamic&static
+   */
+  type PlaybackMetrics = Record<PlaybackMetricsKey, Object>;
 
   /**
    * Provides player statistic info.
@@ -4605,7 +6139,7 @@ declare namespace media {
    *
    * @typedef { Record<string, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 22 static
+   * @since 23 static
    */
   type PlaybackInfo = Record<string, Object>;
 
@@ -4615,14 +6149,14 @@ declare namespace media {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PlaybackInfoKey {
     /**
      * IP address of current network stream.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SERVER_IP_ADDRESS = 'server_ip_address',
 
@@ -4630,7 +6164,7 @@ declare namespace media {
      * Average download rate during playing except for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVG_DOWNLOAD_RATE = 'average_download_rate',
 
@@ -4638,7 +6172,7 @@ declare namespace media {
      * Current download rate of the last second except for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_RATE = 'download_rate',
 
@@ -4646,7 +6180,7 @@ declare namespace media {
      * Boolean value, true for current is downloading, false for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IS_DOWNLOADING = 'is_downloading',
 
@@ -4654,7 +6188,7 @@ declare namespace media {
      * Cached duration in milliseconds.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUFFER_DURATION = 'buffer_duration',
   }
@@ -4770,12 +6304,12 @@ declare namespace media {
   /**
    * Enumerates buffering info type, for network playback.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum BufferingInfoType {
     /**
@@ -4789,7 +6323,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUFFERING_START = 1,
 
@@ -4804,7 +6338,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUFFERING_END = 2,
 
@@ -4819,7 +6353,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUFFERING_PERCENT = 3,
 
@@ -4834,7 +6368,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CACHED_DURATION = 4,
   }
@@ -4856,7 +6390,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type SourceOpenCallback = (request: MediaSourceLoadingRequest) => long;
 
@@ -4875,7 +6409,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type SourceReadCallback = (uuid: long, requestedOffset: long, requestedLength: long) => void;
 
@@ -4889,7 +6423,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type SourceCloseCallback = (uuid: long) => void;
 
@@ -4899,7 +6433,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaSourceLoader {
     /**
@@ -4908,7 +6442,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     open: SourceOpenCallback;
 
@@ -4918,7 +6452,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     read: SourceReadCallback;
 
@@ -4928,18 +6462,18 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     close: SourceCloseCallback;
   }
 
   /**
    * Enumerates state change reason.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum LoadingRequestError {
     /**
@@ -4947,7 +6481,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING_ERROR_SUCCESS = 0,
 
@@ -4956,7 +6490,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING_ERROR_NOT_READY = 1,
 
@@ -4965,7 +6499,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING_ERROR_NO_RESOURCE = 2,
 
@@ -4974,7 +6508,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
     */
     LOADING_ERROR_INVAID_HANDLE = 3,
 
@@ -4983,7 +6517,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING_ERROR_ACCESS_DENIED = 4,
 
@@ -4992,7 +6526,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING_ERROR_ACCESS_TIMEOUT = 5,
 
@@ -5001,7 +6535,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING_ERROR_AUTHORIZE_FAILED = 6,
   }
@@ -5013,7 +6547,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaSourceLoadingRequest {
     /**
@@ -5022,7 +6556,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     url: string;
 
@@ -5033,7 +6567,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     header?: Record<string, string>;
 
@@ -5059,7 +6593,7 @@ declare namespace media {
      *                    -2, means player need current data any more, the client should stop current read process.
      *                    -3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
-     * @since 22 static
+     * @since 23 static
      */
     respondData(uuid: long, offset: long, buffer: ArrayBuffer): int | undefined;
 
@@ -5074,7 +6608,7 @@ declare namespace media {
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     respondHeader(uuid: long, header?: Record<string, string>, redirectUrl?: string): void;
 
@@ -5087,7 +6621,7 @@ declare namespace media {
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     finishLoading(uuid: long, state: LoadingRequestError): void;
   }
@@ -5098,7 +6632,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaStream {	
     /**
@@ -5107,7 +6641,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     url: string;
  
@@ -5117,7 +6651,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: int;
  
@@ -5127,7 +6661,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: int;
  
@@ -5137,7 +6671,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bitrate: int;
   }
@@ -5149,16 +6683,25 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaSource {
+    /**
+     * set whether to enable offline cache during video playback,
+     * @param { boolean } enable - The default value is false,  
+     *     If set to true, the downloaded video will be automatically cached to the user's cache space during streaming,
+     *     and the cached data in the cache space will be used first during playback. 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 23 dynamic&static
+     */
+    enableOfflineCache(enable: boolean): void;
     /**
      * Set Media Mime Type to help player handle extended Media source.
      * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMimeType(mimeType: AVMimeTypes): void;
 
@@ -5168,9 +6711,21 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
+
+    /**
+     * Gets the identifier of the media source.
+     *
+     * @returns { string } Identifier of the media source.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getID(): string;
   }
 
   /**
@@ -5179,7 +6734,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AVMimeTypes {
     /**
@@ -5187,7 +6742,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APPLICATION_M3U8 = 'application/m3u8',
   }
@@ -5198,7 +6753,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PlaybackStrategy {
     /**
@@ -5207,7 +6762,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredWidth?: int;
     /**
@@ -5216,7 +6771,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredHeight?: int;
     /**
@@ -5230,7 +6785,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredBufferDuration?: int;
 
@@ -5240,7 +6795,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredHdr?: boolean;
 
@@ -5249,7 +6804,7 @@ declare namespace media {
      * @type { ?MediaType }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mutedMediaType?: MediaType;
 
@@ -5259,7 +6814,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredAudioLanguage?: string;
 
@@ -5269,7 +6824,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredSubtitleLanguage?: string;
 
@@ -5279,7 +6834,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 17 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     showFirstFrameOnPrepare?: boolean;
 
@@ -5289,7 +6844,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preferredBufferDurationForPlaying?: double;
 
@@ -5300,7 +6855,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableSuperResolution?: boolean;
 
@@ -5311,7 +6866,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     thresholdForAutoQuickPlay?: double
 
@@ -5323,6 +6878,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     keepDecodingOnMute?: boolean;
 
@@ -5334,7 +6890,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableCameraPostprocessing?: boolean;
   }
@@ -5365,7 +6921,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVFileDescriptor {
     /**
@@ -5389,7 +6945,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fd: int
 
@@ -5414,7 +6970,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset?: long
 
@@ -5439,7 +6995,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     length?: long
   }
@@ -5471,7 +7027,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVDataSrcDescriptor {
     /**
@@ -5495,7 +7051,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fileSize: long;
     /**
@@ -5532,7 +7088,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     callback: (buffer: ArrayBuffer, length: long, pos?: long) => int;
   }
@@ -5546,7 +7102,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SubtitleInfo {
     /**
@@ -5555,7 +7111,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration?: int;
     /**
@@ -5564,7 +7120,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startTime?: int;
     /**
@@ -5573,7 +7129,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     text?: string;
   }
@@ -5828,7 +7384,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error';
 
@@ -5842,7 +7398,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type OnAVRecorderStateChangeHandler = (state: AVRecorderState, reason: StateChangeReason) => void;
 
@@ -5863,7 +7419,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVRecorder {
     /**
@@ -5887,14 +7443,13 @@ declare namespace media {
      * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5957,7 +7512,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6029,7 +7584,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6076,7 +7631,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6135,7 +7690,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      * let surfaceID: string; // The surfaceID is transferred to the camera API to create a videoOutput instance.
@@ -6187,7 +7742,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      * let surfaceID: string; // The surfaceID is transferred to the camera API to create a videoOutput instance.
@@ -6228,7 +7783,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     getInputMetaSurface(type: MetaSourceType): Promise<string | undefined>;
 
@@ -6241,6 +7796,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 13 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6264,7 +7820,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      * import { image } from '@kit.ImageKit';
@@ -6292,6 +7848,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 19 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6301,6 +7858,33 @@ declare namespace media {
      * };
      *
      * avRecorder.setMetadata(meta);
+     */
+    /**
+     * Set metadata (key-value pairs) for the recording file of the recorder.
+     * This metadata overwrites the value in config.metadata.customInfo (see {prepare()} and {AVRecorderConfig})
+     * if they have same key.
+     *
+     * This API can be called only after the prepare() event is successfully triggered and
+     * before the stop() API is called.
+     * @param { Record<string, string> } metadata - Tag and value of the metadata in key-value pairs.
+     * <br>- The first string is the key.<br>- The second string is the value.
+     * <br> The key string should start with "com.openharmony.", the length of value can't be more than 256 bytes.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400108 - Parameter check failed.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 26.0.0 dynamic&static
+     * @example
+     * let meta: Record<string, string> = {
+     *   'com.openharmony.userdefine': '10',
+     *   'com.openharmony.userdefine2': '20'
+     * };
+     *
+     * try {
+     *   avRecorder.setMetadata(meta);
+     * } catch (err) {
+     *   console.error('Failed to set metadata and catch error is ' + err.message);
+     * }
      */
     setMetadata(metadata: Record<string, string>): void;
 
@@ -6317,7 +7901,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6340,6 +7924,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 20 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6374,7 +7959,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6410,7 +7995,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6443,7 +8028,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6478,7 +8063,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6511,7 +8096,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6546,7 +8131,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6582,7 +8167,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6621,7 +8206,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6654,7 +8239,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6688,7 +8273,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6717,7 +8302,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6748,7 +8333,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6803,7 +8388,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { audio } from '@kit.AudioKit';
      *
@@ -6856,7 +8441,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { audio } from '@kit.AudioKit';
      *
@@ -6888,7 +8473,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * let maxAmplitude: number;
      *
@@ -6918,11 +8503,11 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
-     * let maxAmplitude: number;
+     * let maxAmplitude: int;
      *
-     * avRecorder.getAudioCapturerMaxAmplitude().then((amplitude: number) => {
+     * avRecorder.getAudioCapturerMaxAmplitude().then((amplitude: int) => {
      *   console.info('Succeeded in getting AudioCapturerMaxAmplitude');
      *   maxAmplitude = amplitude;
      * }).catch((err: BusinessError) => {
@@ -6939,7 +8524,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -6967,7 +8552,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * let encoderInfo: media.EncoderInfo;
      *
@@ -6993,7 +8578,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly state: AVRecorderState;
 
@@ -7009,7 +8594,6 @@ declare namespace media {
      * 2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
@@ -7026,7 +8610,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void;
     /**
@@ -7050,7 +8633,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void;
 
@@ -7112,7 +8694,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -7132,7 +8713,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void;
 
@@ -7153,7 +8733,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -7171,7 +8750,6 @@ declare namespace media {
      * This parameter is supported since API version 12.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void;
 
@@ -7182,9 +8760,113 @@ declare namespace media {
      * corresponding to the resource file created by the system.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void;
+
+    /**
+     * Subscribes to audio capturer configuration changes. Any configuration change triggers the callback that
+     * returns the entire configuration information.
+     *
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the entire configuration
+     *     information about the audio capturer.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    onAudioCapturerChange(callback: Callback<audio.AudioCapturerChangeInfo>): void;
+
+    /**
+     * Subscribes to media asset callback events. When FileGenerationMode is used during media file creation,
+     * the PhotoAsset object is called back to the application after the stop operation is complete.
+     *
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * The event is triggered when a photo asset is available.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the
+     *     **PhotoAsset** object corresponding to the resource file created by the system.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    onPhotoAssetAvailable(callback: Callback<photoAccessHelper.PhotoAsset>): void;
+
+    /**
+     * Subscribes to AVRecorder state changes. An application can subscribe to only one AVRecorder state change event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVRecorderStateChangeHandler } callback - Callback invoked when the event is triggered.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    onStateChange(callback: OnAVRecorderStateChangeHandler): void;
+
+    /**
+     * Subscribes to AVRecorder errors. This event is used only for error prompt and does not require the user to
+     * stop recording control. If the AVRecorderState is also switched to error, call reset() or release()
+     * to exit the recording.
+     *
+     * An application can subscribe to only one AVRecorder error event. When the application initiates multiple
+     * subscriptions to this event, the last subscription is applied.
+     * This event is triggered when an error occurs during recording.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @throws { BusinessError } 5400107 - Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    onError(callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from AVRecorder state changes.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVRecorderStateChangeHandler } [callback] - Callback invoked when the event is triggered.
+     *     This parameter is supported since API version 12.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    offStateChange(callback?: OnAVRecorderStateChangeHandler): void;
+
+    /**
+     * Unsubscribes from AVRecorder errors. After the unsubscription,
+     * your application can no longer receive AVRecorder errors.
+     * @param { ErrorCallback } [callback] - Callback invoked when the event is triggered.
+     *     This parameter is supported since API version 12.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    offError(callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes to audio capturer configuration changes.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } [callback] - Callback used to return the entire configuration
+     *     information about the audio capturer.
+     *     This parameter is supported since API version 12.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    offAudioCapturerChange(callback?: Callback<audio.AudioCapturerChangeInfo>): void;
+
+    /**
+     * Unsubscribes from media asset callback events.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } [callback] - Callback used to return the **PhotoAsset** object
+     *     corresponding to the resource file created by the system.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 23 static
+     */
+    offPhotoAssetAvailable(callback?: Callback<photoAccessHelper.PhotoAsset>): void;
   }
 
   /**
@@ -7200,7 +8882,7 @@ declare namespace media {
     /**
      * Default audio encoding format, which is AMR-NB.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     DEFAULT = 0,
@@ -7255,7 +8937,7 @@ declare namespace media {
     /**
      * Default audio output format, which is Moving Pictures Expert Group 4 (MPEG-4).
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     DEFAULT = 0,
@@ -7311,7 +8993,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Location {
     /**
@@ -7325,7 +9007,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     latitude: double;
 
@@ -7340,7 +9022,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     longitude: double;
   }
@@ -7351,7 +9033,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface WatermarkConfig {
     /**
@@ -7360,7 +9042,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: int;
     /**
@@ -7369,7 +9051,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: int;
   }
@@ -7598,7 +9280,7 @@ declare namespace media {
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
   * @systemapi
   * @since 9 dynamic
-  * @since 22 static
+  * @since 23 static
   */
   type VideoRecordState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error';
 
@@ -7611,7 +9293,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoRecorder {
     /**
@@ -7642,7 +9324,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
     /**
@@ -7673,7 +9355,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prepare(config: VideoRecorderConfig): Promise<void>;
     /**
@@ -7707,7 +9389,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     getInputSurface(callback: AsyncCallback<string | undefined>): void;
     /**
@@ -7741,7 +9423,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     getInputSurface(): Promise<string | undefined>;
     /**
@@ -7764,7 +9446,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -7787,7 +9469,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): Promise<void>;
     /**
@@ -7810,7 +9492,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pause(callback: AsyncCallback<void>): void;
     /**
@@ -7833,7 +9515,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pause(): Promise<void>;
     /**
@@ -7856,7 +9538,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resume(callback: AsyncCallback<void>): void;
     /**
@@ -7879,7 +9561,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resume(): Promise<void>;
     /**
@@ -7902,7 +9584,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -7925,7 +9607,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
     /**
@@ -7944,7 +9626,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -7963,7 +9645,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
     /**
@@ -7988,7 +9670,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reset(callback: AsyncCallback<void>): void;
     /**
@@ -8013,7 +9695,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reset(): Promise<void>;
     /**
@@ -8037,9 +9719,21 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Listens for video recording error events.
+     * @param { ErrorCallback } callback - Callback used to listen for the video recording error event.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 202 - Not System App.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+     * @systemapi
+     * @since 23 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * video recorder state.
@@ -8048,7 +9742,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly state: VideoRecordState;
   }
@@ -8073,12 +9767,12 @@ declare namespace media {
   /**
    * Enumerates playback speed.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PlaybackSpeed {
     /**
@@ -8092,7 +9786,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_0_75_X = 0,
     /**
@@ -8106,7 +9800,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_1_00_X = 1,
     /**
@@ -8120,7 +9814,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_1_25_X = 2,
     /**
@@ -8134,7 +9828,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_1_75_X = 3,
     /**
@@ -8148,7 +9842,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_2_00_X = 4,
     /**
@@ -8156,7 +9850,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_0_50_X = 5,
     /**
@@ -8164,7 +9858,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_1_50_X = 6,
     /**
@@ -8172,7 +9866,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_3_00_X = 7,
     /**
@@ -8180,7 +9874,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_0_25_X = 8,
     /**
@@ -8188,7 +9882,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEED_FORWARD_0_125_X = 9,
   }
@@ -8611,12 +10305,12 @@ declare namespace media {
   /**
    * Enumerates video scale type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum VideoScaleType {
     /**
@@ -8634,7 +10328,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_SCALE_TYPE_FIT = 0,
 
@@ -8653,7 +10347,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_SCALE_TYPE_FIT_CROP = 1,
 
@@ -8664,6 +10358,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     VIDEO_SCALE_TYPE_SCALED_ASPECT = 2
 
@@ -8679,12 +10374,12 @@ declare namespace media {
   /**
    * Enumerates container format type(The abbreviation for 'container format type' is CFT).
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ContainerFormatType {
     /**
@@ -8703,7 +10398,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CFT_MPEG_4 = 'mp4',
 
@@ -8718,7 +10414,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CFT_MPEG_4A = 'm4a',
 
@@ -8726,27 +10422,28 @@ declare namespace media {
      * A audio container format type mp3.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CFT_MP3 = 'mp3',
     /**
      * A audio container format type wav.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CFT_WAV = 'wav',
     /**
      * A audio container format type amr.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CFT_AMR = 'amr',
     /**
      * A audio container format type aac with ADTS.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 20 dynamic
+     * @since 23 static
      */
     CFT_AAC = 'aac',
   }
@@ -8769,12 +10466,12 @@ declare namespace media {
   /**
    * Enumerates media data type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MediaType {
     /**
@@ -8782,7 +10479,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_UNSUPPORTED = -1,
     /**
@@ -8802,7 +10499,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_AUD = 0,
     /**
@@ -8822,7 +10519,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_VID = 1,
     /**
@@ -8830,7 +10527,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_SUBTITLE = 2,
     /**
@@ -8838,7 +10535,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_ATTACHMENT = 3,
     /**
@@ -8846,7 +10543,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_DATA = 4,
     /**
@@ -8854,7 +10551,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_TIMED_METADATA = 5,
     /**
@@ -8862,7 +10559,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_TYPE_AUXILIARY = 6,
   }
@@ -8885,12 +10582,12 @@ declare namespace media {
   /**
    * Enumerates media description key.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MediaDescriptionKey {
     /**
@@ -8910,7 +10607,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_TRACK_INDEX = 'track_index',
 
@@ -8931,7 +10628,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_TRACK_TYPE = 'track_type',
 
@@ -8952,7 +10649,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_CODEC_MIME = 'codec_mime',
 
@@ -8973,7 +10670,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_DURATION = 'duration',
 
@@ -8994,7 +10691,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_BITRATE = 'bitrate',
 
@@ -9015,7 +10712,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_WIDTH = 'width',
 
@@ -9036,7 +10733,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_HEIGHT = 'height',
 
@@ -9057,7 +10754,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_FRAME_RATE = 'frame_rate',
 
@@ -9078,7 +10775,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
@@ -9099,7 +10796,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
 
@@ -9108,7 +10805,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_AUD_SAMPLE_DEPTH = 'sample_depth',
 
@@ -9117,7 +10814,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_LANGUAGE = 'language',
 
@@ -9126,7 +10823,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_TRACK_NAME = 'track_name',
 
@@ -9135,7 +10832,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_HDR_TYPE = 'hdr_type',
 
@@ -9144,7 +10841,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_ORIGINAL_WIDTH = 'original_width',
 
@@ -9153,9 +10850,17 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MD_KEY_ORIGINAL_HEIGHT = 'original_height',
+
+    /**
+     * Key for track mime type, value type is string. For audio & video track, the value equals { MD_KEY_CODEC_MIME }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    MD_KEY_MIME_TYPE = 'mime_type',
 
     /**
      * Key for reference track IDs, value type is string, in comma separated format.
@@ -9181,7 +10886,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoRecorderProfile {
     /**
@@ -9191,7 +10896,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly audioBitrate: int;
 
@@ -9202,7 +10907,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly audioChannels: int;
 
@@ -9213,7 +10918,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly audioCodec: CodecMimeType;
 
@@ -9224,7 +10929,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly audioSampleRate: int;
 
@@ -9235,7 +10940,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly fileFormat: ContainerFormatType;
 
@@ -9246,7 +10951,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoBitrate: int;
 
@@ -9257,7 +10962,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoCodec: CodecMimeType;
 
@@ -9268,7 +10973,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoFrameWidth: int;
 
@@ -9279,7 +10984,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoFrameHeight: int;
 
@@ -9290,7 +10995,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoFrameRate: int;
   }
@@ -9305,12 +11010,12 @@ declare namespace media {
   /**
    * Enumerates the audio source types for video recording.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AudioSourceType {
     /**
@@ -9323,7 +11028,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_SOURCE_TYPE_DEFAULT = 0,
     /**
@@ -9338,14 +11043,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_SOURCE_TYPE_MIC = 1,
     /**
      * Audio source in speech recognition scenarios.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_SOURCE_TYPE_VOICE_RECOGNITION = 2,
 
@@ -9353,21 +11058,21 @@ declare namespace media {
      * Voice communication source.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_SOURCE_TYPE_VOICE_COMMUNICATION = 7,
     /**
      * Voice message source.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_SOURCE_TYPE_VOICE_MESSAGE = 10,
     /**
      * Audio source in camera recording scenarios.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_SOURCE_TYPE_CAMCORDER = 13,
   }
@@ -9382,11 +11087,11 @@ declare namespace media {
   /**
    * Enumerates the video source types for video recording.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum VideoSourceType {
     /**
@@ -9399,7 +11104,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_SOURCE_TYPE_SURFACE_YUV = 0,
     /**
@@ -9412,7 +11117,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_SOURCE_TYPE_SURFACE_ES = 1,
   }
@@ -9420,11 +11125,11 @@ declare namespace media {
   /**
    * Enumerates meta source type for recorder.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MetaSourceType {
     /**
@@ -9432,7 +11137,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_MAKER_INFO = 0,
   }
@@ -9440,17 +11145,17 @@ declare namespace media {
   /**
    * Enumerates the modes for creating media files.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FileGenerationMode {
     /**
      * The application creates a media file in the sandbox.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_CREATE = 0,
     /**
@@ -9458,7 +11163,7 @@ declare namespace media {
      * The URL set by the application is ignored.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_CREATE_CAMERA_SCENE = 1,
   }
@@ -9468,25 +11173,29 @@ declare namespace media {
    *
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum PickerMode {
     /**
      * Capture Window Only
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     WINDOW_ONLY = 0,
     /**
      * Capture Screen Only
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SCREEN_ONLY = 1,
     /**
      * Capture Screen and Window
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SCREEN_AND_WINDOW = 2,
   }
@@ -9498,7 +11207,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoRecorderConfig {
     /**
@@ -9507,7 +11216,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioSourceType?: AudioSourceType;
     /**
@@ -9516,7 +11225,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoSourceType: VideoSourceType;
     /**
@@ -9525,7 +11234,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     profile: VideoRecorderProfile;
     /**
@@ -9536,7 +11245,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     url: string;
     /**
@@ -9546,7 +11255,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rotation?: int;
     /**
@@ -9555,7 +11264,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     location?: Location;
   }
@@ -9566,7 +11275,7 @@ declare namespace media {
    * @typedef EncoderInfo
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface EncoderInfo {
     /**
@@ -9574,7 +11283,7 @@ declare namespace media {
      * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mimeType: CodecMimeType;
 
@@ -9583,7 +11292,7 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: string;
 
@@ -9592,7 +11301,7 @@ declare namespace media {
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bitRate?: Range;
 
@@ -9602,7 +11311,7 @@ declare namespace media {
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     frameRate?: Range;
 
@@ -9612,7 +11321,7 @@ declare namespace media {
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width?: Range;
 
@@ -9622,7 +11331,7 @@ declare namespace media {
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height?: Range;
 
@@ -9632,7 +11341,7 @@ declare namespace media {
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     channels?: Range;
 
@@ -9642,7 +11351,7 @@ declare namespace media {
      * @type { ?Array<int> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sampleRate?: Array<int>;
   }
@@ -9653,7 +11362,7 @@ declare namespace media {
    * @typedef Range
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Range {
     /**
@@ -9661,7 +11370,7 @@ declare namespace media {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     min: int;
 
@@ -9670,7 +11379,7 @@ declare namespace media {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     max: int;
   }
@@ -9681,14 +11390,16 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum AacProfile {
     /**
      * AAC LC (Low Complexity) Profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     AAC_LC = 0,
 
@@ -9696,7 +11407,8 @@ declare namespace media {
      * HE (High Efficiency) AAC profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     AAC_HE = 1,
 
@@ -9704,7 +11416,8 @@ declare namespace media {
      * HE (High Efficiency with Parametric Stereo coding) AAC profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     AAC_HE_V2 = 2,
   }
@@ -9724,7 +11437,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVRecorderProfile {
     /**
@@ -9748,7 +11461,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioBitrate?: int;
 
@@ -9767,7 +11480,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioChannels?: int;
 
@@ -9785,7 +11498,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioCodec?: CodecMimeType;
 
@@ -9794,7 +11507,8 @@ declare namespace media {
      * @type { ?AacProfile }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     aacProfile?: AacProfile;
 
@@ -9815,7 +11529,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioSampleRate?: int;
 
@@ -9833,7 +11547,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fileFormat: ContainerFormatType;
 
@@ -9848,7 +11562,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoBitrate?: int;
 
@@ -9863,7 +11577,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoCodec?: CodecMimeType;
 
@@ -9878,7 +11592,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoFrameWidth?: int;
 
@@ -9893,7 +11607,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoFrameHeight?: int;
 
@@ -9908,7 +11622,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoFrameRate?: int;
 
@@ -9925,7 +11639,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isHdr?: boolean;
 
@@ -9937,7 +11651,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableTemporalScale?: boolean;
 
@@ -9947,7 +11661,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableStableQualityMode?: boolean
 
@@ -9956,6 +11670,7 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 20 dynamic
+     * @since 23 static
      */
     enableBFrame?: boolean
   }
@@ -9980,7 +11695,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVRecorderConfig {
     /**
@@ -9996,7 +11711,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioSourceType?: AudioSourceType;
     /**
@@ -10010,7 +11725,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoSourceType?: VideoSourceType;
     /**
@@ -10019,7 +11734,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     metaSourceTypes?: Array<MetaSourceType>;
     /**
@@ -10035,7 +11750,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     profile: AVRecorderProfile;
     /**
@@ -10052,7 +11767,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     url: string;
 
@@ -10061,7 +11776,7 @@ declare namespace media {
      * @type { ?FileGenerationMode }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fileGenerationMode?: FileGenerationMode;
     /**
@@ -10091,7 +11806,7 @@ declare namespace media {
      * @type { ?AVMetadata }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     metadata?: AVMetadata;
     /**
@@ -10102,7 +11817,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     maxDuration?: int;
   }
@@ -10160,7 +11875,7 @@ declare namespace media {
    * @typedef { Record<string, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   type MediaDescription = Record<string, Object>;
 
@@ -10182,12 +11897,12 @@ declare namespace media {
   /**
    * Enumerates seek mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SeekMode {
     /**
@@ -10207,7 +11922,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SEEK_NEXT_SYNC = 0,
     /**
@@ -10227,7 +11942,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SEEK_PREV_SYNC = 1,
     /**
@@ -10235,7 +11950,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SEEK_CLOSEST = 2,
     /**
@@ -10248,7 +11963,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SEEK_CONTINUOUS = 3,
   }
@@ -10256,12 +11971,12 @@ declare namespace media {
   /**
    * Enumerates switch mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SwitchMode {
     /**
@@ -10270,7 +11985,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SMOOTH = 0,
     /**
@@ -10279,7 +11994,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SEGMENT = 1,
     /**
@@ -10287,7 +12002,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLOSEST = 2,
   }
@@ -10307,7 +12022,7 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CodecMimeType {
     /**
@@ -10320,7 +12035,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_H263 = 'video/h263',
     /**
@@ -10339,7 +12054,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     VIDEO_AVC = 'video/avc',
     /**
@@ -10352,7 +12068,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_MPEG2 = 'video/mpeg2',
     /**
@@ -10365,7 +12081,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_MPEG4 = 'video/mp4v-es',
 
@@ -10379,7 +12095,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_VP8 = 'video/x-vnd.on2.vp8',
 
@@ -10394,7 +12110,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_AAC = 'audio/mp4a-latm',
 
@@ -10408,7 +12124,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_VORBIS = 'audio/vorbis',
 
@@ -10422,7 +12138,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_FLAC = 'audio/flac',
 
@@ -10442,175 +12158,208 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     VIDEO_HEVC = 'video/hevc',
     /**
      * mp3 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_MP3 = 'audio/mpeg',
     /**
      * G711-mulaw codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_G711MU = 'audio/g711mu',
     /**
      * AMR_NB codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_AMR_NB = 'audio/3gpp',
     /**
      * AMR_WB codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_AMR_WB = 'audio/amr-wb',
   }
 
   /**
-   *  Enumerates the encoding and container formats used during screen capture.
+   * Enumerates the encoding and container formats used during screen capture.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AVScreenCaptureRecordPreset {
     /**
      * The H.264 video encoding format, AAC audio encoding format, and MP4 container format are used.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_RECORD_PRESET_H264_AAC_MP4 = 0,
     /**
      * The H.265 video encoding format, AAC audio encoding format, and MP4 container format are used.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_RECORD_PRESET_H265_AAC_MP4 = 1,
   }
 
   /**
-   *  Enumerates the video fill modes during screen capture.
+   * Enumerates the video fill modes during screen capture.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AVScreenCaptureFillMode {
     /**
      * Keeps the original aspect ratio, matching the aspect ratio of the physical screen.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRESERVE_ASPECT_RATIO = 0,
     /**
      * Stretches the image to fit the specified dimensions.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCALE_TO_FILL = 1,
   }
 
   /**
-   *  Enumerates the screen capture states used in callbacks.
+   * Enumerates the screen capture states used in callbacks.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AVScreenCaptureStateCode {
     /**
      * Screen capture is started.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_STARTED = 0,
     /**
      * Screen capture is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_CANCELED = 1,
     /**
      * Screen capture is manually stopped by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
     /**
      * Screen capture is interrupted by another screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_INTERRUPTED_BY_OTHER = 3,
     /**
      * Screen capture is interrupted by an incoming call.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_STOPPED_BY_CALL = 4,
     /**
      * The microphone is unavailable during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
     /**
      * The microphone is muted by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
     /**
      * The microphone is unmuted by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
     /**
      * The system enters a privacy page during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
     /**
      * The system exits a privacy page during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
     /**
      * Screen capture is interrupted by system user switchover.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
+    /**
+     * Screen capture paused by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_USER = 11,
+    /**
+     * Screen capture resumed by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_USER = 12,
+    /**
+     * Screen capture paused by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_APP = 13,
+    /**
+     * Screen capture resumed by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_APP = 14,
   }
 
   /**
@@ -10619,6 +12368,7 @@ declare namespace media {
    * @typedef AVScreenCaptureStrategy
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 20 dynamic
+   * @since 23 static
    */
   interface AVScreenCaptureStrategy {
     /**
@@ -10628,6 +12378,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     enableDeviceLevelCapture?: boolean;
 
@@ -10638,6 +12389,7 @@ declare namespace media {
      * @default {false} [Required if provided]
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 20 dynamic
+     * @since 23 static
      */
     keepCaptureDuringCall?: boolean;
 
@@ -10646,8 +12398,30 @@ declare namespace media {
      * @type { ?boolean } The default value is false, which means B frames encoding are disabled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 20 dynamic
+     * @since 23 static
      */
     enableBFrame?: boolean;
+
+    /**
+     * Set the fill mode for screen capture when a privacy window exists.
+     *
+     * @type { ?int } Indicates the value of the security shield mode:
+     *     If set to 0, it means that when there is a privacy window, the output screen image is completely  black.
+     *     If set to 1, it means that when there is a privacy window, only the privacy window area of the output
+     *     screen becomes black, and other values returns an error.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    privacyMaskMode?: int;
+
+    /**
+     * Enable pausing the screen capture. The default value is false.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePause?: boolean;
   }
 
   /**
@@ -10656,7 +12430,7 @@ declare namespace media {
    * @typedef AVScreenCaptureRecordConfig
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVScreenCaptureRecordConfig {
     /**
@@ -10664,7 +12438,7 @@ declare namespace media {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fd: int;
     /**
@@ -10672,7 +12446,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     frameWidth?: int;
     /**
@@ -10680,7 +12454,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     frameHeight?: int;
     /**
@@ -10688,7 +12462,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoBitrate?: int;
     /**
@@ -10697,7 +12471,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioSampleRate?: int;
     /**
@@ -10706,7 +12480,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioChannelCount?: int;
     /**
@@ -10715,7 +12489,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audioBitrate?: int;
     /**
@@ -10723,7 +12497,7 @@ declare namespace media {
      * @type { ?AVScreenCaptureRecordPreset }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preset?: AVScreenCaptureRecordPreset;
     /**
@@ -10731,7 +12505,7 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayId?: int;
     /**
@@ -10739,7 +12513,7 @@ declare namespace media {
      * @type { ?AVScreenCaptureFillMode }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fillMode?: AVScreenCaptureFillMode;
     /**
@@ -10748,6 +12522,7 @@ declare namespace media {
      * @default {default value of the property} [Required if provided]
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 20 dynamic
+     * @since 23 static
      */
     strategy?: AVScreenCaptureStrategy;
   }
@@ -10759,7 +12534,7 @@ declare namespace media {
    * @typedef AVScreenCaptureRecorder
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AVScreenCaptureRecorder {
     /**
@@ -10772,7 +12547,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10798,7 +12573,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10817,7 +12592,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10828,6 +12603,46 @@ declare namespace media {
      * })
      */
     stopRecording(): Promise<void>;
+
+    /**
+     * Pause screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * avScreenCaptureRecorder.pauseRecording().then(() => {
+     *     console.info('Succeeded in pausing avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to pause avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    pauseRecording(): Promise<void>;
+
+    /**
+     * Resume screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * avScreenCaptureRecorder.resumeRecording().then(() => {
+     *     console.info('Succeeded in resuming avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to resume avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    resumeRecording(): Promise<void>;
 
     /**
      * During screen capture, the application can exempt its privacy windows from security purposes.
@@ -10841,7 +12656,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10866,7 +12681,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10888,7 +12704,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10912,7 +12729,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10933,7 +12751,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10952,7 +12770,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -10973,7 +12791,6 @@ declare namespace media {
      * AVScreenCaptureStateCode indicates the new state.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
      * @example
      * avScreenCaptureRecorder.on('stateChange', (state: media.AVScreenCaptureStateCode) => {
      *     console.info('avScreenCaptureRecorder stateChange to ' + state);
@@ -10992,7 +12809,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
      * @example
      * avScreenCaptureRecorder.on('error', (err: BusinessError) => {
      *     console.error('avScreenCaptureRecorder error:' + err.message);
@@ -11008,7 +12824,6 @@ declare namespace media {
      * the last subscription is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
      * @example
      * avScreenCaptureRecorder.off('stateChange');
      */
@@ -11022,11 +12837,66 @@ declare namespace media {
      * the last subscription is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
-     * @since 22 static
      * @example
      * avScreenCaptureRecorder.off('error');
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes to screen capture state changes. An application can subscribe to only one screen capture
+     * state change event. When the application initiates multiple subscriptions to this event,
+     * the last subscription is applied.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback invoked when the event is triggered.
+     *     AVScreenCaptureStateCode indicates the new state.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 23 static
+     * @example
+     * avScreenCaptureRecorder.onStateChange((state: media.AVScreenCaptureStateCode) => {
+     *     console.info('avScreenCaptureRecorder stateChange to ' + state);
+     * })
+     */
+    onStateChange(callback: Callback<AVScreenCaptureStateCode>): void;
+
+    /**
+     * Subscribes to AVScreenCaptureRecorder errors. You can handle the errors based on the application logic.
+     * An application can subscribe to only one AVScreenCaptureRecorder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 5400103 - IO error. Return by ErrorCallback.
+     * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 23 static
+     * @example
+     * avScreenCaptureRecorder.onError((err: BusinessError) => {
+     *     console.error('avScreenCaptureRecorder error:' + err.message);
+     * })
+     */
+    onError(callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from screen capture state changes. You can specify a callback to cancel the specified subscription.
+     * @param { Callback<AVScreenCaptureStateCode> } [callback] - Callback used for unsubscription.
+     *     AVScreenCaptureStateCode indicates the new state. If this parameter is not specified,
+     *     the last subscription is canceled.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 23 static
+     * @example
+     * avScreenCaptureRecorder.offStateChange();
+     */
+    offStateChange(callback?: Callback<AVScreenCaptureStateCode>): void;
+
+    /**
+     * Unsubscribes from AVScreenCaptureRecorder errors. You can specify a callback to cancel
+     * the specified subscription.
+     * @param { ErrorCallback } [callback] - Callback used for unsubscription. If this parameter is not specified,
+     *     the last subscription is canceled.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 23 static
+     * @example
+     * avScreenCaptureRecorder.offError('error');
+     */
+    offError(callback?: ErrorCallback): void;
   }
 
   /**
@@ -11042,7 +12912,8 @@ declare namespace media {
    * @typedef AVTranscoderConfig
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface AVTranscoderConfig {
     /**
@@ -11056,7 +12927,8 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     audioBitrate?: int;
 
@@ -11071,7 +12943,8 @@ declare namespace media {
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     audioCodec?: CodecMimeType;
 
@@ -11086,7 +12959,8 @@ declare namespace media {
      * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     fileFormat: ContainerFormatType;
 
@@ -11105,7 +12979,8 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     videoBitrate?: int;
 
@@ -11122,7 +12997,8 @@ declare namespace media {
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     videoCodec?: CodecMimeType;
 
@@ -11139,7 +13015,8 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     videoFrameWidth?: int;
  
@@ -11156,7 +13033,8 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     videoFrameHeight?: int;
 
@@ -11164,14 +13042,15 @@ declare namespace media {
      * Indicates whether to enable B Frame Encoding for reduce file size.
      * @type { ?boolean } The default value is false, which means B frame encoding cannot be enabled.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 20
+     * @since 20 dynamic
      */
     /**
      * Indicates whether to enable B Frame Encoding for reduce file size.
-     * @type { ?boolean } The default value is false, which means B frame encoding cannot be enabled.
+     * @type {  ?boolean  } The default value is false, which means B frame encoding cannot be enabled.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     enableBFrame?: boolean;
   }
@@ -11191,7 +13070,8 @@ declare namespace media {
    * @typedef AVTranscoder
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface AVTranscoder {
     /**
@@ -11229,7 +13109,8 @@ declare namespace media {
      * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     fdSrc: AVFileDescriptor;
 
@@ -11260,7 +13141,8 @@ declare namespace media {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     fdDst: int;
 
@@ -11287,7 +13169,8 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     prepare(config: AVTranscoderConfig): Promise<void>;
 
@@ -11312,7 +13195,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     start(): Promise<void>;
 
@@ -11339,7 +13223,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     pause(): Promise<void>;
 
@@ -11364,7 +13249,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     resume(): Promise<void>;
 
@@ -11389,7 +13275,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     cancel(): Promise<void>;
 
@@ -11412,7 +13299,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     release(): Promise<void>;
 
@@ -11424,12 +13312,11 @@ declare namespace media {
      * When this event is reported, the current transcoding operation is complete.
      * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
      * @param { 'complete' } type - Event type, which is **'complete'** in this case.
-     * This event is triggered by the system during transcoding.
+     *     This event is triggered by the system during transcoding.
      * @param { Callback<void> } callback - Callback that has been registered to listen for
-     * transcoding completion events.
+     *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Subscribes to the event indicating that transcoding is complete.
@@ -11439,12 +13326,12 @@ declare namespace media {
      * When this event is reported, the current transcoding operation is complete.
      * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
      * @param { 'complete' } type - Event type, which is **'complete'** in this case.
-     * This event is triggered by the system during transcoding.
+     *     This event is triggered by the system during transcoding.
      * @param { Callback<void> } callback - Callback that has been registered to listen for
-     * transcoding completion events.
+     *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     on(type:'complete', callback: Callback<void>):void;
 
@@ -11455,8 +13342,7 @@ declare namespace media {
      * An application can subscribe to only one AVTranscoder error event.
      * When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'error' } type - Event type, which is **'error'** in this case.
-     *
-     * This event is triggered when an error occurs during transcoding.
+     *     This event is triggered when an error occurs during transcoding.
      * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -11467,8 +13353,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Subscribes to AVTranscoder errors. If this event is reported, call [release()]{@link AVTranscoder.release}
@@ -11490,7 +13375,7 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     on(type:'error', callback: ErrorCallback):void;
 
@@ -11498,105 +13383,174 @@ declare namespace media {
      * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
-     * This event is triggered by the system during transcoding.
+     *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     * **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
-     * This event is triggered by the system during transcoding.
+     *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     * **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     on(type:'progressUpdate', callback: Callback<int>):void;
 
     /**
      * Unsubscribes from the event indicating that transcoding is complete.
      * @param { 'complete' } type - Event type, which is **'complete'** in this case.
-     * This event can be triggered by both user operations and the system.
+     *     This event can be triggered by both user operations and the system.
      * @param { Callback<void> } callback - Callback that has been registered to listen for
-     * transcoding completion events.
+     *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Unsubscribes from the event indicating that transcoding is complete.
      * @param { 'complete' } type - Event type, which is **'complete'** in this case.
-     * This event can be triggered by both user operations and the system.
+     *     This event can be triggered by both user operations and the system.
      * @param { Callback<void> } callback - Callback that has been registered to listen for
-     * transcoding completion events.
+     *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     off(type:'complete', callback?: Callback<void>):void;
 
     /**
      * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
      * receive AVTranscoder errors.
-     * @param { 'error' } type - 	Event type, which is **'error'** in this case.
-     *
-     * This event is triggered when an error occurs during transcoding.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     *     This event is triggered when an error occurs during transcoding.
      * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
      * receive AVTranscoder errors.
      * @param { 'error' } type - 	Event type, which is **'error'** in this case.
-     *
-     * This event is triggered when an error occurs during transcoding.
+     *     This event is triggered when an error occurs during transcoding.
      * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     off(type:'error', callback?: ErrorCallback):void;
 
     /**
      * Unsubscribes from transcoding progress updates.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
-     * This event can be triggered by both user operations and the system.
+     *     This event can be triggered by both user operations and the system.
      * @param { Callback<int> } callback - Called that has been registered to listen for progress updates.
-     * You are advised to use the default value because only the last registered callback is retained in the current
-     * callback mechanism.
+     *     You are advised to use the default value because only the last registered callback is retained in the current
+     *     callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Unsubscribes from transcoding progress updates.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
-     * This event can be triggered by both user operations and the system.
+     *     This event can be triggered by both user operations and the system.
      * @param { Callback<int> } callback - Called that has been registered to listen for progress updates.
-     * You are advised to use the default value because only the last registered callback is retained in the current
-     * callback mechanism.
+     *     You are advised to use the default value because only the last registered callback is retained in the current
+     *     callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     off(type:'progressUpdate', callback?: Callback<int>):void;
+
+    /**
+     * Subscribes to the event indicating that transcoding is complete.
+     * An application can subscribe to only one transcoding completion event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     *
+     * When this event is reported, the current transcoding operation is complete.
+     * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
+     * @param { Callback<void> } callback - Callback that has been registered to listen for
+     *     transcoding completion events.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 23 static
+     */
+    onComplete(callback: Callback<void>):void;
+
+    /**
+     * Subscribes to AVTranscoder errors. If this event is reported, call [release()]{@link AVTranscoder.release}
+     * to exit the transcoding.
+     *
+     * An application can subscribe to only one AVTranscoder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 23 static
+     */
+    onError(callback: ErrorCallback):void;
+
+    /**
+     * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
+     * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
+     *     **progress** is a number that indicates the current transcoding progress.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 23 static
+     */
+    onProgressUpdate(callback: Callback<int>):void;
+
+    /**
+     * Unsubscribes from the event indicating that transcoding is complete.
+     * This event can be triggered by both user operations and the system.
+     * @param { Callback<void> } [callback] - Callback that has been registered to listen for
+     *     transcoding completion events.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 23 static
+     */
+    offComplete(callback?: Callback<void>):void;
+
+    /**
+     * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
+     * receive AVTranscoder errors.
+     * This event is triggered when an error occurs during transcoding.
+     * @param { ErrorCallback } [callback] - Callback that has been registered to listen for AVTranscoder errors.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 23 static
+     */
+    offError(callback?: ErrorCallback):void;
+
+    /**
+     * Unsubscribes from transcoding progress updates.
+     * This event can be triggered by both user operations and the system.
+     * @param { Callback<int> } [callback] - Called that has been registered to listen for progress updates.
+     *     You are advised to use the default value because only the last registered callback is retained in
+     *     the current allback mechanism.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 23 static
+     */
+    offProgressUpdate(callback?: Callback<int>):void;
   }
 
   /**
    * Enumerates the states available for the system screen recorder.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ScreenCaptureEvent {
     /**
@@ -11604,7 +13558,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENCAPTURE_STARTED = 0,
     /**
@@ -11612,9 +13566,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    SCREENCAPTURE_STOPPED = 1
+    SCREENCAPTURE_STOPPED = 1,
+    /**
+     * The system screen recorder died.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    SCREENCAPTURE_DIED = 2
   }
 
   /**
@@ -11625,7 +13586,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScreenCaptureMonitor {
     /**
@@ -11637,9 +13598,8 @@ declare namespace media {
      * where ScreenCaptureEvent indicates the new state.
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-	 * @systemapi
+	   * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      * @example
      * // This event is reported when the state of the system screen recorder changes.
      * screenCaptureMonitor.on('systemScreenRecorder', (event: media.ScreenCaptureEvent) => {
@@ -11650,20 +13610,55 @@ declare namespace media {
     on(type: 'systemScreenRecorder', callback: Callback<ScreenCaptureEvent>): void;
 
     /**
+     * Subscribes to state change events of the system screen recorder. From the ScreenCaptureEvent event reported,
+     * you can determine whether the system screen recorder is working.
+     * This event is triggered when the state of the system screen recorder changes.
+     * @param { Callback<ScreenCaptureEvent> } callback - Callback invoked when the event is triggered,
+     *     where ScreenCaptureEvent indicates the new state.
+     * @throws { BusinessError } 202 - Not System App.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 23 static
+     * @example
+     * // This event is reported when the state of the system screen recorder changes.
+     * screenCaptureMonitor.onSystemScreenRecorder((event: media.ScreenCaptureEvent) => {
+     *   // Set the 'systemScreenRecorder' event callback.
+     *   console.info(`system ScreenRecorder event: ${event}`);
+     * })
+     */
+    onSystemScreenRecorder(callback: Callback<ScreenCaptureEvent>): void;
+
+    /**
      * Unsubscribes from state change events of the system screen recorder.
      * @param { 'systemScreenRecorder' } type - Event type, which is **'systemScreenRecorder'** in this case.
      * This event is triggered when the state of the system screen recorder changes.
-     * @param { Callback<ScreenCaptureEvent> } callback - Callback invoked when the event is triggered,
-     * where ScreenCaptureEvent indicates the new state. If this parameter is not specified, the last subscription event is canceled.
+     * @param { Callback<ScreenCaptureEvent> } [callback] - Callback invoked when the event is triggered,
+     * where ScreenCaptureEvent indicates the new state. If this parameter is not specified, 
+     * the last subscription event is canceled.
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+
      * @example
      * screenCaptureMonitor.off('systemScreenRecorder');
      */
     off(type: 'systemScreenRecorder', callback?: Callback<ScreenCaptureEvent>): void;
+
+    /**
+     * Unsubscribes from state change events of the system screen recorder.
+     * This event is triggered when the state of the system screen recorder changes.
+     * @param { Callback<ScreenCaptureEvent> } [callback] - Callback invoked when the event is triggered,
+     *     where ScreenCaptureEvent indicates the new state. If this parameter is not specified, 
+     *     the last subscription event is canceled.
+     * @throws { BusinessError } 202 - Not System App.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 23 static
+     * @example
+     * screenCaptureMonitor.offSystemScreenRecorder('systemScreenRecorder');
+     */
+    offSystemScreenRecorder(callback?: Callback<ScreenCaptureEvent>): void;
 	
     /**
      * Whether the system screen recorder is working.
@@ -11672,7 +13667,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isSystemScreenRecorderWorking: boolean;
   }

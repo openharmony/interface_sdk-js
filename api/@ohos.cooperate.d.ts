@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,628 +22,702 @@ import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
 /**
- * Implements screen hopping operation management.
+ * The **cooperate** module implements screen hopping for two or more networked devices to share the keyboard and mouse
+ *     for collaborative operations.
  *
- * @namespace cooperate
  * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
  * @systemapi Hide this for inner system use.
  * @since 10 dynamic
+ * @since 23 static
  */
 declare namespace cooperate {
   /**
-   * Enumerates screen hopping message notifications.
+   * Represents a screen hopping message notification.
    *
-   * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#CooperateState
+   * @useinstead CooperateState
    */
   enum CooperateMsg {
     /**
-     * Preparing for screen hopping.
+     * The preparation for screen hopping is finished.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_PREPARE
+     * @useinstead CooperateState.COOPERATE_PREPARE
      */
     COOPERATE_PREPARE = 0,
 
     /**
-     * Canceling the preparation for screen hopping.
+     * The preparation for screen hopping is cancelled.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_UNPREPARE
+     * @useinstead CooperateState.COOPERATE_UNPREPARE
      */
     COOPERATE_UNPREPARE = 1,
 
     /**
-     * Starting screen hopping.
+     * Screen hopping starts.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE
+     * @useinstead CooperateState.COOPERATE_ACTIVATE
      */
     COOPERATE_ACTIVATE = 2,
 
     /**
-     * Success in starting screen hopping.
+     * Starting screen hopping succeeds.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE_SUCCESS
+     * @useinstead CooperateState.COOPERATE_ACTIVATE_SUCCESS
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
     /**
-     * Failure to start screen hopping.
+     * Starting screen hopping fails.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE_FAILURE
+     * @useinstead CooperateState.COOPERATE_ACTIVATE_FAILURE
      */
     COOPERATE_ACTIVATE_FAIL = 4,
 
     /**
-     * Success in stopping screen hopping.
+     * Stopping screen hopping succeeds.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_DEACTIVATE_SUCCESS
+     * @useinstead CooperateState.COOPERATE_DEACTIVATE_SUCCESS
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
     /**
-     * Failure to stop screen hopping.
+     * Stopping screen hopping fails.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_DEACTIVATE_FAILURE
+     * @useinstead CooperateState.COOPERATE_DEACTIVATE_FAILURE
      */
     COOPERATE_DEACTIVATE_FAIL = 6,
 
     /**
-     * Inter-device session disconnected.
+     * The screen hopping session is disconnected.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_SESSION_DISCONNECTED
+     * @useinstead CooperateState.COOPERATE_SESSION_DISCONNECTED
      */
-    COOPERATE_SESSION_DISCONNECTED = 7,
+    COOPERATE_SESSION_DISCONNECTED = 7
   }
 
   /**
    * Enumerates the screen hopping states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   enum CooperateState {
     /**
-     * Preparing for screen hopping.
+     * The preparation for screen hopping is finished.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_PREPARE = 0,
 
     /**
-     * Canceling the preparation for screen hopping.
+     * The preparation for screen hopping is cancelled.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_UNPREPARE = 1,
 
     /**
-     * Starting screen hopping.
+     * Screen hopping starts.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_ACTIVATE = 2,
 
     /**
-     * Success in starting screen hopping.
+     * Starting screen hopping succeeds.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
     /**
-     * Failure to start screen hopping.
+     * Screen hopping fails to start.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_ACTIVATE_FAILURE = 4,
 
     /**
-     * Success in stopping screen hopping.
+     * Stopping screen hopping succeeds.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
     /**
-     * Failure to stop screen hopping.
+     * Screen hopping fails to stop.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     COOPERATE_DEACTIVATE_FAILURE = 6,
 
     /**
-     * Inter-device session disconnected.
+     * The screen hopping session is disconnected.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
-    COOPERATE_SESSION_DISCONNECTED = 7,
+    COOPERATE_SESSION_DISCONNECTED = 7
   }
 
   /**
-   * Defines a screen hopping message.
+   * Defines a screen hopping status change event.
    *
-   * @interface CooperateMessage
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   interface CooperateMessage {
     /**
      * Descriptor of the target device for screen hopping.
      *
-     * @type { string }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     networkId: string;
 
     /**
-     * Screen hopping state.
+     * Screen hopping status.
      *
-     * @type { CooperateState }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
      */
     state: CooperateState;
   }
 
   /**
-   *  MouseLocation
+   * Defines the mouse pointer position for screen hopping.
    *
-   * @typedef MouseLocation
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 23 static
    */
   interface MouseLocation {
     /**
-     * The mouse pointer is located at the X coordinate on the screen.
+     * Position of the mouse pointer on the X coordinate of the screen.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 23 static
      */
-    displayX: number;
+    displayX: int;
 
     /**
-     * The mouse pointer is located at the Y coordinate on the screen.
+     * Position of the mouse pointer on the Y coordinate of the screen.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 23 static
      */
-    displayY: number;
+    displayY: int;
 
     /**
-     * Screen width.
+     * Screen width, in pixels.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 23 static
      */
-    displayWidth: number;
+    displayWidth: int;
 
     /**
-     * Screen height.
+     * Screen height, in pixels.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 23 static
      */
-    displayHeight: number;
+    displayHeight: int;
   }
 
   /**
-   * Prepares for screen hopping.
+   * Prepares for screen hopping. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#prepareCooperate
+   * @useinstead prepareCooperate(callback: AsyncCallback<void>)
    */
   function prepare(callback: AsyncCallback<void>): void;
 
   /**
-   * Prepares for screen hopping.
+   * Prepares for screen hopping. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#prepareCooperate
+   * @useinstead prepareCooperate()
    */
   function prepare(): Promise<void>;
 
   /**
-   * Prepares for screen hopping.
+   * Prepares for screen hopping. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed. [dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function prepareCooperate(callback: AsyncCallback<void>): void;
 
   /**
-   * Prepares for screen hopping.
+   * Prepares for screen hopping. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed. [dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function prepareCooperate(): Promise<void>;
 
   /**
-   * Cancels the preparation for screen hopping.
+   * Cancels the preparation for screen hopping. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#unprepareCooperate
+   * @useinstead unprepareCooperate(callback: AsyncCallback<void>)
    */
   function unprepare(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels the preparation for screen hopping.
+   * Cancels the preparation for screen hopping. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#unprepareCooperate
+   * @useinstead unprepareCooperate()
    */
   function unprepare(): Promise<void>;
 
   /**
-   * Cancels the preparation for screen hopping.
+   * Cancels the preparation for screen hopping. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed. [dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function unprepareCooperate(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels the preparation for screen hopping.
+   * Cancels the preparation for screen hopping. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function unprepareCooperate(): Promise<void>;
 
   /**
-   * Starts screen hopping.
+   * Starts screen hopping. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
-   * @param { number } inputDeviceId Identifier of the input device for screen hopping.
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 20900001 - Service exception. Possible causes:
+   *     <br>1. A system error, such as null pointer, container-related exception, or IPC exception.
+   *     <br>2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#activateCooperate
+   * @useinstead activateCooperate(targetNetworkId: string, inputDeviceId: int, callback: AsyncCallback<void>)
    */
   function activate(targetNetworkId: string, inputDeviceId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts screen hopping.
+   * Starts screen hopping. This API uses a promise to return the result.
    *
-   * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
-   * @param { number }inputDeviceId Identifier of the input device for screen hopping.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 20900001 - Service exception. Possible causes:
+   *     <br>1. A system error, such as null pointer, container-related exception, or IPC exception.
+   *     <br>2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#activateCooperate
+   * @useinstead activateCooperate(targetNetworkId: string, inputDeviceId: int)
    */
   function activate(targetNetworkId: string, inputDeviceId: number): Promise<void>;
 
   /**
-   * Starts screen hopping.
+   * Starts screen hopping. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
-   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
-   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
+   * @param { int } inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 20900001 - Service exception. Possible causes:
+   *     <br>1. A system error, such as null pointer, container-related exception, or IPC exception.
+   *     <br>2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
-  function activateCooperate(targetNetworkId: string, inputDeviceId: number, callback: AsyncCallback<void>): void;
+  function activateCooperate(targetNetworkId: string, inputDeviceId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts screen hopping.
+   * Starts screen hopping. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
-   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
+   * @param { int }inputDeviceId - Identifier of the input device for screen hopping.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 20900001 - Service exception. Possible causes:
+   *     <br>1. A system error, such as null pointer, container-related exception, or IPC exception.
+   *     <br>2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
-  function activateCooperate(targetNetworkId: string, inputDeviceId: number): Promise<void>;
+  function activateCooperate(targetNetworkId: string, inputDeviceId: int): Promise<void>;
 
   /**
-   * Stops screen hopping.
+   * Stops screen hopping. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } isUnchained Whether the cross-device link is unchained.
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { boolean } isUnchained - Whether to disable the cross-device link.<br> The value **true** means to disable
+   *     the cross-device link, and the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#deactivateCooperate
+   * @useinstead deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>)
    */
   function deactivate(isUnchained: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops screen hopping.
+   * Stops screen hopping. This API uses a promise to return the result.
    *
-   * @param { boolean } isUnchained Whether the cross-device link is unchained.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @param { boolean } isUnchained - Whether to disable the cross-device link.<br> The value **true** means to disable
+   *     the cross-device link, and the value **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#deactivateCooperate
+   * @useinstead deactivateCooperate(isUnchained: boolean)
    */
   function deactivate(isUnchained: boolean): Promise<void>;
 
   /**
-   * Stops screen hopping.
+   * Stops screen hopping. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { boolean } isUnchained - Whether the cross-device link is unchained.
-   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { boolean } isUnchained - Whether to disable the cross-device link. The value **true** means to disable the
+   *     cross-device link, and the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed. [dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops screen hopping.
+   * Stops screen hopping. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { boolean } isUnchained - Whether the cross-device link is unchained.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @param { boolean } isUnchained - Whether to disable the cross-device link. The value **true** means to disable the
+   *     cross-device link, and the value **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function deactivateCooperate(isUnchained: boolean): Promise<void>;
 
   /**
-   * Obtains the screen hopping status.
+   * Obtains the screen hopping status of the target device. This API uses an asynchronous callback to return the
+   *     result.
    *
-   * @param { string } networkId Descriptor of the target device for screen hopping.
-   * @param { AsyncCallback<boolean> } callback Asynchronous callback used to return the screen hopping status.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { string } networkId - Descriptor of the target device for screen hopping.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
+   *     screen hopping is enabled, and the value **false** indicates the opposite.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#getCooperateSwitchState
+   * @useinstead getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>)
    */
   function getCrossingSwitchState(networkId: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains the status of the screen hopping switch.
+   * Obtains the screen hopping status of the target device. This API uses a promise to return the result.
    *
-   * @param { string } networkId Descriptor of the target device for screen hopping.
-   * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
-   *                               returns {@code false} otherwise.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { string } networkId - Descriptor of the target device for screen hopping.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that screen hopping
+   *     is enabled, and the value **false** indicates the opposite.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#getCooperateSwitchState
+   * @useinstead getCooperateSwitchState(networkId: string)
    */
   function getCrossingSwitchState(networkId: string): Promise<boolean>;
 
-
   /**
-   * Obtains the screen hopping status.
+   * Obtains the screen hopping status of the target device. This API uses an asynchronous callback to return the
+   *     result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } networkId - Descriptor of the target device for screen hopping.
-   * @param { AsyncCallback<boolean> } callback - Asynchronous callback used to return the screen hopping status.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
+   *     screen hopping is enabled, and the value **false** indicates the opposite.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains the status of the screen hopping switch.
+   * Obtains the screen hopping status of the target device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } networkId - Descriptor of the target device for screen hopping.
-   * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
-   *                               returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that screen hopping
+   *     is enabled, and the value **false** indicates the opposite.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function getCooperateSwitchState(networkId: string): Promise<boolean>;
 
   /**
    * Enables listening for screen hopping status change events.
    *
-   * @param { 'cooperate' } type Change type.
-   * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback Asynchronous callback used to
-   * <br>return the screen hopping status change event.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { 'cooperate' } type - Event type. The value is **cooperate**.
+   * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#on
+   * @useinstead on(type: 'cooperateMessage', callback: Callback<CooperateMessage>)
    */
   function on(type: 'cooperate', callback: Callback<{ networkId: string, msg: CooperateMsg }>): void;
 
   /**
    * Disables listening for screen hopping status change events.
    *
-   * @param { 'cooperate' } type Change type.
-   * @param { Callback<void> } callback Callback for which listening
-   * <br>is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { 'cooperate' } type - Event type. The value is **cooperate**.
+   * @param { Callback<void> } callback - Callback to be unregistered. If this parameter is not specified, all callbacks
+   *     registered by the current application will be unregistered.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#on
+   * @useinstead off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>)
    */
   function off(type: 'cooperate', callback?: Callback<void>): void;
 
@@ -651,13 +725,14 @@ declare namespace cooperate {
    * Enables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type - Change type.
-   * @param { Callback<CooperateMessage> } callback - Asynchronous callback used to
-   * <br>return the screen hopping status change event.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { 'cooperateMessage' } type - Event type. The value is **cooperateMessage**.
+   * @param { Callback<CooperateMessage> } callback - Callback used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -668,13 +743,15 @@ declare namespace cooperate {
    * Disables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type - Change type.
-   * @param { Callback<CooperateMessage> } [callback] - Callback for which listening
-   * <br>is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes:1.Incorrect parameter types.2.Parameter 
-   * <br>verification failed.
+   * @param { 'cooperateMessage' } type - Event type. The value is **cooperate**.
+   * @param { Callback<CooperateMessage> } [callback] - Callback to be unregistered. If this parameter is not specified,
+   *     all callbacks registered by the current application will be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -682,97 +759,174 @@ declare namespace cooperate {
   function off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>): void;
 
   /**
-   * Enables listening for mouse pointer position information on the specified device.
+   * Registers a listener for the mouse cursor position of a device.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
-   * @param { string } networkId - Specified device.
-   * @param { Callback<MouseLocation> } callback - Callback for receiving reported events.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { 'cooperateMouse' } type - Event type, which is **'cooperateMouse'**.
+   * @param { string } networkId - Descriptor of the target device.
+   * @param { Callback<MouseLocation> } callback - Callback used to return the mouse cursor position of the device.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2.Incorrect parameter types.
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
   function on(type: 'cooperateMouse', networkId: string, callback: Callback<MouseLocation>): void;
 
- /**
-   * Disables listening for mouse pointer position information on the specified device.
+  /**
+   * Unregisters the listener for the mouse cursor position of a device.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
-   * @param { string } networkId - Specified device.
-   * @param { Callback<MouseLocation> } [callback] - Callback for receiving reported events.
-   * <br>If no callback is specified, listening will be disabled for all **cooperateMouse** events of the device specified by **networkId**.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { 'cooperateMouse' } type - Event type, which is **'cooperateMouse'**.
+   * @param { string } networkId - Descriptor of the target device.
+   * @param { Callback<MouseLocation> } [callback] - Callback to be unregistered. If this parameter is not specified,
+   *     all callbacks registered by the current application will be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
   function off(type: 'cooperateMouse', networkId: string, callback?: Callback<MouseLocation>): void;
 
-/**
-   * Starts screen hopping with options.
+  /**
+   * Enables listening for screen hopping status change events.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { Callback<CooperateMessage> } callback - Asynchronous callback used to
+   *     <br> return the screen hopping status change event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function onCooperateMessage(callback: Callback<CooperateMessage>): void;
+
+  /**
+   * Disables listening for screen hopping status change events.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { Callback<CooperateMessage> } [callback] - Callback for which listening
+   *     <br> is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     <br> verification failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function offCooperateMessage(callback?: Callback<CooperateMessage>): void;
+
+  /**
+   * Enables listening for mouse pointer position information on the specified device for cooperation.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } networkId - Specified device.
+   * @param { Callback<MouseLocation> } callback - Callback for receiving reported events.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function onCooperateMouseEvent(networkId: string, callback: Callback<MouseLocation>): void;
+
+  /**
+   * Disables listening for mouse pointer position information on the specified device for cooperation.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } networkId - Specified device.
+   * @param { Callback<MouseLocation> } [callback] - Callback for receiving reported events.
+   *     <br> If no callback is specified, listening will be disabled for all **cooperateMouse**.
+   *     <br> events of the device specified by **networkId**.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function offCooperateMouseEvent(networkId: string, callback?: Callback<MouseLocation>): void;
+
+  /**
+   * Starts screen hopping based on the specified options. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
-   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
-   * @param { CooperateOptions } cooperateOptions - Cooperation options for peer device, optional.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 20900001 - Operation failed.
+   * @param { int } inputDeviceId - ID of the input device that initiates screen hopping.
+   * @param { CooperateOptions } cooperateOptions - Screen hopping options, such as the exit position. If this parameter
+   *     is not set, this API works in the same way as
+   *     [activateCooperate]{@link activateCooperate(targetNetworkId: string, inputDeviceId: int)}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 20900001 - Service exception. Possible causes:
+   *     <br>1. A system error, such as null pointer, container-related exception, or IPC exception.
+   *     <br>2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
+   * @since 23 static
    */
-  function activateCooperateWithOptions(targetNetworkId: string, inputDeviceId: number,
+  function activateCooperateWithOptions(targetNetworkId: string, inputDeviceId: int,
     cooperateOptions?: CooperateOptions
   ): Promise<void>;
 
   /**
-   * Cooperation options for peer device.
-   * @interface { CooperateOptions }
+   * Screen hopping options, such as the exit position.
+   *
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
+   * @since 23 static
    */
   interface CooperateOptions {
 
     /**
-     * The mouse pointer is located at the X coordinate on the screen.
+     * X coordinate of the mouse cursor.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 23 static
      */
-    displayX: number;
+    displayX: int;
 
     /**
-     * Identifier of the peer device screen.
+     * Screen ID of the peer device.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 23 static
      */
-    displayId: number;
+    displayId: long;
 
     /**
-     * The mouse pointer is located at the Y coordinate on the screen.
+     * Y coordinate of the mouse cursor.
      *
-     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 23 static
      */
-    displayY: number;
+    displayY: int;
   }
 }
 

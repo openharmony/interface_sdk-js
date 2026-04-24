@@ -86,7 +86,7 @@ declare namespace batteryInfo {
   function isBatteryConfigSupported(sceneName: string): boolean;
 
   /**
-   * Battery state of charge (SoC) of the current device, in percent.
+   * Battery state of charge (SoC) of the current device in percent, which ranges from 0 to 100.
    *
    * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -380,6 +380,13 @@ declare namespace batteryInfo {
    * @since 9 dynamic
    */
   export enum BatteryCapacityLevel {
+    /**
+     * The battery is in unknown capacity level.
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @since 23 dynamic
+     */
+    LEVEL_NONE,
     /**
      * The battery is in full capacity level.
      *

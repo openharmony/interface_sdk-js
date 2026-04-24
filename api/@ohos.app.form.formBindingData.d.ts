@@ -18,6 +18,11 @@
  * @kit FormKit
  */
 
+import { BusinessError } from './@ohos.base';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
+
 /**
  * Interface of formBindingData.
  *
@@ -32,7 +37,7 @@
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace formBindingData {
   /**
@@ -55,9 +60,18 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
+
+  /**
+   * Create an FormBindingData instance.
+   *
+   * @param { RecordData } [obj] - Indicates the FormBindingData instance data.
+   * @returns { FormBindingData } Returns the FormBindingData.
+   * @syscap SystemCapability.Ability.Form
+   * @since 23 static
+   */
+  function createFormBindingData(obj?: RecordData): FormBindingData;
 
   /**
    * Defines the createFormBindingData result interface.
@@ -73,7 +87,7 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormBindingData {
     /**
@@ -90,9 +104,17 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     data: Object;
+
+    /**
+     * Data for updating.
+     *
+     * @type { RecordData }
+     * @syscap SystemCapability.Ability.Form
+     * @since 23 static
+     */
+    data: RecordData;
 
     /**
      * proxies for updating.
@@ -110,7 +132,7 @@ declare namespace formBindingData {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     proxies?: Array<ProxyData>;
   }
@@ -131,7 +153,7 @@ declare namespace formBindingData {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ProxyData {
     /**
@@ -150,7 +172,7 @@ declare namespace formBindingData {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     key: string;
 
@@ -170,7 +192,7 @@ declare namespace formBindingData {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subscriberId?: string;
   }

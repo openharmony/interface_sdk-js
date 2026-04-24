@@ -21,12 +21,14 @@
 /*** if arkts dynamic */
 import bundleManager from './@ohos.bundle.bundleManager';
 import type { AsyncCallback } from './@ohos.base';
+import { BundleOptions } from './bundleManager/BundleInfo';
 import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
 import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
 /*** endif */
 /*** if arkts static */
 import bundleManager from './@ohos.bundle.bundleManager';
 import { AsyncCallback } from './@ohos.base';
+import { BundleOptions } from './bundleManager/BundleInfo';
 import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
 import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
 import bundleManager from './@ohos.bundle.bundleManager';
@@ -39,7 +41,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace bundleResourceManager {
   /**
@@ -50,7 +52,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ResourceFlag {
     /**
@@ -59,7 +61,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_RESOURCE_INFO_ALL = 0x00000001,
 
@@ -69,7 +71,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_RESOURCE_INFO_WITH_LABEL = 0x00000002,
 
@@ -79,7 +81,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_RESOURCE_INFO_WITH_ICON = 0x00000004,
 
@@ -90,7 +92,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
 
@@ -100,7 +102,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010,
 
@@ -111,7 +113,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
@@ -121,7 +123,8 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * BundleResourceInfo object that will be returned.
    * @returns { BundleResourceInfo } Returns the BundleResourceInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -130,7 +133,6 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int): BundleResourceInfo;
 
@@ -139,7 +141,8 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
+   * @param { int } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * BundleResourceInfo object that will be returned.
    * @param { int } [appIndex] - Indicates the index of the bundle,The default value is 0.
    * @returns { BundleResourceInfo } Returns the BundleResourceInfo object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -150,7 +153,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): BundleResourceInfo;
 
@@ -159,7 +162,8 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo object that will be returned.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * LauncherAbilityResourceInfo object that will be returned.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -168,7 +172,6 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -189,7 +192,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -197,7 +200,8 @@ declare namespace bundleResourceManager {
    * Obtains BundleResourceInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * BundleResourceInfo that will be returned.
    * @param { AsyncCallback<Array<BundleResourceInfo>> } callback - The callback of getting a list of BundleResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -205,7 +209,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<BundleResourceInfo>>): void;
 
@@ -213,7 +217,8 @@ declare namespace bundleResourceManager {
    * Obtains BundleResourceInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * BundleResourceInfo that will be returned.
    * @returns { Promise<Array<BundleResourceInfo>> } Returns a list of BundleResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -221,7 +226,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
 
@@ -229,7 +234,8 @@ declare namespace bundleResourceManager {
    * Obtains LauncherAbilityResourceInfo of all launcher abilities available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo that will be returned.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * LauncherAbilityResourceInfo that will be returned.
    * @param { AsyncCallback<Array<LauncherAbilityResourceInfo>> } callback - The callback of getting a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -237,7 +243,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>): void;
 
@@ -245,7 +251,8 @@ declare namespace bundleResourceManager {
    * Obtains LauncherAbilityResourceInfo of all launcher abilities available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo that will be returned.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the
+   * LauncherAbilityResourceInfo that will be returned.
    * @returns { Promise<Array<LauncherAbilityResourceInfo>> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -253,7 +260,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
 
@@ -275,9 +282,10 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
+  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, 
+    resourceFlags: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
   /**
    * Obtains BundleResourceInfo of all uninstalled but retained data bundles in the system.
@@ -291,8 +299,31 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   function getAllUninstalledBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
+
+  /**
+   * Obtains LauncherAbilityResourceInfo of all launcher abilities by optionsList in the system.
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
+   * @param { Array<BundleOptions> } optionsList - Indicates the bundle options list.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information
+   *     contained in the LauncherAbilityResourceInfo that will be returned.
+   * @returns { Promise<Array<LauncherAbilityResourceInfo>> } Returns a list of LauncherAbilityResourceInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getLauncherAbilityResourceInfoList(optionsList: Array<BundleOptions>, resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
 
   /**
    * Obtains resource info of a bundle.
@@ -301,7 +332,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type BundleResourceInfo = _BundleResourceInfo;
 
@@ -312,7 +343,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type LauncherAbilityResourceInfo = _LauncherAbilityResourceInfo;
 }

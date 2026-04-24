@@ -21,21 +21,16 @@
 import Ability from './@ohos.app.ability.Ability';
 
 /**
- * class of extension ability.
+ * ExtensionAbility is the base class for scenario-specific ExtensionAbilities. It inherits from 
+ * [Ability]{@link @ohos.app.ability.Ability:Ability}, with no property or method added. You cannot directly inherit 
+ * from ExtensionAbility. For details about the inheritance relationship of each ability, see 
+ * [Inheritance Relationship](docroot://reference/apis-ability-kit/js-apis-app-ability-ability.md#ability-inheritance-relationship)
+ * .
  *
- * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 9
- */
-/**
- * class of extension ability.
- *
- * @extends Ability
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @stagemodelonly
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export default class ExtensionAbility extends Ability {}

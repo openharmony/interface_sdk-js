@@ -14,6 +14,14 @@
  */
 
 /**
+ * The **TestRunner** module provides a test framework. You can use the APIs of this module to prepare the unit test 
+ * environment and run test cases.
+ * To implement your own unit test framework, extend this class and override its APIs.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
+ *
  * @file
  * @kit TestKit
  */
@@ -21,62 +29,56 @@
 /**
  * Prepare the unit testing environment for running test cases.
  *
- * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 23 static
  */
 type OnPrepareFn = () => void;
 
 /**
  * Run all test cases.
- * 
- * @typedef { Function }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 23 static
  */
 type OnRunFn = () => void;
+
+/**
+ * Stop all test cases.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ */
+type OnStopFn = () => void;
 
 /**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
- * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 8
- */
-/**
- * Base class for the test framework.
- * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
- *
- * @interface TestRunner
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @since 23 static
  */
 interface TestRunner {
   /**
    * Prepare the unit testing environment for running test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
+  onPrepare(): void;
+
   /**
    * Prepare the unit testing environment for running test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Prepare the unit testing environment for running test cases.
-   * 
-   * @type { OnPrepareFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 static
    */
   onPrepare: OnPrepareFn;
 
@@ -84,27 +86,32 @@ interface TestRunner {
    * Run all test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
+  onRun(): void;
+
   /**
    * Run all test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Run all test cases.
-   *
-   * @typedef { OnRunFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 static
    */
   onRun: OnRunFn;
+
+  /**
+   * Stop all test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  onStop?: OnStopFn;
 }
 
-/*** if arkts dynamic */
+/*** if arkts 1.1 */
 export { TestRunner };
 /*** endif */
 export default TestRunner;

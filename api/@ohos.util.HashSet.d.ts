@@ -14,6 +14,22 @@
  */
 
 /**
+ * HashSet is implemented based on [HashMap]{@link @ohos.util.HashMap}. In HashSet, only the **value** object is 
+ * processed.
+ * Unlike [TreeSet]{@link @ohos.util.TreeSet}, which stores and accesses data in sorted order, HashSet sorts data by 
+ * hash value. This means that HashSet may use a different order when storing and accessing elements. Both of them allow
+ * only unique elements. However, null values are allowed in HashSet, but not in TreeSet, because null values may affect
+ * the order of elements in the container.
+ * **Recommended use case**: Use HashSet when you need a set that has only unique elements or need to deduplicate a set.
+ * This topic uses the following to identify the use of generics:
+ * 
+ * - T: Type
+ * 
+ * > **NOTE**
+ * >
+ * > - Container classes, implemented in static languages, have restrictions on storage locations and properties, and do
+ * > not support custom properties or methods.
+ *
  * @file
  * @kit ArkTS
  */
@@ -22,323 +38,133 @@
  * HashSet is implemented based on HashMap. In HashSet, only the value object is processed.
  *
  * @syscap SystemCapability.Utils.Lang
- * @since 8
- */
-/**
- * HashSet is implemented based on HashMap. In HashSet, only the value object is processed.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * HashSet is implemented based on HashMap. In HashSet, only the value object is processed.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 8 dynamic
+ * @since 23 static
  */
 declare class HashSet<T> {
   /**
-   * A constructor used to create a HashSet object.
+   * A constructor used to create a **HashSet** instance.
    *
    * @throws { BusinessError } 10200012 - The HashSet's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * A constructor used to create a HashSet object.
-   *
-   * @throws { BusinessError } 10200012 - The HashSet's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A constructor used to create a HashSet object.
-   *
-   * @throws { BusinessError } 10200012 - The HashSet's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   constructor();
   /**
-   * Gets the element number of the hashset.
+   * Number of elements in a HashSet.
    *
-   * @type { number }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Gets the element number of the hashset.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the element number of the hashset.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   length: number;
-    /**
+  /**
    * Gets the element number of the HashSet.
    *
-   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
   /**
-   * Returns whether the Set object contains elements
+   * Checks whether this HashSet is empty (contains no element).
    *
-   * @returns { boolean } the boolean type
+   * @returns { boolean } Check result. The value **true** is returned if the HashSet is empty; otherwise, **false** is
+   *     returned.
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns whether the Set object contains elements
-   *
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns whether the Set object contains elements
-   *
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
-   * Returns whether the Set object contain s the elements
+   * Checks whether this HashSet has the specified element.
    *
-   * @param { T } value - value value need to determine whether to include the element
-   * @returns { boolean } the boolean type
+   * @param { T } value - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the specified element is contained;
+   *     otherwise, **false** is returned.
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns whether the Set object contain s the elements
-   *
-   * @param { T } value - value value need to determine whether to include the element
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns whether the Set object contain s the elements
-   *
-   * @param { T } value - value value need to determine whether to include the element
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   has(value: T): boolean;
   /**
-   * If the set does not contain the element, the specified element is added
+   * Adds elements to this HashSet.
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise, **false**
+   *     is returned.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * If the set does not contain the element, the specified element is added
-   *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * If the set does not contain the element, the specified element is added
-   *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   add(value: T): boolean;
   /**
-   * Remove a specified element from a Set object
+   * Removes an element from this HashSet.
    *
-   * @param { T } value - value value Target to be deleted
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is removed; otherwise,
+   *     **false** is returned.
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Remove a specified element from a Set object
-   *
-   * @param { T } value - value value Target to be deleted
-   * @returns { boolean } the boolean type(Is there contain this element)
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified element from a Set object
-   *
-   * @param { T } value - value value Target to be deleted
-   * @returns { boolean } the boolean type(Is there contain this element)
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   remove(value: T): boolean;
   /**
-   * Clears all element groups in a set
+   * Clears this HashSet and sets its length to **0**.
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Clears all element groups in a set
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Clears all element groups in a set
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   clear(): void;
   /**
-   * Executes a provided function once for each value in the Set object.
+   * Uses a callback to traverse each element.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
+   * @param { function } callbackFn - Callback invoked to traverse the elements in the HashSet.
+   * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Executes a provided function once for each value in the Set object.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Executes a provided function once for each value in the Set object.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void, thisArg?: Object): void;
 
@@ -349,66 +175,32 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: HashSetCbFn<T>): void;
 
   /**
-   * Returns a new Iterator object that contains the values contained in this set
+   * Returns an iterator that contains all the values in this HashSet.
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } Iterator obtained.
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns a new Iterator object that contains the values contained in this set
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The values method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns a new Iterator object that contains the values contained in this set
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The values method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
-   * Returns a new Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
+   * Returns an iterator that contains all the elements in this HashSet.
    *
-   * @returns { IterableIterator<[T, T]> }
+   * @returns { IterableIterator<[T, T]> } Iterator obtained.
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns a new Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
-   *
-   * @returns { IterableIterator<[T, T]> }
-   * @throws { BusinessError } 10200011 - The entries method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns a new Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
-   *
-   * @returns { IterableIterator<[T, T]> }
-   * @throws { BusinessError } 10200011 - The entries method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -417,26 +209,9 @@ declare class HashSet<T> {
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -447,7 +222,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 }
@@ -455,14 +230,14 @@ declare class HashSet<T> {
 /**
  * The type of HashSet callback function.
  *
- * @typedef { function } HashSetCbFn
  * @param { T } value - The current element being processed
- * @param { T } key - [Deprecated] HashSet does not use key-value pairs, this parameter exists only for API compatibility
+ * @param { T } key - [Deprecated] HashSet does not use key-value pairs, this parameter exists only for API
+ *     compatibility
  * @param { HashSet<T> } set - The HashSet instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
 

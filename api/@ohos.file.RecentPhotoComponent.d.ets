@@ -219,7 +219,7 @@ export declare enum PhotoSource {
    * @since 12 dynamic
    */
   CAMERA = 1,
-  
+
   /**
    * screenshot resource
    *

@@ -64,45 +64,54 @@ declare enum SideBarContainerType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Embed,
+  Embed = 0,
 
   /**
-   * The sidebar visible
+   * The sidebar overlays on top of the main content area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * The sidebar visible
+   * The sidebar overlays on top of the main content area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * The sidebar visible
+   * The sidebar overlays on top of the main content area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Overlay,
+  Overlay = 1,
 
   /**
-   * The sidebar AUTO 
+   * The sidebar display mode is automatically selected based on the container size. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * The sidebar AUTO 
+   * The sidebar display mode is automatically selected based on the container size. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  AUTO,
+  AUTO = 2,
+  /**
+   * The sideBar Displace. Sidebar is visible, content will offscreen to make space for sideBar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISPLACE = 3,
 }
 
 /**
@@ -188,14 +197,14 @@ declare enum SideBarPosition {
  */
 declare interface ButtonIconOptions {
   /**
-   * Defines whether an icon is shown.
+   * Defines the icon displayed when the sidebar is shown.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Defines whether an icon is shown.
+   * Defines the icon displayed when the sidebar is shown.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -203,7 +212,7 @@ declare interface ButtonIconOptions {
    * @since 10
    */
   /**
-   * Defines whether an icon is shown.
+   * Defines the icon displayed when the sidebar is shown.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -212,7 +221,7 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   /**
-   * Defines whether an icon is shown.
+   * Defines the icon displayed when the sidebar is shown.
    *
    * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
@@ -224,14 +233,14 @@ declare interface ButtonIconOptions {
   shown: string | PixelMap | Resource;
 
   /**
-   * Defines whether an icon is hidden.
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Defines whether an icon is hidden.
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -239,7 +248,7 @@ declare interface ButtonIconOptions {
    * @since 10
    */
   /**
-   * Defines whether an icon is hidden.
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -248,7 +257,7 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   /**
-   * Defines whether an icon is hidden.
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
@@ -260,14 +269,14 @@ declare interface ButtonIconOptions {
   hidden: string | PixelMap | Resource;
 
   /**
-   * Defines whether an icon is switching.
+   * Defines the icon displayed during the sidebar switching animation.
    *
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Defines whether an icon is switching.
+   * Defines the icon displayed during the sidebar switching animation.
    *
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -275,7 +284,7 @@ declare interface ButtonIconOptions {
    * @since 10
    */
   /**
-   * Defines whether an icon is switching.
+   * Defines the icon displayed during the sidebar switching animation.
    *
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -284,7 +293,7 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   /**
-   * Defines whether an icon is switching.
+   * Defines the icon displayed during the sidebar switching animation.
    *
    * Anonymous Object Rectification.
    * @type { ?(string | PixelMap | Resource) }
@@ -1065,6 +1074,22 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @since 11 dynamic
    */
   minContentWidth(value: Dimension): SideBarContainerAttribute;
+
+  /**
+   * Specifies whether sideBar can be presented or dismissed by gesture.
+   * 
+   * @param { boolean } value - Indicates whether sidebar can be presented or dismissed by gesture.
+   *    <br>Default value: **false**.
+   *    **true**: Sidebar can be presented or dismissed by gesture.
+   *    **false**: Sidebar cannot be presented or dismissed by gesture.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  showSideBarWithGesture(value: boolean): SideBarContainerAttribute;
 }
 
 /**

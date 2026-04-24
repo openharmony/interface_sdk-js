@@ -15,6 +15,7 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import Want from './@ohos.app.ability.Want';
@@ -84,7 +85,7 @@ declare namespace formInfo {
     name: string;
 
     /**
-     * Obtains the name of this form.
+     * Obtains the description of this form.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.Form

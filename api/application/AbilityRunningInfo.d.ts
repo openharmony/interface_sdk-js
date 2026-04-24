@@ -22,77 +22,71 @@ import { ElementName } from '../bundleManager/ElementName';
 import abilityManager from '../@ohos.app.ability.abilityManager';
 
 /**
- * The class of an ability running information.
+ * AbilityRunningInfo is a struct that records the running information and state of an ability. It is obtained through 
+ * [getAbilityRunningInfos]{@link @ohos.app.ability.abilityManager:abilityManager.getAbilityRunningInfos()}.
  *
- * @typedef AbilityRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AbilityRunningInfo {
   /**
-   * Ability matching information.
+   * Element name of the ability.
    *
-   * @type { ElementName }
    * @default the ohos.bundleManager.ElementName object of the ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ability: ElementName;
 
   /**
    * Process ID.
    *
-   * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pid: int;
 
   /**
-   * User ID.
+   * UID of the application.
    *
-   * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
   /**
    * Process name.
    *
-   * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   processName: string;
 
   /**
-   * Ability startup time.
+   * Ability start time.
    *
-   * @type { long }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startTime: long;
 
   /**
-   * Ability status.
+   * Ability state.
    *
-   * @type { abilityManager.AbilityState }
    * @default Enumerates state of the ability state info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityState: abilityManager.AbilityState;
 }

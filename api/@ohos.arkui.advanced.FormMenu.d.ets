@@ -21,6 +21,9 @@
 import formBindingData from './@ohos.app.form.formBindingData';
 import Want from './@ohos.app.ability.Want';
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts static */
+import { Builder, MenuItemOptions } from '@ohos.arkui.component';
+/*** endif */
 
 /**
  * Defines the form menu item style.
@@ -29,6 +32,8 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
+ * @noninterop
  */
 export interface FormMenuItemStyle {
   /**
@@ -38,6 +43,7 @@ export interface FormMenuItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   options?: MenuItemOptions;
 }
@@ -49,6 +55,8 @@ export interface FormMenuItemStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
+ * @noninterop
  */
 export interface AddFormOptions {
   /**
@@ -58,6 +66,7 @@ export interface AddFormOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   formBindingData?: formBindingData.FormBindingData;
 
@@ -68,6 +77,7 @@ export interface AddFormOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   callback?: AsyncCallback<string>;
 
@@ -78,6 +88,7 @@ export interface AddFormOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   style?: FormMenuItemStyle;
 }
@@ -91,6 +102,8 @@ export interface AddFormOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
+ * @noninterop
  */
 @Builder
 export declare function AddFormMenuItem(

@@ -19,59 +19,38 @@
  */
 
 /**
- * A object that records the result of shell command executes.
+ * The **ShellCmdResult** module provides the shell command execution result.
  *
- * @typedef ShellCmdResult
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 8
- */
-/**
- * A object that records the result of shell command executes.
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
  *
- * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @since 23 static
  */
 export interface ShellCmdResult {
+
   /**
-   * the cmd standard result.
+   * Standard output of the shell command.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * the cmd standard result.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 8 dynamic
+   * @since 23 static
    */
   stdResult: string;
 
   /**
-   * shell cmd exec result.
+   * Result code of the shell command.
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * shell cmd exec result.
-   *
-   * @type { int }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 8 dynamic
+   * @since 23 static
    */
   exitCode: int;
 }
 
-/*** if arkts dynamic */
 export default ShellCmdResult;
-/*** endif */

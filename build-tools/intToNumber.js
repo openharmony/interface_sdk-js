@@ -267,7 +267,43 @@ function parseJSDocVisitEachChild1(context, node) {
       if (/(long|double|int)/g.test(doc.getText())) {
         jsDocNodeForeach(doc.tags);
       }
+      const commentText = doc.getText();
+      const globalPosStart = doc.pos;
+      const regex = /\{@link\s+([\s\S]*?)\}/gi;
+      let match;
+      while ((match = regex.exec(commentText)) !== null) {
+        handleLinkMatch(match, commentText, globalPosStart);
+      }
     });
+  }
+  function handleLinkMatch(match, commentText, globalPosStart) {
+    const fullMatch = match[0];
+    const linkContent = match[1];
+    let convertedText = fullMatch;
+    const hasFunctionSignature = /\(.*\)/.test(linkContent);
+    if (hasFunctionSignature) {
+      const convertedContent = linkContent.replace(/\(([\s\S]*?)\)/g, (paramStr) => {
+        return paramStr.replace(/(\bint\b|\blong\b|\bdouble\b)(\s*\|\s*(\bint\b|\blong\b|\bdouble\b))*/g, () => 'number');
+      });
+      convertedText = fullMatch.replace(linkContent, convertedContent);
+    } else {
+      const typePart = fullMatch.replace(/\{@link|\}/gi, '').replace(/\*+/g, '').trim();
+      if (!/(int|long|double)/.test(typePart)){
+        return;
+      }
+      const types = typePart.split(/\s*\|\s*/);
+      const newTypes = types.map(t => t.replace(/\b(int|long|double)\b/g, 'number'));
+      const uniqueTypes = [...new Set(newTypes)];
+      const newTypeStr = uniqueTypes.join(' | ');
+      convertedText = fullMatch.replace(typePart, newTypeStr);
+    }
+    if (convertedText !== fullMatch) {
+      tagDataList.push({
+        pos: globalPosStart + match.index,
+        end: globalPosStart + match.index + fullMatch.length,
+        convertedText: convertedText
+      });
+    }
   }
   function parseTypeExpr(typeExpr) {
     let newTypeExpr = typeExpr;

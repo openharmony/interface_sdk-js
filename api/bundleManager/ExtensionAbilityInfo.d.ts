@@ -37,7 +37,7 @@ import { Skill } from './Skill';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ExtensionAbilityInfo {
   /**
@@ -56,7 +56,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -76,7 +76,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -96,7 +96,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -116,7 +116,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
@@ -136,7 +136,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 
@@ -156,7 +156,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: long;
 
@@ -176,7 +176,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly exported: boolean;
 
@@ -196,7 +196,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
@@ -208,7 +208,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly extensionAbilityTypeName: string;
 
@@ -228,7 +228,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly permissions: Array<string>;
 
@@ -257,7 +257,7 @@ export interface ExtensionAbilityInfo {
    * @type { ApplicationInfo | null }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 22 static
+   * @since 23 static
    */
   readonly applicationInfo: ApplicationInfo | null;
 
@@ -277,7 +277,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly metadata: Array<Metadata>;
 
@@ -290,14 +290,14 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   /**
-   * Indicates the src language to express extension ability info
+   * Indicates whether the extension ability is enable
    *
    * @type { boolean }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly enabled: boolean;
 
@@ -310,14 +310,14 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   /**
-   * Indicates the read permission extension ability info
+   * Indicates the read permission of the extension ability info
    *
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly readPermission: string;
 
@@ -337,7 +337,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly writePermission: string;
 
@@ -349,7 +349,7 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly skills: Array<Skill>;
 
@@ -360,7 +360,7 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 }

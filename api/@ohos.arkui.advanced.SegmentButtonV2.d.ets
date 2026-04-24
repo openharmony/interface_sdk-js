@@ -21,6 +21,7 @@
 import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
 import { ImageModifier, SymbolGlyphModifier, TextModifier } from '@ohos.arkui.modifier';
 import { SizeT } from '@ohos.arkui.node';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines the options of the segmented button item.
@@ -45,7 +46,7 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * This field will be useless if the symbol field is set.
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -192,7 +193,7 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * This field will be useless if the symbol field is set.
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -291,7 +292,7 @@ export declare class SegmentButtonV2Item {
     @Trace accessibilityLevel?: string;
 
     /**
-     * The constructor of SegmentedButtonItem
+     * The constructor of SegmentButtonV2Item
      * 
      * @param { SegmentedButtonItemOptions } options - the options of the segmented button item
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -325,7 +326,7 @@ export declare class SegmentButtonV2Item {
 @ObservedV2
 export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
     /**
-     * The constructor of SegmentedButtonItems
+     * The constructor of SegmentButtonV2Item
      * 
      * @param { SegmentButtonV2ItemOptions[] } items - the options array of the segmented button items
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -777,6 +778,37 @@ export declare struct TabSegmentButtonV2 {
     readonly languageDirection?: Direction;
 
     /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?uiMaterial.Material } material - System-styled material.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    @Param
+    readonly backgroundSystemMaterial?: uiMaterial.Material;
+
+    /**
+     * Enable animation when selectedIndexes change.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    @Param
+    readonly enableStateAnimation?: boolean;
+
+    /**
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1217,6 +1249,37 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly languageDirection?: Direction;
 
     /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?uiMaterial.Material } material - System-styled material.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    @Param
+    readonly backgroundSystemMaterial?: uiMaterial.Material;
+
+    /**
+     * Enable animation when selectedIndexes change.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    @Param
+    readonly enableStateAnimation?: boolean;
+
+    /**
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1230,7 +1293,7 @@ export declare struct CapsuleSegmentButtonV2 {
 /**
  * Defines the segmented button with capsule style.
  * 
- * @struct CapsuleSegmentButtonV2
+ * @struct MultiCapsuleSegmentButtonV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1267,7 +1330,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly selectedIndexes: number[];
 
     /**
-     * Sets the callback function will be invoked when the selectedInexes field of the segmented button is changed.
+     * Sets the callback function will be invoked when the selectedIndexes field of the segmented button is changed.
      * 
      * @type { ?OnSelectedIndexesChange } OnSelectedIndexesChange
      * @readonly

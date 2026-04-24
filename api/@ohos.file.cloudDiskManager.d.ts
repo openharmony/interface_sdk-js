@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,138 +19,145 @@
  */
 
 /**
- * Provides cloud disk manager APIs.
+ * This module enables the File Manager to obtain the sync root information registered by third-party cloud disks.
  *
- * @namespace cloudDiskManager
  * @syscap SystemCapability.FileManagement.CloudDiskManager
  * @systemapi
  * @since 21 dynamic
+ * @since 23 static
  */
 declare namespace cloudDiskManager {
   /**
-   * Enumerates the syncFolder state of the cloud disk.
+   * Enumerates the states of the sync root.
    *
-   * @enum {number}
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   enum SyncFolderState {
     /**
-     * Indicates the inactive syncFolder state.
+     * The sync root is inactive.
      *
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     INACTIVE = 0,
 
     /**
-     * Indicates the active syncFolder state.
+     * The sync root is active.
      *
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     ACTIVE = 1
   }
 
   /**
-   * Defines the syncFolder of the cloudDisk
+   * Encapsulates the sync root information.
    *
-   * @typedef SyncFolder
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   interface SyncFolder {
     /**
-     * The path of the syncFolder.
+     * URI of the sync root.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     path: string;
 
     /**
-     * The bundleName of the syncFolder.
+     * Bundle name of the sync root.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
     /**
-     * The state of the syncFolder.
+     * State of the sync root.
      *
-     * @type { SyncFolderState }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     state: SyncFolderState;
 
     /**
-     * The displayNameResId of the syncFolder.
+     * Resource ID, which can be mapped to the alias displayed in the File Manager list. The default value is
+     * **undefined**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
-    displayNameResId?: number;
+    displayNameResId?: int;
 
     /**
-     * The alias of the syncFolder supports user customization.
+     * Custom alias displayed in the File Manager list. The default value is **undefined**.
      *
-     * @type { ?string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     customAlias?: string;
   }
 
   /**
-   * Provides the capability to access all cloud disk syncFolders.
+   * A sync root management class that enables the File Manager to access the sync root information registered by third-
+   * party cloud disks.
    *
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   class SyncFolderAccessor {
     /**
-     * A constructor used to create a SyncFolderAccessor object.
+     * A constructor used to create a **SyncFolderAccessor** instance.
      *
      * @permission ohos.permission.ACCESS_CLOUD_DISK_INFO
      * @throws { BusinessError } 201 - Permission verification failed,
      * @throws { BusinessError } 202 - Permission verification failed.
-     *    application which is not a system application uses system API.
+     *     application which is not a system application uses system API.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     constructor();
 
     /**
-     * Get all syncFolders for all bundles.
+     * Obtains information about all registered sync roots. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_CLOUD_DISK_INFO
-     * @returns { Promise<Array<SyncFolder>> } Returns the syncFolder list for all bundles.
+     * @returns { Promise<Array<SyncFolder>> } Promise that returns the sync root list of all cloud disk applications.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - Permission verification failed,
-     *    application which is not a system application uses system API.
+     *     application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Device not supported.
      * @throws { BusinessError } 34400003 - IPC communication failed.
-     * @throws { BusinessError } 34400014 - Temporary failure, Retry is recommended (e.g., network issues).
-     * @throws { BusinessError } 34400015 - Cloud disk not allowed on this device.
+     * @throws { BusinessError } 34400014 - Temporary failure. Retry is recommended (e.g., network issues).
+     * @throws { BusinessError } 34400015 - Cloud disk is not allowed on this device.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     getAllSyncFolders(): Promise<Array<SyncFolder>>;
   }

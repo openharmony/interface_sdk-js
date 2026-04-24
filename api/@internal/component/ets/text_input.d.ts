@@ -2189,6 +2189,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onCopy(callback: Callback<string>): TextInputAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): TextInputAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback
@@ -2227,6 +2240,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 18 dynamic
    */
   onCut(callback: Callback<string>): TextInputAttribute;
+
+  /**
+   * Called before using the Clipboard cut menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCut(callback: Callback<string, boolean>): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -2689,6 +2715,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Define bar state of the text input.
+   *
+   * @param { BarState } value - Default value is BarState.Auto.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   barState(value: BarState): TextInputAttribute;
 
   /**
@@ -2767,7 +2803,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-
   /**
    * Define custom keyboard of the text input.
    *
@@ -2791,12 +2826,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard of the text input.
    *
-   * * <p><strong>NOTE</strong>:
+   * <p><strong>NOTE</strong>:
    * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
    * instead of the system input method.
    * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
@@ -2898,6 +2933,20 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamic
+   */
+  /**
+   * Set the cancel button style
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is not available for the inline input style.
+   * </p>
+   *
+   * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
@@ -3335,7 +3384,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 18 dynamic
    */
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
-  
+
   /**
    * Set the ellipsis mode.
    *
@@ -3356,6 +3405,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 15 dynamic
+   */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 
@@ -3383,7 +3442,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 
-   /**
+  /**
    * Set the stroke width.
    *
    * @param { Optional<LengthMetrics> } width - indicates the stroke width.
@@ -3429,6 +3488,94 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 20 dynamic
    */
   enableAutoSpacing(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextInputAttribute;
+  
+  /**
+   * Set voice button options.
+   *
+   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
+
+  /**
+ 	 * Whether to avoid an orphan word on the last line of the paragraph.
+ 	 *
+ 	 * @param { Optional<boolean> } enabled - The default value is false,
+ 	 *     indicates the flag whether to enable this feature.
+ 	 * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @crossplatform
+ 	 * @atomicservice
+ 	 * @since 26.0.0 dynamic
+ 	 */
+ 	orphanCharOptimization(enabled: Optional<boolean>): TextInputAttribute;
 }
 
 /**

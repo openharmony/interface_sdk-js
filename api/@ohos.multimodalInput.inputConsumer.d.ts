@@ -27,7 +27,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace inputConsumer {
   /**
@@ -37,7 +37,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyOptions {
     /**
@@ -49,7 +49,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preKeys: Array<int>;
 
@@ -61,7 +61,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     finalKey: int;
 
@@ -73,7 +73,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFinalKeyDown: boolean;
 
@@ -88,7 +88,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     finalKeyDownDuration: int;
 
@@ -100,7 +100,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRepeat?: boolean;
   }
@@ -111,7 +111,7 @@ declare namespace inputConsumer {
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HotkeyOptions {
     /**
@@ -122,18 +122,18 @@ declare namespace inputConsumer {
      * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preKeys: Array<int>;
 
     /**
      * Modified key, which can be any key except the modifier keys and Meta key. For details about the keys, see Keycode.
-     * For example, in Ctrl+Shift+Esc, Esc is the modified key.
+     * For example, in Ctrl+Shift+Esc, Esc is called the final key.
      *
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     finalKey: int;
 
@@ -144,7 +144,7 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRepeat?: boolean;
   }
@@ -155,7 +155,7 @@ declare namespace inputConsumer {
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyPressedConfig {
     /**
@@ -172,7 +172,14 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
+     */
+    /**
+     * Key value. One of KEYCODE_VOLUME_UP/KEYCODE_VOLUME_DOWN/KEYCODE_MEDIA_PLAY_PAUSE/
+     * KEYCODE_MEDIA_PREVIOUS/KEYCODE_MEDIA_NEXT/KEYCODE_FINGERPRINT_SLIDE_DOWN/KEYCODE_FINGERPRINT_SLIDE_UP.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 26.0.0 dynamic&static
      */
     key: int;
 
@@ -190,7 +197,7 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     action: int;
 
@@ -200,7 +207,7 @@ declare namespace inputConsumer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRepeat: boolean;
   }
@@ -212,6 +219,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 23 static
    */
   enum ShieldMode {
     /**
@@ -220,8 +228,9 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 11 dynamic
+     * @since 23 static
      */
-    FACTORY_MODE
+    FACTORY_MODE = 0
   }
 
   /**
@@ -252,9 +261,22 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
    */
   function on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
+  
+   /**
+   * Subscribe system keys.
+   *
+   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
+   * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use
+   * @since 23 static
+   */
+  function onKey(keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
   /**
    * Disables listening for combination key events.
@@ -282,9 +304,22 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
+
+  /**
+   * Subscribe system keys.
+   *
+   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
+   * @param { Callback<KeyOptions> } [callback] - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use
+   * @since 23 static
+   */
+  function offKey(keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 
   /**
    * Sets the shortcut key shield status.
@@ -300,6 +335,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function setShieldStatus(shieldMode: ShieldMode, isShield: boolean): void;
 
@@ -316,6 +352,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
+   * @since 23 static
    */
   function getShieldStatus(shieldMode: ShieldMode): boolean;
 
@@ -326,6 +363,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
+   * @since 23 static
    */
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
@@ -343,9 +381,23 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
-   * @since 22 static
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
+
+  /**
+   * Listening for hotkey event.
+   *
+   * @param { HotkeyOptions } hotkeyOptions - Hotkey options.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
+   * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 23 static
+   */
+  function onHotkeyChange(hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
    * Unsubscribes from application shortcut key change events.
@@ -359,9 +411,21 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
-   * @since 22 static
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
+
+  /**
+   * Unsubscribe from hotkey event.
+   *
+   * @param { HotkeyOptions } hotkeyOptions - Hotkey options.
+   * @param { Callback<HotkeyOptions> } [callback] - Callback used to return hotkey event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 23 static
+   */
+  function offHotkeyChange(hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
   /**
    * Subscribes to key press events. This API uses an asynchronous callback to return the result. 
@@ -375,9 +439,22 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
-   * @since 22 static
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
+
+   /**
+   * Subscribes to key press events. This API uses an asynchronous callback to return the result. 
+   * If the current application is in the foreground focus window, a callback is triggered when the specified key is pressed.
+   *
+   * @param { KeyPressedConfig } options - Key consumption settings.
+   * @param { Callback<KeyEvent> } callback - Callback used to return key events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 23 static
+   */
+  function onKeyPressed(options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
   /**
    * Unsubscribes from key press events.
@@ -391,9 +468,20 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
-   * @since 22 static
    */
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
+
+  /**
+   * Cancels consumption of key events.
+   *
+   * @param { Callback<KeyEvent> } [callback] - Callback used to return hotkey events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   *     2. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 23 static
+   */
+  function offKeyPressed(callback?: Callback<KeyEvent>): void;
 }
 
 export default inputConsumer;

@@ -19,105 +19,102 @@
  */
 
 /**
- * The class of auto startup info.
+ * The module defines information about the application component that automatically starts upon system boot.
  *
- * @typedef AutoStartupInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
+ * @since 23 static
  */
 export interface AutoStartupInfo {
   /**
-   * Bundle name
+   * Bundle name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
   /**
-   * Module name
+   * Module name.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 23 static
    */
   moduleName?: string;
 
   /**
-   * Ability Name
+   * Ability name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 23 static
    */
   abilityName: string;
 
   /**
-   * Ability Type Name
+   * Ability type.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 23 static
    */
   abilityTypeName?: string;
 
   /**
-   * The app clone index of ability instance.
-   * @type { ?number }
+   * Index of an application clone.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
-  appCloneIndex?: number;
+  appCloneIndex?: int;
 
   /**
-   * The user id of application.
+   * User ID associated with the application, used to differentiate applications belonging to different user accounts on
+   * the same device.
    *
-   * @type { ?number }
-   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  readonly userId?: number;
+  readonly userId?: int;
 
   /**
-   * The user id of setter.
+   * User ID of the person who set the application to automatically start upon system boot.
    *
-   * @type { ?number }
-   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  readonly setterUserId?: number;
+  readonly setterUserId?: int;
 
   /**
-   * Whether to allow user to modify autostartup status.
+   * Whether the developer is allowed to modify the auto-startup status of this application. The options include 
+   * **true** (yes) and **false** (no).
    *
-   * @type { ?boolean }
-   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly canUserModify?: boolean;
 }

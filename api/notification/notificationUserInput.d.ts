@@ -14,26 +14,24 @@
  */
 
 /**
- * @file The NotificationUserInput module provides APIs for defining the notification user input.
+ * @file Describes a NotificationUserInput instance
  * @kit NotificationKit
  */
 
 /**
- * The NotificationUserInput module provides APIs for defining the notification user input.
+ * The **NotificationUserInput** module provides APIs for defining the notification user input.
  *
- * @typedef NotificationUserInput
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface NotificationUserInput {
   /**
    * Key to identify the user input.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   inputKey: string;
 }

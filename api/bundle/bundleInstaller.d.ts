@@ -72,7 +72,7 @@ export interface InstallParam {
  * @typedef InstallStatus
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
  */
 export interface InstallStatus {
@@ -81,7 +81,7 @@ export interface InstallStatus {
    * @default Indicates the install or uninstall error code
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   status: bundle.InstallErrorCode;
@@ -91,7 +91,7 @@ export interface InstallStatus {
    * @default Indicates the install or uninstall result string message
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   statusMessage: string;

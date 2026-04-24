@@ -27,23 +27,25 @@
  * @systemapi Hide this for inner system use
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
+ * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutWant
  */
 export interface ShortcutWant {
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutWant#targetBundle
    */
   readonly targetBundle: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutWant#targetAbility
    */
   readonly targetClass: string;
 }
@@ -53,95 +55,107 @@ export interface ShortcutWant {
  *
  * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
+ * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo
  */
 export interface ShortcutInfo {
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#id
    */
   readonly id: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#bundleName
    */
   readonly bundleName: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#hostAbility
    */
   readonly hostAbility: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#icon
    */
   readonly icon: string;
   /**
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#iconId
    */
   readonly iconId: number;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#label
    */
   readonly label: string;
   /**
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#labelId
    */
   readonly labelId: number;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly disableMessage: string;
   /**
    * @type { Array<ShortcutWant> }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#wants
    */
   readonly wants: Array<ShortcutWant>;
   /**
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#sourceType
    */
   readonly isStatic?: boolean;
   /**
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#sourceType
    */
   readonly isHomeShortcut?: boolean;
   /**
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#visible
    */
   readonly isEnabled?: boolean;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,14 +18,8 @@
  * @kit InputKit
  */
 
-/*** if arkts dynamic */
 import type { AsyncCallback } from './@ohos.base';
 import type image from './@ohos.multimedia.image';
-/*** endif */
-/*** if arkts static */
-import { AsyncCallback } from './@ohos.base';
-import image from './@ohos.multimedia.image';
-/*** endif */
 
 /**
  * The pointer module provides APIs related to pointer attribute management, such as querying and setting pointer attributes.
@@ -41,7 +35,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace pointer {
   /**
@@ -58,7 +52,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PointerStyle {
     /**
@@ -66,7 +60,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT,
 
@@ -75,7 +69,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EAST,
 
@@ -84,7 +78,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WEST,
 
@@ -93,7 +87,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOUTH,
 
@@ -102,7 +96,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH,
 
@@ -111,7 +105,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WEST_EAST,
 
@@ -120,7 +114,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_SOUTH,
 
@@ -129,7 +123,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_EAST,
 
@@ -138,7 +132,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_WEST,
 
@@ -147,7 +141,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOUTH_EAST,
 
@@ -156,7 +150,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOUTH_WEST,
 
@@ -165,7 +159,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_EAST_SOUTH_WEST,
 
@@ -174,7 +168,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_WEST_SOUTH_EAST,
 
@@ -183,7 +177,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CROSS,
 
@@ -192,7 +186,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_COPY,
 
@@ -201,7 +195,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_FORBID,
 
@@ -210,7 +204,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COLOR_SUCKER,
 
@@ -219,7 +213,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAND_GRABBING,
 
@@ -228,7 +222,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAND_OPEN,
 
@@ -237,7 +231,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAND_POINTING,
 
@@ -246,7 +240,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HELP,
 
@@ -255,7 +249,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MOVE,
 
@@ -264,7 +258,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESIZE_LEFT_RIGHT,
 
@@ -273,7 +267,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESIZE_UP_DOWN,
 
@@ -282,7 +276,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENSHOT_CHOOSE,
 
@@ -291,7 +285,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENSHOT_CURSOR,
 
@@ -300,7 +294,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT_CURSOR,
 
@@ -309,7 +303,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ZOOM_IN,
 
@@ -318,7 +312,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ZOOM_OUT,
 
@@ -327,7 +321,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_EAST,
 
@@ -336,7 +330,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_WEST,
 
@@ -345,7 +339,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_SOUTH,
 
@@ -354,7 +348,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH,
 
@@ -363,7 +357,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
@@ -372,7 +366,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_EAST,
 
@@ -381,7 +375,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_WEST,
 
@@ -390,7 +384,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_SOUTH_EAST,
 
@@ -399,7 +393,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_SOUTH_WEST,
 
@@ -408,7 +402,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
 
@@ -417,7 +411,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HORIZONTAL_TEXT_CURSOR,
 
@@ -426,7 +420,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_CROSS,
 
@@ -435,7 +429,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_CIRCLE,
 
@@ -451,7 +445,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING,
 
@@ -467,7 +461,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RUNNING,
 
@@ -476,18 +470,81 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_EAST_WEST,
+
+    /**
+    * Left part of running state with dynamic cursor
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    RUNNING_LEFT = 45,
+
+    /**
+    * Right part of running state with dynamic cursor
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    RUNNING_RIGHT = 46,
+
+    /**
+    * Circular cursor
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    AECH_DEVELOPER_DEFINED_ICON = 47,
 
     /**
      * Screen recorder cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    SCREENRECORDER_CURSOR = 48
+    SCREENRECORDER_CURSOR = 48,
+
+    /**
+    * Laser
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    LASER_CURSOR = 49,
+
+    /**
+    * Dot laser
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    LASER_CURSOR_DOT = 50,
+
+    /**
+    * Red dot laser
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    LASER_CURSOR_DOT_RED = 51,
+
+    /**
+    * Developer defined
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    DEVELOPER_DEFINED_ICON = -100
   }
 
   /**
@@ -496,7 +553,7 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PrimaryButton {
     /**
@@ -504,7 +561,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LEFT = 0,
     /**
@@ -512,7 +569,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT = 1
   }
@@ -523,7 +580,7 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RightClickType {
     /**
@@ -531,7 +588,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
@@ -539,7 +596,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
@@ -547,7 +604,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
@@ -555,6 +612,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
+     * @since 23 static
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
 
@@ -563,6 +621,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
+     * @since 23 static
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON = 5,
   }
@@ -573,6 +632,7 @@ declare namespace pointer {
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
+   * @since 23 static
    */
   interface CustomCursor {
     /**
@@ -581,26 +641,29 @@ declare namespace pointer {
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
     /**
      * Horizontal coordinate of the cursor focus. The coordinates are restricted by the size of the custom cursor. 
      * The minimum value is 0, and the maximum value is the maximum width of the image. The default value is 0 if the parameter is left empty.
      * 
-     * @type { number }
+     * @type { ?int }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
+     * @since 23 static
      */
-    focusX?: number;
+    focusX?: int;
     /**
      * Vertical coordinate of the cursor focus. The coordinates are restricted by the size of the custom cursor. 
      * The minimum value is 0, and the maximum value is the maximum height of the image. The default value is 0 if the parameter is left empty.
      * 
-     * @type { number }
+     * @type { ?int }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
+     * @since 23 static
      */
-    focusY?: number;
+    focusY?: int;
   }
   
   /**
@@ -609,7 +672,7 @@ declare namespace pointer {
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CursorConfig {
     /**
@@ -620,7 +683,7 @@ declare namespace pointer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     followSystem : boolean;
   }
@@ -639,7 +702,7 @@ declare namespace pointer {
   /**
    * Sets the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
+   * @param { int } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -647,8 +710,9 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 23 static
    */
-  function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+  function setPointerSpeed(speed: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the moving speed of the mouse pointer. This API uses a promise to return the result.
@@ -664,7 +728,7 @@ declare namespace pointer {
   /**
    * Sets the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
+   * @param { int } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -672,21 +736,23 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 23 static
    */
-  function setPointerSpeed(speed: number): Promise<void>;
+  function setPointerSpeed(speed: int): Promise<void>;
 
   /**
    * Sets the moving speed of the mouse pointer. This API returns the result synchronously.
    *
-   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
+   * @param { int } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerSpeedSync(speed: number): void;
+  function setPointerSpeedSync(speed: int): void;
 
   /**
    * Obtains the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
@@ -701,15 +767,16 @@ declare namespace pointer {
   /**
    * Obtains the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 23 static
    */
-  function getPointerSpeed(callback: AsyncCallback<number>): void;
+  function getPointerSpeed(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
@@ -722,105 +789,122 @@ declare namespace pointer {
   /**
    * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 23 static
    */
-  function getPointerSpeed(): Promise<number>;
+  function getPointerSpeed(): Promise<int>;
 
   /**
    * Obtains the moving speed of the mouse pointer. This API returns the result synchronously.
    * 
-   * @returns { number } Returns the pointer speed through sync mode.
+   * @returns { int } Returns the pointer speed through sync mode.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerSpeedSync(): number;
+  function getPointerSpeedSync(): int;
 
   /**
    * Sets the mouse pointer style. This API uses an asynchronous callback to return the result.
-   *
+   * This API does not support setting the mouse pointer style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCursor} in @ohos.arkui.UIContext.d.ts.
+   * 
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [staticonly]
+   * <br> When the windowId value is -1, the system permission is required to set the global style. [staticonly]
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the mouse pointer style. This API uses a promise to return the result.
+   * This API does not support setting the mouse pointer style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [staticonly]
+   * <br> When the windowId value is -1, the system permission is required to set the global style. [staticonly]
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle): Promise<void>;
 
   /**
    * Sets the mouse pointer style. This API returns the result synchronously.
+   * This API does not support setting the mouse pointer style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [staticonly]
+   * <br> When the windowId value is -1, the system permission is required to set the global style. [staticonly]
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerStyleSync(windowId: int, pointerStyle: PointerStyle): void;
 
   /**
    * Obtains the mouse pointer style. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @param { AsyncCallback<PointerStyle> } callback - Callback used to return the mouse pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
+  function getPointerStyle(windowId: int, callback: AsyncCallback<PointerStyle>): void;
 
   /**
    * Obtains the mouse pointer style. This API uses a promise to return the result.
    *
-   * @param { number } windowId - Window ID. The value is an integer greater than or equal to -1. 
+   * @param { int } windowId - Window ID. The value is an integer greater than or equal to -1. 
    * The value -1 indicates the global window.
    * @returns { Promise<PointerStyle> } Promise used to return the mouse pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getPointerStyle(windowId: number): Promise<PointerStyle>;
+  function getPointerStyle(windowId: int): Promise<PointerStyle>;
 
   /**
    * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. 
    * This API returns the result synchronously.
    *
-   * @param { number } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
+   * @param { int } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
    * @returns { PointerStyle } Returns the pointerStyle.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerStyleSync(windowId: number): PointerStyle;
+  function getPointerStyleSync(windowId: int): PointerStyle;
 
   /**
    * Sets the visible status of the mouse pointer. This API uses an asynchronous callback to return the result.
@@ -844,6 +928,7 @@ declare namespace pointer {
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 18 dynamic
+   * @since 23 static
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
@@ -869,6 +954,7 @@ declare namespace pointer {
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 18 dynamic
+   * @since 23 static
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
@@ -881,6 +967,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
+   * @since 23 static
    */
   function setPointerVisibleSync(visible: boolean): void;
 
@@ -893,6 +980,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
+   * @since 23 static
    */
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
 
@@ -903,6 +991,7 @@ declare namespace pointer {
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
+   * @since 23 static
    */
   function isPointerVisible(): Promise<boolean>;
 
@@ -913,13 +1002,14 @@ declare namespace pointer {
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
+   * @since 23 static
    */
   function isPointerVisibleSync(): boolean;
 
   /**
    * Sets the pointer color. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } color - Pointer color. The default value is black (0x000000).
+   * @param { int } color - Pointer color. The default value is black (0x000000).
    * @param { AsyncCallback<void> } callback - Callback used to return the result. 
    * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -928,13 +1018,14 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerColor(color: number, callback: AsyncCallback<void>): void;
+  function setPointerColor(color: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the pointer color. This API uses a promise to return the result.
    *
-   * @param { number } color - Pointer color. The default value is black (0x000000).
+   * @param { int } color - Pointer color. The default value is black (0x000000).
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -942,61 +1033,66 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerColor(color: number): Promise<void>;
+  function setPointerColor(color: int): Promise<void>;
 
   /**
    * Sets the pointer color. This API returns the result synchronously.
    *
-   * @param { number } color - Pointer color. The default value is black (0x000000).
+   * @param { int } color - Pointer color. The default value is black (0x000000).
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerColorSync(color: number): void;
+  function setPointerColorSync(color: int): void;
 
   /**
    * Obtains the pointer color. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerColor(callback: AsyncCallback<number>): void;
+  function getPointerColor(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the pointer color. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerColor(): Promise<number>;
+  function getPointerColor(): Promise<int>;
 
   /**
    * Obtains the pointer color. This API returns the result synchronously.
    *
-   * @returns { number } Pointer color.
+   * @returns { int } Pointer color.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerColorSync(): number;
+  function getPointerColorSync(): int;
 
   /**
    * Sets the pointer size. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
+   * @param { int } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. 
    * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -1005,13 +1101,14 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerSize(size: number, callback: AsyncCallback<void>): void;
+  function setPointerSize(size: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the pointer size. This API uses a promise to return the result.
    *
-   * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
+   * @param { int } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1019,56 +1116,61 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerSize(size: number): Promise<void>;
+  function setPointerSize(size: int): Promise<void>;
 
   /**
    * Sets the pointer size. This API returns the result synchronously.
    *
-   * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
+   * @param { int } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setPointerSizeSync(size: number): void;
+  function setPointerSizeSync(size: int): void;
 
   /**
    * Obtains the pointer size. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerSize(callback: AsyncCallback<number>): void;
+  function getPointerSize(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the pointer size. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerSize(): Promise<number>;
+  function getPointerSize(): Promise<int>;
 
   /**
    * Obtains the pointer size. This API returns the result synchronously.
    *
-   * @returns { number } Pointer size.
+   * @returns { int } Pointer size.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getPointerSizeSync(): number;
+  function getPointerSizeSync(): int;
 
   /**
    * Sets the primary button of the mouse. This API uses an asynchronous callback to return the result.
@@ -1081,6 +1183,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setMousePrimaryButton(primary: PrimaryButton, callback: AsyncCallback<void>): void;
 
@@ -1095,6 +1198,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setMousePrimaryButton(primary: PrimaryButton): Promise<void>;
 
@@ -1108,6 +1212,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getMousePrimaryButton(callback: AsyncCallback<PrimaryButton>): void;
 
@@ -1121,6 +1226,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getMousePrimaryButton(): Promise<PrimaryButton>;
 
@@ -1136,6 +1242,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setHoverScrollState(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1151,6 +1258,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setHoverScrollState(state: boolean): Promise<void>;
 
@@ -1165,6 +1273,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getHoverScrollState(callback: AsyncCallback<boolean>): void;
 
@@ -1179,13 +1288,14 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getHoverScrollState(): Promise<boolean>;
 
   /**
    * Sets the number of mouse scroll rows. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } rows - Number of mouse scroll rows. The value ranges from 1 to 100. The default value is 3.
+   * @param { int } rows - Number of mouse scroll rows. The value ranges from 1 to 100. The default value is 3.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1193,13 +1303,14 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setMouseScrollRows(rows: number, callback: AsyncCallback<void>): void;
+  function setMouseScrollRows(rows: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the number of mouse scroll rows. This API uses a promise to return the result.
    *
-   * @param { number } rows - Number of mouse scroll rows. The value ranges from 1 to 100. The default value is 3.
+   * @param { int } rows - Number of mouse scroll rows. The value ranges from 1 to 100. The default value is 3.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1207,34 +1318,37 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setMouseScrollRows(rows: number): Promise<void>;
+  function setMouseScrollRows(rows: int): Promise<void>;
 
   /**
    * Obtains the number of mouse scroll rows. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getMouseScrollRows(callback: AsyncCallback<number>): void;
+  function getMouseScrollRows(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getMouseScrollRows(): Promise<number>;
+  function getMouseScrollRows(): Promise<int>;
 
   /**
    * Sets the scroll switch of the touchpad. This API uses an asynchronous callback to return the result.
@@ -1248,6 +1362,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1263,6 +1378,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadScrollSwitch(state: boolean): Promise<void>;
 
@@ -1277,6 +1393,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadScrollSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1291,6 +1408,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadScrollSwitch(): Promise<boolean>;
 
@@ -1307,6 +1425,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1323,6 +1442,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadScrollDirection(state: boolean): Promise<void>;
 
@@ -1338,6 +1458,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadScrollDirection(callback: AsyncCallback<boolean>): void;
 
@@ -1353,6 +1474,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadScrollDirection(): Promise<boolean>;
 
@@ -1368,6 +1490,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1383,6 +1506,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadTapSwitch(state: boolean): Promise<void>;
 
@@ -1397,6 +1521,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadTapSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1411,13 +1536,14 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadTapSwitch(): Promise<boolean>;
 
   /**
    * Sets the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
+   * @param { int } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1425,13 +1551,14 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setTouchpadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+  function setTouchpadPointerSpeed(speed: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the mouse pointer moving speed of the touchpad. This API uses a promise to return the result.
    *
-   * @param { number } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
+   * @param { int } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1439,34 +1566,37 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function setTouchpadPointerSpeed(speed: number): Promise<void>;
+  function setTouchpadPointerSpeed(speed: int): Promise<void>;
 
   /**
    * Obtains the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getTouchpadPointerSpeed(callback: AsyncCallback<number>): void;
+  function getTouchpadPointerSpeed(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the mouse pointer moving speed of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function getTouchpadPointerSpeed(): Promise<number>;
+  function getTouchpadPointerSpeed(): Promise<int>;
 
   /**
    * Sets the pinch switch of the touchpad. This API uses an asynchronous callback to return the result.
@@ -1480,6 +1610,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadPinchSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1495,6 +1626,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadPinchSwitch(state: boolean): Promise<void>;
 
@@ -1509,6 +1641,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
   */
   function getTouchpadPinchSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1523,6 +1656,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadPinchSwitch(): Promise<boolean>;
 
@@ -1538,6 +1672,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadSwipeSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1553,6 +1688,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadSwipeSwitch(state: boolean): Promise<void>;
  
@@ -1567,6 +1703,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadSwipeSwitch(callback: AsyncCallback<boolean>): void;
  
@@ -1581,6 +1718,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadSwipeSwitch(): Promise<boolean>;
 
@@ -1601,6 +1739,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadRightClickType(type: RightClickType, callback: AsyncCallback<void>): void;
 
@@ -1621,6 +1760,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function setTouchpadRightClickType(type: RightClickType): Promise<void>;
 
@@ -1634,6 +1774,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadRightClickType(callback: AsyncCallback<RightClickType>): void;
 
@@ -1647,45 +1788,54 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
+   * @since 23 static
    */
   function getTouchpadRightClickType(): Promise<RightClickType>;
 
   /**
    * Sets the custom cursor style. This API uses a promise to return the result.
-   *
-   * @param { number } windowId - Window ID.
+   * This API does not support setting the custom cursor style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
+   * 
+   * @param { int } windowId - Window ID.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
-   * @param { number } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
-   * @param { number } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { int } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { int } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 11 dynamic
+   * @since 23 static
    */
-  function setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
+  function setCustomCursor(windowId: int, pixelMap: image.PixelMap, focusX?: int, focusY?: int): Promise<void>;
 
   /**
    * Sets a custom cursor. This API returns the result synchronously.
+   * This API does not support setting the custom cursor style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
    *
-   * @param { number } windowId - Window ID. The value must be an integer greater than 0.
+   * @param { int } windowId - Window ID. The value must be an integer greater than 0.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
-   * @param { number } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
-   * @param { number } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { int } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { int } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 11 dynamic
+   * @since 23 static
    */
-  function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
+  function setCustomCursorSync(windowId: int, pixelMap: image.PixelMap, focusX?: int, focusY?: int): void;
 
   /**
    * Sets the custom cursor style. This API uses a promise to return the result. 
    * The cursor may be switched back to the system style in the following cases: application window layout change, hot zone switching, 
    * page redirection, moving of the cursor out of the window and then back to the window, or moving of the cursor in different areas of the window. 
    * In this case, you need to reset the cursor style.
+   * This API does not support setting the custom cursor style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @param { CustomCursor } cursor - Pixel map resource.
    * @param { CursorConfig } config - Custom cursor configuration, which specifies whether to adjust the cursor size based on system settings. 
    * If followSystem in CursorConfig is set to true, the supported adjustment range is [size of the cursor image, 256 x 256].
@@ -1696,8 +1846,9 @@ declare namespace pointer {
    * @throws { BusinessError } 26500001 - Invalid windowId. Possible causes: The window id does not belong to the current process.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
+   * @since 23 static
    */
-  function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>;
+  function setCustomCursor(windowId: int, cursor: CustomCursor, config: CursorConfig): Promise<void>;
 
   /**
    * Sets the double-tap and drag switch for the touchpad. This API uses an asynchronous callback to return the result.
@@ -1711,6 +1862,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
+   * @since 23 static
    */
   function setTouchpadDoubleTapAndDragState(isOpen: boolean, callback: AsyncCallback<void>): void;
 
@@ -1726,6 +1878,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
+   * @since 23 static
    */
   function setTouchpadDoubleTapAndDragState(isOpen: boolean): Promise<void>;
 
@@ -1740,6 +1893,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
+   * @since 23 static
    */
   function getTouchpadDoubleTapAndDragState(callback: AsyncCallback<boolean>): void;
 
@@ -1752,7 +1906,38 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
+   * @since 23 static
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
+
+  /**
+   * Set whether to invert the scroll value of the events reported during mouse wheel scrolling.
+   *     {@code true} means consistent with the value reported by the mouse device, {@code false} means inverted.
+   * 
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { boolean } inverted - Indicates whether to invert. 
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic&static
+   */
+  function setMouseScrollDirection(inverted: boolean): Promise<void>;
+
+  /**
+   * Query whether to invert the scroll value of the events reported during mouse wheel scrolling.
+   * 
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER 
+   * @returns { Promise<boolean> } Promise used to return the result.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic&static
+   */
+  function getMouseScrollDirection(): Promise<boolean>;
 }
 export default pointer;

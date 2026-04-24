@@ -21,159 +21,122 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * HDR Capability.
+ * The hdrCapability module provides enums related to the High Dynamic Range (HDR) capability.
  *
- * @namespace hdrCapability
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
- * @since 11
- */
-/**
- * HDR Capability.
- *
- * @namespace hdrCapability
- * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace hdrCapability {
   /**
-   * Enumerates the HDR Format
+   * Enumerates the HDR formats.
    *
-   * @enum { int }
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @since 11
-   */
-  /**
-   * Enumerates the HDR Format
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   enum HDRFormat {
     /**
-     * Not support HDR.
+     * Unsupported HDR type.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * Not support HDR.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     NONE = 0,
     /**
-     * HLG format supported by video.
+     * Videos in Hybrid Log-Gamma (HLG) format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * HLG format supported by video.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     VIDEO_HLG = 1,
     /**
-     * HDR10 format supported by video.
+     * Videos in HDR10 format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * HDR10 format supported by video.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     VIDEO_HDR10 = 2,
     /**
-     * HDR Vivid format supported by video.
+     * Videos in HDR_VIVID format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * HDR Vivid format supported by video.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     VIDEO_HDR_VIVID = 3,
     /**
-     * HDR Vivid format supported by image, stored in dual JPEG format.
+     * Images in HDR_VIVID format, stored in dual JPEG format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * HDR Vivid format supported by image, stored in dual JPEG format.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
-     * HDR Vivid format supported by image, stored in single HEIF format.
+     * Images in HDR_VIVID format, stored in single HEIF format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * HDR Vivid format supported by image, stored in single HEIF format.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     IMAGE_HDR_VIVID_SINGLE = 5,
     /**
-     * ISO HDR format supported by image, stored in dual JPEG format.
+     * Images in HDR_ISO format, stored in dual JPEG format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * ISO HDR format supported by image, stored in dual JPEG format.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     IMAGE_HDR_ISO_DUAL = 6,
     /**
-     * ISO HDR format supported by image, stored in single HEIF format.
+     * Images in HDR_ISO format, stored in single HEIF format.
+     *
+     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 11
-     */
-    /**
-     * ISO HDR format supported by image, stored in single HEIF format.
-     *
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     IMAGE_HDR_ISO_SINGLE = 7,
+    /**
+     * AIHDR format supported by video.
+     *
+     * This API can be used in atomic services since API version 24.
+     *
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    VIDEO_AIHDR = 8
   }
 }
 
