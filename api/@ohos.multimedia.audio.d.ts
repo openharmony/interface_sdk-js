@@ -3954,6 +3954,7 @@ declare namespace audio {
 
     /**
      * Obtains a device enhancement manager instance.
+     *
      * @returns { AudioDeviceEnhanceManager } Returns an instance of audio device enhancement manager.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
