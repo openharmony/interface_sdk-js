@@ -3908,9 +3908,16 @@ declare namespace audio {
      * @returns { AudioSessionManager } AudioSessionManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Obtains an {@link AudioSessionManager} instance.
+     * @returns { AudioSessionManager } AudioSessionManager instance.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getSessionManager(): AudioSessionManager;
 
@@ -5573,45 +5580,75 @@ declare namespace audio {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
+   */
+  /**
+   * Audio concurrency mode.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   enum AudioConcurrencyMode {
     /**
      * Default concurrency mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Default concurrency mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     CONCURRENCY_DEFAULT = 0,
     /**
      * Mix with others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Mix with others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     CONCURRENCY_MIX_WITH_OTHERS = 1,
     /**
      * Duck others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Duck others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     CONCURRENCY_DUCK_OTHERS = 2,
     /**
      * Pause others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Pause others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     CONCURRENCY_PAUSE_OTHERS = 3,
   }
@@ -5844,9 +5881,15 @@ declare namespace audio {
    * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
+   */
+  /**
+   * Audio session strategy.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   interface AudioSessionStrategy {
     /**
@@ -5854,9 +5897,15 @@ declare namespace audio {
      * @type { AudioConcurrencyMode }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Audio concurrency mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     concurrencyMode: AudioConcurrencyMode;
   }
@@ -6012,9 +6061,15 @@ declare namespace audio {
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @atomicservice
    * @since 12 dynamic
    * @since 23 static
+   */
+  /**
+   * Implements audio session management.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   interface AudioSessionManager {
     /**
@@ -6029,9 +6084,23 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Activate the audio session for the current pid application.
+     * If {@link setAudioSessionScene} is called, it will take focus when calling this method.
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     activateAudioSession(strategy: AudioSessionStrategy): Promise<void>;
 
@@ -6041,9 +6110,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Deactivate the audio session for the current pid application.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     deactivateAudioSession(): Promise<void>;
 
@@ -6052,17 +6129,41 @@ declare namespace audio {
      * @returns { boolean } The active audio session status for the current pid application.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Check whether the audio session is activated for the current pid application.
+     * @returns { boolean } The active audio session status for the current pid application.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     isAudioSessionActivated(): boolean;
 
     /**
      * Listens for audio session deactivated event. When the audio session is deactivated,
      * registered clients will receive the callback.
-     * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
-     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+     * @param { 'audioSessionDeactivated' } type -
+     *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 12 dynamic
+     */
+    /**
+     * Listens for audio session deactivated event. When the audio session is deactivated,
+     * registered clients will receive the callback.
+     * @param { 'audioSessionDeactivated' } type -
+     *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified.
      *                                 2.Incorrect parameter types.
@@ -6070,24 +6171,51 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12 dynamic
+     * @since 26.0.0 dynamic
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
      * Listens for audio session deactivated event. When the audio session is deactivated,
      * registered clients will receive the callback.
-     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 23 static
+     */
+    /**
+     * Listens for audio session deactivated event. When the audio session is deactivated,
+     * registered clients will receive the callback.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 26.0.0 static
      */
     onAudioSessionDeactivated(callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
     * Unsubscribes to audio session deactivated event.
-    * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
-    * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+    * @param { 'audioSessionDeactivated' } type -
+    *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+    *     Callback invoked for the audio session deactivated event.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *                                 1.Mandatory parameters are left unspecified;
+    *                                 2.Incorrect parameter types.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @crossplatform
+    * @since 12 dynamic
+    */
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { 'audioSessionDeactivated' } type -
+    *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+    *     Callback invoked for the audio session deactivated event.
     * @throws { BusinessError } 401 - Parameter error. Possible causes:
     *                                 1.Mandatory parameters are left unspecified;
     *                                 2.Incorrect parameter types.
@@ -6095,7 +6223,7 @@ declare namespace audio {
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @crossplatform
     * @atomicservice
-    * @since 12 dynamic
+    * @since 26.0.0 dynamic
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
 
@@ -6106,6 +6234,15 @@ declare namespace audio {
     * @throws { BusinessError } 6800101 - Parameter verification failed.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @since 23 static
+    */
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for
+    *     the audio session deactivated event.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @atomicservice
+    * @since 26.0.0 static
     */
    offAudioSessionDeactivated(callback?: Callback<AudioSessionDeactivatedEvent>): void;
 
