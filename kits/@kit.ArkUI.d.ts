@@ -53,6 +53,7 @@ import {
 } from '@ohos.arkui.advanced.ComposeListItem';
 import { ComposeTitleBar, ComposeTitleBarMenuItem } from '@ohos.arkui.advanced.ComposeTitleBar';
 import { CounterComponent, CounterOptions, CounterType, DateData } from '@ohos.arkui.advanced.Counter';
+import { CounterV2Component, CounterV2Options, CounterV2DateData, CounterV2Type } from '@ohos.arkui.advanced.CounterV2';
 import {
   AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog, PopoverDialog, PopoverOptions
 } from '@ohos.arkui.advanced.Dialog';
@@ -261,8 +262,8 @@ export {
   ArcButtonStatus,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem, ContextMenuController,
-  CounterComponent, CounterOptions, CounterType, CursorController, DateData, DisableAlertBeforeBackPageOptions, DragController,
-  DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarItem,
+  CounterComponent, CounterOptions, CounterType, CursorController, DateData, CounterV2Component, CounterV2Options, CounterV2DateData, CounterV2Type,
+  DisableAlertBeforeBackPageOptions, DragController, DrawableDescriptor, DrawContext, EditableLeftIconType, EditableTitleBar, EditableTitleBarItem,
   EditableTitleBarOptions, EditableTitleBarMenuItem, EditorEventInfo,
   EditorMenuOptions, EllipseShape, EnableAlertBeforeBackPageOptions, ExceptionPrompt, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
   FilterType, Font, FormMenuItemStyle, Frame, FrameCallback, FrameNode, GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions,
