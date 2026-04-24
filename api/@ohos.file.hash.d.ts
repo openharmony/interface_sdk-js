@@ -94,7 +94,7 @@ declare namespace hash {
     /**
      * Updates the data for generating a message digest. This API can be called multiple times.
      *
-     * @param { ArrayBuffer } data - updated data.
+     * @param { ArrayBuffer } data - Data to be calculated.
      * @throws { BusinessError } 401 - Parameter error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO

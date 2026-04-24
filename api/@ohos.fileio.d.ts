@@ -321,7 +321,7 @@ declare function copyFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @deprecated since 9
- * @useinstead  @ohos.file.fs:copyFileSync
+ * @useinstead @ohos.file.fs:copyFileSync
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 /**
@@ -1932,7 +1932,7 @@ declare interface Dirent {
  */
 declare interface Stat {
   /**
-   * Number of hard links in the file.
+   * Major device number.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
@@ -2008,7 +2008,7 @@ declare interface Stat {
    */
   readonly gid: number;
   /**
-   * Number of hard links in the file.
+   * Minor device number.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
@@ -2025,7 +2025,7 @@ declare interface Stat {
    */
   readonly size: number;
   /**
-   * Number of hard links in the file.
+   * Number of blocks occupied by a file. Each block is 512 bytes.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
@@ -2419,7 +2419,7 @@ declare interface ReadOut {
    */
   bytesRead: number;
   /**
-   * osition of the buffer to which the data will be read relative to the
+   * Position of the buffer to which the data will be read relative to the
    * start address of the buffer, in bytes.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
