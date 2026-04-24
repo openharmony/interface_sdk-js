@@ -168,33 +168,6 @@ declare namespace dragInteraction {
    * @since 23 static
    */
   function getDataSummary(): Array<Summary>;
-
-  /**
-   * Sets the global drag-and-drop switch.
-   *
-   * @param { boolean } enabled - State of the drag-and-drop switch.<br>**false**: disabled; **true**: enabled.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @systemapi Hide this for inner system use.
-   * @since 18 dynamic
-   * @since 23 static
-   */
-  function setDragSwitchState(enabled: boolean): void;
-
-  /**
-   * Sets the drag-and-drop switch for a specific application.
-   *
-   * @param { boolean } enabled - State of the drag-and-drop switch.<br>**false**: disabled; **true**: enabled.
-   * @param { string } bundleName - Bundle name of a specified application. The value range is (0, 128].
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @systemapi Hide this for inner system use.
-   * @since 18 dynamic
-   * @since 23 static
-   */
-  function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }
 
 export default dragInteraction;
