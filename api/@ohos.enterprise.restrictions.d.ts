@@ -62,7 +62,16 @@ declare namespace restrictions {
      * @stagemodelonly
      * @since 26.0.0
      */
-    CORE_DUMP = 6
+    CORE_DUMP = 6,
+    
+    /**
+     * Secure erase
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SECURE_ERASE = 8
   }
 
   /**
