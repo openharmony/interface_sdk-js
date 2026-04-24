@@ -281,11 +281,11 @@ function parseJSDocVisitEachChild1(context, node) {
     const linkContent = match[1];
     let convertedText = fullMatch;
     if (/\(.*\)/.test(linkContent)) {
-      convertedText = fullMatch.replace(linkContent, processSignatureContent(linkContent));
+      const processedContent = processSignatureContent(linkContent);
+      convertedText = fullMatch.replace(linkContent, processedContent);
     } else {
       return;
     }
-  
     if (convertedText !== fullMatch) {
       tagDataList.push({
         pos: globalPosStart + match.index,
@@ -297,31 +297,33 @@ function parseJSDocVisitEachChild1(context, node) {
   function processSignatureContent(content) {
     let result = content.replace(/\b(int|long|double)\b/g, 'number');
     return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
-      const params = paramStr.split(',').map(param => param.trim());
-      const processedParams = params.map(param => processSingleParam(param));
-      return openBracket + processedParams.join(', ') + closeBracket;
+      const params = paramStr.split(',');
+      const processedParams = params.map(param => processSingleParameter(param));
+      return openBracket + processedParams.join(',') + closeBracket;
     });
   }
-  function processSingleParam(param) {
+  function processSingleParameter(param) {
     if (!param.includes(':')){
       return param;
     }
-    const [name, ...rest] = param.split(':');
-    const typeStr = rest.join(':').trim();
-    const types = typeStr.split(/\s*\|\s*/);
-    const newTypes = [];
+    const colonIndex = param.indexOf(':');
+    const paramNamePart = param.substring(0, colonIndex);
+    const typePart = param.substring(colonIndex + 1);
+    const typeItems = typePart.split(/\s*\|\s*/);
+    const newTypeItems = [];
     let hasNumber = false;
-    for (const type of types) {
-      if (type === 'number') {
-        if (!hasNumber){
-          newTypes.push(type);
+    for (const type of typeItems) {
+      const trimmedType = type.trim();
+      if (trimmedType === 'number') {
+        if (!hasNumber) {
+          newTypeItems.push(type);
+          hasNumber = true;
         }
-        hasNumber = true;
       } else {
-        newTypes.push(type);
+        newTypeItems.push(type);
       }
     }
-    return `${name.trim()}: ${newTypes.join(' | ')}`;
+    return paramNamePart + ':' + newTypeItems.join(' | ');
   }
   function parseTypeExpr(typeExpr) {
     let newTypeExpr = typeExpr;
