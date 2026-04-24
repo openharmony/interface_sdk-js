@@ -997,19 +997,8 @@ declare namespace webview {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Subscribe to a callback of a specified type of web event once.
-   *
-   * @param {string} type Types of web event.
-   * @param {Callback<void>} callback Indicate callback used to receive the web event.
-   *
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function once(type: string, callback: Callback<void>): void;
 
@@ -3935,26 +3924,15 @@ declare namespace webview {
   }
 
   /**
-   * Provides methods for controlling the web controller.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides methods for controlling the web controller.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * WebviewController can control various behaviors of Web components
    * (including page navigation, declaring cycle state, JavaScript interaction and so on).
    * A WebviewController object can only control one Web component,
    * and methods on the Webviewcontroller (except static methods) can only be called
    * after the web component is bound to the WebviewController.
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebviewController {
     /**
@@ -3972,15 +3950,8 @@ declare namespace webview {
      * This is a global static API that must be called on the UI thread, and it will have no effect if any
      * Web components are loaded.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Initialize the web engine before loading the Web components.
-     * This is a global static API that must be called on the UI thread, and it will have no effect if any
-     * Web components are loaded.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static initializeWebEngine(): void;
 
@@ -4229,14 +4200,6 @@ declare namespace webview {
     clearHistory(): void;
 
     /**
-     * Let the Web active.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
      * Call this interface to notify the Web component to enter the foreground activation state.
      * The activation state is the state in which the application interacts with the user.
      * The application will remain in this state until something happens,
@@ -4246,19 +4209,11 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     onActive(): void;
 
-    /**
-     * Let the Web inactive.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
     /**
      * Call this interface to notify the Web component to enter the inactive state.
      * In this callback, the developer can realize the appropriate behavior when the application loses focus.
@@ -4269,8 +4224,8 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     onInactive(): void;
 
@@ -4612,31 +4567,14 @@ declare namespace webview {
     getHitTestValue(): HitTestValue;
 
     /**
-     * Gets the id for the current Web.
-     * @returns { number } Returns the index value of the current Web component.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Gets the id for the current Web.
-     * @returns { number } Returns the index value of the current Web component.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Gets the index value of the current Web component for the management of multiple Web components.
      * @returns { number } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     getWebId(): number;
 
@@ -5717,16 +5655,8 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Serialize the access stack of the web, that is, the history of access.
-     * @returns { Uint8Array } Web access stack after serialization.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     serializeWebState(): Uint8Array;
 
