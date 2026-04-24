@@ -33,8 +33,10 @@
 interface ShapeSize {
   /**
    * Defines the width of Shape.
+   * 
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamic
@@ -43,8 +45,10 @@ interface ShapeSize {
 
   /**
    * Defines the height of Shape.
+   * 
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamic
@@ -66,8 +70,10 @@ interface ShapeSize {
 interface RectShapeOptions extends ShapeSize {
   /**
    * Defines the corner radius of the RectShape.
+   * 
    * @type { ? (number | string | Array<number | string>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamic
@@ -89,8 +95,10 @@ interface RectShapeOptions extends ShapeSize {
 interface RoundRectShapeOptions extends ShapeSize {
   /**
    * Defines the width of the corner radius for RectShape.
+   * 
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamic
@@ -99,8 +107,10 @@ interface RoundRectShapeOptions extends ShapeSize {
 
   /**
    * Defines the height of the corner radius for RectShape.
+   * 
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamic
@@ -121,8 +131,10 @@ interface RoundRectShapeOptions extends ShapeSize {
 interface PathShapeOptions {
   /**
    * Defines the commands for drawing the PathShape.
+   * 
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamic

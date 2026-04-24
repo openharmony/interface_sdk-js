@@ -24,11 +24,11 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
+import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** if arkts dynamic */
 import type { AbilityResult } from '../ability/abilityResult';
 import type { ConnectOptions } from '../ability/connectOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
-import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -46,7 +46,7 @@ import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallba
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class UIExtensionContext extends ExtensionContext {
   /**
@@ -158,7 +158,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -268,7 +268,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -384,13 +384,14 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * UI extension uses this method to start a specific ability by implicit want.If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
+   * UI extension uses this method to start a specific ability by implicit want.
+   * If the caller application is in foreground,you can use this method to start ability;
+   * If the caller application is in the background,
    * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
@@ -401,7 +402,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<AbilityResult> } [callback] - The callback is used to return the ability result.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -420,6 +422,42 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
+   */
+  /**
+   * UI extension uses this method to start a specific ability by implicit want.
+   * If the caller application is in foreground,you can use this method to start ability;
+   * If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { string } link - Indicates the ability to start.
+   * @param { OpenLinkOptions } [options] - Indicates the open link options.
+   * @param { AsyncCallback<AbilityResult> } [callback] - The callback is used to return the ability result.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
+   * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000136 - The UIAbility is prohibited from launching itself via App Linking.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 
@@ -532,7 +570,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -642,7 +680,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -758,7 +796,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -818,8 +856,43 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 23 static
    */
   startAbilityForResultAsCaller(want: Want, options?: StartOptions): Promise<AbilityResult>;
+
+  /**
+   * Connects the current UI extension to an service extension ability with a root host token.
+   * If the target service extension ability is visible, you can connect the target service extension ability;
+   * If the target service extension ability is invisible, you need to apply for
+   *     permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for
+   *     permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { Want } want - The element name of the service ability
+   * @param { ConnectOptions } connect - The remote object instance
+   * @returns { long } Returns the number code of the ability connected
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface. Possible cause:
+   *     target service extension ability is in cross-device and needed designated permission to be started, but
+   *     call ability do not have this permission.
+   * @throws { BusinessError } 202 - Not system application
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to commnicate with dependency module.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000070 - The extension cannot start the service.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  connectServiceExtensionAbilityWithRootHostToken(want: Want, connect: ConnectOptions): long;
 
   /**
    * Connects the current ability to an service extension ability.
@@ -840,6 +913,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -847,7 +922,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -862,7 +937,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -877,7 +952,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -890,7 +965,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -902,7 +977,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -913,7 +988,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(): Promise<void>;
 
@@ -926,7 +1001,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -939,7 +1014,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -961,6 +1036,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
@@ -990,7 +1066,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1019,7 +1095,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -1035,7 +1111,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -1067,6 +1143,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1079,7 +1156,7 @@ declare class UIExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1100,8 +1177,9 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 23 static
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Set the uiextension to either not allow being covered by the host page or allow it. 
@@ -1115,6 +1193,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 15 dynamic
+   * @since 23 static
    */
   setHostPageOverlayForbidden(isForbidden: boolean) : void;
 
@@ -1126,7 +1205,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -1167,6 +1246,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 
@@ -1209,6 +1289,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 23 static
    */
   startUIAbilitiesInSplitWindowMode(primaryWindowId: int, secondaryWant: Want): Promise<void>;
 }

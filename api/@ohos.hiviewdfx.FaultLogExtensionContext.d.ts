@@ -26,7 +26,7 @@ import ExtensionContext from './application/ExtensionContext';
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
  * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default class FaultLogExtensionContext extends ExtensionContext {
 }

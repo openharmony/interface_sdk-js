@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,63 +12,75 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * @file
  * @kit DistributedServiceKit
  */
- 
+
 import Want from './@ohos.app.ability.Want';
+
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import type DistributedExtensionContext from './@ohos.application.DistributedExtensionContext';
- 
+
 /**
- * Class to be override for distributed extension ability.
+ * The **DistributedExtensionAbility** module provides distributed extension capabilities and lifecycle callbacks for
+ * distributed ability creation, destruction, and connection.
+ *
  *
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
  * @since 20 dynamic
+ * @since 23 static
  */
- 
-export default class DistributedExtensionAbility {
- 
+declare class DistributedExtensionAbility {
+
   /**
-   * distributed collaborative context.
-   * 
-   * @type { DistributedExtensionContext }
+   * Context of the **DistributedExtension**. This context inherits from **ExtensionContext**.
+   *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   context: DistributedExtensionContext;
- 
+
   /**
-   * Callback when Extension is started
+   * Callback invoked to initialize the service logic when a **DistributedExtensionAbility** instance is created.
    *
-   * @param { Want } want Indicates the want info of ability.
+   * @param { Want } want - Want information related to the **DistributedExtensionAbility** instance, including the ability
+   *     name and bundle name.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   onCreate(want: Want): void;
- 
+
   /**
-   * Callback when the distributed collaborative extension is destroyed
+   * Callback invoked to clear resources when a **ServiceExtensionAbility** instance is destroyed.
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   onDestroy(): void;
- 
+
   /**
-   * Callback when there is a request in distributed collaboration
+   * Callback invoked to return the collaboration result in multi-device collaboration scenarios.
    *
-   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
-   * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
+   * @param { Record<string, Object> } wantParam - Want parameter, which supports only the key **"
+   *     ohos.extra.param.key.supportCollaborateIndex"**. The key can be used to obtain the data passed by the caller and
+   *     perform corresponding processing.
+   * @returns { AbilityConstant.CollaborateResult } Collaboration result, that is, whether the target application accepts the
+   *     collaboration request.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }
+
+export default DistributedExtensionAbility;

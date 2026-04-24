@@ -25,6 +25,7 @@
     "api/@ohos.app.ability.OpenLinkOptions.d.ts",
     "api/@ohos.app.ability.InsightIntentExecutor.d.ts",
     "api/@ohos.app.ability.insightIntentDriver.d.ts",
+    "api/@ohos.app.ability.insightIntentProvider.d.ts",
     "api/@ohos.app.ability.insightIntent.d.ts",
     "api/@ohos.app.ability.AtomicServiceOptions.d.ts",
     "api/@internal/component/ets/web.d.ts",

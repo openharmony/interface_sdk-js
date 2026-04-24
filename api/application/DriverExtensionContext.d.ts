@@ -21,22 +21,27 @@
 import ExtensionContext from './ExtensionContext';
 
 /**
- * The context of driver extension. It allows access to
- * driverExtension-specific resources.
- * 
- * @extends ExtensionContext
+ * The **DriverExtensionContext** module provides the context of **DriverExtensionAbility**. It inherits from
+ * **ExtensionContext**.
+ * The **DriverExtensionContext** module provides the operations that need to be actively initiated in the
+ * **DriverExtensionAbility** implementation.
+ *
+ * > **NOTE**
+ * > - The APIs of this module can be used only in the stage model.
+ *
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class DriverExtensionContext extends ExtensionContext {
   /**
-   * update the state of driver extension.
+   * Updates the driver state. This interface is reserved and does not provide specific functionality currently.
+   *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   updateDriverState(): void;
 }
@@ -47,6 +52,6 @@ declare class DriverExtensionContext extends ExtensionContext {
  * @syscap SystemCapability.Driver.ExternalDevice
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default DriverExtensionContext;

@@ -23,6 +23,7 @@
  *
  * @interface DatePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -30,6 +31,7 @@
  *
  * @interface DatePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -38,6 +40,7 @@
  *
  * @interface DatePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -48,6 +51,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -55,6 +59,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -68,6 +73,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -79,6 +85,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -86,6 +93,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -99,6 +107,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -110,6 +119,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -117,6 +127,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -129,6 +140,7 @@ declare interface DatePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -185,6 +197,7 @@ declare enum DatePickerMode {
  *
  * @interface DatePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -192,6 +205,7 @@ declare enum DatePickerMode {
  *
  * @interface DatePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -200,6 +214,7 @@ declare enum DatePickerMode {
  *
  * @interface DatePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -210,6 +225,7 @@ declare interface DatePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -217,6 +233,7 @@ declare interface DatePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -226,6 +243,7 @@ declare interface DatePickerOptions {
    * @type { ?Date }
    * @default Date('1970-1-1')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -237,6 +255,7 @@ declare interface DatePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -244,6 +263,7 @@ declare interface DatePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -253,6 +273,7 @@ declare interface DatePickerOptions {
    * @type { ?Date }
    * @default Date('2100-12-31')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -264,6 +285,7 @@ declare interface DatePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -271,6 +293,7 @@ declare interface DatePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -280,6 +303,7 @@ declare interface DatePickerOptions {
    * @type { ?Date }
    * @default current system date
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -305,6 +329,7 @@ declare interface DatePickerOptions {
  *
  * @interface DatePickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -312,6 +337,7 @@ declare interface DatePickerOptions {
  *
  * @interface DatePickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -320,6 +346,7 @@ declare interface DatePickerOptions {
  *
  * @interface DatePickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -331,6 +358,7 @@ interface DatePickerInterface {
    * @param { DatePickerOptions } options
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -339,6 +367,7 @@ interface DatePickerInterface {
    * @param { DatePickerOptions } options
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -348,6 +377,7 @@ interface DatePickerInterface {
    * @param { DatePickerOptions } options - Parameters of the date picker.
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -360,6 +390,7 @@ interface DatePickerInterface {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -367,6 +398,7 @@ interface DatePickerInterface {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -375,6 +407,7 @@ interface DatePickerInterface {
  *
  * @extends CommonMethod<DatePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -386,6 +419,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @param { boolean } value
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -394,6 +428,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @param { boolean } value
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -406,6 +441,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @default false
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -544,6 +580,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @param { function } callback
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead datePicker/DatePickerAttribute#onDateChange
@@ -687,6 +724,7 @@ declare interface LunarSwitchStyle {
  * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -695,6 +733,7 @@ declare interface LunarSwitchStyle {
  * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -704,6 +743,7 @@ declare interface LunarSwitchStyle {
  * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -714,6 +754,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -721,6 +762,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -731,6 +773,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -982,6 +1025,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead datePicker/DatePickerDialogOptions#onDateAccept
@@ -993,6 +1037,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1000,6 +1045,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1008,6 +1054,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1018,6 +1065,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1029,6 +1077,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead datePicker/DatePickerDialogOptions#onDateChange
@@ -1362,12 +1411,14 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1375,6 +1426,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1385,6 +1437,7 @@ declare class DatePickerDialog {
    *
    * @param { DatePickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1392,6 +1445,7 @@ declare class DatePickerDialog {
    *
    * @param { DatePickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1400,6 +1454,7 @@ declare class DatePickerDialog {
    *
    * @param { DatePickerDialogOptions } options - Parameters of the date picker dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -1413,12 +1468,14 @@ declare class DatePickerDialog {
  * Defines DatePicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines DatePicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1426,6 +1483,7 @@ declare class DatePickerDialog {
  * Defines DatePicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1436,12 +1494,14 @@ declare const DatePicker: DatePickerInterface;
  * Defines DatePicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines DatePicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1449,6 +1509,7 @@ declare const DatePicker: DatePickerInterface;
  * Defines DatePicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,955 +24,1404 @@ import Context from './application/Context';
 import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 
 /**
- * Providers interfaces to create a {@link abilityConnectionManager} instances.
- * 
- * @namespace abilityConnectionManager
+ * The **abilityConnectionManager** module provides APIs for cross-device connection management. After successful
+ * networking between devices (login with the same account and enabling of Bluetooth on the devices), a system
+ * application and a third-party application can start a [UIAbility]{@link @ohos.app.ability.UIAbility} of the same
+ * application across these devices to establish a Bluetooth connection. This way, data (specifically, text) can be
+ * transmitted across the devices over the connection.
+ *
  * @syscap SystemCapability.DistributedSched.AppCollaboration
+ * @stagemodelonly
  * @since 18 dynamic
+ * @since 23 static
  */
 declare namespace abilityConnectionManager {
 
+  /**
+   * Defines the application collaboration information.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface PeerInfo {
     /**
-     * Collaborative application information.
-     * @interface PeerInfo
+     * Peer device ID.
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    interface PeerInfo {
-        /**
-         * Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
-         * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
-         * the obtained ID will change.
-         * @type { string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        deviceId: string;
+    deviceId: string;
 
-        /**
-         * bundle name.
-         * @type { string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        bundleName: string;
-
-        /**
-         * module name.
-         * @type { string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        moduleName: string;
-
-        /**
-         * ability name.
-         * @type { string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        abilityName: string;
-
-        /**
-         * Service name.
-         * @type { ?string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        serviceName?: string;
-    }
-    
     /**
-     * Connection options for ability connection sessions.
-     * @interface ConnectOptions
+     * Bundle name of the application.
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    interface ConnectOptions {
-        /**
-         * Send Data Configuration Options. WiFi needs to be turned on.
-         * @type { ?boolean }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        needSendData?: boolean;
+    bundleName: string;
 
-        /**
-         * Send Stream Data Configuration Options. WiFi needs to be turned on.
-         * @type { ?boolean }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        needSendStream?: boolean;
+    /**
+     * Module name of the peer application.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    moduleName: string;
 
-        /**
-         * Receive Stream Data Configuration Options. WiFi needs to be turned on.
-         * @type { ?boolean }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        needReceiveStream?: boolean;
+    /**
+     * Ability name of the peer application.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    abilityName: string;
 
-        /**
-         * Startup option.
-         * @type { ?StartOptionParams }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        startOptions?: StartOptionParams;
-
-        /**
-         * Additional information about the ability connection request.
-         * @type { ?Record<string, string> }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        parameters?: Record<string, string>;
+    /**
+     * Service name for the application.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    serviceName?: string;
     }
 
+  /**
+   * Connection options for the application.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface ConnectOptions {
     /**
-     * Connection result.
-     * @interface ConnectResult
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    interface ConnectResult {
-        /**
-         * Connection is accepted or rejected.
-         * @type { boolean }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        isConnected: boolean;
-
-        /**
-         * Connection failure error code.
-         * @type { ?ConnectErrorCode }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        errorCode?: ConnectErrorCode;
-
-        /**
-         * Indicates the reason for reject.
-         * @type { ?string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */        
-        reason?: string;
-    }
-
-    /**
-     * Connection failure error code.
-     * @enum { number }
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    export enum ConnectErrorCode {
-        /**
-         * A connected session exists between the two application.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        CONNECTED_SESSION_EXISTS = 0,
-
-        /**
-         * The peer application rejects the collaboration request.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        PEER_APP_REJECTED = 1,
-
-        /**
-         * Connection failed due to the device's WiFi being off.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        LOCAL_WIFI_NOT_OPEN = 2,
-
-        /**
-         * Connection failed due to the peer's WiFi being off.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        PEER_WIFI_NOT_OPEN = 3,
-
-        /**
-         * Connection failed due to the peer ability has not implemented the onCollaborate method.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        PEER_ABILITY_NO_ONCOLLABORATE = 4,
-
-        /**
-         * The connection failed due to an internal system error.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        SYSTEM_INTERNAL_ERROR = 5,
-    }
-
-    /**
-     * The constant for params of the start option.
-     * 
-     * @enum { number }
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    export enum StartOptionParams {
-        /**
-         * Launching the peer application to the foreground.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        START_IN_FOREGROUND = 0,
-
-        /**
-         * Launching the peer application to the background.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        START_IN_BACKGROUND = 1,
-    }
-
-    /**
-     * Connection event callback information.
-     * @interface EventCallbackInfo
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    interface EventCallbackInfo {
-        /**
-         * Ability connection Session id.
-         * @type { number }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        sessionId: number;
-
-        /**
-         * Indicates the reason of ability disconnection.
-         * @type { ?DisconnectReason }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        reason?: DisconnectReason;
-
-        /**
-         * Received message data.
-         * @type { ?string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        msg?: string;
-
-        /**
-         * Received data.
-         * @type { ?ArrayBuffer }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        data?: ArrayBuffer;
-
-        /**
-         * Received image.
-         * @type { ?image.PixelMap }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        image?: image.PixelMap;
-    }
-
-    /**
-     * Collaborate event information.
-     * @interface CollaborateEventInfo
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    interface CollaborateEventInfo {
-        /**
-         * Indicates the type of collaborate event.
-         * @type { CollaborateEventType }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        eventType: CollaborateEventType;
-
-        /**
-         * Indicates the collaborate message of collaborate event.
-         * @type { ?string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        eventMsg?: string;
-    }
-
-    /**
-     * CollaborateEventType.
-     * @enum { number }
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    enum CollaborateEventType {
-        /**
-         * Indicates send task failure.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        SEND_FAILURE = 0,
-
-        /**
-         * Indicates color space conversion failure.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        COLOR_SPACE_CONVERSION_FAILURE = 1,
-    }
-
-    /**
-     * DisconnectReason.
-     * @enum { number }
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    enum DisconnectReason {
-        /**
-         * Indicates that the reason is the peer application actively closes the collaboration.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        PEER_APP_CLOSE_COLLABORATION = 0,
-
-        /**
-         * Indicates that the reason is the peer application exit.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        PEER_APP_EXIT = 1,
-
-        /**
-         * Indicates that the reason is a network disconnection.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        NETWORK_DISCONNECTED = 2,
-    }
-
-    /**
-     * Registers connect event.
+     * Whether to send data. The value **true** indicates that data needs to be sent, and the value **false** indicates
+     * the opposite.
      *
-     * @param { 'connect' } type - Registration Type, 'connect'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('connect') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    function on(type: 'connect', sessionId: number,
-        callback: Callback<EventCallbackInfo>): void;
+    needSendData?: boolean;
 
     /**
-     * Unregisters connect event.
+     * Send Stream Data Configuration Options. WiFi needs to be turned on.
      *
-     * @param { 'connect' } type - Registration Type, 'connect'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('connect') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function off(type: 'connect', sessionId: number,
-        callback?: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Registers disconnect event.
-     *
-     * @param { 'disconnect' } type - Registration Type, 'disconnect'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('disconnect') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function on(type: 'disconnect', sessionId: number,
-        callback: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Unregisters disconnect event.
-     *
-     * @param { 'disconnect' } type - Registration Type, 'connect'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('disconnect') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function off(type: 'disconnect', sessionId: number,
-        callback?: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Registers receiveMessage event.
-     *
-     * @param { 'receiveMessage' } type - Registration Type, 'receiveMessage'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveMessage') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function on(type: 'receiveMessage', sessionId: number,
-        callback: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Unregisters receiveMessage event.
-     *
-     * @param { 'receiveMessage' } type - Registration Type, 'receiveMessage'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveMessage') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function off(type: 'receiveMessage', sessionId: number,
-        callback?: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Registers receiveData event.
-     *
-     * @param { 'receiveData' } type - Registration Type, 'receiveData'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveData') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function on(type: 'receiveData', sessionId: number,
-        callback: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Unregisters receiveData event.
-     *
-     * @param { 'receiveData' } type - Registration Type, 'receiveData'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveData') command.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function off(type: 'receiveData', sessionId: number,
-        callback?: Callback<EventCallbackInfo>): void;
-
-    /**
-     * Registers receiveImage event.
-     *
-     * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    function on(type: 'receiveImage', sessionId: number,
+    needSendStream?: boolean;
+
+    /**
+     * Receive Stream Data Configuration Options. WiFi needs to be turned on.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    needReceiveStream?: boolean;
+
+    /**
+     * Application startup options.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    startOptions?: StartOptionParams;
+
+    /**
+     * Additional configuration for the connection.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    parameters?: Record<string, string>;
+    }
+
+  /**
+   * Defines the connection result.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface ConnectResult {
+    /**
+     * Whether the connection is successful. The value **true** indicates that the connection is successful, and the
+     * value **false** indicates the opposite.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    isConnected: boolean;
+
+    /**
+     * Connection error code.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    errorCode?: ConnectErrorCode;
+
+    /**
+     * Connection rejection reason.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    reason?: string;
+    }
+
+  /**
+   * Enumerates connection error codes.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum ConnectErrorCode {
+    /**
+     * A session already exists between applications.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    CONNECTED_SESSION_EXISTS = 0,
+
+    /**
+     * The peer application rejects the collaboration request.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    PEER_APP_REJECTED = 1,
+
+    /**
+     * Wi-Fi is disabled at the local end.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    LOCAL_WIFI_NOT_OPEN = 2,
+
+    /**
+     * Wi-Fi is disabled at the peer end.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    PEER_WIFI_NOT_OPEN = 3,
+
+    /**
+     * The **onCollaborate** callback is not implemented.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    PEER_ABILITY_NO_ONCOLLABORATE = 4,
+
+    /**
+     * An internal system error occurs.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    SYSTEM_INTERNAL_ERROR = 5
+    }
+
+  /**
+   * Enumerates application start options.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum StartOptionParams {
+    /**
+     * Start of the peer application in the foreground.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    START_IN_FOREGROUND = 0,
+
+    /**
+     * Launching the peer application to the background.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    START_IN_BACKGROUND = 1
+    }
+
+  /**
+   * Defines the event callback information.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface EventCallbackInfo {
+    /**
+     * Collaboration session ID.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    sessionId: int;
+
+    /**
+     * Disconnection reason.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    reason?: DisconnectReason;
+
+    /**
+     * Received message.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    msg?: string;
+
+    /**
+     * Received byte stream.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    data?: ArrayBuffer;
+
+    /**
+     * Received image.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    image?: image.PixelMap;
+    }
+
+  /**
+   * Collaboration event information.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface CollaborateEventInfo {
+    /**
+     * Collaboration event type.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    eventType: CollaborateEventType;
+
+    /**
+     * Content of a collaboration event.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    eventMsg?: string;
+    }
+
+  /**
+   * Enumerates collaboration event types.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  enum CollaborateEventType {
+    /**
+     * Task sending failure.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    SEND_FAILURE = 0,
+
+    /**
+     * Color space conversion failure.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    COLOR_SPACE_CONVERSION_FAILURE = 1
+    }
+
+  /**
+   * Enumerates the disconnection reasons.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  enum DisconnectReason {
+    /**
+     * The peer application proactively disables collaboration.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    PEER_APP_CLOSE_COLLABORATION = 0,
+
+    /**
+     * The peer application exits.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    PEER_APP_EXIT = 1,
+
+    /**
+     * The network is disconnected.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    NETWORK_DISCONNECTED = 2,
+    }
+
+  /**
+   * Enables listening for **connect** events. This API uses an asynchronous callback to return the result.
+   *
+   * @param { 'connect' } type - Event type. This field has a fixed value of **connect**. This event is triggered when
+   *     [abilityConnectionManager.connect()]{@link abilityConnectionManager.connect(sessionId: int)} is called.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'connect', sessionId: number,
         callback: Callback<EventCallbackInfo>): void;
 
-    /**
-     * Unregisters receiveImage event.
-     *
-     * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function off(type: 'receiveImage', sessionId: number,
+  /**
+   * Disables listening for **connect** events.
+   *
+   * @param { 'connect' } type - Event type. This field has a fixed value of **connect**.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'connect', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
 
-    /**
-     * Registers collaborateEvent event.
-     *
-     * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function on(type: 'collaborateEvent', sessionId: number,
+  /**
+   * Registers connect event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('connect') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onConnect(sessionId: int,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Unregisters connect event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('connect') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offConnect(sessionId: int,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Enables listening for **disconnect** events.
+   *
+   * @param { 'disconnect' } type - Event type. This field has a fixed value of **disconnect**. This event is triggered when
+   *     [abilityConnectionManager.disconnect()]{@link abilityConnectionManager.disconnect(sessionId: int)} is called.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'disconnect', sessionId: number,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Disables listening for **disconnect** events.
+   *
+   * @param { 'disconnect' } type - Event type. This field has a fixed value of **disconnect**.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'disconnect', sessionId: number,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Registers disconnect event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('disconnect') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onDisconnect(sessionId: int,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Unregisters disconnect event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('disconnect') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offDisconnect(sessionId: int,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Enables listening for **receiveMessage** events.
+   *
+   * @param { 'receiveMessage' } type - Event type. This field has a fixed value of **receiveMessage**. This event is
+   *     triggered when
+   *     [abilityConnectionManager.sendMessage()]{@link abilityConnectionManager.sendMessage(sessionId: int, msg: string)} is
+   *     called.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'receiveMessage', sessionId: number,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Disables listening for **receiveMessage** events.
+   *
+   * @param { 'receiveMessage' } type - Event type. This field has a fixed value of **receiveMessage**.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'receiveMessage', sessionId: number,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Registers receiveMessage event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveMessage') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onReceiveMessage(sessionId: int,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Unregisters receiveMessage event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('receiveMessage') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offReceiveMessage(sessionId: int,
+        callback?: Callback<EventCallbackInfo>): void;
+
+
+  /**
+   * Enables listening for **receiveData** events.
+   *
+   * @param { 'receiveData' } type - Event type. This field has a fixed value of **receiveData**. This event is triggered
+   *     when
+   *     [abilityConnectionManager.sendData()]{@link abilityConnectionManager.sendData(sessionId: int, data: ArrayBuffer)} is
+   *     called.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'receiveData', sessionId: number,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Disables listening for **receiveData** events.
+   *
+   * @param { 'receiveData' } type - Event type. This field has a fixed value of **receiveData**.
+   * @param { number } sessionId - ID of the collaboration session.
+   * @param { Callback<EventCallbackInfo> } callback - Registered callback function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'receiveData', sessionId: number,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Registers receiveData event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveData') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onReceiveData(sessionId: int,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Unregisters receiveData event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('receiveData') command.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offReceiveData(sessionId: int,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Registers receiveImage event.
+   *
+   * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
+   * @param { number } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'receiveImage', sessionId: number,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Unregisters receiveImage event.
+   *
+   * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
+   * @param { number } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'receiveImage', sessionId: number,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Registers receiveImage event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onReceiveImage(sessionId: int,
+        callback: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Unregisters receiveImage event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('receiveImage') command.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offReceiveImage(sessionId: int,
+        callback?: Callback<EventCallbackInfo>): void;
+
+  /**
+   * Registers collaborateEvent event.
+   *
+   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
+   * @param { number } sessionId - Ability connection Session id.
+   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'collaborateEvent', sessionId: number,
         callback: Callback<CollaborateEventInfo>): void;
 
-    /**
-     * Unregisters collaborateEvent event.
-     *
-     * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function off(type: 'collaborateEvent', sessionId: number,
+  /**
+   * Unregisters collaborateEvent event.
+   *
+   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
+   * @param { number } sessionId - Ability connection Session id.
+   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'collaborateEvent', sessionId: number,
         callback?: Callback<CollaborateEventInfo>): void;
 
-    /**
-     * Create the Ability connection Session.
-     *
-     * @permission ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO and ohos.permission.SET_NETWORK_INFO and ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } serviceName - Service name, which must be consistent at both ends.
-     * @param { Context } context - The context of an ability.
-     * @param { PeerInfo } peerInfo - Collaborative application information at the sink end.
-     * @param { ConnectOptions } connectOptions - Connection options for Ability connection sessions.
-     * @returns { number}  Returns the Ability connection Session id.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: PeerInfo,
-        connectOptions: ConnectOptions): number;
+  /**
+   * Registers collaborateEvent event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onCollaborateEvent(sessionId: int,
+        callback: Callback<CollaborateEventInfo>): void;
 
-    /**
-     * Destroy the ability connection session
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function destroyAbilityConnectionSession(sessionId: number): void;
+  /**
+   * Unregisters collaborateEvent event.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { Callback<CollaborateEventInfo> } [callback] - Called when an error event comes.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offCollaborateEvent(sessionId: int,
+        callback?: Callback<CollaborateEventInfo>): void;
 
-    /**
-     * Get the application information in the ability connection session
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @returns { PeerInfo | undefined } Returns the collaborative application information at the sink end.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function getPeerInfoById(sessionId: number): PeerInfo | undefined;
+  /**
+   * Creates a collaboration session between applications.
+   *
+   * @permission ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO and ohos.permission.SET_NETWORK_INFO and
+   *     ohos.permission.DISTRIBUTED_DATASYNC
+   * @param { string } serviceName - Service name for the application. The service name must be the same on the local end and
+   *     peer end. The value contains a maximum of 256 characters.
+   * @param { Context } context - Application context.
+   * @param { PeerInfo } peerInfo - Collaboration information of the peer end.
+   * @param { ConnectOptions } connectOptions - Connection options for the application.
+   * @returns { int} ID of the collaboration session.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: PeerInfo,
+        connectOptions: ConnectOptions): int;
 
-    /**
-     * Initiate an ability session connection.
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @returns { Promise<ConnectResult> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function connect(sessionId: number): Promise<ConnectResult>;
+  /**
+   * Destroys a collaboration session between applications.
+   *
+   * @param { int } sessionId - Collaboration session ID.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function destroyAbilityConnectionSession(sessionId: int): void;
 
-    /**
-     * Disconnect a Ability connection Session.
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function disconnect(sessionId: number): void;
+  /**
+   * Obtains information about the peer application in the specified session.
+   *
+   * @param { int } sessionId - ID of the collaboration session.
+   * @returns { PeerInfo | undefined } Information about the peer application if the corresponding **peerInfo** exists;
+   *     **undefined** if the session ID is not found.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function getPeerInfoById(sessionId: int): PeerInfo | undefined;
 
-    /**
-     * Accept connection request and prepare the connection environment.
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { string } token - Token for collaborative service management
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function acceptConnect(sessionId: number, token: string): Promise<void>;
+  /**
+   * Get the application information in the ability connection session
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @returns { PeerInfo | undefined } Returns the collaborative application information at the sink end.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function getPeerInfoById(sessionId: int): PeerInfo | null;
 
-    /**
-     * Notify the peer end of the reason why the connection is rejected.
-     *
-     * @param { string } token - Token for collaborative service management.
-     * @param { string } reason - Reason for connection rejection.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function reject(token: string, reason: string): void;
+  /**
+   * Sets up a UIAbility connection after a collaboration session is created and the session ID is obtained. This API
+   * uses a promise to return the result.
+   *
+   * @param { int } sessionId - ID of the collaboration session.
+   * @returns { Promise<ConnectResult> } Promise used to return the
+   *     [connection result]{@link abilityConnectionManager.ConnectResult}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function connect(sessionId: int): Promise<ConnectResult>;
 
-    /**
-     * Send message data.
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { string } msg - Message data to be sent.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function sendMessage(sessionId: number, msg: string): Promise<void>;
+  /**
+   * Disconnects the UIAbility connection to end the collaboration session.
+   *
+   * @param { int } sessionId - ID of the collaboration session.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function disconnect(sessionId: int): void;
 
+  /**
+   * Accepts the UIAbility connection after a collaboration session is set up and the session ID is obtained.
+   *
+   * @param { int } sessionId - ID of the collaboration session.
+   * @param { string } token - Token value passed by the application on device A.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function acceptConnect(sessionId: int, token: string): Promise<void>;
+
+  /**
+   * Rejects a connection request in a cross-device collaboration session. After a connection request sent from the peer
+   *  application is rejected, a rejection reason is returned.
+   *
+   * @param { string } token - Token used for application collaboration management.
+   * @param { string } reason - Reason why the connection is rejected.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function reject(token: string, reason: string): void;
+
+  /**
+   * Sends text messages after a collaboration session is set up.
+   *
+   * @param { int } sessionId - ID of the collaboration session.
+   * @param { string } msg - Text content. The maximum size of the text content is 1 KB.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function sendMessage(sessionId: int, msg: string): Promise<void>;
+
+  /**
+   * Sends [ArrayBuffer](docroot://arkts-utils/arraybuffer-object.md) byte streams from one device to another after a
+   * connection is successfully established.
+   *
+   * @param { int } sessionId - ID of the collaboration session.
+   * @param { ArrayBuffer } data - Byte stream information.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function sendData(sessionId: int, data: ArrayBuffer): Promise<void>;
+
+  /**
+   * Send image data.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { image.PixelMap } image - image data to be sent.
+   * @param { int } [quality] - image compression quality, range 0~100, default 30.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function sendImage(sessionId: int, image: image.PixelMap, quality?: int): Promise<void>;
+
+  /**
+   * Creating a Stream.
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @param { StreamParam } param - Transport Stream Parameters
+   * @returns {Promise<int>}  The promise returned by the function, contain the ID of a transport stream.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @throws { BusinessError } 32300001 - Only one stream can be created for the current session.
+   * @throws { BusinessError } 32300003 - Bitrate not supported.
+   * @throws { BusinessError } 32300004 - Color space not supported.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function createStream(sessionId: int, param: StreamParam): Promise<int>;
+
+  /**
+   * Sets the transmission surface.
+   *
+   * @param { int } streamId - Indicates the ID of a transport stream.
+   * @param { string } surfaceId - Surface ID.
+   * @param { SurfaceParam } param - Surface Parameters
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function setSurfaceId(streamId: int, surfaceId: string, param: SurfaceParam): void;
+  /**
+   * Obtains the transmission surface.
+   *
+   * @param { int } streamId - Indicates the ID of a transport stream.
+   * @param { SurfaceParam } param - Surface Parameters
+   * @returns {string}  Returns the ID of a surface.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function getSurfaceId(streamId: int, param: SurfaceParam): string;
+
+  /**
+   * Update surface parameters.
+   *
+   * @param { int } streamId - Stream ID.
+   * @param { SurfaceParam } param - Surface Parameters
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function updateSurfaceParam(streamId: int, param: SurfaceParam): void;
+
+  /**
+   * Destroy the Stream.
+   *
+   * @param { int } streamId - Indicates the ID of a transport stream.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function destroyStream(streamId: int): void;
+
+  /**
+   * Start Streaming
+   *
+   * @param { int } streamId - Indicates the ID of a transport stream.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @throws { BusinessError } 32300002 - The stream at the receive end is not started.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function startStream(streamId: int): void;
+
+  /**
+   * Stop Streaming
+   *
+   * @param { int } streamId - Indicates the ID of a transport stream.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
+   *     Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function stopStream(streamId: int): void;
+
+  /**
+   * Streaming configuration parameters.
+   *
+   * @interface StreamParam
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface StreamParam {
     /**
-     * Send data.
+     * Stream name, the receive end must be consistent with the transmit end.
      *
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { ArrayBuffer } data - Data to be sent.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18 dynamic
-     */
-    function sendData(sessionId: number, data: ArrayBuffer): Promise<void>;
-    
-    /**
-     * Send image data.
-     *
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { image.PixelMap } image - image data to be sent.
-     * @param { number } [quality] - image compression quality, range 0~100, default 30.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    function sendImage(sessionId: number, image: image.PixelMap, quality?: number): Promise<void>;
+    name: string;
 
     /**
-     * Creating a Stream.
+     * Stream transmission role, which can be a receive stream or a transmit stream.
      *
-     * @param { number } sessionId - Ability connection Session id.
-     * @param { StreamParam } param - Transport Stream Parameters
-     * @returns {Promise<number>}  The promise returned by the function, contain the ID of a transport stream.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 32300001 - Only one stream can be created for the current session.
-     * @throws { BusinessError } 32300003 - Bitrate not supported.
-     * @throws { BusinessError } 32300004 - Color space not supported.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    function createStream(sessionId: number, param: StreamParam): Promise<number>;
+    role: StreamRole;
 
     /**
-     * Sets the transmission surface.
+     * This value indicates video bitrate, default 80(kbps). Only valid on the sender side.
      *
-     * @param { number } streamId - Indicates the ID of a transport stream.
-     * @param { string } surfaceId - Surface ID.
-     * @param { SurfaceParam } param - Surface Parameters
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    function setSurfaceId(streamId: number, surfaceId: string, param: SurfaceParam): void;
+    bitrate?: int;
+
     /**
-     * Obtains the transmission surface.
+     * The target color space for conversion. Currently, only BT709_LIMIT is supported.
+     * If the video format on the sender side is HDR and needs to be converted to SDR during transmission, this
+     * parameter should be set.
      *
-     * @param { number } streamId - Indicates the ID of a transport stream.
-     * @param { SurfaceParam } param - Surface Parameters
-     * @returns {string}  Returns the ID of a surface.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    function getSurfaceId(streamId: number, param: SurfaceParam): string;
-
-    /**
-     * Update surface parameters.
-     *
-     * @param { number } streamId - Stream ID.
-     * @param { SurfaceParam } param - Surface Parameters
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function updateSurfaceParam(streamId: number, param: SurfaceParam): void;
-
-    /**
-     * Destroy the Stream.
-     *
-     * @param { number } streamId - Indicates the ID of a transport stream.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function destroyStream(streamId: number): void;
-
-    /**
-     * Start Streaming
-     *
-     * @param { number } streamId - Indicates the ID of a transport stream.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @throws { BusinessError } 32300002 - The stream at the receive end is not started.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function startStream(streamId: number): void;
-
-    /**
-     * Stop Streaming
-     *
-     * @param { number } streamId - Indicates the ID of a transport stream.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    function stopStream(streamId: number): void;
-
-    /**
-     * Streaming configuration parameters.
-     * @interface StreamParam
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @since 18 dynamic
-     */
-    interface StreamParam {
-        /**
-         * Stream name, the receive end must be consistent with the transmit end.
-         * @type { string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        name: string;
-
-        /**
-         * Stream transmission role, which can be a receive stream or a transmit stream.
-         * @type { StreamRole }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        role: StreamRole;
-
-        /**
-         * This value indicates video bitrate, default 80(kbps). Only valid on the sender side.
-         * @type { ?number }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        bitrate?: number;
-
-        /**
-         * The target color space for conversion. Currently, only BT709_LIMIT is supported.
-         * If the video format on the sender side is HDR and needs to be converted to SDR during transmission, this parameter should be set.
-         * @type { ?colorSpaceManager.ColorSpace }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        colorSpaceConversionTarget?: colorSpaceManager.ColorSpace;
+    colorSpaceConversionTarget?: colorSpaceManager.ColorSpace;
     }
 
+  /**
+   * Surface configuration parameters.
+   *
+   * @interface SurfaceParam
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface SurfaceParam {
     /**
-     * Surface configuration parameters.
-     * @interface SurfaceParam
+     * Encoding width. Must be set before stream starts and cannot update once set.
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    interface SurfaceParam {
-        /**
-         * Encoding width. Must be set before stream starts and cannot update once set.
-         * @type { number }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        width: number;
-
-        /**
-         * Encoding length. Must be set before stream starts and cannot update once set.
-         * @type { number }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        height: number;
-
-        /**
-         * Video PixelFormat, this option must be configured on the sender.
-         * Must be set before stream starts and cannot update once set.
-         * @type { ?VideoPixelFormat }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        format?: VideoPixelFormat;
-
-        /**
-         * This value identifies the rotation angle of the video.
-         * the range of rotation angle should be {0, 90, 180, 270}, default is 0
-         * @type { ?number }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        rotation?: number;
-
-        /**
-         * This value indicates whether the video is reversed.
-         * @type { ?FlipOptions }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        flip?: FlipOptions;
-    }
+    width: int;
 
     /**
-     * Flip option.
-     * @enum { number }
+     * Encoding length. Must be set before stream starts and cannot update once set.
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    export enum FlipOptions {
-        /**
-         * Horizontal Flip
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        HORIZONTAL = 0,
-
-        /**
-         * Vertical Flip
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        VERTICAL = 1,
-    }
+    height: int;
 
     /**
-     * Stream transmission role.
-     * @enum { number }
+     * Video PixelFormat, this option must be configured on the sender.
+     * Must be set before stream starts and cannot update once set.
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    export enum StreamRole {
-        /**
-         * This status indicates the stream is a send stream.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        SOURCE = 0,
-
-        /**
-         * This status indicates the stream is a receive stream.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        SINK = 1,
-    }
+    format?: VideoPixelFormat;
 
     /**
-     * Video pixelFormat Configuration Options.
-     * @enum { number }
+     * This value identifies the rotation angle of the video.
+     * the range of rotation angle should be {0, 90, 180, 270}, default is 0
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    export enum VideoPixelFormat {
-        /**
-         * Unknown.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        UNKNOWN = -1,
-
-        /**
-         * NV12. yuv 420 semiplanar.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        NV12 = 0,
-
-        /**
-         * NV21. yvu 420 semiplanar.
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
-         * @since 18 dynamic
-         */
-        NV21 = 1,
-    }
+    rotation?: int;
 
     /**
-     * The keys for ability onCollaborate parameters.
-     * @enum { string }
+     * This value indicates whether the video is reversed.
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    export enum CollaborationKeys {
-        /**
-         * The key of peerinfo
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        PEER_INFO = 'ohos.collaboration.key.peerInfo',
-
-        /**
-         * The key of connect options
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        CONNECT_OPTIONS = 'ohos.collaboration.key.connectOptions',
-
-        /**
-         * The key of collaboration type
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        COLLABORATE_TYPE = 'ohos.collaboration.key.abilityCollaborateType',
+    flip?: FlipOptions;
     }
 
+  /**
+   * Flip option.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum FlipOptions {
     /**
-     * Ability collaboration values.
-     * @enum { string }
+     * Horizontal Flip
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    export enum CollaborationValues {
-        /**
-         * Default collaboration type
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        ABILITY_COLLABORATION_TYPE_DEFAULT = 'ohos.collaboration.value.abilityCollab',
+    HORIZONTAL = 0,
 
-        /**
-         * Collaboration type of connect proxy
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18 dynamic
-         */
-        ABILITY_COLLABORATION_TYPE_CONNECT_PROXY = 'ohos.collaboration.value.connectProxy',
+    /**
+     * Vertical Flip
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    VERTICAL = 1
+    }
+
+  /**
+   * Stream transmission role.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum StreamRole {
+    /**
+     * This status indicates the stream is a send stream.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    SOURCE = 0,
+
+    /**
+     * This status indicates the stream is a receive stream.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    SINK = 1
+    }
+
+  /**
+   * Video pixelFormat Configuration Options.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum VideoPixelFormat {
+    /**
+     * Unknown.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    UNKNOWN = -1,
+
+    /**
+     * NV12. yuv 420 semiplanar.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    NV12 = 0,
+
+    /**
+     * NV21. yvu 420 semiplanar.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @systemapi
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    NV21 = 1,
+    }
+
+  /**
+   * Enumerates application collaboration key values.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum CollaborationKeys {
+    /**
+     * Key value of the peer device information.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    PEER_INFO = 'ohos.collaboration.key.peerInfo',
+
+    /**
+     * Key value of the connection option.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    CONNECT_OPTIONS = 'ohos.collaboration.key.connectOptions',
+
+    /**
+     * Key value of the collaboration type.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    COLLABORATE_TYPE = 'ohos.collaboration.key.abilityCollaborateType',
+    }
+
+  /**
+   * Enumerates application collaboration key values.
+   *
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export enum CollaborationValues {
+    /**
+     * Default collaboration.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    ABILITY_COLLABORATION_TYPE_DEFAULT = 'ohos.collaboration.value.abilityCollab',
+
+    /**
+     * Collaboration via connection proxy.
+     *
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    ABILITY_COLLABORATION_TYPE_CONNECT_PROXY = 'ohos.collaboration.value.connectProxy'
     }
 }
 export default abilityConnectionManager;

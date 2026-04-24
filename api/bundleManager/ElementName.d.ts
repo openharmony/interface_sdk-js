@@ -36,7 +36,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ElementName {
   /**
@@ -53,7 +53,7 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   deviceId?: string;
 
@@ -69,7 +69,7 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -85,7 +85,7 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName?: string;
 
@@ -103,7 +103,7 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityName: string;
 
@@ -121,7 +121,7 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uri?: string;
 
@@ -139,7 +139,7 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   shortName?: string;
 }

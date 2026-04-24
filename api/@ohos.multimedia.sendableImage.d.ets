@@ -48,6 +48,7 @@ declare namespace sendableImage {
  interface Size extends lang.ISendable {
   /**
    * Height
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -60,6 +61,7 @@ declare namespace sendableImage {
 
   /**
    * Width
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -95,7 +97,8 @@ interface Region extends lang.ISendable {
   size: Size;
 
   /**
-   * x-coordinate at the upper left corner of the image.
+   * x-coordinate at the upper left corner of the image (px).
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -107,7 +110,8 @@ interface Region extends lang.ISendable {
   x: number;
 
   /**
-   * y-coordinate at the upper left corner of the image.
+   * y-coordinate at the upper left corner of the image (px).
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -451,7 +455,7 @@ interface Region extends lang.ISendable {
     /**
      * Obtains the density of the image pixelmap.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -544,8 +548,8 @@ interface Region extends lang.ISendable {
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { number } x The position value of width, in px.
+     * @param { number } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -558,8 +562,8 @@ interface Region extends lang.ISendable {
     /**
      * Image position transformation.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { number } x The position value of width, in px.
+     * @param { number } y The position value of height, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -573,7 +577,7 @@ interface Region extends lang.ISendable {
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { number } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -586,7 +590,7 @@ interface Region extends lang.ISendable {
     /**
      * Image rotation.
      *
-     * @param { number } angle The rotation angle.
+     * @param { number } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -798,7 +802,9 @@ interface Region extends lang.ISendable {
    */
   interface Image extends lang.ISendable {
     /**
-     * Sets or gets the image area to crop, default is size.
+     * Gets the image area, which always covers the entire image and can not be modified.
+     * clipRect.size equals to the size of the image.
+     * clipRect.x and clipRect.y are always 0, indicating the top-left corner of the image.
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core

@@ -70,6 +70,53 @@ declare namespace bundleManager {
   }
 
   /**
+   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as DEFAULT | WITH_APPLICATION_INFO.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  export enum BundleInfoGetFlag {
+    /**
+     * Used to obtain the default info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    DEFAULT = 0,
+
+    /**
+     * Used to obtain application info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    WITH_APPLICATION_INFO = 1 << 0,
+
+    /**
+     * Used to obtain the signature info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    WITH_SIGNATURE_INFO = 1 << 1,
+
+    /**
+     * Used to obtain the application icon info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    WITH_APPLICATION_ICON_INFO = 1 << 2
+  }
+
+  /**
    * Contains resource descriptor information.
    *
    * @typedef Resource
@@ -406,7 +453,18 @@ declare namespace bundleManager {
     readonly iconId: number;
 
     /**
-     * Process of application, if user do not set it ,the value equal bundleName
+     * Indicates the iconData of the application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    readonly iconData: string;
+
+    /**
+     * Process of the application. If the user does not set it, the value equals the bundleName.
      *
      * @type { string }
      * @readonly
@@ -594,6 +652,42 @@ declare namespace bundleManager {
   }
 
   /**
+   * Statistics of the bundle.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  interface BundleStorageStats {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    bundleName: string;
+
+    /**
+     * The size of the application's installation data.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    appSize: number;
+
+    /**
+     * The size of the application's local data, distributed data, and database data.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    dataSize: number;
+  }
+
+  /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -611,7 +705,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -632,7 +726,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -656,7 +750,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -678,7 +772,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
@@ -702,7 +796,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -724,7 +818,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
@@ -745,7 +839,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -764,7 +858,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -787,7 +881,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -808,7 +902,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -832,7 +926,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -854,7 +948,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
@@ -878,7 +972,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -900,7 +994,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
@@ -921,7 +1015,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -940,7 +1034,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -961,7 +1055,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -980,7 +1074,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getAllowedInstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
@@ -1002,7 +1096,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1022,7 +1116,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getAllowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
@@ -1044,7 +1138,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1064,7 +1158,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getAllowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
@@ -1084,7 +1178,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -1102,7 +1196,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
@@ -1125,7 +1219,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1146,7 +1240,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -1170,7 +1264,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1192,7 +1286,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
@@ -1216,7 +1310,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1238,7 +1332,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
@@ -1259,7 +1353,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -1278,7 +1372,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -1301,7 +1395,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1322,7 +1416,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -1346,7 +1440,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1368,7 +1462,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
@@ -1392,7 +1486,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1414,7 +1508,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
@@ -1435,7 +1529,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -1454,7 +1548,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -1475,7 +1569,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1494,7 +1588,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedInstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
@@ -1516,7 +1610,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1536,7 +1630,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
@@ -1558,7 +1652,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1578,7 +1672,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
@@ -1598,7 +1692,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -1616,7 +1710,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
@@ -1639,7 +1733,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1660,7 +1754,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -1684,7 +1778,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1706,7 +1800,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
@@ -1730,7 +1824,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1752,7 +1846,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
@@ -1773,7 +1867,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -1792,7 +1886,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function addDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -1815,7 +1909,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1836,7 +1930,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -1860,7 +1954,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1882,7 +1976,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
@@ -1906,7 +2000,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1928,7 +2022,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
@@ -1949,7 +2043,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -1968,7 +2062,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function removeDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -1989,7 +2083,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2008,7 +2102,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedUninstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
@@ -2030,7 +2124,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2050,7 +2144,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedUninstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
@@ -2072,7 +2166,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2092,7 +2186,7 @@ declare namespace bundleManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedUninstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
@@ -2112,7 +2206,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -2130,7 +2224,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 21
    */
   function getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>;
@@ -2330,7 +2424,25 @@ declare namespace bundleManager {
    * @since 20
    */
   function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>;
-  
+
+  /**
+   * Get the list of install bundles in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { int } accountId - accountId indicates the local ID of the OS account.
+   * @param { int } bundleInfoGetFlag - {@link BundleInfoGetFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @returns { Promise<Array<BundleInfo>> } The result of getting the bundle info.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getInstalledBundleList(admin: Want, accountId: int, bundleInfoGetFlag: int): Promise<Array<BundleInfo>>;
+
   /**
    * Add the list of app distribution types can be installed in the device.
    *
@@ -2398,7 +2510,27 @@ declare namespace bundleManager {
    * @since 22
    */
   function installMarketApps(admin: Want, bundleNames: Array<string>): void;
-  
+
+  /**
+   * Get the storage statistics of installed bundles on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleNames indicates the list of application bundle names.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *     <br>Value range:[0, +∞)
+   * @returns { Promise<Array<BundleStorageStats>> } Returns the bundle statistics of the installed applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getInstalledBundleStorageStats(admin: Want, bundleNames: Array<string>, accountId: number): Promise<Array<BundleStorageStats>>;
+
   /**
    * App distribution type.
    * 

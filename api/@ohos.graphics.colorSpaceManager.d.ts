@@ -19,876 +19,741 @@
  */
 
 /**
- * Color space manager.
+ * The **colorSpaceManager** module provides APIs for creating and managing color space objects and obtaining basic
+ * color space attributes.
  *
- * @namespace colorSpaceManager
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
- * @since 9
- */
-/**
- * Color space manager.
- *
- * @namespace colorSpaceManager
- * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
- * @crossplatform
- * @since 11
- */
-/**
- * Color space manager.
- *
- * @namespace colorSpaceManager
- * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @crossplatform [since 11]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace colorSpaceManager {
   /**
-   * Enumerates color space types.
-   * @enum { int } ColorSpace
+   * Enumerates the color space types.
+   *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @since 9
-  */
-  /**
-   * Enumerates color space types.
-   * @enum { int } ColorSpace
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Enumerates color space types.
-   * @enum { int } ColorSpace
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 11]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum ColorSpace {
     /**
-     * Indicates an unknown color space.
+     * Unknown type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates an unknown color space.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates an unknown color space.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     UNKNOWN = 0,
 
     /**
-     * Indicates the color space based on Adobe RGB (1998).
+     * Adobe RGB (1998).
+     *
+     * The conversion function is of the Adobe RGB (1998) type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the color space based on Adobe RGB (1998).
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on Adobe RGB (1998).
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     ADOBE_RGB_1998 = 1,
 
     /**
-     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
+     * DCI-P3.
+     *
+     * The conversion function is of the Gamma 2.6 type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     DCI_P3 = 2,
 
     /**
-     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
+     * DCI-P3.
+     *
+     * The conversion function is of the Gamma 2.6 type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     DISPLAY_P3 = 3,
 
     /**
-     * Indicates the standard red green blue (SRGB) color space based on IEC 61966-2.1:1999.
+     * SRGB.
+     *
+     * The conversion function is of the SRGB type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This is the default color space type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the standard red green blue (SRGB) color space based on IEC 61966-2.1:1999.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the standard red green blue (SRGB) color space based on IEC 61966-2.1:1999.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     SRGB = 4,
 
     /**
-     * Indicates the color space based on ITU-R BT.709.
-     * PRIMARIES_BT709 | TRANSFUNC_BT709 | RANGE_FULL
+     * BT709.
+     *
+     * The conversion function is of the BT709 type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on ITU-R BT.709.
-     * PRIMARIES_BT709 | TRANSFUNC_BT709 | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT709 = 6,
 
     /**
-     * Indicates the color space based on ITU-R BT.601.
-     * PRIMARIES_BT601_P | TRANSFUNC_BT709 | RANGE_FULL
+     * BT601_P.
+     *
+     * The conversion function is of the BT709 type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on ITU-R BT.601.
-     * PRIMARIES_BT601_P | TRANSFUNC_BT709 | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT601_EBU = 7,
 
     /**
-     * Indicates the color space based on ITU-R BT.601.
-     * PRIMARIES_BT601_N | TRANSFUNC_BT709 | RANGE_FULL
+     * BT601_N.
+     *
+     * The conversion function is of the BT709 type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on ITU-R BT.601.
-     * PRIMARIES_BT601_N | TRANSFUNC_BT709 | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT601_SMPTE_C = 8,
 
     /**
-     * Indicates the color space based on ITU-R BT.2020.
-     * PRIMARIES_BT2020 | TRANSFUNC_HLG | RANGE_FULL
+     * BT2020.
+     *
+     * The conversion function is of the HLG type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on ITU-R BT.2020.
-     * PRIMARIES_BT2020 | TRANSFUNC_HLG | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT2020_HLG = 9,
 
     /**
-     * Indicates the color space based on ITU-R BT.2020.
-     * PRIMARIES_BT2020 | TRANSFUNC_PQ | RANGE_FULL
+     * BT2020.
+     *
+     * The conversion function is of the PQ type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates the color space based on ITU-R BT.2020.
-     * PRIMARIES_BT2020 | TRANSFUNC_PQ | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT2020_PQ = 10,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_FULL
+     * Display P3.
+     *
+     * The conversion function is of the HLG type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     P3_HLG = 11,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_PQ | RANGE_FULL
+     * Display P3.
+     *
+     * The conversion function is of the PQ type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_PQ | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     P3_PQ = 12,
 
     /**
-     * PRIMARIES_ADOBE_RGB | TRANSFUNC_ADOBE_RGB | RANGE_LIMIT
+     * Adobe RGB (1998).
+     *
+     * The conversion function is of the Adobe RGB (1998) type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_ADOBE_RGB | TRANSFUNC_ADOBE_RGB | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     ADOBE_RGB_1998_LIMIT = 13,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_SRGB | RANGE_LIMIT
+     * Display P3.
+     *
+     * The conversion function is of the SRGB type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_SRGB | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     DISPLAY_P3_LIMIT = 14,
 
     /**
-     * PRIMARIES_SRGB | TRANSFUNC_SRGB | RANGE_LIMIT
+     * SRGB.
+     *
+     * The conversion function is of the SRGB type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_SRGB | TRANSFUNC_SRGB | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     SRGB_LIMIT = 15,
 
     /**
-     * PRIMARIES_BT709 | TRANSFUNC_BT709 | RANGE_LIMIT
+     * BT709.
+     *
+     * The conversion function is of the BT709 type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT709 | TRANSFUNC_BT709 | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT709_LIMIT = 16,
 
     /**
-     * PRIMARIES_BT601_P | TRANSFUNC_BT709 | RANGE_LIMIT
+     * BT601_P.
+     *
+     * The conversion function is of the BT709 type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT601_P | TRANSFUNC_BT709 | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT601_EBU_LIMIT = 17,
 
     /**
-     * PRIMARIES_BT601_N | TRANSFUNC_BT709 | RANGE_LIMIT
+     * BT601_N.
+     *
+     * The conversion function is of the BT709 type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT601_N | TRANSFUNC_BT709 | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT601_SMPTE_C_LIMIT = 18,
 
     /**
-     * PRIMARIES_BT2020 | TRANSFUNC_HLG | RANGE_LIMIT
+     * BT2020.
+     *
+     * The conversion function is of the HLG type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT2020 | TRANSFUNC_HLG | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT2020_HLG_LIMIT = 19,
 
     /**
-     * PRIMARIES_BT2020 | TRANSFUNC_PQ | RANGE_LIMIT
+     * BT2020.
+     *
+     * The conversion function is of the PQ type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT2020 | TRANSFUNC_PQ | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     BT2020_PQ_LIMIT = 20,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_LIMIT
+     * Display P3.
+     *
+     * The conversion function is of the HLG type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     P3_HLG_LIMIT = 21,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_PQ | RANGE_LIMIT
+     * Display P3.
+     *
+     * The conversion function is of the PQ type.
+     *
+     * The encoding range is of the Limit type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_PQ | RANGE_LIMIT
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     P3_PQ_LIMIT = 22,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_LINEAR
+     * Display P3.
+     *
+     * The conversion function is of the Linear type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_LINEAR
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     LINEAR_P3 = 23,
 
     /**
-     * PRIMARIES_SRGB | TRANSFUNC_LINEAR
+     * SRGB.
+     *
+     * The conversion function is of the Linear type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_SRGB | TRANSFUNC_LINEAR
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     LINEAR_SRGB = 24,
 
     /**
-     * PRIMARIES_BT709 | TRANSFUNC_LINEAR
+     * Same as that of LINEAR_SRGB.
+     *
+     * BT709.
+     *
+     * The conversion function is of the Linear type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT709 | TRANSFUNC_LINEAR
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     LINEAR_BT709 = LINEAR_SRGB,
 
     /**
-     * PRIMARIES_BT2020 | TRANSFUNC_LINEAR
+     * BT2020.
+     *
+     * The conversion function is of the Linear type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_BT2020 | TRANSFUNC_LINEAR
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     LINEAR_BT2020 = 25,
 
     /**
-     * PRIMARIES_SRGB | TRANSFUNC_SRGB | RANGE_FULL
+     * Same as that of SRGB.
+     *
+     * SRGB.
+     *
+     * The conversion function is of the SRGB type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_SRGB | TRANSFUNC_SRGB | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     DISPLAY_SRGB = SRGB,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_SRGB | RANGE_FULL
+     * Same as that of DISPLAY_P3.
+     *
+     * Display P3.
+     *
+     * The conversion function is of the SRGB type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_SRGB | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     DISPLAY_P3_SRGB = DISPLAY_P3,
 
     /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_FULL
+     * Display P3.
+     *
+     * The conversion function is of the HLG type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     DISPLAY_P3_HLG = P3_HLG,
 
     /**
-     * PRIMARIES_DISPLAY_P3 | TRANSFUNC_PQ | RANGE_FULL
+     * Same as that of P3_PQ.
+     *
+     * Display P3.
+     *
+     * The conversion function is of the PQ type.
+     *
+     * The encoding range is of the Full type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * PRIMARIES_DISPLAY_P3 | TRANSFUNC_PQ | RANGE_FULL
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     DISPLAY_P3_PQ = P3_PQ,
 
     /**
-     * PRIMARIES_BT2020 | TRANSFUNC_LOG
+     * BT2020.
+     *
+     * The conversion function is of the LOG type.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     H_LOG = 26,
 
     /**
-     * PRIMARIES_BT2020 | TRANSFUNC_SRGB | RANGE_FULL
+     * DISPLAY BT2020.
+     *
+     * The conversion function is of the SRGB type.
+     *
+     * The encoding range is of the Full type.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_BT2020_SRGB = 27,
 
     /**
-     * Indicates a customized color space.
+     * Custom type.
+     *
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates a customized color space.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Indicates a customized color space.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     CUSTOM = 5,
   }
 
   /**
-   * Describes the primary colors red, green, blue and white point coordinated as (x, y)
-   * in color space, in terms of real world chromaticities.
-   * @typedef ColorSpacePrimaries
+   * The three primary colors (red, green, blue) and white as defined by the gamut standard, whose positions in the
+   * color space are represented by (x, y) coordinates based on real-world chromaticity.
+   *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @since 9
-   */
-  /**
-   * Describes the primary colors red, green, blue and white point coordinated as (x, y)
-   * in color space, in terms of real world chromaticities.
-   * @typedef ColorSpacePrimaries
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @crossplatform
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface ColorSpacePrimaries {
     /**
-     * Coordinate value x of red color
-     * @type { double }
+     * X coordinate of the red color in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value x of red color
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     redX: double;
 
     /**
-     * Coordinate value y of red color
-     * @type { double }
+     * Y coordinate of the red color in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value y of red color
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     redY: double;
 
     /**
-     * Coordinate value x of green color
-     * @type { double }
+     * X coordinate of the green color in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value x of green color
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     greenX: double;
 
     /**
-     * Coordinate value y of green color
-     * @type { double }
+     * Y coordinate of the green color in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value y of green color
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     greenY: double;
 
     /**
-     * Coordinate value x of blue color
-     * @type { double }
+     * X coordinate of the blue color in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value x of blue color
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     blueX: double;
 
     /**
-     * Coordinate value y of blue color
-     * @type { double }
+     * Y coordinate of the blue color in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value y of blue color
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     blueY: double;
 
     /**
-     * Coordinate value x of white point
-     * @type { double }
+     * X coordinate of the white point in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value x of white point
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     whitePointX: double;
 
     /**
-     * Coordinate value y of white point
-     * @type { double }
+     * Y coordinate of the white point in the color space.
+     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Coordinate value y of white point
-     * @type { double }
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     whitePointY: double;
   }
 
   /**
-   * Defines a color space object and manages its key information
-   * @interface ColorSpaceManager
+   * Implements management of color space objects.
+   * Before calling any of the following APIs, you must use
+   * [create()]{@link colorSpaceManager.create(colorSpaceName: ColorSpace)} to create a color space manager.
+   *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @since 9
-   */
-  /**
-   * Defines a color space object and manages its key information
-   * @interface ColorSpaceManager
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @crossplatform
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface ColorSpaceManager {
     /**
-     * Get the name of color space type.
-     * @returns { ColorSpace } Returns the name of color space type.
-     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
+     * Obtains the color space type.
+     *
+     * @returns { ColorSpace } Color space type.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 9 - 22]
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Get the name of color space type.
-     * @returns { ColorSpace } Returns the name of color space type.
-     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getColorSpaceName(): ColorSpace;
 
     /**
-     * Get white point(x, y) of color space.
-     * @returns { Array<double> } Returns the white point value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * Obtains the coordinates of the white point in the color space.
+     *
+     * @returns { Array<double> } Coordinates [x, y] of the white point.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 9 - 22]
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Get white point(x, y) of color space.
-     * @returns { Array<double> } Returns the white point value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getWhitePoint(): Array<double>;
 
     /**
-     * Get gamma value of color space.
-     * @returns { double } Returns the gamma value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * Obtains the gamma of the color space.
+     *
+     * @returns { double } Gamma of the color space.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 9 - 22]
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 9
-     */
-    /**
-     * Get gamma value of color space.
-     * @returns { double } Returns the gamma value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
-     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getGamma(): double;
   }
 
   /**
-   * Create a color space manager by provided color space type.
-   * @param { ColorSpace } colorSpaceName - Indicates the type of color space
-   * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
+   * Creates a standard color space object.
+   *
+   * @param { ColorSpace } colorSpaceName - Type of the color space.<br>**UNKNOWN** and **CUSTOM** cannot be used when
+   *     creating standard color space objects.
+   * @returns { ColorSpaceManager } Color space object created.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
-   *                                 2.Parameter verification failed.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @since 9
-   */
-  /**
-   * Create a color space manager by provided color space type.
-   * @param { ColorSpace } colorSpaceName - Indicates the type of color space
-   * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
-   *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - The parameter value is abnormal.
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @crossplatform
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function create(colorSpaceName: ColorSpace): ColorSpaceManager;
 
   /**
-   * Create a customized color space manager by its color primaries and gamma value
-   * @param { ColorSpacePrimaries } primaries - Indicates the customized color primaries
-   * @param { double } gamma - Indicates display gamma value
-   * @returns { ColorSpaceManager } Returns a color space manager object created by customized parameters.
+   * Creates a custom color space object.
+   *
+   * @param { ColorSpacePrimaries } primaries - Primaries of the color space.
+   * @param { double } gamma - Gamma value of the color space, which is a floating point number greater than 0.
+   * @returns { ColorSpaceManager } Color space object created.
+   *     <br>The color space type is **CUSTOM** of [ColorSpace]{@link colorSpaceManager.ColorSpace}.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
-   *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-   *                                      color space type enum values to directly create a colorSpaceManager object.
+   *     2.Parameter verification failed.
+   * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @since 9
-   */
-  /**
-   * Create a customized color space manager by its color primaries and gamma value
-   * @param { ColorSpacePrimaries } primaries - Indicates the customized color primaries
-   * @param { double } gamma - Indicates display gamma value
-   * @returns { ColorSpaceManager } Returns a color space manager object created by customized parameters.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
-   *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-   *                                      color space type enum values to directly create a colorSpaceManager object.
-   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-   * @crossplatform
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function create(primaries: ColorSpacePrimaries, gamma: double): ColorSpaceManager;
 }

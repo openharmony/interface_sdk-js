@@ -47,6 +47,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -78,6 +79,7 @@ declare enum SelectStatus {
    * All checkboxes are selected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -109,6 +111,7 @@ declare enum SelectStatus {
    * Part of the checkbox is selected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -140,6 +143,7 @@ declare enum SelectStatus {
    * None of the checkbox is selected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -177,6 +181,7 @@ declare enum SelectStatus {
  *
  * @interface CheckboxGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -212,6 +217,7 @@ declare interface CheckboxGroupOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -249,6 +255,7 @@ declare interface CheckboxGroupOptions {
  *
  * @interface CheckboxGroupResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -284,6 +291,7 @@ declare interface CheckboxGroupResult {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -319,6 +327,7 @@ declare interface CheckboxGroupResult {
    *
    * @type { SelectStatus }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -356,10 +365,12 @@ declare interface CheckboxGroupResult {
  *
  * @interface CheckboxGroupInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface CheckboxGroupInterface {
   /**
@@ -395,6 +406,7 @@ interface CheckboxGroupInterface {
    * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -491,10 +503,12 @@ declare interface CheckBoxGroupConfiguration extends CommonConfiguration<CheckBo
  *
  * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
   /**
@@ -530,6 +544,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @param { boolean } value
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -583,6 +598,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @param { ResourceColor } value
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -714,6 +730,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @param { OnCheckboxGroupChangeCallback } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -798,6 +815,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
  * Defines CheckboxGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -830,6 +848,7 @@ declare const CheckboxGroup: CheckboxGroupInterface;
  * Defines CheckboxGroup Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

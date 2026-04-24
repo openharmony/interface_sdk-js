@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,6 +20,8 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import { ValueType } from './@ohos.data.ValuesBucket';
+import type image from './@ohos.multimedia.image';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
@@ -36,8 +38,7 @@ import type Context from './application/BaseContext';
  * @namespace contact
  * @syscap SystemCapability.Applications.ContactsData
  * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @since 11
  */
 declare namespace contact {
   /**
@@ -82,8 +83,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 12
    */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
@@ -126,8 +126,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 12
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
 
@@ -161,8 +160,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   function selectContacts(callback: AsyncCallback<Array<Contact>>): void;
 
@@ -194,8 +192,7 @@ declare namespace contact {
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   function selectContacts(): Promise<Array<Contact>>;
 
@@ -216,8 +213,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -240,8 +236,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>;
 
@@ -268,8 +263,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void;
 
@@ -296,8 +290,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function deleteContact(context: Context, key: string): Promise<void>;
 
@@ -324,8 +317,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void;
 
@@ -356,8 +348,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
 
@@ -388,8 +379,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
@@ -422,8 +412,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
@@ -456,8 +445,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
@@ -482,8 +470,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -512,8 +499,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -542,8 +528,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -576,8 +561,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -610,8 +594,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
@@ -638,8 +621,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -670,8 +652,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByEmail(context: Context, email: string, holder: Holder,
     callback: AsyncCallback<Array<Contact>>): void;
@@ -703,8 +684,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes,
     callback: AsyncCallback<Array<Contact>>): void;
@@ -740,8 +720,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -776,8 +755,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
@@ -806,8 +784,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -840,8 +817,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -874,8 +850,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -912,8 +887,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes,
     callback: AsyncCallback<Array<Contact>>): void;
@@ -951,8 +925,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
@@ -977,8 +950,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void;
 
@@ -1007,8 +979,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void;
 
@@ -1037,8 +1008,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>;
 
@@ -1063,8 +1033,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void;
 
@@ -1089,8 +1058,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryHolders(context: Context): Promise<Array<Holder>>;
 
@@ -1117,8 +1085,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryKey(context: Context, id: number, callback: AsyncCallback<string>): void;
 
@@ -1149,8 +1116,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void;
 
@@ -1181,8 +1147,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryKey(context: Context, id: number, holder?: Holder): Promise<string>;
 
@@ -1207,8 +1172,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryMyCard(context: Context, callback: AsyncCallback<Contact>): void;
 
@@ -1237,8 +1201,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
@@ -1267,8 +1230,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>;
 
@@ -1295,8 +1257,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void;
 
@@ -1327,8 +1288,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
 
@@ -1359,8 +1319,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
@@ -1389,8 +1348,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
@@ -1419,8 +1377,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function isLocalContact(context: Context, id: number): Promise<boolean>;
 
@@ -1434,7 +1391,7 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.deleteContact#deleteContact
+   * @useinstead contact.isMyCard#isMyCard
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
 
@@ -1449,8 +1406,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
@@ -1477,8 +1433,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10 dynamic
-   * @since 22 static
+   * @since 10
    */
   function isMyCard(context: Context, id: number): Promise<boolean>;
 
@@ -1495,8 +1450,7 @@ declare namespace contact {
    * @interface ContactSelectionOptions
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   interface ContactSelectionOptions {
     /**
@@ -1512,8 +1466,7 @@ declare namespace contact {
      * @type { ?boolean }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     isMultiSelect?: boolean;
 
@@ -1523,8 +1476,7 @@ declare namespace contact {
      * @type { ?ContactSelectionFilter }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     filter?: ContactSelectionFilter;
 
@@ -1534,8 +1486,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     maxSelectable?: number;
 
@@ -1545,8 +1496,7 @@ declare namespace contact {
      * @type { ?boolean }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     isDisplayedByName?: boolean;
   }
@@ -1562,8 +1512,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Contact {
     /**
@@ -1583,8 +1532,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_CONTACT_ID: -1;
 
@@ -1603,8 +1551,7 @@ declare namespace contact {
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     readonly id?: number;
 
@@ -1623,8 +1570,7 @@ declare namespace contact {
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     readonly key?: string;
 
@@ -1641,8 +1587,7 @@ declare namespace contact {
      * @type { ?ContactAttributes }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     contactAttributes?: ContactAttributes;
 
@@ -1659,8 +1604,7 @@ declare namespace contact {
      * @type { ?Email[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     emails?: Email[];
 
@@ -1677,8 +1621,7 @@ declare namespace contact {
      * @type { ?Event[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     events?: Event[];
 
@@ -1695,8 +1638,7 @@ declare namespace contact {
      * @type { ?Group[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     groups?: Group[];
 
@@ -1713,8 +1655,7 @@ declare namespace contact {
      * @type { ?ImAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     imAddresses?: ImAddress[];
 
@@ -1731,8 +1672,7 @@ declare namespace contact {
      * @type { ?PhoneNumber[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     phoneNumbers?: PhoneNumber[];
 
@@ -1749,8 +1689,7 @@ declare namespace contact {
      * @type { ?Portrait }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     portrait?: Portrait;
 
@@ -1767,8 +1706,7 @@ declare namespace contact {
      * @type { ?PostalAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     postalAddresses?: PostalAddress[];
 
@@ -1785,8 +1723,7 @@ declare namespace contact {
      * @type { ?Relation[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     relations?: Relation[];
 
@@ -1803,8 +1740,7 @@ declare namespace contact {
      * @type { ?SipAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     sipAddresses?: SipAddress[];
 
@@ -1821,8 +1757,7 @@ declare namespace contact {
      * @type { ?Website[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     websites?: Website[];
 
@@ -1839,8 +1774,7 @@ declare namespace contact {
      * @type { ?Name }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     name?: Name;
 
@@ -1857,8 +1791,7 @@ declare namespace contact {
      * @type { ?NickName }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     nickName?: NickName;
 
@@ -1875,8 +1808,7 @@ declare namespace contact {
      * @type { ?Note }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     note?: Note;
 
@@ -1893,8 +1825,7 @@ declare namespace contact {
      * @type { ?Organization }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     organization?: Organization;
   }
@@ -1910,8 +1841,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class ContactAttributes {
     /**
@@ -1927,8 +1857,7 @@ declare namespace contact {
      * @type { Attribute[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     attributes: Attribute[];
   }
@@ -1946,8 +1875,7 @@ declare namespace contact {
    * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   enum Attribute {
     /**
@@ -1961,8 +1889,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_CONTACT_EVENT = 0,
 
@@ -1977,8 +1904,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_EMAIL = 1,
 
@@ -1993,8 +1919,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_GROUP_MEMBERSHIP = 2,
 
@@ -2009,8 +1934,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_IM = 3,
 
@@ -2025,8 +1949,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_NAME = 4,
 
@@ -2041,8 +1964,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_NICKNAME = 5,
 
@@ -2057,8 +1979,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_NOTE = 6,
 
@@ -2073,8 +1994,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_ORGANIZATION = 7,
 
@@ -2089,8 +2009,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_PHONE = 8,
 
@@ -2105,8 +2024,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_PORTRAIT = 9,
 
@@ -2121,8 +2039,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_POSTAL_ADDRESS = 10,
 
@@ -2137,8 +2054,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_RELATION = 11,
 
@@ -2153,8 +2069,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_SIP_ADDRESS = 12,
 
@@ -2169,8 +2084,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     ATTR_WEBSITE = 13
   }
@@ -2186,8 +2100,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Email {
     /**
@@ -2207,8 +2120,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
@@ -2229,8 +2141,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly EMAIL_HOME: 1;
 
@@ -2251,8 +2162,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly EMAIL_WORK: 2;
 
@@ -2273,8 +2183,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly EMAIL_OTHER: 3;
 
@@ -2295,8 +2204,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
@@ -2313,8 +2221,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     email: string;
 
@@ -2331,8 +2238,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -2349,8 +2255,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     displayName?: string;
 
@@ -2367,8 +2272,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -2384,8 +2288,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Event {
     /**
@@ -2405,8 +2308,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
@@ -2427,8 +2329,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly EVENT_ANNIVERSARY: 1;
 
@@ -2449,8 +2350,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly EVENT_OTHER: 2;
 
@@ -2471,8 +2371,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly EVENT_BIRTHDAY: 3;
 
@@ -2493,8 +2392,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
@@ -2511,8 +2409,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     eventDate: string;
 
@@ -2529,8 +2426,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -2547,8 +2443,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -2564,8 +2459,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Group {
     /**
@@ -2581,8 +2475,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     groupId?: number;
 
@@ -2599,8 +2492,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     title: string;
   }
@@ -2609,8 +2501,7 @@ declare namespace contact {
    * Provides methods for holder information
    *
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 7 dynamic
-   * @since 22 static
+   * @since 7
    */
   class Holder {
     /**
@@ -2619,8 +2510,7 @@ declare namespace contact {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
-     * @since 7 dynamic
-     * @since 22 static
+     * @since 7
      */
     readonly bundleName: string;
 
@@ -2630,8 +2520,7 @@ declare namespace contact {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
-     * @since 7 dynamic
-     * @since 22 static
+     * @since 7
      */
     readonly displayName?: string;
 
@@ -2640,8 +2529,7 @@ declare namespace contact {
      *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
-     * @since 7 dynamic
-     * @since 22 static
+     * @since 7
      */
     holderId?: number;
   }
@@ -2657,8 +2545,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class ImAddress {
     /**
@@ -2678,8 +2565,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: -1;
 
@@ -2700,8 +2586,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_AIM: 0;
 
@@ -2722,8 +2607,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_MSN: 1;
 
@@ -2744,8 +2628,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_YAHOO: 2;
 
@@ -2766,8 +2649,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_SKYPE: 3;
 
@@ -2788,8 +2670,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_QQ: 4;
 
@@ -2810,8 +2691,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_ICQ: 6;
 
@@ -2832,8 +2712,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly IM_JABBER: 7;
 
@@ -2854,8 +2733,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -2;
 
@@ -2872,8 +2750,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     imAddress: string;
 
@@ -2890,8 +2767,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -2908,8 +2784,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -2925,8 +2800,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Name {
     /**
@@ -2942,8 +2816,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     familyName?: string;
 
@@ -2960,8 +2833,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     familyNamePhonetic?: string;
 
@@ -2978,8 +2850,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     fullName: string;
 
@@ -2996,8 +2867,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     givenName?: string;
 
@@ -3014,8 +2884,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     givenNamePhonetic?: string;
 
@@ -3032,8 +2901,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     middleName?: string;
 
@@ -3050,8 +2918,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     middleNamePhonetic?: string;
 
@@ -3068,8 +2935,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     namePrefix?: string;
 
@@ -3086,8 +2952,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     nameSuffix?: string;
 
@@ -3097,7 +2962,7 @@ declare namespace contact {
      * @type { ?boolean }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22
      */
     hasName?: boolean;
   }
@@ -3113,8 +2978,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class NickName {
     /**
@@ -3130,8 +2994,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     nickName: string;
   }
@@ -3147,8 +3010,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Note {
     /**
@@ -3164,8 +3026,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     noteContent: string;
   }
@@ -3181,8 +3042,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Organization {
     /**
@@ -3198,8 +3058,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     name: string;
 
@@ -3216,8 +3075,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     title?: string;
   }
@@ -3233,8 +3091,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class PhoneNumber {
     /**
@@ -3254,8 +3111,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
@@ -3276,8 +3132,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_HOME: 1;
 
@@ -3298,8 +3153,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_MOBILE: 2;
 
@@ -3320,8 +3174,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_WORK: 3;
 
@@ -3342,8 +3195,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_FAX_WORK: 4;
 
@@ -3364,8 +3216,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_FAX_HOME: 5;
 
@@ -3386,8 +3237,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_PAGER: 6;
 
@@ -3408,8 +3258,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_OTHER: 7;
 
@@ -3430,8 +3279,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_CALLBACK: 8;
 
@@ -3452,8 +3300,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_CAR: 9;
 
@@ -3474,8 +3321,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_COMPANY_MAIN: 10;
 
@@ -3496,8 +3342,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_ISDN: 11;
 
@@ -3518,8 +3363,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_MAIN: 12;
 
@@ -3540,8 +3384,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_OTHER_FAX: 13;
 
@@ -3562,8 +3405,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_RADIO: 14;
 
@@ -3584,8 +3426,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_TELEX: 15;
 
@@ -3606,8 +3447,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_TTY_TDD: 16;
 
@@ -3628,8 +3468,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_WORK_MOBILE: 17;
 
@@ -3650,8 +3489,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_WORK_PAGER: 18;
 
@@ -3672,8 +3510,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_ASSISTANT: 19;
 
@@ -3694,8 +3531,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly NUM_MMS: 20;
 
@@ -3716,8 +3552,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
@@ -3734,8 +3569,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -3752,8 +3586,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     phoneNumber: string;
 
@@ -3770,8 +3603,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -3787,8 +3619,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Portrait {
     /**
@@ -3804,10 +3635,19 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     uri: string;
+    /**
+     * Indicates the contact portrait in image.PixelMap format. 
+     * If you want to set contact portrait in this format, the uri needs to be set to empty.
+     * 
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 22
+     */
+    photo?: image.PixelMap;
   }
 
   /**
@@ -3821,8 +3661,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class PostalAddress {
     /**
@@ -3842,8 +3681,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
@@ -3864,8 +3702,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly ADDR_HOME: 1;
 
@@ -3886,8 +3723,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly ADDR_WORK: 2;
 
@@ -3908,8 +3744,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly ADDR_OTHER: 3;
 
@@ -3930,8 +3765,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
@@ -3948,8 +3782,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     city?: string;
 
@@ -3966,8 +3799,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     country?: string;
 
@@ -3984,8 +3816,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -4002,8 +3833,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     neighborhood?: string;
 
@@ -4020,8 +3850,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     pobox?: string;
 
@@ -4038,8 +3867,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     postalAddress: string;
 
@@ -4056,8 +3884,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     postcode?: string;
 
@@ -4074,8 +3901,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     region?: string;
 
@@ -4092,8 +3918,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     street?: string;
 
@@ -4110,8 +3935,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -4127,8 +3951,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Relation {
     /**
@@ -4148,8 +3971,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
@@ -4170,8 +3992,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_ASSISTANT: 1;
 
@@ -4192,8 +4013,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_BROTHER: 2;
 
@@ -4214,8 +4034,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_CHILD: 3;
 
@@ -4236,8 +4055,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_DOMESTIC_PARTNER: 4;
 
@@ -4258,8 +4076,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_FATHER: 5;
 
@@ -4280,8 +4097,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_FRIEND: 6;
 
@@ -4302,8 +4118,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_MANAGER: 7;
 
@@ -4324,8 +4139,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_MOTHER: 8;
 
@@ -4346,8 +4160,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_PARENT: 9;
 
@@ -4368,8 +4181,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_PARTNER: 10;
 
@@ -4390,8 +4202,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_REFERRED_BY: 11;
 
@@ -4412,8 +4223,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_RELATIVE: 12;
 
@@ -4434,8 +4244,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_SISTER: 13;
 
@@ -4456,8 +4265,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly RELATION_SPOUSE: 14;
 
@@ -4478,8 +4286,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
@@ -4496,8 +4303,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -4514,8 +4320,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     relationName: string;
 
@@ -4532,8 +4337,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -4549,8 +4353,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class SipAddress {
     /**
@@ -4570,8 +4373,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
@@ -4592,8 +4394,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly SIP_HOME: 1;
 
@@ -4614,8 +4415,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly SIP_WORK: 2;
 
@@ -4636,8 +4436,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly SIP_OTHER: 3;
 
@@ -4658,8 +4457,7 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
@@ -4676,8 +4474,7 @@ declare namespace contact {
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelName?: string;
 
@@ -4694,8 +4491,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     sipAddress: string;
 
@@ -4712,8 +4508,7 @@ declare namespace contact {
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     labelId?: number;
   }
@@ -4729,8 +4524,7 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 11
    */
   class Website {
     /**
@@ -4746,8 +4540,7 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @since 11
      */
     website: string;
   }
@@ -4758,8 +4551,7 @@ declare namespace contact {
    * @interface FilterOptions
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   interface FilterOptions {
 
@@ -4769,8 +4561,7 @@ declare namespace contact {
      * @type { FilterCondition }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     filterCondition: FilterCondition;
 
@@ -4780,8 +4571,7 @@ declare namespace contact {
      * @type { ?string | ValueType[] }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     value?: string | ValueType[];
   }
@@ -4793,8 +4583,7 @@ declare namespace contact {
    * @interface DataFilter
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   interface DataFilter {
 
@@ -4804,8 +4593,7 @@ declare namespace contact {
      * @type { Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     options: Array<FilterOptions>;
 
@@ -4815,8 +4603,7 @@ declare namespace contact {
      * @type { DataField }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     field: DataField;
   }
@@ -4828,8 +4615,7 @@ declare namespace contact {
    * @interface FilterClause
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   interface FilterClause {
 
@@ -4839,8 +4625,7 @@ declare namespace contact {
      * @type { ?DataFilter }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     dataItem?: DataFilter;
 
@@ -4850,8 +4635,7 @@ declare namespace contact {
      * @type { ?Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     name?: Array<FilterOptions>;
 
@@ -4861,8 +4645,7 @@ declare namespace contact {
      * @type { ?Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     id?: Array<FilterOptions>;
 
@@ -4872,8 +4655,7 @@ declare namespace contact {
      * @type { ?Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     focusModeList?: Array<FilterOptions>;
   }
@@ -4893,8 +4675,7 @@ declare namespace contact {
    * @throws { BusinessError } 16700103 - User cancel.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   function saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>;
 
@@ -4904,8 +4685,7 @@ declare namespace contact {
    * @interface ContactSelectionFilter
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   interface ContactSelectionFilter {
 
@@ -4915,8 +4695,7 @@ declare namespace contact {
      * @type { FilterClause }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     filterClause: FilterClause;
 
@@ -4926,8 +4705,7 @@ declare namespace contact {
      * @type { FilterType }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     filterType: FilterType;
   }
@@ -4938,8 +4716,7 @@ declare namespace contact {
    * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   enum FilterType {
 
@@ -4948,8 +4725,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     SHOW_FILTER = 0,
 
@@ -4958,8 +4734,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     DEFAULT_SELECT = 1,
 
@@ -4968,8 +4743,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     SHOW_FILTER_AND_DEFAULT_SELECT = 2
   }
@@ -4980,8 +4754,7 @@ declare namespace contact {
    * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   enum FilterCondition {
 
@@ -4990,8 +4763,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     EQUAL_TO = 1,
 
@@ -5000,8 +4772,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     NOT_EQUAL_TO = 2,
 
@@ -5010,8 +4781,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     IN = 3,
 
@@ -5020,8 +4790,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     IS_NOT_NULL = 0,
 
@@ -5030,8 +4799,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     NOT_IN = 4,
 
@@ -5040,8 +4808,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     CONTAINS = 5
   }
@@ -5052,8 +4819,7 @@ declare namespace contact {
    * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   enum DataField {
 
@@ -5062,8 +4828,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     PHONE = 1,
 
@@ -5072,8 +4837,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     ORGANIZATION = 2,
 
@@ -5082,8 +4846,7 @@ declare namespace contact {
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 15 dynamic
-     * @since 22 static
+     * @since 15
      */
     EMAIL = 0
   }
@@ -5102,8 +4865,7 @@ declare namespace contact {
    * @throws { BusinessError } 16700103 - User cancel.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since 15 dynamic
-   * @since 22 static
+   * @since 15
    */
   function addContactViaUI(context: Context, contact: Contact): Promise<number>;
 
@@ -5117,9 +4879,66 @@ declare namespace contact {
    * @throws { BusinessError } 16700001 - General error.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22
    */
   function queryContactsCount(context: Context): Promise<int>;
+
+  /**
+   * Creates multiple contacts in batches.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Array<Contact> } contacts - Indicates the contacts information to be inserted to the database.
+   * @returns { Promise<Array<int>> } Returns the array of contact ID (which can be obtained by {@link Contact#getId()}) 
+   *     if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 23
+   */
+  function addContacts(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * Check whether there are any calls that meet the specified condition.
+   * 
+   * By default, the system queries call records generated within 6 hours.
+   *
+   * @permission ohos.permission.CHECK_CALL_LOG
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * @param { int } minDuration - Indicates the minimum call duration in seconds.
+   * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24
+   */
+  function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int): Promise<boolean>;
+
+  /**
+   * Check whether there are any calls that meet the specified condition.
+   * 
+   * @permission ohos.permission.CHECK_CALL_LOG
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * @param { int } minDuration - Indicates the minimum call duration in seconds.
+   * @param { int } withinTime - Indicates the period of time prior to the current time that the start and end time
+   *     of calls should be within, in seconds. Up to 6 hours.
+   * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24
+   */
+  function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int, withinTime: int): Promise<boolean>;
 }
 
 export default contact;

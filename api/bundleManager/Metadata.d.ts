@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Metadata {
   /**
@@ -67,7 +67,7 @@ export interface Metadata {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   name: string;
 
@@ -94,7 +94,7 @@ export interface Metadata {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   value: string;
 
@@ -121,7 +121,7 @@ export interface Metadata {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   resource: string;
 
@@ -133,7 +133,7 @@ export interface Metadata {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly valueId?: long;
 }

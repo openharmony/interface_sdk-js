@@ -46,7 +46,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface HapModuleInfo {
   /**
@@ -75,7 +75,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -105,7 +105,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon: string;
 
@@ -135,7 +135,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: long;
 
@@ -165,7 +165,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
@@ -195,7 +195,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
@@ -225,7 +225,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly description: string;
 
@@ -255,7 +255,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 
@@ -285,7 +285,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly mainElementName: string;
 
@@ -315,7 +315,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly abilitiesInfo: Array<AbilityInfo>;
 
@@ -335,7 +335,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
@@ -365,7 +365,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly metadata: Array<Metadata>;
 
@@ -395,7 +395,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly deviceTypes: Array<string>;
 
@@ -425,7 +425,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly installationFree: boolean;
 
@@ -455,7 +455,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly hashValue: string;
 
@@ -485,7 +485,7 @@ export interface HapModuleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly type: bundleManager.ModuleType;
 
@@ -505,7 +505,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly dependencies: Array<Dependency>;
 
@@ -525,7 +525,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly preloads: Array<PreloadItem>;
 
@@ -537,7 +537,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly fileContextMenuConfig: string;
 
@@ -549,7 +549,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly routerMap: Array<RouterItem>;
 
@@ -560,7 +560,7 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly nativeLibraryPath: string;
 
@@ -572,7 +572,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly codePath: string;
 }
@@ -591,7 +591,7 @@ export interface HapModuleInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Dependency {
   /**
@@ -610,7 +610,7 @@ export interface Dependency {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -630,7 +630,7 @@ export interface Dependency {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -650,7 +650,7 @@ export interface Dependency {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 }
@@ -669,7 +669,7 @@ export interface Dependency {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PreloadItem {
   /**
@@ -688,7 +688,7 @@ export interface PreloadItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 }
@@ -700,7 +700,7 @@ export interface PreloadItem {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface RouterItem {
   /**
@@ -711,7 +711,7 @@ export interface RouterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
   /**
@@ -722,7 +722,7 @@ export interface RouterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly pageSourceFile: string;
   /**
@@ -733,7 +733,7 @@ export interface RouterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly buildFunction: string;
   /**
@@ -744,7 +744,7 @@ export interface RouterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly customData: string;
   /**
@@ -755,7 +755,7 @@ export interface RouterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly data: Array<DataItem>;
 }
@@ -767,7 +767,7 @@ export interface RouterItem {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface DataItem {
   /**
@@ -778,7 +778,7 @@ export interface DataItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly key: string;
   /**
@@ -789,7 +789,7 @@ export interface DataItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly value: string;
 }

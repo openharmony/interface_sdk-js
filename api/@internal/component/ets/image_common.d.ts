@@ -123,7 +123,7 @@ declare interface ImageAIOptions {
   types?: ImageAnalyzerType[];
 
   /**
-   * Image analyze types.
+   * Image analyze AI controller.
    *
    * @type { ?ImageAnalyzerController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

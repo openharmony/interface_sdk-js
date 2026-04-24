@@ -34,7 +34,7 @@
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace contextConstant {
   /**
@@ -53,7 +53,7 @@ declare namespace contextConstant {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum AreaMode {
     /**
@@ -70,7 +70,7 @@ declare namespace contextConstant {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL1 = 0,
 
@@ -88,7 +88,7 @@ declare namespace contextConstant {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL2 = 1,
 
@@ -100,7 +100,7 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL3 = 2,
 
@@ -113,7 +113,7 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL4 = 3,
 
@@ -126,7 +126,7 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL5 = 4
   }
@@ -138,7 +138,7 @@ declare namespace contextConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ProcessMode {
     /**
@@ -148,7 +148,7 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NEW_PROCESS_ATTACH_TO_PARENT = 1,
 
@@ -160,7 +160,7 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2,
 
@@ -172,7 +172,7 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ATTACH_TO_STATUS_BAR_ITEM = 3
   }
@@ -184,7 +184,7 @@ declare namespace contextConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum StartupVisibility {
     /**
@@ -193,7 +193,7 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STARTUP_HIDE = 0,
 
@@ -203,7 +203,7 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STARTUP_SHOW = 1
   }
@@ -216,7 +216,7 @@ declare namespace contextConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Scenarios {
     /**
@@ -227,7 +227,7 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCENARIO_MOVE_MISSION_TO_FRONT = 0x00000001,
 
@@ -239,7 +239,7 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCENARIO_SHOW_ABILITY = 0x00000002,
 
@@ -251,9 +251,102 @@ declare namespace contextConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT = 0x00000004
+  }
+
+  /**
+   * Context type
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export enum ContextType {
+    /**
+     * Application context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    APPLICATION_CONTEXT = 0,
+
+    /**
+     * Ability stage context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ABILITY_STAGE_CONTEXT = 1,
+
+    /**
+     * UI ability context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    UIABILITY_CONTEXT = 2,
+
+    /**
+     * Form extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_EXTENSION_CONTEXT = 3,
+
+    /**
+     * App service extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    APP_SERVICE_EXTENSION_CONTEXT = 4,
+
+    /**
+     * Service extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SERVICE_EXTENSION_CONTEXT = 5,
+
+    /**
+     * UI service extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core\
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    UI_SERVICE_EXTENSION_CONTEXT = 6,
+
+    /**
+     * Auto fill extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTO_FILL_EXTENSION_CONTEXT = 7
   }
 }
 

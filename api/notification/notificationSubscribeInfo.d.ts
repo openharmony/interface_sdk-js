@@ -21,67 +21,77 @@
 import type notificationManager from '../@ohos.notificationManager';
 
 /**
- * Sets filter criteria of publishers for subscribing to desired notifications.
+ * The **NotificationSubscribeInfo** module provides APIs for defining the information about the publisher for 
+ * notification subscription.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
  *
- * @typedef NotificationSubscribeInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface NotificationSubscribeInfo {
   /**
-   * Notifications from APP that specify which package names to subscribe to.
+   * Bundle names of the applications whose notifications to subscribe to. If this parameter is not specified, the 
+   * subscription defaults to notifications from all applications.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleNames?: Array<string>;
 
   /**
-   * Specify which user to subscribe to the notification from.
+   * User ID. If this parameter is not specified, the subscription defaults to notifications from all user IDs.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   userId?: int;
 
   /**
-   * Subscribing to Notifications Synchronized to Devices of a Specified Type.
+   * Device type. If this parameter is not specified, the subscription defaults to notifications from the current 
+   * device. The value is obtained based on [device information]{@link ./../@ohos.deviceInfo:deviceInfo}.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   deviceType?: string;
 
   /**
-   * Specifies the scope of notification slots for subscription.
+   * Types of the notification slots. If this parameter is not specified, the subscription defaults to notifications of 
+   * all slot types.
    *
-   * @type { ?Array<notificationManager.SlotType> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   slotTypes?: Array<notificationManager.SlotType>;
 
   /**
-   * Filtered notification type range.
+   * Notification filtering range. The default value is **0**. The options are as follows:
+   * 
+   * - **0**: All notifications are included in the subscription.
+   * - **1**: Filter out notifications whose slot type is 
+   * [SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType} and 
+   * [userInput]{@link notificationActionButton:NotificationActionButton} is empty.
+   * - **2**: Filter out notifications whose slot type is 
+   * [SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType} and 
+   * [userInput]{@link notificationActionButton:NotificationActionButton} is not empty.
    *
-   * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   filterLimit?: long;
 }

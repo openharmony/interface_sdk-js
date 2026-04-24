@@ -27,7 +27,7 @@ import { IDataSource } from '@ohos.arkui.component';
  * @extends IDataSource<T>
  * @interface IDataSourcePrefetching
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
   /**
@@ -37,7 +37,7 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
    * @param { int } index - Index of the item in the collection.
    * @returns { Promise<void> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   prefetch(index: int): Promise<void> | undefined;
 
@@ -48,7 +48,7 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
    * @param { int } index - Index of the item in the collection.
    * @returns { Promise<void> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default cancel(index: int): Promise<void> | undefined;
 }
@@ -58,7 +58,7 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
  *
  * @interface IPrefetcher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface IPrefetcher<T> {
   /**
@@ -66,7 +66,7 @@ export interface IPrefetcher<T> {
    *
    * @param { IDataSourcePrefetching<T> } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setDataSource(dataSource: IDataSourcePrefetching<T>): void;
 
@@ -76,7 +76,7 @@ export interface IPrefetcher<T> {
    * @param { int } minVisible - Index of the first visible data item.
    * @param { int } maxVisible - Index of the last visible data item.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   visibleAreaChanged(minVisible: int, maxVisible: int): void;
 }
@@ -90,7 +90,7 @@ export interface IPrefetcher<T> {
  *
  * @implements IPrefetcher<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
   /**
@@ -98,7 +98,7 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
    *
    * @param { IDataSourcePrefetching<T> } [dataSource] - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(dataSource?: IDataSourcePrefetching<T>);
 
@@ -107,7 +107,7 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
    *
    * @param { IDataSourcePrefetching<T> } dataSource - Data source that supports prefetching.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setDataSource(dataSource: IDataSourcePrefetching<T>): void;
 
@@ -117,7 +117,7 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
    * @param { int } minVisible - Index of the first visible data item.
    * @param { int } maxVisible - Index of the last visible data item.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   visibleAreaChanged(minVisible: int, maxVisible: int): void;
 }

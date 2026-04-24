@@ -539,7 +539,7 @@ declare namespace reminderAgent {
     hour: number;
 
     /**
-     * minute portion of the remidner time.
+     * minute portion of the reminder time.
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -549,7 +549,7 @@ declare namespace reminderAgent {
     minute: number;
 
     /**
-     * Days of a week when the reminder repeates.
+     * Days of a week when the reminder repeats.
      * @type { ?Array<number> }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly

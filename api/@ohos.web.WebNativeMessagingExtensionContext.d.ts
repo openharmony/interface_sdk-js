@@ -22,6 +22,7 @@
 import ExtensionContext from './application/ExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import StartOptions from './@ohos.app.ability.StartOptions';
+import { AbilityResult } from './ability/abilityResult';
 
 /**
  * The context of web native messaging extension. It allows access to WebNativeMessagingExtension-specific resources.
@@ -30,7 +31,6 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
@@ -65,10 +65,48 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
+  /**
+   * Starts an ability and returns the execution result when the ability is destroyed.
+   *
+   * @permission ohos.permission.WEB_NATIVE_MESSAGING
+   * @param { Want } want - Indicates the ability to start.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<AbilityResult> } Returns the result of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled by the AppGallery and cannot be started.
+   * @throws { BusinessError } 16000013 - The application is controlled by Enterprise Device Manager and
+   *     cannot be started.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000071 - The application does not support appClone mode in multiAppMode.
+   * @throws { BusinessError } 16000072 - The application does not support appClone and multi-instance mode in 
+   *     multiAppMode.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
+   * @throws { BusinessError } 16000076 - The app instance key is invalid.
+   * @throws { BusinessError } 16000077 - The number of app instances reaches the limit.
+   * @throws { BusinessError } 16000078 - The application does not support multiple instances.
+   * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
+   * @throws { BusinessError } 16000080 - Instances cannot be created for other applications during
+   *     inter-application startup.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
+ 
   /**
    * Destroys this web native messaging extension.
    *
@@ -80,14 +118,13 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   terminateSelf(): Promise<void>;
 
   /**
    * Stop the specified native connection.
    * 
-   * @param { int } connectionId - Indicates the id of the specified connection.
+   * @param { number } connectionId - Indicates the id of the specified connection.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -96,7 +133,6 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
-  stopNativeConnection(connectionId: int): Promise<void>;
+  stopNativeConnection(connectionId: number): Promise<void>;
 }

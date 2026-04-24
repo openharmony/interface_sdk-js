@@ -23,6 +23,7 @@
  *
  * @interface AppResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @FaAndStageModel
  * @since 3
  */
 /**
@@ -30,8 +31,9 @@
  *
  * @interface AppResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @FaAndStageModel
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export interface AppResponse {
   /**
@@ -39,6 +41,7 @@ export interface AppResponse {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 6
    */
   /**
@@ -46,8 +49,9 @@ export interface AppResponse {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   appID: string;
 
@@ -56,6 +60,7 @@ export interface AppResponse {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -63,8 +68,9 @@ export interface AppResponse {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   appName: string;
 
@@ -73,6 +79,7 @@ export interface AppResponse {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -80,8 +87,9 @@ export interface AppResponse {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   versionName: string;
 
@@ -90,6 +98,7 @@ export interface AppResponse {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -97,8 +106,9 @@ export interface AppResponse {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   versionCode: number;
 }
@@ -108,6 +118,7 @@ export interface AppResponse {
  *
  * @interface ScreenOnVisibleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 3
  */
 /**
@@ -115,8 +126,9 @@ export interface AppResponse {
  *
  * @interface ScreenOnVisibleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  */
 export interface ScreenOnVisibleOptions {
   /**
@@ -124,6 +136,7 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -131,8 +144,9 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   visible?: boolean;
 
@@ -141,6 +155,7 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -148,8 +163,9 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   success?: () => void;
 
@@ -158,6 +174,7 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -165,8 +182,9 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   fail?: (data: string, code: number) => void;
 
@@ -175,6 +193,7 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -182,8 +201,9 @@ export interface ScreenOnVisibleOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   complete?: () => void;
 }
@@ -193,6 +213,7 @@ export interface ScreenOnVisibleOptions {
  *
  * @interface RequestFullWindowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 3
  */
 /**
@@ -200,8 +221,9 @@ export interface ScreenOnVisibleOptions {
  *
  * @interface RequestFullWindowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  */
 export interface RequestFullWindowOptions {
   /**
@@ -209,6 +231,7 @@ export interface RequestFullWindowOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3
    */
   /**
@@ -216,8 +239,9 @@ export interface RequestFullWindowOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   duration: number;
 }
@@ -226,14 +250,16 @@ export interface RequestFullWindowOptions {
  * Defines the app class info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @FaAndStageModel
  * @since 3
  */
 /**
  * Defines the app class info.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @FaAndStageModel
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export default class App {
   /**
@@ -241,15 +267,18 @@ export default class App {
    *
    * @returns { AppResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @since 3
    */
   /**
-   * Obtains the declared information in the config.json file of an application. It will return null when used in StageModel.
+   * Obtains the declared information in the config.json file of an application. It will return null when used in
+   * StageModel.
    *
    * @returns { AppResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   static getInfo(): AppResponse;
 
@@ -257,14 +286,16 @@ export default class App {
    * Destroys the current ability.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @since 3
    */
   /**
    * Destroys the current ability. It does not work in StageModel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   static terminate(): void;
 
@@ -274,7 +305,7 @@ export default class App {
    *
    * @param { ScreenOnVisibleOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   static screenOnVisible(options?: ScreenOnVisibleOptions): void;
@@ -300,6 +331,7 @@ export default class App {
    *
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -308,6 +340,7 @@ export default class App {
    *
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -319,6 +352,7 @@ export default class App {
    *
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -327,6 +361,7 @@ export default class App {
    *
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -338,6 +373,7 @@ export default class App {
    *
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -346,8 +382,9 @@ export default class App {
    *
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   static setImageFileCacheSize(value: number): void;
 }

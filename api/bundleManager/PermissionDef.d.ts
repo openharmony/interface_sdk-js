@@ -25,7 +25,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PermissionDef {
   /**
@@ -36,7 +36,7 @@ export interface PermissionDef {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly permissionName: string;
 
@@ -48,7 +48,7 @@ export interface PermissionDef {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly grantMode: int;
 
@@ -60,7 +60,7 @@ export interface PermissionDef {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
@@ -72,7 +72,7 @@ export interface PermissionDef {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 }

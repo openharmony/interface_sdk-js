@@ -1078,6 +1078,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onCopy(callback: (value: string) => void): TextAreaAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): TextAreaAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback
@@ -1105,6 +1118,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11 dynamic
    */
   onCut(callback: (value: string) => void): TextAreaAttribute;
+
+  /**
+   * Called before using the Clipboard cut menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCut(callback: Callback<string, boolean>): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1299,6 +1325,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Define bar state of the text area.
+   *
+   * @param { BarState } value - Default value is BarState.Auto.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   barState(value: BarState): TextAreaAttribute;
 
@@ -1613,7 +1649,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard of the text area.
@@ -1963,6 +1999,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 15 dynamic
    */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
 
   /**
@@ -2030,6 +2076,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 
   /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
    * Called before the text input component attach the InputMethod.
    *
    * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
@@ -2041,6 +2099,95 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 22 dynamic
    */
   onWillAttachIME(callback: Callback<IMEClient> | undefined): TextAreaAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAreaAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextAreaAttribute;
+  
+  /**
+   * Set voice button options.
+   *
+   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextAreaAttribute;
+  
+  /**
+   * Whether to enable horizontal scrolling when text is wider than the view.
+   * The default value is false, and text will be wrapped by the view.
+   *
+   * @param { Optional<boolean> } enabled - whether to enable horizontal scrolling.
+   * True means enable this feature, false means disable this feature.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute;
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false,
+   *     indicates the flag whether to enable this feature.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

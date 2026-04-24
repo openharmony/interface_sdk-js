@@ -33,7 +33,7 @@ import { CompletionHandlerForAbilityStartCallback } from '../@ohos.app.ability.C
  * @typedef { function } OnResultFn
  * @param { AbilityResult } parameter - The Parameter returned if the UIExtensionAbility call terminateSelfWithResult.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 static
+ * @since 23 static
  */
 type OnResultFn = (parameter: AbilityResult) => void;
 
@@ -56,7 +56,7 @@ export default class AbilityStartCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 declare interface AbilityStartCallback {
 /*** endif */
@@ -70,7 +70,7 @@ declare interface AbilityStartCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onError(code: int, name: string, message: string): void;
 
@@ -91,7 +91,7 @@ declare interface AbilityStartCallback {
    * @type { ?OnResultFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onResult?: OnResultFn;
 
@@ -103,7 +103,7 @@ declare interface AbilityStartCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   completionHandler?: CompletionHandlerForAbilityStartCallback;
 }

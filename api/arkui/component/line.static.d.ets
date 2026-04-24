@@ -18,14 +18,15 @@
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { Length } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the Shape Point, the first element is the x-axis offset and the second is the y-axis.
  *
  * @typedef { [Length, Length] } ShapePoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 export type ShapePoint = [
     Length,
@@ -37,25 +38,25 @@ export type ShapePoint = [
  *
  * @interface LineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface LineOptions {
     /**
      * Width of the rectangle where the line resides.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Height of the rectangle where the line resides.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -64,7 +65,7 @@ export interface LineOptions {
  * @extends CommonShapeMethod
  * @interface LineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface LineAttribute extends CommonShapeMethod {
     /**
@@ -73,7 +74,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @param { ShapePoint | undefined } value
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default startPoint(value: ShapePoint | undefined): this;
     /**
@@ -82,7 +83,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @param { ShapePoint | undefined } value
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default endPoint(value: ShapePoint | undefined): this;
     /**
@@ -91,7 +92,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -100,15 +101,13 @@ export declare interface LineAttribute extends CommonShapeMethod {
  * Line is returned when the parameter is transferred.
  *
  * @param { LineOptions } [options] - The options to create a Line
- * @param { function } [content_]
  * @returns { LineAttribute } The attribute of the Line.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Line(
-    options?: LineOptions, 
-    @memo
-    content_?: () => void,
+    options?: LineOptions
 ): LineAttribute

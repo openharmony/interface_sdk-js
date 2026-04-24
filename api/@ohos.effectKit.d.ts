@@ -25,25 +25,29 @@ import image from './@ohos.multimedia.image';
 /*** if arkts static */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+import { FractionStop } from './arkui/component/common';
 /*** endif */
 
 /**
  * @namespace effectKit
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @since 9
  */
 /**
  * @namespace effectKit
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @form
  * @atomicservice
  * @since 12
  */
 /**
  * @namespace effectKit
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform
  * @form
  * @atomicservice
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 
 declare namespace effectKit {
@@ -70,7 +74,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Filter {
 
@@ -100,7 +104,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     blur(radius: double): Filter;
 
@@ -113,9 +117,34 @@ declare namespace effectKit {
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     blur(radius: double, tileMode: TileMode): Filter;
+   
+    /**
+    * Adds the elliptical gradient blur effect to the filter linked list, and returns the head node of the linked list.
+    * @param { double } blurRadius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    *     A larger value indicates a more obvious effect.
+    * @param { EllipticalMaskCenter } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
+    *     the component, and floating-point numbers are allowed. Values exceeding the boundary will be automatically 
+    *     truncated during implementation. 
+    * @param { EllipticalMaskRadius } maskRadius - Set the major axis and minor axis of the ellipse. 
+    *     A radius of 1 is equal to the height of the component. The value range is [0, 10], 
+    *     and floating-point numbers are allowed. Values exceeding the boundary 
+    *     will be automatically truncated during implementation. 
+    * @param { FractionStop[] } fractionStops - Gradient blur position and intensity array. 
+    *     The array length ranges from 0 to 12. It has no effect if the length is 0 or greater than 12. 
+    *     Both position and intensity values are between 0 and 1. Position 0 corresponds to the ellipse center, 
+    *     and position 1 corresponds to the ellipse boundary. Intensity 0 means no blur, while intensity 1 equals the 
+    *     blur effect of the input blur radius. 
+    * @returns { Filter } Final image effect.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @stagemodelonly
+    * @systemapi
+    * @since 23 dynamic&static
+    */
+    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter, maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
     * A Brightness effect is added to the image.
@@ -142,7 +171,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     brightness(bright: double): Filter;
 
@@ -168,7 +197,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     grayscale(): Filter;
 
@@ -184,7 +213,7 @@ declare namespace effectKit {
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     invert(): Filter;
 
@@ -209,7 +238,7 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setColorMatrix(colorMatrix: Array<double>): Filter;
 
@@ -245,7 +274,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
 
@@ -258,6 +287,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 20 dynamic
+	* @since 23 static
     */
     getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
   }
@@ -284,7 +314,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorPicker {
 
@@ -310,7 +340,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMainColor(): Promise<Color>;
 
@@ -336,7 +366,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMainColorSync(): Color;
 
@@ -362,7 +392,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLargestProportionColor(): Color;
 
@@ -388,7 +418,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTopProportionColors(colorCount: int): Array<Color | null>;
 
@@ -405,9 +435,21 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
+
+    /**
+     * Get the proportion of transparent pixels with alpha=0 in the image
+     * @returns { double } proportion of transparent pixels with alpha=0
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 23 dynamic&static
+     */
+    getAlphaZeroTransparentProportion(): double;
 
     /**
      * Get shade degree of an image
@@ -416,7 +458,8 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getShadeDegree(): PictureShadeDegree;
 
@@ -427,7 +470,8 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getComplexityDegree(): PictureComplexityDegree;
 
@@ -453,7 +497,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getHighestSaturationColor(): Color;
 
@@ -479,20 +523,20 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAverageColor(): Color;
 
     /**
      * Determine whether the color is black or white or gray
-     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
@@ -501,17 +545,181 @@ declare namespace effectKit {
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    isBlackOrWhiteOrGrayColor(color: int): boolean;
+    isBlackOrWhiteOrGrayColor(color: long): boolean;
+
+    /**
+     * Gets the Morandi shadow color from the dominant color.
+     *
+     * @returns { Color } - returns the Morandi shadow color converted from the dominant color.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getMorandiShadowColor(): Color;
+
+    /**
+     * Generates a stronger immersion color that merges with the background color and is deeper than
+     * the background color.
+     *
+     * @returns { Color } - returns the stronger immersion color that both blends with the background
+     *     and appears deeper than the background.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getDeepenImmersionColor(): Color;
+
+    /**
+     * Generates an immersive background color that creates an immersive visual effect.
+     *
+     * @returns { Color } - returns the immersive background color.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getImmersiveBackgroundColor(): Color;
+
+    /**
+     * Generates an immersive foreground color that creates an immersive visual effect for text and content.
+     *
+     * @returns { Color } - returns the immersive foreground color.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getImmersiveForegroundColor(): Color;
+
+    /**
+     * Discriminates the light and dark degree of the picture.
+     *
+     * @returns { PictureLightDegree } - returns the picture light and dark degree.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    discriminatePictureLightDegree(): PictureLightDegree;
+
+    /**
+     * Gets the reverse color based on the discriminatePictureLightDegree result.
+     * When the picture light degree is EXTREMELY_LIGHT_COLOR_PICTURE, returns black color.
+     * For other picture light degree types, returns white color.
+     *
+     * @returns { Color } - returns the reverse color for UI themes or contrast calculations.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getReverseColor(): Color;
   }
+
+  /**
+   * The picture light color degree.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.0.0 dynamic&static
+   */
+  enum PictureLightDegree {
+    /**
+     * Unknown light color degree picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_LIGHT_COLOR_DEGREE_PICTURE = 0,
+ 	 
+    /**
+     * Extremely light color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    EXTREMELY_LIGHT_COLOR_PICTURE = 1,
+
+    /**
+     * Light color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    LIGHT_COLOR_PICTURE = 2,
+ 	 
+    /**
+     * Dark color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    DARK_COLOR_PICTURE = 3,
+ 	 
+    /**
+     * Extremely dark color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    EXTREMELY_DARK_COLOR_PICTURE = 4,
+ 	 
+    /**
+     * Flowery picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    FLOWERY_PICTURE = 5,
+ 	 
+    /**
+     * Extremely flowery picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    EXTREMELY_FLOWERY_PICTURE = 6
+ 	}
 
   /**
    * The color param.
@@ -535,7 +743,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Color {
 
@@ -561,7 +769,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     red: int;
 
@@ -587,7 +795,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     green: int;
 
@@ -613,7 +821,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     blue: int;
 
@@ -639,7 +847,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alpha: int;
   }
@@ -670,7 +878,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -703,7 +911,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
@@ -745,7 +953,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
@@ -778,7 +986,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   
@@ -821,7 +1029,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
@@ -831,7 +1039,7 @@ declare namespace effectKit {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum TileMode {
     /**
@@ -839,7 +1047,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLAMP = 0,
 
@@ -848,7 +1056,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REPEAT = 1,
 
@@ -857,7 +1065,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIRROR = 2,
 
@@ -866,7 +1074,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DECAL = 3,
   }
@@ -877,7 +1085,8 @@ declare namespace effectKit {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum PictureShadeDegree {
     /**
@@ -885,7 +1094,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     UNKNOWN_SHADE_DEGREE_PICTURE = 0,
 
@@ -894,7 +1104,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EXTREMELY_LIGHT_PICTURE = 1,
 
@@ -903,7 +1114,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     VERY_LIGHT_PICTURE = 2,
 
@@ -912,7 +1124,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LIGHT_PICTURE = 3,
 
@@ -921,7 +1134,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     MODERATE_SHADE_PICTURE = 4,
 
@@ -930,7 +1144,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     DARK_PICTURE = 5,
 
@@ -939,7 +1154,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EXTREMELY_DARK_PICTURE = 6,
   }
@@ -950,7 +1166,8 @@ declare namespace effectKit {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum PictureComplexityDegree {
     /**
@@ -958,7 +1175,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     UNKNOWN_COMPLEXITY_DEGREE_PICTURE = 0,
 
@@ -967,7 +1185,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PURE_PICTURE = 1,
 
@@ -976,7 +1195,8 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     MODERATE_COMPLEXITY_PICTURE = 2,
 
@@ -985,10 +1205,39 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     VERY_FLOWERY_PICTURE = 3,
   }
+
+/**
+ * The center of the elliptical mask, 
+ * specifying where the ellipse mask is anchored in function 'ellipticalGradientBlur'.
+ * @typedef { [double, double] } EllipticalMaskCenter
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type EllipticalMaskCenter = [
+  double,
+  double
+];
+
+/**
+ * The major axis and minor axis of the elliptical mask
+ * used in function 'ellipticalGradientBlur'.
+ * @typedef { [double, double] } EllipticalMaskRadius
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type EllipticalMaskRadius = [
+  double,
+  double
+];
 }
 
 export default effectKit;

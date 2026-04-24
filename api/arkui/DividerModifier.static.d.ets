@@ -26,6 +26,6 @@ import { DividerAttribute } from '@ohos.arkui.component';
  *
  * @implements DividerAttribute, AttributeModifier<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
 */
 export declare class DividerModifier implements DividerAttribute, AttributeModifier<DividerAttribute> {}

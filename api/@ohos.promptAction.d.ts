@@ -90,7 +90,7 @@ export class LevelOrder {
     /**
      * Generate valid level order.
      *
-     * @param { number } order - Clamp order with mininum number -100000 and maximum number 100000.
+     * @param { number } order - Clamp order with minimum number -100000 and maximum number 100000.
      * @returns { LevelOrder } the order object.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -125,6 +125,7 @@ export class LevelOrder {
 /**
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -144,6 +145,7 @@ declare namespace promptAction {
     /**
      * @typedef ShowToastOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -169,6 +171,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -200,6 +203,7 @@ declare namespace promptAction {
          *
          * @type { ?number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -225,6 +229,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | number) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -331,6 +336,17 @@ declare namespace promptAction {
          * @since 14 dynamic
          */
         hoverModeArea?: HoverModeAreaType;
+        /**
+ 	     * Set system-styled materials for toast. Different materials have different effects, which can influence
+ 	     * backgroundColor, border, shadow, and other visual attributes of toast.
+ 	     *
+ 	     * @type { ?SystemUiMaterial }
+ 	     * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	     * @stagemodelonly
+ 	     * @atomicservice
+ 	     * @since 26.0.0 dynamic
+ 	     */
+ 	    systemMaterial?: SystemUiMaterial;
     }
     /**
      * Enum for the toast showMode.
@@ -402,6 +418,7 @@ declare namespace promptAction {
     /**
      * @typedef Button
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -427,6 +444,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -452,6 +470,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -482,6 +501,7 @@ declare namespace promptAction {
     /**
      * @typedef ShowDialogSuccessResponse
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -507,6 +527,7 @@ declare namespace promptAction {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -527,6 +548,7 @@ declare namespace promptAction {
     /**
      * @typedef ShowDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -552,6 +574,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -577,6 +600,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -595,7 +619,7 @@ declare namespace promptAction {
         /**
          * Array of buttons in the dialog box.
          * The array structure is {text:'button', color: '#666666'}.
-         * More than one buttons are supported.
+         * More than one buttons is supported.
          *
          * @type { ?Array<Button> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -605,10 +629,11 @@ declare namespace promptAction {
         /**
          * Array of buttons in the dialog box.
          * The array structure is {text:'button', color: '#666666'}.
-         * More than one buttons are supported.
+         * More than one buttons is supported.
          *
          * @type { ?Array<Button> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -856,13 +881,27 @@ declare namespace promptAction {
          * Determine the display order of the dialog.
          *
          * @type { ?LevelOrder }
-         * @default The value returns by LevelOrder.clamp(0)
+         * @default The value returned by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         levelOrder?: LevelOrder;
+        /**
+         * Set system-styled materials for dialog. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of dialog.
+         * 
+         * Device Behavior Differences:The effect of same material may vary across different devices depending on
+         * their computing power.
+         *
+         * @type { ?SystemUiMaterial }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        systemMaterial?: SystemUiMaterial;
     }
     /**
      * Enum for state.
@@ -893,7 +932,7 @@ declare namespace promptAction {
          */
         INITIALIZED = 1,
         /**
-         * Indicates it is appearig.
+         * Indicates it is appearing.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @crossplatform
@@ -1288,7 +1327,7 @@ declare namespace promptAction {
          * Determine the display order of the dialog.
          *
          * @type { ?LevelOrder }
-         * @default The value returns by LevelOrder.clamp(0)
+         * @default The value returned by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @crossplatform
          * @atomicservice
@@ -1306,6 +1345,19 @@ declare namespace promptAction {
          * @since 19 dynamic
          */
         focusable?: boolean;
+        /**
+         * Set system-styled materials for dialog. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of dialog.
+         * Device Behavior Differences:The effect of same material may vary across different devices depending on
+         * their computing power.
+         *
+         * @type { ?SystemUiMaterial }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        systemMaterial?: SystemUiMaterial;
     }
     /**
      * Dialog's custom content options
@@ -1604,6 +1656,7 @@ declare namespace promptAction {
     /**
      * @typedef ActionMenuSuccessResponse
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -1629,6 +1682,7 @@ declare namespace promptAction {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1649,6 +1703,7 @@ declare namespace promptAction {
     /**
      * @typedef ActionMenuOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -1674,6 +1729,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1705,6 +1761,7 @@ declare namespace promptAction {
          *
          * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1827,6 +1884,20 @@ declare namespace promptAction {
          * @since 20 dynamic
          */
         onWillDisappear?: Callback<void>;
+        /**
+         * Set system-styled materials for dialog. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of dialog.
+         * 
+         * Device Behavior Differences:The effect of same material may vary across different devices depending on
+         * their computing power.
+         *
+         * @type { ?SystemUiMaterial }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        systemMaterial?: SystemUiMaterial;
     }
     /**
      * Displays the notification text.
@@ -1863,6 +1934,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -1889,7 +1961,7 @@ declare namespace promptAction {
     /**
      * Close the notification text.
      *
-     * @param { number } toastId - the toast id that returned by openToast.
+     * @param { number } toastId - the toast id returned by openToast.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -1940,6 +2012,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -1985,6 +2058,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -2027,7 +2101,7 @@ declare namespace promptAction {
     /**
      * Close the custom dialog.
      *
-     * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+     * @param { number } dialogId - the dialog id returned by openCustomDialog.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -2040,7 +2114,7 @@ declare namespace promptAction {
     /**
      * Close the custom dialog.
      *
-     * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+     * @param { number } dialogId - the dialog id returned by openCustomDialog.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -2092,6 +2166,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -2137,6 +2212,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly

@@ -21,7 +21,7 @@
 import { Builder } from './builder';
 import { Theme } from '@ohos.arkui.theme';
 import { UIContext } from '@ohos.arkui.UIContext';
-import { Optional, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
+import { NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
 import { IVariableOwner } from '../stateManagement/decorator';
 import promptAction from '@ohos.promptAction'
 
@@ -29,7 +29,7 @@ import promptAction from '@ohos.promptAction'
  * Defining interface of LifeCycle for custom component and custom dialog
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface LifeCycle {
     /**
@@ -39,7 +39,7 @@ export declare interface LifeCycle {
      * before its build() function is executed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default aboutToAppear(): void;
 
@@ -49,7 +49,7 @@ export declare interface LifeCycle {
      * The aboutToDisappear function executes before a custom component is destroyed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default aboutToDisappear(): void;
 
@@ -59,7 +59,7 @@ export declare interface LifeCycle {
      * Triggered when the custom component has been built.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onDidBuild(): void;
 
@@ -67,7 +67,7 @@ export declare interface LifeCycle {
      * Customize the build process of the custom component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @Builder
     build(): void
@@ -78,7 +78,8 @@ export declare interface LifeCycle {
  *
  * @implements { LifeCycle, IVariableOwner }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare abstract class ExtendableComponent implements LifeCycle, IVariableOwner {
     /**
@@ -86,7 +87,7 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
      *
      * @param { Theme } theme - Custom theme init params.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onWillApplyTheme(theme: Theme): void;
 
@@ -95,7 +96,7 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
      *
      * @returns { UIContext } The UIContext that the custom component belongs to.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     getUIContext(): UIContext
 
@@ -104,7 +105,7 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
      *
      * @returns { int } - The uniqueId of the custom component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     getUniqueId(): int
     
@@ -113,26 +114,28 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
     *
     * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     queryNavDestinationInfo(): NavDestinationInfo | undefined;
 
     /**
-    * Queries the navigation destination information.
-    *
-    * @param { Optional<boolean> } isInner
-    * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
-    */
-    queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
+     * Queries the navigation destination information.
+     *
+     * @param { boolean | undefined } isInner
+     * @returns { NavDestinationInfo | undefined } - The navigation destination information,
+     *     or undefined if it is not available.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    queryNavDestinationInfo(isInner: boolean | undefined): NavDestinationInfo | undefined;
 
     /**
     * Query the navigation information of the current custom component.
     *
     * @returns { NavigationInfo | undefined } The navigation information, or undefined if it is not available
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     queryNavigationInfo(): NavigationInfo | undefined;
 
@@ -141,7 +144,7 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
     *
     * @returns { RouterPageInfo | undefined } The router page information, or undefined if it is not available.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     queryRouterPageInfo(): RouterPageInfo | undefined;
 
@@ -151,7 +154,7 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
      * @returns { promptAction.DialogController | undefined } The controller of dialog,
      * or undefined if the custom component does not display in the dialog.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     getDialogController(): promptAction.DialogController | undefined;
 }

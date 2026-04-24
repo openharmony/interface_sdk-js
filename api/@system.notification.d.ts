@@ -14,65 +14,62 @@
  */
 
 /**
+ * > **NOTE**
+ * >
+ * > - The APIs of this module are no longer maintained since API version 7. You are advised to use 
+ * > [@ohos.notification]{@link @ohos.notification:notification}.
+ *
  * @file
  * @kit NotificationKit
  */
 
 /**
- * @typedef ActionResult
+ *
  * @syscap SystemCapability.Notification.Notification
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  */
 export interface ActionResult {
   /**
-   * Bundle name of the application to be redirected to after the notification is clicked.
+   * Name of the application bundle to which the notification will be redirected after being clicked.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    */
   bundleName: string;
 
   /**
-   * Ability name of the application to be redirected to after the notification is clicked.
+   * Name of the application ability to which the notification will be redirected after being clicked.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    */
   abilityName: string;
 
   /**
-   * URI of the page to be redirected to. The supported URI formats are as follows:
-   * 1. Absolute path of the page, which is provided by the pages list in the config.json file. Example:
-   * pages/index/index
-   * pages/detail/detail
-   * 2. Particular path. If the value is a slash (/), the home page is displayed.
+   * URI of the page to be redirected to.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    */
   uri: string;
 }
 
 /**
- * @typedef ShowNotificationOptions
+ *
  * @syscap SystemCapability.Notification.Notification
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  */
 export interface ShowNotificationOptions {
   /**
    * Notification title.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    */
   contentTitle?: string;
@@ -80,19 +77,19 @@ export interface ShowNotificationOptions {
   /**
    * Notification content.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    */
   contentText?: string;
 
   /**
-   * Action triggered after the notification is clicked.
+   * Action triggered when the notification is clicked.
+   * 
+   * This API is deprecated since API version 7.
    *
-   * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    */
   clickAction?: ActionResult;
@@ -100,7 +97,7 @@ export interface ShowNotificationOptions {
 
 /**
  * Manages notifications.
- * 
+ *
  * @syscap SystemCapability.Notification.Notification
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -110,10 +107,11 @@ declare class Notification {
   /**
    * Displays the notification.
    *
-   * @param { ShowNotificationOptions } [options] - Options.
+   * @param { ShowNotificationOptions } [options] - Notification title.
    * @syscap SystemCapability.Notification.Notification
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
+   * @useinstead ohos.notification/notification
    */
   static show(options?: ShowNotificationOptions): void;
 }

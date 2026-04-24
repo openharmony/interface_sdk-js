@@ -28,7 +28,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * Common products should not use these APIs.</p>
  *
  * @namespace wifiext
- * @since 8 dynamic
+ * @syscap SystemCapability.Communication.WiFi.AP.Extension
+ * @since 8 dynamiconly
  */
 declare namespace wifiext {
   /**

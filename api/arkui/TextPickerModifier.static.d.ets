@@ -26,6 +26,6 @@ import { TextPickerAttribute } from '@ohos.arkui.component';
  *
  * @implements { TextPickerAttribute, AttributeModifier<TextPickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class TextPickerModifier implements TextPickerAttribute, AttributeModifier<TextPickerAttribute> {}

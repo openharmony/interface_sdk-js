@@ -25,12 +25,7 @@ import type accessibility from '../@ohos.accessibility';
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
-/*** if arkts dynamic */
-import { AccessibilityAction, FocusMoveResultCode } from '../@ohos.accessibility';
-/*** endif */
-/*** if arkts static */
-import { FocusMoveResultCode } from '../@ohos.accessibility';
-/*** endif */
+import { AccessibilityAction, FocusMoveResultCode, InjectActionType } from '../@ohos.accessibility';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -38,7 +33,7 @@ import { FocusMoveResultCode } from '../@ohos.accessibility';
  * @extends ExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
@@ -271,7 +266,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -289,7 +284,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getElements(windowId: int, elementId?: long): Promise<Array<AccessibilityElement>>;
 
@@ -306,7 +301,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getDefaultFocusedElementIds(windowId: int): Promise<Array<long>>;
 
@@ -319,6 +314,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   holdRunningLockSync(): void;
 
@@ -331,6 +327,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   unholdRunningLockSync(): void;
 
@@ -349,6 +346,19 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   on(type: 'preDisconnect', callback: Callback<void>): void;
 
   /**
+   * Register accessibilityExtensionAbility disconnect callback.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { Callback<void> } callback Indicates the callback function.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 static
+   */
+  onPreDisconnect(callback: Callback<void>): void;
+
+  /**
    * Unregister accessibilityExtensionAbility disconnect callback.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
@@ -363,6 +373,19 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   off(type: 'preDisconnect', callback?: Callback<void>): void;
 
   /**
+   * Unregister accessibilityExtensionAbility disconnect callback.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { Callback<void> } callback Indicates the callback function.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 static
+   */
+  offPreDisconnect(callback?: Callback<void>): void;
+
+  /**
    * Notify accessibility when accessibilityExtensionAbility is ready to disconnect.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
@@ -371,6 +394,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   notifyDisconnect(): void;
 
@@ -386,6 +410,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   getAccessibilityFocusedElement(): Promise<AccessibilityElement>;
 
@@ -402,7 +427,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
@@ -418,6 +443,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>;
 }
@@ -430,7 +456,15 @@ export default AccessibilityExtensionContext;
  * @typedef AccessibilityElement
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 22 static
+ */
+/**
+ * Indicates an accessibility element.
+ * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+ *
+ * @typedef AccessibilityElement
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @stagemodelonly
+ * @since 23 dynamic&static
  */
 export declare interface AccessibilityElement {
   /**
@@ -564,7 +598,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCursorPosition(callback: AsyncCallback<int>): void;
 
@@ -575,7 +609,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCursorPosition(): Promise<int>;
 
@@ -592,7 +626,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enableScreenCurtain(isEnable: boolean): void;
 
@@ -716,7 +750,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   findElementByTextType(condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -744,7 +778,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   findElementByElementId(condition: long): Promise<AccessibilityElement>;
 
@@ -755,6 +789,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityFocused?: boolean;
 
@@ -765,6 +800,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   bundleName?: string;
 
@@ -775,6 +811,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   checkable?: boolean;
 
@@ -785,6 +822,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   checked?: boolean;
 
@@ -795,6 +833,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   clickable?: boolean;
 
@@ -805,6 +844,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   componentId?: long;
 
@@ -815,6 +855,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   componentType?: string;
 
@@ -825,6 +866,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   contents?: Array<string>;
 
@@ -835,6 +877,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   currentIndex?: int;
 
@@ -845,6 +888,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   description?: string;
 
@@ -855,6 +899,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   editable?: boolean;
 
@@ -865,6 +910,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   endIndex?: int;
 
@@ -875,6 +921,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   error?: string;
 
@@ -885,6 +932,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   focusable?: boolean;
 
@@ -895,6 +943,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   hintText?: string;
 
@@ -905,6 +954,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   inputType?: int;
 
@@ -915,6 +965,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   inspectorKey?: string;
 
@@ -925,6 +976,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   isActive?: boolean;
 
@@ -935,6 +987,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   isEnable?: boolean;
 
@@ -945,6 +998,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   isHint?: boolean;
 
@@ -955,6 +1009,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   isFocused?: boolean;
 
@@ -965,6 +1020,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   isPassword?: boolean;
 
@@ -975,6 +1031,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   isVisible?: boolean;
 
@@ -985,6 +1042,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   itemCount?: int;
 
@@ -995,6 +1053,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   lastContent?: string;
 
@@ -1005,6 +1064,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   layer?: int;
 
@@ -1015,6 +1075,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   longClickable?: boolean;
 
@@ -1025,6 +1086,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   pageId?: int;
 
@@ -1035,6 +1097,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   pluralLineSupported?: boolean;
 
@@ -1045,6 +1108,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   rect?: Rect;
 
@@ -1055,6 +1119,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   resourceName?: string;
 
@@ -1065,6 +1130,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   screenRect?: Rect;
 
@@ -1075,6 +1141,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   scrollable?: boolean;
 
@@ -1085,6 +1152,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   selected?: boolean;
 
@@ -1095,6 +1163,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   startIndex?: int;
 
@@ -1105,6 +1174,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   text?: string;
 
@@ -1115,6 +1185,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   textLengthLimit?: int;
 
@@ -1125,6 +1196,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   textMoveUnit?: accessibility.TextMoveUnit;
 
@@ -1135,6 +1207,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   triggerAction?: AccessibilityAction;
 
@@ -1145,6 +1218,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   type?: WindowType;
 
@@ -1155,6 +1229,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   valueMax?: double;
 
@@ -1165,6 +1240,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   valueMin?: double;
 
@@ -1175,6 +1251,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   valueNow?: double;
 
@@ -1185,16 +1262,18 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   windowId?: int;
 
   /**
-   * Indicates the offset.
+   * Indicates the offset, in units of px.
    *
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   offset?: double;
 
@@ -1205,6 +1284,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   textType?: string;
 
@@ -1215,8 +1295,49 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityText?: string;
+
+  /**
+   * Indicates the custom state of component.
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  accessibilityStateDescription?: string;
+
+  /**
+   * Indicates whether this node is essential to users.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isEssential?: boolean;
+
+  /**
+   * Indicates id of the component tree to which the node belongs.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  belongTreeId?: int;
+
+  /**
+   * Indicates the id of a child component tree.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  childrenTreeId?: int;
 
   /**
    * Indicates the hot area of the element.
@@ -1225,6 +1346,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   hotArea?: Rect;
 
@@ -1235,6 +1357,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   customComponentType?: string;
 
@@ -1245,6 +1368,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityNextFocusId?: long;
 
@@ -1255,6 +1379,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityPreviousFocusId?: long;
 
@@ -1265,6 +1390,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   extraInfo?: string;
 
@@ -1275,6 +1401,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityScrollable?: boolean;
 
@@ -1285,6 +1412,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   supportedActionNames?: Array<string>;
 
@@ -1295,6 +1423,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityGroup?: boolean;
 
@@ -1305,6 +1434,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityLevel?: string;
 
@@ -1315,6 +1445,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   navDestinationId?: long;
 
@@ -1325,6 +1456,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   currentItem?: AccessibilityGrid;
 
@@ -1335,6 +1467,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   spans?: AccessibilitySpan[];
 
@@ -1345,6 +1478,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityVisible?: boolean;
 
@@ -1355,7 +1489,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   mainWindowId?: int;
 
@@ -1366,6 +1500,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   clip?: boolean;
 
@@ -1376,6 +1511,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   parentId?: long;
 
@@ -1386,6 +1522,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   childrenIds?: Array<long>;
 
@@ -1402,6 +1539,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   executeAction(action: AccessibilityAction, parameters?: Parameter): Promise<void>;
 
@@ -1415,6 +1553,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   getParent(): Promise<AccessibilityElement>;
 
@@ -1428,6 +1567,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   getChildren(): Promise<Array<AccessibilityElement>>;
 
@@ -1441,6 +1581,7 @@ export declare interface AccessibilityElement {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
   getRoot(): Promise<AccessibilityElement>;
 
@@ -1456,6 +1597,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   findElementByContent(condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -1471,6 +1613,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   findElementByFocusDirection(condition: FocusDirection): Promise<AccessibilityElement>;
 
@@ -1486,6 +1629,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   findElementsByAccessibilityHintText(condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -1501,6 +1645,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   findElementById(condition: long): Promise<AccessibilityElement>;
 
@@ -1528,6 +1673,7 @@ export declare interface AccessibilityElement {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 interface AccessibilityGrid {
   /**
@@ -1537,6 +1683,7 @@ interface AccessibilityGrid {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   rowIndex: int;
   /**
@@ -1546,6 +1693,7 @@ interface AccessibilityGrid {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   columnIndex: int;
 }
@@ -1557,6 +1705,7 @@ interface AccessibilityGrid {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 interface AccessibilitySpan {
   /**
@@ -1566,6 +1715,7 @@ interface AccessibilitySpan {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   spanId: int;
   /**
@@ -1575,6 +1725,7 @@ interface AccessibilitySpan {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   spanText: string;
   /**
@@ -1584,6 +1735,7 @@ interface AccessibilitySpan {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityText: string;
   /**
@@ -1593,6 +1745,7 @@ interface AccessibilitySpan {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityDescription: string;
   /**
@@ -1602,6 +1755,7 @@ interface AccessibilitySpan {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   accessibilityLevel: string;
 }
@@ -1612,6 +1766,7 @@ interface AccessibilitySpan {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 export declare class Parameter {
   /**
@@ -1621,6 +1776,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   setText?: string;
   /**
@@ -1630,6 +1786,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   selectTextBegin?: string;
   /**
@@ -1639,6 +1796,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   selectTextEnd?: string;
   /**
@@ -1648,6 +1806,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   selectTextInForWard?: boolean;
   /**
@@ -1657,6 +1816,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   offset?: string;
   /**
@@ -1666,6 +1826,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   spanId?: string;
   /**
@@ -1675,8 +1836,18 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   scrollType?: string;
+  /**
+   * Indicates the action type for AccessibilityAction.INJECT_ACTION.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  injectActionType?: InjectActionType;
 }
 
 /**
@@ -1691,6 +1862,14 @@ export declare class Parameter {
  * @typedef ElementAttributeValues
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 11 dynamiconly
+ */
+/**
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @typedef ElementAttributeValues
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @stagemodelonly
+ * @since 23 dynamiconly
  */
 export interface ElementAttributeValues {
   /**
@@ -2070,7 +2249,7 @@ export interface ElementAttributeValues {
    */
   windowId: int;
   /**
-   * Indicates the offset.
+   * Indicates the offset, in units of px.
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2093,6 +2272,16 @@ export interface ElementAttributeValues {
    * @since 12 dynamiconly
    */
   accessibilityText: string;
+  /**
+   * Indicates the custom state of component.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamiconly
+   */
+  accessibilityStateDescription?: string;
   /**
    * Indicates the hot area of the element.
    *
@@ -2139,6 +2328,97 @@ export interface ElementAttributeValues {
    * @since 18 dynamiconly
    */
   accessibilityScrollable?: boolean;
+  /**
+   * Indicates whether this node is essential to users.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  isEssential?: boolean;
+  /**
+   * Indicates id of the component tree to which the node belongs.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  belongTreeId?: int;
+
+  /**
+   * Indicates the id of a child component tree.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  childrenTreeId?: int;
+  /**
+   * Indicates the current item in grid of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  currentItem?: AccessibilityGrid;
+  /**
+   * Indicates the span array of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  span?: AccessibilitySpan[];
+  /**
+   * Indicates the children elements id list of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  childrenIds?: Array<long>;
+  /**
+   * Indicates the parent element id of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  parentId?: long;
+  /**
+   * Indicates the main windowId of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  mainWindowId?: int;
+  /**
+   * Indicates whether the component is accessibility visible.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  accessibilityVisible?: boolean;
+  /**
+   * Indicates the navDestination id of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  navDestinationId?: long;
 }
 
 /**
@@ -2147,7 +2427,7 @@ export interface ElementAttributeValues {
  * @typedef {'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
@@ -2178,7 +2458,7 @@ export type FocusType = 'accessibility' | 'normal';
  * @typedef {'application' | 'system'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type WindowType = 'application' | 'system';
 
@@ -2200,43 +2480,43 @@ export type FocusRule = 'bypassSelf' | 'bypassSelfDescendants' |
  * @typedef Rect
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Rect {
   /**
-   * The left position of Rect
+   * The left position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   left: int;
   /**
-   * The top position of Rect
+   * The top position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   top: int;
   /**
-   * The width position of Rect
+   * The width position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   width: int;
   /**
-   * The height position of Rect
+   * The height position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   height: int;
 }

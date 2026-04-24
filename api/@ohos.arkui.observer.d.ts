@@ -20,6 +20,7 @@
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
 import type { NavigationOperation, NavBar } from '../component/navigation';
+import type { Size } from './@ohos.arkui.node';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -91,7 +92,7 @@ declare namespace uiObserver {
     ON_HIDDEN = 1,
 
     /**
-     * When the NavDestination appear.
+     * When the NavDestination appears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -101,7 +102,7 @@ declare namespace uiObserver {
     ON_APPEAR = 2,
 
     /**
-     * When the NavDestination disappear.
+     * When the NavDestination disappears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -131,7 +132,7 @@ declare namespace uiObserver {
     ON_WILL_HIDE = 5,
 
     /**
-     * Before the NavDestination is appeared.
+     * Before the NavDestination appears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -141,7 +142,7 @@ declare namespace uiObserver {
     ON_WILL_APPEAR = 6,
 
     /**
-     * Before the NavDestination is disappeared.
+     * Before the NavDestination disappears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -200,14 +201,14 @@ declare namespace uiObserver {
    */
   export enum RouterPageState {
     /**
-     * When the router page create.
+     * when the router page is created.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page create.
+     * when the router page is created.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -217,14 +218,14 @@ declare namespace uiObserver {
     ABOUT_TO_APPEAR = 0,
 
     /**
-     * When the router page destroy.
+     * when the router page is destroyed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page destroy.
+     * when the router page is destroyed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -234,14 +235,14 @@ declare namespace uiObserver {
     ABOUT_TO_DISAPPEAR = 1,
 
     /**
-     * When the router page show.
+     * When the router page is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page show.
+     * When the router page is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -251,14 +252,14 @@ declare namespace uiObserver {
     ON_PAGE_SHOW = 2,
 
     /**
-     * When the router page hide.
+     * When the router page is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page hide.
+     * When the router page is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -296,7 +297,7 @@ declare namespace uiObserver {
    */
     export enum ScrollEventType {
       /**
-       * When the ScrollEvent start.
+       * When the ScrollEvent starts.
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -306,7 +307,7 @@ declare namespace uiObserver {
       SCROLL_START = 0,
   
       /**
-       * When the ScrollEvent stop.
+       * When the ScrollEvent stops.
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -327,7 +328,7 @@ declare namespace uiObserver {
    */
   export enum TabContentState {
     /**
-     * When the TabContent hidden.
+     * When the TabContent is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -337,7 +338,7 @@ declare namespace uiObserver {
     ON_SHOW = 0,
 
     /**
-     * When the TabContent hidden.
+     * When the TabContent is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -476,6 +477,17 @@ declare namespace uiObserver {
      * @since 15 dynamic
      */
     uniqueId?: number;
+
+    /**
+     * NavDestination size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    size?: Size;
   }
 
   /**
@@ -820,6 +832,17 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
      pageId: string;
+
+     /**
+     * The size of the router page.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+     size?: Size;
   }
 
   /**
@@ -852,6 +875,43 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
     density: number;
+  }
+
+  /**
+   * Defines the window size layout breakpoint information.
+   * This class provides the current breakpoint classification of the window's width and height
+   * based on the configured breakpoint thresholds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export class WindowSizeLayoutBreakpointInfo {
+    /**
+     * The width breakpoint classification of the current window.
+     * This value indicates which width category the window currently falls into based on
+     * the configured width breakpoint thresholds.
+     *
+     * @type { WidthBreakpoint }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly widthBreakpoint: WidthBreakpoint;
+
+    /**
+     * The height breakpoint classification of the current window.
+     * This value indicates which height category the window currently falls into based on
+     * the configured height breakpoint thresholds and aspect ratio.
+     *
+     * @type { HeightBreakpoint }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**
@@ -907,43 +967,6 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
     operation: NavigationOperation;
-  }
-
-  /**
-   * Defines the window size layout breakpoint information.
-   * This class provides the current breakpoint classification of the window's width and height
-   * based on the configured breakpoint thresholds.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export class WindowSizeLayoutBreakpointInfo {
-    /**
-     * The width breakpoint classification of the current window.
-     * This value indicates which width category the window currently falls into based on
-     * the configured width breakpoint thresholds.
-     *
-     * @type { WidthBreakpoint }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly widthBreakpoint: WidthBreakpoint;
-
-    /**
-     * The height breakpoint classification of the current window.
-     * This value indicates which height category the window currently falls into based on
-     * the configured height breakpoint thresholds and aspect ratio.
-     *
-     * @type { HeightBreakpoint }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**
@@ -1285,66 +1308,10 @@ declare namespace uiObserver {
 
   /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
-   * Include the cases when the first tab content shows and when the tab changes current index.
-   *
-   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
-   * @param { ObserverOptions } config - The options object. Includes the observed component id.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called
-   *     when when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function on(type: 'tabChange', config: ObserverOptions, callback: Callback<TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
-   * @param { ObserverOptions } config - The config object. Includes the observed component id.
-   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove.
-   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function off(type: 'tabChange', config: ObserverOptions, callback?: Callback<TabContentInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   * Include the cases when the first tab content shows and when the tab changes current index.
-   *
-   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called
-   *     when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function on(type: 'tabChange', callback: Callback<TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
-   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove.
-   *     If not provided, all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function off(type: 'tabChange', callback?: Callback<TabContentInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { ObserverOptions } options - The options object.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

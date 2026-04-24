@@ -165,7 +165,7 @@ export function getApiCheckWrapperServiceHost(): ApiCheckWrapperServiceHost {
     },
     pushLogInfo: (apiName: string, currentFilePath: string, currentAddress: CurrentAddress,
       logLevel: DiagnosticCategory, logMessage: string): void => {
-      return pushLog(apiName, currentFilePath, currentAddress, logLevel, logMessage);
+      pushLog(apiName, currentFilePath, currentAddress, logLevel, logMessage);
     },
     collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string): void => {
       collectInfo(moduleName, modulePath, currentFilePath);

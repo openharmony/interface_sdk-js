@@ -27,6 +27,6 @@ import { GridItemAttribute } from '@ohos.arkui.component';
  *
  * @implements { GridItemAttribute, AttributeModifier<GridItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
 */
 export declare class GridItemModifier implements GridItemAttribute, AttributeModifier<GridItemAttribute> {}

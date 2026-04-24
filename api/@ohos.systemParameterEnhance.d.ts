@@ -27,7 +27,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace systemParameterEnhance {
   /**
@@ -45,7 +45,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSync(key: string, def?: string): string;
 
@@ -63,7 +63,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function get(key: string, callback: AsyncCallback<string>): void;
 
@@ -82,7 +82,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
 
@@ -101,7 +101,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function get(key: string, def?: string): Promise<string>;
 
@@ -119,7 +119,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSync(key: string, value: string): void;
 
@@ -138,7 +138,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -157,7 +157,7 @@ declare namespace systemParameterEnhance {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function set(key: string, value: string): Promise<void>;
 }

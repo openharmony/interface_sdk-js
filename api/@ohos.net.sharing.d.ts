@@ -26,7 +26,7 @@ import type connection from './@ohos.net.connection';
  * @namespace sharing
  * @syscap SystemCapability.Communication.NetManager.NetSharing
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace sharing {
   /**
@@ -34,7 +34,7 @@ declare namespace sharing {
    * @typedef { connection.NetHandle }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type NetHandle = connection.NetHandle;
 
@@ -51,7 +51,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
   */
   function isSharingSupported(callback: AsyncCallback<boolean>): void;
 
@@ -67,7 +67,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isSharingSupported(): Promise<boolean>;
 
@@ -84,7 +84,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isSharing(callback: AsyncCallback<boolean>): void;
 
@@ -100,7 +100,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use. 
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isSharing(): Promise<boolean>;
 
@@ -123,7 +123,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
 
@@ -146,7 +146,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startSharing(type: SharingIfaceType): Promise<void>;
 
@@ -168,7 +168,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
 
@@ -190,7 +190,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopSharing(type: SharingIfaceType): Promise<void>;
 
@@ -206,7 +206,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getStatsRxBytes(callback: AsyncCallback<int>): void;
 
@@ -216,12 +216,13 @@ declare namespace sharing {
    * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getStatsRxBytes(): Promise<int>;
 
@@ -237,7 +238,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getStatsTxBytes(callback: AsyncCallback<int>): void;
 
@@ -247,12 +248,13 @@ declare namespace sharing {
    * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getStatsTxBytes(): Promise<int>;
 
@@ -268,7 +270,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getStatsTotalBytes(callback: AsyncCallback<int>): void;
 
@@ -278,12 +280,13 @@ declare namespace sharing {
    * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getStatsTotalBytes(): Promise<int>;
 
@@ -301,7 +304,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharingIfaces(state: SharingIfaceState, callback: AsyncCallback<Array<string>>): void;
 
@@ -319,7 +322,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharingIfaces(state: SharingIfaceState): Promise<Array<string>>;
 
@@ -337,7 +340,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharingState(type: SharingIfaceType, callback: AsyncCallback<SharingIfaceState>): void;
 
@@ -355,7 +358,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
 
@@ -373,7 +376,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharableRegexes(type: SharingIfaceType, callback: AsyncCallback<Array<string>>): void;
 
@@ -391,7 +394,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharableRegexes(type: SharingIfaceType): Promise<Array<string>>;
 
@@ -406,7 +409,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(type: 'sharingStateChange', callback: Callback<boolean>): void;
 
@@ -421,7 +423,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(type: 'sharingStateChange', callback?: Callback<boolean>): void;
 
@@ -448,7 +449,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
    */
   function on(type: 'interfaceSharingStateChange', callback: Callback<InterfaceSharingStateInfo>): void;
 
@@ -475,7 +475,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
    */
   function off(type: 'interfaceSharingStateChange', callback?: Callback<InterfaceSharingStateInfo>): void;
 
@@ -490,7 +489,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
@@ -505,7 +503,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
 
@@ -515,7 +512,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum SharingIfaceState {
     /**
@@ -523,7 +520,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARING_NIC_SERVING = 1,
 
@@ -532,7 +529,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARING_NIC_CAN_SERVER = 2,
 
@@ -541,7 +538,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARING_NIC_ERROR = 3
   }
@@ -552,7 +549,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface InterfaceSharingStateInfo {
     /**
@@ -561,7 +558,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: SharingIfaceType;
     /**
@@ -570,7 +567,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     iface: string;
     /**
@@ -579,7 +576,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: SharingIfaceState;
   }
@@ -590,7 +587,7 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum SharingIfaceType {
     /**
@@ -598,7 +595,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARING_WIFI = 0,
 
@@ -607,7 +604,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARING_USB = 1,
 
@@ -616,7 +613,7 @@ declare namespace sharing {
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARING_BLUETOOTH = 2
   }

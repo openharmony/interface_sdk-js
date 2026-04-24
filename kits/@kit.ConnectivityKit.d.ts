@@ -54,10 +54,14 @@ import Bluetooth, {
   BLEFoundResponse, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
   SubscribeBLEFoundOptions
 } from '@system.bluetooth';
+import PartnerAgentExtensionContext from '@ohos.FusionConnectivity.PartnerAgentExtensionContext';
+import PartnerAgentExtensionAbility from '@ohos.FusionConnectivity.PartnerAgentExtensionAbility';
+import partnerAgent from '@ohos.FusionConnectivity.partnerAgent';
 
 export {
   BLEFoundResponse, Bluetooth, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
   SubscribeBLEFoundOptions, bluetooth, bluetoothManager, cardEmulation,
   connectedTag, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
-  wifiManager, wifiManagerExt, wifiext, common
+  wifiManager, wifiManagerExt, wifiext, common, PartnerAgentExtensionContext, PartnerAgentExtensionAbility,
+  partnerAgent
 };

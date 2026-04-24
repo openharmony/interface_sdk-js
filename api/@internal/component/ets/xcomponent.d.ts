@@ -582,6 +582,45 @@ declare interface NativeXComponentParameters {
 }
 
 /**
+ * Sets the HDR type of the XComponent.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum HdrType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * AIHDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  AIHDR = 1,
+  /**
+   * EDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  EDR = 2
+}
+
+/**
  * Defines XComponent.
  *
  * @interface XComponentInterface
@@ -604,8 +643,9 @@ interface XComponentInterface {
    * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 12
+   * @useinstead (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController })
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
@@ -798,6 +838,19 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 20 dynamic
    */
   hdrBrightness(brightness: number): XComponentAttribute;
+
+  /**
+   * Set hdrBrightness for XComponent.
+   *
+   * @param { number } brightness - control the brightness of HDR video
+   * @param { HdrType } type - the HDR type of the XComponent
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  hdrBrightness(brightness: number, type?: HdrType): XComponentAttribute;
   
   /**
    * Enable transparent layer for XComponent.

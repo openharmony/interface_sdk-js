@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,15 +19,17 @@
  */
 
 import { VoidCallback } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { RecordData } from '../../@ohos.base';
+
 /**
  * PluginComponentTemplate
  *
  * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export interface PluginComponentTemplate {
     /**
@@ -35,7 +38,7 @@ export interface PluginComponentTemplate {
      * @type { string | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     source: string | undefined;
     /**
@@ -44,20 +47,10 @@ export interface PluginComponentTemplate {
      * @type { string | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string | undefined;
 }
-
-/**
- * Defines RecordData.
- *
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 22 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
 /**
  * Define options used to construct a plugin component.
@@ -66,7 +59,7 @@ export type RecordData = undefined | null | Object | Record<string, RecordData> 
  * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PluginComponentOptions {
     /**
@@ -75,7 +68,7 @@ export declare interface PluginComponentOptions {
      * @type { PluginComponentTemplate }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     template: PluginComponentTemplate;
     /**
@@ -84,7 +77,7 @@ export declare interface PluginComponentOptions {
      * @type { RecordData }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     data: RecordData;
 }
@@ -95,7 +88,7 @@ export declare interface PluginComponentOptions {
  * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PluginErrorData {
     /**
@@ -104,7 +97,7 @@ export declare interface PluginErrorData {
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     errcode: int;
     /**
@@ -113,7 +106,7 @@ export declare interface PluginErrorData {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     msg: string;
 }
@@ -125,7 +118,7 @@ export declare interface PluginErrorData {
  * @param { PluginErrorData } info - Plugin error data
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export type PluginErrorCallback = (info: PluginErrorData) => void;
 
@@ -136,7 +129,8 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
  * @typedef PluginComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @noninterop
+ * @since 23 static
  */
 export declare interface PluginComponentAttribute extends CommonMethod {
     /**
@@ -147,7 +141,7 @@ export declare interface PluginComponentAttribute extends CommonMethod {
      * @returns { PluginComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onComplete(callback: VoidCallback | undefined): this;
     /**
@@ -158,7 +152,7 @@ export declare interface PluginComponentAttribute extends CommonMethod {
      * @returns { PluginComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: PluginErrorCallback | undefined): this;
     /**
@@ -168,7 +162,7 @@ export declare interface PluginComponentAttribute extends CommonMethod {
      * @returns { PluginComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     attributeModifier(modifier: AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -176,16 +170,13 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 /**
  * Defines PluginComponent Component.
  * @param { PluginComponentOptions } options - The options
- * @param { function } [content_] - container
  * @returns { PluginComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function PluginComponent(
-    options: PluginComponentOptions,
-    @memo
-    content_?: () => void,
+    options: PluginComponentOptions
 ): PluginComponentAttribute

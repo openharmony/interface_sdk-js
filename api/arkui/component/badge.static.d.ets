@@ -18,39 +18,39 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length, Position, Resource, ResourceStr } from "./units";
+import { ResourceColor, Length, Position, Resource, ResourceStr, LengthMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * Defines the badge position property.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum BadgePosition {
     /**
      * The badge is displayed in the upper right corner of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     RightTop,
     /**
      * The badge is vertically centered on the right of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Right,
     /**
      * The badge is vertically centered on the left of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Left
 }
@@ -59,7 +59,7 @@ export declare enum BadgePosition {
  *
  * @interface BadgeStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface BadgeStyle {
     /**
@@ -68,32 +68,32 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.White
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     color?: ResourceColor;
     /**
      * Text size.
      *
-     * @type { ?(number | ResourceStr) }
+     * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    fontSize?: number | ResourceStr;
+    fontSize?: double | ResourceStr;
     /**
      * Size of a badge.
      *
-     * @type { ?(number | ResourceStr) }
+     * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    badgeSize?: number | ResourceStr;
+    badgeSize?: double | ResourceStr;
     /**
      * Badge color.
      *
      * @type { ?ResourceColor }
      * @default Color.Red
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     badgeColor?: ResourceColor;
     /**
@@ -102,7 +102,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.Red
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     borderColor?: ResourceColor;
     /**
@@ -113,24 +113,53 @@ export declare interface BadgeStyle {
      * @type { ?Length }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     borderWidth?: Length;
     /**
      * Define the font weight of the badge.
      *
-     * @type { ?(number | FontWeight | ResourceStr) }
+     * @type { ?(int | FontWeight | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    fontWeight?: number | FontWeight | ResourceStr;
+    fontWeight?: int | FontWeight | ResourceStr;
+    /**
+     * Outer border color of the background.
+     *
+     * @type { ?ResourceColor }
+     * @default Color.White
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    outerBorderColor?: ResourceColor;
+
+    /**
+     * Outer border width of the background.
+     *
+     * @type { ?LengthMetrics }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    outerBorderWidth?: LengthMetrics;
+
+    /**
+     * Enable auto-avoidance for text in badge.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    enableAutoAvoidance?: boolean;
 }
 /**
  * Provides basic parameters for creating a badge.
  *
  * @interface BadgeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface BadgeParam {
     /**
@@ -146,7 +175,7 @@ export declare interface BadgeParam {
      * @type { ?(BadgePosition | Position) }
      * @default BadgePosition.RightTop
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     position?: BadgePosition | Position;
     /**
@@ -154,7 +183,7 @@ export declare interface BadgeParam {
      *
      * @type { BadgeStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     style: BadgeStyle;
 }
@@ -164,7 +193,7 @@ export declare interface BadgeParam {
  * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface BadgeParamWithNumber extends BadgeParam {
     /**
@@ -178,11 +207,11 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      * <br>If the value is not an integer, it is rounded off to the nearest integer.
      * </p>
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    count: number;
+    count: int;
     /**
      * Maximum number of notifications. When the maximum number is reached, only maxCount+ is displayed.
      *
@@ -193,12 +222,12 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      * <br>If the value is not an integer, it is rounded off to the nearest integer.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 99
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    maxCount?: number;
+    maxCount?: int;
 }
 /**
  * Inherits from BadgeParam and has all attributes of BadgeParam.
@@ -206,7 +235,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
  * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface BadgeParamWithString extends BadgeParam {
     /**
@@ -214,7 +243,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     value: ResourceStr;
 }
@@ -224,7 +253,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
  * @extends CommonMethod
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface BadgeAttribute extends CommonMethod {
@@ -234,7 +263,7 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @param { AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -242,16 +271,14 @@ export declare interface BadgeAttribute extends CommonMethod {
  * Defines Badge Component.
  *
  * @param { BadgeParamWithNumber | BadgeParamWithString } value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Badge(
     value: BadgeParamWithNumber | BadgeParamWithString, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): BadgeAttribute;

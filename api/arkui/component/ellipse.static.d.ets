@@ -17,32 +17,33 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length } from './units';
 
 /**
  * Ellipse constructor options.
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface EllipseOptions {
     /**
      * Set width.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Set height.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -50,7 +51,7 @@ export interface EllipseOptions {
  * @extends CommonShapeMethod
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
@@ -59,7 +60,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EllipseAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -68,15 +69,13 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * Ellipse is returned when the parameter is transferred.
  *
  * @param { EllipseOptions } [options] - The options to create an Ellipse
- * @param { function } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Ellipse(
-    options?: EllipseOptions, 
-    @memo
-    content_?: () => void,
+    options?: EllipseOptions
 ): EllipseAttribute

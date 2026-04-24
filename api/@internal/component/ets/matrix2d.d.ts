@@ -22,12 +22,14 @@
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -35,6 +37,7 @@
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -43,6 +46,7 @@
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -54,6 +58,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -61,6 +66,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -69,6 +75,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -78,6 +85,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -90,6 +98,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -97,6 +106,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -105,6 +115,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -114,6 +125,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -126,6 +138,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -133,6 +146,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -141,6 +155,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -150,6 +165,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -162,6 +178,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -169,6 +186,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -177,6 +195,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -186,6 +205,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -198,6 +218,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -205,6 +226,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -213,6 +235,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -222,6 +245,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -234,6 +258,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -241,6 +266,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -249,6 +275,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -258,6 +285,7 @@ declare class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -271,6 +299,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -279,6 +308,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -288,6 +318,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -298,6 +329,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -311,6 +343,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -319,6 +352,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -328,6 +362,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -338,6 +373,7 @@ declare class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -352,6 +388,7 @@ declare class Matrix2D {
    * @param { Matrix2D } other - Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -361,6 +398,7 @@ declare class Matrix2D {
    * @param { Matrix2D } other - Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9 dynamic
    * @deprecated since 10
@@ -374,6 +412,7 @@ declare class Matrix2D {
    * @param { number } ry - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -383,6 +422,7 @@ declare class Matrix2D {
    * @param { number } ry - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -424,6 +464,7 @@ declare class Matrix2D {
    * @param { number } ty - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -433,6 +474,7 @@ declare class Matrix2D {
    * @param { number } ty - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -443,6 +485,7 @@ declare class Matrix2D {
    * @param { number } ty - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -454,6 +497,7 @@ declare class Matrix2D {
    * @param { number } ty - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -468,6 +512,7 @@ declare class Matrix2D {
    * @param { number } sy - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -477,6 +522,7 @@ declare class Matrix2D {
    * @param { number } sy - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -487,6 +533,7 @@ declare class Matrix2D {
    * @param { number } sy - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -498,6 +545,7 @@ declare class Matrix2D {
    * @param { number } sy - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice

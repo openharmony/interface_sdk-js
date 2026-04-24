@@ -60,7 +60,7 @@ export declare struct AlbumPickerComponent {
    */
   onEmptyAreaClick?: EmptyAreaClickCallback;
 
-   /**
+  /**
    * AlbumPickerController
    *
    * @type { ?AlbumPickerController }
@@ -79,7 +79,7 @@ export declare struct AlbumPickerComponent {
  * @atomicservice
  * @since 13 dynamic
  */
-export type EmptyAreaClickCallback = () => void
+export type EmptyAreaClickCallback = () => void;
 
 /**
  * AlbumPickerOptions Object

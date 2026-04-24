@@ -27,7 +27,7 @@ import { IDecoratedV1Variable } from '../stateManagement/decorator';
  *
  * @typedef CompatibleComponentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface CompatibleComponentInfo {
     /**
@@ -35,7 +35,7 @@ export interface CompatibleComponentInfo {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -44,7 +44,7 @@ export interface CompatibleComponentInfo {
      *
      * @type { ESValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     component: ESValue;
 }
@@ -56,7 +56,7 @@ export interface CompatibleComponentInfo {
  * @param { ESValue } parent - the parent of compatible custom component
  * @returns { CompatibleComponentInfo } the info of compatible custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CompatibleInitCallback = (parent: ESValue) => CompatibleComponentInfo;
 
@@ -66,7 +66,7 @@ export type CompatibleInitCallback = (parent: ESValue) => CompatibleComponentInf
  * @typedef { function } CompatibleUpdateCallback
  * @param { ESValue } component - the compatible custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type CompatibleUpdateCallback = (component: ESValue) => void;
 
@@ -77,7 +77,7 @@ export type CompatibleUpdateCallback = (component: ESValue) => void;
  * @param { CompatibleUpdateCallback } update - the callback for updating compatible custom component
  * @param { ExtendableComponent } [component] - the custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Builder
 export declare function compatibleComponent(
@@ -92,7 +92,7 @@ export declare function compatibleComponent(
  * @param { IDecoratedV1Variable<T> } state - the source state
  * @returns { ESValue } the compatible state
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare function getCompatibleState<T>(state: IDecoratedV1Variable<T>): ESValue;
 
@@ -102,7 +102,7 @@ export declare function getCompatibleState<T>(state: IDecoratedV1Variable<T>): E
  * @param { Any } builder - the WrappedBuilder
  * @param { FixedArray<ESValue> } args - the parameters of WrappedBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Builder
 export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArray<ESValue>): void;
@@ -113,7 +113,7 @@ export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArr
  * @param { T } builder - the source builder
  * @returns { ESValue } the compatible builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare function transferCompatibleBuilder<T extends Function>(@Builder builder: T): ESValue;
 
@@ -123,7 +123,7 @@ export declare function transferCompatibleBuilder<T extends Function>(@Builder b
  * @typedef { function } CompatibleUpdatableBuilder<T>
  * @param { T } arg - the argument of the source builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Builder
 export type CompatibleUpdatableBuilder<T> = (arg: T) => void;
@@ -134,7 +134,7 @@ export type CompatibleUpdatableBuilder<T> = (arg: T) => void;
  * @param { CompatibleUpdatableBuilder<T> } builder - the source builder
  * @returns { ESValue } the compatible builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare function transferCompatibleUpdatableBuilder<T extends Object>(
     builder: CompatibleUpdatableBuilder<T>
@@ -146,7 +146,7 @@ export declare function transferCompatibleUpdatableBuilder<T extends Object>(
  * @param { T } value - the source value
  * @returns { T } the result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 staticonly
+ * @since 23 staticonly
  */
 export declare function enableCompatibleObservedV2ForDynamic<T>(value: T): T;
 
@@ -156,6 +156,6 @@ export declare function enableCompatibleObservedV2ForDynamic<T>(value: T): T;
  * @param { T } value - the source value
  * @returns { T } the result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 staticonly
+ * @since 23 staticonly
  */
 export declare function enableCompatibleObservedV2ForStatic<T>(value: T): T;

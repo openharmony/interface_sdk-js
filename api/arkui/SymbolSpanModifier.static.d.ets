@@ -30,7 +30,7 @@ import { Resource } from 'global.resource';
  *
  * @implements { SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {
@@ -39,7 +39,7 @@ export declare class SymbolSpanModifier implements SymbolSpanAttribute, Attribut
      *
      * @param { Resource } [src]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     constructor(src?: Resource);
 }

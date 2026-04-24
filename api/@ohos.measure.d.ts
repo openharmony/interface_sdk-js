@@ -263,7 +263,6 @@ export interface MeasureOptions {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   baselineOffset?: number | string;
 

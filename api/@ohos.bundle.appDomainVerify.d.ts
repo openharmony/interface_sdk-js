@@ -26,7 +26,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 13 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace appDomainVerify {
 
@@ -44,7 +44,7 @@ declare namespace appDomainVerify {
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAssociatedDomains(bundleName: string): string[];
 
@@ -61,7 +61,7 @@ declare namespace appDomainVerify {
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAssociatedBundleNames(domain: string): string[];
 }

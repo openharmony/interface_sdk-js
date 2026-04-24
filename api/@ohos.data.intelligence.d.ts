@@ -24,6 +24,7 @@
  * @namespace intelligence
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
  * @since 15 dynamic
+ * @since 23 static
  */
 declare namespace intelligence {
   /**
@@ -37,6 +38,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   function getTextEmbeddingModel(config: ModelConfig): Promise<TextEmbedding>;
 
@@ -51,6 +53,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   function getImageEmbeddingModel(config: ModelConfig): Promise<ImageEmbedding>;
 
@@ -60,6 +63,7 @@ declare namespace intelligence {
    * @interface ModelConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface ModelConfig {
     /**
@@ -69,6 +73,7 @@ declare namespace intelligence {
      * @type { ModelVersion }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     version: ModelVersion;
 
@@ -78,6 +83,7 @@ declare namespace intelligence {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     isNpuAvailable: boolean;
 
@@ -87,6 +93,7 @@ declare namespace intelligence {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     cachePath?: string;
   }
@@ -94,9 +101,10 @@ declare namespace intelligence {
   /**
    * Version of the model.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   enum ModelVersion {
     /**
@@ -104,6 +112,7 @@ declare namespace intelligence {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     BASIC_MODEL = 0
   }
@@ -115,6 +124,7 @@ declare namespace intelligence {
    * @interface TextEmbedding
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface TextEmbedding {
     /**
@@ -125,6 +135,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     loadModel(): Promise<void>;
 
@@ -136,6 +147,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     releaseModel(): Promise<void>;
 
@@ -144,30 +156,32 @@ declare namespace intelligence {
      * The model can process up to 512 characters of text per inference, supporting both Chinese and English.
      *
      * @param { string } text - The input text of the embedding model.
-     * @returns { Promise<Array<number>> } The promise used to return the embedding result.
+     * @returns { Promise<Array<double>> } The promise used to return the embedding result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
-    getEmbedding(text: string): Promise<Array<number>>;
+    getEmbedding(text: string): Promise<Array<double>>;
 
     /**
      * Obtains the embedding vector of a given batch of text.
      * The model can process up to 512 characters of text per inference, supporting both Chinese and English.
      *
      * @param { Array<string> } batchTexts - The input batch of texts of the embedding model.
-     * @returns { Promise<Array<Array<number>>> } The promise used to return the embedding result.
+     * @returns { Promise<Array<Array<double>>> } The promise used to return the embedding result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
-    getEmbedding(batchTexts: Array<string>): Promise<Array<Array<number>>>;
+    getEmbedding(batchTexts: Array<string>): Promise<Array<Array<double>>>;
   }
 
   /**
@@ -176,6 +190,7 @@ declare namespace intelligence {
    * @interface ImageEmbedding
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface ImageEmbedding {
     /**
@@ -186,6 +201,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     loadModel(): Promise<void>;
 
@@ -197,6 +213,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     releaseModel(): Promise<void>;
 
@@ -205,15 +222,16 @@ declare namespace intelligence {
      * The model can handle images below 20 MB in size in a single inference.
      *
      * @param { Image } image - The input image of the embedding model.
-     * @returns { Promise<Array<number>> } The promise used to return the embedding result.
+     * @returns { Promise<Array<double>> } The promise used to return the embedding result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
-    getEmbedding(image: Image): Promise<Array<number>>;
+    getEmbedding(image: Image): Promise<Array<double>>;
   }
 
   /**
@@ -222,6 +240,7 @@ declare namespace intelligence {
    * @typedef { string } Image
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   type Image = string;
 
@@ -237,6 +256,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   function splitText(text: string, config: SplitConfig): Promise<Array<string>>;
 
@@ -246,25 +266,28 @@ declare namespace intelligence {
    * @interface SplitConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface SplitConfig {
     /**
      * The maximun size of chunks.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
-    size: number;
+    size: int;
 
     /**
      * The ratio of overlap between adjacent chunks.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
+     * @since 23 static
      */
-    overlapRatio: number;
+    overlapRatio: double;
   }
 }
 

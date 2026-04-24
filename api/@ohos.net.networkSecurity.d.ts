@@ -25,7 +25,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace networkSecurity
  * @syscap SystemCapability.Communication.NetStack
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace networkSecurity {
   /**
@@ -33,14 +33,14 @@ declare namespace networkSecurity {
    * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertType {
     /**
      * PEM type certificate.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_TYPE_PEM = 0,
 
@@ -48,7 +48,7 @@ declare namespace networkSecurity {
      * DER type certificate.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_TYPE_DER = 1
   }
@@ -58,7 +58,7 @@ declare namespace networkSecurity {
    * @interface CertBlob
    * @syscap SystemCapability.Communication.NetStack
   * @since 11 dynamic
-  * @since 22 static
+  * @since 23 static
    */
   export interface CertBlob {
     /**
@@ -66,7 +66,7 @@ declare namespace networkSecurity {
      * @type { CertType }
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: CertType;
 
@@ -75,7 +75,7 @@ declare namespace networkSecurity {
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: string | ArrayBuffer;
   }
@@ -131,7 +131,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<int>;
 
@@ -184,7 +184,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): int;
 
@@ -196,6 +196,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
+   * @since 23 static
    */
   export function isCleartextPermitted(): boolean;
  
@@ -208,6 +209,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
+   * @since 23 static
    */
   export function isCleartextPermittedByHostName(hostName: string): boolean;
 }

@@ -30,7 +30,7 @@ export declare class GesturePath {
   /**
    * A constructor used to create a GesturePath object.
    *
-   * @param { long } durationTime - Indicates the duration of the gesture.
+   * @param { long } durationTime - Indicates the duration of the gesture, in units of ms.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -45,7 +45,7 @@ export declare class GesturePath {
    */
   points: Array<GesturePoint>;
   /**
-   * Indicates the duration of the gesture.
+   * Indicates the duration of the gesture, in units of ms.
    *
    * @type { long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core

@@ -23,13 +23,11 @@ import { TouchObject, KeyEvent, MouseEvent } from '@ohos.arkui.component';
 /**
  * Send a mock touch event to the current application. This interface is only suitable for
  * simple interaction testing within your own application and should not be used in real environment.
- *
+ * 
  * @param { TouchObject } event - TouchObject to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 static
+ * @since 23 static
  * @test
  */
 export declare function sendTouchEvent(event: TouchObject): boolean;
@@ -37,13 +35,11 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
 /**
  * Send a mock key event to the current application. This interface is only suitable for
  * simple interaction testing within your own application and should not be used in real environment.
- *
+ * 
  * @param { KeyEvent } event - KeyEvent to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 static
+ * @since 23 static
  * @test
  */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
@@ -55,9 +51,7 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @param { MouseEvent } event - MouseEvent to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 static
+ * @since 23 static
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;

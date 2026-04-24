@@ -19,7 +19,7 @@
  */
 
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
-import media from './@ohos.multimedia.media'
+import media from './@ohos.multimedia.media';
 
 /**
  * Defines the moving photo view options.
@@ -71,6 +71,7 @@ declare interface MovingPhotoViewOptions {
      * @since 14 dynamic
      */
     movingPhotoFormat?: PixelMapFormat;
+    
     /**
      * range mode of MovingPhotoView.
      *
@@ -97,7 +98,7 @@ declare interface MovingPhotoViewOptions {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 interface MovingPhotoViewInterface {
     /**
@@ -108,7 +109,7 @@ interface MovingPhotoViewInterface {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      */
     (options: MovingPhotoViewOptions): MovingPhotoViewAttribute;
 }
@@ -237,15 +238,15 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * Sets automatic play period, If not set, the moving photo plays in the full video duration.
      * If set, the moving photo plays in the automatic play period.
      *
-     * @param { number } startTime video plays start time
-     * @param { number } endTime   video plays end time
+     * @param { double } startTime video plays start time
+     * @param { double } endTime   video plays end time
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
      */
-    autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
+    autoPlayPeriod(startTime: double, endTime: double): MovingPhotoViewAttribute;
     /**
      * Sets whether to allow automatic play. If the value is true, the moving photo starts 
      * automatic after the resource is loaded.
@@ -293,7 +294,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
     setPlaybackStrategy(strategy: media.PlaybackStrategy): MovingPhotoViewAttribute;
 }
@@ -387,15 +388,15 @@ export class MovingPhotoViewController {
     /**
      * Set moving photo playback period
      * 
-     * @param { number } startTime - video playback start time
-     * @param { number } endTime - video playback end time
+     * @param { double } startTime - video playback start time
+     * @param { double } endTime - video playback end time
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
      */
-    setPlaybackPeriod(startTime: number, endTime: number);
+    setPlaybackPeriod(startTime: double, endTime: double);
     /**
      * Dynamically refresh the autoplay property, which will force to play after
      * moving photo is initialized
@@ -414,9 +415,9 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
-    notifyMovingPhotoTransition();
+    notifyMovingPhotoTransition(): void;
 }
 /**
  * Defines MovingPhotoView Component.
@@ -425,7 +426,7 @@ export class MovingPhotoViewController {
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;
 /**
@@ -434,14 +435,14 @@ declare const MovingPhotoView: MovingPhotoViewInterface;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 declare const MovingPhotoViewInstance: MovingPhotoViewAttribute;
 
 /**
  * Dynamic range mode of moving photo.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @since 14 dynamic
@@ -476,7 +477,7 @@ export declare enum DynamicRangeMode {
 /**
  * Enumerates pixel map formats.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @since 14 dynamic

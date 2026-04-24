@@ -28,7 +28,7 @@ import { ElementName } from './elementName';
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
+ * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
   /**
@@ -36,8 +36,9 @@ export interface RemoteAbilityInfo {
    * @default Indicates the ability information
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo#elementName
    */
   readonly elementName: ElementName;
 
@@ -46,8 +47,9 @@ export interface RemoteAbilityInfo {
    * @default Indicates the label of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo#label
    */
   readonly label: string;
 
@@ -56,8 +58,9 @@ export interface RemoteAbilityInfo {
    * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo#icon
    */
   readonly icon: string;
 }

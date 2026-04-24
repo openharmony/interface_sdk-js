@@ -80,7 +80,7 @@ declare namespace bundleState {
      */
     abilityPrevSeenTime?: number;
     /**
-     * The total duration, in milliseconds.
+     * The total duration when the application was visible in the foreground, in milliseconds.
      * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
@@ -98,7 +98,7 @@ declare namespace bundleState {
      */
     bundleName?: string;
     /**
-     * The total duration, in milliseconds.
+     * The total duration when the foreground application was accessed, in milliseconds.
      * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly

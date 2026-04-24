@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -34,7 +34,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace formInfo {
   /**
@@ -51,7 +51,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormInfo {
     /**
@@ -68,7 +68,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -86,7 +86,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -104,7 +104,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName: string;
 
@@ -122,7 +122,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -133,18 +133,18 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayName: string;
 
     /**
-     * Obtains the displayName resource id of this form.
+     * Obtains the displayName resource id of this form. The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayNameId: int;
 
@@ -162,7 +162,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     description: string;
 
@@ -180,7 +180,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptionId: int;
 
@@ -198,7 +198,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: FormType;
 
@@ -216,7 +216,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     jsComponentName: string;
 
@@ -233,7 +233,7 @@ declare namespace formInfo {
      * @type { ColorMode }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 20
      */
     colorMode: ColorMode;
@@ -252,7 +252,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDefault: boolean;
 
@@ -270,7 +270,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateEnabled: boolean;
 
@@ -288,7 +288,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formVisibleNotify: boolean;
 
@@ -306,7 +306,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     scheduledUpdateTime: string;
 
@@ -324,61 +324,61 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formConfigAbility: string;
 
     /**
-     * Obtains the updateDuration.
+     * Obtains the updateDuration. The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
-     * Obtains the updateDuration.
+     * Obtains the updateDuration. The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateDuration: int;
 
     /**
-     * Obtains the default grid style of this form.
+     * Obtains the default grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
-     * Obtains the default grid style of this form.
+     * Obtains the default grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     defaultDimension: int;
 
     /**
-     * Obtains the grid styles supported by this form.
+     * Obtains the grid styles supported by this form. The maximum length is 9 and cannot be empty.
      *
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
-     * Obtains the grid styles supported by this form.
+     * Obtains the grid styles supported by this form. The maximum length is 9 and cannot be empty.
      *
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     supportDimensions: Array<int>;
 
@@ -396,7 +396,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     customizeData: Record<string, string>;
 
@@ -414,7 +414,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDynamic: boolean;
 
@@ -426,23 +426,24 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transparencyEnabled: boolean;
 
     /**
-     * Obtains the shape supported by this form.
+     * Obtains the shape supported by this form. 1 represents a square, 2 represents a circle.
      *
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     supportedShapes: Array<int>;
 
     /**
-     * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\".
+     * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\". The maximum length is +∞, positive int
+     * eger.
      *
      * @type { ?Array<int> }
      * @readonly
@@ -450,7 +451,7 @@ declare namespace formInfo {
      * @systemapi
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly previewImages?: Array<int>;
 
@@ -462,7 +463,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly enableBlurBackground?: boolean;
 
@@ -474,7 +475,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly renderingMode?: RenderingMode;
 
@@ -486,7 +487,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly funInteractionParams?: FunInteractionParams;
 
@@ -498,7 +499,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly sceneAnimationParams?: SceneAnimationParams;
 
@@ -510,7 +511,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly resizable?: boolean;
 
@@ -522,9 +523,68 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly groupId?: string;
+
+    /**
+     * Obtains whether the form is template form.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly isTemplateForm?: boolean;
+
+    /**
+     * Obtains whether the form supports standby.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isStandbySupported?: boolean;
+
+    
+    /**
+     * Obtains whether the form is adapted for standby.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isStandbyAdapted?: boolean;
+
+    /**
+     * Obtains whether the form is privacy sensitive.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isPrivacySensitive?: boolean;
+
+    /**
+     * Obtains whether the font scaling factor follows system settings.
+     * <br>Default value:The default value is true.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFontScaleFollowSystem?: boolean;
   }
 
   /**
@@ -534,7 +594,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RenderingMode {
     /**
@@ -543,7 +603,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_COLOR = 0,
     /**
@@ -552,7 +612,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FULL_COLOR = 1,
     /**
@@ -561,7 +621,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SINGLE_COLOR = 2
   }
@@ -580,7 +640,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormType {
     /**
@@ -595,7 +655,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     JS = 1,
 
@@ -611,7 +671,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eTS = 2
   }
@@ -629,7 +689,7 @@ declare namespace formInfo {
    * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 20
    */
   enum ColorMode {
@@ -644,7 +704,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 20
      */
     MODE_AUTO = -1,
@@ -660,7 +720,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 20
      */
     MODE_DARK = 0,
@@ -676,7 +736,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 20
      */
     MODE_LIGHT = 1
@@ -696,7 +756,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormStateInfo {
     /**
@@ -713,7 +773,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formState: FormState;
 
@@ -731,7 +791,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     want: Want;
   }
@@ -750,7 +810,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormState {
     /**
@@ -765,7 +825,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN = -1,
 
@@ -781,7 +841,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -797,9 +857,39 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     READY = 1
+  }
+
+  /**
+   * Form update reason.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum FormUpdateReason {
+    /**
+     * The reason for the form update is unknown.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UNKNOWN = -1,
+    /**
+     * The reason for the form update is node reuse.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FORM_NODE_REUSE = 0
   }
 
   /**
@@ -816,7 +906,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormParam {
     /**
@@ -841,7 +931,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IDENTITY_KEY = "ohos.extra.param.key.form_identity",
 
@@ -867,7 +957,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIMENSION_KEY = "ohos.extra.param.key.form_dimension",
 
@@ -893,7 +983,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NAME_KEY = "ohos.extra.param.key.form_name",
 
@@ -923,7 +1013,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODULE_NAME_KEY = "ohos.extra.param.key.module_name",
 
@@ -949,7 +1039,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIDTH_KEY = "ohos.extra.param.key.form_width",
 
@@ -975,7 +1065,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HEIGHT_KEY = "ohos.extra.param.key.form_height",
 
@@ -1001,7 +1091,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEMPORARY_KEY = "ohos.extra.param.key.form_temporary",
 
@@ -1027,7 +1117,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUNDLE_NAME_KEY = "ohos.extra.param.key.bundle_name",
 
@@ -1053,7 +1143,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name",
 
@@ -1068,7 +1158,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THEME_KEY = 'ohos.extra.param.key.form_is_theme',
 
@@ -1083,7 +1173,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_ID_KEY = "ohos.extra.param.key.device_id",
 
@@ -1109,7 +1199,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LAUNCH_REASON_KEY = "ohos.extra.param.key.form_launch_reason",
 
@@ -1139,7 +1229,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARAM_FORM_CUSTOMIZE_KEY = "ohos.extra.param.key.form_customize",
 
@@ -1153,7 +1243,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_LOCATION_KEY = 'ohos.extra.param.key.form_location',
 
@@ -1179,7 +1269,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode',
 
@@ -1194,7 +1284,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HOST_BG_INVERSE_COLOR_KEY = 'ohos.extra.param.key.host_bg_inverse_color',
 
@@ -1209,7 +1299,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_PERMISSION_NAME_KEY = 'ohos.extra.param.key.permission_name',
 
@@ -1224,7 +1314,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_PERMISSION_GRANTED_KEY = 'ohos.extra.param.key.permission_granted',
 
@@ -1240,8 +1330,148 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     ORIGINAL_FORM_KEY = 'ohos.extra.param.key.original_form_id',
+
+    /**
+     * Indicates the key specifying the edit form id, used in conjunction with LaunchReason.FORM_EDIT_PREVIEW.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       EDIT_FORM_KEY: "119476135"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    EDIT_FORM_KEY = 'ohos.extra.param.key.edit_form_id',
+
+    /**
+     * Indicates the key specifying the flag whether show single form in form manage page.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_MANAGER_SHOW_SINGLE_FORM: true
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    FORM_MANAGER_SHOW_SINGLE_FORM = 'ohos.extra.param.key.form_manager_show_single_form',
+
+    /**
+     * Indicates the key specifying the template form detail id.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DETAIL_ID: "119476135"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DETAIL_ID = 'ohos.extra.param.key.template_form_detail_id',
+      
+    /**
+     * Indicates the key specifying the form data of the template form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DATA: "formData"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DATA = 'ohos.extra.param.key.template_form_data',
+
+    /**
+     * Indicates the key specifying the display name of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DISPLAY_NAME: "formDisplayName"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DISPLAY_NAME = 'ohos.extra.param.key.template_form_display_name',
+    
+    /**
+     * Indicates the key specifying the description of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DESCRIPTION: "formDescription"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description',
+
+    /**
+     * Indicates the key specifying the reason for the form update.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       UPDATE_FORM_REASON_KEY: FormUpdateReason.FORM_NODE_REUSE
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UPDATE_FORM_REASON_KEY = 'ohos.extra.param.key.update_form_reason',
+
+    /**
+     * Indicates the key specifying font size scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_SIZE_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_SIZE_SCALE_KEY = 'ohos.extra.param.key.form_font_size_scale',
+
+    /**
+     * Indicates the key specifying font weight scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_WEIGHT_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_WEIGHT_SCALE_KEY = 'ohos.extra.param.key.form_font_weight_scale'
   }
 
   /**
@@ -1260,7 +1490,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormInfoFilter {
     /**
@@ -1271,7 +1501,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName?: string;
 
@@ -1291,7 +1521,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName?: string;
 
@@ -1303,7 +1533,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     supportedDimensions?: Array<int>;
 
@@ -1315,7 +1545,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     supportedShapes?: Array<int>;
   }
@@ -1334,7 +1564,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormDimension {
     /**
@@ -1349,7 +1579,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     Dimension_1_2 = 1,
 
@@ -1365,7 +1595,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     Dimension_2_2 = 2,
 
@@ -1381,7 +1611,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     Dimension_2_4 = 3,
 
@@ -1397,7 +1627,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     Dimension_4_4 = 4,
 
@@ -1412,7 +1642,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 20
      */
     Dimension_2_1,
@@ -1423,7 +1653,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIMENSION_1_1 = 6,
 
@@ -1433,7 +1663,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIMENSION_6_4 = 7,
 
@@ -1443,7 +1673,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIMENSION_2_3 = 8,
 
@@ -1453,7 +1683,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIMENSION_3_3 = 9
   }
@@ -1465,7 +1695,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormShape {
     /**
@@ -1474,7 +1704,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RECT = 1,
 
@@ -1484,7 +1714,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CIRCLE = 2
   }
@@ -1503,7 +1733,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum VisibilityType {
     /**
@@ -1522,7 +1752,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN = 0,
     /**
@@ -1541,7 +1771,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_VISIBLE = 1,
     /**
@@ -1560,7 +1790,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_INVISIBLE = 2
   }
@@ -1579,7 +1809,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum LaunchReason {
     /**
@@ -1594,7 +1824,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_DEFAULT = 1,
     /**
@@ -1609,7 +1839,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_SHARE = 2,
     /**
@@ -1618,8 +1848,9 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
-    FORM_SIZE_CHANGE = 3
+    FORM_SIZE_CHANGE = 3,
   }
 
   /**
@@ -1630,7 +1861,7 @@ declare namespace formInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PublishFormResult {
     /**
@@ -1641,7 +1872,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     code: PublishFormErrorCode;
 
@@ -1653,7 +1884,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     message: string;
   }
@@ -1666,7 +1897,7 @@ declare namespace formInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PublishFormErrorCode {
     /**
@@ -1676,7 +1907,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUCCESS = 0,
 
@@ -1687,7 +1918,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_SPACE = 1,
 
@@ -1698,7 +1929,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARAM_ERROR = 2,
 
@@ -1709,7 +1940,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INTERNAL_ERROR = 3
   }
@@ -1722,7 +1953,7 @@ declare namespace formInfo {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormProviderFilter {
     /**
@@ -1733,7 +1964,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -1745,7 +1976,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formName ?: string;
 
@@ -1757,7 +1988,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName ?: string;
 
@@ -1769,7 +2000,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName ?: string;
 
@@ -1782,7 +2013,7 @@ declare namespace formInfo {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isUnusedIncluded?: boolean;
   }
@@ -1802,8 +2033,8 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
-   */  
+   * @since 23 static
+   */
   interface RunningFormInfo {
     /**
      * Obtains the id of the this form.
@@ -1824,7 +2055,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly formId: string;
 
@@ -1847,7 +2078,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleName: string;
 
@@ -1860,7 +2091,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly hostBundleName: string;
 
@@ -1883,7 +2114,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly formLocation: FormLocation;
 
@@ -1896,7 +2127,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly visibilityType: VisibilityType;
 
@@ -1919,7 +2150,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly moduleName: string;
 
@@ -1942,7 +2173,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly abilityName: string;
 
@@ -1965,12 +2196,12 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly formName: string;
 
     /**
-     * Obtains the grid style of this form.
+     * Obtains the grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @default -
@@ -1980,7 +2211,7 @@ declare namespace formInfo {
      * @since 10
      */
     /**
-     * Obtains the grid style of this form.
+     * Obtains the grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @default -
@@ -1988,7 +2219,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly dimension: int;
 
@@ -2001,7 +2232,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly formUsageState: FormUsageState;
 
@@ -2013,7 +2244,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly formDescription: string;
 
@@ -2026,7 +2257,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly extraData?: Record<string, Object>;
   }
@@ -2034,11 +2265,11 @@ declare namespace formInfo {
   /**
    * The stage of form use.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormUsageState {
     /**
@@ -2047,7 +2278,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USED = 0,
     /**
@@ -2056,7 +2287,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNUSED = 1
   }
@@ -2076,7 +2307,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormLocation {
     /**
@@ -2085,7 +2316,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OTHER = -1,
 
@@ -2102,7 +2333,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DESKTOP = 0,
 
@@ -2119,7 +2350,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_CENTER = 1,
 
@@ -2136,7 +2367,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_MANAGER = 2,
 
@@ -2153,7 +2384,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NEGATIVE_SCREEN = 3,
 
@@ -2163,7 +2394,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_CENTER_NEGATIVE_SCREEN = 4,
 
@@ -2173,7 +2404,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_MANAGER_NEGATIVE_SCREEN = 5,
 
@@ -2190,7 +2421,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_LOCK = 6,
 
@@ -2207,19 +2438,29 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AI_SUGGESTION = 7,
+
+    /**
+     * Form is in standby.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    STANDBY = 8
   }
 
   /**
-   * Provides OverflowInfo about funInteraction or sceneAniamtion form
+   * Provides OverflowInfo about funInteraction or sceneAnimation form
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface OverflowInfo {
     /**
@@ -2229,18 +2470,19 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     area: Rect;
 
     /**
-     * The overflow animation duration
+     * The overflow animation duration, unit is ms. Unit: milliseconds, The value must be an integer within [0,10000], Default
+     * value: 10000.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration: int;
 
@@ -2251,7 +2493,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     useDefaultAnimation?: boolean;
   }
@@ -2263,7 +2505,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface OverflowRequest {
     /**
@@ -2273,7 +2515,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formId: string;
 
@@ -2284,18 +2526,18 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isOverflow: boolean;
 
     /**
-     * The form's overflow animation paramter
+     * The form's overflow animation parameter
      *
      * @type { ?OverflowInfo }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     overflowInfo?: OverflowInfo;
   }
@@ -2307,7 +2549,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ChangeSceneAnimationStateRequest {
     /**
@@ -2317,73 +2559,70 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formId: string;
 
     /**
-     * The state of scene animation.
+     * The state of scene animation. The value must be an integer within [0,1], 0 means deactivate, 1 means activate.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: int;
   }
 
   /**
-   * Indicates rectangle
+   * Indicates rectangle, unit is vp.
    *
-   * @typedef { Rect }
+   * @typedef Rect
    * @syscap SystemCapability.Ability.Form
-   * @atomicservice
+   * @atomicservice 
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Rect {
     /**
-     * The left position of rect
+     * The left position of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: double;
-
     /**
-     * The top position of rect
+     * The top position of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: double;
-
     /**
-     * The width of rect
+     * The width of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: double;
-
     /**
-     * The height of rect
+     * The height of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: double;
   }
@@ -2395,7 +2634,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FunInteractionParams {
     /**
@@ -2405,7 +2644,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName?: string;
 
@@ -2416,7 +2655,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     targetBundleName: string;
 
@@ -2427,20 +2666,20 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subBundleName: string;
-
     /**
-     * The duration of the fun interaction form will be paused if not operate, default is 10s
+     * duration of the fun interaction form will be paused if not operate， default is 10s. Unit: milliseconds, The value must b
+     * e an integer within [0,10000]. Default value: Default value: 10000.
      *
      * @type { ?int }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    keepStateDuration? :int;
+    keepStateDuration?: int;
   }
 
   /**
@@ -2450,7 +2689,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SceneAnimationParams {
     /**
@@ -2460,7 +2699,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName: string;
 
@@ -2471,7 +2710,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     disabledDesktopBehaviors?: string;
   }
@@ -2486,7 +2725,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type GetFormRectInfoCallback = (formId: string) => Promise<formInfo.Rect>;
 
@@ -2499,8 +2738,177 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type GetLiveFormStatusCallback = () => Record<string, string>;
+
+  /**
+   * TemplateFormDetailInfo
+   *
+   * @typedef TemplateFormDetailInfo
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface TemplateFormDetailInfo {  
+    /**
+     * Obtains the bundle name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * Obtains the module name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    moduleName: string;
+
+    /**
+     * Obtains the ability name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    abilityName: string;
+
+    /**
+     * Obtains the form name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    formName: string;
+
+    /**
+     * Obtains the form dimension of the template form.
+     *
+     * @type { FormDimension }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    dimension: FormDimension;
+
+    /**
+     * Obtains the form detail Id of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    detailId: string;
+
+    /**
+     * Obtains the form display name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    displayName: string;
+
+    /**
+     * Obtains the form description of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    description: string;
+  }
+
+  /**
+   * template form detail info callback.
+   *
+   * @typedef { function } TemplateFormDetailInfoCallback
+   * @param { Array<TemplateFormDetailInfo> } info - Template form detail info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type TemplateFormDetailInfoCallback = (info: Array<TemplateFormDetailInfo>) => void;
+
+  /**
+   * PublishFormCrossBundleInfo
+   *
+   * @typedef PublishFormCrossBundleInfo
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface PublishFormCrossBundleInfo {  
+    /**
+     * Obtains the caller bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    callerBundleName: string;
+
+    /**
+     * Obtains the target bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    targetBundleName: string;
+
+    /**
+     * Obtains the target template form detail id of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    targetTemplateFormDetailId: string;
+  }
+
+  /**
+   * publish form cross bundle control callback.
+   *
+   * @typedef { function } PublishFormCrossBundleControlCallback
+   * @param { PublishFormCrossBundleInfo } info - Publish form cross bundle info.
+   * @returns { boolean } Publish form cross bundle control result, true indicates success, false indicates failure.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
 }
 export default formInfo;

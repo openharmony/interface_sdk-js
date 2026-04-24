@@ -25,7 +25,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PluginBundleInfo {
   /**
@@ -36,7 +36,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
@@ -48,7 +48,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
@@ -60,7 +60,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon: string;
 
@@ -72,7 +72,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: long;
 
@@ -84,7 +84,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly pluginBundleName: string;
 
@@ -96,7 +96,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 
@@ -108,7 +108,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionName: string;
 
@@ -120,7 +120,7 @@ export interface PluginBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly pluginModuleInfos: Array<PluginModuleInfo>;
 }
@@ -132,7 +132,7 @@ export interface PluginBundleInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PluginModuleInfo {
   /**
@@ -143,7 +143,7 @@ export interface PluginModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -155,7 +155,7 @@ export interface PluginModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 
@@ -167,7 +167,7 @@ export interface PluginModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly description: string;
 }

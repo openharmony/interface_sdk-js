@@ -19,152 +19,157 @@
  */
 
 /**
- * Provides the recycling ability to the file manager.
+ * The **file.trash** module provides APIs for querying, recovering, or permanently deleting the files or directories in
+ * Recently deleted (trash). Currently, only local files and directories are supported.
+ * You can use **delete()** of [@ohos.file.fileAccess]{@link @ohos.file.fileAccess:fileAccess} to move a file or 
+ * directory to the trash.
+ * 
+ * > **NOTE**
+ * >
+ * > - Currently, the APIs of this module can be called only by **FileManager**.
  *
- * @namespace trash
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
  * @StageModelOnly
- * @since 10 dynamic
+ * @since 10 dynamiconly
+ * @deprecated since 23
  */
 declare namespace trash {
   /**
-   * FileInfo Object
+   * Represents information about a file or directory in the **Recently deleted** list.
    *
-   * @interface FileInfo
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   interface FileInfo {
     /**
-     * Indicates the uri of the file.
+     * URI of the file or directory.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly uri: string;
 
     /**
-     * Indicates the source path of the file.
+     * Path of the file or directory before being deleted.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly srcPath: string;
 
     /**
-     * Indicates the name of the file.
+     * Name of the file or directory.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly fileName: string;
 
     /**
-     * Indicates the mode of the file.
+     * Permission on the file or directory.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly mode: number;
 
     /**
-     * Indicates the size of the file.
+     * Size of a file or directory, in bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly size: number;
     
     /**
-     * Indicates the mtime of the file.
+     * Time when the file or directory was last modified. It is the number of milliseconds elapsed since the Unix epoch 
+     * (00:00:00 UTC on January 1, 1970).
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly mtime: number;
 
     /**
-     * Indicates the ctime of the file.
+     * Time when the file or directory was created. It is the number of seconds elapsed since the Unix epoch (00:00:00 
+     * UTC on January 1, 1970).
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly ctime: number;
   }
 
   /**
-     * List files in the trash.
-     *
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @returns { Array<FileInfo> } Returns the next level FileInfo Object.
-     * @throws { BusinessError } 13900002 - No such file or directory
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
-     */
-  function listFile(): Array<FileInfo>;
-
-  /**
-   * Recover a file from the trash.
-   * 
+   * Lists the files and directories in the **Recently deleted** list.
+   *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @param { string } uri - The identity of a file.
+   * @returns { Array<FileInfo> } Returns the next level FileInfo Object.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
+   */
+  function listFile(): Array<FileInfo>;
+
+  /**
+   * Recovers a file or directory from the trash.
+   *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @param { string } uri - URI of the file or directory.
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function recover(uri: string): void;
 
   /**
-   * Delete a file completely from th trash.
-   * 
+   * Permanently deletes a file or directory from the **Recently deleted** list.
+   *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @param { string } uri - The identity of a file.
+   * @param { string } uri - URI of the file or directory.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function completelyDelete(uri: string): void;
 }

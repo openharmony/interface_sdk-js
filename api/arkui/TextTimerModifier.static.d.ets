@@ -26,6 +26,6 @@ import { TextTimerAttribute } from '@ohos.arkui.component';
  *
  * @implements { TextTimerAttribute, AttributeModifier<TextTimerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class TextTimerModifier implements TextTimerAttribute, AttributeModifier<TextTimerAttribute> {}

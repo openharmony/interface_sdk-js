@@ -19,112 +19,111 @@
  */
 
 /**
- * Provides the recycling ability to the file manager.
+ * The **file.recent** module provides APIs for managing the list of recently accessed files.
+ * 
+ * > **NOTE**
+ * >
+ * > - Currently, the APIs of this module can be called only by **FileManager**.
  *
- * @namespace recent
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
  * @StageModelOnly
- * @since 10 dynamic
+ * @since 10 dynamiconly
+ * @deprecated since 23
  */
 declare namespace recent {
   /**
-   * FileInfo Object
+   * Represents information about the recent file list.
    *
-   * @interface FileInfo
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   interface FileInfo {
     /**
-     * Indicates the uri of the file.
+     * File URI.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly uri: string;
 
     /**
-     * Indicates the source path of the file.
+     * File path.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly srcPath: string;
 
     /**
-     * Indicates the name of the file.
+     * File name.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly fileName: string;
 
     /**
-     * Indicates the mode of the file.
+     * [Permissions on the file]{@link @ohos.file.fs:Stat}.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly mode: number;
 
     /**
-     * Indicates the size of the file.
+     * File size, in bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly size: number;
-    
+
     /**
-     * Indicates the mtime of the file.
+     * Time when the file was last modified.
+     * <br>Unit: ms.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly mtime: number;
 
     /**
-     * Indicates the ctime of the file.
+     * Time when the file was created.
+     * <br>Unit: second.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
+     * @stagemodelonly
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly ctime: number;
   }
 
   /**
-   * List files in the Recent.
+   * Lists the files that are accessed recently.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @returns { Array<FileInfo> } Returns the next level FileInfo Object.
@@ -134,37 +133,40 @@ declare namespace recent {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function listFile(): Array<FileInfo>;
 
   /**
-   * Add a file to the Recent.
-   * 
+   * Adds the file of the specified URI to the recent file list.
+   *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @param { string } uri - The identity of a file.
+   * @param { string } uri - File URI.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function add(uri: string): void;
 
   /**
-   * Remove a file from the Recent.
-   * 
+   * Removes the file of the specified URI from the recent file list.
+   *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @param { string } uri - The identity of a file.
+   * @param { string } uri - File URI.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function remove(uri: string): void;
 }

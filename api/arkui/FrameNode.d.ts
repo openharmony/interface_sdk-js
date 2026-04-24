@@ -26,7 +26,7 @@ import { ComponentContent, ReactiveComponentContent } from './ComponentContent';
 import { BusinessError } from '../@ohos.base';
 
 /**
- * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ * Layout constraint, including the max size, the min size and the reference size for children to calculate percent.
  *
  * @interface LayoutConstraint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -94,6 +94,19 @@ declare interface CrossLanguageOptions {
    * @since 15 dynamic
    */
   attributeSetting?: boolean
+
+  /**
+   * Defines if it enables tree operations cross-language. Default value is false.
+   * Tree operations include appendChild, removeChild, insertChildAfter, etc.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  treeOperating?: boolean;
 }
 
 /**
@@ -198,8 +211,71 @@ export enum ExpandMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  LAZY_EXPAND = 2
+  LAZY_EXPAND = 2,
+
+  /**
+   * Do not expand children of node.
+   * If the FrameNode contains LazyForEach child nodes, child nodes can be obtained directly when nodes in main tree.
+   * When nodes are not in main tree, only a node at corresponding position will be created,
+   * rather than expanding all child nodes.
+   * The child node sequence numbers are calculated based on all child nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  LAZY_NOT_EXPAND = 3
 }
+
+/**
+ * Enum for children count mode.
+ * Specifies how to count children when querying number of child nodes.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export enum ChildrenCountMode {
+  /**
+   * Expand mode. When encountering lazy-loaded nodes (e.g., LazyForEach),
+   * the nodes are expanded and the count includes all child nodes.
+   * This is the default behavior.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ALL_EXPAND = 0,
+
+  /**
+   * Count expanded mode. Does not expand lazy-loaded nodes.
+   * Returns the count of only currently expanded child nodes. Unexpanded lazy-loaded nodes
+   * are not included in the count.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ONLY_EXPANDED = 1,
+
+  /**
+   * Count all mode. Does not expand lazy-loaded nodes,
+   * but returns the count including all potential children (both expanded and unexpanded lazy-loaded nodes).
+   * This provides the total potential child count without triggering expansion.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ALL_NOT_EXPAND = 2
+}
+
 
 /**
  * Enum for the UI state of one component, which is used for handling of state style.
@@ -292,6 +368,7 @@ declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) 
  * Defines FrameNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -389,7 +466,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   appendChild(node: FrameNode): void;
 
@@ -428,7 +505,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
 
@@ -563,6 +640,18 @@ export class FrameNode {
   getChildrenCount(): number;
 
   /**
+   * Get the children count of the current FrameNode with specified count mode.
+   *
+   * @param { ChildrenCountMode } [countMode] - The children count mode. Default value is ChildrenCountMode.ALL_EXPAND.
+   * @returns { int } - Returns the number of children of the current FrameNode based on the count mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getChildrenCount(countMode?: ChildrenCountMode): int;
+
+  /**
    * Move node to the target Framenode as child.
    * If this FrameNode is not modifiable, an exception is thrown.
    * When targetParent is a typeNode, the API validates the type or number of child nodes.
@@ -609,7 +698,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   moveTo(targetParent: FrameNode, index?: number): void;
 
@@ -1237,16 +1326,16 @@ export class FrameNode {
   getNodePropertyValue(property: AnimationPropertyType): number[];
 
   /**
-  * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
-  * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
-  *
-  * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
-  * otherwise returns false.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 22 dynamic
-  */
+   * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
+   * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+   *
+   * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
+   *     otherwise, returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   isTransferred(): boolean;
 
    /**
@@ -1270,33 +1359,35 @@ export class FrameNode {
    * callbacks as if it were a child.
    *
    * @param { FrameNode } child the target node being adopted.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100021 - The current FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be disposed."
    * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   adoptChild(child: FrameNode): void;
 
   /**
    * Remove the target adopted child node.
    *
-   * @param { FrameNode } child the target node being adopted.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @param { FrameNode } child - the target node being adopted.
+   * @throws { BusinessError } 100021 - The current FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be null."
    * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   removeAdoptedChild(child: FrameNode): void;
 
-   /**
+  /**
    * Converts a point's coordinates from the current node's coordinate system
    * to the target node's coordinate system.
    *
@@ -1315,7 +1406,37 @@ export class FrameNode {
    */
   convertPosition(position: Position, targetNode: FrameNode): Position;
 
-   /**
+  /**
+   * Converts a point's coordinates from the current node's coordinate system
+   * to the current window's coordinate system.
+   *
+   * @param { Position } positionByLocal - The point's coordinates in the current node's local coordinate system.
+   * @returns { Position } - The converted coordinates in the current window's coordinate system.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  convertPositionToWindow(positionByLocal: Position): Position;
+
+  /**
+   * Converts a point's coordinates from the current window's coordinate system
+   * to the current node's coordinate system.
+   *
+   * @param { Position } positionByWindow - The point's coordinates in the current window's coordinate system.
+   * @returns { Position } - The converted coordinates in the current node's local coordinate system.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  convertPositionFromWindow(positionByWindow: Position): Position;
+
+  /**
    * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its
    * corresponding RenderNode is on the render tree.
    * @returns { boolean } - Returns whether the node is in the render state. True indicates it is in the
@@ -1326,6 +1447,66 @@ export class FrameNode {
    * @since 23 dynamic
    */
    isInRenderState(): boolean;
+
+  /**
+   * Get if the FrameNode is attached to the root node tree.
+   *
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isOnMainTree(): boolean;
+
+  /**
+   * Create a specified number of FrameNode objects and return them.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the FrameNode
+   * @param { number } count - the number of FrameNode objects to create.
+   *     Returns an empty array if count <= 0 or is not an integer.
+   * @returns { FrameNode[] } the array of created FrameNode objects.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  static createFrameNodes(uiContext: UIContext, count: number): FrameNode[];
+
+  /**
+   * Get FrameNode by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The first child node with the specified ID, or null if not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FrameNode by uniqueId.
+   * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
+   * The return value depends on the type of component associated with the uniqueId.
+   * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
+   * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
+   * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
+   * component is returned.
+   * 3. If the uniqueId does not correspond to any component, null is returned.
+   *
+   * @param { int } id - The uniqueId of the FrameNode.
+   * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
 }
 
 /**
@@ -1410,6 +1591,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Text type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Text' } nodeType - node type.
+   * @returns { Text } - Return Text type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Text'): Text;
 
   /**
@@ -1474,6 +1666,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Column type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Column' } nodeType - node type.
+   * @returns { Column } - Return Column type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Column'): Column;
 
   /**
@@ -1519,6 +1722,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of Row type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Row' } nodeType - node type.
+   * @returns { Row } - Return Row type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'Row'): Row;
 
@@ -1566,6 +1780,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Stack type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Stack' } nodeType - node type.
+   * @returns { Stack } - Return Stack type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Stack'): Stack;
 
   /**
@@ -1612,6 +1837,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of GridRow type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridRow' } nodeType - node type.
+   * @returns { GridRow } - Return GridRow type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
 
   /**
@@ -1642,6 +1878,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of GridCol type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridCol' } nodeType - node type.
+   * @returns { GridCol } - Return GridCol type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
 
   /**
@@ -1671,6 +1918,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of Flex type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Flex' } nodeType - node type.
+   * @returns { Flex } - Return Flex type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'Flex'): Flex;
 
@@ -1717,6 +1975,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of Swiper type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Swiper' } nodeType - node type.
+   * @returns { Swiper } - Return Swiper type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
 
@@ -1782,6 +2051,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Progress type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Progress' } nodeType - node type.
+   * @returns { Progress } - Return Progress type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Progress'): Progress;
 
   /**
@@ -1828,6 +2108,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Scroll type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { Scroll } - Return Scroll type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
 
   /**
@@ -1843,6 +2134,20 @@ export namespace typeNode {
    * @atomicservice
    * @since 15 dynamic
    */
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
 
   /**
@@ -1855,6 +2160,18 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 19 dynamic
+   */
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined;
 
@@ -1872,6 +2189,24 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 15 dynamic
+   */
+  /**
+   * Bind the controller of FrameNode.
+   * From API version 15 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version 15 to API version 24.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
+   *     2. the node is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 15 and will not
+   *     be threw above API version 24. [since 15 - 24]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void;
 
@@ -1902,6 +2237,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of RelativeContainer type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'RelativeContainer' } nodeType - node type.
+   * @returns { RelativeContainer } - Return RelativeContainer type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
 
@@ -1949,6 +2295,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Divider type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Divider' } nodeType - node type.
+   * @returns { Divider } - Return Divider type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Divider'): Divider;
 
   /**
@@ -1978,6 +2335,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of LoadingProgress type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'LoadingProgress' } nodeType - node type.
+   * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
 
@@ -2025,6 +2393,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Search type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Search' } nodeType - node type.
+   * @returns { Search } - Return Search type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Search'): Search;
 
   /**
@@ -2055,6 +2434,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Blank type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Blank' } nodeType - node type.
+   * @returns { Blank } - Return Blank type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Blank'): Blank;
 
   /**
@@ -2084,6 +2474,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of Image type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Image' } nodeType - node type.
+   * @returns { Image } - Return Image type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'Image'): Image;
 
@@ -2131,6 +2532,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of List type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { List } - Return List type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'List'): List;
 
   /**
@@ -2151,15 +2563,17 @@ export namespace typeNode {
 
   /**
    * Bind the controller of FrameNode.
-   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
-   * This API does not support declaratively created nodes.
-   * 
+   * From API version 20 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version 20 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'List' } nodeType - node type.
-   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node is
+   *     incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
+   *     be threw above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2196,6 +2610,18 @@ export namespace typeNode {
    * @atomicservice
    * @since 19 dynamic
    */
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined;
 
   /**
@@ -2207,6 +2633,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of ListItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItem' } nodeType - node type.
+   * @returns { ListItem } - Return ListItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
 
@@ -2253,6 +2690,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of TextInput type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextInput' } nodeType - node type.
+   * @returns { TextInput } - Return TextInput type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
 
@@ -2324,6 +2772,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of Button type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { Button } - Return Button type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Button'): Button;
 
   /**
@@ -2369,6 +2828,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of ListItemGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItemGroup' } nodeType - node type.
+   * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
 
@@ -2416,6 +2886,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of WaterFlow type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { WaterFlow } - Return WaterFlow type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
 
   /**
@@ -2436,15 +2917,17 @@ export namespace typeNode {
 
   /**
    * Bind the controller of FrameNode.
-   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
-   * This API does not support declaratively created nodes.
-   * 
+   * From API version 20 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version  20 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'WaterFlow' } nodeType - node type.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
+   *     be threw above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2462,6 +2945,18 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 19 dynamic
+   */
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined;
 
@@ -2492,6 +2987,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Create a FrameNode of FlowItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'FlowItem' } nodeType - node type.
+   * @returns { FlowItem } - Return FlowItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
 
@@ -2539,6 +3045,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of XComponent type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
 
   /**
@@ -2552,6 +3069,18 @@ export namespace typeNode {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Create a FrameNode of XComponent type with options.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { XComponentOptions } options - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 
   /**
@@ -2564,6 +3093,18 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 19 dynamic
+   */
+  /**
+   * Create a FrameNode of XComponent type with options for native developing.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { NativeXComponentParameters } parameters - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
 
@@ -2611,6 +3152,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 18 dynamic
    */
+  /**
+   * Create a FrameNode of Checkbox type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Checkbox' } nodeType - node type.
+   * @returns { Checkbox } - Return Checkbox type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
 
   /**
@@ -2657,6 +3209,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 18 dynamic
    */
+  /**
+   * Create a FrameNode of CheckboxGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'CheckboxGroup' } nodeType - node type.
+   * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
 
   /**
@@ -2686,6 +3249,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamic
+   */
+  /**
+   * Create a FrameNode of Radio type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Radio' } nodeType - node type.
+   * @returns { Radio } - Return Radio type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'Radio'): Radio;
 
@@ -2733,6 +3307,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 18 dynamic
    */
+  /**
+   * Create a FrameNode of Rating type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Rating' } nodeType - node type.
+   * @returns { Rating } - Return Rating type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Rating'): Rating;
 
   /**
@@ -2763,6 +3348,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 18 dynamic
    */
+  /**
+   * Create a FrameNode of Select type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Select' } nodeType - node type.
+   * @returns { Select } - Return Select type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Select'): Select;
 
   /**
@@ -2792,6 +3388,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamic
+   */
+  /**
+   * Create a FrameNode of Slider type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Slider' } nodeType - node type.
+   * @returns { Slider } - Return Slider type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'Slider'): Slider;
 
@@ -2840,6 +3447,18 @@ export namespace typeNode {
    * @atomicservice
    * @since 18 dynamic
    */
+  /**
+   * Create a FrameNode of Toggle type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Toggle' } nodeType - node type.
+   * @param { ToggleOptions } [options] - ToggleOptions.
+   * @returns { Toggle } - Return Toggle type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
 
   /**
@@ -2886,6 +3505,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Create a FrameNode of Marquee type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Marquee' } nodeType - node type.
+   * @returns { Marquee } - Return Marquee type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
 
   /**
@@ -2915,6 +3545,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Create a FrameNode of TextArea type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @returns { TextArea } - Return TextArea type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
 
@@ -2980,6 +3621,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Create a FrameNode of SymbolGlyph type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'SymbolGlyph' } nodeType - node type.
+   * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
 
   /**
@@ -3009,6 +3661,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Create a FrameNode of QRCode type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'QRCode' } nodeType - node type.
+   * @returns { QRCode } - Return QRCode type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
 
@@ -3040,6 +3703,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Create a FrameNode of Badge type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Badge' } nodeType - node type.
+   * @returns { Badge } - Return Badge type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Badge'): Badge;
 
   /**
@@ -3069,6 +3743,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Create a FrameNode of TextClock type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextClock' } nodeType - node type.
+   * @returns { TextClock } - Return TextClock type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
 
@@ -3100,6 +3785,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Create a FrameNode of TextTimer type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextTimer' } nodeType - node type.
+   * @returns { TextTimer } - Return TextTimer type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
 
   /**
@@ -3130,6 +3826,17 @@ export namespace typeNode {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Create a FrameNode of Grid type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { Grid } - Return Grid type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   function createNode(context: UIContext, nodeType: 'Grid'): Grid;
 
   /**
@@ -3150,15 +3857,17 @@ export namespace typeNode {
 
   /**
    * Bind the controller of FrameNode.
-   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
-   * This API does not support declaratively created nodes.
-   * 
+   * From API version 20 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version 20 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'Grid' } nodeType - node type.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
+   *     be threw above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3176,6 +3885,18 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 19 dynamic
+   */
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined;
 
@@ -3206,6 +3927,17 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Create a FrameNode of GridItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridItem' } nodeType - node type.
+   * @returns { GridItem } - Return GridItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 

@@ -20,6 +20,9 @@
 
 import Want from './@ohos.app.ability.Want';
 import type wantConstant from './@ohos.app.ability.wantConstant';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * interface of insightIntent.
@@ -29,7 +32,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace insightIntent {
   /**
@@ -40,7 +43,7 @@ declare namespace insightIntent {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ExecuteMode {
     /**
@@ -50,7 +53,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_ABILITY_FOREGROUND = 0,
 
@@ -61,7 +64,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_ABILITY_BACKGROUND = 1,
 
@@ -71,7 +74,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_EXTENSION_ABILITY = 2,
 
@@ -82,7 +85,7 @@ declare namespace insightIntent {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SERVICE_EXTENSION_ABILITY = 3,
   }
@@ -95,7 +98,7 @@ declare namespace insightIntent {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ExecuteResult {
     /**
@@ -106,7 +109,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     code: int;
 
@@ -118,9 +121,18 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     result?: Record<string, Object>;
+
+    /**
+     * Indicates execute result.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    result?: Record<string, RecordData>;
 
     /**
      * Indicates the URIs will be authorized to the insight intent driver.
@@ -130,7 +142,7 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uris?: Array<string>;
 
@@ -146,7 +158,7 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     flags?: int;
   }
@@ -159,6 +171,7 @@ declare namespace insightIntent {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.0.0 static
    */
   interface IntentEntity {
     /**
@@ -169,10 +182,113 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
+     * @since 26.0.0 static
      */
     entityId: string;
   }
   
+  /**
+   * Enum for query entity mode.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum QueryType {
+    /**
+     * Query all entities.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ALL = 'all',
+
+    /**
+     * Query entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    BY_PROPERTY = 'byProperty',
+  }
+
+  /**
+   * Parameter for query entity.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface QueryEntityParam {
+    /**
+     * The query type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    queryType: QueryType;
+
+    /**
+     * Indicates the parameters when querying entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    parameters?: Record<string, Object>;
+
+    /**
+     * Indicates the parameters when querying entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    parameters?: Record<string, RecordData>;
+  }
+
+  /**
+   * Define AppIntentEntity.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+  */
+  abstract class AppIntentEntity<T> implements IntentEntity {
+    /**
+     * Called when query entity execute.
+     *
+     * @param { QueryEntityParam } params - The params of query entity.
+     * @returns { Promise<Array<T>> } - Returns an array of subclasses of the AppIntentEntity class, support promise.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    abstract onQueryEntity(params: QueryEntityParam): Promise<Array<T>>;
+
+    /**
+     * The display name of entity.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    displayName: string;
+  }
+
   /**
    * The class of insight intent result.
    *
@@ -181,6 +297,7 @@ declare namespace insightIntent {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.0.0 static
    */
   interface IntentResult<T> {
     /**
@@ -191,8 +308,9 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
+     * @since 26.0.0 static
      */
-    code: number;
+    code: int;
 
     /**
      * The insight intent result.
@@ -202,8 +320,40 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
+     * @since 26.0.0 static
      */
     result?: T;
+  }
+
+  /**
+   * Return mode for insight intent execution results.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  enum ReturnMode {  
+    /**
+     * Returns execution results through callback.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    CALLBACK = 0,
+
+    /**
+     * Returns execution results through call function.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    FUNCTION = 1
   }
 }
 

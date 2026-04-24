@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,8 @@
  */
 
 /**
+ * The module provides page data and callbacks when a callback is triggered for the AutoFillExtensionAbility.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -23,161 +25,166 @@ import type { AutoFillType } from './AutoFillType';
 import type CustomData from './CustomData';
 import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
+import type { AutoFillTriggerType } from './AutoFillTriggerType';
 /*** endif */
 /*** if arkts static */
 import { AutoFillType } from './AutoFillType';
 import CustomData from './CustomData';
 import AutoFillPopupConfig from './AutoFillPopupConfig';
 import ViewData from './ViewData';
+import { AutoFillTriggerType } from './AutoFillTriggerType';
 /*** endif */
 
 /**
- * Fill request for automatic filling.
+ * Defines the information about an auto-fill request.
  *
- * @interface FillRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface FillRequest {
   /**
-   * The auto fill type.
+   * Type of the element to be automatically filled in.
    *
-   * @type { AutoFillType }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: AutoFillType;
 
   /**
-   * The view data. Indicates the basic page information for the fill request.
+   * Page data.
    *
-   * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   viewData: ViewData;
 
   /**
-   * The custom data.
+   * Custom data.
    *
-   * @type { CustomData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   customData: CustomData;
 
   /**
-   * Whether the UI extension window type is popup window.
+   * Whether a dialog box is displayed for the auto-fill request.
+   * 
+   * **true**: A dialog box is displayed
+   * 
+   * **false**: A modal window is displayed
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isPopup: boolean;
+
+  /**
+   * Trigger type for the autofill service.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  triggerType?: AutoFillTriggerType;
 }
 
 /**
- * Save request for automatic filling.
+ * Defines the information about an auto-saving request.
  *
- * @interface SaveRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SaveRequest {
   /**
-   * The view data. Indicates the basic page information for the save request.
+   * Page data.
    *
-   * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   viewData: ViewData;
 }
 
 /**
- * Update request for automatic filling.
+ * Defines the information about an auto-update request.
  *
- * @interface UpdateRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface UpdateRequest {
   /**
-   * The view data. Indicates the basic page information for the update request.
+   * Page data.
    *
-   * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   viewData: ViewData;
 }
 
 /**
- * Fill response for automatic filling.
+ * Defines the information about the response to an auto-fill request.
  *
- * @interface FillResponse
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface FillResponse {
   /**
-   * The view data. Contains basic page information and backfill information.
+   * Page data.
    *
-   * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   viewData: ViewData;
 }
 
 /**
- * Fill request callback for automatic filling.
+ * Implements callbacks for an auto-fill request, which is used to automatically fill in or generate a password. The 
+ * callbacks can be used to notify the client of the success or failure of the request.
  *
- * @interface FillRequestCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface FillRequestCallback {
   /**
-   * Notify the system that a fill request is successfully filled.
+   * Called when an auto-fill request is successfully processed.
    *
-   * @param { FillResponse } response - Indicates the fill response.
+   * @param { FillResponse } response - Information about the response to the auto-fill request.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Mandatory parameters are left unspecified.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -185,12 +192,12 @@ export interface FillRequestCallback {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onSuccess(response: FillResponse): void;
 
   /**
-   * Notification system a fill request failed to be filled.
+   * Called when an auto-fill request fails to be processed.
    *
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -198,40 +205,32 @@ export interface FillRequestCallback {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onFailure(): void;
 
   /**
-   * Notification system that filling has been cancelled.
+   * Called when an auto-fill request is canceled.
    *
+   * @param { string } [fillContent] - Content returned to the input method framework when the auto-fill request is
+   *     canceled.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1.The input parameter is not valid parameter;
+   *     <br>2. Mandatory parameters are left unspecified. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Notification system that filling has been cancelled.
-   *
-   * @param { string } [fillContent] - Indicates the content to be filled in.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: <br>1.The input parameter is not valid parameter; 
-   * <br>2. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 11 dynamic
+   * @since 23 static
    */
   onCancel(fillContent?: string): void;
 
   /**
-   * autofill popup config.
+   * Sets the size and position of an auto-fill pop-up.
    *
-   * @param { AutoFillPopupConfig } autoFillPopupConfig - Indicates the autofill popup config.
+   * @param { AutoFillPopupConfig } autoFillPopupConfig - Size and position of the auto-fill pop-up.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Mandatory parameters are left unspecified.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -239,24 +238,23 @@ export interface FillRequestCallback {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-   setAutoFillPopupConfig(autoFillPopupConfig: AutoFillPopupConfig): void;
+  setAutoFillPopupConfig(autoFillPopupConfig: AutoFillPopupConfig): void;
 }
 
 /**
- * Save request callback for automatic filling.
+ * Implements callbacks for an automatic or a manual saving request.
  *
- * @interface SaveRequestCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SaveRequestCallback {
   /**
-   * Notify the system that a save request is successfully handled.
+   * Called when a saving request is successfully processed.
    *
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -264,12 +262,12 @@ export interface SaveRequestCallback {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onSuccess(): void;
 
   /**
-   * Notify the system that a save request is failed to be handled.
+   * Called when a saving request fails to be processed.
    *
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -277,7 +275,7 @@ export interface SaveRequestCallback {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onFailure(): void;
 }

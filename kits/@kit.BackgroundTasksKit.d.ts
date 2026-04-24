@@ -44,8 +44,12 @@ import reminderAgentManager from '@ohos.reminderAgentManager';
 import deviceStandby from '@ohos.resourceschedule.deviceStandby';
 import usageStatistics from '@ohos.resourceschedule.usageStatistics';
 import workScheduler from '@ohos.resourceschedule.workScheduler';
+import WorkSchedulerExtensionAbility, {
+  WorkSchedulerExtensionContext
+} from '@ohos.WorkSchedulerExtensionAbility';
 
 export {
-  backgroundTaskManager, deviceStandby, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager
+  backgroundTaskManager, deviceStandby, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager,
+  WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext
 };
 /*** endif */

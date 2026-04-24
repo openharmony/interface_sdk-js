@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
- /**
+
+/**
  * @file
  * @kit ArkTS
  */
@@ -22,88 +22,87 @@
 import { Callback } from './@ohos.base';
 import emitter from './@ohos.events.emitter';
 /*** endif */
+
 /*** if arkts static */
 import buffer from '@ohos.buffer';
 /*** endif */
 
 /**
- * The stream module provides a comprehensive set of stream processing capabilities, including four types of streams:
- * - Writable: streams designed for writing data to.
- * - Readable: streams designed for reading data from.
- * - Duplex: streams that are both readable and writable.
- * - Transform: a specialized type of duplex stream that can modify or transform data as it's being written and read.
+ * The stream module provides APIs to process basic types of streams. With streams, data is read or written by chunk,
+ * instead of being loaded to the memory at a time.
+ * There are four fundamental stream types: writable streams ([Writable]{@link stream.Writable}), readable streams (
+ * [Readable]{@link stream.ReadableOptions}), duplex streams ([Duplex]{@link stream.Duplex}), and transform streams (
+ * [Transform]{@link stream.Transform}).
  *
- * @namespace stream
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace stream {
   /**
-   * Return readable options.
+   * Describes the options used in the **Readable** constructor.
    *
-   * @interface ReadableOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ReadableOptions {
     /**
-    * Specifies the encoding format of the data. If this parameter is provided,
-    * the readable stream decodes the data into a string in the specified encoding format. Default: utf8.
-    * If an invalid string is entered, a 401 exception is thrown in the Readable constructor.
-    * Supported encoding formats: utf-8, ibm866, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6,
-    * iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13, iso-8859-14, iso-8859-15, koi8-r, koi8-u,
-    * macintosh, windows-874, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255,
-    * windows-1256, windows-1257, windows-1258, x-mac-cyrillic, gbk, gb18030, big5, euc-jp, iso-2022-jp, shift_jis,
-    * euc-kr, utf-16be, utf-16le.
-    *
-    * @type { ?string }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    * @since 22 static
-    */
-    encoding?: string;
-  }
-
-  /**
-   * Streams to which data can be written.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
-   */
-  class Writable {
-    /**
-     * The Writable constructor.
+     * Encoding format. If an invalid string is input, an exception is thrown in the **Readable** constructor.
+     *
+     * The following formats are supported: utf-8, UTF-8, GBK, GB2312, gb2312, GB18030, gb18030, ibm866, iso-8859-2, iso
+     * -8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13, iso-
+     * 8859-14, iso-8859-15, koi8-r, koi8-u, macintosh, windows-874, windows-1250, windows-1251, windows-1252, windows-1
+     * 253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, gbk, big5, euc-jp, iso-2022-jp,
+     * shift_jis, euc-kr, x-mac-cyrillic, utf-16be, and utf-16le.
+     *
+     * The default value is **'utf-8'**.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
+     */
+    encoding?: string;
+  }
+
+  /**
+   * Stream to which data can be written. A writable stream allows data to be written to a target, which can be a file,
+   * an HTTP response, a standard output, another stream, or the like.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
+  class Writable {
+    /**
+     * A constructor used to create a **Writable** object.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 23 static
      */
     constructor();
 
     /**
-     * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
-     * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
-     * does not reach the hightWaterMark. If false is returned, the buffer has been reached. The write function
-     * should be called after the drain event is triggered. If the write function is called continuously,
-     * the chunk is still added to the buffer until the memory overflows
+     * Writes data to the buffer of the stream. This API uses an asynchronous callback to return the result.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
-     * @returns { boolean } Write success returns true, write failure returns false.
+     * @param { string | Uint8Array } [chunk] - Data to write. It cannot be **null**, **undefined**, or an empty string.
+     * @param { string } [encoding] - Encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @param { Function } [callback] - Callback used to return the result. It is not called by default.
+     * @returns { boolean } Whether there is space in the buffer of the writable stream. The value **true** means that
+     *     there is still space in the buffer. The value **false** means that the buffer is full, and you are not
+     *     advised to continue writing data.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -115,17 +114,23 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
 
     /**
-     * Write the last chunk to Writable.
+     * Ends the writing process in a writable stream. If the value of **writableCorked** is greater than 0, the value is
+     * set to **0** and the remaining data in the buffer is output. If the **chunk** parameter is passed, it is treated
+     * as the final data chunk and written using either the **write** or **doWrite** API, based on the current execution
+     * context. If **doWrite** is used for writing, the validity check of the **encoding** parameter depends on
+     * **doWrite**. If **end** is used alone (without **write**) and the **chunk** parameter is passed, the data is
+     * written through **doWrite**. This API uses an asynchronous callback to return the result.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
-     * @returns { Writable } Returns the Writable object.
+     * @param { string | Uint8Array } [chunk] - Data to write. The default value is **undefined**.
+     * @param { string } [encoding] - Encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @param { Function } [callback] - Callback used to return the result.
+     * @returns { Writable } Current **Writable** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -135,15 +140,16 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
 
     /**
-     * Set the default encoding mode.
+     * Sets the default encoding format for the writable stream.
      *
-     * @param { string } [encoding] - Encoding type.Default: utf8.
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @param { string } [encoding] - Default encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @returns { boolean } Operation result. **true** means successful; **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -152,39 +158,44 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDefaultEncoding(encoding?: string): boolean;
 
     /**
-     * After the call, all Write operations will be forced to write to the buffer instead of being flushed.
+     * Forces subsequent writes to be buffered. This API is called to optimize the performance of continuous write
+     * operations. After this API is called, the value of **writableCorked** is incremented by one. It is recommended
+     * that this API be used in pair with [uncork()]{@link stream.Writable.uncork}.
      *
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @returns { boolean } Operation result. **true** means successful; **false** otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cork(): boolean;
 
     /**
-     * After calling, flush all buffers.
+     * Releases the cork state, flushing the buffered data and writing it to the target location. After this API is
+     * called, the value of **writableCorked** is decremented by one. If the value reaches **0**, the stream is no
+     * longer in the cork state. Otherwise, the stream is still in the cork state. It is recommended that this API be
+     * used in pair with [cork()]{@link stream.Writable.cork}.
      *
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @returns { boolean } Operation result. **true** means successful; **false** otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uncork(): boolean;
 
     /**
-     * Registering Event Messages.
+     * Registers an event processing callback to listen for different events on the writable stream.
      *
-     * @param { string } event - Register Event.
-     * @param { Callback<emitter.EventData> } callback - event callbacks.
+     * @param { string } event - Type of the event. The following events are supported:
+     * @param { Callback<emitter.EventData> } callback - Callback function used to return the event data.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -204,15 +215,15 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     on(event: string, callback: Function): void;
 
     /**
-     * Cancel event message.
+     * Unregisters an event processing callback used to listen for different events on the writable stream.
      *
-     * @param { string } event - Register Event.
-     * @param { Callback<emitter.EventData> } callback - event callbacks.
+     * @param { string } event - Type of the event. The following events are supported:
+     * @param { Callback<emitter.EventData> } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -231,15 +242,15 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     off(event: string, callback?: Function): void;
 
     /**
-     * This method is invoked by the Writable method during initialization and must not be invoked directly.
-     * After the resource is initialized in the doInitialize method, the callback () method is invoked.
+     * You need to implement this API but do not call it directly. It is automatically called during the initialization
+     * of the writable stream. This API uses an asynchronous callback to return the result.
      *
-     * @param { Function } callback - Callback when the stream has completed the initial.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -247,17 +258,18 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doInitialize(callback: Function): void;
 
     /**
-     * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
-     * directly called. The call is controlled by Writable.write.
+     * A data write API. You need to implement this API but do not call it directly. This API is automatically called
+     * when data is written. This API uses an asynchronous callback to return the result.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
+     * @param { string | Uint8Array } chunk - Data to write.
+     * @param { string } encoding - Encoding format. Currently, **'utf8'**, **'gb18030'**, **'gbk'**, and **'gb2312'**
+     *     are supported.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -266,16 +278,16 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
 
     /**
-     * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
-     * The call is controlled by Writable.write.
+     * A batch data write API. You need to implement this API but do not call it directly. This API is automatically
+     * called when data is written. This API uses an asynchronous callback to return the result.
      *
-     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
-     * @param { Function } [callback] - Callback after writing.
+     * @param { string[] | Uint8Array[] } chunks - Data arrays to write in batches.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -284,119 +296,114 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
 
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableObjectMode(): boolean;
 
     /**
      * Value of highWatermark.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableHighWatermark(): int;
 
     /**
      * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writable(): boolean;
 
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableLength(): int;
 
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableCorked(): int;
 
     /**
      * Whether Writable.end has been called.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableEnded(): boolean;
 
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableFinished(): boolean;
   }
 
   /**
-   * The stream from which data can be read.
+   * Stream from which data can be read. A readable stream is used to read data from a source, such as a file or a
+   * network socket.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-   class Readable {
+  class Readable {
     /**
-     * The Readable constructor.
+     * A constructor used to create a **Readable** object.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
+
     /**
-     * The Readable constructor.
+     * A constructor used to create a **Readable** object.
      *
-     * @param { ReadableOptions } options - Provide options.
+     * @param { ReadableOptions } options - Options in the **Readable** constructor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -405,15 +412,16 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(options: ReadableOptions);
+
     /**
-     * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
-     * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.
+     * Reads data from the buffer of the readable stream and returns the read data. If no data is read, **null** is
+     * returned.
      *
-     * @param { number } size - Expected length of the data to be read.
-     * @returns { string | null } If no data is available to read, null is returned.
+     * @param { number } size - Number of bytes to read. The default value is **undefined**.
+     * @returns { string | null } Data read from the readable stream.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -431,6 +439,7 @@ declare namespace stream {
      * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.
      *
      * @param { int } [size] - Expected length of the data to be read.
+     *     The value should be an integer.
      * @returns { buffer.Buffer | string | null } If no data is available to read, null is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -440,37 +449,42 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     read(size?: int): buffer.Buffer | string | null;
 
     /**
-     * Switch Readable to Streaming Mode.
+     * Resumes an explicitly paused readable stream. You can use **isPaused** to check whether the stream is paused.
      *
-     * @returns { Readable } Return this object.
+     * @returns { Readable } Current **Readable** object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resume(): Readable;
+
     /**
-     * Toggle Readable to Suspend Mode.
+     * Pauses the readable stream in flowing mode. You can use **isPaused** to check whether the stream is paused.
      *
-     * @returns { Readable } Return this object.
+     * @returns { Readable } Current **Readable** object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pause(): Readable;
+
     /**
-     * Sets the encoding format of the input binary data.Default: utf8.
+     * Sets an encoding format for the readable stream.
+     * If the buffer contains data, setting the encoding format is not allowed, and **false** is returned.
      *
-     * @param { string } [encoding] - Original Data Encoding Type.
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @param { string } [encoding] - Encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @returns { boolean } Operation result. The value **true** is returned if the setting is successful; otherwise,
+     *     **false** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -478,26 +492,30 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setEncoding(encoding?: string): boolean;
+
     /**
-     * Query whether it is in pause state.
+     * Checks whether the readable stream is paused. The stream is paused after [pause()]{@link stream.Readable.pause}
+     * is called and resumes from the paused state after [resume()]{@link stream.Readable.resume} is called.
      *
-     * @returns { boolean } Pause state returns true, otherwise returns false.
+     * @returns { boolean } Check result. The value **true** is returned if the stream is paused; otherwise, **false**
+     *     is returned.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPaused(): boolean;
+
     /**
-     * Concatenated a Writable to a Readable and switches the Readable to stream mode.
+     * Attaches a writable stream to the readable stream to implement automatic data transmission.
      *
-     * @param { Writable } destination - Output writable stream.
-     * @param { Object } [options] - Pipeline Options.
-     * @returns { Writable } Returns the Writable object.
+     * @param { Writable } destination - Writable stream that receives data.
+     * @param { Object } [options] - Reserved.
+     * @returns { Writable } Current **Writable** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -506,14 +524,15 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pipe(destination: Writable, options?: Object): Writable;
+
     /**
-     * Disconnect Writable from Readable.
+     * Detaches a writable stream previously attached to the readable stream.
      *
-     * @param { Writable } [destination] - Writable Streams Needing to Be Disconnected.
-     * @returns { Readable } Returns the Readable object.
+     * @param { Writable } [destination] - Writable stream to detach. The default value is **undefined**.
+     * @returns { Readable } Current **Readable** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -522,14 +541,15 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unpipe(destination?: Writable): Readable;
+
     /**
-     * Registering Event Messages.
+     * Registers an event processing callback to listen for different events on the readable stream.
      *
-     * @param { string } event - Registering Events.
-     * @param { Callback<emitter.EventData> } callback - Event callback.
+     * @param { string } event - Type of the event. The following events are supported:
+     * @param { Callback<emitter.EventData> } callback - Callback function used to return the event data.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -548,15 +568,15 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     on(event: string, callback: Function): void;
 
     /**
-     * Cancel event message.
+     * Unregisters an event processing callback used to listen for different events on the readable stream.
      *
-     * @param { string } event - Registering Events.
-     * @param { Callback<emitter.EventData> } callback - Event callback.
+     * @param { string } event - Type of the event. The following events are supported:
+     * @param { Callback<emitter.EventData> } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -575,15 +595,16 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     off(event: string, callback?: Function): void;
 
     /**
-     * It may be implemented by child classes, and if so, will be called by the Readable class methods only.
-     * It must not be called directly.
+     * You need to implement this API. It is called when the readable stream calls
+     * [on]{@link stream.Writable#on(event: string, callback: Callback<emitter.EventData>)} for the first time. This API
+     * uses an asynchronous callback to return the result.
      *
-     * @param { Function } callback - Callback when the stream has completed the initial.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -592,16 +613,14 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doInitialize(callback: Function): void;
 
     /**
-     * The specific implementation of data production. It must not be actively called. 
-     * After data production, Readable.push should be called to push the produced data into the buffer.
-     * If push is not called, doRead will not be called again.
-     * 
-     * @param { int } size - Expected length of the data to be read.
+     * A data read API that needs to be implemented in child classes.
+     *
+     * @param { int } size - Number of bytes to read. Value range: 0 <= size <= Number.MAX_VALUE
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -610,194 +629,195 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doRead(size: int): void;
 
     /**
-     * Adds the generated data to the buffer. The return value indicates whether the data in the buffer has not
-     * reached the highWaterMark (similar to Writable.write). If the chunk is null, all data has been generated.
+     * Pushes data into the buffer of the readable stream.
      *
-     * @param {  Uint8Array | string | null } chunk - Binary data to be stored in the buffer.
-     * @param { string } [encoding] - Binary data encoding type.
-     * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
-     * data in the buffer does not reach the highWaterMark.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
+     * @param {  Uint8Array | string | null } chunk - Data to read.<br> There has been a compatibility change since API
+     *     version 22. In API version 21 and earlier versions, the type is `Uint8Array | string | null`. [since 12 - 22]
+     * @param {  Uint8Array | string | undefined | null } chunk - Data to read.<br> There has been a compatibility
+     *     change since API version 22. In API version 21 and earlier versions, the type is `Uint8Array | string | null`
+     *     . [since 23]
+     * @param { string } [encoding] - Encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @returns { boolean } Whether there is space in the buffer of the readable stream. The value **true** means that
+     *     there is still space in the buffer, and **false** means that the buffer is full. If **null** is passed,
+     *     **false** is always returned, indicating that no data chunk is available for pushing.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
-     */
-    /**
-     * Adds the generated data to the buffer. The return value indicates whether the data in the buffer has not
-     * reached the highWaterMark (similar to Writable.write). If the chunk is null, all data has been generated.
-     *
-     * @param { Uint8Array | string | undefined | null } chunk - Binary data to be stored in the buffer.
-     * @param { string } [encoding] - Binary data encoding type.
-     * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
-     *     data in the buffer does not reach the highWaterMark.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @since 12 dynamic
+     * @since 23 static
      */
     push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean;
 
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableObjectMode(): boolean;
+
     /**
      * Is true if it is safe to call readable.read(), which means
      * the stream has not been destroyed or emitted 'error' or 'end'.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readable(): boolean;
+
     /**
      * Returns the value of highWatermark passed when creating this Readable.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableHighWatermark(): int;
+
     /**
      * This property reflects the current state of the readable stream null/true/false.
      *
-     * @type { boolean | null }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableFlowing(): boolean | null;
+
     /**
      * Size of the data that can be read, in bytes or objects.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableLength(): int;
+
     /**
      * Getter for the property encoding of a given Readable stream. The encoding property can be set using the
      * readable.setEncoding() method.
      *
-     * @type { string | null }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableEncoding(): string | null;
+
     /**
      * Whether all data has been generated.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableEnded(): boolean;
   }
+
   /**
-   * Duplex streams are streams that implement both the Readable streams and Writable streams interfaces.
+   * A stream that is both readable and writable. A duplex stream allows data to be transmitted in two directions, that
+   * is, data can be read and written.
+   * The **Duplex** class inherits from [Readable]{@link stream.ReadableOptions} and supports all the APIs in
+   * **Readable**.
    *
-   * @extends Readable
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class Duplex extends Readable {
     /**
-    * The Duplex constructor.
+     * A constructor used to create a **Duplex** object.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
+
     /**
-     * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
-     * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
-     * does not reach the hightWaterMark. If false is returned, the buffer has been reached. The write function
-     * should be called after the drain event is triggered. If the write function is called continuously,
-     * the chunk is still added to the buffer until the memory overflows
+     * Writes data to the buffer of the stream. This API uses an asynchronous callback to return the result.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
-     * @returns { boolean } Write success returns true, write failure returns false.
+     * @param { string | Uint8Array } [chunk] - Data to write. It cannot be **null**, **undefined**, or an empty string.
+     * @param { string } [encoding] - Encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @param { Function } [callback] - Callback used to return the result. It is not called by default.
+     * @returns { boolean } Whether there is space in the buffer of the writable stream. The value **true** means that
+     *     there is still space in the buffer. The value **false** means that the buffer is full, and you are not
+     *     advised to continue writing data. If the write function is called continuously, data is still added to the
+     *     buffer until the memory overflows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
      *     3.Parameter verification failed.
      * @throws { BusinessError } 10200036 - The stream has been ended.
      * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
-     * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
+     * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits
+     *     from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
 
     /**
-     * Write the last chunk to Writable.
+     * Ends the writing process in a duplex stream. If the value of **writableCorked** is greater than 0, the value is
+     * set to **0** and the remaining data in the buffer is output. If the **chunk** parameter is passed, it is treated
+     * as the final data chunk and written using either the **write** or **doWrite** API, based on the current execution
+     * context. If **doWrite** is used for writing, the validity check of the **encoding** parameter depends on
+     * **doWrite**. If **end** is used alone (without **write**) and the **chunk** parameter is passed, the data is
+     * written through **doWrite**. This API uses an asynchronous callback to return the result.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
-     * @returns { Writable } Returns the Writable object.
+     * @param { string | Uint8Array } [chunk] - Data to write. The default value is **undefined**.
+     * @param { string } [encoding] - Encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @param { Function } [callback] - Callback used to return the result. It is not called by default.
+     * @returns { Writable } Current **Duplex** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
      *     3.Parameter verification failed.
-     * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits from Transform.
+     * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits
+     *     from Transform.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
 
-
     /**
-     * Set the default encoding mode.
+     * Sets the default encoding format for the writable stream.
      *
-     * @param { string } [encoding] - Encoding type.Default: utf8.
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @param { string } [encoding] - Default encoding format. The default value is **'utf8'**. Currently, **'utf8'**,
+     *     **'gb18030'**, **'gbk'**, and **'gb2312'** are supported.
+     * @returns { boolean } Operation result. **true** means successful; **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -806,38 +826,47 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDefaultEncoding(encoding?: string): boolean;
+
     /**
-     * After the call, all Write operations will be forced to write to the buffer instead of being flushed.
+     * Forces subsequent writes to be buffered. This API is called to optimize the performance of continuous write
+     * operations. After this API is called, the value of **writableCorked** is incremented by one. It is recommended
+     * that this API be used in pair with [uncork()]{@link stream.Writable.uncork}.
      *
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @returns { boolean } Operation result. **true** means successful; **false** otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cork(): boolean;
+
     /**
-     * After calling, flush all buffers.
+     * Releases the cork state, flushing the buffered data and writing it to the target location. After this API is
+     * called, the value of **writableCorked** is decremented by one. If the value reaches **0**, the stream is no
+     * longer in the cork state. Otherwise, the stream is still in the cork state. It is recommended that this API be
+     * used in pair with [cork()]{@link stream.Writable.cork}.
      *
-     * @returns { boolean } Setting successful returns true, setting failed returns false.
+     * @returns { boolean } Operation result. **true** means successful; **false** otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uncork(): boolean;
+
     /**
-     * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
-     * directly called. The call is controlled by Writable.write.
+     * A data write API. You need to implement this API but do not call it directly. This API is automatically called
+     * when data is written. This API uses an asynchronous callback to return the result.
      *
-     * @param { string | Uint8Array } chunk - Data to be written.
-     * @param { string } encoding - Encoding type.
-     * @param { Function } callback - Callback after writing.
+     * @param { string | Uint8Array } chunk - Data to write.
+     * @param { string } encoding - Encoding format. Currently, **'utf8'**, **'gb18030'**, **'gbk'**, and **'gb2312'**
+     *     are supported.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -846,16 +875,16 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
 
     /**
-     * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
-     * The call is controlled by Writable.write.
+     * A batch data write API. You need to implement this API but do not call it directly. This API is automatically
+     * called when data is written. This API uses an asynchronous callback to return the result.
      *
-     * @param { string[] | Uint8Array[] } chunks - Data to be written.
-     * @param { Function } callback - Callback after writing.
+     * @param { string[] | Uint8Array[] } chunks - Data arrays to write in batches.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -864,120 +893,117 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
 
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableObjectMode(): boolean;
+
     /**
      * Value of highWatermark.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableHighWatermark(): int;
+
     /**
      * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writable(): boolean;
+
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableLength(): int;
+
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
-     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableCorked(): int;
+
     /**
      * Whether Writable.end has been called.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableEnded(): boolean;
+
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableFinished(): boolean;
   }
 
   /**
-   * Transform stream is a Duplex stream where the output is computed in some way from the input.
-   * Transform implementations must implement the doTransform() method and may also implement the doFlush() method.
+   * A special duplex stream that supports data conversion and result output. The **Transform** class inherits from
+   * [Duplex]{@link stream.Duplex} and supports all the APIs in **Duplex**.
    *
-   * @extends Duplex
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class Transform extends Duplex {
     /**
-     * The Transform constructor.
+     * A constructor used to create a **Transform** object.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
     /**
-     * Convert the input data. After the conversion, Transform.push can be called to send the input to the read stream.
-     * Transform.push should not be called Transform.write to call.
+     * Converts or processes input data chunks and uses a callback to notify that the processing is complete.
      *
-     * @param { string } chunk - Input data to be converted.
-     * @param { string } encoding - If the chunk is a string, then this is the encoding type. If chunk is a buffer,
-     * then this is the special value 'buffer'. Ignore it in that case.
-     * @param { Function } callback - Callback after conversion.
+     * @param { string } chunk - Data to write.
+     * @param { string } encoding - Encoding format. Currently, **'utf8'**, **'gb18030'**, **'gbk'**, and **'gb2312'**
+     *     are supported.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -986,15 +1012,15 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doTransform(chunk: string, encoding: string, callback: Function): void;
 
     /**
-     * After all data is flushed to the write stream, you can use the Transform.doFlush writes some extra data, must
-     * not be called directly, only called by Writable after flushing all data.
+     * Called at the end of the stream to process the remaining data. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { Function } callback - Callback after flush completion.
+     * @param { Function } callback - Callback function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -1003,9 +1029,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doFlush(callback: Function): void;
   }
 }
+
 export default stream;

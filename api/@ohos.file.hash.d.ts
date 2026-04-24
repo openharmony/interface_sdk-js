@@ -22,194 +22,103 @@ import type { AsyncCallback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 /**
- * Hash
+ * The **FileHash** module implements hash processing on files.
  *
- * @namespace hash
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
- */
-/**
- * Hash
- *
- * @namespace hash
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
- * @since 11
- */
-/**
- * Hash
- *
- * @namespace hash
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- * @since 22 static
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace hash {
   /**
-   * Hash file.
+   * Calculates a hash value for a file. This API uses a promise to return the result.
    *
-   * @param { string } path - path.
-   * @param { string } algorithm - algorithm md5 sha1 sha256.
-   * @returns { Promise<string> } return Promise
+   * @param { string } path - Path of the file in the application sandbox.
+   * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
+   *     **sha256**. **sha256** is recommended for security purposes.
+   * @returns { Promise<string> } Promise used to return the hash value. The hash value is a hexadecimal string
+   *     consisting of digits and uppercase letters.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
-   */
-  /**
-   * Hash file.
-   *
-   * @param { string } path - path.
-   * @param { string } algorithm - algorithm md5 sha1 sha256.
-   * @returns { Promise<string> } return Promise
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Hash file.
-   *
-   * @param { string } path - path.
-   * @param { string } algorithm - algorithm md5 sha1 sha256.
-   * @returns { Promise<string> } return Promise
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function hash(path: string, algorithm: string): Promise<string>;
 
   /**
-   * Hash file.
+   * Calculates a hash value for a file. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } path - path.
-   * @param { string } algorithm - algorithm md5 sha1 sha256.
-   * @param { AsyncCallback<string> } [callback] - callback.
+   * @param { string } path - Path of the file in the application sandbox.
+   * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
+   *     **sha256**. **sha256** is recommended for security purposes.
+   * @param { AsyncCallback<string> } [callback] - Callback used to return the hash value obtained. The hash value is a
+   *     hexadecimal string consisting of digits and uppercase letters.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
-   */
-  /**
-   * Hash file.
-   *
-   * @param { string } path - path.
-   * @param { string } algorithm - algorithm md5 sha1 sha256.
-   * @param { AsyncCallback<string> } [callback] - callback.
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Hash file.
-   *
-   * @param { string } path - path.
-   * @param { string } algorithm - algorithm md5 sha1 sha256.
-   * @param { AsyncCallback<string> } [callback] - callback.
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Hash Stream.
+   * The **HashStream** class is a utility for creating a message digest of data. You can use
+   * [createHash](docroot://reference/apis-core-file-kit/js-apis-file-hash.md#hashcreatehash12) to create a
+   * **HashStream** instance.
    *
-   * @extends stream.Transform
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
-   */
-  /**
-   * Hash Stream.
-   *
-   * @extends stream.Transform
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   class HashStream extends stream.Transform {
     /**
-     * Calculate the digest of all of the data passed to be hashed.
+     * Generates a message digest.
      *
-     * @returns { string } Returns the hexadecimal data string of the hash result.
+     * @returns { string } Hash value, which is a hexadecimal string consisting of digits and uppercase letters.
      * @throws { BusinessError } 401 - Parameter error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 12
-     */
-    /**
-     * Calculate the digest of all of the data passed to be hashed.
-     *
-     * @returns { string } Returns the hexadecimal data string of the hash result.
-     * @throws { BusinessError } 401 - Parameter error
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @crossplatform
-     * @since 20 dynamic
-     * @since 22 static
+     * @crossplatform [since 20]
+     * @since 12 dynamic
+     * @since 23 static
      */
     digest(): string;
 
     /**
-     * Update the hash content with the given data.
+     * Updates the data for generating a message digest. This API can be called multiple times.
      *
      * @param { ArrayBuffer } data - updated data.
      * @throws { BusinessError } 401 - Parameter error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 12
-     */
-    /**
-     * Update the hash content with the given data.
-     *
-     * @param { ArrayBuffer } data - updated data.
-     * @throws { BusinessError } 401 - Parameter error
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @crossplatform
-     * @since 20 dynamic
-     * @since 22 static
+     * @crossplatform [since 20]
+     * @since 12 dynamic
+     * @since 23 static
      */
     update(data: ArrayBuffer): void;
   }
 
   /**
-   * Create file read stream.
+   * Creates a **HashStream** instance, which can be used to generate a message digest (a hash value) using the given
+   * algorithm.
    *
-   * @param { string } algorithm - hash algorithm.
-   * @returns { HashStream } Returns the ReadStream object which has been created.
+   * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
+   *     **sha256**. **sha256** is recommended for security purposes.
+   * @returns { HashStream } **HashStream** instance created.
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
-   */
-  /**
-   * Create file read stream.
-   *
-   * @param { string } algorithm - hash algorithm.
-   * @returns { HashStream } Returns the ReadStream object which has been created.
-   * @throws { BusinessError } 401 - Parameter error
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createHash(algorithm: string): HashStream;
 }

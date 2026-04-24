@@ -136,20 +136,20 @@ declare enum PanDirection {
   Right,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -300,20 +300,20 @@ declare enum SwipeDirection {
   Horizontal,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -589,6 +589,7 @@ declare namespace GestureControl {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 11
    */
@@ -597,6 +598,7 @@ declare namespace GestureControl {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -606,6 +608,7 @@ declare namespace GestureControl {
      * TapGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -613,6 +616,7 @@ declare namespace GestureControl {
      * TapGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -623,6 +627,7 @@ declare namespace GestureControl {
      * LongPressGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -630,6 +635,7 @@ declare namespace GestureControl {
      * LongPressGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -640,6 +646,7 @@ declare namespace GestureControl {
      * PanGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -647,6 +654,7 @@ declare namespace GestureControl {
      * PanGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -657,6 +665,7 @@ declare namespace GestureControl {
      * PinchGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -664,6 +673,7 @@ declare namespace GestureControl {
      * PinchGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -674,6 +684,7 @@ declare namespace GestureControl {
      * SwipeGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -681,6 +692,7 @@ declare namespace GestureControl {
      * SwipeGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -691,6 +703,7 @@ declare namespace GestureControl {
      * RotationGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -698,6 +711,7 @@ declare namespace GestureControl {
      * RotationGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -708,6 +722,7 @@ declare namespace GestureControl {
      * Drag.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -715,6 +730,7 @@ declare namespace GestureControl {
      * Drag.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -725,6 +741,7 @@ declare namespace GestureControl {
      * Click.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -732,11 +749,63 @@ declare namespace GestureControl {
      * Click.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
     CLICK = 7,
+
+    /**
+     * Box selection gesture. A specialized Pan gesture used for rectangular area selection in scrollable components.
+     * When the mouse is moved with the primary button pressed, it creates a selection rectangle to select multiple
+     * items within scrollable components.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    BOX_SELECT_GESTURE = 8,
+
+    /**
+     * Web scroll gesture. A specialized Pan gesture designed for scrolling control in web components.
+     * This gesture enables scrolling behavior when panning within the web component.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    WEB_SCROLL_GESTURE = 9,
+
+    /**
+     * Text field selection gesture. A specialized Pan gesture used for selecting text content within TextField
+     * components. This gesture allows users to drag across text to create or extend text selections,
+     * providing precise text selection control in input fields and text editors.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    TEXT_FIELD_SELECT_GESTURE = 10,
+
+    /**
+     * Context menu hover gesture. A specialized Long Press gesture that triggers hoverScale animation for context
+     * menus. This gesture is only available when hoverScaleInterruption is set to true, enabling a visual feedback
+     * effect while preparing to show context menus.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    CONTEXT_MENU_HOVER_GESTURE = 11
   }
 }
 
@@ -891,6 +960,41 @@ declare interface EventLocationInfo {
    * @since 20 dynamic
    */
   displayY: number;
+
+  /**
+   * X position of the point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y position of the point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  globalDisplayY?: number;
+
+  /**
+   * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+   *
+   * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+   * real-time position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
 }
 
 /**
@@ -967,14 +1071,14 @@ interface FingerInfo {
   globalDisplayY?: number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the left edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the left edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -982,7 +1086,7 @@ interface FingerInfo {
    * @since 10
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the left edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -993,14 +1097,14 @@ interface FingerInfo {
   globalX: number;
 
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * The Y coordinate of the touch point relative to the upper edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * The Y coordinate of the touch point relative to the upper edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1008,7 +1112,7 @@ interface FingerInfo {
    * @since 10
    */
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * The Y coordinate of the touch point relative to the upper edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1102,6 +1206,19 @@ interface FingerInfo {
    * @since 15 dynamic
    */
   hand?: InteractionHand;
+
+  /**
+   * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+   *
+   * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+   * real-time position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
 }
 
 /**
@@ -3532,6 +3649,17 @@ interface TapGestureHandlerOptions extends BaseHandlerOptions {
    * @since 12 dynamic
    */
   fingers?: number;
+  /**
+   * The limited move distance of click. If the value is less than 0, the default value is used. If undefiined is set, the default value will be used.
+   *
+   * @type { ?number }
+   * @default Infinity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  distanceThreshold?: number; 
 }
 
 /**
@@ -4387,6 +4515,17 @@ declare class EventTargetInfo {
    * @since 12 dynamic
    */
   getId(): string;
+  /**
+   * Returns the component's unique id.
+   * 
+   * @returns { number } - the unique id of the component
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getUniqueId(): number;
 }
 
 /**
@@ -4417,6 +4556,18 @@ declare class TouchRecognizer {
      * @since 20 dynamic
      */
     cancelTouch(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { number } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    isHostBelongsTo(uniqueId: number): boolean;
 }
 
 /**
@@ -4542,6 +4693,18 @@ declare class GestureRecognizer {
    * @since 20 dynamic
    */
   preventBegin(): void;
+  /**
+   * Check whether the current gesture binding node is a descendant of the passed-in component.
+   *
+   * @param { number } uniqueId - the unique id of the component.
+   * @returns { boolean } - the query result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  isHostBelongsTo(uniqueId: number): boolean;
 }
 
 /**

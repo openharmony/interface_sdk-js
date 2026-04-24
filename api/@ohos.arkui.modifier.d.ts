@@ -605,7 +605,7 @@ export { AttributeUpdater } from './arkui/AttributeUpdater';
 export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
 
 /**
- * Export ContainerSpanModifier, which is used to expose applyNormalAttribute function.
+ * Export SymbolSpanModifier, which is used to expose applyNormalAttribute function.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -633,11 +633,20 @@ export { ParticleModifier } from './arkui/ParticleModifier';
 export { StepperModifier } from './arkui/StepperModifier';
 
 /**
- * Export PickerModifier, which is used to expose applyNormalAttribute function.
+ * Export UIPickerComponentModifier, which is used to expose applyNormalAttribute function.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-export { PickerModifier } from './arkui/PickerModifier';
+export { UIPickerComponentModifier } from './arkui/UIPickerComponentModifier';
+
+/**
+ * Export ModifierUtils, which provides utility methods for modifier and attribute operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ */
+export { ModifierUtils } from './arkui/ModifierUtils';

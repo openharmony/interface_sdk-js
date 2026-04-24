@@ -28,7 +28,7 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SharedBundleInfo {
   /**
@@ -39,7 +39,7 @@ export interface SharedBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -51,7 +51,7 @@ export interface SharedBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly compatiblePolicy: bundleManager.CompatiblePolicy;
 
@@ -63,7 +63,7 @@ export interface SharedBundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly sharedModuleInfo: Array<SharedModuleInfo>;
 }
@@ -75,7 +75,7 @@ export interface SharedBundleInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SharedModuleInfo {
   /**
@@ -86,7 +86,7 @@ export interface SharedModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -98,7 +98,7 @@ export interface SharedModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 
@@ -110,7 +110,7 @@ export interface SharedModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionName: string;
 
@@ -122,7 +122,7 @@ export interface SharedModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly description: string;
 
@@ -134,7 +134,7 @@ export interface SharedModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 }

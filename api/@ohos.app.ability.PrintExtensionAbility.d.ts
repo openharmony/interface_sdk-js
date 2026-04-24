@@ -26,8 +26,16 @@ import type print from './@ohos.print';
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
+ * @systemapi Hide this for inner system use.
+ * @since 10
+ */
+/**
+ * class of print extensionAbility.
+ *
+ * @syscap SystemCapability.Print.PrintFramework
+ * @stagemodelonly
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class PrintExtensionAbility {
 
@@ -37,7 +45,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onCreate(want: Want): void;
 
@@ -46,7 +54,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onStartDiscoverPrinter(): void;
 
@@ -55,29 +63,29 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onStopDiscoverPrinter(): void;
 
   /**
    * Called once to connect to the specific printer.
-   * @param { number } printerId - connect the printerId.
+   * @param { int } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  onConnectPrinter(printerId: number): void;
+  onConnectPrinter(printerId: int): void;
 
   /**
    * Called once to disconnect to the specific printer.
-   * @param { number } printerId - connect the printerId.
+   * @param { int } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  onDisconnectPrinter(printerId: number): void;
+  onDisconnectPrinter(printerId: int): void;
 
   /**
    * Called once to start print job.
@@ -87,9 +95,16 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  onStartPrintJob(jobInfo: print.PrintJob): void;
+  /**
+   * Called once to start print job.
+   * @param { print.PrintJob } jobInfo - Indicates the information of print job.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  public onStartPrintJob(jobInfo: print.PrintJob): void;
 
   /**
    * Called once to remove the print job has been started.
@@ -99,22 +114,37 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  onCancelPrintJob(jobInfo: print.PrintJob): void;
+  /**
+   * Called once to remove the print job has been started.
+   * @param { print.PrintJob } jobInfo - Indicates the information of print job.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  public onCancelPrintJob(jobInfo: print.PrintJob): void;
 
   /**
    * Called once to request the capability of the printer.
-   * @param { number } printerId - Indicates the information of printer.
+   * @param { int } printerId - Indicates the information of printer.
    * @returns { print.PrinterCapability } printer capability.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  onRequestPrinterCapability(printerId: number): print.PrinterCapability;
+  /**
+   * Called once to request the printer's capabilities.
+   * @param { int } printerId - Indicates the information of printer.
+   * @returns { print.PrinterCapability } printer capability.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  public onRequestPrinterCapability(printerId: int): print.PrinterCapability;
 
   /**
    * Called once to request preview and send result to Print SA.
@@ -125,7 +155,7 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
 
@@ -134,7 +164,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDestroy(): void;
 }

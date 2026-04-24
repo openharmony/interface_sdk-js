@@ -28,109 +28,102 @@ import AutoFillRect from './AutoFillRect';
 /*** endif */
 
 /**
- * View data for automatic filling.
+ * The module defines the view data used for auto-fill.
  *
- * @interface ViewData
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface ViewData {
   /**
-   * The bundle name.
+   * Bundle name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
   /**
-   * The module name.
+   * Module name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName: string;
 
   /**
-   * The ability name.
+   * Ability name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityName: string;
 
   /**
-   * The page url.
+   * URL of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pageUrl: string;
 
   /**
-   * The page node infos.
+   * Page node information.
    *
-   * @type { Array<PageNodeInfo> }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pageNodeInfos: Array<PageNodeInfo>;
 
   /**
-   * The page rect infos.
+   * Coordinates, width, and height of the page.
    *
-   * @type { AutoFillRect }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pageRect: AutoFillRect;
 
   /**
-   * Indicates whether the content is user-selected fill-in content.
+   * Whether the content to be filled is selected by the user. **true** if the content is selected by the user, and 
+   * **false** otherwise.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isUserSelected: boolean;
 
   /**
-   * Indicates whether it is other account.
+   * Whether to display other account information saved in the password box for the user to select. **true** to display,
+   * **false** otherwise.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isOtherAccount: boolean;
 }

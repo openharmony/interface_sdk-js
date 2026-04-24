@@ -37,7 +37,7 @@ import { BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, Pac
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace freeInstall {
   /**
@@ -47,7 +47,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum UpgradeFlag {
     /**
@@ -56,7 +56,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOT_UPGRADE = 0,
     /**
@@ -65,7 +65,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SINGLE_UPGRADE = 1,
     /**
@@ -74,7 +74,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RELATION_UPGRADE = 2
   }
@@ -87,7 +87,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BundlePackFlag {
     /**
@@ -96,7 +96,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_PACK_INFO_ALL = 0x00000000,
     /**
@@ -105,7 +105,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_PACKAGES = 0x00000001,
     /**
@@ -114,7 +114,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_SUMMARY = 0x00000002,
     /**
@@ -123,7 +123,7 @@ declare namespace freeInstall {
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_MODULE_SUMMARY = 0x00000004
   }
@@ -145,7 +145,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setHapModuleUpgradeFlag(bundleName: string,
     moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>): void;
@@ -167,7 +167,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
 
@@ -188,7 +188,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isHapModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -208,7 +208,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isHapModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
@@ -227,7 +227,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundlePackInfo(bundleName: string,
     bundlePackFlag: BundlePackFlag, callback: AsyncCallback<BundlePackInfo>): void;
@@ -247,7 +247,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundlePackInfo(bundleName: string, bundlePackFlag: BundlePackFlag): Promise<BundlePackInfo>;
 
@@ -262,7 +262,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDispatchInfo(callback: AsyncCallback<DispatchInfo>): void;
 
@@ -277,7 +277,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDispatchInfo(): Promise<DispatchInfo>;
 
@@ -288,7 +288,7 @@ declare namespace freeInstall {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type DispatchInfo = _DispatchInfo;
 
@@ -308,7 +308,7 @@ declare namespace freeInstall {
    * @typedef { _BundlePackInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type BundlePackInfo = _BundlePackInfo;
 
@@ -328,7 +328,7 @@ declare namespace freeInstall {
    * @typedef { _PackageConfig }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type PackageConfig = _PackageConfig;
 
@@ -348,7 +348,7 @@ declare namespace freeInstall {
    * @typedef { _PackageSummary }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type PackageSummary = _PackageSummary;
 
@@ -368,7 +368,7 @@ declare namespace freeInstall {
    * @typedef { _BundleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type BundleConfigInfo = _BundleConfigInfo;
 
@@ -388,7 +388,7 @@ declare namespace freeInstall {
    * @typedef { _ExtensionAbility }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type ExtensionAbility = _ExtensionAbility;
 
@@ -408,7 +408,7 @@ declare namespace freeInstall {
    * @typedef { _ModuleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type ModuleConfigInfo = _ModuleConfigInfo;
 
@@ -428,7 +428,7 @@ declare namespace freeInstall {
    * @typedef { _ModuleDistroInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type ModuleDistroInfo = _ModuleDistroInfo;
 
@@ -448,7 +448,7 @@ declare namespace freeInstall {
    * @typedef { _ModuleAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type ModuleAbilityInfo = _ModuleAbilityInfo;
 
@@ -468,7 +468,7 @@ declare namespace freeInstall {
    * @typedef { _AbilityFormInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityFormInfo = _AbilityFormInfo;
 
@@ -488,7 +488,7 @@ declare namespace freeInstall {
    * @typedef { _Version }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type Version = _Version;
 
@@ -508,7 +508,7 @@ declare namespace freeInstall {
    * @typedef { _ApiVersion }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type ApiVersion = _ApiVersion;
 }

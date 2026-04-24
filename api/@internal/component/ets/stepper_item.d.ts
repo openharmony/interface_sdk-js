@@ -40,8 +40,9 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper
  */
 declare enum ItemState {
   /**
@@ -63,8 +64,9 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#index
    */
   Normal,
 
@@ -87,8 +89,9 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#indicatorInteractive
    */
   Disabled,
 
@@ -111,8 +114,9 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper
    */
   Waiting,
 
@@ -135,8 +139,9 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#index
    */
   Skip,
 }
@@ -163,8 +168,9 @@ declare enum ItemState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper#SwiperInterface
  */
 interface StepperItemInterface {
   /**
@@ -189,8 +195,9 @@ interface StepperItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper#SwiperAttribute
    */
   (): StepperItemAttribute;
 }
@@ -217,8 +224,9 @@ interface StepperItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper#SwiperAttribute
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
@@ -246,8 +254,9 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperController#showPrevious
    */
   prevLabel(value: string): StepperItemAttribute;
 
@@ -276,8 +285,9 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperController#showNext
    */
   nextLabel(value: string): StepperItemAttribute;
 
@@ -306,8 +316,9 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#indicatorInteractive
    */
   status(value?: ItemState): StepperItemAttribute;
 }
@@ -331,8 +342,9 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper
  */
 declare const StepperItemInstance: StepperItemAttribute;
 
@@ -355,7 +367,8 @@ declare const StepperItemInstance: StepperItemAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper
  */
 declare const StepperItem: StepperItemInterface;

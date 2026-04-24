@@ -19,6 +19,7 @@
  */
 
 import image from './@ohos.multimedia.image';
+import drawing from './@ohos.graphics.drawing';
 
 /**
  * The result of loading image.
@@ -169,6 +170,17 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Creates a new LayeredDrawableDescriptor.
+   *
+   * @param { DrawableDescriptor } [foreground] - Indicates the foreground option to create LayeredDrawableDescriptor.
+   * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
+   * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   constructor(
     foreground?: DrawableDescriptor,
     background?: DrawableDescriptor,
@@ -278,6 +290,17 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @since 12 dynamic
    */
   static getMaskClipPath(): string;
+
+  /**
+   * Set the composition mode.
+   *
+   * @param { drawing.BlendMode } mode - Indicates the composition mode to set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setBlendMode(mode: drawing.BlendMode): void;
 }
 
 /**
@@ -288,6 +311,15 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Use the PixelMapDrawableDescriptor class to get the resource of pixelmap or resource descriptor information.
+ *
+ * @extends DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 export class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new PixelMapDrawableDescriptor.
@@ -296,7 +328,48 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Creates a new PixelMapDrawableDescriptor.
+   * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   constructor(src?: image.PixelMap);
+}
+
+/**
+ * Animation stop mode.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+export enum AnimationStopMode {
+  /**
+   * First frame.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  FIRST_FRAME = 0,
+  /**
+   * Last frame.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  LAST_FRAME = 1
 }
 
 /**
@@ -349,6 +422,18 @@ declare interface AnimationOptions {
    * @since 21 dynamic
    */
   autoPlay?: boolean;
+  /**
+   * Mode in which animation stops.
+   * 
+   * @type { ?AnimationStopMode }
+   * @default AnimationStopMode.FIRST_FRAME
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  stopMode?: AnimationStopMode;
 }
 
 /**
@@ -362,7 +447,7 @@ declare interface AnimationOptions {
  */
 export interface AnimationController {
   /**
-   * Start animtion playback.
+   * Start animation playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -402,7 +487,7 @@ export interface AnimationController {
   resume(): void;
 
   /**
-   * Get animtion status of the current component.
+   * Get animation status of the current component.
    *
    * @returns { AnimationStatus } Return the status of animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -28,63 +28,73 @@ import { Builder } from '@ohos.arkui.component';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare enum IconType {
   /**
    * Badge type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   BADGE = 1,
   /**
    * Normal icon type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   NORMAL_ICON = 2,
   /**
    * System icon type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   SYSTEM_ICON = 3,
   /**
    * HeadSculpture type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   HEAD_SCULPTURE = 4,
   /**
    * App icon type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   APP_ICON = 5,
   /**
    * Preview type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   PREVIEW = 6,
   /**
    * Longitudinal type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   LONGITUDINAL = 7,
   /**
    * Vertical type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   VERTICAL = 8
 }
@@ -92,7 +102,9 @@ export declare enum IconType {
  * Declare type OperateIcon
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare class OperateIcon {
   /**
@@ -100,7 +112,8 @@ export declare class OperateIcon {
    *
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public value: ResourceStr;
   /**
@@ -108,7 +121,8 @@ export declare class OperateIcon {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
 
@@ -117,7 +131,8 @@ export declare class OperateIcon {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public action?: () => void;
   /**
@@ -125,7 +140,8 @@ export declare class OperateIcon {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -133,7 +149,8 @@ export declare class OperateIcon {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -142,7 +159,8 @@ export declare class OperateIcon {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityLevel?: string;
 }
@@ -150,7 +168,8 @@ export declare class OperateIcon {
  * Declare type OperateCheck
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class OperateCheck {
@@ -159,7 +178,8 @@ export declare class OperateCheck {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public isCheck?: boolean;
   /**
@@ -167,7 +187,8 @@ export declare class OperateCheck {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public onChange?: (value: boolean) => void;
   /**
@@ -175,7 +196,8 @@ export declare class OperateCheck {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -183,7 +205,8 @@ export declare class OperateCheck {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -192,7 +215,8 @@ export declare class OperateCheck {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityLevel?: string;
 }
@@ -200,7 +224,8 @@ export declare class OperateCheck {
  * Declare type OperateButton
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class OperateButton {
@@ -209,7 +234,8 @@ export declare class OperateButton {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public text?: ResourceStr;
   /**
@@ -217,7 +243,8 @@ export declare class OperateButton {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -225,7 +252,8 @@ export declare class OperateButton {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -234,7 +262,8 @@ export declare class OperateButton {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityLevel?: string;
 }
@@ -242,7 +271,8 @@ export declare class OperateButton {
  * Declare ContentItem
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class ContentItem {
@@ -251,7 +281,8 @@ export declare class ContentItem {
    *
    * @type { ?IconType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public iconStyle?: IconType;
   /**
@@ -259,7 +290,8 @@ export declare class ContentItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public icon?: ResourceStr;
   /**
@@ -267,7 +299,8 @@ export declare class ContentItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
   /**
@@ -275,7 +308,8 @@ export declare class ContentItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public primaryText?: ResourceStr;
   /**
@@ -283,7 +317,8 @@ export declare class ContentItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public secondaryText?: ResourceStr;
   /**
@@ -291,7 +326,8 @@ export declare class ContentItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public description?: ResourceStr;
 }
@@ -299,7 +335,8 @@ export declare class ContentItem {
  * Declare OperateItem
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class OperateItem {
@@ -308,7 +345,8 @@ export declare class OperateItem {
    *
    * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public icon?: OperateIcon;
   /**
@@ -316,7 +354,8 @@ export declare class OperateItem {
    *
    * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public subIcon?: OperateIcon;
   /**
@@ -324,15 +363,16 @@ export declare class OperateItem {
    *
    * @type { ?OperateButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public button?: OperateButton;
   /**
    * Sets the toggle.
-   *
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   public toggle?: OperateCheck;
   /**
@@ -340,7 +380,8 @@ export declare class OperateItem {
    *
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public checkbox?: OperateCheck;
   /**
@@ -348,7 +389,8 @@ export declare class OperateItem {
    *
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public radio?: OperateCheck;
   /**
@@ -356,7 +398,8 @@ export declare class OperateItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public image?: ResourceStr;
   /**
@@ -364,7 +407,8 @@ export declare class OperateItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
   /**
@@ -372,7 +416,8 @@ export declare class OperateItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public text?: ResourceStr;
   /**
@@ -380,7 +425,8 @@ export declare class OperateItem {
    *
    * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public arrow?: OperateIcon;
 }
@@ -389,7 +435,8 @@ export declare class OperateItem {
  *
  * @struct { ComposeListItem }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -399,7 +446,8 @@ export declare struct ComposeListItem {
    *
    * @type { ?ContentItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   @PropRef
   contentItem?: ContentItem;
@@ -408,15 +456,16 @@ export declare struct ComposeListItem {
    *
    * @type { ?OperateItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   @PropRef
   operateItem?: OperateItem;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder
   build(): void;

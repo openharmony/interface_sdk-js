@@ -22,6 +22,7 @@
 
 
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Enum for ChipSize
@@ -357,7 +358,19 @@ export interface AccessibilityOptions {
  * @atomicservice
  * @since 14 dynamic
  */
-export interface CloseOptions extends AccessibilityOptions {}
+export interface CloseOptions extends AccessibilityOptions {
+  /**
+   * Set font size for the close icon.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fontSize?: Dimension;
+}
 
 /**
  * Defines chip symbolglyph options.
@@ -366,6 +379,15 @@ export interface CloseOptions extends AccessibilityOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
+ */
+/**
+ * Defines chip symbolglyph options.
+ *
+ * @interface ChipSymbolGlyphOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export interface ChipSymbolGlyphOptions {
 
@@ -377,6 +399,15 @@ export interface ChipSymbolGlyphOptions {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Symbol normal.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   normal?: SymbolGlyphModifier;
 
   /**
@@ -386,6 +417,15 @@ export interface ChipSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Symbol activated.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   activated?: SymbolGlyphModifier;
 }
@@ -708,6 +748,15 @@ export interface ChipOptions {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Chip prefix symbol.
+   *
+   * @type { ?ChipSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   prefixSymbol?: ChipSymbolGlyphOptions;
 
   /**
@@ -756,6 +805,15 @@ export interface ChipOptions {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Chip suffix symbol.
+   *
+   * @type { ?ChipSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   suffixSymbol?: ChipSymbolGlyphOptions;
 
   /**
@@ -789,7 +847,7 @@ export interface ChipOptions {
   allowClose?: boolean;
 
   /**
-   * Set options for default close icon when 'allowaClose' is true.
+   * Set options for default close icon when 'allowClose' is true.
    *
    * @type { ?CloseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -849,6 +907,18 @@ export interface ChipOptions {
   backgroundColor?: ResourceColor;
 
   /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
+
+  /**
    * Chip background color when chip is activated.
    *
    * @type { ?ResourceColor }
@@ -858,6 +928,18 @@ export interface ChipOptions {
    * @since 12 dynamic
    */
   activatedBackgroundColor?: ResourceColor;
+
+  /**
+   * Set system-styled materials for the component which is activated. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**
    * Chip radius.
@@ -971,6 +1053,54 @@ export interface ChipOptions {
    * @since 14 dynamic
    */
   accessibilitySelectedType?: AccessibilitySelectedType;
+
+  /**
+   * Maximum font scale for Chip.
+   *
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  maxFontScale?: number | Resource;
+
+  /**
+   * Minimum font scale for Chip.
+   *
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  minFontScale?: number | Resource;
+
+  /**
+   * Chip padding.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  padding?: LocalizedPadding;
+
+  /**
+   * Set font size for the label text and the close icon.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fontSize?: Dimension;
 }
 
 /**

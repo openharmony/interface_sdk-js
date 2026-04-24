@@ -28,12 +28,12 @@
     "rom": "0KB",
     "ram": "0KB",
     "deps": {
-      "components": [],
+      "components": ["ets_frontend"],
       "third_party": []
     },
     "build": {
       "sub_component": [],
-      "inner_api": [
+      "inner_kits": [
         {
           "name": "//interface/sdk-js:ohos_ets_api"
         },

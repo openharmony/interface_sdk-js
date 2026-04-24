@@ -19,46 +19,37 @@
  */
 
 /**
- * Define options for starting child process.
+ * The module describes the startup configuration of a child process. When starting a child process through 
+ * [childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}, you can configure the startup
+ * configuration of the child process through **ChildProcessOptions**.
  *
- * @interface ChildProcessOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 12 dynamic
+ * @since 23 static
  */
 export interface ChildProcessOptions {
   /**
-   * Controls whether the child process runs in an isolated data sandbox and network environment.
-   * 
-   * - When `true`: 
-   *   - Child process runs in an independent data sandbox
-   *   - Network access is disabled
-   *   - Enables UID isolation functionality
-   * - When `false` (default):
-   *   - Shares parent process's data sandbox
-   *   - Inherits parent's network permissions
-   *   - Disables UID isolation control
+   * Controls the sandbox isolation level and network access permissions of the child process. **true** if the child 
+   * process runs in an independent sandbox environment and cannot access the network; **false** if the child process 
+   * shares the sandbox and network environment with the main process. The default value is **false**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   isolationMode?: boolean;
 
   /**
-   * Controls UID isolation for the child process, effective only when `isolationMode=true`.
-   * 
-   * - When `true`:
-   *   - Child process uses independent UID
-   * - When `false` (default):
-   *   - Child process uses parent process's UID
-   * 
-   * @type { ?boolean }
+   * Whether the child process uses an independent UID. **true** if the child process uses an independent UID; **false**
+   * if the child process and the main process share the same UID. The default value is **false**. This parameter is 
+   * valid only when **isolationMode** is set to **true**.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isolationUid?: boolean;
 }

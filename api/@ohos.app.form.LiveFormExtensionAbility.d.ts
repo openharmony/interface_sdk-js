@@ -30,16 +30,18 @@ import formInfo from './@ohos.app.form.formInfo';
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
+ * @since 23 static
  */
 export interface LiveFormInfo {
   /**
-   * The form id.
+   * The form id of the live form.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   formId: string;
 
@@ -51,19 +53,21 @@ export interface LiveFormInfo {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   rect: formInfo.Rect;
 
   /**
-   * The form border radius.
+   * The form border radius. Unit: vp, The value must be greater than or equal to 0, Restricted to a non-negative number.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
-  borderRadius: number;
+  borderRadius: double;
 }
 
 /**
@@ -74,6 +78,7 @@ export interface LiveFormInfo {
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
+ * @since 23 static
  */
 declare class LiveFormExtensionAbility extends ExtensionAbility {
   /**
@@ -84,6 +89,7 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   context: LiveFormExtensionContext;
 
@@ -96,6 +102,7 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void;
 
@@ -107,6 +114,7 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   onLiveFormDestroy(liveFormInfo: LiveFormInfo): void;
 }

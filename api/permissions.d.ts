@@ -32,6 +32,6 @@
  * @syscap SystemCapability.Security.AccessToken
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type Permissions = string;

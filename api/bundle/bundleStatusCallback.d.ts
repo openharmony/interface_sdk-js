@@ -28,8 +28,9 @@
  * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 8 dynamic
+ * @since 8 dynamiconly
  * @deprecated since 9
+ * @useinstead ohos.bundle.bundleMonitor/bundleMonitor
  */
 export interface BundleStatusCallback {
   /**
@@ -39,8 +40,9 @@ export interface BundleStatusCallback {
    * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor/bundleMonitor.BundleChangedInfo
    */
   add: (bundleName: string, userId: number) => void;
 
@@ -51,8 +53,9 @@ export interface BundleStatusCallback {
    * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor/bundleMonitor.BundleChangedInfo
    */
   update: (bundleName: string, userId: number) => void;
 
@@ -63,8 +66,9 @@ export interface BundleStatusCallback {
    * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor/bundleMonitor.BundleChangedInfo
    */
   remove: (bundleName: string, userId: number) => void;
 }

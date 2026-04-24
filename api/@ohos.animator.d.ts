@@ -747,6 +747,7 @@ export interface AnimatorResult {
  */
 /**
  * Defines the Animator class.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -806,18 +807,19 @@ export default class Animator {
 
   /**
    * Create an animator object for custom animation.
+   * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to
+   * use {@link ohos.arkui.UIContext.UIContext#createAnimator}.
+   * 
    * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
-   * @returns { AnimatorResult } animator result
+   * @returns { AnimatorResult } - animator result
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18 dynamiconly
-   * @deprecated since 22
-   * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
+   * @since 18 dynamic
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }

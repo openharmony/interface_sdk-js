@@ -91,8 +91,9 @@ function collectJSDocTag(jsDocTagContent: string): JSDocTag | undefined {
     tag: '',
     name: '',
     description: '',
-    comment: '',
-  };
+    comment: ''
+  }
+
   if (!tagMatch || !tagMatch[0]) {
     return undefined;
   }

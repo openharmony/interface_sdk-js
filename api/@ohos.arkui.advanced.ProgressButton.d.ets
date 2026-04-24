@@ -21,17 +21,20 @@
 /**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -42,19 +45,22 @@ export declare struct ProgressButton {
    * Sets the ProgressButton progress.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Sets the ProgressButton progress.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Sets the ProgressButton progress.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -65,12 +71,14 @@ export declare struct ProgressButton {
    * Sets the ProgressButton content.
    * @type { string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Sets the ProgressButton content.
    * @type { string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -78,6 +86,7 @@ export declare struct ProgressButton {
    * Sets the ProgressButton content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -88,19 +97,22 @@ export declare struct ProgressButton {
    * Sets the ProgressButton progressButtonWidth.
    * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Sets the ProgressButton progressButtonWidth.
    * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Sets the ProgressButton progressButtonWidth.
    * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -111,19 +123,22 @@ export declare struct ProgressButton {
    * Sets the ProgressButton clickCallback.
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Sets the ProgressButton clickCallback.
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Sets the ProgressButton clickCallback.
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -134,19 +149,22 @@ export declare struct ProgressButton {
    * Sets the ProgressButton enable state.
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Sets the ProgressButton enable state.
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Sets the ProgressButton enable state.
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -158,14 +176,16 @@ export declare struct ProgressButton {
    *
    * @type { ?ProgressButtonColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Set Color options of the ProgressButton.
    *
    * @type { ?ProgressButtonColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -177,6 +197,7 @@ export declare struct ProgressButton {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -189,14 +210,16 @@ export declare struct ProgressButton {
  *
  * @interface ProgressButtonColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 /**
  * Declare Color options of the ProgressButton.
  *
  * @interface ProgressButtonColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -208,14 +231,16 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Set progress color of the ProgressButton.
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -227,14 +252,16 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Set border color of the ProgressButton.
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -246,14 +273,16 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Set text color of the ProgressButton.
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -265,14 +294,16 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Set background color of the ProgressButton.
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic

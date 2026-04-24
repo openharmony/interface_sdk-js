@@ -37,15 +37,15 @@
 /**
  * Indicates possible value types
  *
- * @typedef { number | string | boolean }
+ * @typedef { long | double | string | boolean }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
-export type ValueType = number | string | boolean;
+export type ValueType = long | double | string | boolean;
 
 /**
  * Values in buckets are stored in key-value pairs
@@ -54,6 +54,6 @@ export type ValueType = number | string | boolean;
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;

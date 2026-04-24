@@ -395,6 +395,7 @@ export interface OnDownloadCompleteOptions {
 }
 
 /**
+ * @syscap SystemCapability.MiscServices.Download
  * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent

@@ -25,7 +25,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.HapModuleInfo
+ * @useinstead ohos.bundle.bundleManager/bundleManager.HapModuleInfo
  */
 export interface ModuleInfo {
   /**
@@ -34,8 +34,9 @@ export interface ModuleInfo {
    * @type { string }
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.HapModuleInfo#name
    */
   readonly moduleName: string;
 
@@ -45,7 +46,7 @@ export interface ModuleInfo {
    * @type { string }
    * @default Indicates the module source dir of this module
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly moduleSourceDir: string;

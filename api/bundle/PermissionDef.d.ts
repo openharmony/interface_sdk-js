@@ -26,7 +26,7 @@
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.PermissionDef
+ * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionDef
  */
 export interface PermissionDef {
   /**
@@ -34,8 +34,9 @@ export interface PermissionDef {
    * @default Indicates the name of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionDef#permissionName
    */
   permissionName: string;
 
@@ -44,8 +45,9 @@ export interface PermissionDef {
    * @default Indicates the grant mode of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionDef#grantMode
    */
   grantMode: number;
 
@@ -54,8 +56,9 @@ export interface PermissionDef {
    * @default Indicates the labelId of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionDef#labelId
    */
   labelId: number;
 
@@ -64,8 +67,9 @@ export interface PermissionDef {
    * @default Indicates the descriptionId of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionDef#descriptionId
    */
   descriptionId: number;
 }

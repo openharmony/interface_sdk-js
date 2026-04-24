@@ -27,7 +27,7 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundleResourceInfo {
   /**
@@ -38,7 +38,7 @@ export interface BundleResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -50,7 +50,7 @@ export interface BundleResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon: string;
 
@@ -62,7 +62,7 @@ export interface BundleResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
@@ -84,7 +84,7 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   readonly drawableDescriptor: DrawableDescriptor | null;
 
@@ -96,7 +96,7 @@ export interface BundleResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 }

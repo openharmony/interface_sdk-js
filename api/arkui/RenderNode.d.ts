@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { BusinessError } from '../@ohos.base';
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit, BackgroundBlur, ContentBlur, ForegroundBlur } from './Graphics';
 
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
@@ -80,7 +80,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   appendChild(node: RenderNode): void;
 
@@ -117,7 +117,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   insertChildAfter(child: RenderNode, sibling: RenderNode | null): void;
 
@@ -1120,4 +1120,73 @@ export class RenderNode {
    * @since 20 dynamic
    */
   isDisposed(): boolean;
+
+  /**
+   * Set the background blur effect.
+   *
+   * @param { BackgroundBlur | undefined } blurValue - The background blur effect.
+   *     If undefined, the background blur effect will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  set backgroundBlur(blurValue: BackgroundBlur | undefined);
+
+  /**
+   * Get the background blur effect.
+   *
+   * @returns { BackgroundBlur } - Returns the background blur effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  get backgroundBlur(): BackgroundBlur;
+
+  /**
+   * Set the content blur effect.
+   *
+   * @param { ContentBlur | undefined } blurValue - The content blur effect.
+   *     If undefined, the content blur effect will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  set contentBlur(blurValue: ContentBlur | undefined);
+
+  /**
+   * Get the content blur effect.
+   *
+   * @returns { ContentBlur } - Returns the content blur effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  get contentBlur(): ContentBlur;
+
+  /**
+   * Set the foreground blur effect.
+   *
+   * @param { ForegroundBlur | undefined } blurValue - The foreground blur effect.
+   *     If undefined, the foreground blur effect will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  set foregroundBlur(blurValue: ForegroundBlur | undefined);
+
+  /**
+   * Get the foreground blur effect.
+   *
+   * @returns { ForegroundBlur } - Returns the foreground blur effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  get foregroundBlur(): ForegroundBlur;
 }

@@ -24,6 +24,7 @@ import { ColorMetrics } from './@ohos.arkui.node';
 /**
  * Declare Component ProgressButtonV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @crossplatform
  * @since 18 dynamic
@@ -34,6 +35,7 @@ export declare struct ProgressButtonV2 {
    * Sets the ProgressButtonV2 progress.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -45,6 +47,7 @@ export declare struct ProgressButtonV2 {
    * Sets the ProgressButtonV2 content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -56,6 +59,7 @@ export declare struct ProgressButtonV2 {
    * Sets the ProgressButtonV2 progressButtonWidth.
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -66,6 +70,7 @@ export declare struct ProgressButtonV2 {
    * Sets the ProgressButtonV2 onClicked.
    * @type { ClickCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -76,6 +81,7 @@ export declare struct ProgressButtonV2 {
    * Sets the ProgressButtonV2 isEnabled state.
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -87,6 +93,7 @@ export declare struct ProgressButtonV2 {
    *
    * @type { ?ProgressButtonV2Color }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -98,6 +105,7 @@ export declare struct ProgressButtonV2 {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -109,6 +117,7 @@ export declare struct ProgressButtonV2 {
  * Declare ProgressButtonV2 Color.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @crossplatform
  * @since 18 dynamic
@@ -120,6 +129,7 @@ export declare class ProgressButtonV2Color {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -131,6 +141,7 @@ export declare class ProgressButtonV2Color {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -142,6 +153,7 @@ export declare class ProgressButtonV2Color {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -153,6 +165,7 @@ export declare class ProgressButtonV2Color {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -164,6 +177,7 @@ export declare class ProgressButtonV2Color {
    *
    * @param options { ProgressButtonV2ColorOptions } the options of the ProgressButtonV2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -175,6 +189,7 @@ export declare class ProgressButtonV2Color {
  * Defines ClickCallback of the ProgressButtonV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @crossplatform
  * @since 18 dynamic
@@ -186,6 +201,7 @@ export type ClickCallback = () => void;
  *
  * @interface ProgressButtonV2ColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @crossplatform
  * @since 18 dynamic
@@ -196,6 +212,7 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -207,6 +224,7 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -218,6 +236,7 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic
@@ -229,6 +248,7 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @crossplatform
    * @since 18 dynamic

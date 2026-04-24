@@ -25,7 +25,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace logLibrary {
   /**
@@ -35,7 +35,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface LogEntry {
     /**
@@ -45,7 +45,7 @@ declare namespace logLibrary {
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -56,7 +56,7 @@ declare namespace logLibrary {
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mtime: long;
 
@@ -67,7 +67,7 @@ declare namespace logLibrary {
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     size: long;
   }
@@ -87,7 +87,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function list(logType: string): LogEntry[];
 
@@ -109,7 +109,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function copy(logType: string, logName: string, dest: string): Promise<void>;
 
@@ -131,7 +131,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function copy(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -153,7 +153,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function move(logType: string, logName: string, dest: string): Promise<void>;
 
@@ -175,7 +175,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function move(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -195,7 +195,7 @@ declare namespace logLibrary {
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function remove(logType: string, logName: string): void;
 }

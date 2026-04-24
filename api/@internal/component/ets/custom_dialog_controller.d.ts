@@ -38,6 +38,7 @@
  *
  * @interface CustomDialogControllerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -63,6 +64,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -89,6 +91,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -115,6 +118,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -141,6 +145,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { ?DialogAlignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -167,6 +172,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -193,6 +199,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -219,6 +226,7 @@ declare interface CustomDialogControllerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -638,6 +646,21 @@ declare interface CustomDialogControllerOptions {
    * @since 19 dynamic
    */
   focusable?: boolean;
+
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of dialog.
+   * 
+   * Device Behavior Differences:The effect of same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @type { ?SystemUiMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -700,6 +723,7 @@ declare type PromptActionCommonState = import('../api/@ohos.promptAction').promp
  * Use the CustomDialogController class to display the custom pop-up window.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -725,6 +749,7 @@ declare class CustomDialogController {
    *
    * @param { CustomDialogControllerOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -748,6 +773,7 @@ declare class CustomDialogController {
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -771,6 +797,7 @@ declare class CustomDialogController {
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

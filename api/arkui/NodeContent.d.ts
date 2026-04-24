@@ -59,7 +59,7 @@ export class NodeContent extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   addFrameNode(node: FrameNode): void;
 

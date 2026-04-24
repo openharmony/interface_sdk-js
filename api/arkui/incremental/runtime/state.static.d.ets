@@ -24,7 +24,7 @@
  *
  * @interface ReadableState<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ReadableState<T> {
     /**
@@ -33,7 +33,7 @@ export declare interface ReadableState<T> {
      * @type { T }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     readonly value: T;
 }
@@ -46,7 +46,7 @@ export declare interface ReadableState<T> {
  * @returns { boolean } - Returns the comparison result between old value and new value,
  * if they are equal, ther true; otherwise, return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type Equivalent<T> = (oldV: T, newV: T) => boolean;
 
@@ -55,7 +55,7 @@ export type Equivalent<T> = (oldV: T, newV: T) => boolean;
  *
  * @interface IncrementalScope<Value>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface IncrementalScope<Value> {
     /**
@@ -63,7 +63,7 @@ export declare interface IncrementalScope<Value> {
      * 
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     get unchanged(): boolean;
 
@@ -72,7 +72,7 @@ export declare interface IncrementalScope<Value> {
      *
      * @returns { Value }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     get cached(): Value;
     /**
@@ -81,7 +81,7 @@ export declare interface IncrementalScope<Value> {
      * @param  { Value } [newValue] - new value
      * @returns { Value } return the Value from cached
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     recache(newValue?: Value): Value;
     /**
@@ -91,7 +91,7 @@ export declare interface IncrementalScope<Value> {
      * @param {T} value - then value to be updated
      * @returns {ReadableState<T>} return state variable Value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     param<T>(index: int, value: T): ReadableState<T>;
 }
@@ -101,7 +101,7 @@ export declare interface IncrementalScope<Value> {
  *
  * @interface StateContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface StateContext {
     /**
@@ -111,7 +111,7 @@ export declare interface StateContext {
      * @param { int } paramCount - the count of param
      * @returns {InternalScope<T>} return state scope
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     scope<T>(id: int, paramCount: int): IncrementalScope<T>;
 }
@@ -121,7 +121,7 @@ export declare interface StateContext {
  *
  * @typedef { StateContext } __memo_context_type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type __memo_context_type = StateContext;
 
@@ -130,6 +130,6 @@ export type __memo_context_type = StateContext;
  *
  * @typedef { int } __memo_id_type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type __memo_id_type = int;

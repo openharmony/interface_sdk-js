@@ -21,7 +21,7 @@
  * Defines the base class for ComponentContent and NodeContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export abstract class Content {
 }

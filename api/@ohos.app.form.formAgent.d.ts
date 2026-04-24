@@ -28,7 +28,7 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace formAgent {
 
@@ -64,7 +64,7 @@ declare namespace formAgent {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
@@ -100,7 +100,7 @@ declare namespace formAgent {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function requestPublishForm(want: Want): Promise<string>;
 }

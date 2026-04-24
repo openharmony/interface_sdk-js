@@ -61,6 +61,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -68,6 +69,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -76,6 +78,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -85,6 +88,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -116,6 +120,16 @@ declare type Length = string | number | Resource;
  * @atomicservice
  * @since 18 dynamic
  */
+/**
+ * Defines the length property with number in units of px.
+ *
+ * @typedef { `${number}px` } PX
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type PX = `${number}px`;
 
 /**
@@ -141,6 +155,16 @@ declare type PX = `${number}px`;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ */
+/**
+ * Defines the length property with number or number in units of vp.
+ *
+ * @typedef { `${number}vp` | number } VP
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type VP = `${number}vp` | number;
 
@@ -168,6 +192,16 @@ declare type VP = `${number}vp` | number;
  * @atomicservice
  * @since 18 dynamic
  */
+/**
+ * Defines the length property with number in units of fp.
+ *
+ * @typedef { `${number}fp` } FP
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type FP = `${number}fp`;
 
 /**
@@ -193,6 +227,16 @@ declare type FP = `${number}fp`;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ */
+/**
+ * Defines the length property with number in units of lpx.
+ *
+ * @typedef { `${number}lpx` } LPX
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type LPX = `${number}lpx`;
 
@@ -220,6 +264,16 @@ declare type LPX = `${number}lpx`;
  * @atomicservice
  * @since 18 dynamic
  */
+/**
+ * Defines the length property with number in units of Percentage.
+ *
+ * @typedef { `${number}%` } Percentage
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type Percentage = `${number}%`;
 
 /**
@@ -234,6 +288,7 @@ declare type Percentage = `${number}%`;
  *
  * @typedef { `${number}deg` } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -262,6 +317,16 @@ declare type Degree = `${number}deg`;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ */
+/**
+ * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ *
+ * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
@@ -365,7 +430,7 @@ declare type Padding = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   top?: Length;
 
@@ -401,7 +466,7 @@ declare type Padding = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   right?: Length;
 
@@ -437,7 +502,7 @@ declare type Padding = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   bottom?: Length;
 
@@ -473,7 +538,7 @@ declare type Padding = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   left?: Length;
 };
@@ -646,7 +711,7 @@ declare type EdgeWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   top?: Length;
 
@@ -675,7 +740,7 @@ declare type EdgeWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   right?: Length;
 
@@ -704,7 +769,7 @@ declare type EdgeWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   bottom?: Length;
 
@@ -733,7 +798,7 @@ declare type EdgeWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   left?: Length;
 };
@@ -834,7 +899,7 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   top?: Dimension;
 
@@ -855,7 +920,7 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   right?: Dimension;
 
@@ -876,7 +941,7 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   bottom?: Dimension;
 
@@ -897,7 +962,7 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   left?: Dimension;
 };
@@ -955,7 +1020,7 @@ declare type BorderRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   topLeft?: Length;
 
@@ -984,7 +1049,7 @@ declare type BorderRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   topRight?: Length;
 
@@ -1013,7 +1078,7 @@ declare type BorderRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   bottomLeft?: Length;
 
@@ -1042,7 +1107,7 @@ declare type BorderRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   bottomRight?: Length;
 };
@@ -1057,7 +1122,7 @@ declare type BorderRadiuses = {
  * @atomicservice
  * @since 12 dynamic
  */
-declare interface LocalizedBorderRadiuses  {
+declare interface LocalizedBorderRadiuses {
   /**
    * top-start property.
    *
@@ -1144,7 +1209,7 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   topLeft?: Dimension;
 
@@ -1165,7 +1230,7 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   topRight?: Dimension;
 
@@ -1186,7 +1251,7 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   bottomLeft?: Dimension;
 
@@ -1207,7 +1272,7 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   bottomRight?: Dimension;
 };
@@ -1265,7 +1330,7 @@ declare type EdgeColors = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   top?: ResourceColor;
 
@@ -1294,7 +1359,7 @@ declare type EdgeColors = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   right?: ResourceColor;
 
@@ -1323,7 +1388,7 @@ declare type EdgeColors = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   bottom?: ResourceColor;
 
@@ -1352,7 +1417,7 @@ declare type EdgeColors = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   left?: ResourceColor;
 };
@@ -1367,7 +1432,7 @@ declare type EdgeColors = {
  * @atomicservice
  * @since 12 dynamic
  */
-declare interface LocalizedEdgeColors  {
+declare interface LocalizedEdgeColors {
   /**
    * top property.
    *
@@ -1426,7 +1491,7 @@ declare interface LocalizedEdgeColors  {
  * @form
  * @atomicservice
  * @since 12 dynamic
-*/
+ */
 declare type LocalizedMargin = LocalizedPadding;
 
 /**
@@ -1482,7 +1547,7 @@ declare type EdgeStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   top?: BorderStyle;
 
@@ -1511,7 +1576,7 @@ declare type EdgeStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   right?: BorderStyle;
 
@@ -1540,7 +1605,7 @@ declare type EdgeStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   bottom?: BorderStyle;
 
@@ -1569,7 +1634,7 @@ declare type EdgeStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   left?: BorderStyle;
 };
@@ -1611,7 +1676,7 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   top?: OutlineStyle;
 
@@ -1632,7 +1697,7 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   right?: OutlineStyle;
 
@@ -1653,7 +1718,7 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   bottom?: OutlineStyle;
 
@@ -1674,7 +1739,7 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   left?: OutlineStyle;
 };
@@ -1684,6 +1749,7 @@ declare type EdgeOutlineStyles = {
  *
  * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1691,6 +1757,7 @@ declare type EdgeOutlineStyles = {
  *
  * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1699,6 +1766,7 @@ declare type EdgeOutlineStyles = {
  *
  * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1709,6 +1777,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1716,6 +1785,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1724,9 +1794,10 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   dx: Length;
 
@@ -1735,6 +1806,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1742,6 +1814,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1750,9 +1823,10 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   dy: Length;
 };
@@ -1846,7 +1920,7 @@ declare type LengthConstrain = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   minLength: Length;
 
@@ -1875,7 +1949,7 @@ declare type LengthConstrain = {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
   maxLength: Length;
 };
@@ -1889,7 +1963,7 @@ declare type LengthConstrain = {
  * @atomicservice
  * @since 12 dynamic
  */
-declare type VoidCallback  = () => void;
+declare type VoidCallback = () => void;
 
 /**
  * Defines length metrics unit.
@@ -2240,6 +2314,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2247,6 +2322,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2255,6 +2331,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2264,6 +2341,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -2275,6 +2353,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2282,6 +2361,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2290,6 +2370,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2299,6 +2380,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2311,6 +2393,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2318,6 +2401,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2326,6 +2410,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2335,6 +2420,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2411,7 +2497,7 @@ declare interface Edges {
    */
   left?: Dimension;
 
-   /**
+  /**
    * bottom property.
    *
    * @type { ?Dimension }
@@ -2743,6 +2829,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2750,6 +2837,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2758,6 +2846,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2767,6 +2856,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -2778,6 +2868,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2785,6 +2876,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2793,6 +2885,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2802,6 +2895,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2814,6 +2908,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2821,6 +2916,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2829,6 +2925,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2838,6 +2935,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3089,7 +3187,7 @@ declare interface BorderOptions {
 }
 
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3098,7 +3196,7 @@ declare interface BorderOptions {
  * @since 11
  */
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3273,6 +3371,7 @@ declare interface MarkStyle {
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -3280,6 +3379,7 @@ declare interface MarkStyle {
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -3288,6 +3388,7 @@ declare interface MarkStyle {
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -3299,6 +3400,7 @@ declare class ColorFilter {
    *
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3307,6 +3409,7 @@ declare class ColorFilter {
    *
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3316,6 +3419,7 @@ declare class ColorFilter {
    *
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3572,7 +3676,7 @@ declare interface ChainWeightOptions {
  */
 declare interface AccessibilityOptions {
   /**
-   * accessibilityPreferred - Should accessibilityText be prioritized when contatenating child component strings.
+   * accessibilityPreferred - Should accessibilityText be prioritized when concatenating child component strings.
    *
    * @type { ?(boolean) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3590,7 +3694,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   stateControllerRoleType?: AccessibilityRoleType;
 
@@ -3602,7 +3706,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   stateControllerId?: string;
 
@@ -3614,7 +3718,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   actionControllerRoleType?: AccessibilityRoleType;
 
@@ -3626,9 +3730,33 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   actionControllerId?: string;
+}
+
+/**
+ * Defines the struct of AccessibilityActionOptions that can affect operation under accessibility.
+ *
+ * @interface AccessibilityActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface AccessibilityActionOptions {
+  /**
+   * scrollStep - the step when the component is scrolled by accessibility.
+   *
+   * @type { ?(number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  scrollStep?: number;
 }
 
 /**
@@ -3636,6 +3764,7 @@ declare interface AccessibilityOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -3645,6 +3774,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3655,10 +3785,75 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
   end?: LengthMetrics;
+}
+
+/**
+ * Define cache count information.
+ *
+ * @interface CacheCountInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface CacheCountInfo {
+  /**
+   * min cache count.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  minCount: number;
+  /**
+   * max cache count.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxCount: number;
+}
+
+/**
+ * Describes a two-dimension coordinate.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface Coordinate2D {
+  /**
+   * Horizontal coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+  /**
+   * Vertical coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
 }
 
 /**
@@ -3675,7 +3870,7 @@ declare type ResponsiveFillType = PresetFillType;
 /**
  * Define a responsive item layout suitable for WaterFlow, Grid, List,and Swiper components.
  *
- * @typedef { PresetFillType } ResponsiveFillType
+ * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -3693,31 +3888,4 @@ declare interface ItemFillPolicy {
     * @since 22 dynamic
     */
   fillType?: ResponsiveFillType;
-}
-/**
- * Define cache count information.
- * @interface CacheCountInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 22 dynamic
- */
-declare interface CacheCountInfo {
-/**
- * min cache count.
- * 
- * @type { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 22 dynamic
- */
-minCount: number;
-/**
- * max cache count.
- * 
- * @type { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 22 dynamic
- */
-maxCount: number;
 }

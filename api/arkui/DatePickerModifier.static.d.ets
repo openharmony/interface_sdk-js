@@ -26,6 +26,6 @@ import { DatePickerAttribute } from '@ohos.arkui.component';
  *
  * @implements { DatePickerAttribute, AttributeModifier<DatePickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class DatePickerModifier implements DatePickerAttribute, AttributeModifier<DatePickerAttribute> {}
