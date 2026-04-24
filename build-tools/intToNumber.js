@@ -276,22 +276,51 @@ function parseJSDocVisitEachChild1(context, node) {
       }
     });
   }
-  function handleLinkMatch(match, globalPosStart) {
-    const fullMatch = match[0];
-    const linkContent = match[1];
-    let convertedText = fullMatch;
-    if (!/\(.*\)/.test(linkContent)) {
-      return;
+  function parseTypeExpr(typeExpr) {
+    let newTypeExpr = typeExpr;
+    if (typeExpr.type.kind === ts.SyntaxKind.JSDocNullableType) {
+      newTypeExpr = judgeKind(typeExpr.type);
+    } else {
+      newTypeExpr = parseTypeExpression(typeExpr.type);
     }
-    const processedContent = processSignatureContent(linkContent);
-    convertedText = fullMatch.replace(linkContent, processedContent);
-    if (convertedText !== fullMatch) {
-      tagDataList.push({
-        pos: globalPosStart + match.index,
-        end: globalPosStart + match.index + fullMatch.length,
-        convertedText: convertedText
-      });
+    return newTypeExpr;
+  }
+  function judgeKind(typeExprType) {
+    if (typeExprType.type.kind && typeExprType.type.kind === ts.SyntaxKind.ParenthesizedType) {
+      return parseTypeExpression(typeExprType.type.type);
+    } else {
+      return parseTypeExpression(typeExprType.type);
     }
+  }
+  function parseTypeExpression(node) {
+    if (ts.isTypeReferenceNode(node) && ts.isIdentifier(node.typeName) && typeArray.includes(node.typeName.getText())) {
+      node = ts.factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword);
+    }
+    return ts.visitEachChild(node, parseTypeExpression, context);
+  }
+}
+
+/**
+ * 处理单个 {@link} 匹配项，仅处理带函数签名 () 的场景
+ * 严格保留原始文本格式，不修改空格、换行、缩进
+ * @param {Array} match - 正则匹配结果
+ * @param {number} globalPosStart - 全局起始偏移位置
+ */
+function handleLinkMatch(match, globalPosStart) {
+  const fullMatch = match[0];
+  const linkContent = match[1];
+  let convertedText = fullMatch;
+  if (!/\(.*\)/.test(linkContent)) {
+    return;
+  }
+  const processedContent = processSignatureContent(linkContent);
+  convertedText = fullMatch.replace(linkContent, processedContent);
+  if (convertedText !== fullMatch) {
+    tagDataList.push({
+      pos: globalPosStart + match.index,
+      end: globalPosStart + match.index + fullMatch.length,
+      convertedText: convertedText
+    });
   }
   function processSignatureContent(content) {
     let result = content.replace(/\b(int|long|double)\b/g, 'number');
@@ -323,28 +352,6 @@ function parseJSDocVisitEachChild1(context, node) {
       }
     }
     return paramNamePart + ':' + newTypeItems.join(' | ');
-  }
-  function parseTypeExpr(typeExpr) {
-    let newTypeExpr = typeExpr;
-    if (typeExpr.type.kind === ts.SyntaxKind.JSDocNullableType) {
-      newTypeExpr = judgeKind(typeExpr.type);
-    } else {
-      newTypeExpr = parseTypeExpression(typeExpr.type);
-    }
-    return newTypeExpr;
-  }
-  function judgeKind(typeExprType) {
-    if (typeExprType.type.kind && typeExprType.type.kind === ts.SyntaxKind.ParenthesizedType) {
-      return parseTypeExpression(typeExprType.type.type);
-    } else {
-      return parseTypeExpression(typeExprType.type);
-    }
-  }
-  function parseTypeExpression(node) {
-    if (ts.isTypeReferenceNode(node) && ts.isIdentifier(node.typeName) && typeArray.includes(node.typeName.getText())) {
-      node = ts.factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword);
-    }
-    return ts.visitEachChild(node, parseTypeExpression, context);
   }
 }
 
