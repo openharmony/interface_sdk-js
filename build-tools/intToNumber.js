@@ -272,31 +272,20 @@ function parseJSDocVisitEachChild1(context, node) {
       const regex = /\{@link\s+([\s\S]*?)\}/gi;
       let match;
       while ((match = regex.exec(commentText)) !== null) {
-        handleLinkMatch(match, commentText, globalPosStart);
+        handleLinkMatch(match, globalPosStart);
       }
     });
   }
-  function handleLinkMatch(match, commentText, globalPosStart) {
+  function handleLinkMatch(match, globalPosStart) {
     const fullMatch = match[0];
     const linkContent = match[1];
     let convertedText = fullMatch;
-    const hasFunctionSignature = /\(.*\)/.test(linkContent);
-    if (hasFunctionSignature) {
-      const convertedContent = linkContent.replace(/\(([\s\S]*?)\)/g, (paramStr) => {
-        return paramStr.replace(/(\bint\b|\blong\b|\bdouble\b)(\s*\|\s*(\bint\b|\blong\b|\bdouble\b))*/g, () => 'number');
-      });
-      convertedText = fullMatch.replace(linkContent, convertedContent);
+    if (/\(.*\)/.test(linkContent)) {
+      convertedText = fullMatch.replace(linkContent, processSignatureContent(linkContent));
     } else {
-      const typePart = fullMatch.replace(/\{@link|\}/gi, '').replace(/\*+/g, '').trim();
-      if (!/(int|long|double)/.test(typePart)){
-        return;
-      }
-      const types = typePart.split(/\s*\|\s*/);
-      const newTypes = types.map(t => t.replace(/\b(int|long|double)\b/g, 'number'));
-      const uniqueTypes = [...new Set(newTypes)];
-      const newTypeStr = uniqueTypes.join(' | ');
-      convertedText = fullMatch.replace(typePart, newTypeStr);
+      return;
     }
+  
     if (convertedText !== fullMatch) {
       tagDataList.push({
         pos: globalPosStart + match.index,
@@ -304,6 +293,35 @@ function parseJSDocVisitEachChild1(context, node) {
         convertedText: convertedText
       });
     }
+  }
+  function processSignatureContent(content) {
+    let result = content.replace(/\b(int|long|double)\b/g, 'number');
+    return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
+      const params = paramStr.split(',').map(param => param.trim());
+      const processedParams = params.map(param => processSingleParam(param));
+      return openBracket + processedParams.join(', ') + closeBracket;
+    });
+  }
+  function processSingleParam(param) {
+    if (!param.includes(':')){
+      return param;
+    }
+    const [name, ...rest] = param.split(':');
+    const typeStr = rest.join(':').trim();
+    const types = typeStr.split(/\s*\|\s*/);
+    const newTypes = [];
+    let hasNumber = false;
+    for (const type of types) {
+      if (type === 'number') {
+        if (!hasNumber){
+          newTypes.push(type);
+        }
+        hasNumber = true;
+      } else {
+        newTypes.push(type);
+      }
+    }
+    return `${name.trim()}: ${newTypes.join(' | ')}`;
   }
   function parseTypeExpr(typeExpr) {
     let newTypeExpr = typeExpr;
