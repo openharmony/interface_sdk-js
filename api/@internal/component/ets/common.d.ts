@@ -14733,6 +14733,36 @@ declare enum DragBehavior {
 }
 
 /**
+ * Enum for Drag Animation Type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum DragAnimationType {
+  /**
+   * Use the default animation during dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * Use the follow-hand morph animation during dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  FOLLOW_HAND_MORPH = 1
+}
+
+/**
  * Import the UnifiedData type object for ui component.
  *
  * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
@@ -15987,6 +16017,19 @@ declare interface DragEvent {
    */
   useCustomDropAnimation: boolean;
 
+
+  /**
+   * Sets the drag animation type.
+   * This property can only be set during onDragStart, but can be retrieved in any onDragXXX callback.
+   *
+   * @default DragAnimationType.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  dragAnimationType?: DragAnimationType;
+
   /**
    * Set the uniqueId or uniqueId array of components that need to be automatically hidden during dragging.
    * This property takes effect only in onDragStart. After the drag starts successfully, the system hides the
@@ -16259,6 +16302,22 @@ declare interface DragEvent {
    * @since 18 dynamic
    */
   executeDropAnimation(customDropAnimation: Callback<void>): void;
+
+  /**
+   * Setup one follow-hand morph drop animation execution callback, which will be triggered by system after the
+   * drag framework animation ends.
+   * [Note]:
+   *   1. This method is effective only when dragAnimationType is FOLLOW_HAND_MORPH.
+   *   2. Do not implement animation no-related logic in the callback.
+   *
+   * @param { Callback<void> } onAnimationFinished - the callback triggered after framework animation ends.
+   * @param { string } [animationOption] - optional animation option payload that will be forwarded by framework.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  executeFollowHandMorphDropAnimation(onAnimationFinished: Callback<void>, animationOption?: string): void;
 
   /**
    * Request the drag data to be synchronized to caller, can be notified with the synchronization progress.
