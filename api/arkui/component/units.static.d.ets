@@ -1714,6 +1714,37 @@ export declare interface AccessibilityActionOptions {
 }
 
 /**
+ * Defines struct of AccessibilityCustomAction that can be processed in custom action processing under accessibility.
+ *
+ * @interface AccessibilityCustomAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AccessibilityCustomAction {
+
+  /**
+   * name - name to specific custom action.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  name: ResourceStr;
+
+  /**
+   * onAction - callback to process custom action.
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onAction: VoidCallback;
+}
+
+/**
  * Define a responsive item filling pattern that can be used in WaterFlow, Grid, List, and Swiper components.
  *
  * @typedef { PresetFillType } ResponsiveFillType
