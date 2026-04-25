@@ -272,39 +272,11 @@ function parseJSDocVisitEachChild1(context, node) {
       const regex = /\{@link\s+([\s\S]*?)\}/gi;
       let match;
       while ((match = regex.exec(commentText)) !== null) {
-        handleLinkMatch(match, commentText, globalPosStart);
+        handleLinkMatch(match, globalPosStart);
       }
     });
   }
-  function handleLinkMatch(match, commentText, globalPosStart) {
-    const fullMatch = match[0];
-    const linkContent = match[1];
-    let convertedText = fullMatch;
-    const hasFunctionSignature = /\(.*\)/.test(linkContent);
-    if (hasFunctionSignature) {
-      const convertedContent = linkContent.replace(/\(([\s\S]*?)\)/g, (paramStr) => {
-        return paramStr.replace(/(\bint\b|\blong\b|\bdouble\b)(\s*\|\s*(\bint\b|\blong\b|\bdouble\b))*/g, () => 'number');
-      });
-      convertedText = fullMatch.replace(linkContent, convertedContent);
-    } else {
-      const typePart = fullMatch.replace(/\{@link|\}/gi, '').replace(/\*+/g, '').trim();
-      if (!/(int|long|double)/.test(typePart)){
-        return;
-      }
-      const types = typePart.split(/\s*\|\s*/);
-      const newTypes = types.map(t => t.replace(/\b(int|long|double)\b/g, 'number'));
-      const uniqueTypes = [...new Set(newTypes)];
-      const newTypeStr = uniqueTypes.join(' | ');
-      convertedText = fullMatch.replace(typePart, newTypeStr);
-    }
-    if (convertedText !== fullMatch) {
-      tagDataList.push({
-        pos: globalPosStart + match.index,
-        end: globalPosStart + match.index + fullMatch.length,
-        convertedText: convertedText
-      });
-    }
-  }
+  
   function parseTypeExpr(typeExpr) {
     let newTypeExpr = typeExpr;
     if (typeExpr.type.kind === ts.SyntaxKind.JSDocNullableType) {
@@ -328,6 +300,64 @@ function parseJSDocVisitEachChild1(context, node) {
     return ts.visitEachChild(node, parseTypeExpression, context);
   }
 }
+
+/**
+ * 处理单个 {@link} 匹配项，仅处理带函数签名 () 的场景
+ * 严格保留原始文本格式，不修改空格、换行、缩进
+ * @param {Array} match - 正则匹配结果
+ * @param {number} globalPosStart - 全局起始偏移位置
+ */
+function handleLinkMatch(match, globalPosStart) {
+  const fullMatch = match[0];
+  const linkContent = match[1];
+  let convertedText = fullMatch;
+  if (!/\(.*\)/.test(linkContent)) {
+    return;
+  }
+  const processedContent = processSignatureContent(linkContent);
+  convertedText = fullMatch.replace(linkContent, processedContent);
+  if (convertedText !== fullMatch) {
+    tagDataList.push({
+      pos: globalPosStart + match.index,
+      end: globalPosStart + match.index + fullMatch.length,
+      convertedText: convertedText
+    });
+  }
+}
+
+function processSignatureContent(content) {
+  let result = content.replace(/\b(int|long|double)\b/g, 'number');
+  return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
+    const params = paramStr.split(',');
+    const processedParams = params.map(param => processSingleParameter(param));
+    return openBracket + processedParams.join(',') + closeBracket;
+  });
+}
+
+function processSingleParameter(param) {
+  if (!param.includes(':')){
+    return param;
+  }
+  const colonIndex = param.indexOf(':');
+  const paramNamePart = param.substring(0, colonIndex);
+  const typePart = param.substring(colonIndex + 1);
+  const typeItems = typePart.split(/\s*\|\s*/);
+  const newTypeItems = [];
+  let hasNumber = false;
+  for (const type of typeItems) {
+    const trimmedType = type.trim();
+    if (trimmedType === 'number') {
+      if (!hasNumber) {
+        newTypeItems.push(type);
+        hasNumber = true;
+      }
+    } else {
+      newTypeItems.push(type);
+    }
+  }
+  return paramNamePart + ':' + newTypeItems.join(' | ');
+}
+
 
 /**
  * 
