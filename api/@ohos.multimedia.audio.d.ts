@@ -4976,11 +4976,12 @@ declare namespace audio {
     /**
      * Get active output device descriptors in current audio device situaion
      * The activaion strategy is related to the audio device policy of system.
-     * @returns { Promise<AudioDeviceDescriptor> } Promise used to get the output device descriptors.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to get the output device descriptors.
+     * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getActiveOutputDeviceDescriptors(): Promise<AudioDeviceDescriptors>;
 
