@@ -1466,16 +1466,14 @@ declare enum ThreatType {
  */
 declare interface WebMediaOptions {
   /**
-   * The time interval for audio playback to resume.
+   * The time interval for audio playback to resume, Unit: seconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   /**
-   * Validity period for automatically resuming a paused web audio, in seconds.
-   * The maximum validity period is 60 seconds. Due to the approximate value,
-   * the validity period may have a deviation of less than 1 second.
+   * The time interval for audio playback to resume, Unit: seconds
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1660,7 +1658,7 @@ declare interface FullScreenEnterEvent {
   handler: FullScreenExitHandler;
 
   /**
-   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1668,7 +1666,7 @@ declare interface FullScreenEnterEvent {
    * @since 12
    */
   /**
-   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1679,7 +1677,7 @@ declare interface FullScreenEnterEvent {
   videoWidth?: number;
 
   /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1687,7 +1685,7 @@ declare interface FullScreenEnterEvent {
    * @since 12
    */
   /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core

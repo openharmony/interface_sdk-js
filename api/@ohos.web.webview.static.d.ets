@@ -5787,7 +5787,7 @@ declare namespace webview {
 
         /**
          * Handle native media player volume.
-         *  volume: float
+         *  volume: double
          *   value range: [0 - 1.0]
          *
          * @param { double } volume - Current volume of native media player.
@@ -5807,7 +5807,7 @@ declare namespace webview {
 
         /**
          * Handle playback rate of native media player.
-         *  playbackRate: float
+         *  playbackRate: double
          *   value range: [0 - infinity]
          *
          * @param { double } playbackRate - Current playback rate of native media player.
@@ -5818,10 +5818,10 @@ declare namespace webview {
 
         /**
          * Handle duration time of media.
-         *  duration: float
+         *  duration: double
          *   value range: [0 - infinity]
          *
-         * @param { double } duration - Duration time (in seconds) of media.
+         * @param { double } duration - Duration time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5829,10 +5829,10 @@ declare namespace webview {
 
         /**
          * Handle current playing time of media.
-         *  currentPlayTime: float
+         *  currentPlayTime: double
          *   value range: [0 - duration]
          *
-         * @param { double } currentPlayTime - Current playing time (in seconds) of media.
+         * @param { double } currentPlayTime - Current playing time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5840,10 +5840,10 @@ declare namespace webview {
 
         /**
          * Handle buffered end time of media.
-         *  bufferedEndTime: float
+         *  bufferedEndTime: double
          *   value range: [0 - duration]
          *
-         * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
+         * @param { double } bufferedEndTime - Buffered end time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5913,8 +5913,8 @@ declare namespace webview {
         /**
          * Handle size of video.
          *
-         * @param { double } width - Width of video.
-         * @param { double } height - Height of video.
+         * @param { double } width - Width of video, Unit: px.
+         * @param { double } height - Height of video, Unit: px.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -6021,7 +6021,7 @@ declare namespace webview {
 
         /**
          * Request to fast forward / back forward to targetTime.
-         *  targetTime: float
+         *  targetTime: double, Unit: seconds.
          *   value range: [0 - duration]
          *
          * @typedef { OneParamFn<double> }
@@ -6032,7 +6032,7 @@ declare namespace webview {
 
         /**
          * Request to change volume of native media player.
-         *  volume: float
+         *  volume: double
          *   value range: [0 - 1.0]
          *
          * @typedef { OneParamFn<double> }
@@ -6052,7 +6052,7 @@ declare namespace webview {
 
         /**
          * Request to change playback rate of native media player.
-         *  playbackRate: float
+         *  playbackRate: double
          *   value range: [0 - 10.0]
          *
          * @typedef { OneParamFn<double> }
@@ -6192,7 +6192,7 @@ declare namespace webview {
      */
     interface RectEvent {
         /**
-         * X coordinator of top left point.
+         * X coordinator of top left point, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6200,7 +6200,7 @@ declare namespace webview {
          */
         x: double;
         /**
-         * Y coordinator of top left point.
+         * Y coordinator of top left point, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6208,7 +6208,7 @@ declare namespace webview {
          */
         y: double;
         /**
-         * Width of this rectangle.
+         * Width of this rectangle, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6216,7 +6216,7 @@ declare namespace webview {
          */
         width: double;
         /**
-         * Height of this rectangle.
+         * Height of this rectangle, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
