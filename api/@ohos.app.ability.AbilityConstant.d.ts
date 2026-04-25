@@ -763,7 +763,17 @@ declare namespace AbilityConstant {
      * @since 12 dynamic
      * @since 23 static
      */
-    WINDOW_MODE_FLOATING = 102
+    WINDOW_MODE_FLOATING = 102,
+
+    /**
+     * The ability is displayed in split-screen mode. It is valid only in intra-app redirection scenarios.
+     * It takes effect only on foldable devices and tablets.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WINDOW_MODE_SPLIT = 103,
   }
 
   /**
