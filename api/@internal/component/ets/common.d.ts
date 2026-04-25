@@ -14531,6 +14531,20 @@ declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, cur
 declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
 
 /**
+ * Defines the callback type used in shouldRecognizerParallelWith.
+ *
+ * @typedef { function } ShouldRecognizerParallelWithCallback
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
+ * @returns { GestureRecognizer } gesture recognizer of the component
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
+
+/**
  * Defines the finish callback type used in transition.
  *
  * @typedef { function } TransitionFinishCallback
@@ -31820,6 +31834,20 @@ declare class CommonMethod<T> {
    * @since 12 dynamic
    */
   shouldBuiltInRecognizerParallelWith(callback: ShouldBuiltInRecognizerParallelWithCallback): T;
+
+  /**
+   * Provides a callback to set the parallel relationship between gestures of current component and gestures of other
+   * components in the response chain.
+   *
+   * @param { ShouldRecognizerParallelWithCallback } callback - A callback instance used when a component is doing
+   *     touch test.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shouldRecognizerParallelWith(callback: ShouldRecognizerParallelWithCallback): T;
 
   /**
    * Events are monopolized by components.
