@@ -3913,6 +3913,45 @@ declare interface AccessibilityActionOptions {
 }
 
 /**
+ * Defines struct of AccessibilityCustomAction that can be processed in custom action processing under accessibility.
+ *
+ * @interface AccessibilityCustomAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface AccessibilityCustomAction {
+  /**
+   * name - name to specific custom action.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  name: ResourceStr;
+
+  /**
+   * onAction - callback to process custom action.
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onAction: VoidCallback;
+}
+
+/**
  * Define scrollbar margin options.
  *
  * @interface ScrollBarMargin
