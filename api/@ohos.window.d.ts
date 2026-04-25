@@ -12755,7 +12755,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    setWindowMask(windowMask: Uint8Array, maskWidth: int, maskHeight: int): Promise<void>;
+    setWindowMaskWithAlpha(windowMask: Uint8Array, maskWidth: int, maskHeight: int): Promise<void>;
 
     /**
      *  Clear the window mask of window
