@@ -1256,6 +1256,40 @@ declare class ServiceExtensionContext extends ExtensionContext {
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
   /**
+   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type for the
+   * specified user. The focused application is specified by **bundleName** in **want.parameters**. If **bundleName**
+   * is left unspecified, or if the specified application does not gain focus, the UIExtensionAbility is directly
+   * started on the system UI. The UIExtensionAbility to start is determined by the combination of the **bundleName**,
+   * **abilityName**, and **moduleName** fields in **Want**, and its type is determined by the
+   * **ability.want.params.uiExtensionType** field in **want.parameters**. This API can be called only on the main thread.
+   * It uses a promise to return the result asynchronously.
+   * 
+   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
+   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
+   * UIExtensionAbility by listening for the page loading status.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { Want } pickerWant - Want information used to start the UIExtensionAbility.
+   * @param { int } accountId - The account to request.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   *     4.The logical screen corresponding to the specified accountId is not in the foreground.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  requestModalUIExtensionWithAccount(pickerWant: Want, accountId: int): Promise<void>;
+
+  /**
    * Starts an atomic service and pre-opens the window, with the loading box skipped. This API uses a promise to return 
    * the result.
    * 
