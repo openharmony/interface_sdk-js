@@ -486,7 +486,7 @@ declare namespace huks {
    *     was generated.
    * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
    *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
-   *      default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1953,7 +1953,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * If the key does not exist, error is the error code.
+   *     If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1976,7 +1976,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * If the key does not exist, error is the error code.
+   *     If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -2049,7 +2049,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * Otherwise, data is false.
+   *     Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -2072,7 +2072,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * Otherwise, data is false.
+   *     Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -2157,7 +2157,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
    *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
-   * does not exist, false is returned.
+   *     does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -2180,7 +2180,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
    *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
-   * does not exist, false is returned.
+   *     does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -3931,6 +3931,7 @@ declare namespace huks {
    * @since 23
    */
   function attestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+
   /**
    * Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
    * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
@@ -4230,26 +4231,26 @@ declare namespace huks {
    * This operation does not require network connection each time. The execution speed is
    * faster than the anonAttestKeyItem function.
    *
-   * @param { string } keyAlias  - Alias of the key. The certificate to be obtained is associated with this key.
-   * @param { HuksParam[] } params  - Key attestation operation parameters.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained is associated with this key.
+   * @param { HuksParam[] } params - Key attestation operation parameters.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
    *     certChains in HuksReturnResult contains the obtained certificate chain.
-   * @throws { BusinessError } 801  - The API is not supported.
-   * @throws { BusinessError } 12000001  - The algorithm mode is not supported.
-   * @throws { BusinessError } 12000004  - The file operation failed.
-   * @throws { BusinessError } 12000005  - The IPC communication failed.
-   * @throws { BusinessError } 12000006  - The encryption engine is faulty.
-   * @throws { BusinessError } 12000011  - The queried entity does not exist.
-   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
-   * @throws { BusinessError } 12000014  - The memory is insufficient.
-   * @throws { BusinessError } 12000018  - The parameter is incorrect. Possible causes:
+   * @throws { BusinessError } 801 - The API is not supported.
+   * @throws { BusinessError } 12000001 - The algorithm mode is not supported.
+   * @throws { BusinessError } 12000004 - The file operation failed.
+   * @throws { BusinessError } 12000005 - The IPC communication failed.
+   * @throws { BusinessError } 12000006 - The encryption engine is faulty.
+   * @throws { BusinessError } 12000011 - The queried entity does not exist.
+   * @throws { BusinessError } 12000012 - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000014 - The memory is insufficient.
+   * @throws { BusinessError } 12000018 - The parameter is incorrect. Possible causes:
    *     1. A mandatory parameter is left empty.
    *     2. The parameter type is incorrect.
    *     3. The parameter verification failed.
    *     4. The group ID specified by the access group tag is invalid.
-   * @throws { BusinessError } 12000024  - The operation times out. This may be caused by network jitter.
+   * @throws { BusinessError } 12000024 - The operation times out. This may be caused by network jitter.
    *     You can try again later.
-   * @throws { BusinessError } 12000027  - The network is unavailable. Check network connections.
+   * @throws { BusinessError } 12000027 - The network is unavailable. Check network connections.
    * @syscap SystemCapability.Security.Huks.Extension
    * @stagemodelonly
    * @atomicservice
@@ -8288,7 +8289,7 @@ declare namespace huks {
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
     /**
      * The tag indicates wheather to override the key with same alias.
-     *
+     * 
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 20
@@ -8304,21 +8305,21 @@ declare namespace huks {
     HUKS_TAG_AE_TAG_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 521,
     /**
      * The tag indicates the key class type.
-     *
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 22
      */
     HUKS_TAG_KEY_CLASS = HuksTagType.HUKS_TAG_TYPE_UINT | 522,
     /**
      * The tag indicates a group of shared keys among applications with the same developer ID.
-     *
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 23
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
     /**
-     * The tag indicates the security level of the key. For details, see {@link HuksKeySecurityLevel}.
+     * Security level of a key. For details, see HuksKeySecurityLevel.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @stagemodelonly
@@ -8349,6 +8350,7 @@ declare namespace huks {
      *
      * Extension TAG: 1001 - 9999
      */
+
     /**
      * Whether to use the alias passed in during key generation.
      *
@@ -8502,7 +8504,9 @@ declare namespace huks {
      * @since 12
      */
     HUKS_TAG_IS_DEVICE_PASSWORD_SET = HuksTagType.HUKS_TAG_TYPE_BOOL | 1012,
+
     /* Inner-use TAG: 10001 - 10999 */
+
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
