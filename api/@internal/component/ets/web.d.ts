@@ -21,24 +21,11 @@
 /**
  * Provides methods for controlling the web controller.
  *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Provides methods for controlling the web controller.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Provides methods for controlling the web controller.
- *
  * @typedef { import('../api/@ohos.web.webview').default.WebviewController }
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
 
@@ -1732,29 +1719,16 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum RenderExitReason {
   /**
    * Render process non-zero exit status.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Render process non-zero exit status.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ProcessAbnormalTermination = 0,
 
@@ -1762,29 +1736,17 @@ declare enum RenderExitReason {
    * SIGKILL or task manager kill.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * SIGKILL or task manager kill.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ProcessWasKilled = 1,
 
   /**
-   * Segmentation fault.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
    * The rendering process crashes and exits, such as a segment error.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ProcessCrashed = 2,
 
@@ -1792,14 +1754,8 @@ declare enum RenderExitReason {
    * Out of memory.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Out of memory.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ProcessOom = 3,
 
@@ -1807,14 +1763,8 @@ declare enum RenderExitReason {
    * Unknown reason.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Unknown reason.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ProcessExitUnknown = 4
 }
@@ -2758,33 +2708,21 @@ declare enum ProtectedResourceType {
 }
 
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
  * Implements the PermissionRequest object, related to {@link onPermissionRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class PermissionRequest {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -2792,15 +2730,9 @@ declare class PermissionRequest {
    * Reject the request.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Reject the request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   deny(): void;
 
@@ -2809,34 +2741,20 @@ declare class PermissionRequest {
    *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets the source if the webpage that attempted to access the restricted resource.
-   *
-   * @returns { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getOrigin(): string;
 
-  /**
-   * Gets the resource that the webpage is trying to access.
-   *
-   * @returns { Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
   /**
    * Obtains the list of accessible resources requested for the web page.
    *
    * @returns { Array<string> } List of accessible resources requested by the web page.
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getAccessibleResource(): Array<string>;
 
@@ -2845,16 +2763,9 @@ declare class PermissionRequest {
    *
    * @param { Array<string> } resources
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Grant origin access to a given resource.
-   *
-   * @param { Array<string> } resources
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   grant(resources: Array<string>): void;
 }
@@ -2994,45 +2905,26 @@ declare class DataResubmissionHandler {
  * Defines the onWindowNew callback, related to {@link onWindowNew} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the onWindowNew callback, related to {@link onWindowNew} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class ControllerHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
-  /**
-   * Set WebController object.
-   *
-   * @param { WebviewController } controller
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
   /**
    * Set to null if you don't need to open a new window.
    *
    * @param { WebviewController } controller
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setWebController(controller: WebviewController): void;
 }
@@ -5409,52 +5301,13 @@ declare class WebController {
 /**
  * Defines the Web options.
  *
- * @interface WebOptions
- * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web options.
- *
- * @interface WebOptions
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web options.
- *
- * @interface WebOptions
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the Web options.
- *
  * @typedef WebOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface WebOptions {
-  /**
-   * Sets the address of the web page to be displayed.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets the address of the web page to be displayed.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Web resource address. If accessing local resource files, please use $rawfile or resource protocol.
    * If you load a local resource file that applies the sandbox path outside the package (files support html and txt types),
@@ -5464,43 +5317,21 @@ declare interface WebOptions {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   src: string | Resource;
 
-  /**
-   * Sets the controller of the Web.
-   *
-   * @type { WebController | WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets the controller of the Web.
-   *
-   * @type { WebController | WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the controller of the Web.
-   *
-   * @type { WebController | WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Controller, through which you can control various behaviors of Web components
    * (including page navigation, declaring cycle state, JavaScript interaction and other behaviors).
    * Since API Version 9, WebController is no longer maintained, so it is recommended to use WebviewController instead.
    * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   controller: WebController | WebviewController;
 
@@ -5523,19 +5354,9 @@ declare interface WebOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the incognito mode of the Web, the parameter is optional and default value is false.
-   * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
-   * will not save in persistent files.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 11 dynamic
    */
   incognitoMode? : boolean;
 
@@ -5747,35 +5568,12 @@ declare interface IntelligentTrackingPreventionDetails {
 /**
  * Defines the Web interface.
  *
- * @interface WebInterface
- * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web interface.
- *
- * @interface WebInterface
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web interface.
- *
- * @interface WebInterface
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the Web interface.
- *
  * @typedef WebInterface
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 12]
  */
 interface WebInterface {
   /**
@@ -5784,26 +5582,9 @@ interface WebInterface {
    * @param { WebOptions } value
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets Value.
-   *
-   * @param { WebOptions } value
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets Value.
-   *
-   * @param { WebOptions } value
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since10]
+   * @atomicservice [since11]
+   * @since 8 dynamic
    */
   (value: WebOptions): WebAttribute;
 }
@@ -8407,24 +8188,10 @@ type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void;
  *
  * @extends CommonMethod<WebAttribute>
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web attribute functions.
- *
- * @extends CommonMethod<WebAttribute>
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web attribute functions.
- *
- * @extends CommonMethod<WebAttribute>
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
@@ -9634,32 +9401,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the render process exits.
-   *
-   * @param { function } callback The triggered when the render process exits.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the render process exits.
-   *
-   * @param { function } callback The triggered when the render process exits.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the render process exits.
    * Multiple Web components may share a single rendering process, and each affected Web component will trigger the callback.
    * When the application handles this callback, it can call the related interface of the bound webviewController to
    * restore the page. Such as {@link refresh}, {@link loadUrl}, etc.
    * For details of component lifecycle callback, please refer to the lifecycle of Web components.
-   * @param { Callback<OnRenderExitedEvent> } callback The triggered when the render process exits.
+   * @param { Callback<OnRenderExitedEvent> } callback The triggered when the render process exits. [since 12]
+   *     { function } callback The triggered when the render process exits. [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onRenderExited(callback: Callback<OnRenderExitedEvent>): WebAttribute;
 
@@ -10236,23 +9987,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when web page requires the user to create a window.
-   *
-   * @param { function } callback The triggered callback when web page requires the user to create a window.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when web page requires the user to create a window.
-   *
-   * @param { function } callback The triggered callback when web page requires the user to create a window.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when web page requires the user to create a window.
    * If the {@link setWebController} interface is not called, the render process will be blocked.
    * If no new window is created, it is set to null when calling the {@link setWebController} interface,
    * informing the Web that no new window is created.
@@ -10263,11 +9997,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * the new window request cannot be traced reliably, and it may be initiated by a third party iframe.
    * The application needs to take defensive measures such as sandbox isolation and permission restriction
    * by default to ensure security.
-   * @param {  Callback<OnWindowNewEvent> } callback The triggered callback when web page requires the user to create a window.
+   * 
+   * @param {  Callback<OnWindowNewEvent> } callback The triggered callback when web page requires
+   *     the user to create a window. [since 12]
+   *     { function } callback The triggered callback when web page requires the user to create a window. [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onWindowNew(callback: Callback<OnWindowNewEvent>): WebAttribute;
 
@@ -10294,34 +10031,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onWindowNewExt(callback: Callback<OnWindowNewExtEvent>): WebAttribute;
 
   /**
-   * Triggered when web page requires the user to close a window.
-   *
-   * @param { function } callback The triggered callback when web page requires the user to close a window.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
    * Notifies the user of the window closing request.
    * Like {@link onWindowNew}, from a security perspective, applications should ensure that users can know that
    * the page they interact with is closed.
    * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onWindowExit(callback: () => void): WebAttribute;
 
-  /**
-   * Set whether multiple windows are supported.
-   *
-   * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
   /**
    * Set whether multiple windows are supported.
    * When multiple windows permissions are enabled, the {@link onWindowNew} event needs to be implemented.
@@ -10329,8 +10049,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
 
@@ -10340,16 +10060,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Key events notify the application before the WebView consumes them.
-   *
-   * @param { function } callback Key event info.
-   * @returns { WebAttribute } True if the application consumes key events else false.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
 
@@ -10731,33 +10443,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when previous page will no longer be drawn and next page begin to draw.
    *
-   * @param { function } callback The triggered callback when previous page will no longer be drawn and next
-   * page begin to draw.
+   * @param {  Callback<OnPageVisibleEvent> } callback The triggered callback when previous page will
+   *     no longer be drawn and next page begin to draw. [since 12]
+   *     { function } callback The triggered callback when previous page will no longer be drawn and next [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when previous page will no longer be drawn and next page begin to draw.
-   *
-   * @param { function } callback The triggered callback when previous page will no longer be drawn and next
-   * page begin to draw.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when previous page will no longer be drawn and next page begin to draw.
-   *
-   * @param {  Callback<OnPageVisibleEvent> } callback The triggered callback when previous page will no longer be drawn and next
-   * page begin to draw.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onPageVisible(callback: Callback<OnPageVisibleEvent>): WebAttribute;
 
@@ -10813,16 +10506,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Whether the window can be open automatically through JavaScript.
-   *
-   * @param { boolean } flag If it is true, the window can be opened automatically through JavaScript.
-   * If it is false and user behavior, the window can be opened automatically through JavaScript.
-   * Otherwise, the window cannot be opened.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Whether the window can be open automatically through JavaScript.
    * <p><strong>API Note</strong>:<br>
    * This API takes effect only when {@link JavaScript} is enabled.
    * This API opens a new window when {@link multiWindowAccess} is enabled and opens a local window
@@ -10846,8 +10529,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * If the system property is not set, the default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   allowWindowOpenMethod(flag: boolean): WebAttribute;
 
@@ -10960,14 +10643,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onLoadIntercept(callback: Callback<OnLoadInterceptEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
-   * This callback can not use the interface about manipulating web pages.
-   * @param { function } callback The triggered callback when web controller initialization success.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
    * The callback is triggered when the Controller is successfully bound to the Web component,
    * and the Controller must be a WebviewController, and it is forbidden to call the interface related to
    * the Web component before the event callback, otherwise a js-error exception will be thrown.
@@ -10977,9 +10652,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered callback when web controller initialization success.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onControllerAttached(callback: () => void): WebAttribute;
 
@@ -11935,20 +11610,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 /**
  * Defines Web Component.
  *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 8
- */
-/**
- * Defines Web Component.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Web Component.
- *
  * <p><strong>API Note</strong>:
  *
  * <strong>Performance Note</strong>:
@@ -11959,9 +11620,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
  * </p>
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
+ * @crossplatform [since 10]
  * @atomicservice
- * @since 11 dynamic
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 declare const Web: WebInterface;
 
@@ -11969,14 +11631,9 @@ declare const Web: WebInterface;
  * Defines Web Component instance.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines Web Component instance.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 declare const WebInstance: WebAttribute;
 
