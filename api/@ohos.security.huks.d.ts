@@ -7502,16 +7502,17 @@ declare namespace huks {
   }
 
   /**
-   * Enumerates the security level of the key.
+   * Enumerates the security levels of the key.
    *
    * @syscap SystemCapability.Security.Huks.Core
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0
    */
-  export enum HuksKeySecurityLevel {
+  export enum HuksKeySecurityLevel {  
     /**
-     * The key is generated and used in a trusted execution environment.///
+     * Keys are generated and used within the trusted execution environment.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @stagemodelonly
      * @atomicservice
