@@ -3730,7 +3730,6 @@ declare namespace webview {
      * Loading duration estimated based on the historical first screen loading durations, in milliseconds. The value
      * must be greater than 0.
      *
-     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
