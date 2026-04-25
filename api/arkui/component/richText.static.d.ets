@@ -26,6 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @extends CommonMethod<RichTextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -36,6 +37,7 @@ export declare interface RichTextAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { RichTextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onStart(callback: (() => void) | undefined): this;
@@ -45,6 +47,7 @@ export declare interface RichTextAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { RichTextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onComplete(callback: (() => void) | undefined): this;
@@ -54,6 +57,7 @@ export declare interface RichTextAttribute extends CommonMethod {
      * @param { AttributeModifier<RichTextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { RichTextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RichTextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -65,6 +69,7 @@ export declare interface RichTextAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { RichTextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

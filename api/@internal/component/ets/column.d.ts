@@ -23,6 +23,7 @@
  *
  * @typedef { string | number | Resource } SpaceType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -35,6 +36,7 @@ declare type SpaceType = string | number | Resource;
  *
  * @interface ColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -94,6 +96,7 @@ interface ColumnOptions {
  *
  * @interface ColumnOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -105,6 +108,7 @@ interface ColumnOptionsV2 {
    *
    * @type { ?SpaceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -214,6 +218,7 @@ interface ColumnInterface {
    * @param { ColumnOptions | ColumnOptionsV2 } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -343,6 +348,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
@@ -352,6 +358,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @param { Optional<boolean> } isReversed - If the main axis is reversed.
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

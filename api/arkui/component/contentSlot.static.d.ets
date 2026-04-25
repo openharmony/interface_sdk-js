@@ -25,6 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface ContentSlotAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ContentSlotAttribute {

@@ -25,6 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace mediaquery
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */ 
 declare namespace mediaquery {
@@ -34,6 +35,7 @@ declare namespace mediaquery {
    *
    * @interface MediaQueryResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export interface MediaQueryResult {
@@ -44,6 +46,7 @@ declare namespace mediaquery {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     readonly matches: boolean;
@@ -54,6 +57,7 @@ declare namespace mediaquery {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     readonly media: string;
@@ -65,6 +69,7 @@ declare namespace mediaquery {
    * @interface MediaQueryListener
    * @extends MediaQueryResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export interface MediaQueryListener extends MediaQueryResult {
@@ -75,6 +80,7 @@ declare namespace mediaquery {
      *
      * @param { Callback } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onChange(callback: Callback<MediaQueryResult>): void
@@ -85,6 +91,7 @@ declare namespace mediaquery {
      *
      * @param { Callback } [callback]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     offChange(callback?: Callback<MediaQueryResult>): void

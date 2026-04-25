@@ -28,6 +28,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface MenuItemOptions {
@@ -36,6 +37,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     startIcon?: ResourceStr;
@@ -44,6 +46,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     symbolStartIcon?: SymbolGlyphModifier;
@@ -52,6 +55,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     content?: ResourceStr;
@@ -60,6 +64,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     endIcon?: ResourceStr;
@@ -68,6 +73,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     symbolEndIcon?: SymbolGlyphModifier;
@@ -76,6 +82,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     labelInfo?: ResourceStr;
@@ -84,6 +91,7 @@ export declare interface MenuItemOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     builder?: CustomBuilder;
@@ -94,6 +102,7 @@ export declare interface MenuItemOptions {
  * @extends CommonMethod
  * @interface MenuItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface MenuItemAttribute extends CommonMethod {
@@ -103,6 +112,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
    * @param { boolean | undefined | Bindable<boolean> } value
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
     default selected(value: boolean | undefined | Bindable<boolean>): this;
@@ -116,6 +126,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * <br>ResourceStr or SymbolGlyphModifier: displays the specified icon when selected.
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier | undefined): this;
@@ -125,6 +136,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @param { ((selected: boolean) => void) | undefined } callback
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onChange(callback: ((selected: boolean) => void) | undefined): this;
@@ -135,6 +147,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @param { Font | undefined } value - Indicates the font style of content text.
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentFont(value: Font | undefined): this;
@@ -144,6 +157,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - Indicates the font color of content text.
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentFontColor(value: ResourceColor | undefined): this;
@@ -154,6 +168,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @param { Font | undefined } value - Indicates the font style of label info text.
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default labelFont(value: Font | undefined): this;
@@ -163,6 +178,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - Indicates the font color of label info text.
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default labelFontColor(value: ResourceColor | undefined): this;
@@ -173,6 +189,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      *     The attribute modifier of menu item.
      * @returns { MenuItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(
@@ -186,6 +203,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

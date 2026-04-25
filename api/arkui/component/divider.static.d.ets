@@ -27,6 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface DividerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -38,6 +39,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default vertical(value: boolean | undefined): this;
@@ -47,6 +49,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
@@ -56,6 +59,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { double | string | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default strokeWidth(value: double | string | undefined): this;
@@ -65,6 +69,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { LineCapStyle | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineCap(value: LineCapStyle | undefined): this;
@@ -74,6 +79,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DividerAttribute>

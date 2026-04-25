@@ -31,6 +31,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @typedef { [T1, T2] } ParticleTuple
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ParticleTuple<T1, T2> = [
@@ -42,6 +43,7 @@ export type ParticleTuple<T1, T2> = [
  *
  * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface VelocityOptions {
@@ -51,6 +53,7 @@ export declare interface VelocityOptions {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<double, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     speed: ParticleTuple<double, double>;
@@ -60,6 +63,7 @@ export declare interface VelocityOptions {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<double, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     angle: ParticleTuple<double, double>;
@@ -69,6 +73,7 @@ export declare interface VelocityOptions {
  *
  * @interface AccelerationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface AccelerationOptions {
@@ -77,6 +82,7 @@ export declare interface AccelerationOptions {
      *
      * @type { ?ParticlePropertyOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     speed?: ParticlePropertyOptions;
@@ -85,6 +91,7 @@ export declare interface AccelerationOptions {
      *
      * @type { ?ParticlePropertyOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     angle?: ParticlePropertyOptions;
@@ -93,6 +100,7 @@ export declare interface AccelerationOptions {
  * Defines the ParticleOptions Interface.
  * @interface ParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticleOptions {
@@ -100,6 +108,7 @@ export interface ParticleOptions {
      * Particle emitter.
      * @type { EmitterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     emitter: EmitterOptions;
@@ -108,6 +117,7 @@ export interface ParticleOptions {
      * @type { ?ParticleColorPropertyOptions }
      * @default {range:['#FFFFFF','#FFFFFF']}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     color?: ParticleColorPropertyOptions;
@@ -116,6 +126,7 @@ export interface ParticleOptions {
      * @type { ?ParticlePropertyOptions }
      * @default {range:[1.0,1.0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     opacity?: ParticlePropertyOptions;
@@ -124,6 +135,7 @@ export interface ParticleOptions {
      * @type { ?ParticlePropertyOptions }
      * @default {range:[1.0,1.0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scale?: ParticlePropertyOptions;
@@ -133,6 +145,7 @@ export interface ParticleOptions {
      * @type { ?VelocityOptions }
      * @default {speed:[0,0];angle:[0,0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     velocity?: VelocityOptions;
@@ -142,6 +155,7 @@ export interface ParticleOptions {
      * @type { ?AccelerationOptions }
      * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     acceleration?: AccelerationOptions;
@@ -150,6 +164,7 @@ export interface ParticleOptions {
      * @type { ?ParticlePropertyOptions }
      * @default {range:[0,0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     spin?: ParticlePropertyOptions;
@@ -158,6 +173,7 @@ export interface ParticleOptions {
  * Defines the parameters for a point-like particle.
  * @interface PointParticleParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface PointParticleParameters {
@@ -165,6 +181,7 @@ export interface PointParticleParameters {
      * Particle radius.
      * @type { VP }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     radius: VP;
@@ -173,6 +190,7 @@ export interface PointParticleParameters {
  * Defines the parameters for an image-like particle.
  * @interface ImageParticleParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ImageParticleParameters {
@@ -180,6 +198,7 @@ export interface ImageParticleParameters {
      * Particle image pixelMap.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     src: ResourceStr;
@@ -189,6 +208,7 @@ export interface ImageParticleParameters {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<Dimension, Dimension> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     size: ParticleTuple<Dimension, Dimension>;
@@ -197,6 +217,7 @@ export interface ImageParticleParameters {
      * @type { ?ImageFit }
      * @default ImageFit.Cover
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     objectFit?: ImageFit;
@@ -205,6 +226,7 @@ export interface ImageParticleParameters {
  * Defines the particle configs.
  * @typedef {PointParticleParameters | ImageParticleParameters} ParticleConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ParticleConfigs = PointParticleParameters | ImageParticleParameters;
@@ -213,6 +235,7 @@ export type ParticleConfigs = PointParticleParameters | ImageParticleParameters;
  *
  * @interface EmitterProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface EmitterProperty {
@@ -221,6 +244,7 @@ export interface EmitterProperty {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: int;
@@ -229,6 +253,7 @@ export interface EmitterProperty {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     emitRate?: int;
@@ -237,6 +262,7 @@ export interface EmitterProperty {
      *
      * @type { ?PositionT<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     position?: PositionT<double>;
@@ -245,6 +271,7 @@ export interface EmitterProperty {
      *
      * @type { ?SizeT<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     size?: SizeT<double>;
@@ -253,6 +280,7 @@ export interface EmitterProperty {
      *
      * @type { ?ParticleAnnulusRegion }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     annulusRegion?: ParticleAnnulusRegion;
@@ -262,6 +290,7 @@ export interface EmitterProperty {
  *
  * @interface EmitterParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface EmitterParticleOptions {
@@ -270,6 +299,7 @@ export interface EmitterParticleOptions {
      *
      * @type { ParticleType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: ParticleType;
@@ -278,6 +308,7 @@ export interface EmitterParticleOptions {
      *
      * @type { ParticleConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     config: ParticleConfigs;
@@ -286,6 +317,7 @@ export interface EmitterParticleOptions {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     count: int;
@@ -295,6 +327,7 @@ export interface EmitterParticleOptions {
      * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     lifetime?: int;
@@ -305,6 +338,7 @@ export interface EmitterParticleOptions {
      * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     lifetimeRange?: int;
@@ -313,6 +347,7 @@ export interface EmitterParticleOptions {
  * Defines the emitter Options.
  * @interface EmitterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface EmitterOptions {
@@ -321,6 +356,7 @@ export interface EmitterOptions {
      *
      * @type { EmitterParticleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     particle: EmitterParticleOptions;
@@ -329,6 +365,7 @@ export interface EmitterOptions {
      * @type { ?int }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     emitRate?: int;
@@ -337,6 +374,7 @@ export interface EmitterOptions {
      * @type { ?ParticleEmitterShape }
      * @default ParticleEmitterShape.RECTANGLE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     shape?: ParticleEmitterShape;
@@ -348,6 +386,7 @@ export interface EmitterOptions {
      * @type { ?ParticleTuple<Dimension, Dimension> }
      * @default [0,0]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     position?: ParticleTuple<Dimension, Dimension>;
@@ -359,6 +398,7 @@ export interface EmitterOptions {
      * @type { ?ParticleTuple<Dimension, Dimension> }
      * @default ['100%','100%']
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     size?: ParticleTuple<Dimension, Dimension>;
@@ -368,6 +408,7 @@ export interface EmitterOptions {
      * @type { ?ParticleAnnulusRegion }
      * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     annulusRegion?: ParticleAnnulusRegion;
@@ -376,6 +417,7 @@ export interface EmitterOptions {
  * Defines the particle property updater configs.
  * @typedef { undefined | ParticleTuple<double, double> |  Array<ParticlePropertyAnimation<double>> } ParticlePropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<double, double> | Array<ParticlePropertyAnimation<double>>;
@@ -384,6 +426,7 @@ export type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<double, d
  *
  * @typedef ParticleUpdaterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticleUpdaterOptions {
@@ -392,6 +435,7 @@ export interface ParticleUpdaterOptions {
      *
      * @type { ParticleUpdater }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: ParticleUpdater;
@@ -400,6 +444,7 @@ export interface ParticleUpdaterOptions {
      *
      * @type { ParticlePropertyUpdaterConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     config: ParticlePropertyUpdaterConfigs;
@@ -409,6 +454,7 @@ export interface ParticleUpdaterOptions {
  *
  * @typedef ParticleColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticleColorOptions {
@@ -418,6 +464,7 @@ export interface ParticleColorOptions {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     r: ParticleTuple<int, int>;
@@ -427,6 +474,7 @@ export interface ParticleColorOptions {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     g: ParticleTuple<int, int>;
@@ -436,6 +484,7 @@ export interface ParticleColorOptions {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     b: ParticleTuple<int, int>;
@@ -445,6 +494,7 @@ export interface ParticleColorOptions {
      * Anonymous Object Rectification.
      * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     a: ParticleTuple<int, int>;
@@ -454,6 +504,7 @@ export interface ParticleColorOptions {
  *
  * @interface ParticleColorUpdaterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticleColorUpdaterOptions {
@@ -462,6 +513,7 @@ export interface ParticleColorUpdaterOptions {
      *
      * @type { ParticleUpdater }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: ParticleUpdater;
@@ -470,6 +522,7 @@ export interface ParticleColorUpdaterOptions {
      *
      * @type { ParticleColorPropertyUpdaterConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     config: ParticleColorPropertyUpdaterConfigs;
@@ -478,6 +531,7 @@ export interface ParticleColorUpdaterOptions {
  * Defines the particle property Options.
  * @interface ParticlePropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticlePropertyOptions {
@@ -486,6 +540,7 @@ export interface ParticlePropertyOptions {
      *
      * @type { ParticleTuple<double, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     range: ParticleTuple<double, double>;
@@ -495,6 +550,7 @@ export interface ParticlePropertyOptions {
      * @type { ?ParticleUpdaterOptions }
      * @default  {type:UPDATER.NONE;config:undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     updater?: ParticleUpdaterOptions;
@@ -503,6 +559,7 @@ export interface ParticlePropertyOptions {
  * Defines the particle color property updater configs.
  * @typedef {undefined | ParticleColorOptions | Array<ParticlePropertyAnimation<ResourceColor>>} ParticleColorPropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ParticleColorPropertyUpdaterConfigs = undefined | ParticleColorOptions | Array<ParticlePropertyAnimation<ResourceColor>>;
@@ -510,6 +567,7 @@ export type ParticleColorPropertyUpdaterConfigs = undefined | ParticleColorOptio
  * Defines the particle color property updater.
  * @interface ParticleColorPropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticleColorPropertyOptions {
@@ -518,6 +576,7 @@ export interface ParticleColorPropertyOptions {
      *
      * @type { ParticleTuple<ResourceColor, ResourceColor> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     range: ParticleTuple<ResourceColor, ResourceColor>;
@@ -526,6 +585,7 @@ export interface ParticleColorPropertyOptions {
      * @type { ?DistributionType }
      * @default DistributionType.UNIFORM
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     distributionType?: DistributionType;
@@ -535,6 +595,7 @@ export interface ParticleColorPropertyOptions {
      * @type { ?ParticleColorUpdaterOptions }
      * @default {type:UPDATER.NONE;config:undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     updater?: ParticleColorUpdaterOptions;
@@ -543,6 +604,7 @@ export interface ParticleColorPropertyOptions {
  * Defines the particle property lifecycle.
  * @interface ParticlePropertyAnimation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ParticlePropertyAnimation<T> {
@@ -550,6 +612,7 @@ export interface ParticlePropertyAnimation<T> {
      * Start position of the particle animation.
      * @type { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     from: T;
@@ -557,6 +620,7 @@ export interface ParticlePropertyAnimation<T> {
      * End position of the particle animation.
      * @type { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     to: T;
@@ -564,6 +628,7 @@ export interface ParticlePropertyAnimation<T> {
      * Start millis of the particle animation.
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     startMillis: int;
@@ -571,6 +636,7 @@ export interface ParticlePropertyAnimation<T> {
      * End millis of the particle animation.
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     endMillis: int;
@@ -579,6 +645,7 @@ export interface ParticlePropertyAnimation<T> {
      * @type { ?(Curve | ICurve) }
      * @default Curve.Linear
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     curve?: Curve | ICurve;
@@ -588,6 +655,7 @@ export interface ParticlePropertyAnimation<T> {
  *
  * @interface Particles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface Particles {
@@ -596,6 +664,7 @@ export interface Particles {
      *
      * @type { Array<ParticleOptions> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     particles: Array<ParticleOptions>;
@@ -604,18 +673,21 @@ export interface Particles {
  * Enumerates the particle types.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ParticleType {
     /**
      * Point-like particle.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     POINT = 'point',
     /**
      * Image-like particle.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     IMAGE = 'image'
@@ -624,30 +696,35 @@ export declare enum ParticleType {
  * Enumerates the emitter shapes of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ParticleEmitterShape {
     /**
      * Rectangle.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RECTANGLE = 'rectangle',
     /**
      * Circle.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     CIRCLE = 'circle',
     /**
      * Ellipse.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ELLIPSE = 'ellipse',
     /**
      * Annulus.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ANNULUS = 'annulus'
@@ -657,6 +734,7 @@ export declare enum ParticleEmitterShape {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum DistributionType {
@@ -664,6 +742,7 @@ export declare enum DistributionType {
      * Uniform distribution.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     UNIFORM = 0,
@@ -671,6 +750,7 @@ export declare enum DistributionType {
      * Gaussian distribution.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     GAUSSIAN = 1
@@ -679,24 +759,28 @@ export declare enum DistributionType {
  * Enumerates the updater types of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ParticleUpdater {
     /**
      * No updater is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     NONE = 'none',
     /**
      * Random updater.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RANDOM = 'random',
     /**
      * Curve updater.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     CURVE = 'curve'
@@ -708,6 +792,7 @@ export declare enum ParticleUpdater {
  * @extends CommonMethod
  * @interface ParticleAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -718,6 +803,7 @@ export declare enum ParticleUpdater {
      * @param { Array<DisturbanceFieldOptions> | undefined } fields - particle disturbance Field params.
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default disturbanceFields(fields: Array<DisturbanceFieldOptions> | undefined): this;
@@ -727,6 +813,7 @@ export declare enum ParticleUpdater {
      * @param { Array<EmitterProperty> | undefined } value - The emitter property.
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default emitter(value: Array<EmitterProperty> | undefined): this;
@@ -738,6 +825,7 @@ export declare enum ParticleUpdater {
      *     The AttributeModifier.
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -748,6 +836,7 @@ export declare enum ParticleUpdater {
      * @param { Array<RippleFieldOptions> | undefined } fields - The infomation of ripple fields.
      * @returns { this } Returns this.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default rippleFields(fields: Array<RippleFieldOptions> | undefined): this;
@@ -758,6 +847,7 @@ export declare enum ParticleUpdater {
      * @param { Array<VelocityFieldOptions> | undefined } fields - The infomation of velocity fields.
      * @returns { this } Returns this.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default velocityFields(fields: Array<VelocityFieldOptions> | undefined): this;
@@ -766,6 +856,7 @@ export declare enum ParticleUpdater {
  * Defines particle disturbance Field params.
  * @interface DisturbanceFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DisturbanceFieldOptions {
@@ -777,6 +868,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     strength?: double;
@@ -786,6 +878,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?DisturbanceFieldShape }
      * @default DisturbanceFieldShape.RECT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     shape?: DisturbanceFieldShape;
@@ -795,6 +888,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?SizeT<double> }
      * @default {width:0,height:0}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     size?: SizeT<double>;
@@ -804,6 +898,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?PositionT<double> }
      * @default {x:0,y:0}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     position?: PositionT<double>;
@@ -817,6 +912,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     feather?: int;
@@ -826,6 +922,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     noiseScale?: double;
@@ -835,6 +932,7 @@ export declare interface DisturbanceFieldOptions {
     * @type { ?double }
     * @default 1
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     noiseFrequency?: double;
@@ -844,6 +942,7 @@ export declare interface DisturbanceFieldOptions {
      * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     noiseAmplitude?: double;
@@ -853,6 +952,7 @@ export declare interface DisturbanceFieldOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum DisturbanceFieldShape {
@@ -860,6 +960,7 @@ export declare enum DisturbanceFieldShape {
      * Shape rect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RECT,
@@ -867,6 +968,7 @@ export declare enum DisturbanceFieldShape {
     * Shape circle.
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     CIRCLE,
@@ -874,6 +976,7 @@ export declare enum DisturbanceFieldShape {
      * Shape eclipse.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ELLIPSE
@@ -1031,6 +1134,7 @@ export declare interface VelocityFieldOptions {
  * Defines particle annuslus region params.
  * @interface ParticleAnnulusRegion
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ParticleAnnulusRegion {
@@ -1040,6 +1144,7 @@ export declare interface ParticleAnnulusRegion {
      * @type { ?PositionT<LengthMetrics> }
      * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     center?: PositionT<LengthMetrics>;
@@ -1048,6 +1153,7 @@ export declare interface ParticleAnnulusRegion {
      *
      * @type { LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     outerRadius: LengthMetrics;
@@ -1056,6 +1162,7 @@ export declare interface ParticleAnnulusRegion {
      *
      * @type { LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     innerRadius: LengthMetrics;
@@ -1065,6 +1172,7 @@ export declare interface ParticleAnnulusRegion {
      * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     startAngle?: double;
@@ -1074,6 +1182,7 @@ export declare interface ParticleAnnulusRegion {
      * @type { ?double }
      * @default 360
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     endAngle?: double;

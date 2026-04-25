@@ -26,6 +26,7 @@ import { LineAttribute } from '@ohos.arkui.component';
  *
  * @implements LineAttribute, AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class LineModifier implements LineAttribute, AttributeModifier<LineAttribute> {}

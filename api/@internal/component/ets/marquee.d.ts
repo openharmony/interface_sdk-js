@@ -24,6 +24,7 @@
  * Anonymous Object Rectification.
  * @interface MarqueeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -673,6 +674,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.Default value is MarqueeUpdateStrategy.DEFAULT.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

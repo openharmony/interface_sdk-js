@@ -118,6 +118,7 @@ declare class TextClockController {
  * @extends CommonConfiguration<TextClockConfiguration>
  * @interface TextClockConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -130,6 +131,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -141,6 +143,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -152,6 +155,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -164,6 +168,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  *
  * @interface TextClockOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -616,6 +621,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -626,6 +632,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -642,6 +649,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -655,6 +663,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -668,6 +677,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { ContentModifier<TextClockConfiguration> } modifier - The content modifier of textclock.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -680,6 +690,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { Optional<DateTimeOptions> } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
    * @returns { TextClockAttribute } the attribute of the text clock
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

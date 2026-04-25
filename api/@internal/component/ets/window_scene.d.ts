@@ -24,6 +24,7 @@
  * @interface WindowSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -35,6 +36,7 @@ interface WindowSceneInterface {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   (persistentId: number): WindowSceneAttribute;
@@ -46,6 +48,7 @@ interface WindowSceneInterface {
  * @extends CommonMethod<WindowSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -60,6 +63,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 14 dynamic
    */
   attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
@@ -70,6 +74,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -80,6 +85,7 @@ declare const WindowScene: WindowSceneInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */

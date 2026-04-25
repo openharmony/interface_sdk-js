@@ -26,6 +26,7 @@ import { StackAttribute } from '@ohos.arkui.component';
  *
  * @implements StackAttribute, AttributeModifier<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 */
 export declare class StackModifier implements StackAttribute, AttributeModifier<StackAttribute> {}
