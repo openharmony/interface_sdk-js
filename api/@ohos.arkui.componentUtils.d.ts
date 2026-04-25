@@ -25,12 +25,14 @@ import type common2D from './@ohos.graphics.common2D';
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -38,6 +40,7 @@ import type common2D from './@ohos.graphics.common2D';
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -48,12 +51,14 @@ declare namespace componentUtils {
   * Component information.
   * @typedef ComponentInfo
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * Component information.
   * @typedef ComponentInfo
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -61,6 +66,7 @@ declare namespace componentUtils {
   * Component information.
   * @typedef ComponentInfo
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -71,12 +77,14 @@ declare namespace componentUtils {
     * component size.
     * @type {Size}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * component size.
     * @type {Size}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -84,6 +92,7 @@ declare namespace componentUtils {
     * component size.
     * @type {Size}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -94,12 +103,14 @@ declare namespace componentUtils {
     * Obtain attribute information relative to the local coordinates.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information relative to the local coordinates.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -107,6 +118,7 @@ declare namespace componentUtils {
     * Obtain attribute information relative to the local coordinates.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -117,12 +129,14 @@ declare namespace componentUtils {
     * Obtain attribute information relative to the window.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information relative to the window.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -130,6 +144,7 @@ declare namespace componentUtils {
     * Obtain attribute information relative to the window.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -140,12 +155,14 @@ declare namespace componentUtils {
     * Obtain attribute information relative to the screen.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information relative to the screen.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -153,6 +170,7 @@ declare namespace componentUtils {
     * Obtain attribute information relative to the screen.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -163,12 +181,14 @@ declare namespace componentUtils {
     * Obtain attribute information for translation.
     * @type {TranslateResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information for translation.
     * @type {TranslateResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -176,6 +196,7 @@ declare namespace componentUtils {
     * Obtain attribute information for translation.
     * @type {TranslateResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -186,12 +207,14 @@ declare namespace componentUtils {
     * Obtain attribute information for scale.
     * @type {ScaleResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information for scale.
     * @type {ScaleResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -199,6 +222,7 @@ declare namespace componentUtils {
     * Obtain attribute information for scale.
     * @type {ScaleResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -209,12 +233,14 @@ declare namespace componentUtils {
     * Obtain attribute information for rotate.
     * @type {RotateResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information for rotate.
     * @type {RotateResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -222,6 +248,7 @@ declare namespace componentUtils {
     * Obtain attribute information for rotate.
     * @type {RotateResult}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -232,12 +259,14 @@ declare namespace componentUtils {
     * Obtain attribute information of the transformation matrix.
     * @type {Matrix4Result}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Obtain attribute information of the transformation matrix.
     * @type {Matrix4Result}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -245,6 +274,7 @@ declare namespace componentUtils {
     * Obtain attribute information of the transformation matrix.
     * @type {Matrix4Result}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -256,12 +286,14 @@ declare namespace componentUtils {
   * Defines the size property.
   * @typedef Size
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * Defines the size property.
   * @typedef Size
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -269,6 +301,7 @@ declare namespace componentUtils {
   * Defines the size property.
   * @typedef Size
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -279,12 +312,14 @@ declare namespace componentUtils {
     * Defines the width property.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Defines the width property.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -292,6 +327,7 @@ declare namespace componentUtils {
     * Defines the width property.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -302,12 +338,14 @@ declare namespace componentUtils {
     * Defines the height property.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Defines the height property.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -315,6 +353,7 @@ declare namespace componentUtils {
     * Defines the height property.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -326,12 +365,14 @@ declare namespace componentUtils {
   * Defines the offset property.
   * @typedef Offset
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * Defines the offset property.
   * @typedef Offset
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -339,6 +380,7 @@ declare namespace componentUtils {
   * Defines the offset property.
   * @typedef Offset
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -349,12 +391,14 @@ declare namespace componentUtils {
     * Coordinate x of the Position.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Coordinate x of the Position.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -362,6 +406,7 @@ declare namespace componentUtils {
     * Coordinate x of the Position.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -372,12 +417,14 @@ declare namespace componentUtils {
     * Coordinate y of the Position.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Coordinate y of the Position.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -385,6 +432,7 @@ declare namespace componentUtils {
     * Coordinate y of the Position.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -396,12 +444,14 @@ declare namespace componentUtils {
   * Translation Result
   * @typedef TranslateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * Translation Result
   * @typedef TranslateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -409,6 +459,7 @@ declare namespace componentUtils {
   * Translation Result
   * @typedef TranslateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -419,12 +470,14 @@ declare namespace componentUtils {
     * Indicates the translation distance of the x-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Indicates the translation distance of the x-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -432,6 +485,7 @@ declare namespace componentUtils {
     * Indicates the translation distance of the x-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -442,12 +496,14 @@ declare namespace componentUtils {
     * Indicates the translation distance of the y-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Indicates the translation distance of the y-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -455,6 +511,7 @@ declare namespace componentUtils {
     * Indicates the translation distance of the y-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -465,12 +522,14 @@ declare namespace componentUtils {
     * Indicates the translation distance of the z-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Indicates the translation distance of the z-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -478,6 +537,7 @@ declare namespace componentUtils {
     * Indicates the translation distance of the z-axis, in vp.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -489,12 +549,14 @@ declare namespace componentUtils {
   * Scale Result
   * @typedef ScaleResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * Scale Result
   * @typedef ScaleResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -502,6 +564,7 @@ declare namespace componentUtils {
   * Scale Result
   * @typedef ScaleResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -512,12 +575,14 @@ declare namespace componentUtils {
     * Zoom factor of the x-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Zoom factor of the x-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -525,6 +590,7 @@ declare namespace componentUtils {
     * Zoom factor of the x-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -535,12 +601,14 @@ declare namespace componentUtils {
     * Zoom factor of the y-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Zoom factor of the y-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -548,6 +616,7 @@ declare namespace componentUtils {
     * Zoom factor of the y-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -558,12 +627,14 @@ declare namespace componentUtils {
     * Zoom factor of the z-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Zoom factor of the z-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -571,6 +642,7 @@ declare namespace componentUtils {
     * Zoom factor of the z-axis.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -581,12 +653,14 @@ declare namespace componentUtils {
     * Transform the x-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Transform the x-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -594,6 +668,7 @@ declare namespace componentUtils {
     * Transform the x-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -604,12 +679,14 @@ declare namespace componentUtils {
     * Transform the y-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Transform the y-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -617,6 +694,7 @@ declare namespace componentUtils {
     * Transform the y-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -628,12 +706,14 @@ declare namespace componentUtils {
   * Rotation Result.
   * @typedef RotateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * Rotation Result.
   * @typedef RotateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -641,6 +721,7 @@ declare namespace componentUtils {
   * Rotation Result.
   * @typedef RotateResult
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -651,12 +732,14 @@ declare namespace componentUtils {
     * Axis of rotation vector x coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Axis of rotation vector x coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -664,6 +747,7 @@ declare namespace componentUtils {
     * Axis of rotation vector x coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -674,12 +758,14 @@ declare namespace componentUtils {
     * Axis of rotation vector y coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Axis of rotation vector y coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -687,6 +773,7 @@ declare namespace componentUtils {
     * Axis of rotation vector y coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -697,12 +784,14 @@ declare namespace componentUtils {
     * Axis of rotation vector z coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Axis of rotation vector z coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -710,6 +799,7 @@ declare namespace componentUtils {
     * Axis of rotation vector z coordinate.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -720,12 +810,14 @@ declare namespace componentUtils {
     * Transform the x-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Transform the x-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -733,6 +825,7 @@ declare namespace componentUtils {
     * Transform the x-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -743,12 +836,14 @@ declare namespace componentUtils {
     * Transform the y-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Transform the y-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -756,6 +851,7 @@ declare namespace componentUtils {
     * Transform the y-axis coordinate of the center point.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -766,12 +862,14 @@ declare namespace componentUtils {
     * Rotation angle.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Rotation angle.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 11
     */
@@ -779,6 +877,7 @@ declare namespace componentUtils {
     * Rotation angle.
     * @type {number}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -790,12 +889,14 @@ declare namespace componentUtils {
   * The matrix is column-first fourth-order matrix.
   * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 10
   */
   /**
   * The matrix is column-first fourth-order matrix.
   * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
   * @since 11
   */
@@ -803,6 +904,7 @@ declare namespace componentUtils {
   * The matrix is column-first fourth-order matrix.
   * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -986,6 +1088,7 @@ declare namespace componentUtils {
   * @returns {ComponentInfo} the object of ComponentInfo.
   * @throws { BusinessError } 100001 - UI execution context not found.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @since 10
   */
@@ -995,6 +1098,7 @@ declare namespace componentUtils {
   * @returns {ComponentInfo} the object of ComponentInfo.
   * @throws { BusinessError } 100001 - UI execution context not found.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 11 dynamiconly

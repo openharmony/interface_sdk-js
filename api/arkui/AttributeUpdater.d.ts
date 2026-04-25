@@ -24,6 +24,7 @@
  * @typedef { function } Initializer<T>
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -35,6 +36,7 @@ declare type Initializer<T> = () => T;
  *
  * @implements AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -46,6 +48,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -57,6 +60,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -68,6 +72,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    *
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -79,6 +84,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    *
    * @type { C }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -90,6 +96,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

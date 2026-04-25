@@ -26,6 +26,7 @@ import drawing from './@ohos.graphics.drawing';
  *
  * @typedef DrawableDescriptorLoadedResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 21 dynamic
@@ -36,6 +37,7 @@ export interface DrawableDescriptorLoadedResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -46,6 +48,7 @@ export interface DrawableDescriptorLoadedResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -57,12 +60,14 @@ export interface DrawableDescriptorLoadedResult {
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -70,6 +75,7 @@ export interface DrawableDescriptorLoadedResult {
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -80,6 +86,7 @@ export class DrawableDescriptor {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 10 dynamic
    */
   constructor();
@@ -89,6 +96,7 @@ export class DrawableDescriptor {
    *
    * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -96,6 +104,7 @@ export class DrawableDescriptor {
    *
    * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -104,6 +113,7 @@ export class DrawableDescriptor {
    *
    * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -116,6 +126,7 @@ export class DrawableDescriptor {
    * @returns { DrawableDescriptorLoadedResult } loading outcome.
    * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -128,6 +139,7 @@ export class DrawableDescriptor {
    * @returns { Promise<DrawableDescriptorLoadedResult> } The image loading result.
    * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -140,6 +152,7 @@ export class DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -147,6 +160,7 @@ export class DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -155,6 +169,7 @@ export class DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -167,6 +182,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -177,6 +193,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -192,6 +209,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -199,6 +217,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -207,6 +226,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -218,6 +238,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -225,6 +246,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -233,6 +255,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -244,6 +267,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -251,6 +275,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -259,6 +284,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -270,6 +296,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { string } Return the clip path info of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -277,6 +304,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { string } Return the clip path info of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -285,6 +313,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { string } Return the clip path info of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -296,6 +325,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @param { drawing.BlendMode } mode - Indicates the composition mode to set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -308,6 +338,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -316,6 +347,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 23 dynamic
@@ -325,6 +357,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * Creates a new PixelMapDrawableDescriptor.
    * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -332,6 +365,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * Creates a new PixelMapDrawableDescriptor.
    * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -377,6 +411,7 @@ export enum AnimationStopMode {
  *
  * @interface AnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -387,6 +422,7 @@ declare interface AnimationOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -397,6 +433,7 @@ declare interface AnimationOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -407,6 +444,7 @@ declare interface AnimationOptions {
    *
    * @type { ?Array<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -417,6 +455,7 @@ declare interface AnimationOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -441,6 +480,7 @@ declare interface AnimationOptions {
  *
  * @interface AnimationController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 21 dynamic
@@ -450,6 +490,7 @@ export interface AnimationController {
    * Start animation playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly 
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -460,6 +501,7 @@ export interface AnimationController {
    * Stop animation playback, and reset to first frame.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -470,6 +512,7 @@ export interface AnimationController {
    * Pause animation playback, and keep it to the current frame.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -480,6 +523,7 @@ export interface AnimationController {
    * Resume animation playback from the current frame.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -491,6 +535,7 @@ export interface AnimationController {
    *
    * @returns { AnimationStatus } Return the status of animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -503,6 +548,7 @@ export interface AnimationController {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -514,6 +560,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @param { Array<image.PixelMap> } pixelMaps - PixelMap List.
    * @param { AnimationOptions } [options] - Animation control options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -526,6 +573,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @param { ResourceStr | Array<image.PixelMap> } src - animated images or local resource.
    * @param { AnimationOptions } [options] - Animation control options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -538,6 +586,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @param { string } [id] - component id.
    * @returns { AnimationController | undefined } Return the component of animation controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic

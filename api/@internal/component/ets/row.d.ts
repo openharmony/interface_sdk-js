@@ -23,6 +23,7 @@
  *
  * @interface RowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -82,6 +83,7 @@ declare interface RowOptions {
  *
  * @interface RowOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -93,6 +95,7 @@ interface RowOptionsV2 {
    *
    * @type { ?SpaceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -194,6 +197,7 @@ interface RowInterface {
    * @param { ?(RowOptions | RowOptionsV2) } [options] - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -323,6 +327,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute } The attribute of the row.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): RowAttribute;
@@ -332,6 +337,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @param { Optional<boolean> } isReversed - If the main axis is reversed.
    * @returns { RowAttribute } The attribute of the row.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

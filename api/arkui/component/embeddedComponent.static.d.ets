@@ -31,6 +31,7 @@ import { EmbeddedType } from './enums'
  * @extends CommonMethod
  * @typedef EmbeddedComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @noninterop
  * @since 23 static
  */
@@ -41,6 +42,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { Callback<TerminationInfo> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onTerminated(callback: Callback<TerminationInfo> | undefined): this;
@@ -51,6 +53,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { ErrorCallback<BusinessError> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onError(callback: ErrorCallback<BusinessError> | undefined): this;
@@ -61,6 +64,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -74,8 +78,8 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

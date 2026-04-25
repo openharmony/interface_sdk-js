@@ -26,6 +26,7 @@
  * @extends HyperlinkAttribute
  * @implements AttributeModifier<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -35,6 +36,7 @@
  * @extends HyperlinkAttribute
  * @implements AttributeModifier<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -46,6 +48,7 @@ export declare class HyperlinkModifier extends HyperlinkAttribute implements Att
    * 
    * @param { HyperlinkAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

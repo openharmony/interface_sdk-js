@@ -77,6 +77,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -85,6 +86,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -150,6 +152,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -158,6 +161,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -423,6 +427,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { Font } value - Indicates the font style of content text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -433,6 +438,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { Font } value - Indicates the font style of content text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -445,6 +451,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { ResourceColor } value - Indicates the font color of content text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -454,6 +461,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { ResourceColor } value - Indicates the font color of content text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -467,6 +475,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { Font } value - Indicates the font style of label info text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -477,6 +486,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { Font } value - Indicates the font style of label info text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -489,6 +499,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { ResourceColor } value - Indicates the font color of label info text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -498,6 +509,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { ResourceColor } value - Indicates the font color of label info text.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

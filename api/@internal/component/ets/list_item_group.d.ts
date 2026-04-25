@@ -24,6 +24,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -31,6 +32,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -40,12 +42,14 @@ declare enum ListItemGroupStyle {
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -56,12 +60,14 @@ declare enum ListItemGroupStyle {
    * Show default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Show default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -160,6 +166,7 @@ declare interface ListItemGroupOptions {
     *
     * @type { ?ComponentContent }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 13 dynamic
@@ -198,6 +205,7 @@ declare interface ListItemGroupOptions {
     *
     * @type { ?ComponentContent }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 13 dynamic
@@ -258,6 +266,7 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -265,6 +274,7 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -443,6 +453,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @param { ChildrenMainSize } value - children main size for ListItemGroup
    * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

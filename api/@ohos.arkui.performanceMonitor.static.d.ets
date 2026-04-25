@@ -38,6 +38,7 @@
  * @namespace performanceMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 declare namespace performanceMonitor {
@@ -47,6 +48,7 @@ declare namespace performanceMonitor {
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
        * @since 23 static
        */
     export enum ActionType {
@@ -54,6 +56,7 @@ declare namespace performanceMonitor {
          * The user presses the finger on the screen.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         LAST_DOWN = 0,
@@ -61,6 +64,7 @@ declare namespace performanceMonitor {
          * The user lifts up the finger from the screen.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         LAST_UP = 1,
@@ -68,6 +72,7 @@ declare namespace performanceMonitor {
          * The user first moves the finger after pressing down the screen.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         FIRST_MOVE = 2
@@ -78,6 +83,7 @@ declare namespace performanceMonitor {
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     export enum SourceType {
@@ -85,6 +91,7 @@ declare namespace performanceMonitor {
          * The user touches the screen to trigger the scene.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         PERF_TOUCH_EVENT = 0,
@@ -92,6 +99,7 @@ declare namespace performanceMonitor {
          * TThe user uses the mouse to trigger the scene.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         PERF_MOUSE_EVENT = 1,
@@ -99,6 +107,7 @@ declare namespace performanceMonitor {
          * The user uses the touchpad to trigger the scene.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         PERF_TOUCHPAD_EVENT = 2,
@@ -106,6 +115,7 @@ declare namespace performanceMonitor {
          * The user uses the joystick to trigger the scene.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         PERF_JOYSTICK_EVENT = 3,
@@ -113,6 +123,7 @@ declare namespace performanceMonitor {
          * The user uses the keyboard to trigger the scene.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 23 static
          */
         PERF_KEY_EVENT = 4
@@ -125,6 +136,7 @@ declare namespace performanceMonitor {
      * @param { string } note Indicates the app expected info delivered.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     function begin(scene: string, startInputType: ActionType, note?: string): void;
@@ -134,6 +146,7 @@ declare namespace performanceMonitor {
      * @param { string } scene Indicates the scene name. It must be the same with the {@code scene} of start.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     function end(scene: string): void;
@@ -146,6 +159,7 @@ declare namespace performanceMonitor {
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     function recordInputEventTime(type: ActionType, sourceType: SourceType, time: long): void;

@@ -6682,6 +6682,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @param { AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { WebAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -6936,6 +6937,7 @@ export declare interface AcceptableFileType {
  * @param { CustomBuilder } [content_] - container
  * @returns { WebAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

@@ -23,6 +23,7 @@
  *
  * @interface GaugeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -273,6 +274,7 @@ interface GaugeInterface {
  * @extends MultiShadowOptions
  * @interface GaugeShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -282,6 +284,7 @@ interface GaugeInterface {
  * @extends MultiShadowOptions
  * @interface GaugeShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -292,6 +295,7 @@ interface GaugeInterface {
  * @extends MultiShadowOptions
  * @interface GaugeShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -304,6 +308,7 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  *
  * @interface GaugeIndicatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -312,6 +317,7 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  *
  * @interface GaugeIndicatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -321,6 +327,7 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  *
  * @interface GaugeIndicatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -333,6 +340,7 @@ declare interface GaugeIndicatorOptions {
    * @type { ?ResourceStr } option type - the current option type.
    * @default system style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -342,6 +350,7 @@ declare interface GaugeIndicatorOptions {
    * @type { ?ResourceStr } option type - the current option type.
    * @default system style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -352,6 +361,7 @@ declare interface GaugeIndicatorOptions {
    * @type { ?ResourceStr } option type - the current option type.
    * @default system style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -365,6 +375,7 @@ declare interface GaugeIndicatorOptions {
    * @type { ?Dimension } indicator space - the current indicator space.
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -374,6 +385,7 @@ declare interface GaugeIndicatorOptions {
    * @type { ?Dimension } indicator space - the current indicator space.
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -384,6 +396,7 @@ declare interface GaugeIndicatorOptions {
    * @type { ?Dimension } indicator space - the current indicator space.
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -398,6 +411,7 @@ declare interface GaugeIndicatorOptions {
  * @extends CommonConfiguration<GaugeConfiguration>
  * @interface GaugeConfiguration 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -408,6 +422,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * 
    * @type { number } data value - the current data value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -419,6 +434,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * 
    * @type { number } segment minimum value - the current segment minimum value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -430,6 +446,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * 
    * @type { number } segment maximum value - the current segment maximum value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -670,6 +687,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { CustomBuilder } value - description content builder of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -679,6 +697,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { CustomBuilder } value - description content builder of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -689,6 +708,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { CustomBuilder } value - description content builder of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -702,6 +722,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -711,6 +732,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -721,6 +743,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -734,6 +757,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -743,6 +767,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -753,6 +778,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
    * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -766,6 +792,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -779,6 +806,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

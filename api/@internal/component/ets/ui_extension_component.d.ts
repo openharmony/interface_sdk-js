@@ -24,6 +24,7 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  */
 declare enum DpiFollowStrategy {
@@ -32,6 +33,7 @@ declare enum DpiFollowStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   FOLLOW_HOST_DPI = 0,
@@ -41,6 +43,7 @@ declare enum DpiFollowStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
@@ -51,6 +54,7 @@ declare enum DpiFollowStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 18 dynamic
  */
 declare enum WindowModeFollowStrategy {
@@ -58,6 +62,7 @@ declare enum WindowModeFollowStrategy {
      * Followed the host Window Mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
      */
     FOLLOW_HOST_WINDOW_MODE = 0,
@@ -66,6 +71,7 @@ declare enum WindowModeFollowStrategy {
      * Followed the UIExtensionAbility.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
      */
     FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
@@ -77,6 +83,7 @@ declare enum WindowModeFollowStrategy {
  * @interface UIExtensionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 11 dynamic
  */
 declare interface UIExtensionOptions {
@@ -88,6 +95,7 @@ declare interface UIExtensionOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   isTransferringCaller?: boolean;
@@ -99,6 +107,7 @@ declare interface UIExtensionOptions {
    * @type { ?ComponentContent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   placeholder?: ComponentContent;
@@ -111,6 +120,7 @@ declare interface UIExtensionOptions {
    * @type { ?Record<string, ComponentContent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 14 dynamic
    */
   areaChangePlaceholder?: Record<string, ComponentContent>;
@@ -122,6 +132,7 @@ declare interface UIExtensionOptions {
    * @default DpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   dpiFollowStrategy?: DpiFollowStrategy;
@@ -132,6 +143,7 @@ declare interface UIExtensionOptions {
      * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
      */
     windowModeFollowStrategy?: WindowModeFollowStrategy;
@@ -143,6 +155,7 @@ declare interface UIExtensionOptions {
  * @interface TerminationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  */
 declare interface TerminationInfo {
@@ -152,6 +165,7 @@ declare interface TerminationInfo {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
    code: number;
@@ -162,6 +176,7 @@ declare interface TerminationInfo {
    * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
    want?: import('../api/@ohos.app.ability.Want').default;
@@ -174,6 +189,7 @@ declare interface TerminationInfo {
  * @typedef { import('../api/@ohos.base').Callback<Record<string, Object>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 18 dynamic
  */
 declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<string, Object>>;
@@ -185,6 +201,7 @@ declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<strin
  * @interface UIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 declare interface UIExtensionProxy {
@@ -194,6 +211,7 @@ declare interface UIExtensionProxy {
    * @param { object } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -203,6 +221,7 @@ declare interface UIExtensionProxy {
    * @param { Record<string, Object> } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   send(data: Record<string, Object>): void;
@@ -216,6 +235,7 @@ declare interface UIExtensionProxy {
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -228,6 +248,7 @@ declare interface UIExtensionProxy {
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   sendSync(data: Record<string, Object>): Record<string, Object>;
@@ -239,6 +260,7 @@ declare interface UIExtensionProxy {
    * @param { function } callback - callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -249,6 +271,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
@@ -260,6 +283,7 @@ declare interface UIExtensionProxy {
    * @param { function } callback - callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -270,6 +294,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
@@ -281,6 +306,7 @@ declare interface UIExtensionProxy {
    * @param { function } callback - callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -291,6 +317,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
@@ -302,6 +329,7 @@ declare interface UIExtensionProxy {
    * @param { function } callback - callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -312,6 +340,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   off(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
@@ -324,6 +353,7 @@ declare interface UIExtensionProxy {
  * @interface UIExtensionComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 interface UIExtensionComponentInterface {
@@ -335,6 +365,7 @@ interface UIExtensionComponentInterface {
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -346,6 +377,7 @@ interface UIExtensionComponentInterface {
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   (
@@ -360,6 +392,7 @@ interface UIExtensionComponentInterface {
  * @extends CommonMethod<UIExtensionComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
@@ -370,6 +403,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   onRemoteReady(
@@ -382,6 +416,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -391,6 +426,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   onReceive(callback: ReceiveCallback): UIExtensionComponentAttribute;
@@ -401,6 +437,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamiconly
    * @deprecated since 12
    * @useinstead UIExtensionComponentAttribute#onTerminated
@@ -419,6 +456,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamiconly
    * @deprecated since 12
    * @useinstead UIExtensionComponentAttribute#onTerminated or UIExtensionComponentAttribute#onError
@@ -433,6 +471,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   onError(
@@ -446,6 +485,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   onTerminated(callback: Callback<TerminationInfo>): UIExtensionComponentAttribute;
@@ -456,6 +496,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 18 dynamic
      */
     onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute;
@@ -466,6 +507,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 declare const UIExtensionComponent: UIExtensionComponentInterface;
@@ -475,6 +517,7 @@ declare const UIExtensionComponent: UIExtensionComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
