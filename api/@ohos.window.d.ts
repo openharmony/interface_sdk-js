@@ -12735,7 +12735,7 @@ declare namespace window {
     /**
      *  Set the window mask using a per-pixel alpha array
      *
-     * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparentcy values.
+     * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparency values.
      *     Valid range: 0(full transparent) to 255(full opaque), size must equal (maskWidth * maskHeight).
      * @param { int } maskWidth - Mask width in pixels. Must equal the target window width.
      * @param { int } maskHeight - Mask height in pixels. Must equal the target window height.
