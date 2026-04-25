@@ -216,6 +216,21 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
   /**
+   * Used to set the font weight of SymbolSpan.
+   *
+   * @param { number | FontWeight | ResourceStr } value - the SymbolSpan font weight.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @returns { SymbolSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolSpanAttribute;
+
+  /**
    * Called when the SymbolSpan effect is set.
    *
    * @param { SymbolEffectStrategy } value

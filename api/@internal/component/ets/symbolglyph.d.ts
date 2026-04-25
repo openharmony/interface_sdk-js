@@ -1270,6 +1270,21 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
   /**
+   * Used to set the font weight of symbolGlyph.
+   *
+   * @param { number | FontWeight | ResourceStr } value - the symbolGlyph font weight.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolGlyphAttribute;
+
+  /**
    * Called when the symbolGlyph effect is set.
    *
    * @param { SymbolEffectStrategy } value
