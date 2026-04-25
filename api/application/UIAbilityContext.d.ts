@@ -4780,6 +4780,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   *     4.The logical screen corresponding to the specified accountId is not in the foreground.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
