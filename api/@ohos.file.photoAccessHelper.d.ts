@@ -9166,6 +9166,7 @@ declare namespace photoAccessHelper {
 
   /**
    * Defines the album change infos.
+   * Default value: 0.
    *
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
