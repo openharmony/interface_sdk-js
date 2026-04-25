@@ -276,6 +276,7 @@ function parseJSDocVisitEachChild1(context, node) {
       }
     });
   }
+  
   function parseTypeExpr(typeExpr) {
     let newTypeExpr = typeExpr;
     if (typeExpr.type.kind === ts.SyntaxKind.JSDocNullableType) {
@@ -322,38 +323,41 @@ function handleLinkMatch(match, globalPosStart) {
       convertedText: convertedText
     });
   }
-  function processSignatureContent(content) {
-    let result = content.replace(/\b(int|long|double)\b/g, 'number');
-    return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
-      const params = paramStr.split(',');
-      const processedParams = params.map(param => processSingleParameter(param));
-      return openBracket + processedParams.join(',') + closeBracket;
-    });
-  }
-  function processSingleParameter(param) {
-    if (!param.includes(':')){
-      return param;
-    }
-    const colonIndex = param.indexOf(':');
-    const paramNamePart = param.substring(0, colonIndex);
-    const typePart = param.substring(colonIndex + 1);
-    const typeItems = typePart.split(/\s*\|\s*/);
-    const newTypeItems = [];
-    let hasNumber = false;
-    for (const type of typeItems) {
-      const trimmedType = type.trim();
-      if (trimmedType === 'number') {
-        if (!hasNumber) {
-          newTypeItems.push(type);
-          hasNumber = true;
-        }
-      } else {
-        newTypeItems.push(type);
-      }
-    }
-    return paramNamePart + ':' + newTypeItems.join(' | ');
-  }
 }
+
+function processSignatureContent(content) {
+  let result = content.replace(/\b(int|long|double)\b/g, 'number');
+  return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
+    const params = paramStr.split(',');
+    const processedParams = params.map(param => processSingleParameter(param));
+    return openBracket + processedParams.join(',') + closeBracket;
+  });
+}
+
+function processSingleParameter(param) {
+  if (!param.includes(':')){
+    return param;
+  }
+  const colonIndex = param.indexOf(':');
+  const paramNamePart = param.substring(0, colonIndex);
+  const typePart = param.substring(colonIndex + 1);
+  const typeItems = typePart.split(/\s*\|\s*/);
+  const newTypeItems = [];
+  let hasNumber = false;
+  for (const type of typeItems) {
+    const trimmedType = type.trim();
+    if (trimmedType === 'number') {
+      if (!hasNumber) {
+        newTypeItems.push(type);
+        hasNumber = true;
+      }
+    } else {
+      newTypeItems.push(type);
+    }
+  }
+  return paramNamePart + ':' + newTypeItems.join(' | ');
+}
+
 
 /**
  * 
