@@ -21,7 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **logLibrary** module provides APIs for obtaining various system maintenance and test logs.
+ * 本模块提供了获取各类系统维测日志的能力。
  *
  * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
  * @systemapi
@@ -30,7 +30,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace logLibrary {
   /**
-   * Defines a **LogEntry** object.
+   * 日志文件对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
@@ -39,7 +39,7 @@ declare namespace logLibrary {
    */
   interface LogEntry {
     /**
-     * Log file name.
+     * 文件名称。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
@@ -49,8 +49,7 @@ declare namespace logLibrary {
     name: string;
 
     /**
-     * Time of the last modification to the file. The value is the number of seconds elapsed
-     * since 00:00:00 on January 1, 1970.
+     * 上次修改该文件的时间，表示距1970年1月1日0时0分0秒的秒数。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
@@ -60,7 +59,7 @@ declare namespace logLibrary {
     mtime: long;
 
     /**
-     * File size, in bytes.
+     * 文件大小，以字节为单位。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
@@ -71,12 +70,11 @@ declare namespace logLibrary {
   }
 
   /**
-   * Obtains the list of log files of the specified type in synchronous mode. This API accepts objects of the string
-   * type as input parameters and returns a list log files of the specified type.
+   * 以同步方法查询指定类型的日志文件列表，接收string类型的对象作为参数，返回指定类型日志的文件列表信息。
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param { string } logType - Log type, for example, **HILOG**, **FAULTLOG**, **BETACLUB**, or **REMOTELOG**.
-   * @returns { LogEntry[] } Array of log file objects.
+   * @param { string } logType - 日志类型字符串，例如“HILOG”, "FAULTLOG", "BETACLUB", "REMOTELOG"等。
+   * @returns { LogEntry[] } 日志文件对象的数组。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument. Possible causes:
@@ -91,19 +89,15 @@ declare namespace logLibrary {
   function list(logType: string): LogEntry[];
 
   /**
-   * Copies log files of the specified type to the target application directory. This API uses a promise to return the
-   * result.
+   * 拷贝指定日志类型的指定文件到目标应用目录下。使用Promise回调。
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param { string } logType - Log type, for example, **HILOG**, **FAULTLOG**, **BETACLUB**, or **REMOTELOG**.
-   * @param { string } logName - Log file name.
-   * @param { string } dest - Target directory. Enter the relative path of the directory. If this parameter is
-   *     specified, log files will be saved to the **hiview/dest** folder in the application cache path, that is,
-   *     **../cache/hiview/dest**. You can enter a multi-level directory.
-   *     <br>If you leave this parameter empty, log files will be saved to the root directory, that is,
-   *     the **hiview** folder in the application cache path.
-   * @returns { Promise<void> } Promise used to return the result. Depending on whether the operation is successful, you
-   *     can use the **then()** or **catch()** method to process the callback.
+   * @param { string } logType - 日志类型字符串，例如“HILOG”, "FAULTLOG", "BETACLUB", "REMOTELOG"等。
+   * @param { string } logName - 日志文件名称。
+   * @param { string } dest - 目标目录，需填入相对目录名称。传入dest字串后，日志文件将保存到应用缓存路径下的"hiview/*dest*"文件夹，即"../cache/hiview/*dest*"。可填入多
+   *     层目录。
+   *     <br>如果传入空字串，将保存到根目录下，即应用缓存路径下的hiview文件夹。
+   * @returns { Promise<void> } Promise实例，可以在其then()、catch()方法中分别对拷贝成功、拷贝异常的回调进行处理。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument. Possible causes:
@@ -119,19 +113,15 @@ declare namespace logLibrary {
   function copy(logType: string, logName: string, dest: string): Promise<void>;
 
   /**
-   * Copies log files of the specified type to the target application directory. This API uses an asynchronous callback
-   * to return the result.
+   * 拷贝指定日志类型的指定文件到目标应用目录下。使用callback回调。
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param { string } logType - Log type, for example, **HILOG**, **FAULTLOG**, **BETACLUB**, or **REMOTELOG**.
-   * @param { string } logName - Log file name.
-   * @param { string } dest - Target directory. Enter the relative path of the directory. If this parameter is
-   *     specified, log files will be saved to the **hiview/dest** folder in the application cache path, that is,
-   *     **../cache/hiview/dest**. You can enter a multi-level directory.
-   *     <br>If you leave this parameter empty, log files will be saved to the root directory, that is,
-   *     the **hiview** folder in the application cache path.
-   * @param { AsyncCallback<void> } callback - Callback used to process the received return value. The value **0**
-   *     indicates that the operation is successful, and any other value indicates that the operation has failed.
+   * @param { string } logType - 日志类型字符串，例如“HILOG”, "FAULTLOG", "BETACLUB", "REMOTELOG"等。
+   * @param { string } logName - 日志文件名称。
+   * @param { string } dest - 目标目录，需填入相对目录名称。传入dest字串后，日志文件将保存到应用缓存路径下的"hiview/*dest*"文件夹，即"../cache/hiview/*dest*"。可填入多
+   *     层目录。
+   *     <br>如果传入空字串，将保存到根目录下，即应用缓存路径下的hiview文件夹。
+   * @param { AsyncCallback<void> } callback - 回调函数，可以在回调函数中处理接口返回值。0表示拷贝成功，其它值表示拷贝失败。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument. Possible causes:
@@ -147,19 +137,15 @@ declare namespace logLibrary {
   function copy(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Moves log files of the specified type to the target application directory. This API uses a promise to return the
-   * result.
+   * 移动指定日志类型的指定文件到目标应用目录下。使用Promise回调。
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-   * @param { string } logType - Log type, for example, **FAULTLOG**, **BETACLUB**, or **REMOTELOG**.
-   * @param { string } logName - Log file name.
-   * @param { string } dest - Target directory. Enter the relative path of the directory. If this parameter is
-   *     specified, log files will be saved to the **hiview/dest** folder in the application cache path, that is,
-   *     **../cache/hiview/dest**. You can enter a multi-level directory.
-   *     <br>If you leave this parameter empty, log files will be saved to the root directory, that is,
-   *     the **hiview** folder in the application cache path.
-   * @returns { Promise<void> } Promise used to return the result. Depending on whether the operation is successful, you
-   *     can use the **then()** or **catch()** method to process the callback.
+   * @param { string } logType - 日志类型字符串，例如"FAULTLOG", "BETACLUB", "REMOTELOG"等。
+   * @param { string } logName - 日志文件名称。
+   * @param { string } dest - 目标目录，需填入相对目录名称。传入dest字串后，日志文件将保存到应用缓存路径下的"hiview/*dest*"文件夹，即"../cache/hiview/*dest*"。可填入多
+   *     层目录。
+   *     <br>如果传入空字串，将保存到根目录下，即应用缓存路径下的hiview文件夹。
+   * @returns { Promise<void> } Promise实例，可以在其then()、catch()方法中分别对移动成功、移动异常的回调进行处理。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument. Possible causes:
@@ -175,19 +161,15 @@ declare namespace logLibrary {
   function move(logType: string, logName: string, dest: string): Promise<void>;
 
   /**
-   * Moves log files of the specified type to the target application directory. This API uses an asynchronous callback
-   * to return the result.
+   * 移动指定日志类型的指定文件到目标应用目录下。使用callback回调。
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-   * @param { string } logType - Log type, for example, **HILOG**, **FAULTLOG**, **BETACLUB**, or **REMOTELOG**.
-   * @param { string } logName - Log file name.
-   * @param { string } dest - Target directory. Enter the relative path of the directory. If this parameter is
-   *     specified, log files will be saved to the **hiview/dest** folder in the application cache path, that is,
-   *     **../cache/hiview/dest**. You can enter a multi-level directory.
-   *     <br>If you leave this parameter empty, log files will be saved to the root directory, that is,
-   *     the **hiview** folder in the application cache path.
-   * @param { AsyncCallback<void> } callback - Callback used to process the received return value. The value **0**
-   *     indicates that the operation is successful, and any other value indicates that the operation has failed.
+   * @param { string } logType - 日志类型字符串，例如“HILOG”, "FAULTLOG", "BETACLUB", "REMOTELOG"等。
+   * @param { string } logName - 日志文件名称。
+   * @param { string } dest - 目标目录，需填入相对目录名称。传入dest字串后，日志文件将保存到应用缓存路径下的"hiview/*dest*"文件夹，即"../cache/hiview/*dest*"。可填入多
+   *     层目录。
+   *     <br>如果传入空字串，将保存到根目录下，即应用缓存路径下的hiview文件夹。
+   * @param { AsyncCallback<void> } callback - 回调函数，可以在回调函数中处理接口返回值。0表示移动成功，其它值表示移动失败。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument. Possible causes:
@@ -203,11 +185,11 @@ declare namespace logLibrary {
   function move(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes log files of the specified type in synchronous mode.
+   * 以同步方法删除指定日志类型的指定文件。
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-   * @param { string } logType - Log type, for example, **FAULTLOG**, **BETACLUB**, or **REMOTELOG**.
-   * @param { string } logName - Log file name.
+   * @param { string } logType - 日志类型字符串，例如"FAULTLOG", "BETACLUB", "REMOTELOG"等。
+   * @param { string } logName - 日志文件名称。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument. Possible causes:
