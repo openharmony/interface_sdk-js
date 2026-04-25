@@ -6806,7 +6806,16 @@ declare namespace webview {
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        FORCE_DISPLAY_SCROLLBAR = 1
+        FORCE_DISPLAY_SCROLLBAR = 1,
+
+        /**
+        * Overlay VisualViewport scrollbars: appear on scroll, hide when idle. Rendered via Visual Viewport, non-draggable.
+        *
+        * @syscap SystemCapability.Web.Webview.Core
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+        OVERLAY_VISUAL_SCROLLBAR = 2
     }
 
     /**
