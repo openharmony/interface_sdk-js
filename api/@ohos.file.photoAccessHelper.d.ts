@@ -8609,6 +8609,127 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     cloneAssetsByPath(assets: string[], target: Album, option?: BatchOperationOptions): Promise<string[]>;
+
+    /**
+     * modify the default cover order of album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { DefaultCoverOrderInfo[] } coverOrderInfos - Default cover order information for batch albums.
+     * @param { boolean } disableModification - Disabling the modification option.
+     * @param { boolean } isAsyncRefreshAlbum - Asynchronously refreshing the default album cover image..
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Only the system album can be set without lpath. Otherwise, the setting is not supported;
+     *     <br>2. The orderKey and orderSubKey are not in the specified range;
+     *     <br>3. The order type must be either descending or ascending.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    modifyAlbumDefaultCoverOrder(coverOrderInfos: DefaultCoverOrderInfo[],
+    disableModification: boolean,
+    isAsyncRefreshAlbum: boolean): Promise<void>;
+
+    /**
+     * modify the default cover order of hidden album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { DefaultCoverOrderInfo[] } coverOrderInfos - Default cover order information for batch albums.
+     * @param { boolean } disableModification - Disabling the modification option.
+     * @param { boolean } isAsyncRefreshAlbum - Asynchronously refreshing the default album cover image..
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Only the system album can be set without lpath. Otherwise, the setting is not supported;
+     *     <br>2. The orderKey and orderSubKey are not in the specified range;
+     *     <br>3. The order type must be either descending or ascending.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    modifyHiddenAlbumDefaultCoverOrder(coverOrderInfos: DefaultCoverOrderInfo[],
+    disableModification: boolean,
+    isAsyncRefreshAlbum: boolean): Promise<void>;
+  }
+
+  /**
+   * Default Cover Order
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export class DefaultCoverOrderInfo {
+    /**
+     * Album type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public albumType: AlbumType;
+
+    /**
+     * Album subtype
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public albumSubtype: AlbumSubtype;
+
+    /**
+     * Virtual path of the album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public lpath?: string;
+
+    /**
+     * The field of default cover order.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public orderKey: PhotoKeys;
+
+    /**
+     * The subfield of default cover order.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public orderSubKey: PhotoKeys;
+
+    /**
+     * order type
+     * The value must be an integer within [0,1].
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public orderType: int;
   }
 
   /**
