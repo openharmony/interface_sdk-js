@@ -190,6 +190,17 @@ declare namespace insightIntentDriver {
      * @since 23 dynamic&static
      */
     userId?: int;
+
+    /**
+     * Indicates the device identifier. Obtained from
+     *     {@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager#getAvailableDeviceListSync}
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deviceId?: string;
   }
 
   /**
@@ -345,6 +356,8 @@ declare namespace insightIntentDriver {
    * When the caller is in the background, the ohos.permission.START_ABILITIES_FROM_BACKGROUND permission is required.
    * When [ExecuteMode]{@link @ohos.app.ability.insightIntent:insightIntent.ExecuteMode} of the intent call is set to 
    * **UI_ABILITY_BACKGROUND**, the ohos.permission.ABILITY_BACKGROUND_COMMUNICATION permission is required.
+   * On API 26.0.0 and above, intent can be executed across devices. When the intent call is cross-device, 
+   * the ohos.permission.EXECUTE_DISTRIBUTED_INTENT permission is required.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Parameter used to execute the intent call.
@@ -368,6 +381,8 @@ declare namespace insightIntentDriver {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000137 - Cross-device execution failed due to a connection error. [since 26.0.0]
+ 	 * @throws { BusinessError } 16000138 - Device disconnected during cross-device intent execution. [since 26.0.0]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -381,6 +396,9 @@ declare namespace insightIntentDriver {
    * When the caller is in the background, the ohos.permission.START_ABILITIES_FROM_BACKGROUND permission is required.
    * When [ExecuteMode]{@link @ohos.app.ability.insightIntent:insightIntent.ExecuteMode} of the intent call is set to 
    * **UI_ABILITY_BACKGROUND**, the ohos.permission.ABILITY_BACKGROUND_COMMUNICATION permission is required.
+   * When the intent call is cross-device, the ohos.permission.EXECUTE_DISTRIBUTED_INTENT permission is required.
+   * On API 26.0.0 and above, intent can be executed across devices. When the intent call is cross-device, 
+   * the ohos.permission.EXECUTE_DISTRIBUTED_INTENT permission is required.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Parameter used to execute the intent call.
@@ -403,6 +421,8 @@ declare namespace insightIntentDriver {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000137 - Cross-device execution failed due to a connection error. [since 26.0.0]
+ 	 * @throws { BusinessError } 16000138 - Device disconnected during cross-device intent execution. [since 26.0.0]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
