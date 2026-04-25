@@ -3765,7 +3765,7 @@ interface CopyOptions {
 /**
  * 拷贝进度监听。
  *
- * @param { Progress } progress - indicates the progress data of copyFile
+ * @param { Progress } progress - 拷贝进度监听。
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11 dynamic
  */
