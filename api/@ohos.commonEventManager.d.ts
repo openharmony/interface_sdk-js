@@ -2383,7 +2383,7 @@ declare namespace commonEventManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    COMMON_EVENT_SCREEN_LOCK_EXITING = "usual.event.SCREEN_LOCK_EXITING",
+    COMMON_EVENT_SCREEN_LOCK_EXITING = 'usual.event.SCREEN_LOCK_EXITING',
 
     /**
      * Indicates that the network connection state has changed.
