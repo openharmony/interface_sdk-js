@@ -12748,6 +12748,9 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. The maskWidth is not equal to the window width or the maskHeight is not equal to the window height.
+     *     2. The length of windowMask is not equal to maskWidth multiplied by maskHeight.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
