@@ -244,7 +244,7 @@ declare namespace fileShare {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    permissionMode: OperationMode;
+    permissionMode: int;
   }
 
   /**
