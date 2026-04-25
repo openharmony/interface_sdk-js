@@ -9155,6 +9155,7 @@ declare namespace photoAccessHelper {
 
     /**
      * The asset source type.
+     * Default value: 0.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -9166,7 +9167,6 @@ declare namespace photoAccessHelper {
 
   /**
    * Defines the album change infos.
-   * Default value: 0.
    *
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
