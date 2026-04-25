@@ -18,11 +18,11 @@
  * @kit ArkUI
  */
 import { Resource } from '../../global/resource';
-import { ResourceColor, ColorMetrics } from "./units";
+import { ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { ShaderStyle } from "./textCommon";
+import { ShaderStyle, FontWeightConfigs } from "./textCommon";
 /**
  * The symbol rendering strategy.
  *
@@ -482,6 +482,17 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
+    /**
+     * Used to set the font weight of SymbolGlyph.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - the SymbolGlyph font weight.
+     * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
     /**
      * Called when the symbolGlyph effect is set.
      *
