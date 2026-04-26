@@ -15502,6 +15502,20 @@ export declare interface EditModeOptions {
      * @since 23 static
      */
     onGetPreviewBadge?: OnGetPreviewBadgeCallback;
+
+    /**
+     * Use default multi-select style.
+     * {@code true} indicates that the check box is displayed for GridItem or ListItem after entering the
+     * multi-select state.
+     * {@code false} indicates that there is no default style after entering the multi-select state.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    useDefaultMultiSelectStyle?: boolean;
 }
 
 /**
