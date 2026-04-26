@@ -1554,6 +1554,21 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   editModeOptions(options?: EditModeOptions): GridAttribute;
 
   /**
+   * Set whether to enable edit mode.
+   *
+   * @param { boolean | undefined } enabled - enable edit mode.
+   *     <br>Default value: false.
+   *     <br>This parameter supports !! for two-way binding of variables.
+   * @returns { GridAttribute } The attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableEditMode(enabled: boolean | undefined): GridAttribute;
+
+  /**
    * Called When sliding the grid.
    *
    * @param { function } event - callback of grid scroll,
