@@ -27,7 +27,7 @@ import { LevelOrder, LevelMode } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { SimpleAnimatorOptions } from './@ohos.animator';
-import type { Callback, AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 import { MeasureOptions } from './@ohos.measure';
 import type componentSnapshot from './@ohos.arkui.componentSnapshot';
 import type dragController from './@ohos.arkui.dragController';
@@ -55,6 +55,8 @@ import { TabsController } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { KeyProcessingMode } from '@ohos.arkui.component';
 import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
+import { SmartGestureAction, OperateIntention } from '@ohos.arkui.component';
+import type { Callback } from './arkui/component/common';
 /**
  * class Font
  *
@@ -3067,6 +3069,296 @@ export declare class ComponentSnapshot {
 }
 
 /**
+ * Class BaseGestureHandlingProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export abstract class BaseGestureHandlingProposal {
+  /**
+   * The smart gesture action to be performed. Defines the specific operation triggered by the gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  action: SmartGestureAction;
+
+  /**
+   * The underlying user operation intention. Represents the fundamental user interaction goal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  operateIntention: OperateIntention;
+}
+
+/**
+ * Class TargetedGestureProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
+  /**
+   * The target frame node for gesture handling. This node will receive and process the gesture events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  node: FrameNode;
+}
+
+/**
+ * Class ClickActionProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ClickActionProposal extends TargetedGestureProposal {
+  /**
+   * ClickActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to click action.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode);
+}
+
+/**
+ * Class SelectActionProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class SelectActionProposal extends TargetedGestureProposal {
+  /**
+   * SelectActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to select action.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode);
+}
+
+/**
+ * Class NoneActionProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class NoneActionProposal extends BaseGestureHandlingProposal {
+  /**
+   * NoneActionProposal constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor();
+}
+
+/**
+ * Class BackPressActionProposal.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class BackPressActionProposal extends BaseGestureHandlingProposal {
+  /**
+   * BackPressActionProposal constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor();
+}
+
+/**
+ * Class PageSwitchActionProposal. The default page switch direction is forward.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class PageSwitchActionProposal extends TargetedGestureProposal {
+  /**
+   * PageSwitchActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to page switch action.
+   * @param { int } pageCount - The number of pages to navigate.
+   *     The value should be an integer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode, pageCount: int);
+
+  /**
+   * Page count parameter for gesture operations. Specifies the number of pages to navigate.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  pageCount: int;
+}
+
+/**
+ * Class ScrollActionProposal. The default scroll direction is forward.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ScrollActionProposal extends TargetedGestureProposal {
+  /**
+   * ScrollActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to scroll action.
+   * @param { double } distance - The distance to scroll or slide.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode, distance: double);
+
+  /**
+   * Distance parameter for gesture operations. Used for actions like scrolling or sliding to specify travel distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  distance: double;
+}
+
+/**
+ * Class GestureHandlingResolution. Represents the developer's decision result for smart gesture handling.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class GestureHandlingResolution {
+  /**
+   * GestureHandlingResolution constructor.
+   *
+   * @param { boolean } isConsumed - Whether to consume the current gesture event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(isConsumed: boolean);
+
+  /**
+   * Determines whether to consume the current gesture event. If the gesture is not consumed, it will inform the
+   * consumer that the gesture is not supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isConsumed: boolean;
+
+  /**
+   * The final gesture handling proposal selected by the developer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  selectedProposal?: BaseGestureHandlingProposal;
+}
+
+/**
+ * Class SmartGestureController.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class SmartGestureController {
+  /**
+   * Enable or disable smart tap and slide gestures for watch. This switch controls the new implementation
+   * of tap and slide gestures. When enabled, the new smart gesture handling pipeline is used. When disabled, the
+   * legacy implementation is used for compatibility.
+   *
+   * @param { boolean } enabled - Whether to enable smart tap and slide gesture handling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableSmartTapAndSlideGestures(enabled: boolean): void;
+
+  /**
+   * Register a callback function to monitor gesture events. This method enables the application to receive the
+   * processing intention of the current gesture and carry out customized intervention before the system processes
+   * the gesture event.
+   *
+   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Callback function 
+   *     invoked when a gesture is recognized.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  registerMonitor(monitorCallback: Callback<BaseGestureHandlingProposal, GestureHandlingResolution>): void;
+
+  /**
+   * Unregister a callback function to monitor gesture events.
+   *
+   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Callback function
+   *     invoked when a gesture is recognized.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  unregisterMonitor(monitorCallback: Callback<BaseGestureHandlingProposal, GestureHandlingResolution>): void;
+
+  /**
+   * Clear the callback functions to monitor gesture events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  clearMonitors(): void;
+
+  /**
+   * Request smart gesture selection of a frame node by its identifier.
+   *
+   * @param { string } id - The identifier of the frame node to select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  requestSelected(id: string): void;
+
+  /**
+   * Clear the current smart gesture selection.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  clearSelected(): void;
+}
+
+/**
  * Enum of strategy of resolved UIContext.
  * @enum { number } strategy of resolved UIContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4214,6 +4506,16 @@ export declare class UIContext {
    * @since 26.0.0 static
    */
   setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
+
+  /**
+   * Get object smart gesture controller.
+   *
+   * @returns { SmartGestureController } object smart gesture controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getSmartGestureController(): SmartGestureController;
 }
 
 /**
