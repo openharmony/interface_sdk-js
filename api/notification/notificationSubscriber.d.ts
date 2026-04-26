@@ -254,6 +254,17 @@ export interface SubscribeCallbackData {
    * @since 23 static
    */
   readonly vibrationValues?: Array<long>;
+
+  /**
+   * Generated voice content for audio playback.
+   * Only present when voiceContentoptions.enabled is true in NotificationSubscribeInfo.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  voiceContent?: VoiceContent;
 }
 
 /**
@@ -481,6 +492,26 @@ export interface BadgeEnabledChangedCallback {
    * @since 12 dynamic
    */
   (data: EnabledNotificationCallbackData): void;
+}
+
+/**
+ * Describes the generated voice content for notification.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContent {
+  /**
+   * The voice content text for audio playback.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  textContent?: string;
 }
 
 /**

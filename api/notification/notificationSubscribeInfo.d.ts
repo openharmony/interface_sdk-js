@@ -94,4 +94,34 @@ export interface NotificationSubscribeInfo {
    * @since 23 static
    */
   filterLimit?: long;
+
+  /**
+   * Configuration for voice content subscription options.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  voiceContentOptions?: VoiceContentOptions;
+}
+
+/**
+ * Describes the voice content options for notification subscriptions.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContentOptions {
+  /**
+   * Whether to enable voice content generation for subscribed notifications.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enabled?: boolean;
 }
