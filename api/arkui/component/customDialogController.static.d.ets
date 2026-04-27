@@ -21,7 +21,7 @@ import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, Keyboard
 import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles, VoidCallback } from './units';
-import { BorderStyle } from './enums';
+import { BorderStyle, DialogDisplayMode } from './enums';
 import { LengthMetrics } from '../Graphics';
 import promptAction from '../../@ohos.promptAction';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
@@ -146,6 +146,16 @@ export declare interface CustomDialogControllerOptions {
      * @since 23 static
      */
     showInSubWindow?: boolean;
+    /**
+     * Defines the dialog display mode when show in subwindow.
+     *
+     * @type { ?DialogDisplayMode }
+     * @default DialogDisplayMode.SCREEN_BASED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    displayModeInSubWindow?: DialogDisplayMode;
     /**
      * Background color of dialog.
      *

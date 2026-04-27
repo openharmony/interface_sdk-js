@@ -4574,15 +4574,15 @@ export declare enum TipsAnchorType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
-declare enum DialogDisplayMode {
+export declare enum DialogDisplayMode {
   /**
    * The dialog displayed based on screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   SCREEN_BASED = 0,
   /**
@@ -4590,7 +4590,7 @@ declare enum DialogDisplayMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WINDOW_BASED = 1
 }

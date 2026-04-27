@@ -23,7 +23,7 @@ import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, Tr
 import { CustomBuilder } from '@ohos.arkui.component';
 import { DialogAlignment } from '@ohos.arkui.component';
 import { DismissDialogAction } from '@ohos.arkui.component';
-import { BorderStyle, Alignment } from '@ohos.arkui.component';
+import { BorderStyle, Alignment, DialogDisplayMode } from '@ohos.arkui.component';
 import { Resource } from 'global.resource';
 import { LengthMetrics } from 'arkui.Graphics';
 import uiMaterial from '@ohos.arkui.uiMaterial';
@@ -535,7 +535,7 @@ declare namespace promptAction {
          * @since 23 static
          */
         showInSubWindow?: boolean;
-        
+
         /**
          * Whether it is a modal dialog
          * @type { ?boolean }
@@ -854,7 +854,18 @@ declare namespace promptAction {
          * @since 23 static
          */
         showInSubWindow?: boolean;
-        
+
+        /**
+         * Defines the dialog display mode when show in subwindow.
+         *
+         * @type { ?DialogDisplayMode }
+         * @default DialogDisplayMode.SCREEN_BASED
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        displayModeInSubWindow?: DialogDisplayMode;
+
         /**
          * Whether it is a modal dialog
          * @type { ?boolean }
@@ -1386,7 +1397,7 @@ declare namespace promptAction {
          * @since 23 static
          */
         showInSubWindow?: boolean;
-        
+
         /**
          * Whether it is a modal dialog
          * @type { ?boolean }

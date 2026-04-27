@@ -1184,6 +1184,18 @@ declare namespace promptAction {
          */
         showInSubWindow?: boolean;
         /**
+         * Defines the dialog display mode when show in subwindow.
+         *
+         * @type { ?DialogDisplayMode }
+         * @default DialogDisplayMode.SCREEN_BASED
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @crossplatform
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        displayModeInSubWindow?: DialogDisplayMode;
+        /**
          * Whether it is a modal dialog
          * @type { ?boolean }
          * @default true
