@@ -155,7 +155,7 @@ export interface AbilityDelegator {
    *     in this process.
    * 
    * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
-   * @throws { BusinessError } 16000100 - Calling InteropAbilityMonitor failed.
+   * @throws { BusinessError } 16000100 - Calling AddInteropAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -359,7 +359,7 @@ export interface AbilityDelegator {
    * Remove a specified InteropAbilityMonitor object from the application memory.
    *
    * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
-   * @throws { BusinessError } 16000100 - Calling removeInteropAbilityMonitorSync failed.
+   * @throws { BusinessError } 16000100 - Calling RemoveInteropAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
