@@ -447,7 +447,7 @@ function replaceJsDocTagDynamicStatic(jsDoc) {
  * @returns 
  */
 function deleteUnsportedTag(fileContent) {
-  const arktsTagRegx = /\*\s*@crossplatform\s*(\r|\n)\s*|\*\s*@form\s*(\r|\n)\s*|\*\s*@atomicservice\s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\*\s*@(?:crossplatform|form|atomicservice)\s*(\[since (.*?)\]\s*)?[\r\n]\s*/g;
   fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
     return '';
   });

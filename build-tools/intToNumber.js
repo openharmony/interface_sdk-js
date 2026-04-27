@@ -325,6 +325,12 @@ function handleLinkMatch(match, globalPosStart) {
   }
 }
 
+/**
+ * 处理函数签名内容，替换类型并合并number
+ * 【核心：不修改原始空格、换行、缩进、括号格式】
+ * @param {string} content - 原始 {@link} 内部内容
+ * @returns {string} 处理后内容，格式完全保留
+ */
 function processSignatureContent(content) {
   let result = content.replace(/\b(int|long|double)\b/g, 'number');
   return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
@@ -334,6 +340,11 @@ function processSignatureContent(content) {
   });
 }
 
+/**
+ * 处理单个参数，合并number，保留原始空格/换行
+ * @param {string} param - 原始单个参数字符串（含空白符）
+ * @returns {string} 处理后参数，格式不变
+ */
 function processSingleParameter(param) {
   if (!param.includes(':')){
     return param;
