@@ -46,7 +46,6 @@ export interface WritableEnvProperties {
 export declare class WithEnvAttribute {
   env(key: WritableSystemProperties, value: WritableEnvProperties[WritableSystemProperties]): WithEnvAttribute;
   customEnv<T>(key: string, value: T): WithEnvAttribute; 
-  testEnv(key: string, value: string): WithEnvAttribute; //for test
 }
 
 
