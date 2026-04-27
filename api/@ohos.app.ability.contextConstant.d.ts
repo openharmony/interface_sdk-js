@@ -329,7 +329,7 @@ declare namespace contextConstant {
     /**
      * UI service extension context type.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core\
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @atomicservice
