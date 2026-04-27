@@ -358,7 +358,7 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * Register a callback function and call it when a task fails to be executed.
+     * Register a callback function and call it when a task fails to be executed(Periodic tasks are not supported).
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunctionWithError } [callback] - Callback function to register.
