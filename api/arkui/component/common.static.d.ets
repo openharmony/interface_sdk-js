@@ -13686,13 +13686,14 @@ export declare interface CommonMethod {
      * Provides a callback to set the parallel relationship between gestures of current component and gestures of other
      * components in the response chain.
      *
-     * @param { ShouldRecognizerParallelWithCallback } callback - A callback instance used when a component is doing
-     *     touch test.
+     * @param { ShouldRecognizerParallelWithCallback | undefined } callback - A callback instance used when a component is
+     *     doing touch test.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 26.0.0 static
      */
-    default shouldRecognizerParallelWith(callback: ShouldRecognizerParallelWithCallback): this;
+    default shouldRecognizerParallelWith(callback: ShouldRecognizerParallelWithCallback | undefined): this;
     /**
      * Sets whether the component exclusively handles events.
      * true: The component exclusively handles events. false: The component does not exclusively handle events.
