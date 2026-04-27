@@ -16226,7 +16226,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    NICK_NAME_ATTR = 'nickname'
+    NICK_NAME_ATTR = 'nickname',
+    /**
+     * The album is_removed operation attribute.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    IS_REMOVED_ATTR = 'is_removed'
   }
 
   /**
