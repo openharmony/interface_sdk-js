@@ -1020,6 +1020,29 @@ declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
 declare const Env: EnvDecorator;
 
 /**
+ * Defines the custom environment PropertyDecorator.
+ *
+ * @param { string } value - custom environment key.
+ * @returns { PropertyDecorator } CustomEnv decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type CustomEnvDecorator = (value: string) => PropertyDecorator;
+
+/**
+ * Defining CustomEnv PropertyDecorator.
+ *
+ * @type { CustomEnvDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare const CustomEnv: CustomEnvDecorator;
+
+/**
  * Defining Environment variable enumeration value.
  * 
  * @enum { string }
