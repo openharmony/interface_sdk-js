@@ -2967,18 +2967,16 @@ declare namespace webview {
   }
 
   /**
-   * Defines the snapshot info.
+   * Provides information used to obtain a full drawing result.
    *
-   * @typedef SnapshotInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   interface SnapshotInfo {
     /**
-     * Id of the snapshot.
+     * Snapshot ID.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -2986,13 +2984,11 @@ declare namespace webview {
     id?: string;
 
     /**
-     * Size for web rendering.
-     * The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %.
-     * The length unit must be the consistent across parameters. The default unit is vp.
-     * If the size exceeds the specifications, the maximum size is returned.
-     * (Example: width: '100px', height: '200px' or width: '20%', height'30%'. If only digits are written, the unit is vp.)
+     * Size for web rendering. The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %. The length
+     * unit must be the consistent across parameters. The default unit is vp. If the size exceeds the specifications,
+     * the maximum size is returned. Example: **width: '100px', height: '200px'** or **width: '20%', height'30%'**. If
+     * only digits are written, the unit is vp.
      *
-     * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -3000,19 +2996,17 @@ declare namespace webview {
     size?: SizeOptions;
   }
 
-  /**
+   /**
    * Represents a full drawing result.
    *
-   * @typedef SnapshotResult
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   interface SnapshotResult {
     /**
-     * Id of the snapshot.
+     * Snapshot ID.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -3021,10 +3015,7 @@ declare namespace webview {
 
     /**
      * The status of the snapshot.
-     * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
-     * the width and height of the returned size are both 0, and the map is empty.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -3032,10 +3023,11 @@ declare namespace webview {
     status?: boolean;
 
     /**
-     * Actual size drawn on the web page.
-     * The value is of the number type, and the unit is vp.
+     * Size for web rendering. The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %. The length
+     * unit must be the consistent across parameters. The default unit is vp. If the size exceeds the specifications,
+     * the maximum size is returned. Example: **width: '100px', height: '200px'** or **width: '20%', height'30%'**. If
+     * only digits are written, the unit is vp.
      *
-     * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -3043,9 +3035,8 @@ declare namespace webview {
     size?: SizeOptions;
 
     /**
-     * Full drawing result in image.PixelMap format.
+     * The image in PixelMap format.
      *
-     * @type { ?image.PixelMap }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -4627,22 +4618,16 @@ declare namespace webview {
     getTitle(): string;
 
     /**
-     * Gets the content height of current Web page.
-     * @returns { number } Returns the page height of the current page.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Obtains the height of this web page.
+     * Obtains the height of this web page. For details, see
+     * [Obtaining the Web Page Content Height](docroot://web/web-getpage-height.md).
+     *
      * @returns { number } Height of the current web page. Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     getPageHeight(): number;
 
@@ -6486,8 +6471,8 @@ declare namespace webview {
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
-     * Enables the full drawing capability for the web page.
-     * This API works only during Web component initialization.
+     * Enables the full drawing capability for the web page. This API works only during **Web** component
+     * initialization.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -6496,16 +6481,17 @@ declare namespace webview {
     static enableWholeWebPageDrawing(): void;
 
     /**
-     * Web page snapshot.
+     * Obtains the full drawing result of the web page.
      *
-     * <p><strong>API Note</strong>:<br>
-     * Only screenshots of assets on the rendering process are supported: still images and text.
-     * If there is a video on the page, the placeholder image of the video will be displayed when you take a screenshot,
-     * and blank if there is no placeholder.
-     * </p>
+     * > **NOTE**
+     * >
+     * > Only static images and texts in the rendering process can be captured.
+     * >
+     * > If there is a video on the page, the placeholder image of the video is displayed when you take a snapshot. If
+     * > there is no placeholder image, the page is blank.
      *
-     * @param { SnapshotInfo } info - The snapshot info.
-     * @param { AsyncCallback<SnapshotResult> } callback - the callback of snapshot.
+     * @param { SnapshotInfo } info - Information for obtaining the full drawing result.
+     * @param { AsyncCallback<SnapshotResult> } callback - Callback used to return the result.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6780,9 +6766,15 @@ declare namespace webview {
     isAdsBlockEnabledForCurPage(): boolean;
 
     /**
-     * Get the ID of the surface created by ArkWeb. This ID can be used for web page screenshots.
+     * Obtains the ID of the surface corresponding to ArkWeb. The ID can be used to capture a screenshot of the web
+     * page.
      *
-     * @returns { string } The ID of the surface created by ArkWeb.
+     * > **NOTE**
+     * >
+     * > This API is valid only when the **Web** component rendering mode is **ASYNC_RENDER**. The value of
+     * > **getSurfaceId** can be obtained only after the **Web** component is initialized.
+     *
+     * @returns { string } ID of the surface held by ArkWeb.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -7123,21 +7115,29 @@ declare namespace webview {
     getProgress() : number;
 
     /**
-     * Sets the bottom avoidance height of the web visible viewport.
-     * When setting non-zero height, the position and size of the web component remain unchanged,
-     * <br>and the visible viewport upward avoids avoidHeight, as manifested by the web page content raising avoidHeight.
-     * <br>This interface is generally used for customizing the bottom avoidance area, and it is not recommended for
-     * <br>simultaneous use with clicking the editable area of the web page showing the keyboard.
-     * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
-     * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
+     * Sets the bottom avoidance height of the visible viewport on the web page.
      *
-     * @param { number } avoidHeight - the height value of the visible viewport avoidance.
-     *     The valid interval of avoidHeight is [0, the height of web component].
-     *     When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
-     *     <br>Unit: vp.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * > **NOTE**
+     * >
+     * > - The valid value range of **avoidHeight** is [0, height of the **Web** component]. Values outside this range
+     * > are adjusted to the nearest boundary.
+     * >
+     * > - When a non-zero value is specified for **avoidHeight**, the position and size of the **Web** component remain
+     * > unchanged, but the visible viewport shift upwards by the specified height, lifting the web page content by the
+     * > **avoidHeight**. This API is used to customize the avoidance area at the bottom of a web page. It is not
+     * > recommended that this API be used when the editable area of the web page is tapped to pull up the keyboard. If
+     * > this API is used in this scenario, the keyboard avoidance mode is set to **OVERLAYS_CONTENT**.
+     * >
+     * > - When the height of this API is set to **0**, the web page content can be restored, and the keyboard avoidance
+     * > mode is specified by
+     * > [keyboardAvoidMode()](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#keyboardavoidmode12)
+     * > .
+     *
+     * @param { number } avoidHeight - Bottom avoidance height of the visible viewport on the web page.<br>Unit: vp.<br>
+     *     Value range: [0, height of the **Web** component]<br>If the value is less than 0, the value **0** is used. If
+     *     the value is greater than the height of the **Web** component, the height of the **Web** component is used.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
