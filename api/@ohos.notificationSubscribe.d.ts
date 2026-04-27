@@ -215,8 +215,9 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     <br>2.Memory operation error. 3.The user does not exist.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -234,8 +235,9 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscribeInfo } info - The notification subscribe info.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     <br>2.Memory operation error. 3.The user does not exist.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
