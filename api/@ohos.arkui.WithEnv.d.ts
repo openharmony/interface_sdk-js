@@ -18,23 +18,6 @@
  * @kit ArkUI
  */
 
-export declare enum WritableSystemProperties {
-    /**
-     * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 22
-     */
-    Layout_Direction = 'system.arkui.layout.direction',
-
-};
-
-export interface WritableEnvProperties {
-    [WritableSystemProperties.Layout_Direction]: boolean,
-};
-
-
 /**
  * Define the WithEnv attribute functions.
  *
@@ -44,8 +27,19 @@ export interface WritableEnvProperties {
  * @since 26.0.0 dynamic
  */
 export declare class WithEnvAttribute {
-  env(key: WritableSystemProperties, value: WritableEnvProperties[WritableSystemProperties]): WithEnvAttribute;
-  customEnv<T>(key: string, value: T): WithEnvAttribute; 
+
+  /**
+   * Defining Custom Environment Variables
+   *
+   * @param { string } key - Keys for custom environment variables.
+   * @param { any } value - Values of custom environment variables.
+   * @returns { WithEnvAttribute } WithEnvAttribute object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  customEnv(key: string, value: any): WithEnvAttribute;
 }
 
 
@@ -67,6 +61,7 @@ export declare type WithEnvInterface = () => WithEnvAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
+ * @uicomponent
  * @since 26.0.0 dynamic
  */
 export declare const WithEnv: WithEnvInterface;
@@ -77,11 +72,7 @@ export declare const WithEnv: WithEnvInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
+ * @uicomponent
  * @since 26.0.0 dynamic
  */
 export declare const WithEnvInstance: WithEnvAttribute;
-
-
-
-
-
