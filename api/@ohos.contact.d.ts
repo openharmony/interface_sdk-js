@@ -1508,7 +1508,7 @@ declare namespace contact {
      * @atomicservice
      * @since 26
      */
-    isAutoDismissOnNavicaiton?: boolean;
+    isAutoDismissOnNavigation?: boolean;
   }
 
   /**
