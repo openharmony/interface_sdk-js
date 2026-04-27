@@ -53,6 +53,33 @@ export declare enum SecurityComponentLayoutDirection {
 }
 
 /**
+ * Enum for security component type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+declare enum SecurityComponentRoleType {
+  /**
+   * No component type: screen reader will not broadcast the component type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+   ROLE_NONE = 0,
+
+  /**
+   * Button component type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+   BUTTON = 1,
+}
+
+/**
  * Declares the interface for the method of a security component.
  *
  * @interface SecurityComponentMethod
@@ -421,4 +448,68 @@ export declare interface SecurityComponentMethod {
    * @since 23 static
    */
   focusBox(style: FocusBoxStyle | undefined): this;
+
+  /**
+   * Whether to include the ascent and descent of fallback fonts to prevent line overlap.
+   *
+   * @param { boolean | undefined } enabled - Whether to enable the feature. The default value is false.
+   * @returns { T } Returns the attributes of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  fallbackLineSpacing(enabled: boolean | undefined): this;
+
+  /**
+   * Sets the accessibility default focus flag.
+   *
+   * @param { boolean | undefined } focus - If the component is the accessibility default focus, set this to true.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  accessibilityDefaultFocus(focus: boolean | undefined): this;
+
+  /**
+   * Sets the accessibility next focus ID.
+   *
+   * @param { string | undefined } nextId - The component's next accessibility focus ID.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  accessibilityNextFocusId(nextId: string | undefined): this;
+
+  /**
+   * Sets accessibility role. Role indicates the custom type of the component.
+   *
+   * @param { SecurityComponentRoleType | undefined } role - Accessibility component type.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  accessibilityRole(role: SecurityComponentRoleType | undefined): this;
+
+  /**
+   * Sets the accessibility description.
+   * 
+   * This property provides additional context or explanation for the component, helping
+   * users understand the action or function it performs.
+   * <p><strong>Note</strong>:
+   * You can specify a further explanation of the current component, for example, possible
+   * operational consequences, especially those that are not known from the component text
+   * and role type. If a component contains text information, role type (not ROLE_NONE),
+   * and accessibility description, the system reads the text, role type, and accessibility
+   * description when the component is selected.
+   *
+   * @param { string | Resource | undefined } description - The accessibility description.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  accessibilityDescription(description: string | Resource | undefined): this;
 }
