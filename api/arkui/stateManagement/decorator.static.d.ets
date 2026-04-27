@@ -574,6 +574,26 @@ export declare @interface ComponentRecycle {}
 export declare @interface ComponentDisappear {}
 
 /**
+ * Define ComponentActive Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentActive {}
+
+/**
+ * Define ComponentInactive Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentInactive {}
+
+/**
  * Define decorated variable interface.
  *
  * @interface IDecoratedVariable

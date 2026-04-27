@@ -108,7 +108,23 @@ export declare class UIUtils {
    */
   static addMonitor(valueCallback: MonitorValueCallback | MonitorValueCallback[],
     monitorCallback: MonitorCallback, options?: MonitorOptions): IMonitorDecoratedVariable;
-  
+
+  /**
+   * Dynamically add monitor for state variable change.
+   *
+   * @param { MonitorValueInfo | MonitorValueInfo[] } valueInfo - monitored change for state variable.
+   * @param { MonitorCallback } monitorCallback - the function triggered when state variable changes.
+   * @param { MonitorBaseOptions } [options] - the monitor configuration.
+   * @returns { IMonitorDecoratedVariable } monitor handle.
+   * @throws { BusinessError } 130000 - options.owner is not ComponentV2 struct.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static addMonitor(valueInfo: MonitorValueInfo | MonitorValueInfo[],
+    monitorCallback: MonitorCallback, options?: MonitorBaseOptions): IMonitorDecoratedVariable;
+
   /**
    * Dynamically clear monitor callback for state varaible change.
    *
@@ -142,6 +158,18 @@ export declare class UIUtils {
    * @since 24 static
    */
   static getLifecycle<T extends IVariableOwner>(customComponent: T): CustomComponentLifecycle;
+
+  /**
+   * Get the custom component context.
+   *
+   * @param { T } customComponent - custom component instance
+   * @returns { CustomComponentContext } current custom component's context handle.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static getCustomComponentContext<T extends IVariableOwner>(customComponent: T): CustomComponentContext;
 }
 
 /**
@@ -408,3 +436,109 @@ export interface ElementInfo {
    */
   elementId: int;
 }
+
+/**
+ * Define MonitorValueInfo.
+ *
+ * @interface MonitorValueInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MonitorValueInfo {
+  /**
+   * the function triggered when state variable changes.
+   *
+   * @type { MonitorValueCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  valueCallback: MonitorValueCallback;
+
+  /**
+   * Override path.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  path?: string;
+
+  /**
+   * Enable property observation.
+   * Set to true to enable property observation, and set to false to disable it.
+   * Default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  observeProps?: boolean;
+}
+
+/**
+ * Define MonitorBaseOptions
+ *
+ * @interface MonitorBaseOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MonitorBaseOptions {
+  /**
+   * Used to determine whether the state variable change is
+   * triggered synchronously or asynchronously. The default value is false.
+   *
+   * @type { ?boolean } isSynchronous parameter
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isSynchronous?: boolean;
+
+  /**
+   * Used to handle component freezing.
+   * If not set, component freezing won't affect the monitor.
+   *
+   * @type { ?IVariableOwner } owner - custom component
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  owner?: IVariableOwner;
+}
+
+/**
+ * CustomComponentContext is a state management tool for operating the observed data.
+ *
+ * @interface CustomComponentContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CustomComponentContext {
+  /**
+   * Register active nad inactive callback.
+   *
+   * @param { ActiveAndInactiveCallbackType } [active] - active function callback.
+   * @param { ActiveAndInactiveCallbackType } [inactive] - inactive function callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  registerActiveAndInactiveCallback(active?: ActiveAndInactiveCallbackType,
+    inactive?: ActiveAndInactiveCallbackType): void;
+}
+
+/**
+ * Defines active and inactive function callback.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type ActiveAndInactiveCallbackType = () => void;
