@@ -118,7 +118,7 @@ function adjustApiAnnotation(utFiles) {
                 const updateText = apiStartVersion + " - " + apiVersionRange[1];
                 annotationTemp = annotationTemp.replace(matchText, updateText);
               } else if (result === OPERATE.REMOVE) {
-                annotationTemp = annotationTemp.replace(match[0], "");
+                annotationTemp = annotationTemp.replace(match[0], "").trimEnd();
               }
             } catch (error) {
               console.error("compare api version error, url is", url);
