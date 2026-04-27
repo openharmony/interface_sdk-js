@@ -30,24 +30,9 @@ import { WebNetErrorList } from './@ohos.web.netErrorList';
  *
  * @namespace webview
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * This module provides the capability to manage web modules.
- *
- * @namespace webview
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * This module provides the capability to manage web modules.
- *
- * @namespace webview
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare namespace webview {
   /**
@@ -989,9 +974,14 @@ declare namespace webview {
   }
 
   /**
-   * Subscribe to a callback of a specified type of web event once.
+   * Registers a one-time callback for web events of the specified type. Currently, only **webInited** is supported.
+   * This callback is triggered when the Web engine initialization is complete.
+   * When the first **Web** component is loaded in an application, the web engine is initialized. When other **Web**
+   * components are loaded in the same application, **once()** is not triggered. When the first **Web** component is
+   * loaded after the last **Web** component is destroyed in the application, the web engine will be initialized again.
    *
-   * @param {string} type Types of web event.
+   * @param {string} type Web event type. The value can be **"webInited"**, indicating completion of web
+   *     initialization.
    * @param {Callback<void>} callback Indicate callback used to receive the web event.
    *
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3355,7 +3345,7 @@ declare namespace webview {
   }
 
   /**
-   * Defines the render process mode.
+   * Enumerates the ArkWeb render subprocess modes.
    *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
@@ -3364,7 +3354,8 @@ declare namespace webview {
    */
   enum RenderProcessMode {
     /**
-     * ArkWeb single rendering subprocess mode. In this mode, multiple Web pages reuse a rendering subprocess.
+     * ArkWeb single render subprocess mode. In this mode, multiple **Web** components share one
+     * render subprocess.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3373,13 +3364,14 @@ declare namespace webview {
     SINGLE = 0,
 
     /**
-     * ArkWeb multi-rendering subprocess mode. In this mode, there is one rendering subprocess per Web.
+     * ArkWeb multi-render subprocess mode. In this mode, each **Web** component has a rendering
+     * subprocess.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    MULTIPLE,
+    MULTIPLE = 1
   }
 
   /**
@@ -3513,7 +3505,7 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link getAttachState} for indicating the attach state of controller.
+   * Describes the attach status of WebViewController and the **Web** component.
    *
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -3665,21 +3657,23 @@ declare namespace webview {
   }
 
   /**
-  * Indicates the keyboard behavior mode of the web component, default value is DEFAULT.
-  * @enum { number }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @since 22 dynamic
-  */
-   enum WebSoftKeyboardBehaviorMode {
+   * Enumerates the behavior modes of the web soft keyboard.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  enum WebSoftKeyboardBehaviorMode {
     /**
-     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue or blur/focus state.
+     * When the **Web** component is focused or unfocused, or its status changes to inactive or active,
+     * the system attempts to hide or display the soft keyboard. This value is used by default.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 dynamic
      */
     DEFAULT = 0,
 
     /**
-     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
+     * When the **Web** component's status changes between inactive and active,
+     * the system does not hide or start the soft keyboard.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 dynamic
      */
@@ -3857,7 +3851,7 @@ declare namespace webview {
   }
 
   /**
-   * Defines the parameters for enableAdvancedSecurityMode.
+   * Security feature option configuration.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -3865,7 +3859,12 @@ declare namespace webview {
    */
   interface SecurityParams {  
     /**
-     * Decide whether JIT is disabled, the default value is false.
+     * Whether to disable JIT compilation. true means disabled, and false means the opposite. Default value: false.
+     * To optimize performance, the V8 engine compiles hot code into machine code. Most browser vulnerabilities
+     * (such as Type Confusion) are exploited by manipulating the JIT optimization process. Disabling it does not affect
+     * web page functions, but the performance of complex JavaScript code decreases by about 17%. It is recommended that
+     * this feature be disabled if possible. For pure display and non-computing-intensive pages (such as news and
+     * documents), it is recommended that this feature not be disabled.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3873,7 +3872,11 @@ declare namespace webview {
      */
     disableJITCompilation?: boolean;
     /**
-     * Decide whether WASM is disabled, the default value is false.
+     * Whether to disable WebAssembly. true means disabled, and false means the opposite. Default value: false.
+     * The compiled machine code is executed in WASM, which is prone to memory security vulnerabilities. It is
+     * recommended that this feature be disabled if possible. For pure display and non-computing-intensive pages
+     * (such as news and documents), it is recommended that this feature be disabled. Disabling it may affect web
+     * page functions that depend on video encoding and decoding and complex encryption.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3881,7 +3884,12 @@ declare namespace webview {
      */
     disableWebAssembly?: boolean;
     /**
-     * Decide whether WebGL is disabled, the default value is false.
+     * Whether to disable WebGL. true means disabled, and false means the opposite. Default value: false.
+     * WebGL allows JavaScript to directly invoke the GPU driver for rendering. Attackers may exploit underlying
+     * driver vulnerabilities to implement sandbox escape or remote code execution. In addition, WebGL may be used
+     * for user fingerprint identification attacks. Disabling it prevents 3D rendering and causes some 2D canvases
+     * to fall back to CPU rendering, which may result in a lower frame rate. It is recommended that this feature be
+     * disabled for sensitive services such as financial payment, instant messaging, and government systems.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3889,7 +3897,12 @@ declare namespace webview {
      */
     disableWebGL?: boolean;
     /**
-     * Decide whether PDFViewer is disabled, the default value is false.
+     * Whether to disable the PDF viewer. true means disabled, and false means the opposite. Default value: false.
+     * The built-in PDF parsing engine is prone to vulnerabilities when parsing complex binary formats and embedded
+     * scripts. Attackers can construct special PDF files to exploit font parsing or memory corruption vulnerabilities
+     * to control the main process of the app. Disabling it prevents PDF loading in ArkWeb. It is recommended that
+     * this feature be disabled for non-document office apps and users be guided to use external
+     * apps to open PDF files.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3897,7 +3910,11 @@ declare namespace webview {
      */
     disablePDFViewer?: boolean;
     /**
-     * Decide whether MathML is disabled, the default value is false.
+     * Whether to disable MathML. true means disabled, and false means the opposite. Default value: false.
+     * MathML is an outdated rendering module in the kernel and often lacks sufficient automated auditing
+     * and fuzzing. It is prone to becoming a stepping stone for side-channel attacks or attribute injection XSS.
+     * Disabling it prevents proper parsing and rendering of <math> tag content, which may affect formula layout
+     * on a small number of science websites that have not been adapted for JavaScript. Disabling it is recommended.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3905,7 +3922,12 @@ declare namespace webview {
      */
     disableMathML?: boolean;
     /**
-     * Decide whether ServiceWorker is disabled, the default value is false.
+     * Whether to disable Service Worker. true means disabled, and false means the opposite. Default value: false.
+     * Service Worker has persistent control and can reside in the background of web pages and intercept network
+     * requests. If a web page has an XSS vulnerability, attackers can exploit it to install malicious Service
+     * Worker and launch man-in-the-middle (MITM) attacks. Disabling it disables offline access, prevents Web
+     * push notifications from working, and removes preloading capabilities. It is recommended that this feature
+     * be disabled in industries that have high requirements on session freshness, such as banking and securities.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3913,7 +3935,12 @@ declare namespace webview {
      */
     disableServiceWorker?: boolean;
     /**
-     * Decide whether NonProxyUDP is disabled, the default value is false.
+     * Whether to disable non-proxy UDP for WebRTC. true means disabled, and false means the opposite. Default
+     * value: false. When WebRTC is enabled, it may allow malicious traffic to bypass the proxy tunnel, exposing
+     * the user's real physical IP address and resulting in privacy leakage. Disabling it forces all traffic
+     * through the TCP proxy, increasing latency and potentially preventing connection establishment for features
+     * such as video calls and real-time intercom. It is recommended that this feature be disabled in scenarios
+     * such as anonymous social networking, global services, and forcible proxy.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3923,11 +3950,10 @@ declare namespace webview {
   }
 
   /**
-   * WebviewController can control various behaviors of Web components
-   * (including page navigation, declaring cycle state, JavaScript interaction and so on).
-   * A WebviewController object can only control one Web component,
-   * and methods on the Webviewcontroller (except static methods) can only be called
-   * after the web component is bound to the WebviewController.
+   * Represents a **WebviewController** object used to control various behaviors of **Web** components, including page
+   * navigation, lifecycle status, and JavaScript interaction. A **WebviewController** object can control only one
+   * **Web** component, and the APIs (except static APIs) in the **WebviewController** can be invoked only after it has
+   * been bound to the target **Web** component.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -3935,7 +3961,7 @@ declare namespace webview {
    */
   class WebviewController {
     /**
-     * A constructor used to create a WebviewController object.
+     * Constructs a WebviewController object.
      *
      * @param { string } [webTag] - specified the name of the web component, Empty by default.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3945,9 +3971,11 @@ declare namespace webview {
     constructor(webTag?: string);
 
     /**
-     * Initialize the web engine before loading the Web components.
-     * This is a global static API that must be called on the UI thread, and it will have no effect if any
-     * Web components are loaded.
+     * Loads the dynamic link library (DLL) file of the web engine. This API can be called before
+     * the Web component is initialized to improve the startup performance. The frequently visited
+     * websites are automatically pre-connected. initializeWebEngine cannot be called in an asynchronous
+     * thread. Otherwise, the system breaks down. initializeWebEngine takes effect globally and needs to
+     * be called only once in an application lifecycle.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -4199,11 +4227,10 @@ declare namespace webview {
     clearHistory(): void;
 
     /**
-     * Call this interface to notify the Web component to enter the foreground activation state.
-     * The activation state is the state in which the application interacts with the user.
-     * The application will remain in this state until something happens,
-     * such as receiving an incoming call or closing the screen of the device,
-     * to shift the focus away from the application.
+     * Called when the Web component enters the active state. The application can interact with
+     * the user while in the active foreground state, and it remains in this state until the
+     * focus is moved away from it due to some event (for example, an incoming call is received
+     * or the device screen is turned off).
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4214,11 +4241,11 @@ declare namespace webview {
     onActive(): void;
 
     /**
-     * Call this interface to notify the Web component to enter the inactive state.
-     * In this callback, the developer can realize the appropriate behavior when the application loses focus.
-     * In this state, any content that can be safely paused will be paused as much as possible,
-     * such as animation and geographical location. However, JavaScript will not be paused.
-     * To pause JavaScript globally, please use {@link pauseAllTimers}.To reactivate the Web component, call onActive.
+     * Called when the Web component enters the inactive state. You can implement the behavior to perform
+     * after the application loses focus. When this API is called, any content that can be safely paused,
+     * such as animations and geographical locations, is paused as much as possible. However, the JavaScript
+     * is not paused. To pause the JavaScript globally, use pauseAllTimers. To reactivate the Web component,
+     * use onActive.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4566,10 +4593,10 @@ declare namespace webview {
     getHitTestValue(): HitTestValue;
 
     /**
-     * Gets the index value of the current Web component for the management of multiple Web components.
+     * Obtains the index value of this Web component, which can be used for **Web** component management.
      * @returns { number } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -5660,26 +5687,19 @@ declare namespace webview {
     serializeWebState(): Uint8Array;
 
     /**
-     * Restoring the web access stack, that is, the history of access.
-     * @param { Uint8Array } state - Web access stack after serialization.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Restoring the web access stack, that is, the history of access.
+     * Restores the page status history from the serialized data of the current WebView. If the
+     * value of state is too large, exceptions may occur. It is recommended that the page status
+     * history be not restored when the state value is greater than 512 KB.
      * @param { Uint8Array } state - Web access stack after serialization.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
-    restoreWebState(state: Uint8Array): void;
+    restoreWebState(state: Uint8Array) : void;
 
     /**
      * Set whether the Web custom scheme supports cross domain and fetch requests.
@@ -6211,7 +6231,11 @@ declare namespace webview {
     getLastPostMessageURL(): string;
 
     /**
-     * Pause all WebView timers.
+     * Called when the Web component enters the inactive state. You can implement the behavior to
+     * perform after the application loses focus. When this API is called, any content that can
+     * be safely paused, such as animations and geographical locations, is paused as much as
+     * possible. However, the JavaScript is not paused. To pause the JavaScript globally,
+     * use pauseAllTimers. To reactivate the Web component, use onActive.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -6559,7 +6583,7 @@ declare namespace webview {
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
 
     /**
-     * Set render process mode of the ArkWeb.
+     * Sets the ArkWeb render subprocess mode.
      *
      * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
      *        Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device.
@@ -6569,6 +6593,7 @@ declare namespace webview {
      *        the multi-render subprocess mode is used by default.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6576,7 +6601,7 @@ declare namespace webview {
     static setRenderProcessMode(mode: RenderProcessMode): void;
 
     /**
-     * Get render process mode of the ArkWeb.
+     * Obtains the ArkWeb render subprocess mode.
      *
      * @returns { RenderProcessMode } mode - The render process mode of the ArkWeb.
      *          Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device,
@@ -6590,11 +6615,10 @@ declare namespace webview {
     static getRenderProcessMode(): RenderProcessMode;
 
     /**
-     * Destroy the rendering process.
-     * Calling this interface will actively destroy the associated rendering process.
-     * If the rendering process has not been started or destroyed, it has no effect.
-     * In addition, destroying the rendering process will also affect all other instances associated with
-     * the rendering process.
+     * Terminates this render process.
+     * Calling this API will destroy the associated render process. If the render process has not
+     * been started or has been destroyed, there is no impact. In addition, destroying the render process affects
+     * all other instances associated with the render process.
      *
      * @returns { boolean } true if it was possible to terminate the render process, otherwise false.
      *         Calling this on a not yet started, or an already terminated render will have no effect.
@@ -7086,7 +7110,8 @@ declare namespace webview {
     off(type: 'controllerAttachStateChange', callback?: Callback<ControllerAttachState>): void;
 
     /**
-     * Wait for the controller to attach a web component until timeout.
+     * Asynchronously waits for the WebViewController to be attached to the Web component. If the attachment is complete or times out,
+     * a callback is triggered to return the current ControllerAttachState through a promise.
      *
      * @param { number } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
      * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
@@ -7329,7 +7354,12 @@ declare namespace webview {
     static isPrivateNetworkAccessEnabled(): boolean;
 
     /**
-     * Set web destroy mode.
+     * Sets the destroy mode of the Web component. The destroy mode of the Web component
+     * affects the time when web kernel resources, such as the JavaScript running context
+     * and rendering context, are released. The default value is WebDestroyMode.NORMAL_MODE
+     * (normal mode), indicating that the system determines the destroy time. You can set
+     * WebDestroyMode.FAST_MODE (fast mode) to destroy resources immediately, improving
+     * performance in specific scenarios.
      * @param { WebDestroyMode } mode web destroy mode, default NORMAL_MODE.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
@@ -7361,7 +7391,7 @@ declare namespace webview {
      * Set the site isolation mode.
      *
      * @param { SiteIsolationMode } mode The site isolation mode of the application,
-     *      default value depends on different devices type.
+     *     default value depends on different devices type.
      * @throws { BusinessError } 17100001 - Init error. Possible causes:
      *     1. Site Isolation mode is already set by the developer.
      *     2. Site Isolation mode cannot be strict in single-render-process mode.
@@ -7373,7 +7403,7 @@ declare namespace webview {
     static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
     /**
-     * Get the site isolation mode.
+     * Queries the currently effective site isolation mode.
      *
      * @returns { SiteIsolationMode } The site isolation mode of the application.
      * @static
@@ -7396,12 +7426,12 @@ declare namespace webview {
     static setSocketIdleTimeout(timeout: number): void;
 
     /**
-     * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
-     * in particular situation, for example, when web is inactive or active.
+     * Set the behavior mode of the soft keyboard. If this API is not explicitly called, the system automatically
+     * hides or shows the soft keyboard when the Web component loses or gains focus, or when its status becomes
+     * inactive or active.
      *
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 dynamic
      */
@@ -10619,22 +10649,23 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link SetWebDestroyMode} for indicating the web component destroy mode.
+   * Enumerates the destroy modes of the **Web** component. When the Web component is destroyed, the destroy mode
+   * affects the resource release time of the Web kernel, such as the JavaScript running context and rendering context.
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   enum WebDestroyMode {
     /**
-     * The normal destroy mode, when the web component triggers destroy,
-     * the resources will be released at the appropriate time.
+     * Normal mode. The system determines the destroy time of **Web** component resources.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     NORMAL_MODE = 0,
 
     /**
-     * The fast destroy mode, when the web component triggers destroy, the resources will be immediately released.
+     * Quick mode. When the **Web** component is destroyed, the related internal resources are
+     * destroyed immediately.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -10642,21 +10673,24 @@ declare namespace webview {
   }
 
   /**
-   * Indicates the site isolation mode of the application, default value depends on different devices type.
+   * Enumerates the site isolation modes. The site isolation mechanism isolates websites from different sources in
+   * different render processes to reduce the cross-domain attack surface. For example, on a PC, each tab corresponds to
+   * a render process. After site isolation is enabled, Iframes from different sources run in independent render
+   * processes.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
   enum SiteIsolationMode {
     /**
-     * The partial site isolation mode
+     * Partial site isolation. New sites are loaded in the same render process.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21 dynamic
      */
     PARTIAL = 0,
 
     /**
-     * The strict site isolation mode
+     * Strict site isolation. Iframes from different sites are switched to new render processes.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21 dynamic
      */
