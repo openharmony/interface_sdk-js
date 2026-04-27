@@ -1071,6 +1071,25 @@ declare enum SystemProperties {
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
   /**
+   * System environmental displayid key that is used to obtain the displayid of the window.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  WINDOW_DISPLAY_ID = 'system.window.displayid',
+  /**
+   * System environmental system density key that is used to obtain the system density of the display
+   *     where the window is located.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  WINDOW_SYSTEM_DENSITY = 'system.window.density.system',
+  /**
    * System environmental windowisfocused key that is used to obtain whether the window is focused or not.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32136,6 +32155,20 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   smartGestureShortcut(options?: SmartGestureShortcutOptions): T;
+
+  /**
+   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
+   *
+   * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
+   * @returns { T } return component instance who call method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
 }
 
 /**
