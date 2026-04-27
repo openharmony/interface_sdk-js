@@ -6857,7 +6857,7 @@ declare namespace camera {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    XMAGE = 3
+    COLOR_EFFECT = 3
   }
 
   /**
