@@ -1501,12 +1501,13 @@ declare namespace contact {
     isDisplayedByName?: boolean;
 
     /**
-     * Whether it is allowed for contact picker to be dismissed on navigation. The default value is false.
+     * Indicates whether the contact picker is automatically closed when page routing is performed,for example,when application is in the background.
+     * 
+     * The default value is false
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
-     * @since 26
+     * @since 26.0.0
      */
     isAutoDismissOnNavigation?: boolean;
   }
