@@ -1501,7 +1501,7 @@ declare namespace contact {
     isDisplayedByName?: boolean;
 
     /**
-     * Indicates whether the contact picker is automatically closed when page routing is performed,for example,when the application is in the background.
+     * Indicates whether the contact picker is automatically closed when page routing is performed,for example, when the application is in the background.
      * 
      * The default value is false
      *
