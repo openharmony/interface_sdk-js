@@ -1499,6 +1499,16 @@ declare namespace contact {
      * @since 15
      */
     isDisplayedByName?: boolean;
+
+    /**
+     * Whether it is allowed for contact picker to be dismissed on navigation. The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 26
+     */
+    isAutoDismissOnNavicaiton?: boolean;
   }
 
   /**
