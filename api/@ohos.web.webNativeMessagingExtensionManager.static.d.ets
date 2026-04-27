@@ -20,7 +20,8 @@
 import type UIAbilityContext from './application/UIAbilityContext';
 import type Want from './@ohos.app.ability.Want';
 /**
- * This module of web native messaging extension manager.
+ * The webNativeMessagingExtensionManager module provides the capability of managing message extensions based on web
+ * standards.
  *
  * @namespace webNativeMessagingExtensionManager
  * @syscap SystemCapability.Web.Webview.Core
@@ -29,7 +30,7 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace webNativeMessagingExtensionManager {
     /**
-     * Indicates connection information about web native messaging connection
+     * Represents the information about the web native message connection.
      * @typedef ConnectionNativeInfo
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -37,7 +38,8 @@ declare namespace webNativeMessagingExtensionManager {
      */
     interface ConnectionNativeInfo {
         /**
-         * Indicates connection id
+         * Connection ID.
+         * The value range is all integers.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -46,7 +48,7 @@ declare namespace webNativeMessagingExtensionManager {
          */
         connectionId: int;
         /**
-         * Indicates the bundle name of the web native messaging extension
+         * Bundle name of the web native message extension application.
          *
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
@@ -55,7 +57,7 @@ declare namespace webNativeMessagingExtensionManager {
          */
         bundleName: string;
         /**
-         * Indicates the browser extension origin url
+         * Source URL of the browser extension.
          *
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
@@ -64,7 +66,8 @@ declare namespace webNativeMessagingExtensionManager {
          */
         extensionOrigin: string;
         /**
-         * Indicates the pid of the web native messaging extension
+         * Process ID of the web native message extension.
+         * The value range is all integers.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -74,7 +77,7 @@ declare namespace webNativeMessagingExtensionManager {
         extensionPid: int;
     }
     /**
-     * Enumerates the module error code of Native Messaging.
+     * Provides the native messaging error codes.
      *
      * @enum { int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -83,7 +86,7 @@ declare namespace webNativeMessagingExtensionManager {
      */
     export enum NmErrorCode {
         /**
-         * Permission denied.
+         * Provides the native messaging error codes.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
@@ -91,7 +94,7 @@ declare namespace webNativeMessagingExtensionManager {
          */
         PERMISSION_DENY = 17100203,
         /**
-         * Want content is invalid.
+         * The want content is invalid.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
@@ -99,7 +102,7 @@ declare namespace webNativeMessagingExtensionManager {
          */
         WANT_CONTENT_ERROR = 17100202,
         /**
-         * Inner error.
+         * Inner error for native messaging.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
@@ -117,7 +120,7 @@ declare namespace webNativeMessagingExtensionManager {
      */
     interface WebExtensionConnectionCallback {
         /**
-         * The callback interface was connect successfully.
+         * Called when a connection is set up.
          *
          * @param { ConnectionNativeInfo } connection - The remote connection info
          * @syscap SystemCapability.Web.Webview.Core
@@ -126,7 +129,7 @@ declare namespace webNativeMessagingExtensionManager {
          */
         onConnect(connection: ConnectionNativeInfo): void;
         /**
-         * The callback interface was disconnect successfully.
+         * Called when a connection is interrupted.
          *
          * @param { ConnectionNativeInfo } connection - The remote connection info
          * @syscap SystemCapability.Web.Webview.Core
@@ -135,7 +138,7 @@ declare namespace webNativeMessagingExtensionManager {
          */
         onDisconnect(connection: ConnectionNativeInfo): void;
         /**
-         * The callback interface was connect failed.
+         * Called when the connection fails.
          *
          * @param { NmErrorCode } code - The error code of the failure.
          * @param { string } errMsg - The error message of the failure.
@@ -146,7 +149,7 @@ declare namespace webNativeMessagingExtensionManager {
         onFailed(code: NmErrorCode, errMsg: string): void;
     }
     /**
-     * Connects current ability to an web native message extension ability.
+     * Connects the current ability to the specified web native message extension ability.
      *
      * @permission ohos.permission.WEB_NATIVE_MESSAGING
      * @param { UIAbilityContext } context - The context of the caller of the ui ability
@@ -160,7 +163,7 @@ declare namespace webNativeMessagingExtensionManager {
      */
     function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): int;
     /**
-     * Disconnect current ability from an web native messaging extension, in contrast to {@link connectNative}.
+     * Disconnects the connection of a specified web native message extension.
      *
      * @permission ohos.permission.WEB_NATIVE_MESSAGING
      * @param { int } connectionId - The number code of the ability connected
