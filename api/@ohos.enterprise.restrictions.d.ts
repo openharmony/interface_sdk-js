@@ -92,6 +92,15 @@ declare namespace restrictions {
     MULTI_WINDOW = 0,
 
     /**
+     * Distributed transmission.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISTRIBUTED_TRANSMISSION = 1,
+
+    /**
      * Super hub.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager

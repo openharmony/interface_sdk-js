@@ -383,7 +383,8 @@ declare namespace power {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
-   *     1. The length of sceneName parameter exceeds 128 bytes.
+   *     1. The sceneName parameter is an empty string;
+   *     2. The length of sceneName parameter exceeds 128 bytes.
    * @throws { BusinessError } 4900501 - Failed to read the power configuration value.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -399,14 +400,15 @@ declare namespace power {
    * @param { string } sceneName - Indicates the scene name of the power configuration.
    *     sceneName parameter must be a string and its length cannot exceed 128 bytes.
    * @param { string } value - Indicates the power configuration value. value parameter must be a string and
-   *     its length cannot exceed 4096 bytes.
+   *     its length cannot exceed 128 bytes.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
-   *     1. The length of sceneName parameter exceeds 128 bytes;
-   *     2. The length of value parameter exceeds 4096 bytes.
+   *     1. The sceneName or value parameter is an empty string;
+   *     2. The length of sceneName parameter exceeds 128 bytes;
+   *     3. The length of value parameter exceeds 128 bytes.
    * @throws { BusinessError } 4900601 - Failed to write the power configuration value.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi

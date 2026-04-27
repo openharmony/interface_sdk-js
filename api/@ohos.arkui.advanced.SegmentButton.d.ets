@@ -774,6 +774,16 @@ interface CommonSegmentButtonOptions {
    * @stagemodelonly
    * @since 23 dynamic
    */
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   backgroundSystemMaterial?: uiMaterial.Material;
 }
 
@@ -1875,6 +1885,16 @@ declare class SegmentButtonOptions {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
+   */
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   backgroundSystemMaterial?: uiMaterial.Material;
 
