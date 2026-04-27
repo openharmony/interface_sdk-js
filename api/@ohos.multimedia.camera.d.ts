@@ -2698,10 +2698,12 @@ declare namespace camera {
     CAMERA_FORMAT_DEPTH_32 = 3001,
 
     /**
-     * Image in extreme digital format.
+     * Enhanced DNG image format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 18 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 18 dynamic
      * @since 23 static
      */
