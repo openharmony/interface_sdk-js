@@ -853,6 +853,17 @@ export declare struct TabSegmentButtonV2 {
      * @stagemodelonly
      * @since 23 dynamic
      */
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
     @Param
     readonly backgroundSystemMaterial?: uiMaterial.Material;
 
@@ -1357,6 +1368,17 @@ export declare struct CapsuleSegmentButtonV2 {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
+     */
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     @Param
     readonly backgroundSystemMaterial?: uiMaterial.Material;
