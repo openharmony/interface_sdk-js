@@ -16124,6 +16124,45 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     enableAutoFraming(enabled: boolean): void;
+
+    /**
+     * Gets the current camera device.
+     *
+     * @returns { CameraDevice } the current camera device.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getCurrentDevice(): CameraDevice;
+
+    /**
+     * Sets the camera to be used as a camera at the specified position.
+     *
+     * @param { CameraPosition } position - The positon used for the camera.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    usedAsPosition(position: CameraPosition): void;
+
+    /**
+     * Gets the control center height.
+     *
+     * @returns { double } the control center height.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getControlCenterHeight(): double;
   }
 
   /**
