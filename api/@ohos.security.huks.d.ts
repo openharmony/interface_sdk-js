@@ -204,39 +204,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
-   * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+* @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
-   * @syscap SystemCapability.Security.Huks.Core
-   * @atomicservice
-   * @since 26.0.0
-   */
-  function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
-
-  /**
-   * Generates a key. This API uses a promise to return the result. Because the key is always
-   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
-   * It returns only the information indicating whether the API is successfully called.
-   *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   *     and key length are mandatory.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -356,7 +328,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1148,7 +1122,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1379,7 +1355,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1491,7 +1469,7 @@ declare namespace huks {
    * Exports a key. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
-   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { HuksOptions } options - options indicates the properties of the key.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, no err value is returned and outData contains the public key exported. Otherwise,
    *     an error code is returned.
@@ -1509,7 +1487,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1626,7 +1604,7 @@ declare namespace huks {
    * Exports a key. This API uses a promise to return the result.
    *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
-   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
    *     in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2295,7 +2273,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
@@ -2304,9 +2282,9 @@ declare namespace huks {
    *     1. the aead length is invalid.
    *     2. the group id specified by the access group tag is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -2416,7 +2394,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
@@ -2425,9 +2403,9 @@ declare namespace huks {
    *     1. the aead length is invalid.
    *     2. the group id specified by the access group tag is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -2603,7 +2581,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2611,9 +2589,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -2635,7 +2613,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2644,9 +2622,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
@@ -2890,7 +2868,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2898,9 +2876,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -2924,7 +2902,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2933,9 +2911,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
@@ -3114,9 +3092,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -3148,9 +3126,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
@@ -3468,9 +3446,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -3504,9 +3482,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
@@ -3628,11 +3606,11 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -3650,12 +3628,12 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
@@ -3738,11 +3716,11 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -3760,12 +3738,12 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
@@ -5391,7 +5369,7 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_EXTERNAL_MODULE = 12000020,
     /**
-     * The Ukey PIN is locked.
+     * The UKey PIN is locked.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @atomicservice
@@ -5399,7 +5377,7 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_PIN_LOCKED = 12000021,
     /**
-     * The Ukey PIN is incorrect.
+     * The UKey PIN is incorrect.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @atomicservice
@@ -5407,7 +5385,7 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_PIN_INCORRECT = 12000022,
     /**
-     * The Ukey PIN is not authenticated.
+     * The UKey PIN is not authenticated.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @atomicservice
