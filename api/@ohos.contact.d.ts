@@ -1506,6 +1506,7 @@ declare namespace contact {
      * The default value is false
      *
      * @syscap SystemCapability.Applications.Contacts
+     * @stagemodelonly
      * @atomicservice
      * @since 26.0.0
      */
