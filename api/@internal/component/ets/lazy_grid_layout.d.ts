@@ -25,6 +25,7 @@
  *
  * @interface LazyVGridLayoutInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -35,6 +36,7 @@ interface LazyVGridLayoutInterface {
    *
    * @returns { LazyVGridLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -47,6 +49,7 @@ interface LazyVGridLayoutInterface {
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -58,6 +61,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @param { LengthMetrics } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -70,6 +74,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @param { LengthMetrics } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -97,6 +102,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  *
  * @extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -108,6 +114,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @param { string } value
    * @returns { LazyVGridLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -119,6 +126,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * Defines the lazy vertical grid layout component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -129,6 +137,7 @@ declare const LazyVGridLayout: LazyVGridLayoutInterface;
  * Defines the lazy vertical grid layout component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic

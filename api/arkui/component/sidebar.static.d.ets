@@ -29,6 +29,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SideBarContainerType {
@@ -36,24 +37,36 @@ export declare enum SideBarContainerType {
    * The sidebar invisible
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  Embed,
+  Embed = 0,
 
   /**
    * The sidebar visible
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  Overlay,
+  Overlay = 1,
 
   /**
    * The sidebar AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  AUTO
+  AUTO = 2,
+
+  /**
+   * The sideBar Displace. Sidebar is visible, content will offscreen to make space for sideBar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISPLACE = 3,
 }
 
 /**
@@ -61,6 +74,7 @@ export declare enum SideBarContainerType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SideBarPosition {
@@ -68,6 +82,7 @@ export declare enum SideBarPosition {
    * The sidebar is on the Start of the container
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   Start,
@@ -76,6 +91,7 @@ export declare enum SideBarPosition {
    * The sidebar is on the End of the container
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   End
@@ -86,6 +102,7 @@ export declare enum SideBarPosition {
  *
  * @typedef ButtonIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ButtonIconOptions {
@@ -95,6 +112,7 @@ export declare interface ButtonIconOptions {
    * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   shown: string | PixelMap | Resource;
@@ -105,6 +123,7 @@ export declare interface ButtonIconOptions {
    * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   hidden: string | PixelMap | Resource;
@@ -115,6 +134,7 @@ export declare interface ButtonIconOptions {
    * Anonymous Object Rectification.
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   switching?: string | PixelMap | Resource;
@@ -125,6 +145,7 @@ export declare interface ButtonIconOptions {
  *
  * @interface ButtonStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ButtonStyle {
@@ -134,6 +155,7 @@ export declare interface ButtonStyle {
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   left?: double;
@@ -144,6 +166,7 @@ export declare interface ButtonStyle {
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   top?: double;
@@ -154,6 +177,7 @@ export declare interface ButtonStyle {
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   width?: double;
@@ -164,6 +188,7 @@ export declare interface ButtonStyle {
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   height?: double;
@@ -173,6 +198,7 @@ export declare interface ButtonStyle {
    *
    * @type { ?ButtonIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   icons?: ButtonIconOptions;
@@ -183,6 +209,7 @@ export declare interface ButtonStyle {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SideBarContainerAttribute extends CommonMethod {
@@ -192,6 +219,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { boolean | Bindable<boolean> | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default showSideBar(value: boolean | Bindable<boolean> | undefined): this;
@@ -202,6 +230,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { ButtonStyle | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default controlButton(value: ButtonStyle | undefined): this;
@@ -212,6 +241,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { boolean | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default showControlButton(value: boolean | undefined): this;
@@ -222,6 +252,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { function | undefined } callback
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default onChange(callback: ((value: boolean) => void) | undefined): this;
@@ -233,6 +264,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { Length | Bindable<Length> | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default sideBarWidth(value: Length | Bindable<Length> | undefined): this;
@@ -244,6 +276,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { Length | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default minSideBarWidth(value: Length | undefined): this;
@@ -255,6 +288,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { Length | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default maxSideBarWidth(value: Length | undefined): this;
@@ -266,6 +300,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { boolean | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default autoHide(value: boolean | undefined): this;
@@ -277,6 +312,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { SideBarPosition | undefined } value
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default sideBarPosition(value: SideBarPosition | undefined): this;
@@ -287,6 +323,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { DividerStyle | null | undefined } value - indicates the style of the divider or whether to show the divider.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default divider(value: DividerStyle | null | undefined): this;
@@ -298,6 +335,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @param { Dimension | undefined } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default minContentWidth(value: Dimension | undefined): this;
@@ -309,6 +347,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    *     The attribute modifier of sidebar.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -321,6 +360,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { SideBarContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

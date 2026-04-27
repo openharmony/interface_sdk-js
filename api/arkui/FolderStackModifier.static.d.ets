@@ -26,6 +26,7 @@ import { FolderStackAttribute } from '@ohos.arkui.component';
  *
  * @implements FolderStackAttribute, AttributeModifier<FolderStackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 */
 export declare class FolderStackModifier implements FolderStackAttribute, AttributeModifier<FolderStackAttribute> {}

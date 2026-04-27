@@ -438,6 +438,7 @@ declare class Matrix2D {
    * @param { number } ry - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -450,6 +451,7 @@ declare class Matrix2D {
    * @param { number } ry - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -557,6 +559,7 @@ declare class Matrix2D {
    * Constructs a 2D change matrix object. The default value is the unit matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -565,6 +568,7 @@ declare class Matrix2D {
    * Constructs a 2D change matrix object. The default value is the unit matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -577,6 +581,7 @@ declare class Matrix2D {
    *
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

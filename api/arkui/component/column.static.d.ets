@@ -25,6 +25,7 @@ import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
  *
  * @typedef { string | double | Resource } SpaceType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SpaceType = string | double | Resource;
@@ -33,6 +34,7 @@ export type SpaceType = string | double | Resource;
  *
  * @interface ColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ColumnOptions {
@@ -41,6 +43,7 @@ export interface ColumnOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     space?: string | double;
@@ -50,6 +53,7 @@ export interface ColumnOptions {
  *
  * @interface ColumnOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ColumnOptionsV2 {
@@ -58,6 +62,7 @@ export interface ColumnOptionsV2 {
      *
      * @type { ?SpaceType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     space?: SpaceType;
@@ -69,6 +74,7 @@ export interface ColumnOptionsV2 {
  * @extends CommonMethod
  * @interface ColumnAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -79,6 +85,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @param { HorizontalAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default alignItems(value: HorizontalAlign | undefined): this;
@@ -88,6 +95,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @param { FlexAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default justifyContent(value: FlexAlign | undefined): this;
@@ -98,6 +106,7 @@ export declare interface ColumnAttribute extends CommonMethod {
     * @returns { ColumnAttribute } The attribute of the column.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
+    * @stagemodelonly
     * @since 23 static
     */
     default pointLight(value: PointLightStyle | undefined): ColumnAttribute;
@@ -107,6 +116,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @param { boolean | undefined } isReversed - If the main axis is reversed.
      * @returns { ColumnAttribute } The attribute of the column.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default reverse(isReversed: boolean | undefined): this;
@@ -116,6 +126,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @param { AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -128,6 +139,7 @@ export declare interface ColumnAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { ColumnAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

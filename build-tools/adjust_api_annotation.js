@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2026-2027 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -118,7 +118,7 @@ function adjustApiAnnotation(utFiles) {
                 const updateText = apiStartVersion + " - " + apiVersionRange[1];
                 annotationTemp = annotationTemp.replace(matchText, updateText);
               } else if (result === OPERATE.REMOVE) {
-                annotationTemp = annotationTemp.replace(match[0], "");
+                annotationTemp = annotationTemp.replace(match[0], '').trimEnd();
               }
             } catch (error) {
               console.error("compare api version error, url is", url);

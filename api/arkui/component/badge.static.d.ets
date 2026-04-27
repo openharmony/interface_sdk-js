@@ -29,6 +29,7 @@ import { AttributeModifier } from "./common";
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum BadgePosition {
@@ -36,6 +37,7 @@ export declare enum BadgePosition {
      * The badge is displayed in the upper right corner of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RightTop,
@@ -43,6 +45,7 @@ export declare enum BadgePosition {
      * The badge is vertically centered on the right of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Right,
@@ -50,6 +53,7 @@ export declare enum BadgePosition {
      * The badge is vertically centered on the left of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Left
@@ -59,6 +63,7 @@ export declare enum BadgePosition {
  *
  * @interface BadgeStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface BadgeStyle {
@@ -68,6 +73,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.White
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     color?: ResourceColor;
@@ -76,6 +82,7 @@ export declare interface BadgeStyle {
      *
      * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     fontSize?: double | ResourceStr;
@@ -84,6 +91,7 @@ export declare interface BadgeStyle {
      *
      * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     badgeSize?: double | ResourceStr;
@@ -93,6 +101,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.Red
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     badgeColor?: ResourceColor;
@@ -102,6 +111,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.Red
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     borderColor?: ResourceColor;
@@ -113,6 +123,7 @@ export declare interface BadgeStyle {
      * @type { ?Length }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     borderWidth?: Length;
@@ -121,6 +132,7 @@ export declare interface BadgeStyle {
      *
      * @type { ?(int | FontWeight | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     fontWeight?: int | FontWeight | ResourceStr;
@@ -130,6 +142,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.White
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     outerBorderColor?: ResourceColor;
@@ -140,6 +153,7 @@ export declare interface BadgeStyle {
      * @type { ?LengthMetrics }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     outerBorderWidth?: LengthMetrics;
@@ -150,6 +164,7 @@ export declare interface BadgeStyle {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     enableAutoAvoidance?: boolean;
@@ -159,6 +174,7 @@ export declare interface BadgeStyle {
  *
  * @interface BadgeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface BadgeParam {
@@ -175,6 +191,7 @@ export declare interface BadgeParam {
      * @type { ?(BadgePosition | Position) }
      * @default BadgePosition.RightTop
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     position?: BadgePosition | Position;
@@ -183,6 +200,7 @@ export declare interface BadgeParam {
      *
      * @type { BadgeStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     style: BadgeStyle;
@@ -193,6 +211,7 @@ export declare interface BadgeParam {
  * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface BadgeParamWithNumber extends BadgeParam {
@@ -209,6 +228,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     count: int;
@@ -225,6 +245,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      * @type { ?int }
      * @default 99
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     maxCount?: int;
@@ -235,6 +256,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
  * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface BadgeParamWithString extends BadgeParam {
@@ -243,6 +265,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     value: ResourceStr;
@@ -253,6 +276,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
  * @extends CommonMethod
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -263,6 +287,7 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @param { AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -274,6 +299,7 @@ export declare interface BadgeAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

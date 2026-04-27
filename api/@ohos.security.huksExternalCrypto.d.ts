@@ -92,7 +92,31 @@ declare namespace huksExternalCrypto {
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
-    HUKS_EXT_CRYPTO_TAG_PURPOSE = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200005
+    HUKS_EXT_CRYPTO_TAG_PURPOSE = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200005,
+    /**
+     * Specify the information required to obtain the resource ID. The format and content are defined by the provider.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200007,
+    /**
+     * Specifies the ability configuration for the custom PIN dialog.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    HUKS_EXT_CRYPTO_TAG_ABILITY_INFO = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200008,
+    /**
+     * Specifies the hap bundle name of the crypto extension ability.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200009
   }
 
   /**
@@ -296,6 +320,32 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   function getProperty(resourceId: string, propertyId: string, params?: Array<HuksExternalCryptoParam>): Promise<Array<HuksExternalCryptoParam>>;
+  /**
+   * Obtain the resource ID of the provider.
+   *
+   * @param { string } providerName - Indicates the name of the external crypto provider
+   *     and must be globally unique. One effective way is to include manufacturer information.
+   * @param { HuksExternalCryptoParam[] } params - Indicates the input operation parameters,
+   *     including the bundle name, ability name, and the related information to get the resource ID.
+   * @returns { Promise<string> } The promise returned by the function.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000002 - The ability name or bundle name parameter is missing.
+   * @throws { BusinessError } 12000005 - IPC communication failed.
+   * @throws { BusinessError } 12000011 - The provider is not found.
+   * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
+   *     This error may occur if the process function is not found, or due to other issues.
+   * @throws { BusinessError } 12000014 - The memory is insufficient.
+   * @throws { BusinessError } 12000018 - Input parameters are invalid. Possible causes:
+   *     1. The providerName length is invalid.
+   *     2. The parameters contain invalid tags or invalid value types.
+   * @throws { BusinessError } 12000020 - The provider operation failed.
+   *     This means an error occurred in the crypto extension before calling the UKey driver interface.
+   * @throws { BusinessError } 12000024 - The provider or UKey is busy.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getResourceId(providerName: string, params: HuksExternalCryptoParam[]): Promise<string>;
   /**
    * Open resource by specific resource ID.
    * NOTE: The opened resource must be closed using closeResource.

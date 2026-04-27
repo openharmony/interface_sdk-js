@@ -1197,7 +1197,7 @@ declare namespace backgroundTaskManager {
    * UI ability uses this method to request stop running in background acording to continuous task id.
    *
    * @param { Context } context - App running context.
-   * @param { number } continuousTaskId - continuousTaskId.
+   * @param { int } continuousTaskId - continuousTaskId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1208,7 +1208,7 @@ declare namespace backgroundTaskManager {
    * @since 21 dynamic
    * @since 24 static
    */
-  function stopBackgroundRunning(context: Context, continuousTaskId: number): Promise<void>;
+  function stopBackgroundRunning(context: Context, continuousTaskId: int): Promise<void>;
 
   /**
    * Obtains all the continuous tasks before an application enters the suspended state,
@@ -2538,7 +2538,7 @@ declare namespace backgroundTaskManager {
   /**
    * Type of user authorization status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 dynamic
    * @since 24 static

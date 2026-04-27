@@ -26,6 +26,7 @@ import { ComponentBuilder, CustomBuilder } from "./builder";
  * @interface RRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export interface RRect {
@@ -35,6 +36,7 @@ export interface RRect {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   left: double;
@@ -45,6 +47,7 @@ export interface RRect {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   top: double;
@@ -55,6 +58,7 @@ export interface RRect {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   width: double;
@@ -65,6 +69,7 @@ export interface RRect {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   height: double;
@@ -75,6 +80,7 @@ export interface RRect {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   radius: double;
@@ -86,6 +92,7 @@ export interface RRect {
  * @interface WindowAnimationTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export interface WindowAnimationTarget {
@@ -96,6 +103,7 @@ export interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   readonly bundleName: string;
@@ -107,6 +115,7 @@ export interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   readonly abilityName: string;
@@ -118,6 +127,7 @@ export interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   readonly windowBounds: RRect;
@@ -129,6 +139,7 @@ export interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   readonly missionId: int;
@@ -141,6 +152,7 @@ export interface WindowAnimationTarget {
  * @interface RemoteWindowAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -152,6 +164,7 @@ export declare interface RemoteWindowAttribute extends CommonMethod {
    * @returns { RemoteWindowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<RemoteWindowAttribute> | AttributeModifier<CommonMethod> | undefined): this;

@@ -814,7 +814,10 @@ declare namespace pointer {
 
   /**
    * Sets the mouse pointer style. This API uses an asynchronous callback to return the result.
-   *
+   * This API only supports setting the mouse pointer style of window within the current application process.
+   * To set the mouse pointer style of the host window from a UIExtensionAbility process, please refer
+   * to {@link setCursor} in @ohos.arkui.UIContext.d.ts.
+   * 
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -830,6 +833,9 @@ declare namespace pointer {
 
   /**
    * Sets the mouse pointer style. This API uses a promise to return the result.
+   * This API only supports setting the mouse pointer style of window within the current application process.
+   * To set the mouse pointer style of the host window from a UIExtensionAbility process, please refer
+   * to {@link setCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
@@ -846,6 +852,9 @@ declare namespace pointer {
 
   /**
    * Sets the mouse pointer style. This API returns the result synchronously.
+   * This API only supports setting the mouse pointer style of window within the current application process.
+   * To set the mouse pointer style of the host window from a UIExtensionAbility process, please refer
+   * to {@link setCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
@@ -861,6 +870,7 @@ declare namespace pointer {
 
   /**
    * Obtains the mouse pointer style. This API uses an asynchronous callback to return the result.
+   * This API only supports getting the mouse pointer style of window within the current application process.
    *
    * @param { int } windowId - Window ID.
    * @param { AsyncCallback<PointerStyle> } callback - Callback used to return the mouse pointer style.
@@ -874,6 +884,7 @@ declare namespace pointer {
 
   /**
    * Obtains the mouse pointer style. This API uses a promise to return the result.
+   * This API only supports getting the mouse pointer style of window within the current application process.
    *
    * @param { int } windowId - Window ID. The value is an integer greater than or equal to -1. 
    * The value -1 indicates the global window.
@@ -889,6 +900,7 @@ declare namespace pointer {
   /**
    * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. 
    * This API returns the result synchronously.
+   * This API only supports getting the mouse pointer style of window within the current application process.
    *
    * @param { int } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
    * @returns { PointerStyle } Returns the pointerStyle.
@@ -1788,7 +1800,10 @@ declare namespace pointer {
 
   /**
    * Sets the custom cursor style. This API uses a promise to return the result.
-   *
+   * This API only supports setting the custom cursor style of window within the current application process.
+   * To set the custom cursor style of the host window from a UIExtensionAbility process, please refer
+   * to {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
+   * 
    * @param { int } windowId - Window ID.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
    * @param { int } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
@@ -1804,6 +1819,9 @@ declare namespace pointer {
 
   /**
    * Sets a custom cursor. This API returns the result synchronously.
+   * This API only supports setting the custom cursor style of window within the current application process.
+   * To set the custom cursor style of the host window from a UIExtensionAbility process, please refer
+   * to {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID. The value must be an integer greater than 0.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
@@ -1822,6 +1840,9 @@ declare namespace pointer {
    * The cursor may be switched back to the system style in the following cases: application window layout change, hot zone switching, 
    * page redirection, moving of the cursor out of the window and then back to the window, or moving of the cursor in different areas of the window. 
    * In this case, you need to reset the cursor style.
+   * This API only supports setting the custom cursor style of window within the current application process.
+   * To set the custom cursor style of the host window from a UIExtensionAbility process, please refer
+   * to {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { CustomCursor } cursor - Pixel map resource.

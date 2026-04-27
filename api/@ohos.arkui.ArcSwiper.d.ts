@@ -438,7 +438,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * Set whether to disable sliding function.
    *
-   * @param { Optional<boolean> } disabled - The value indicates whether the sliding function is enabled, default value is { false }.
+   * @param { Optional<boolean> } disabled - The value indicates whether the sliding function is disabled, default value is { false }.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

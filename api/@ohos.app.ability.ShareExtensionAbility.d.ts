@@ -21,11 +21,20 @@
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 
 /**
- * The class of Share extension ability.
+ * ShareExtensionAbility provides extended capabilities for integrating a share details page. It inherits from 
+ * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}.
+ * 
+ * By implementing ShareExtensionAbility, you can process content shared from other applications. For example, you could
+ * use ShareExtensionAbility to implement the text sharing feature. When a user initiates a share action in another 
+ * application, your application will appear as an option in the system share panel. Upon selection, the system 
+ * activates your application to process the content and display the share detail page.
+ * 
+ * For details about the inheritance relationship of each ability, see 
+ * [Inheritance Relationship](docroot://reference/apis-ability-kit/js-apis-app-ability-ability.md#ability-inheritance-relationship)
+ * .
  *
- * @extends UIExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10 dynamic
  * @since 23 static
  */

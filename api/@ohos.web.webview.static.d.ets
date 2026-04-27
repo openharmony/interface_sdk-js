@@ -228,6 +228,13 @@ declare namespace webview {
         M132 = 2,
 
         /**
+         * ArkWeb M144 version.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 26.0.0 static
+         */
+        M144 = 3,
+
+        /**
          * ArkWeb auto use the newest ArkWeb Engine version.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
@@ -443,7 +450,7 @@ declare namespace webview {
      */
     interface PdfConfiguration {
         /**
-         * Number of the width.
+         * Number of the width. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -452,7 +459,7 @@ declare namespace webview {
         width: double;
 
         /**
-         * Number of the height.
+         * Number of the height. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -461,7 +468,7 @@ declare namespace webview {
         height: double;
 
         /**
-         * Number of the marginTop.
+         * Number of the marginTop. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -470,7 +477,7 @@ declare namespace webview {
         marginTop: double;
 
         /**
-         * Number of the marginBottom.
+         * Number of the marginBottom. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -479,7 +486,7 @@ declare namespace webview {
         marginBottom: double;
 
         /**
-         * Number of the marginRight.
+         * Number of the marginRight. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -488,7 +495,7 @@ declare namespace webview {
         marginRight: double;
 
         /**
-         * Number of the marginLeft.
+         * Number of the marginLeft. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -1609,7 +1616,6 @@ declare namespace webview {
     /**
      * Defines the snapshot info.
      *
-     * @typedef SnapshotInfo
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1617,7 +1623,6 @@ declare namespace webview {
         /**
          * Id of the snapshot.
          *
-         * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1630,7 +1635,6 @@ declare namespace webview {
          * If the size exceeds the specifications, the maximum size is returned.
          * (Example: width: '100px', height: '200px' or width: '20%', height'30%'. If only digits are written, the unit is vp.)
          *
-         * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1640,7 +1644,6 @@ declare namespace webview {
     /**
      * Represents a full drawing result.
      *
-     * @typedef SnapshotResult
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1648,7 +1651,6 @@ declare namespace webview {
         /**
          * Id of the snapshot.
          *
-         * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1659,7 +1661,6 @@ declare namespace webview {
          * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
          * the width and height of the returned size are both 0, and the map is empty.
          *
-         * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1669,7 +1670,6 @@ declare namespace webview {
          * Actual size drawn on the web page.
          * The value is of the number type, and the unit is vp.
          *
-         * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1678,7 +1678,6 @@ declare namespace webview {
         /**
          * Full drawing result in image.PixelMap format.
          *
-         * @type { ?image.PixelMap }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2738,6 +2737,7 @@ declare namespace webview {
 
         /**
          * Obtains the height of this web page.
+	 *
          * @returns { int } Height of the current web page. Unit: vp.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -3551,6 +3551,18 @@ declare namespace webview {
          * @since 23 static
          */
         closeCamera(): void;
+
+        /**
+         * Gets URL of frame that sent the last postMessage to native application.
+         *
+         * @returns { string } The URL of frame that last sent a postMessage.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        getLastPostMessageURL(): string;
 
         /**
          * Pause all WebView timers.
@@ -4920,6 +4932,26 @@ declare namespace webview {
         getSuggestedFileName(): string;
 
         /**
+         * Get the original url of the web download.
+         *
+         * @returns { string } - Returns the original url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Get the referrer url of the web download.
+         *
+         * @returns { string } - Returns the referrer url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getReferrerUrl(): string;
+
+        /**
          * Start the web download.
          * Used in onBeforeDownload, If you want to start the current download, call this function.
          * @param { string } downloadPath - The content will be downloaded to this file.
@@ -5748,7 +5780,7 @@ declare namespace webview {
 
         /**
          * Handle native media player volume.
-         *  volume: float
+         *  volume: double
          *   value range: [0 - 1.0]
          *
          * @param { double } volume - Current volume of native media player.
@@ -5768,7 +5800,7 @@ declare namespace webview {
 
         /**
          * Handle playback rate of native media player.
-         *  playbackRate: float
+         *  playbackRate: double
          *   value range: [0 - infinity]
          *
          * @param { double } playbackRate - Current playback rate of native media player.
@@ -5779,10 +5811,10 @@ declare namespace webview {
 
         /**
          * Handle duration time of media.
-         *  duration: float
+         *  duration: double
          *   value range: [0 - infinity]
          *
-         * @param { double } duration - Duration time (in seconds) of media.
+         * @param { double } duration - Duration time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5790,10 +5822,10 @@ declare namespace webview {
 
         /**
          * Handle current playing time of media.
-         *  currentPlayTime: float
+         *  currentPlayTime: double
          *   value range: [0 - duration]
          *
-         * @param { double } currentPlayTime - Current playing time (in seconds) of media.
+         * @param { double } currentPlayTime - Current playing time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5801,10 +5833,10 @@ declare namespace webview {
 
         /**
          * Handle buffered end time of media.
-         *  bufferedEndTime: float
+         *  bufferedEndTime: double
          *   value range: [0 - duration]
          *
-         * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
+         * @param { double } bufferedEndTime - Buffered end time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5874,8 +5906,8 @@ declare namespace webview {
         /**
          * Handle size of video.
          *
-         * @param { double } width - Width of video.
-         * @param { double } height - Height of video.
+         * @param { double } width - Width of video, Unit: px.
+         * @param { double } height - Height of video, Unit: px.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5982,7 +6014,7 @@ declare namespace webview {
 
         /**
          * Request to fast forward / back forward to targetTime.
-         *  targetTime: float
+         *  targetTime: double, Unit: seconds.
          *   value range: [0 - duration]
          *
          * @typedef { OneParamFn<double> }
@@ -5993,7 +6025,7 @@ declare namespace webview {
 
         /**
          * Request to change volume of native media player.
-         *  volume: float
+         *  volume: double
          *   value range: [0 - 1.0]
          *
          * @typedef { OneParamFn<double> }
@@ -6013,7 +6045,7 @@ declare namespace webview {
 
         /**
          * Request to change playback rate of native media player.
-         *  playbackRate: float
+         *  playbackRate: double
          *   value range: [0 - 10.0]
          *
          * @typedef { OneParamFn<double> }
@@ -6153,7 +6185,7 @@ declare namespace webview {
      */
     interface RectEvent {
         /**
-         * X coordinator of top left point.
+         * X coordinator of top left point, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6161,7 +6193,7 @@ declare namespace webview {
          */
         x: double;
         /**
-         * Y coordinator of top left point.
+         * Y coordinator of top left point, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6169,7 +6201,7 @@ declare namespace webview {
          */
         y: double;
         /**
-         * Width of this rectangle.
+         * Width of this rectangle, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6177,7 +6209,7 @@ declare namespace webview {
          */
         width: double;
         /**
-         * Height of this rectangle.
+         * Height of this rectangle, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6767,7 +6799,16 @@ declare namespace webview {
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        FORCE_DISPLAY_SCROLLBAR = 1
+        FORCE_DISPLAY_SCROLLBAR = 1,
+
+        /**
+        * Overlay VisualViewport scrollbars: appear on scroll, hide when idle. Rendered via Visual Viewport, non-draggable.
+        *
+        * @syscap SystemCapability.Web.Webview.Core
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+        OVERLAY_VISUAL_SCROLLBAR = 2
     }
 
     /**

@@ -31,7 +31,7 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
 declare namespace insightIntentProvider {
   /**
    * Send execute result.
-   * @param { int } instanceId - The insight intent instanceId ID.
+   * @param { int } instanceId - The insight intent instance ID.
    *     It is from InsightIntentExecutor.context.instanceId.
    * @param { insightIntent.ExecuteResult } result - The result of insight intent execution.
    * @returns { Promise<void> } - The promise returned by the function.

@@ -14,12 +14,31 @@
  */
 
 /**
+ * The **Sensor** module provides APIs for querying the sensor list, subscribing to or unsubscribing from sensor data, 
+ * and executing control commands.
+ * The **Sensor** module provides APIs for querying the sensor list, subscribing to or unsubscribing from sensor data, 
+ * and executing control commands.
+ * 
+ * The sensors are classified into the following categories based on their functions: motion, environment, orientation, 
+ * light, body, and other categories (such as Hall effect sensors). Each category includes different sensor types. A 
+ * sensor type may be a single hardware sensor or a composite of multiple hardware sensors.
+ * 
+ * > **NOTE**
+ * >
+ * > - Module maintenance policy:
+ * > >     - For lite wearables, this module is constantly maintained and available.
+ * > >     - For other device types, this module is no longer maintained since API version 8, and You are advised to use
+ * > the new [@ohos.sensor]{@link @ohos.sensor:sensor} module.
+ * >
+ * > - This module requires hardware support and can only be debugged on real devices.
+ *
  * @file
  * @kit SensorServiceKit
  */
 
 /**
- * @interface AccelerometerResponse
+ * Defines the callback invoked when the acceleration sensor data changes.
+ *
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
@@ -29,10 +48,9 @@
  */
 export interface AccelerometerResponse {
   /**
-   * X-coordinate
+   * Acceleration on the x-axis.
    *
    * @permission ohos.permission.ACCELEROMETER
-   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -42,34 +60,33 @@ export interface AccelerometerResponse {
   x: number;
 
   /**
-    * Y-coordinate
-    *
-    * @permission ohos.permission.ACCELEROMETER
-    * @type { number }
-    * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3 dynamiconly
-    * @deprecated since 8
-    * @reserved ["liteWearable"]
-    * @useinstead ohos.sensor/sensor#AccelerometerResponse.y
-    */
+   * Acceleration on the y-axis.
+   *
+   * @permission ohos.permission.ACCELEROMETER
+   * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @since 3 dynamiconly
+   * @deprecated since 8
+   * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#AccelerometerResponse.y
+   */
   y: number;
- 
+
   /**
-    * Z-coordinate
-    *
-    * @permission ohos.permission.ACCELEROMETER
-    * @type { number }
-    * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3 dynamiconly
-    * @deprecated since 8
-    * @reserved ["liteWearable"]
-    * @useinstead ohos.sensor/sensor#AccelerometerResponse.z
-    */
+   * Acceleration on the z-axis.
+   *
+   * @permission ohos.permission.ACCELEROMETER
+   * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @since 3 dynamiconly
+   * @deprecated since 8
+   * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#AccelerometerResponse.z
+   */
   z: number;
 }
 
 /**
- * @interface subscribeAccelerometerOptions
+ * Defines the type of data to return for a subscription to data changes of the acceleration sensor.
+ *
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
@@ -79,15 +96,15 @@ export interface AccelerometerResponse {
  */
 export interface subscribeAccelerometerOptions {
   /**
-   * Execution frequency of the callback function for listening to acceleration sensor data.
-   * Available values are as follows:
-   *   1. game: Extremely high frequency (20 ms per callback), which is applicable to gaming.
-   *   2. ui: High frequency (60 ms per callback), which is applicable to UI updating.
-   *   3. normal: Regular frequency (200 ms per callback), which is application to low power consumption.
-   * The default value is normal.
-   * 
+   * Execution frequency of the callback for returning the acceleration sensor data.
+   *
+   * The default value is **normal**. The options are as follows:
+   *
+   * - **game**: called at an interval of 20 ms, which is applicable to gaming scenarios.
+   * - **ui**: called at an interval of 60 ms, which is applicable to UI updating scenarios.
+   * - **normal**: called at an interval of 200 ms, which is applicable to power-saving scenarios.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -97,10 +114,9 @@ export interface subscribeAccelerometerOptions {
   interval: string;
 
   /**
-   * Called when acceleration sensor data changes.
+   * Callback invoked when the acceleration sensor data changes.
    *
    * @permission ohos.permission.ACCELEROMETER
-   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -110,10 +126,9 @@ export interface subscribeAccelerometerOptions {
   success: (data: AccelerometerResponse) => void;
 
   /**
-   * Called when the listening fails.
+   * Callback invoked when an API call fails.
    *
    * @permission ohos.permission.ACCELEROMETER
-   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -124,7 +139,8 @@ export interface subscribeAccelerometerOptions {
 }
 
 /**
- * @interface CompassResponse
+ * Defines a **CompassResponse** object.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -133,9 +149,8 @@ export interface subscribeAccelerometerOptions {
  */
 export interface CompassResponse {
   /**
-   * Direction of the device (in degrees).
-   * 
-   * @type { number }
+   * Direction of the device, in degrees.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -146,7 +161,8 @@ export interface CompassResponse {
 }
 
 /**
- * @interface SubscribeCompassOptions
+ * Defines the type of data to return for a subscription to data changes of the compass sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -155,9 +171,8 @@ export interface CompassResponse {
  */
 export interface SubscribeCompassOptions {
   /**
-   * Called when compass sensor data changes.
-   * 
-   * @type { function }
+   * Callback invoked when the compass sensor data changes.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -167,9 +182,8 @@ export interface SubscribeCompassOptions {
   success: (data: CompassResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -180,7 +194,8 @@ export interface SubscribeCompassOptions {
 }
 
 /**
- * @interface ProximityResponse
+ * Callback invoked when the proximity sensor data changes.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -189,9 +204,8 @@ export interface SubscribeCompassOptions {
  */
 export interface ProximityResponse {
   /**
-   * Distance between a visible object and the device screen
-   * 
-   * @type { number }
+   * Distance between a visible object and the device screen.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -202,7 +216,8 @@ export interface ProximityResponse {
 }
 
 /**
- * @interface SubscribeProximityOptions
+ * Defines the type of data to return for a subscription to data changes of the proximity sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -211,9 +226,8 @@ export interface ProximityResponse {
  */
 export interface SubscribeProximityOptions {
   /**
-   * Called when distance sensor data changes.
+   * Defines a **ProximityResponse** object.
    *
-   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -223,9 +237,8 @@ export interface SubscribeProximityOptions {
   success: (data: ProximityResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -236,7 +249,8 @@ export interface SubscribeProximityOptions {
 }
 
 /**
- * @interface LightResponse
+ * Defines a **LightResponse** object.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -246,8 +260,7 @@ export interface SubscribeProximityOptions {
 export interface LightResponse {
   /**
    * Light intensity, in lux.
-   * 
-   * @type { number }
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -258,7 +271,8 @@ export interface LightResponse {
 }
 
 /**
- * @interface SubscribeLightOptions
+ * Defines the type of data to return for a subscription to data changes of the ambient light sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -267,9 +281,8 @@ export interface LightResponse {
  */
 export interface SubscribeLightOptions {
   /**
-   * Called when ambient light sensor data changes.
-   * 
-   * @type { function }
+   * Callback invoked when the ambient light sensor data changes.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -279,9 +292,8 @@ export interface SubscribeLightOptions {
   success: (data: LightResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -292,7 +304,8 @@ export interface SubscribeLightOptions {
 }
 
 /**
- * @interface StepCounterResponse
+ * Callback invoked when the step counter sensor data changes.
+ *
  * @permission ohos.permission.ACTIVITY_MOTION
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
@@ -302,11 +315,9 @@ export interface SubscribeLightOptions {
  */
 export interface StepCounterResponse {
   /**
-   * Number of steps counted.
-   * Each time the device restarts, the value is recalculated from 0 in phone, tablet.
-   * 
+   * Number of counted steps after the sensor is restarted.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -317,7 +328,8 @@ export interface StepCounterResponse {
 }
 
 /**
- * @interface SubscribeStepCounterOptions
+ * Defines the type of data to return for a subscription to data changes of the step counter sensor.
+ *
  * @permission ohos.permission.ACTIVITY_MOTION
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
@@ -327,10 +339,9 @@ export interface StepCounterResponse {
  */
 export interface SubscribeStepCounterOptions {
   /**
-   * Called when step counter sensor data changes.
-   * 
+   * Defines a **StepCounterResponse** object.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -340,10 +351,9 @@ export interface SubscribeStepCounterOptions {
   success: (data: StepCounterResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
+   * Callback invoked when an API call fails.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -354,7 +364,8 @@ export interface SubscribeStepCounterOptions {
 }
 
 /**
- * @interface BarometerResponse
+ * Defines a **BarometerResponse** object.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -363,9 +374,8 @@ export interface SubscribeStepCounterOptions {
  */
 export interface BarometerResponse {
   /**
-   * Pressure, in hpa.
-   * 
-   * @type { number }
+   * Pressure, in pascal.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -376,7 +386,8 @@ export interface BarometerResponse {
 }
 
 /**
- * @interface SubscribeBarometerOptions
+ * Defines the type of data to return for a subscription to data changes of the barometer sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -385,9 +396,8 @@ export interface BarometerResponse {
  */
 export interface SubscribeBarometerOptions {
   /**
-   * Called when the barometer sensor data changes.
-   * 
-   * @type { function }
+   * Callback invoked when the barometer sensor data changes.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -397,9 +407,8 @@ export interface SubscribeBarometerOptions {
   success: (data: BarometerResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -410,7 +419,8 @@ export interface SubscribeBarometerOptions {
 }
 
 /**
- * @interface HeartRateResponse
+ * Defines a **HeartRateResponse** object.
+ *
  * @permission ohos.permission.READ_HEALTH_DATA
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
@@ -421,10 +431,8 @@ export interface SubscribeBarometerOptions {
 export interface HeartRateResponse {
   /**
    * Heart rate.
-   * 255 indicates an invalid value in lite wearable.
-   * 
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -435,7 +443,8 @@ export interface HeartRateResponse {
 }
 
 /**
- * @interface SubscribeHeartRateOptions
+ * Defines the type of data to return for a subscription to data changes of the heart rate sensor.
+ *
  * @permission ohos.permission.READ_HEALTH_DATA
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
@@ -445,10 +454,9 @@ export interface HeartRateResponse {
  */
 export interface SubscribeHeartRateOptions {
   /**
-   * Called when the heart rate sensor data changes.
-   * 
+   * Callback invoked when the heart rate sensor data changes. This callback is invoked every five seconds.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -458,10 +466,9 @@ export interface SubscribeHeartRateOptions {
   success: (data: HeartRateResponse) => void;
 
   /**
-   * Called when the listening fails
-   * 
+   * Callback invoked when an API call fails.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -472,7 +479,8 @@ export interface SubscribeHeartRateOptions {
 }
 
 /**
- * @interface OnBodyStateResponse
+ * Specifies whether the device that houses the sensor is worn.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -481,9 +489,9 @@ export interface SubscribeHeartRateOptions {
  */
 export interface OnBodyStateResponse {
   /**
-   * Whether the sensor is worn.
-   * 
-   * @type { boolean }
+   * Boolean value indicating whether the device is worn. The value **true** indicates that the device is worn, and the
+   * value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -494,7 +502,8 @@ export interface OnBodyStateResponse {
 }
 
 /**
- * @interface SubscribeOnBodyStateOptions
+ * Defines the callback invoked upon change in the wearing state of the device that houses the sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -503,9 +512,8 @@ export interface OnBodyStateResponse {
  */
 export interface SubscribeOnBodyStateOptions {
   /**
-   * Called when the wearing status changes.
-   * 
-   * @type { function }
+   * Callback invoked when the wearing state of the device that houses the sensor is successfully obtained.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -515,9 +523,8 @@ export interface SubscribeOnBodyStateOptions {
   success: (data: OnBodyStateResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -528,7 +535,8 @@ export interface SubscribeOnBodyStateOptions {
 }
 
 /**
- * @interface GetOnBodyStateOptions
+ * Defines the callback invoked upon change in the wearing state of the device that houses the sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -537,9 +545,8 @@ export interface SubscribeOnBodyStateOptions {
  */
 export interface GetOnBodyStateOptions {
   /**
-   * Called when the sensor wearing state is obtained
-   * 
-   * @type { function }
+   * Callback upon a successful API call.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -549,9 +556,8 @@ export interface GetOnBodyStateOptions {
   success: (data: OnBodyStateResponse) => void;
 
   /**
-   * Called when the sensor wearing state fails to be obtained
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -561,9 +567,8 @@ export interface GetOnBodyStateOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed
-   * 
-   * @type { ?function }
+   * Callback invoked when the API call is complete.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -574,7 +579,8 @@ export interface GetOnBodyStateOptions {
 }
 
 /**
- * @interface DeviceOrientationResponse
+ * Defines a **DeviceOrientationResponse** object.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
@@ -583,9 +589,8 @@ export interface GetOnBodyStateOptions {
  */
 export interface DeviceOrientationResponse {
   /**
-   * alpha
-   * 
-   * @type { number }
+   * Rotation angle around the Z axis when the X/Y axis of the device coincides with the X/Y axis of the earth.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -595,9 +600,8 @@ export interface DeviceOrientationResponse {
   alpha: number;
 
   /**
-   * beta
-   * 
-   * @type { number }
+   * Rotation angle around the X axis when the Y/Z axis of the device coincides with the Y/Z axis of the earth.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -607,9 +611,8 @@ export interface DeviceOrientationResponse {
   beta: number;
 
   /**
-   * gamma
-   * 
-   * @type { number }
+   * Rotation angle around the Y axis when the X/Z axis of the device coincides with the X/Z axis of the earth.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -620,7 +623,8 @@ export interface DeviceOrientationResponse {
 }
 
 /**
- * @interface SubscribeDeviceOrientationOptions
+ * Defines the type of data to return for a subscription to data changes of the device orientation sensor.
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
@@ -629,14 +633,14 @@ export interface DeviceOrientationResponse {
  */
 export interface SubscribeDeviceOrientationOptions {
   /**
-   * Execution frequency of the callback function for listening to device orientation sensor data.
-   * Available values are as follows:
-   *   1. game: Extremely high frequency (20 ms per callback), which is applicable to gaming.
-   *   2. ui: High frequency (60 ms per callback), which is applicable to UI updating.
-   *   3. normal: Regular frequency (200 ms per callback), which is application to low power consumption.
-   * The default value is normal.
-   * 
-   * @type { string }
+   * Interval at which the callback is invoked to return the device orientation sensor data.
+   *
+   * The default value is **normal**. The options are as follows:
+   *
+   * - **game**: called at an interval of 20 ms, which is applicable to gaming scenarios.
+   * - **ui**: called at an interval of 60 ms, which is applicable to UI updating scenarios.
+   * - **normal**: called at an interval of 200 ms, which is applicable to power-saving scenarios.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -646,9 +650,8 @@ export interface SubscribeDeviceOrientationOptions {
   interval: string;
 
   /**
-   * Called when device orientation sensor data changes.
-   * 
-   * @type { function}
+   * Callback invoked when the device orientation sensor data changes.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -658,9 +661,8 @@ export interface SubscribeDeviceOrientationOptions {
   success: (data: DeviceOrientationResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
-   * @type { ?function }
+   * Callback invoked when an API call fails.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -671,7 +673,8 @@ export interface SubscribeDeviceOrientationOptions {
 }
 
 /**
- * @interface GyroscopeResponse
+ * Defines a **GyroscopeResponse** object.
+ *
  * @permission ohos.permission.GYROSCOPE
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
@@ -681,10 +684,9 @@ export interface SubscribeDeviceOrientationOptions {
  */
 export interface GyroscopeResponse {
   /**
-   * X-coordinate
-   * 
+   * Rotation angular velocity of the X axis.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -694,10 +696,9 @@ export interface GyroscopeResponse {
   x: number;
 
   /**
-   * Y-coordinate
-   * 
+   * Rotation angular velocity of the Y axis.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -707,10 +708,9 @@ export interface GyroscopeResponse {
   y: number;
 
   /**
-   * Z-coordinate
-   * 
+   * Rotation angular velocity of the Z axis.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -721,7 +721,8 @@ export interface GyroscopeResponse {
 }
 
 /**
- * @interface SubscribeGyroscopeOptions
+ * Defines the type of data to return for a subscription to data changes of the gyroscope sensor.
+ *
  * @permission ohos.permission.GYROSCOPE
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
@@ -731,15 +732,15 @@ export interface GyroscopeResponse {
  */
 export interface SubscribeGyroscopeOptions {
   /**
-   * Execution frequency of the callback function for listening to gyroscope sensor data.
-   * Available values are as follows:
-   *   1. game: Extremely high frequency (20 ms per callback), which is applicable to gaming.
-   *   2. ui: High frequency (60 ms per callback), which is applicable to UI updating.
-   *   3. normal: Regular frequency (200 ms per callback), which is application to low power consumption.
-   * The default value is normal.
-   * 
+   * Interval at which the callback is invoked to return the gyroscope sensor data.
+   *
+   * The default value is **normal**. The options are as follows:
+   *
+   * - **game**: called at an interval of 20 ms, which is applicable to gaming scenarios.
+   * - **ui**: called at an interval of 60 ms, which is applicable to UI updating scenarios.
+   * - **normal**: called at an interval of 200 ms, which is applicable to power-saving scenarios.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -749,10 +750,9 @@ export interface SubscribeGyroscopeOptions {
   interval: string;
 
   /**
-   * Called when gyroscope sensor data changes.
-   * 
+   * Callback invoked when the gyroscope sensor data changes.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -762,10 +762,9 @@ export interface SubscribeGyroscopeOptions {
   success: (data: GyroscopeResponse) => void;
 
   /**
-   * Called when the listening fails.
-   * 
+   * Callback invoked when an API call fails.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -776,6 +775,7 @@ export interface SubscribeGyroscopeOptions {
 }
 
 /**
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
@@ -784,36 +784,54 @@ export interface SubscribeGyroscopeOptions {
  */
 export default class Sensor {
   /**
-   * Listens to acceleration sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
+   * Subscribes to data changes of the acceleration sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [ACCELEROMETER]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { subscribeAccelerometerOptions } options - options Options.
+   * @param { subscribeAccelerometerOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>, options?: Options)
    */
   static subscribeAccelerometer(options: subscribeAccelerometerOptions): void;
 
   /**
-   * Cancels listening to acceleration sensor data.
-   * 
+   * Unsubscribes from data changes of the acceleration sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [ACCELEROMETER]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>)
    */
   static unsubscribeAccelerometer(): void;
 
   /**
-   * Listens to compass sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
-   * @param { SubscribeCompassOptions } options - Options.
+   * Subscribes to data changes of the compass sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [ORIENTATION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>, options?: Options)}
+   * > since API Version 8.
+   *
+   * @param { SubscribeCompassOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -823,21 +841,33 @@ export default class Sensor {
   static subscribeCompass(options: SubscribeCompassOptions): void;
 
   /**
-   * Cancels listening to compass sensor data.
-   * 
+   * Unsubscribes from data changes of the compass sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [ORIENTATION]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>)}
+   * > instead.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>)
    */
   static unsubscribeCompass(): void;
 
   /**
-   * Listens to distance sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
-   * @param { SubscribeProximityOptions } options - options Options.
+   * Subscribes to data changes of the proximity sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [PROXIMITY]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>, options?: Options)}
+   * >  instead. since API Version 8.
+   *
+   * @param { SubscribeProximityOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -847,8 +877,14 @@ export default class Sensor {
   static subscribeProximity(options: SubscribeProximityOptions): void;
 
   /**
-   * Cancels listening to distance sensor data.
-   * 
+   * Unsubscribes from data changes of the proximity sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [PROXIMITY]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>)}
+   * >  instead. since API Version 8.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -858,10 +894,16 @@ export default class Sensor {
   static unsubscribeProximity(): void;
 
   /**
-   * Listens to ambient light sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
-   * @param { SubscribeLightOptions } options - options Options.
+   * Subscribes to data changes of the ambient light sensor. If this API is called multiple times, the last call takes
+   * effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [AMBIENT_LIGHT]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>, options?: Options)}
+   * > since API Version 8.
+   *
+   * @param { SubscribeLightOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -871,120 +913,175 @@ export default class Sensor {
   static subscribeLight(options: SubscribeLightOptions): void;
 
   /**
-   * Cancels listening to ambient light sensor data.
-   * 
+   * Unsubscribes from data changes of the ambient light sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [AMBIENT_LIGHT]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>)}
+   * > instead. since API Version 8.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>)
    */
   static unsubscribeLight(): void;
 
   /**
-   * Listens to step counter sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
+   * Subscribes to data changes of the step counter sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [PEDOMETER]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SubscribeStepCounterOptions } options - options Options.
+   * @param { SubscribeStepCounterOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>, options?: Options)
    */
   static subscribeStepCounter(options: SubscribeStepCounterOptions): void;
 
   /**
-   * Cancels listening to step counter sensor data.
-   * 
+   * Unsubscribes from data changes of the step counter sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [PEDOMETER]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback<PedometerResponse>)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback<PedometerResponse>)
    */
   static unsubscribeStepCounter(): void;
 
   /**
-   * Listens to barometer sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
-   * @param { SubscribeBarometerOptions } options - options Options.
+   * Subscribes to data changes of the barometer sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [BAROMETER]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
+   * @param { SubscribeBarometerOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>, options?: Options)
    */
   static subscribeBarometer(options: SubscribeBarometerOptions): void;
 
   /**
-   * Cancels listening to barometer sensor data.
-   * 
+   * Unsubscribes from data changes of the barometer sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [BAROMETER]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>)}
+   * > instead. since API Version 8.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>)
    */
   static unsubscribeBarometer(): void;
 
   /**
-   * Listens to changes of heart rate sensor data.
-   * If this API is called multiple times, the last call takes effect.
-   * 
+   * Subscribes to data changes of the heart rate sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [HEART_RATE]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @param { SubscribeHeartRateOptions } options - options Options.
+   * @param { SubscribeHeartRateOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>, options?: Options)
    */
   static subscribeHeartRate(options: SubscribeHeartRateOptions): void;
 
   /**
-   * Cancels listening to heart rate sensor data.
-   * 
+   * Unsubscribes from data changes of the heart rate sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [HEART_RATE]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>)
    */
   static unsubscribeHeartRate(): void;
 
   /**
-   * Listens to whether a sensor is worn.
-   * If this API is called multiple times, the last call takes effect.
-   * 
-   * @param { SubscribeOnBodyStateOptions } options - options Options.
+   * Subscribes to wearing status changes of a wearable device. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [WEAR_DETECTION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
+   * @param { SubscribeOnBodyStateOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options)
    */
   static subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void;
 
   /**
-   * Cancels listening to whether the sensor is worn.
-   * 
+   * Unsubscribes from wearing status changes of a wearable device.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [WEAR_DETECTION]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>)}
+   * > instead. since API Version 8.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>)
    */
   static unsubscribeOnBodyState(): void;
 
   /**
-   * Obtains the sensor wearing state.
-   * 
-   * @param { GetOnBodyStateOptions } options - options Options.
+   * Obtains the wearing state of a wearable device.
+   *
+   * @param { GetOnBodyStateOptions } options - Callback invoked when obtaining the wearing state of the device that
+   *     houses the sensor.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -994,52 +1091,80 @@ export default class Sensor {
   static getOnBodyState(options: GetOnBodyStateOptions): void;
 
   /**
-   * Listens to device orientation sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
-   * @param { SubscribeDeviceOrientationOptions } options - options Options.
+   * Subscribes to data changes of the device orientation sensor.
+   *
+   * If this API is called multiple times for the same application, the last call takes effect. However, this API cannot
+   * be called multiple times in one click event.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [ORIENTATION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
+   * @param { SubscribeDeviceOrientationOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>, options?: Options)
    */
   static subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void;
 
   /**
-   * Cancels listening to device orientation sensor data.
-   * 
+   * Unsubscribes from data changes of the device orientation sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [ORIENTATION]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>)}
+   * > instead. since API Version 8.
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>)
    */
   static unsubscribeDeviceOrientation(): void;
 
   /**
-   * Listens to gyroscope sensor data changes.
-   * If this API is called multiple times, the last call takes effect.
-   * 
+   * Subscribes to data changes of the gyroscope sensor.
+   *
+   * If this API is called multiple times for the same application, the last call takes effect. However, this API cannot
+   * be called multiple times in one click event.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [GYROSCOPE]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>, options?: Options)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SubscribeGyroscopeOptions } options - options Options.
+   * @param { SubscribeGyroscopeOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
+   * @useinstead @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>, options?: Options)
    */
   static subscribeGyroscope(options: SubscribeGyroscopeOptions): void;
 
   /**
-   * Cancels listening to gyroscope sensor data.
-   * 
+   * Unsubscribes from data changes of the gyroscope sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables, You are advised to use
+   * > [GYROSCOPE]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>)}
+   * > instead. since API Version 8.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
+   * @useinstead @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>)
    */
   static unsubscribeGyroscope(): void;
 }

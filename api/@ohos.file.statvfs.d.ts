@@ -21,27 +21,20 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides filesystem statistics APIs
+ * This module provides APIs for obtaining file system information, including the total size and free size of a file
+ * system, in bytes.
  *
- * @namespace statfs
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
- */
-/**
- * Provides filesystem statistics APIs
- *
- * @namespace statfs
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace statfs {
   /**
-   * Get the number of free bytes on the specified path.
+   * Obtains the free size of the specified file system, in bytes. This API uses a promise to return the result.
    *
-   * @param { string } path - path
-   * @returns { Promise<number> } return Promise
+   * @param { string } path - File path of the file system.
+   * @returns { Promise<long> } Promise used to return the free size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -56,38 +49,18 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
-   */
-  /**
-   * Get the number of free bytes on the specified path.
-   *
-   * @param { string } path - path
-   * @returns { Promise<long> } return Promise
-   * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900013 - Bad address
-   * @throws { BusinessError } 13900018 - Not a directory
-   * @throws { BusinessError } 13900030 - File name too long
-   * @throws { BusinessError } 13900031 - Function not implemented
-   * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-   * @throws { BusinessError } 13900038 - Value too large for defined data type
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getFreeSize(path: string): Promise<long>;
 
   /**
-   * Get the number of free bytes on the specified path.
+   * Obtains the free size of the specified file system, in bytes. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } path - path
-   * @param { AsyncCallback<number> } [callback] - callback
+   * @param { string } path - File path of the file system.
+   * @param { AsyncCallback<long> } [callback] - Callback used to return the free size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -102,38 +75,17 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
-   */
-  /**
-   * Get the number of free bytes on the specified path.
-   *
-   * @param { string } path - path
-   * @param { AsyncCallback<long> } [callback] - callback
-   * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900013 - Bad address
-   * @throws { BusinessError } 13900018 - Not a directory
-   * @throws { BusinessError } 13900030 - File name too long
-   * @throws { BusinessError } 13900031 - Function not implemented
-   * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-   * @throws { BusinessError } 13900038 - Value too large for defined data type
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
-   * Get the number of free bytes on the specified path with sync interface.
+   * Obtains the free size of the specified file system, in bytes. This API returns the result synchronously.
    *
-   * @param { string } path - path
-   * @returns { number } return the number of free bytes on the specified path
+   * @param { string } path - File path of the file system.
+   * @returns { long } Free size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -148,38 +100,17 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
-   */
-  /**
-   * Get the number of free bytes on the specified path with sync interface.
-   *
-   * @param { string } path - path
-   * @returns { long } return the number of free bytes on the specified path
-   * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900013 - Bad address
-   * @throws { BusinessError } 13900018 - Not a directory
-   * @throws { BusinessError } 13900030 - File name too long
-   * @throws { BusinessError } 13900031 - Function not implemented
-   * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-   * @throws { BusinessError } 13900038 - Value too large for defined data type
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getFreeSizeSync(path: string): long;
 
   /**
-   * Get the number of total bytes on the specified path.
+   * Obtains the total size of the specified file system, in bytes. This API uses a promise to return the result.
    *
-   * @param { string } path - path
-   * @returns { Promise<number> } return Promise
+   * @param { string } path - File path of the file system.
+   * @returns { Promise<long> } Promise used to return the total size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -194,38 +125,18 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
-   */
-  /**
-   * Get the number of total bytes on the specified path.
-   *
-   * @param { string } path - path
-   * @returns { Promise<long> } return Promise
-   * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900013 - Bad address
-   * @throws { BusinessError } 13900018 - Not a directory
-   * @throws { BusinessError } 13900030 - File name too long
-   * @throws { BusinessError } 13900031 - Function not implemented
-   * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-   * @throws { BusinessError } 13900038 - Value too large for defined data type
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getTotalSize(path: string): Promise<long>;
 
   /**
-   * Get the number of total bytes on the specified path.
+   * Obtains the total size of the specified file system, in bytes. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } path - path
-   * @param { AsyncCallback<number> } [callback] - callback
+   * @param { string } path - File path of the file system.
+   * @param { AsyncCallback<long> } [callback] - Callback used to return the total size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -240,38 +151,17 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
-   */
-  /**
-   * Get the number of total bytes on the specified path.
-   *
-   * @param { string } path - path
-   * @param { AsyncCallback<long> } [callback] - callback
-   * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900013 - Bad address
-   * @throws { BusinessError } 13900018 - Not a directory
-   * @throws { BusinessError } 13900030 - File name too long
-   * @throws { BusinessError } 13900031 - Function not implemented
-   * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-   * @throws { BusinessError } 13900038 - Value too large for defined data type
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
-   * Get the number of total bytes on the specified path with sync interface.
+   * Obtains the total size of the specified file system, in bytes. This API returns the result synchronously.
    *
-   * @param { string } path - path
-   * @returns { number } return the number of total bytes
+   * @param { string } path - File path of the file system.
+   * @returns { long } Total size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -286,29 +176,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
-   */
-  /**
-   * Get the number of total bytes on the specified path with sync interface.
-   *
-   * @param { string } path - path
-   * @returns { long } return the number of total bytes
-   * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900013 - Bad address
-   * @throws { BusinessError } 13900018 - Not a directory
-   * @throws { BusinessError } 13900030 - File name too long
-   * @throws { BusinessError } 13900031 - Function not implemented
-   * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-   * @throws { BusinessError } 13900038 - Value too large for defined data type
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getTotalSizeSync(path: string): long;

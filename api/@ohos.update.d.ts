@@ -21,9 +21,20 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * A static class to do update for device.
+ * The **update** module implements update of the entire system, including built-in resources and preset applications,
+ * but not third-party applications.
  *
- * @namespace update
+ * There are three types of updates: SD card update, over the air (OTA) update, and factory reset update.
+ *
+ * - The SD card update depends on the update packages and SD cards.
+ * - The OTA update depends on the server deployed by the device manufacturer for managing update packages. The OTA
+ * server IP address is passed by the caller. The request interface is fixed and developed by the device manufacturer.
+ * - The factory reset update object provides the API for restoring factory settings.
+ *
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.Update.UpdateService
  * @systemapi hide for inner use.
  * @since 9 dynamic
@@ -31,10 +42,10 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace update {
   /**
-   * Get online update handler for the calling device.
+   * Obtains an **OnlineUpdater** object.
    *
-   * @param { UpgradeInfo } upgradeInfo - Indicates client app and business type.
-   * @returns { Updater } online update handler to perform online update.
+   * @param { UpgradeInfo } upgradeInfo - **OnlineUpdater** object information.
+   * @returns { Updater } **OnlineUpdater** object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -44,9 +55,9 @@ declare namespace update {
   function getOnlineUpdater(upgradeInfo: UpgradeInfo): Updater;
 
   /**
-   * Get restore handler.
+   * Obtains a **Restorer** object for restoring factory settings.
    *
-   * @returns { Restorer } restore handler to perform factory reset.
+   * @returns { Restorer } **Restorer** object for restoring factory settings.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -56,9 +67,9 @@ declare namespace update {
   function getRestorer(): Restorer;
 
   /**
-   * Get local update handler.
+   * Obtains a **LocalUpdater** object.
    *
-   * @returns { LocalUpdater } local update handler to perform local update.
+   * @returns { LocalUpdater } **LocalUpdater** object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -68,9 +79,8 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
-   * A static class to do online update.
+   * Define a tool class for updating the system online.
    *
-   * @interface Updater
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -78,7 +88,7 @@ declare namespace update {
    */
   export interface Updater {
     /**
-     * Check new version.
+     * Checks whether a new version is available. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<CheckResult> } callback - Callback used to return the result.
@@ -93,7 +103,7 @@ declare namespace update {
     checkNewVersion(callback: AsyncCallback<CheckResult>): void;
 
     /**
-     * Check new version.
+     * Checks whether a new version is available. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<CheckResult> } Promise used to return the result.
@@ -108,7 +118,7 @@ declare namespace update {
     checkNewVersion(): Promise<CheckResult>;
 
     /**
-     * Get new version.
+     * Obtains information about the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the result.
@@ -123,7 +133,7 @@ declare namespace update {
     getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
 
     /**
-     * Get new version.
+     * Obtains information about the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<NewVersionInfo> } Promise used to return the result.
@@ -138,7 +148,7 @@ declare namespace update {
     getNewVersionInfo(): Promise<NewVersionInfo>;
 
     /**
-     * Get new version description.
+     * Obtains the description file of the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -160,7 +170,7 @@ declare namespace update {
     ): void;
 
     /**
-     * Get new version description.
+     * Obtains the description file of the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -181,7 +191,7 @@ declare namespace update {
     ): Promise<Array<ComponentDescription>>;
 
     /**
-     * Get current version.
+     * Obtains information about the current version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return the result.
@@ -196,7 +206,7 @@ declare namespace update {
     getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
 
     /**
-     * Get current version.
+     * Obtains information about the current version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<CurrentVersionInfo> } Promise used to return the result.
@@ -211,7 +221,7 @@ declare namespace update {
     getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
     /**
-     * Get current version description.
+     * Obtains the description file of the current version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
@@ -231,7 +241,7 @@ declare namespace update {
     ): void;
 
     /**
-     * Get current version description.
+     * Obtains the description file of the current version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
@@ -248,7 +258,7 @@ declare namespace update {
     getCurrentVersionDescription(descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
     /**
-     * Get task info.
+     * Obtains information about the update task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result.
@@ -263,7 +273,7 @@ declare namespace update {
     getTaskInfo(callback: AsyncCallback<TaskInfo>): void;
 
     /**
-     * Get task info.
+     * Obtains information about the update task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<TaskInfo> } Promise used to return the result.
@@ -278,14 +288,13 @@ declare namespace update {
     getTaskInfo(): Promise<TaskInfo>;
 
     /**
-     * Trigger download new version packages.
-     * Apps should listen to task update event
+     * Downloads the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -302,8 +311,7 @@ declare namespace update {
     ): void;
 
     /**
-     * Trigger download new version packages.
-     * Apps should listen to task update event
+     * Downloads the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -321,14 +329,13 @@ declare namespace update {
     download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions): Promise<void>;
 
     /**
-     * Resume download new version packages.
-     * Apps should listen to task update event
+     * Resumes download of the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -345,12 +352,11 @@ declare namespace update {
     ): void;
 
     /**
-     * Resume download new version packages.
-     * Apps should listen to task update event
+     * Resumes download of the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
+     * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -364,14 +370,13 @@ declare namespace update {
     resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions): Promise<void>;
 
     /**
-     * Pause download new version packages.
-     * Apps should listen to task update event
+     * Pauses download of the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -388,12 +393,11 @@ declare namespace update {
     ): void;
 
     /**
-     * Pause download new version packages.
-     * Apps should listen to task update event
+     * Pauses download of the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
+     * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -407,14 +411,13 @@ declare namespace update {
     pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions): Promise<void>;
 
     /**
-     * Install packages for the device.
-     * Apps should listen to task update event
+     * Updates the version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -427,8 +430,7 @@ declare namespace update {
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Install packages for the device.
-     * Apps should listen to task update event
+     * Updates the version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -446,13 +448,14 @@ declare namespace update {
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
     /**
-     * Clear error during upgrade.
+     * Clears errors. If an exception occurs during version download or installation, the upgrade package and upgrade 
+     * status are cleared. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ClearOptions } clearOptions - Clear options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -465,11 +468,12 @@ declare namespace update {
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Clear error during upgrade.
+     * Clears errors. If an exception occurs during version download or installation, the upgrade package and upgrade 
+     * status are cleared. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ClearOptions } clearOptions - Clear options.
+     * @param { ClearOptions } clearOptions - Update options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -483,7 +487,7 @@ declare namespace update {
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions): Promise<void>;
 
     /**
-     * Get current upgrade policy.
+     * Obtains the update policy. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the result.
@@ -498,7 +502,7 @@ declare namespace update {
     getUpgradePolicy(callback: AsyncCallback<UpgradePolicy>): void;
 
     /**
-     * Get current upgrade policy.
+     * Obtains the update policy. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<UpgradePolicy> } Promise used to return the result.
@@ -513,7 +517,7 @@ declare namespace update {
     getUpgradePolicy(): Promise<UpgradePolicy>;
 
     /**
-     * Set upgrade policy.
+     * Sets the update policy. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradePolicy } policy - Update policy.
@@ -529,7 +533,7 @@ declare namespace update {
     setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
 
     /**
-     * Set upgrade policy.
+     * Sets the update policy. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradePolicy } policy - Update policy.
@@ -545,11 +549,11 @@ declare namespace update {
     setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
     /**
-     * Terminate upgrade task.
+     * Terminates the update. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *     If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -561,7 +565,7 @@ declare namespace update {
     terminateUpgrade(callback: AsyncCallback<void>): void;
 
     /**
-     * Terminate upgrade task.
+     * Terminates the update. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<void> } Promise that returns no value.
@@ -576,7 +580,7 @@ declare namespace update {
     terminateUpgrade(): Promise<void>;
 
     /**
-     * Subscribe task update events
+     * Enables listening for update events. This API uses an asynchronous callback to return the result.
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
@@ -589,7 +593,7 @@ declare namespace update {
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
     /**
-     * Unsubscribe task update events
+     * Disables listening for update events. This API uses an asynchronous callback to return the result.
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
@@ -603,9 +607,8 @@ declare namespace update {
   }
 
   /**
-   * A static class to do restore.
+   * Defines a tool class for restoring factory settings.
    *
-   * @interface Restorer
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -613,11 +616,12 @@ declare namespace update {
    */
   export interface Restorer {
     /**
-     * Reboot and clean user data.
+     * Clears the user data partition. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, **err** is
+     *     an error object and a callback is returned. If the operation is successful, **err** is undefined and no
+     *     callback is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -629,10 +633,11 @@ declare namespace update {
     factoryReset(callback: AsyncCallback<void>): void;
 
     /**
-     * Reboot and clean user data.
+     * Clears the user data partition. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise that returns no value. If the operation fails, a callback is returned. If the
+     *     operation is successful, no callback is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -644,7 +649,7 @@ declare namespace update {
     factoryReset(): Promise<void>;
 
     /**
-     * Force reboot and clean user data.
+     * Clears the user data partition and the file key. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FORCE_FACTORY_RESET
      * @returns { Promise<void> } Promise that returns no value.
@@ -658,7 +663,8 @@ declare namespace update {
     forceFactoryReset(): Promise<void>;
 
     /**
-     * Reboots and deep cleans user data and OS.
+     * Clears the user data partition and OS partition by means of overwriting. This API uses a promise to return the 
+     * result.
      *
      * @permission ohos.permission.FACTORY_RESET
      * @param { FactoryResetStrategy } factoryResetStrategy - Factory reset strategy.
@@ -674,11 +680,11 @@ declare namespace update {
     deepFactoryReset(factoryResetStrategy: FactoryResetStrategy): Promise<void>;
 
     /**
-     * Gets deep factory reset information.
+     * Obtains the factory reset information. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FACTORY_RESET
      * @param { FactoryResetStrategy } factoryResetStrategy - Factory reset strategy.
-     * @returns { Promise<FactoryResetInfo> } Promise that returns factory reset info.
+     * @returns { Promise<FactoryResetInfo> } Promise used to return the factory reset information.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -691,9 +697,8 @@ declare namespace update {
   }
 
   /**
-   * A static class to do local update.
+   * Defines a tool class for updating the local firmware.
    *
-   * @interface LocalUpdater
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -701,12 +706,12 @@ declare namespace update {
    */
   export interface LocalUpdater {
     /**
-     * Verify local update package.
+     * Verifies the update package. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradeFile } upgradeFile - Update file.
      * @param { string } certsFile - Path of the certificate file.
-     * @param { AsyncCallback<void> } callback - Callback used to return the verify upgrade package result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -719,12 +724,12 @@ declare namespace update {
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Verify local update package.
+     * Verifies the update package. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradeFile } upgradeFile - Update file.
      * @param { string } certsFile - Path of the certificate file.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -737,12 +742,12 @@ declare namespace update {
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
     /**
-     * Apply local update package.
-     * Apps should listen to task update event
+     * Installs the update package. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { Array<UpgradeFile> } upgradeFiles - Update files.
-     * @param { AsyncCallback<void> } callback - Callback used to return the apply new version result.
+     * @param { Array<UpgradeFile> } upgradeFiles - Update file.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -755,11 +760,10 @@ declare namespace update {
     applyNewVersion(upgradeFiles: Array<UpgradeFile>, callback: AsyncCallback<void>): void;
 
     /**
-     * Apply local update package.
-     * Apps should listen to task update event
+     * Installs the update package. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { Array<UpgradeFile> } upgradeFiles - Update files.
+     * @param { Array<UpgradeFile> } upgradeFiles - Update file.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -773,7 +777,7 @@ declare namespace update {
     applyNewVersion(upgradeFiles: Array<UpgradeFile>): Promise<void>;
 
     /**
-     * Subscribe task update events
+     * Enables listening for update events. This API uses an asynchronous callback to return the result.
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
@@ -786,7 +790,7 @@ declare namespace update {
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
     /**
-     * Unsubscribe task update events
+     * Disables listening for update events. This API uses an asynchronous callback to return the result.
      *
      * @param { EventClassifyInfo } eventClassifyInfo - Event information.
      * @param { UpgradeTaskCallback } taskCallback - Event callback.
@@ -800,9 +804,8 @@ declare namespace update {
   }
 
   /**
-   * Represents upgrade info.
+   * Represents update information.
    *
-   * @typedef UpgradeInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -810,9 +813,8 @@ declare namespace update {
    */
   export interface UpgradeInfo {
     /**
-     * Upgrade client package name
+     * Application package name.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -821,9 +823,8 @@ declare namespace update {
     upgradeApp: string;
 
     /**
-     * BusinessType of upgrade
+     * Update service type.
      *
-     * @type { BusinessType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -833,9 +834,8 @@ declare namespace update {
   }
 
   /**
-   * Represents business type.
+   * Represents an update service type.
    *
-   * @typedef BusinessType
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -843,9 +843,8 @@ declare namespace update {
    */
   export interface BusinessType {
     /**
-     * Vendor of business type
+     * Supplier or vendor.
      *
-     * @type { BusinessVendor }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -854,9 +853,8 @@ declare namespace update {
     vendor: BusinessVendor;
 
     /**
-     * Update service type
+     * Represents an update type.
      *
-     * @type { BusinessSubType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -866,19 +864,19 @@ declare namespace update {
   }
 
   /**
-   * Represents new version check result.
+   * Represents the package check result.
    *
-   * @typedef CheckResult
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-     * @since 9 dynamic
-     * @since 23 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   export interface CheckResult {
     /**
-     * New version exist or not
+     * Whether a new version is available.
      *
-     * @type { boolean }
+     * The value **true** indicates that a new version is available, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -887,9 +885,8 @@ declare namespace update {
     isExistNewVersion: boolean;
 
     /**
-     * New version info
+     * Information about the new version.
      *
-     * @type { NewVersionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -899,9 +896,8 @@ declare namespace update {
   }
 
   /**
-   * Represents new version info.
+   * Represents information about the new version.
    *
-   * @typedef NewVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -909,9 +905,8 @@ declare namespace update {
    */
   export interface NewVersionInfo {
     /**
-     * Digest info of new version
+     * Version digest information.
      *
-     * @type { VersionDigestInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -920,9 +915,8 @@ declare namespace update {
     versionDigestInfo: VersionDigestInfo;
 
     /**
-     * New version component array
+     * Version components.
      *
-     * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -932,9 +926,8 @@ declare namespace update {
   }
 
   /**
-   * Represents version digest info.
+   * Represents version digest information.
    *
-   * @typedef VersionDigestInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -942,9 +935,8 @@ declare namespace update {
    */
   export interface VersionDigestInfo {
     /**
-     * Version digest value
+     * Version digest information.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -954,9 +946,8 @@ declare namespace update {
   }
 
   /**
-   * Represents version component info.
+   * Represents a version component.
    *
-   * @typedef VersionComponent
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -964,9 +955,8 @@ declare namespace update {
    */
   export interface VersionComponent {
     /**
-     * Version component id
+     * Component ID.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -975,9 +965,8 @@ declare namespace update {
     componentId: string;
 
     /**
-     * Version component type
+     * Component type.
      *
-     * @type { ComponentType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -986,9 +975,8 @@ declare namespace update {
     componentType: ComponentType;
 
     /**
-     * Upgrade action
+     * Update mode.
      *
-     * @type { UpgradeAction }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -997,9 +985,8 @@ declare namespace update {
     upgradeAction: UpgradeAction;
 
     /**
-     * Display version number
+     * Display version number.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1008,9 +995,8 @@ declare namespace update {
     displayVersion: string;
 
     /**
-     * Internal version number
+     * Internal version number.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1019,9 +1005,8 @@ declare namespace update {
     innerVersion: string;
 
     /**
-     * Update package size
+     * Size of the update package, in bytes.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1030,9 +1015,8 @@ declare namespace update {
     size: int;
 
     /**
-     * Effective mode
+     * Effective mode.
      *
-     * @type { EffectiveMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1041,9 +1025,8 @@ declare namespace update {
     effectiveMode: EffectiveMode;
 
     /**
-     * Information about the version description file
+     * Information about the version description file.
      *
-     * @type { DescriptionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1052,9 +1035,8 @@ declare namespace update {
     descriptionInfo: DescriptionInfo;
 
     /**
-     * Ota mode
+     * OTA mode.
      *
-     * @type { ?OtaMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 20 dynamic
@@ -1064,9 +1046,8 @@ declare namespace update {
   }
 
   /**
-   * Represents description options.
+   * Represents options of the description file.
    *
-   * @typedef DescriptionOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1074,9 +1055,8 @@ declare namespace update {
    */
   export interface DescriptionOptions {
     /**
-     * Format of the description file
+     * Format of the description file.
      *
-     * @type { DescriptionFormat }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1085,9 +1065,8 @@ declare namespace update {
     format: DescriptionFormat;
 
     /**
-     * Language of the description file
+     * Language of the description file.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1097,9 +1076,8 @@ declare namespace update {
   }
 
   /**
-   * Represents version component description.
+   * Represents a component description file.
    *
-   * @typedef ComponentDescription
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1107,9 +1085,8 @@ declare namespace update {
    */
   export interface ComponentDescription {
     /**
-     * Component id
+     * Component ID.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1118,9 +1095,8 @@ declare namespace update {
     componentId: string;
 
     /**
-     * Information about the description file
+     * Information about the description file.
      *
-     * @type { DescriptionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1130,9 +1106,8 @@ declare namespace update {
   }
 
   /**
-   * Represents new version description information.
+   * Represents information about the version description file.
    *
-   * @typedef DescriptionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1140,9 +1115,8 @@ declare namespace update {
    */
   export interface DescriptionInfo {
     /**
-     * Description content type
+     * Type of the description file.
      *
-     * @type { DescriptionType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1151,9 +1125,8 @@ declare namespace update {
     descriptionType: DescriptionType;
 
     /**
-     * Content of the description file
+     * Content of the description file.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1163,9 +1136,8 @@ declare namespace update {
   }
 
   /**
-   * Represents current version info.
+   * Represents information about the current version.
    *
-   * @typedef CurrentVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1173,9 +1145,8 @@ declare namespace update {
    */
   export interface CurrentVersionInfo {
     /**
-     * System version number
+     * System version number.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1184,9 +1155,8 @@ declare namespace update {
     osVersion: string;
 
     /**
-     * Device name
+     * Device name.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1195,9 +1165,8 @@ declare namespace update {
     deviceName: string;
 
     /**
-     * Current version component array
+     * Version components.
      *
-     * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1209,7 +1178,6 @@ declare namespace update {
   /**
    * Represents download options.
    *
-   * @typedef DownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1217,9 +1185,8 @@ declare namespace update {
    */
   export interface DownloadOptions {
     /**
-     * Allow download with the network type
+     * Network type.
      *
-     * @type { NetType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1228,9 +1195,8 @@ declare namespace update {
     allowNetwork: NetType;
 
     /**
-     * Upgrade command
+     * Update command.
      *
-     * @type { Order }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1240,9 +1206,8 @@ declare namespace update {
   }
 
   /**
-   * Represents resume download options.
+   * Represents options for resuming download.
    *
-   * @typedef ResumeDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1250,9 +1215,8 @@ declare namespace update {
    */
   export interface ResumeDownloadOptions {
     /**
-     * Allow download with the network type
+     * Network type.
      *
-     * @type { NetType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1262,9 +1226,8 @@ declare namespace update {
   }
 
   /**
-   * Represents pause download options.
+   * Represents options for pausing download.
    *
-   * @typedef PauseDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1272,9 +1235,10 @@ declare namespace update {
    */
   export interface PauseDownloadOptions {
     /**
-     * Whether allow auto resume when net available
+     * Whether to allow automatic resuming of download.
      *
-     * @type { boolean }
+     * The value **true** indicates that automatic resuming is allowed, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1284,9 +1248,8 @@ declare namespace update {
   }
 
   /**
-   * Represents upgrade options.
+   * Represents update options.
    *
-   * @typedef UpgradeOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1294,9 +1257,8 @@ declare namespace update {
    */
   export interface UpgradeOptions {
     /**
-     * Upgrade command
+     * Update command.
      *
-     * @type { Order }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1306,9 +1268,8 @@ declare namespace update {
   }
 
   /**
-   * Represents clear error options.
+   * Represents options for clearing errors.
    *
-   * @typedef ClearOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1316,9 +1277,8 @@ declare namespace update {
    */
   export interface ClearOptions {
     /**
-     * Clear status error
+     * Error status.
      *
-     * @type { UpgradeStatus }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1328,9 +1288,8 @@ declare namespace update {
   }
 
   /**
-   * Represents upgrade policy.
+   * Represents an update policy.
    *
-   * @typedef UpgradePolicy
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1338,9 +1297,11 @@ declare namespace update {
    */
   export interface UpgradePolicy {
     /**
-     * Download strategy: open or close
+     * Automatic download policy.
      *
-     * @type { boolean }
+     * The value **true** indicates that automatic download is supported, and the value **false** indicates the
+     * opposite.
+     *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1349,9 +1310,10 @@ declare namespace update {
     downloadStrategy: boolean;
 
     /**
-     * Auto upgrade strategy: open or close
+     * Automatic update policy.
      *
-     * @type { boolean }
+     * The value **true** indicates that automatic update is supported, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1360,9 +1322,8 @@ declare namespace update {
     autoUpgradeStrategy: boolean;
 
     /**
-     * Auto upgrade period
+     * Automatic update period.
      *
-     * @type { Array<UpgradePeriod> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1372,9 +1333,8 @@ declare namespace update {
   }
 
   /**
-   * Represents upgrade period.
+   * Represents an automatic update period.
    *
-   * @typedef UpgradePeriod
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1382,9 +1342,8 @@ declare namespace update {
    */
   export interface UpgradePeriod {
     /**
-     * Start time of upgrade period
+     * Start time.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1393,9 +1352,8 @@ declare namespace update {
     start: int;
 
     /**
-     * End time of upgrade period
+     * End time.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1405,9 +1363,8 @@ declare namespace update {
   }
 
   /**
-   * Represents task info.
+   * Task information.
    *
-   * @typedef TaskInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1415,9 +1372,10 @@ declare namespace update {
    */
   export interface TaskInfo {
     /**
-     * Whether upgrade task exist
+     * Whether a task exists.
      *
-     * @type { boolean }
+     * The value **true** indicates that the task exists, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1426,9 +1384,8 @@ declare namespace update {
     existTask: boolean;
 
     /**
-     * Task body info
+     * Task data.
      *
-     * @type { TaskBody }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1438,9 +1395,8 @@ declare namespace update {
   }
 
   /**
-   * Represents event info.
+   * Describes event information.
    *
-   * @typedef EventInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1448,9 +1404,8 @@ declare namespace update {
    */
   export interface EventInfo {
     /**
-     * Event id
+     * Event ID.
      *
-     * @type { EventId }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1459,9 +1414,8 @@ declare namespace update {
     eventId: EventId;
 
     /**
-     * Task body info
+     * Task data.
      *
-     * @type { TaskBody }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1471,9 +1425,8 @@ declare namespace update {
   }
 
   /**
-   * Represents task body info.
+   * Represents task data.
    *
-   * @typedef TaskBody
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1481,9 +1434,8 @@ declare namespace update {
    */
   export interface TaskBody {
     /**
-     * Digest info of new version
+     * Version digest information.
      *
-     * @type { VersionDigestInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1492,9 +1444,8 @@ declare namespace update {
     versionDigestInfo: VersionDigestInfo;
 
     /**
-     * Upgrade status
+     * Update status.
      *
-     * @type { UpgradeStatus }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1503,9 +1454,8 @@ declare namespace update {
     status: UpgradeStatus;
 
     /**
-     * Upgrade sub status
+     * Sub-status.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1514,9 +1464,8 @@ declare namespace update {
     subStatus: int;
 
     /**
-     * Upgrade progress
+     * Progress.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1525,9 +1474,8 @@ declare namespace update {
     progress: int;
 
     /**
-     * Install mode
+     * Installation mode.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1536,9 +1484,8 @@ declare namespace update {
     installMode: int;
 
     /**
-     * Error messages
+     * Error message.
      *
-     * @type { Array<ErrorMessage> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1547,9 +1494,8 @@ declare namespace update {
     errorMessages: Array<ErrorMessage>;
 
     /**
-     * Version component array
+     * Version components.
      *
-     * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1559,9 +1505,8 @@ declare namespace update {
   }
 
   /**
-   * Represents error message.
+   * Represents an error message.
    *
-   * @typedef ErrorMessage
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1569,9 +1514,8 @@ declare namespace update {
    */
   export interface ErrorMessage {
     /**
-     * Error code
+     * Error code.
      *
-     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1580,9 +1524,8 @@ declare namespace update {
     errorCode: int;
 
     /**
-     * Error message
+     * Error message.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1592,9 +1535,8 @@ declare namespace update {
   }
 
   /**
-   * Represents event classify info.
+   * Describes event type information.
    *
-   * @typedef EventClassifyInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1602,9 +1544,8 @@ declare namespace update {
    */
   export interface EventClassifyInfo {
     /**
-     * Event classify
+     * Event type.
      *
-     * @type { EventClassify }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1613,9 +1554,8 @@ declare namespace update {
     eventClassify: EventClassify;
 
     /**
-     * Additional information
+     * Additional information.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1625,9 +1565,8 @@ declare namespace update {
   }
 
   /**
-   * Represents upgrade file info.
+   * Represents an update file.
    *
-   * @typedef UpgradeFile
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1635,9 +1574,8 @@ declare namespace update {
    */
   export interface UpgradeFile {
     /**
-     * Upgrade file type
+     * File type.
      *
-     * @type { ComponentType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1646,9 +1584,8 @@ declare namespace update {
     fileType: ComponentType;
 
     /**
-     * Upgrade file path
+     * File path.
      *
-     * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9 dynamic
@@ -1658,7 +1595,7 @@ declare namespace update {
   }
 
   /**
-   * Represents factory reset strategy.
+   * Describes the factory reset strategy.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1688,7 +1625,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates the factory reset scope.
+   * Describes the scope of restoring factory settings.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1697,7 +1634,7 @@ declare namespace update {
    */
   export enum FactoryResetScope {
     /**
-     * The factory reset scope is data.
+     * User data.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1707,7 +1644,7 @@ declare namespace update {
     DATA = 1,
 
     /**
-     * The factory reset scope includes data and the OS.
+     * User data and operating system.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1715,10 +1652,10 @@ declare namespace update {
      * @since 26.0.0 dynamic&static
      */
     DATA_AND_OS = 2
-  } 
+  }
 
   /**
-   * Represents factory reset info.
+   * Describes the information of restoring factory settings.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -1727,7 +1664,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * The duration of the factory reset.
+     * Duration required for restoring factory settings.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1738,32 +1675,21 @@ declare namespace update {
   }
 
   /**
-   * Called when upgrade task info changes.
-   * You need to implement this method in a child class.
+   * Represents an event callback.
    *
-   * @typedef UpgradeTaskCallback
+   * @typedef UpgradeTaskCallback [since 9 - 22]
+   * @typedef { function } UpgradeTaskCallback [since 23]
+   * @param { EventInfo } eventInfo - Event information. [since 23]
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
-   */
-  /**
-   * UpgradeTaskCallback change form interface to type.
-   * Called when upgrade task info changes.
-   * You need to implement this method in a child class.
-   *
-   * @typedef { function } UpgradeTaskCallback
-   * @param { EventInfo } eventInfo - Event information.
-   * @syscap SystemCapability.Update.UpdateService
-   * @systemapi hide for inner use.
-   * @since 23 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
 
   /**
-   * Enumerates business vendor type.
+   * Represents a device vendor.
    *
-   * @enum { string }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1771,7 +1697,7 @@ declare namespace update {
    */
   export enum BusinessVendor {
     /**
-     * Device vendor is open source.
+     * Open source.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1782,9 +1708,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates business sub type.
+   * Represents an update type.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1792,7 +1717,7 @@ declare namespace update {
    */
   export enum BusinessSubType {
     /**
-     * Business sub type is Firmware.
+     * Firmware.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1803,9 +1728,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates component type.
+   * Represents a component type.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1813,7 +1737,7 @@ declare namespace update {
    */
   export enum ComponentType {
     /**
-     * Component type is OTA.
+     * Firmware.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1824,9 +1748,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates upgrade action type.
+   * Enumerates update actions.
    *
-   * @enum { string }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1855,9 +1778,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates effective mode.
+   * Enumerates effective modes.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1896,9 +1818,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates ota mode.
+   * Enumerates the update modes.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 20 dynamic
@@ -1916,7 +1837,7 @@ declare namespace update {
     REGULAR_OTA = 0,
 
     /**
-     * Stream update.
+     * Streaming update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1926,7 +1847,7 @@ declare namespace update {
     STREAM_OTA = 1,
 
     /**
-     * AB regular update.
+     * Regular A/B update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1936,7 +1857,7 @@ declare namespace update {
     AB_REGULAR_OTA = 2,
 
     /**
-     * AB stream update.
+     * Streaming A/B update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1947,9 +1868,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates description type.
+   * Enumerates description file types.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1957,7 +1877,7 @@ declare namespace update {
    */
   export enum DescriptionType {
     /**
-     * Description type is content.
+     * Content.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1967,7 +1887,7 @@ declare namespace update {
     CONTENT = 0,
 
     /**
-     * Description type is link.
+     * Link.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1978,9 +1898,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates description format.
+   * Enumerates description file formats.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -1988,7 +1907,7 @@ declare namespace update {
    */
   export enum DescriptionFormat {
     /**
-     * Description format is standard format.
+     * Standard format.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1998,7 +1917,7 @@ declare namespace update {
     STANDARD = 0,
 
     /**
-     * Description format is Simple format.
+     * Simple format.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2009,9 +1928,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates network type.
+   * Enumerates network types.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -2019,7 +1937,7 @@ declare namespace update {
    */
   export enum NetType {
     /**
-     * Network type is data network.
+     * Data network.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2029,7 +1947,7 @@ declare namespace update {
     CELLULAR = 1,
 
     /**
-     * Network type is Wi-Fi hotspot.
+     * Wi-Fi hotspot.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2039,7 +1957,7 @@ declare namespace update {
     METERED_WIFI = 2,
 
     /**
-     * Network type is non Wi-Fi hotspot.
+     * Non Wi-Fi hotspot.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2049,7 +1967,7 @@ declare namespace update {
     NOT_METERED_WIFI = 4,
 
     /**
-     * Network type is Wi-Fi.
+     * Wi-Fi.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2059,7 +1977,7 @@ declare namespace update {
     WIFI = 6,
 
     /**
-     * Network type is data network and Wi-Fi.
+     * Data network and Wi-Fi.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2070,9 +1988,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates upgrade order.
+   * Enumerates update commands.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -2080,7 +1997,7 @@ declare namespace update {
    */
   export enum Order {
     /**
-     * Upgrade order is download.
+     * Download.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2090,7 +2007,7 @@ declare namespace update {
     DOWNLOAD = 1,
 
     /**
-     * Upgrade order is Install.
+     * Install.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2100,7 +2017,7 @@ declare namespace update {
     INSTALL = 2,
 
     /**
-     * Upgrade order is download and install.
+     * Download and install.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2110,7 +2027,7 @@ declare namespace update {
     DOWNLOAD_AND_INSTALL = 3,
 
     /**
-     * Upgrade order is apply.
+     * Apply.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2120,7 +2037,7 @@ declare namespace update {
     APPLY = 4,
 
     /**
-     * Upgrade order is install and apply.
+     * Install and apply.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2131,9 +2048,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates upgrade status.
+   * Enumerates update states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -2141,7 +2057,7 @@ declare namespace update {
    */
   export enum UpgradeStatus {
     /**
-     * Upgrade status is waiting for download.
+     * Waiting for download.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2151,7 +2067,7 @@ declare namespace update {
     WAITING_DOWNLOAD = 20,
 
     /**
-     * Upgrade status is downloading.
+     * Downloading.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2161,7 +2077,7 @@ declare namespace update {
     DOWNLOADING = 21,
 
     /**
-     * Upgrade status is download paused.
+     * Download paused.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2171,7 +2087,7 @@ declare namespace update {
     DOWNLOAD_PAUSED = 22,
 
     /**
-     * Upgrade status is download failed.
+     * Download failed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2181,7 +2097,7 @@ declare namespace update {
     DOWNLOAD_FAIL = 23,
 
     /**
-     * Upgrade status is waiting for installation.
+     * Waiting for installation.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2191,7 +2107,7 @@ declare namespace update {
     WAITING_INSTALL = 30,
 
     /**
-     * Upgrade status is upgrading.
+     * Updating.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2201,7 +2117,7 @@ declare namespace update {
     UPDATING = 31,
 
     /**
-     * Upgrade status is waiting for applying the update.
+     * Waiting for applying the update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2211,7 +2127,7 @@ declare namespace update {
     WAITING_APPLY = 40,
 
     /**
-     * Upgrade status is applying the update.
+     * Applying the update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2221,7 +2137,7 @@ declare namespace update {
     APPLYING = 41,
 
     /**
-     * Upgrade status is update succeeded.
+     * Update succeeded.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2231,7 +2147,7 @@ declare namespace update {
     UPGRADE_SUCCESS = 50,
 
     /**
-     * Upgrade status is update failed.
+     * Update failed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2242,9 +2158,8 @@ declare namespace update {
   }
 
   /**
-   * Enumerates event classify.
+   * Represents an event type.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -2252,7 +2167,7 @@ declare namespace update {
    */
   export enum EventClassify {
     /**
-     * Event classify is task event.
+     * Task event.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2265,7 +2180,6 @@ declare namespace update {
   /**
    * Enumerates event IDs.
    *
-   * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9 dynamic
@@ -2273,7 +2187,7 @@ declare namespace update {
    */
   export enum EventId {
     /**
-     * Event id is task event.
+     * Task event.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2283,7 +2197,7 @@ declare namespace update {
     EVENT_TASK_BASE = EventClassify.TASK,
 
     /**
-     * Event id is task received.
+     * Task received.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2293,7 +2207,7 @@ declare namespace update {
     EVENT_TASK_RECEIVE = 0x01000001,
 
     /**
-     * Event id is task cancelled.
+     * Task cancelled.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2303,7 +2217,7 @@ declare namespace update {
     EVENT_TASK_CANCEL = 0x01000002,
 
     /**
-     * Event id is waiting for download.
+     * Waiting for download.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2313,7 +2227,7 @@ declare namespace update {
     EVENT_DOWNLOAD_WAIT = 0x01000003,
 
     /**
-     * Event id is download started.
+     * Download started.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2323,7 +2237,7 @@ declare namespace update {
     EVENT_DOWNLOAD_START = 0x01000004,
 
     /**
-     * Event id is download progress update.
+     * Download progress update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2333,7 +2247,7 @@ declare namespace update {
     EVENT_DOWNLOAD_UPDATE = 0x01000005,
 
     /**
-     * Event id is download paused.
+     * Download paused.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2343,7 +2257,7 @@ declare namespace update {
     EVENT_DOWNLOAD_PAUSE = 0x01000006,
 
     /**
-     * Event id is download resumed.
+     * Download resumed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2353,7 +2267,7 @@ declare namespace update {
     EVENT_DOWNLOAD_RESUME = 0x01000007,
 
     /**
-     * Event id is download succeeded.
+     * Download succeeded.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2363,7 +2277,7 @@ declare namespace update {
     EVENT_DOWNLOAD_SUCCESS = 0x01000008,
 
     /**
-     * Event id is download failed.
+     * Download failed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2373,7 +2287,7 @@ declare namespace update {
     EVENT_DOWNLOAD_FAIL = 0x01000009,
 
     /**
-     * Event id is waiting for update.
+     * Waiting for update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2383,7 +2297,7 @@ declare namespace update {
     EVENT_UPGRADE_WAIT = 0x0100000a,
 
     /**
-     * Event id is update started.
+     * Update started.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2393,7 +2307,7 @@ declare namespace update {
     EVENT_UPGRADE_START = 0x0100000b,
 
     /**
-     * Event id is update in progress.
+     * Update in progress.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2403,7 +2317,7 @@ declare namespace update {
     EVENT_UPGRADE_UPDATE = 0x0100000c,
 
     /**
-     * Event id is waiting for applying the update.
+     * Waiting for applying the update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2413,7 +2327,7 @@ declare namespace update {
     EVENT_APPLY_WAIT = 0x0100000d,
 
     /**
-     * Event id is applying the update.
+     * Applying the update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2423,7 +2337,7 @@ declare namespace update {
     EVENT_APPLY_START = 0x0100000e,
 
     /**
-     * Event id is update succeeded.
+     * Update succeeded.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2433,7 +2347,7 @@ declare namespace update {
     EVENT_UPGRADE_SUCCESS = 0x0100000f,
 
     /**
-     * Event id is update failed.
+     * Update failed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

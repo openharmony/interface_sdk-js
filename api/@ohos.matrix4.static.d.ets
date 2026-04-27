@@ -24,6 +24,7 @@
  *
  * @namespace matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 declare namespace matrix4 {
@@ -33,6 +34,7 @@ declare namespace matrix4 {
      *
      * @interface TranslateOption
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface TranslateOption {
@@ -42,6 +44,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         x?: double;
@@ -51,6 +54,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         y?: double;
@@ -60,6 +64,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         z?: double;
@@ -70,6 +75,7 @@ declare namespace matrix4 {
      *
      * @interface ScaleOption
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface ScaleOption {
@@ -79,6 +85,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         x?: double;
@@ -89,6 +96,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         y?: double;
@@ -98,6 +106,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         z?: double;
@@ -108,6 +117,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         centerX?: double;
@@ -117,6 +127,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         centerY?: double;
@@ -127,6 +138,7 @@ declare namespace matrix4 {
      *
      * @interface RotateOption
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface RotateOption {
@@ -136,6 +148,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         x?: double;
@@ -145,6 +158,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         y?: double;
@@ -154,6 +168,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         z?: double;
@@ -163,6 +178,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         centerX?: double;
@@ -172,6 +188,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         centerY?: double;
@@ -181,6 +198,7 @@ declare namespace matrix4 {
          *
          * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         angle?: double;
@@ -190,6 +208,7 @@ declare namespace matrix4 {
      *
      * @interface Point
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface Point {
@@ -198,6 +217,7 @@ declare namespace matrix4 {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         x: double;
@@ -206,6 +226,7 @@ declare namespace matrix4 {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         y: double;
@@ -215,6 +236,7 @@ declare namespace matrix4 {
      *
      * @interface PolyToPolyOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface PolyToPolyOptions {
@@ -223,6 +245,7 @@ declare namespace matrix4 {
          *
          * @type { Array<Point> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         src: Array<Point>;
@@ -231,6 +254,7 @@ declare namespace matrix4 {
          * @type { ?int }
          * @default 0
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         srcIndex?: int;
@@ -239,6 +263,7 @@ declare namespace matrix4 {
          *
          * @type { Array<Point> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         dst: Array<Point>;
@@ -248,6 +273,7 @@ declare namespace matrix4 {
          * @type { ?int }
          * @default src.Length/2
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         dstIndex?: int;
@@ -259,6 +285,7 @@ declare namespace matrix4 {
          * @type { ?int }
          * @default 0
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         pointCount?: int;
@@ -270,6 +297,7 @@ declare namespace matrix4 {
      *
      * @interface Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface Matrix4Transit {
@@ -280,6 +308,7 @@ declare namespace matrix4 {
          *
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         copy(): Matrix4Transit;
@@ -291,6 +320,7 @@ declare namespace matrix4 {
          *
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         invert(): Matrix4Transit;
@@ -303,6 +333,7 @@ declare namespace matrix4 {
          * @param { Matrix4Transit } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         combine(options: Matrix4Transit): Matrix4Transit;
@@ -315,6 +346,7 @@ declare namespace matrix4 {
          * @param { TranslateOption } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         translate(options: TranslateOption): Matrix4Transit;
@@ -327,6 +359,7 @@ declare namespace matrix4 {
          * @param { ScaleOption } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         scale(options: ScaleOption): Matrix4Transit;
@@ -339,6 +372,7 @@ declare namespace matrix4 {
          * @param { double } y - the shear factor of y-axis.
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         skew(x: double, y: double): Matrix4Transit;
@@ -351,6 +385,7 @@ declare namespace matrix4 {
          * @param { RotateOption } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         rotate(options: RotateOption): Matrix4Transit;
@@ -363,6 +398,7 @@ declare namespace matrix4 {
          * @param { [double, double] } options
          * @returns { [double, double] } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         transformPoint(options: [
@@ -378,6 +414,7 @@ declare namespace matrix4 {
          * @param { PolyToPolyOptions } options - polyToPoly options
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit;
@@ -415,6 +452,7 @@ declare namespace matrix4 {
      * m33 { double } -It takes effect in homogeneous coordinates to produce a perspective projection effect.
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     function init(options: [
@@ -442,6 +480,7 @@ declare namespace matrix4 {
      *
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     function identity(): Matrix4Transit;

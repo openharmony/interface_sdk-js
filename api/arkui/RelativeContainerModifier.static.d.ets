@@ -26,6 +26,7 @@ import { RelativeContainerAttribute } from '@ohos.arkui.component';
  *
  * @implements RelativeContainerAttribute, AttributeModifier<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 */
 export declare class RelativeContainerModifier implements RelativeContainerAttribute,

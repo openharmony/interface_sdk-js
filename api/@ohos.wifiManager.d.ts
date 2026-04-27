@@ -4600,6 +4600,15 @@ declare namespace wifiManager {
      * @since 23 static
      */
     wifiLinkType?: WifiLinkType;
+
+    /**
+     * Whether Wi-Fi Tx and Rx are both working properly
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    wifiTxRxValid?: boolean;
   }
 
   /**
@@ -5628,6 +5637,17 @@ declare namespace wifiManager {
    * @since 26.0.0 dynamic&static
    */
   function getWifiCapability(capability: WifiCapability): boolean;
+
+  /**
+   * Query whether Wi-Fi is available
+   *
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is abailable, returns {@code false} otherwise.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isWlanSupported(): boolean;
 }
 
 export default wifiManager;

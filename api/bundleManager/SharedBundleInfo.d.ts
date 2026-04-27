@@ -18,7 +18,6 @@
  * @kit AbilityKit
  */
 
-import { Dependency } from './HapModuleInfo';
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
