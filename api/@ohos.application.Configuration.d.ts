@@ -21,15 +21,8 @@
 import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
 
 /**
- * The module defines environment change information. Configuration is an interface definition and is used only for 
+ * The module defines environment change information. Configuration is an interface definition and is used only for
  * field declaration.
- * 
- * > **NOTE**
- * 
- * 
- * > This module is deprecated since API version 9. You are advised to use 
- * > > [@ohos.app.ability.Configuration]{@link @ohos.app.ability.Configuration:Configuration}
- * > >  instead.
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
@@ -38,7 +31,7 @@ import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
  */
 export interface Configuration {
   /**
-   * 	Language of the application, for example, **zh**.
+   * Language of the application, for example, **zh**.
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8

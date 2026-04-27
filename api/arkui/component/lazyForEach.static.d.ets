@@ -26,6 +26,7 @@ import { DynamicNode } from './common';
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export enum DataOperationType {
@@ -33,6 +34,7 @@ export enum DataOperationType {
      * Add data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ADD = 'add',
@@ -40,6 +42,7 @@ export enum DataOperationType {
      * Delete data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DELETE = 'delete',
@@ -47,6 +50,7 @@ export enum DataOperationType {
      * Exchange data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     EXCHANGE = 'exchange',
@@ -54,6 +58,7 @@ export enum DataOperationType {
      * Move data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     MOVE = 'move',
@@ -61,6 +66,7 @@ export enum DataOperationType {
      * Change data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     CHANGE = 'change',
@@ -68,6 +74,7 @@ export enum DataOperationType {
      * Reload data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RELOAD = 'reload'
@@ -174,6 +181,7 @@ export interface LazyForEachOptions {
  *
  * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataAddOperation {
@@ -182,6 +190,7 @@ export interface DataAddOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: DataOperationType;
@@ -190,6 +199,7 @@ export interface DataAddOperation {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: int;
@@ -200,6 +210,7 @@ export interface DataAddOperation {
      * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     count?: int;
@@ -208,6 +219,7 @@ export interface DataAddOperation {
      *
      * @type { ?(string | Array<string>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     key?: string | Array<string>;
@@ -218,6 +230,7 @@ export interface DataAddOperation {
  *
  * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataDeleteOperation {
@@ -226,6 +239,7 @@ export interface DataDeleteOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: DataOperationType;
@@ -234,6 +248,7 @@ export interface DataDeleteOperation {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: int;
@@ -244,6 +259,7 @@ export interface DataDeleteOperation {
      * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     count?: int;
@@ -254,6 +270,7 @@ export interface DataDeleteOperation {
  *
  * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataChangeOperation {
@@ -262,6 +279,7 @@ export interface DataChangeOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: DataOperationType;
@@ -270,6 +288,7 @@ export interface DataChangeOperation {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: int;
@@ -278,6 +297,7 @@ export interface DataChangeOperation {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     key?: string;
@@ -288,6 +308,7 @@ export interface DataChangeOperation {
  *
  * @interface MoveIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface MoveIndex {
@@ -296,6 +317,7 @@ export interface MoveIndex {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     from: int;
@@ -304,6 +326,7 @@ export interface MoveIndex {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     to: int;
@@ -314,6 +337,7 @@ export interface MoveIndex {
  *
  * @interface ExchangeIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ExchangeIndex {
@@ -322,6 +346,7 @@ export interface ExchangeIndex {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     start: int;
@@ -330,6 +355,7 @@ export interface ExchangeIndex {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     end: int;
@@ -340,6 +366,7 @@ export interface ExchangeIndex {
  *
  * @interface ExchangeKey
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ExchangeKey {
@@ -348,6 +375,7 @@ export interface ExchangeKey {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     start: string;
@@ -356,6 +384,7 @@ export interface ExchangeKey {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     end: string;
@@ -366,6 +395,7 @@ export interface ExchangeKey {
  *
  * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataMoveOperation {
@@ -374,6 +404,7 @@ export interface DataMoveOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: DataOperationType;
@@ -382,6 +413,7 @@ export interface DataMoveOperation {
      *
      * @type { MoveIndex }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: MoveIndex;
@@ -390,6 +422,7 @@ export interface DataMoveOperation {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     key?: string;
@@ -400,6 +433,7 @@ export interface DataMoveOperation {
  *
  * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataExchangeOperation {
@@ -408,6 +442,7 @@ export interface DataExchangeOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: DataOperationType;
@@ -416,6 +451,7 @@ export interface DataExchangeOperation {
      *
      * @type { ExchangeIndex }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: ExchangeIndex;
@@ -424,6 +460,7 @@ export interface DataExchangeOperation {
      *
      * @type { ?ExchangeKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     key?: ExchangeKey;
@@ -434,6 +471,7 @@ export interface DataExchangeOperation {
  *
  * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataReloadOperation {
@@ -442,6 +480,7 @@ export interface DataReloadOperation {
      *
      * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     type: DataOperationType;
@@ -453,6 +492,7 @@ export interface DataReloadOperation {
  * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation
  *  | DataReloadOperation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation |
@@ -463,6 +503,7 @@ export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeO
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface DataChangeListener {
@@ -470,6 +511,7 @@ export interface DataChangeListener {
      * Data ready.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataReloaded(): void;
@@ -478,6 +520,7 @@ export interface DataChangeListener {
      *
      * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataAdd(index: int): void;
@@ -487,6 +530,7 @@ export interface DataChangeListener {
      * @param { int } from
      * @param { int } to
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataMove(from: int, to: int): void;
@@ -495,6 +539,7 @@ export interface DataChangeListener {
      *
      * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataDelete(index: int): void;
@@ -523,6 +568,7 @@ export interface DataChangeListener {
  *
  * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface IDataSource<T> {
@@ -531,6 +577,7 @@ export interface IDataSource<T> {
      *
      * @returns { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     totalCount(): int;
@@ -540,6 +587,7 @@ export interface IDataSource<T> {
      * @param { int } index
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getData(index: int): T;
@@ -548,6 +596,7 @@ export interface IDataSource<T> {
      *
      * @param { DataChangeListener } listener
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     registerDataChangeListener(listener: DataChangeListener): void;
@@ -556,6 +605,7 @@ export interface IDataSource<T> {
      *
      * @param { DataChangeListener } listener
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     unregisterDataChangeListener(listener: DataChangeListener): void;
@@ -567,6 +617,7 @@ export interface IDataSource<T> {
  * @extends DynamicNode
  * @interface LazyForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -590,6 +641,7 @@ export interface LazyForEachAttribute extends DynamicNode {
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Builder
@@ -603,6 +655,7 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
  * @param { int } index - index corresponding to an array item.
  * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;

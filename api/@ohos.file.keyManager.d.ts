@@ -31,7 +31,7 @@
  */
 declare namespace keyManager {
   /**
-   * Uninstalls the specified user key synchronously when the screen is locked.
+   * When the screen is locked, the specified user key is uninstalled synchronously.
    * **(Currently, this API is available only to lock screen applications.)**
    *
    * @permission ohos.permission.STORAGE_MANAGER_CRYPT

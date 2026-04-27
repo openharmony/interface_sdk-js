@@ -196,7 +196,16 @@ declare namespace adminManager {
      * @stagemodelonly
      * @since 26.0.0
      */
-    MANAGED_EVENT_BUNDLE_UPDATED = 10
+    MANAGED_EVENT_BUNDLE_UPDATED = 10,
+
+    /**
+     * Event indicating that enterprise device management policies changed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MANAGED_EVENT_POLICIES_CHANGED = 11
   }
 
   /**

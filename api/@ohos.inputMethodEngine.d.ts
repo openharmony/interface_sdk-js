@@ -3176,6 +3176,105 @@ declare namespace inputMethodEngine {
     adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
 
     /**
+     * Update the panel rectangle. This API uses a promise to return the result.
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
+     * > state.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
+     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     *
+     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
+     * @param { PanelRect } rect - Landscape rectangle and portrait rectangle of the target panel. For the panel of the
+     * fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
+     * For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
+     * the screen width.
+     * @returns { Promise<void>> } Promise that returns no value.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    updatePanelRect(flag: PanelFlag, rect: PanelRect): Promise<void>;
+
+    /**
+     * Update the panel rectangle, and customizes the avoid area and touch area. This API
+     * uses a promise to return the result.
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
+     * > state. This API is compatible with
+     * > [updatePanelRect]{@link inputMethodEngine.Panel.updatePanelRect(flag: PanelFlag, rect: PanelRect)}.
+     * > If the input parameter **rect** contains only the **landscapeRect** and **portraitRect** attributes,
+     * > [updatePanelRect]{@link inputMethodEngine.Panel.updatePanelRect(flag: PanelFlag, rect: PanelRect)}
+     * > is called by default.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
+     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     *
+     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
+     * @param { EnhancedPanelRect } rect - The target panel rectangle, avoid area, and touch area.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    updatePanelRect(flag: PanelFlag, rect: EnhancedPanelRect): Promise<void>;
+
+    /**
+     * Update the panel rectangle.
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
+     * > state.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
+     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     *
+     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
+     * @param { PanelRect } rect - Landscape rectangle and portrait rectangle of the target panel. For the panel of the
+     *     fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
+     *     For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
+     *     the screen width.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    updatePanelRectSync(flag: PanelFlag, rect: PanelRect): void;
+
+    /**
+     * Update the panel rectangle, and customizes the avoid area and touch area.
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
+     * > state. This API is compatible with
+     * > [updatePanelRectSync]{@link inputMethodEngine.Panel.updatePanelRectSync(flag: PanelFlag, rect: PanelRect)}.
+     * > If the input parameter **rect** contains only the **landscapeRect** and **portraitRect** attributes,
+     * > [updatePanelRectSync]{@link inputMethodEngine.Panel.updatePanelRectSync(flag: PanelFlag, rect: PanelRect)}
+     * > is called by default.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
+     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     *
+     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
+     * @param { EnhancedPanelRect } rect - The target panel rectangle, avoid area, and touch area.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    updatePanelRectSync(flag: PanelFlag, rect: EnhancedPanelRect): void;
+
+    /**
      * Updates the hot zone on the input method panel in the current state.
      * 
      * > **NOTE**

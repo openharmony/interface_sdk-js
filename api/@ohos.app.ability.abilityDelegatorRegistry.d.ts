@@ -26,21 +26,15 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
 import { InteropAbilityMonitor as _InteropAbilityMonitor } from './application/InteropAbilityMonitor';
 
 /**
- * **AbilityDelegatorRegistry**, a module of the automatic test framework, is used to obtain 
- * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} and 
- * [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} objects. **AbilityDelegator** 
- * provides APIs for creating [AbilityMonitor]{@link application/AbilityMonitor:AbilityMonitor} objects, which can be 
+ * **AbilityDelegatorRegistry**, a module of the automatic test framework, is used to obtain
+ * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} and
+ * [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} objects. **AbilityDelegator**
+ * provides APIs for creating [AbilityMonitor]{@link application/AbilityMonitor:AbilityMonitor} objects, which can be
  * used to listen for ability lifecycle changes. **AbilityDelegatorArgs** provides APIs for obtaining test parameters.
- * 
-* > **NOTE**
- * 
- * >The APIs of this module can be used only in 
+ *
+ * > **NOTE**
  * >
- * >
- * > [JsUnit](docroot://application-test/unittest-guidelines.md)
- * >
- * >
- * > .
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 10]
@@ -52,7 +46,7 @@ declare namespace abilityDelegatorRegistry {
   /**
    * Obtains an [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object.
    *
-   * @returns { AbilityDelegator } [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object, which can 
+   * @returns { AbilityDelegator } [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object, which can
    *     be used to schedule the functionalities of the test framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
@@ -65,7 +59,7 @@ declare namespace abilityDelegatorRegistry {
   /**
    * Obtains an [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} object.
    *
-   * @returns { AbilityDelegatorArgs } [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} 
+   * @returns { AbilityDelegatorArgs } [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}
    *     object, which can be used to obtain test parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
@@ -76,9 +70,9 @@ declare namespace abilityDelegatorRegistry {
   function getArguments(): AbilityDelegatorArgs;
 
   /**
-   * Enumerates the ability lifecycle states. It can be used in 
-   * [getAbilityState(ability)]{@link application/AbilityDelegator:AbilityDelegator.getAbilityState} of 
-   * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} to return different ability lifecycle 
+   * Enumerates the ability lifecycle states. It can be used in
+   * [getAbilityState(ability)]{@link application/AbilityDelegator:AbilityDelegator.getAbilityState} of
+   * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} to return different ability lifecycle
    * states.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -97,10 +91,10 @@ declare namespace abilityDelegatorRegistry {
      * @since 9 dynamic
      * @since 23 static
      */
-    UNINITIALIZED,
+    UNINITIALIZED = 0,
 
     /**
-     * 	The ability is created.
+     * The ability is created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -108,10 +102,10 @@ declare namespace abilityDelegatorRegistry {
      * @since 9 dynamic
      * @since 23 static
      */
-    CREATE,
+    CREATE = 1,
 
     /**
-     * 	The ability is running in the foreground.
+     * The ability is running in the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 10]
@@ -119,7 +113,7 @@ declare namespace abilityDelegatorRegistry {
      * @since 9 dynamic
      * @since 23 static
      */
-    FOREGROUND,
+    FOREGROUND = 2,
 
     /**
      * The ability is running in the background.
@@ -130,7 +124,7 @@ declare namespace abilityDelegatorRegistry {
      * @since 9 dynamic
      * @since 23 static
      */
-    BACKGROUND,
+    BACKGROUND = 3,
 
     /**
      * The ability is destroyed.
@@ -141,7 +135,7 @@ declare namespace abilityDelegatorRegistry {
      * @since 9 dynamic
      * @since 23 static
      */
-    DESTROY
+    DESTROY = 4
   }
 
   /**
@@ -180,7 +174,7 @@ declare namespace abilityDelegatorRegistry {
   /**
    * Provide methods for matching monitored Ability objects that meet specified conditions.
    * The most recently matched Ability objects will be saved in the InteropAbilityMonitor object.
-   * 
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

@@ -27,6 +27,7 @@ import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SubMenuExpandingMode {
@@ -34,6 +35,7 @@ export declare enum SubMenuExpandingMode {
      * Sub-menu will expand besides main menu
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     SIDE_EXPAND = 0,
@@ -41,6 +43,7 @@ export declare enum SubMenuExpandingMode {
      * Sub-menu will expand embedded in main menu
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     EMBEDDED_EXPAND = 1,
@@ -48,6 +51,7 @@ export declare enum SubMenuExpandingMode {
      * Sub-menu will expand over main menu
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     STACK_EXPAND = 2
@@ -59,6 +63,7 @@ export declare enum SubMenuExpandingMode {
  * @extends CommonMethod
  * @interface MenuAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface MenuAttribute extends CommonMethod {
@@ -69,6 +74,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { Font | undefined } value - Indicates the font style of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default font(value: Font | undefined): this;
@@ -78,6 +84,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - Indicates the font color of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
@@ -88,6 +95,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { Dimension | BorderRadiuses | undefined } value - the border radius.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default radius(value: Dimension | BorderRadiuses | undefined): this;
@@ -97,6 +105,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { DividerStyleOptions | undefined } options
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default menuItemDivider(options: DividerStyleOptions | undefined): this;
@@ -106,6 +115,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { DividerStyleOptions | undefined } options
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default menuItemGroupDivider(options: DividerStyleOptions | undefined): this;
@@ -115,6 +125,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { SubMenuExpandingMode | undefined } mode
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
@@ -135,6 +146,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @param { AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(
@@ -147,6 +159,7 @@ export declare interface MenuAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { MenuAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

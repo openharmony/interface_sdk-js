@@ -23,11 +23,11 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * User defined data. When the modal window of AutoFillExtension needs to be raised again,
- * pass this parameter to the application framework and bring it back to the developer through FillRequest.
- * customData when triggering the lifecycle of OnfillRequest for AutoFillExtensionAbility.
+ * When starting a modal page, you can transfer custom data to the autofill service through 
+ * [reloadInModal]{@link AutoFillExtensionContext:AutoFillExtensionContext.reloadInModal} and obtain the data through 
+ * [onFillRequest]{@link ./../@ohos.app.ability.AutoFillExtensionAbility:AutoFillExtensionAbility.onFillRequest} of the 
+ * service.
  *
- * @typedef CustomData
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
@@ -36,10 +36,8 @@ import { RecordData } from '../@ohos.base';
  */
 export default interface CustomData {
     /**
-     * User defined data. When the modal window of AutoFillExtension needs to be raised again,
-     * pass this parameter to the application framework.
+     * Custom data transferred for starting the modal page. The data is of the Record type.
      *
-     * @type { Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
@@ -51,7 +49,6 @@ export default interface CustomData {
      * User defined data. When the modal window of AutoFillExtension needs to be raised again,
      * pass this parameter to the application framework.
      *
-     * @type { Record<string, RecordData> }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly

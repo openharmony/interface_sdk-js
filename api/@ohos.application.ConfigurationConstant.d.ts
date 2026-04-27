@@ -20,12 +20,6 @@
 
 /**
  * The ConfigurationConstant module provides the enumerated values of the environment configuration information.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.ConfigurationConstant]{@link @ohos.app.ability.ConfigurationConstant:ConfigurationConstant}
- * > instead. Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8

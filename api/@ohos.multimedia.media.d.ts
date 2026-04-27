@@ -339,8 +339,7 @@ declare namespace media {
     id?: string;
 
     /**
-     * The classification label of the time base metadata,
-     * For example, "com.apple.hls.interstitial", indicates an advertisement.
+     * The classification label of the time base metadata.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -2072,8 +2071,9 @@ declare namespace media {
    */
   interface PixelMapParams {
     /**
-     * Width of the thumbnail. The value must be greater than 0 and less than or equal to the width of the original
-     * video. Otherwise, the returned thumbnail will not be scaled.
+     * Width of the thumbnail. Unit: px.
+     * The value must be greater than 0 and less than or equal to the width of the original video.
+     * Otherwise, the returned thumbnail will not be scaled.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
@@ -2082,8 +2082,9 @@ declare namespace media {
     width?: int;
 
     /**
-     * Height of the thumbnail. The value must be greater than 0 and less than or equal to the height of the original
-     * video. Otherwise, the returned thumbnail will not be scaled.
+     * Height of the thumbnail. Unit: px.
+     * The value must be greater than 0 and less than or equal to the height of the original video.
+     * Otherwise, the returned thumbnail will not be scaled.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
@@ -3691,7 +3692,7 @@ declare namespace media {
      * calling resourceManager.getRawFd.
      * The caller is responsible to close the file descriptor.
      * @param { long } offset : The offset into the file where the data to be read, in bytes.
-     * By default, the offset is zero.
+     * By default, the offset is zero.unit:Byte.
      * @param { long } length : The length in bytes of the data to be read.
      * By default, the length is the rest of bytes in the file from the offset.
      * @returns { Promise<void> } Promise used to return the result.
@@ -7836,6 +7837,24 @@ declare namespace media {
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
 
     /**
+     * add a watermark for the AVRecorder. This API uses a promise to return the result.
+     * App can add up to 5 watermarks.
+     * This API can be called only before the prepared state.
+     *
+     * @param { image.PixelMap } watermark - : Watermark image.
+     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
+     * @returns { Promise<int> } Promise that returns the watermark id.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
+  
+    /**
      * Sets custom metadata for the recording file of AVRecorder.
      *
      * This API can be called only after the prepare() event is successfully triggered and
@@ -9053,6 +9072,54 @@ declare namespace media {
      * @since 23 static
      */
     left: int;
+  }
+
+  
+  /**
+   * Set configuration of a watermark. The position starts at top left corner.
+   *
+   * @typedef WatermarkConfiguration
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface WatermarkConfiguration {  
+    /**
+     * Offset of the watermark to the top line of pixel
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    top: int;
+    /**
+     * Offset of the watermark to the left line of pixel
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    left: int;
+    /**
+     * target width of the watermark in pixel
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    width?: int;
+    /**
+     * target height of the watermark in pixel
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    height?: int;
   }
 
   /**
@@ -11440,7 +11507,7 @@ declare namespace media {
    */
   interface AVRecorderProfile {
     /**
-     * Indicates the audio bitrate.
+     * Indicates the audio bitrate, in bit/s.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -11551,12 +11618,12 @@ declare namespace media {
     fileFormat: ContainerFormatType;
 
     /**
-     * Indicates the video bitrate.
+     * Indicates the video bitrate, in bit/s.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
     /**
-     * Video encoding bit rate. This parameter is mandatory for video recording. The value range is [10000 - 100000000].
+     * Video encoding bit rate. This parameter is mandatory for video recording. The value range is [10000 - 100000000], in bit/s.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -11581,7 +11648,7 @@ declare namespace media {
     videoCodec?: CodecMimeType;
 
     /**
-     * Indicates the video width.
+     * Indicates the video width, in px.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -11596,7 +11663,7 @@ declare namespace media {
     videoFrameWidth?: int;
 
     /**
-     * Indicates the video height.
+     * Indicates the video height, in px.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -11611,7 +11678,7 @@ declare namespace media {
     videoFrameHeight?: int;
 
     /**
-     * Indicates the video frame rate.
+     * Indicates the video frame rate, in fps.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -12465,7 +12532,7 @@ declare namespace media {
      */
     videoBitrate?: int;
     /**
-     * Audio sampling rate. This value is used for both internal capture and external capture (using microphones).
+     * Audio sampling rate. This value is used for both internal capture and external capture (using microphones), in Hz.
      * Only **48000** (default value) and **16000** are supported.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -13384,7 +13451,7 @@ declare namespace media {
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
      *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress, in percentage.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
@@ -13394,7 +13461,7 @@ declare namespace media {
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
      *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress, in percentage.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
@@ -13504,7 +13571,7 @@ declare namespace media {
      * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress, in percentage.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */

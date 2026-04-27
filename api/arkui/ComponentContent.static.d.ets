@@ -41,6 +41,7 @@ export abstract class ComponentContentBase extends Content {
  *
  * @extends ComponentContentBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ComponentContent<T = undefined> extends ComponentContentBase {
@@ -51,6 +52,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @param { WrappedBuilder<CustomBuilder> } builder - Defines the builder
    *     that will be called to build ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilder>);
@@ -64,6 +66,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilderT<T>>, args: T);
@@ -78,6 +81,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @param { T } args - Parameters used to update the ComponentContent.
    * @param { BuildOptions } options - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilderT<T>>, args: T, options: BuildOptions);
@@ -89,6 +93,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @param { T } args - Parameters used to update the ComponentContent, which must match the types required by the
    * builder bound to the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   update(args: T): void;
@@ -98,6 +103,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    *
    * @param { RecordData } [param] - Parameters for reusing ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   reuse(param?: RecordData): void;
@@ -106,6 +112,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Recycle the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   recycle(): void;
@@ -114,6 +121,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Dispose the ComponentContent immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   dispose(): void;
@@ -123,6 +131,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    *
    * @returns { boolean } - Returns true if the ComponentContent is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   isDisposed(): boolean;
@@ -131,6 +140,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Notify ComponentContent to update the configuration to trigger a reload of the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   updateConfiguration(): void;
@@ -142,6 +152,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   * @returns { boolean } - Returns true if the ComponentContent was converted between dynamic and static states,
   * otherwise returns false.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 24 static
   */
   isTransferred(): boolean;
@@ -152,6 +163,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
  *
  * @extends ComponentContentBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 24 static
  */
 export declare class ReactiveComponentContent extends ComponentContentBase {
@@ -162,6 +174,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * @param { CustomBuilder } builder - Defines the builder that will be called to build ReactiveComponentContent.
    * @param { BuildOptions } [options] - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
     constructor(uiContext: UIContext, builder: CustomBuilder, options?: BuildOptions);
@@ -176,6 +189,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *     default value is undefined, in which case the custom components in the ReactiveComponentContent will
    *     directly use the data source from the construction phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   reuse(param?: RecordData): void;
@@ -184,6 +198,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * Recycle the ReactiveComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   recycle(): void;
@@ -192,6 +207,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * Dispose the ReactiveComponentContent immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   dispose(): void;
@@ -200,6 +216,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * Get if the ReactiveComponentContent is disposed.
    * @returns { boolean } - Returns true if the ReactiveComponentContent is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   isDisposed(): boolean;
@@ -208,6 +225,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * Notify ReactiveComponentContent to update the configuration to trigger a reload of the ReactiveComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   updateConfiguration(): void;
@@ -217,6 +235,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * This forces a synchronous update of the component with the latest state values.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   flushState(): void;
@@ -228,6 +247,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * @returns { boolean } - Returns true if the ReactiveComponentContent was converted between dynamic and static
    *     states, otherwise, returns false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   isTransferred(): boolean;

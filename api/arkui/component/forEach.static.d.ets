@@ -28,6 +28,7 @@ import { DynamicNode } from './common'
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 staticonly
  */
 @Builder
@@ -41,6 +42,7 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
  * @param { int } index - index corresponding to an array item.
  * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 staticonly
  */
 declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
@@ -50,6 +52,7 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
  *
  * @interface ForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

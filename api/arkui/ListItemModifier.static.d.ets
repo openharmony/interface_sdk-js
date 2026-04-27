@@ -28,6 +28,7 @@ import { ListItemAttribute } from '@ohos.arkui.component';
  *
  * @implements { ListItemAttribute, AttributeModifier<ListItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 */
 export declare class ListItemModifier implements ListItemAttribute, AttributeModifier<ListItemAttribute> {}

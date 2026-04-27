@@ -24,56 +24,38 @@ import { AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 
 /**
  * A picker view to show available streaming device list.
+ *
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @since 10
- */
- /**
- * A picker view to show available streaming device list.
- * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 10 dynamic
  */
 @Component
 declare struct AVCastPicker {
   /**
    * Assigns the color of picker component at normal state .
-   * @type { ? Color | number | string }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Assigns the color of picker component at normal state .
-   * @type { ? Color | number | string }
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   @Prop
   normalColor?: Color | number | string;
 
   /**
    * Assigns the color of picker component at active state.
-   * @type { ? Color | number | string }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Assigns the color of picker component at active state.
-   * @type { ? Color | number | string }
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   @Prop
   activeColor?: Color | number | string;
 
   /**
    * Set the picker style.
-   * @type { ? AVCastPickerStyle }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 12 dynamic
@@ -83,7 +65,7 @@ declare struct AVCastPicker {
 
   /**
    * Set the picker color mode.
-   * @type { ? AVCastPickerColorMode }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 12 dynamic
@@ -94,7 +76,7 @@ declare struct AVCastPicker {
   /**
    * Set the session type used by current picker component which can refer to AVSessionType in avSession.
    * If not set, default value is 'audio'.
-   * @type { ? string }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 12 dynamic
@@ -105,7 +87,7 @@ declare struct AVCastPicker {
   /**
    * Set the custom builder for the picker appearance.
    * If not set, system will show the default appearance for different device type.
-   * @type { ? CustomBuilder }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 12 dynamic
@@ -115,18 +97,11 @@ declare struct AVCastPicker {
 
   /**
    * Picker state change callback.
-   * @type { ?function }
+   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Picker state change callback.
-   * @type { ?function }
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onStateChange?: (state: AVCastPickerState) => void;
 }

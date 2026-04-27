@@ -25,15 +25,8 @@ import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundle/elementName';
 
 /**
- * The AbilityManager module provides APIs for obtaining, adding, and modifying ability running information and state 
+ * The AbilityManager module provides APIs for obtaining, adding, and modifying ability running information and state
  * information.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.abilityManager]{@link @ohos.app.ability.abilityManager:abilityManager} instead. Newly added 
- * > APIs will be marked with a superscript to indicate their earliest API version. 
- * > > The APIs of this module are system APIs and cannot be called by third-party applications.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -113,7 +106,7 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { Configuration } config - New configuration.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the configuration is updated, **err** 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the configuration is updated, **err**
    *     is undefined; otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

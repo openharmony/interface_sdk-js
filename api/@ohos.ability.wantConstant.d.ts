@@ -20,12 +20,6 @@
 
 /**
  * The module provides the actions, entities, and flags used in Want objects.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 6 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.wantConstant]{@link @ohos.app.ability.wantConstant:wantConstant} instead. Newly added APIs 
- * > will be marked with a superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 6
@@ -278,7 +272,7 @@ declare namespace wantConstant {
   }
 
   /**
-   * Enumerates the entity constants of the Want object. **entity** specifies additional information of the target 
+   * Enumerates the entity constants of the Want object. **entity** specifies additional information of the target
    * ability.
    *
    * @syscap SystemCapability.Ability.AbilityBase
@@ -465,7 +459,7 @@ declare namespace wantConstant {
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 
     /**
-     * Clears other operation missions. This flag can be set for the Want passed in 
+     * Clears other operation missions. This flag can be set for the Want passed in
      * [startAbility]{@link @ohos.ability.featureAbility:featureAbility.startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>)}
      * . It must be used together with **FLAG_ABILITY_NEW_MISSION**.
      *
@@ -485,7 +479,7 @@ declare namespace wantConstant {
     FLAG_ABILITY_NEW_MISSION = 0x10000000,
 
     /**
-     * Reuses an ability instance if it is on the top of an existing mission stack; creates an ability instance 
+     * Reuses an ability instance if it is on the top of an existing mission stack; creates an ability instance
      * otherwise.
      *
      * @syscap SystemCapability.Ability.AbilityBase

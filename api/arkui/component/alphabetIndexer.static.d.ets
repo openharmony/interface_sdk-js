@@ -29,6 +29,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum IndexerAlign {
@@ -36,6 +37,7 @@ export declare enum IndexerAlign {
      * A dialog box is displayed on the right of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Left,
@@ -43,6 +45,7 @@ export declare enum IndexerAlign {
      * A dialog box is displayed on the left of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Right,
@@ -50,6 +53,7 @@ export declare enum IndexerAlign {
      * A dialog box is displayed on the start of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     START,
@@ -57,6 +61,7 @@ export declare enum IndexerAlign {
      * A dialog box is displayed on the end of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     END
@@ -66,6 +71,7 @@ export declare enum IndexerAlign {
  *
  * @interface AlphabetIndexerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -76,6 +82,7 @@ export interface AlphabetIndexerOptions {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     arrayValue: Array<string>;
@@ -84,6 +91,7 @@ export interface AlphabetIndexerOptions {
      *
      * @type { int | Bindable<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     selected: int | Bindable<int>;
@@ -94,6 +102,7 @@ export interface AlphabetIndexerOptions {
  * @typedef { function } OnAlphabetIndexerSelectCallback
  * @param { int } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -104,6 +113,7 @@ export type OnAlphabetIndexerSelectCallback = (index: int) => void;
  * @typedef { function } OnAlphabetIndexerPopupSelectCallback
  * @param { int } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -115,6 +125,7 @@ export type OnAlphabetIndexerPopupSelectCallback = (index: int) => void;
  * @param { int } index - selected index
  * @returns { Array<string> } string array corresponding to the index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -126,6 +137,7 @@ export type OnAlphabetIndexerRequestPopupDataCallback = (index: int) => Array<st
  * @extends CommonMethod
  * @interface AlphabetIndexerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface AlphabetIndexerAttribute extends CommonMethod {
@@ -135,6 +147,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
@@ -144,6 +157,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selectedColor(value: ResourceColor | undefined): this;
@@ -153,6 +167,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupColor(value: ResourceColor | undefined): this;
@@ -162,6 +177,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selectedBackgroundColor(value: ResourceColor | undefined): this;
@@ -171,6 +187,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupBackground(value: ResourceColor | undefined): this;
@@ -180,6 +197,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value - indicates the color of the selected font.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupSelectedColor(value: ResourceColor | undefined): this;
@@ -189,6 +207,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value - indicates the color of the unselected font.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupUnselectedColor(value: ResourceColor | undefined): this;
@@ -198,6 +217,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value - indicates the color of background.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupItemBackgroundColor(value: ResourceColor | undefined): this;
@@ -207,6 +227,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { boolean } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default usingPopup(value: boolean | undefined): this;
@@ -216,6 +237,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Font } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selectedFont(value: Font | undefined): this;
@@ -225,6 +247,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Font } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupFont(value: Font | undefined): this;
@@ -235,6 +258,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Font } value - indicates the style of the font.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupItemFont(value: Font | undefined): this;
@@ -244,6 +268,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { string | double } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default itemSize(value: string | double | undefined): this;
@@ -253,6 +278,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Font } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default font(value: Font | undefined): this;
@@ -264,6 +290,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default alignStyle(value: IndexerAlign | undefined, offset?: Length | undefined): this;
@@ -274,6 +301,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { OnAlphabetIndexerSelectCallback } callback
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onSelect(callback: OnAlphabetIndexerSelectCallback | undefined): this;
@@ -284,6 +312,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback | undefined): this;
@@ -294,6 +323,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { OnAlphabetIndexerPopupSelectCallback } callback
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback | undefined): this;
@@ -303,6 +333,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { int | Bindable<int> } index
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selected(index: int | Bindable<int> | undefined): this;
@@ -312,6 +343,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Position } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupPosition(value: Position | undefined): this;
@@ -321,6 +353,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default autoCollapse(value: boolean | undefined): this;
@@ -330,6 +363,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { double } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupItemBorderRadius(value: double | undefined): this;
@@ -340,6 +374,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      *     undefined means setting to default value.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default itemBorderRadius(value: double | undefined): this;
@@ -349,6 +384,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { BlurStyle } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupBackgroundBlurStyle(value: BlurStyle | undefined): this;
@@ -358,6 +394,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default popupTitleBackground(value: ResourceColor | undefined): this;
@@ -367,6 +404,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { boolean } value - Default value is true, set false to disable haptic feedback.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableHapticFeedback(value: boolean | undefined): this;
@@ -378,6 +416,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      *  Set the AlphabetIndexer modifier to the component.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */

@@ -25,7 +25,8 @@ import type accessibility from '../@ohos.accessibility';
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
-import { AccessibilityAction, FocusMoveResultCode, InjectActionType } from '../@ohos.accessibility';
+import { AccessibilityAction, FocusMoveResultCode, InjectActionType,
+    AccessibilityFocusScene } from '../@ohos.accessibility';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -1527,6 +1528,15 @@ export declare interface AccessibilityElement {
   childrenIds?: Array<long>;
 
   /**
+   * Indicates the custom actions supported by the component.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  customActions?: Array<string>;
+
+  /**
    * Execute the specified action.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
@@ -1848,6 +1858,23 @@ export declare class Parameter {
    * @since 26.0.0 dynamic&static
    */
   injectActionType?: InjectActionType;
+  /**
+   * Indicates the action for AccessibilityAction.EXECUTE_CUSTOM_ACTION.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  customAction?: string;
+  /**
+   * Indicates the scene for AccessibilityAction.ACCESSIBILITY_FOCUS.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  accessibilityFocusScene?: AccessibilityFocusScene;
 }
 
 /**
@@ -2419,6 +2446,14 @@ export interface ElementAttributeValues {
    * @since 26.0.0 dynamiconly
    */
   navDestinationId?: long;
+  /**
+   * Indicates the custom actions supported by the component.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  customActions?: Array<string>;
 }
 
 /**
