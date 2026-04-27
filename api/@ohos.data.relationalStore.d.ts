@@ -7674,6 +7674,43 @@ declare namespace relationalStore {
     querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet;
 
     /**
+     * Query data in the database step‑by‑step based on SQL statements.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     *     <br>Value range: (0, +∞)
+     *     <br>A valid SQL statement must be used. Otherwise, an error code may be thrown when ResultSet is used.
+     * @param { Array<ValueType> } [bindArgs] - Indicates the {@link ValueType} values of the parameters in
+     *     the SQL statement.
+     *     <br>Default value:The default value is an empty array.
+     *     <br>The value must be the same as the number of placeholders in the SQL statement.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    queryByStep(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database step‑by‑step based on specified conditions.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object
+     *     of {@link RdbPredicates}.
+     * @param { Array<string> } [columns] - The columns to query.
+     *     If the value is null, the query applies to all columns.
+     *     <br>Default value: empty array by default.
+     *     <br>If an empty array is transferred, all columns are queried.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    queryByStep(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
      * Obtains the modify time of rows corresponding to the primary keys.
      *
      * @param { string } table - Indicates the name of the table to check.
