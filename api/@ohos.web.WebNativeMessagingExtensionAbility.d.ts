@@ -23,7 +23,7 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessagingExtensionContext';
 
 /**
- * Indicates connection information about web native messaging connection
+ * Represents the information object of the web native messaging connection.
  *
  * @typedef ConnectionInfo
  * @syscap SystemCapability.Web.Webview.Core
@@ -31,7 +31,7 @@ import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessag
  */
 export interface ConnectionInfo {
   /**
-   * Indicates connection id
+   * Connection ID.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -40,7 +40,7 @@ export interface ConnectionInfo {
   connectionId: number;
 
   /**
-   * Indicates the caller bundle name
+   * Application bundle name of the caller.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -49,7 +49,7 @@ export interface ConnectionInfo {
   bundleName: string;
 
   /**
-   * Indicates the caller extension origin url
+   * Original URL of the caller extension.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -58,7 +58,7 @@ export interface ConnectionInfo {
   extensionOrigin: string;
 
   /**
-   * Indicates the pipe read for connection
+   * Pipe file descriptor used to read data.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -67,7 +67,7 @@ export interface ConnectionInfo {
   fdRead: number;
 
   /**
-   * Indicates the pipe write for connection
+   * Pipe file descriptor used to write data.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -96,7 +96,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   context: WebNativeMessagingExtensionContext;
 
   /**
-   * Called back when an web native messaging extension is first connected to an ability.
+   * Called when a web native messaging connection is established.
    *
    * @param { ConnectionInfo } info - Indicates connection information about new native connection.
    * @syscap SystemCapability.Web.Webview.Core
@@ -106,7 +106,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   onConnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called back when all abilities connected to an web native messaging extension are disconnected.
+   * Called when a web native messaging connection is disconnected.
    *
    * @param { ConnectionInfo } info - Indicates connection information about new native connection.
    * @syscap SystemCapability.Web.Webview.Core
@@ -116,7 +116,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   onDisconnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called back before an web native messaging extension is destroyed.
+   * Called when the WebNativeMessagingExtensionAbility is destroyed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly

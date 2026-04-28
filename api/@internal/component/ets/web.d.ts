@@ -372,7 +372,7 @@ declare interface NativeMediaPlayerConfig {
 }
 
 /**
- * The callback of render process not responding.
+ * Defines a callback invoked when the rendering process does not respond.
  *
  * @typedef { function } OnRenderProcessNotRespondingCallback
  * @param { RenderProcessNotRespondingData } data - details of onRenderProcessNotResponding.
@@ -472,7 +472,9 @@ declare interface AdsBlockedDetails {
 }
 
 /**
- * Defines the web keyboard options when onInterceptKeyboardAttach event return.
+ * Represents the return value of the callback that intercepts the soft keyboard started from editable elements on the
+ * web page. You can specify the types of the keyboard, and return the value to the Web kernel to control the startup of
+ * different types of soft keyboards.
  *
  * @interface WebKeyboardOptions
  * @syscap SystemCapability.Web.Webview.Core
@@ -481,7 +483,7 @@ declare interface AdsBlockedDetails {
  */
 declare interface WebKeyboardOptions {
   /**
-   * Whether the system keyboard is used.
+   * Whether to use the system's default soft keyboard.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -491,7 +493,10 @@ declare interface WebKeyboardOptions {
   useSystemKeyboard: boolean;
 
   /**
-   * Set the enter key type when the system keyboard is used, the "enter" key related to the {@link inputMethodEngine}.
+   * Type of the **Enter** key on the system soft keyboard. For details about the value range, see
+   * [EnterKeyType]{@link ./../../../@ohos.inputMethod:inputMethod.EnterKeyType}. This parameter is optional and the
+   * default value is **UNSPECIFIED**. This parameter is valid only when **useSystemKeyboard** is set to **true** and
+   * **enterKeyType** is set to a valid value.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -501,7 +506,8 @@ declare interface WebKeyboardOptions {
   enterKeyType?: number;
 
   /**
-   * Set the custom keyboard builder when the custom keyboard is used.
+   * Builder of a custom keyboard. This parameter is required when **useSystemKeyboard** is set to **false**. After it
+   * is set, the **Web** component starts the custom keyboard as configured.
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.Web.Webview.Core
@@ -520,7 +526,7 @@ declare interface WebKeyboardOptions {
  */
 declare class WebKeyboardController {
   /**
-   * Constructor.
+   * Constructs a **WebKeyboardController** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -529,43 +535,50 @@ declare class WebKeyboardController {
   constructor();
 
   /**
-   * Insert characters in the Web input field.
+   * Inserts characters into the **Web** component text box.
    *
-   * @param { string } text - text which will be inserted.
+   * @param { string } text - Characters to insert into the **Web** component text box.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   insertText(text: string): void;
 
   /**
-   * Deletes the specified length of characters from the back to the front in the Web input field.
+   * Deletes a specified number of characters forward in a **Web** component text box.
    *
-   * @param { number } length - length of text, which will be deleted from back to front.
+   * @param { number } length - Length of characters to delete forward in a **Web** component text box.<br>Value range:
+   * [-2147483648, 2147483647]. If the parameter value exceeds the character length, all characters before the cursor are
+   * deleted by default. If the parameter value is a negative number, the deletion is not performed.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   deleteForward(length: number): void;
 
   /**
-   * Delete the specified length of characters in the Web input field from the beginning to the end.
+   * Deletes a specified number of characters backward in a **Web** component text box.
    *
-   * @param { number } length - length of text, which will be deleted from front to back.
+   * @param { number } length - Length of characters to delete backward in a **Web** component text box.<br>Value range:
+   * [-2147483648, 2147483647]. If the parameter value exceeds the character length, all characters after the cursor are
+   * deleted by default. If the parameter value is a negative number, the deletion is not performed.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   deleteBackward(length: number): void;
 
   /**
-   * Send the function of the key.
+   * Inserts a function key. Currently, only the Enter key type is supported.
+   * For details about the value, see
+   * [EnterKeyType]{@link @ohos.inputMethod:inputMethod.EnterKeyType}.
    *
-   * @param { number } key - action indicates the "enter" key related to the {@link inputMethodEngine}
+   * @param { number } key - Function key to insert into the **Web** component text box. Currently, only the Enter
+   * key is supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   sendFunctionKey(key: number): void;
 
   /**
-   * Close the custom keyboard.
+   * Closes this custom keyboard.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -574,7 +587,8 @@ declare class WebKeyboardController {
 }
 
 /**
- * Defines the web keyboard callback info related to the {@link onInterceptKeyboardAttach} event.
+ * Represents input parameters of the callback used to intercept the soft keyboard started from editable elements on a
+ * web page, including [WebKeyboardController]{@link web} and editable element attributes.
  *
  * @interface WebKeyboardCallbackInfo
  * @syscap SystemCapability.Web.Webview.Core
@@ -583,7 +597,7 @@ declare class WebKeyboardController {
  */
 declare interface WebKeyboardCallbackInfo {
   /**
-   * The web keyboard controller.
+   * Controller used to control the input, deletion, and closure of the custom keyboard.
    *
    * @type { WebKeyboardController }
    * @syscap SystemCapability.Web.Webview.Core
@@ -593,7 +607,7 @@ declare interface WebKeyboardCallbackInfo {
   controller: WebKeyboardController;
 
   /**
-   * The attributes of web input element.
+   * Attribute of the web page element that triggers the display of the soft keyboard.
    *
    * @type { Record<string, string> }
    * @syscap SystemCapability.Web.Webview.Core
@@ -604,11 +618,15 @@ declare interface WebKeyboardCallbackInfo {
 }
 
 /**
- * The callback of onInterceptKeyboardAttach event.
+ * Defines a callback to intercept the soft keyboard initiated from editable elements on a web page. This event is
+ * typically called when the **\<input>** tag on the web page is clicked.
  *
  * @typedef { function } WebKeyboardCallback
- * @param { WebKeyboardCallbackInfo } keyboardCallbackInfo - callback information of onInterceptKeyboardAttach.
- * @returns { WebKeyboardOptions } Return the web keyboard options of this web component.
+ * @param { WebKeyboardCallbackInfo } keyboardCallbackInfo - Input parameter of the callback used to intercept the soft
+ *     keyboard initiated from editable elements on a web page, including [WebKeyboardController]{@link web} and
+ *     editable element attributes.
+ * @returns { WebKeyboardOptions } R[WebKeyboardOptions]{@link web:WebKeyboardOptions} instance, which is used to
+ *     determine which type of soft keyboard to start by the ArkWeb kernel.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1235,7 +1253,7 @@ declare enum OverScrollMode {
 }
 
 /**
- * Enum type supplied to {@link blurOnKeyboardHideMode} for setting the web blurOnKeyboardHide mode.
+ * Enumerates whether the **Web** component loses focus when the soft keyboard is hidden.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -1244,7 +1262,7 @@ declare enum OverScrollMode {
  */
 declare enum BlurOnKeyboardHideMode {
   /**
-   * The focused input elements on webview will not blur when soft keyboard is hidden manually.
+   * The **Web** component does not lose focus when the soft keyboard is hidden.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1253,7 +1271,8 @@ declare enum BlurOnKeyboardHideMode {
   SILENT = 0,
 
   /**
-   * The focused input elements on webview will blur when soft keyboard is hidden manually.
+   * The **Web** component loses focus when the soft keyboard is hidden, and the focus moves from the text
+   * box to the web body.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1678,7 +1697,7 @@ type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
 
 /**
- * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
+ * Enumerates the reasons why the rendering process exits.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -1687,7 +1706,9 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  */
 declare enum RenderExitReason {
   /**
-   * Render process non-zero exit status.
+   * The rendering process terminates abnormally. Possible causes include: rendering
+   * process startup timeout, system reclaiming older rendering processes upon reaching the process limit, or simultaneous
+   * closure of multiple tabs.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1696,7 +1717,7 @@ declare enum RenderExitReason {
   ProcessAbnormalTermination = 0,
 
   /**
-   * SIGKILL or task manager kill.
+   * The rendering process receives a SIGKILL message or is manually terminated.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1705,7 +1726,7 @@ declare enum RenderExitReason {
   ProcessWasKilled = 1,
 
   /**
-   * The rendering process crashes and exits, such as a segment error.
+   * The rendering process crashes due to segmentation or other errors.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1714,7 +1735,7 @@ declare enum RenderExitReason {
   ProcessCrashed = 2,
 
   /**
-   * Out of memory.
+   * The program memory is insufficient.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1723,7 +1744,7 @@ declare enum RenderExitReason {
   ProcessOom = 3,
 
   /**
-   * Unknown reason.
+   * Other reasons, such as failure to spawn the rendering process.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1963,7 +1984,7 @@ declare enum WebLayoutMode {
 }
 
 /**
- * Enum type supplied to {@link RenderProcessNotRespondingData} when onRenderProcessNotResponding is called.
+ * Enumerates the reasons why the rendering process does not respond.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -1971,7 +1992,7 @@ declare enum WebLayoutMode {
  */
 declare enum RenderProcessNotRespondingReason {
   /**
-   * Timeout for input sent to render process.
+   * The input event response sent to the rendering process times out.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -1979,7 +2000,7 @@ declare enum RenderProcessNotRespondingReason {
   INPUT_TIMEOUT = 0,
 
   /**
-   * The new webpage loading navigation response timed out.
+   * The navigation for loading a new web page times out.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -2671,7 +2692,7 @@ declare enum ProtectedResourceType {
 }
 
 /**
- * Implements the PermissionRequest object, related to {@link onPermissionRequest} method.
+ * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -2680,7 +2701,7 @@ declare enum ProtectedResourceType {
  */
 declare class PermissionRequest {
   /**
-   * Constructor.
+   * Constructs a **PermissionRequest** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -2690,7 +2711,7 @@ declare class PermissionRequest {
   constructor();
 
   /**
-   * Reject the request.
+   * Denies the permission requested by the web page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -2700,7 +2721,7 @@ declare class PermissionRequest {
   deny(): void;
 
   /**
-   * Gets the source if the webpage that attempted to access the restricted resource.
+   * Obtains the origin of this web page.
    *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2711,9 +2732,10 @@ declare class PermissionRequest {
   getOrigin(): string;
 
   /**
-   * Obtains the list of accessible resources requested for the web page.
+   * Obtains the list of accessible resources requested for the web page. For details about the resource types, see
+   * [ProtectedResourceType]{@link web:ProtectedResourceType}.
    *
-   * @returns { Array<string> } List of accessible resources requested by the web page.
+   * @returns { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -2722,9 +2744,10 @@ declare class PermissionRequest {
   getAccessibleResource(): Array<string>;
 
   /**
-   * Grant origin access to a given resource.
+   * Grants the permission for resources requested by the web page.
    *
-   * @param { Array<string> } resources
+   * @param { Array<string> } resources List of resources that can be requested by the web page with the permission to
+   * grant.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -2873,7 +2896,7 @@ declare class DataResubmissionHandler {
  */
 declare class ControllerHandler {
   /**
-   * Constructor.
+   * Constructs a **ControllerHandler** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2882,7 +2905,7 @@ declare class ControllerHandler {
   constructor();
 
   /**
-   * Set to null if you don't need to open a new window.
+   * Sets a **WebviewController** object. If opening a new window is not needed, set the parameter to **null**.
    *
    * @param { WebviewController } controller
    * @syscap SystemCapability.Web.Webview.Core
@@ -3368,8 +3391,7 @@ declare enum WebNavigationType {
 }
 
 /**
- * Enumerates the rendering mode of Web components. By default, the asynchronous rendering mode is used.
- * The asynchronous rendering mode is recommended because it has better performance and lower power consumption.
+ * Enumerates the rendering modes of the **Web** component. By default, the asynchronous rendering mode is used.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -3378,9 +3400,8 @@ declare enum WebNavigationType {
  */
 declare enum RenderMode {
   /**
-   * The Web component is rendered asynchronously.
-   * The ArkWeb component as a graphic surface node is displayed independently.
-   * The maximum width of the Web component is 7,680 px (physical pixel).
+   * The **Web** component as a graphic surface node is rendered
+   * asynchronously and displayed independently. The maximum width of the **Web** component is 7,680 px (physical pixel)
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -3389,9 +3410,9 @@ declare enum RenderMode {
   ASYNC_RENDER = 0,
 
   /**
-   * The Web component is rendered synchronously.
-   * The ArkWeb component as a graphic canvas node is displayed together with the system component.
-   * The maximum width of the Web component is 500,000 px (physical pixel).
+   * The **Web** component as a graphic canvas node is rendered synchronously
+   * and displayed together with the system component. The maximum width of the **Web** component is 500,000 px (physical
+   * pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5047,9 +5068,10 @@ declare class WebController {
    */
   constructor();
 
-  /**
-   * Let the Web inactive.
-   * It is no longer maintained since API version 9, and it is recommended to use {@link onInactive} instead.
+ /**
+   * Called when the **Web** component enters the inactive state.
+   * This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+   * [onInactive<sup>9+</sup>]{@link ./../../../@ohos.web.webview:webview.WebviewController.onInactive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -5059,8 +5081,9 @@ declare class WebController {
   onInactive(): void;
 
   /**
-   * Let the Web active.
-   * It is no longer maintained since API version 9, and it is recommended to use {@link onActive} instead.
+   * Called when the **Web** component enters the active state.
+   * This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+   * [onActive<sup>9+</sup>]{@link ./../../../@ohos.web.webview:webview.WebviewController.onActive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -5260,7 +5283,7 @@ declare class WebController {
 }
 
 /**
- * Defines the Web options.
+ * Defines web options through the [APIs]{@link web}.
  *
  * @typedef WebOptions
  * @syscap SystemCapability.Web.Webview.Core
@@ -5270,11 +5293,9 @@ declare class WebController {
  */
 declare interface WebOptions {
   /**
-   * Web resource address. If accessing local resource files, please use $rawfile or resource protocol.
-   * If you load a local resource file that applies the sandbox path outside the package (files support html and txt types),
-   * please use the file:// sandbox file path.
-   * Src cannot dynamically change the address through state variables (for example: @State).
-   * If you need to change it, please reload it through {@link loadUrl}.
+   * Address of a web page resource. To access local resource files, use the $rawfile or resource protocol. To load a
+   * local resource file (in HTML or TXT format) in the sandbox outside of the application package, use **file://** to
+   * specify the path of the sandbox.
    *
    * @type { string | Resource }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5285,9 +5306,10 @@ declare interface WebOptions {
   src: string | Resource;
 
   /**
-   * Controller, through which you can control various behaviors of Web components
-   * (including page navigation, declaring cycle state, JavaScript interaction and other behaviors).
-   * Since API Version 9, WebController is no longer maintained, so it is recommended to use WebviewController instead.
+   * Controller that controls various behaviors of **Web** components, including page navigation, declaration period
+   * status, and JavaScript interaction. **WebController** is deprecated since API version 9. You are advised to use
+   * [WebviewController]{@link web:WebviewController} instead.
+   *
    * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -5297,9 +5319,7 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
-   * 	Rendering mode.
-   * 	RenderMode.ASYNC_RENDER (default, cannot be dynamically adjusted): The Web component is rendered asynchronously.
-   * 	RenderMode.SYNC_RENDER: The Web component is rendered synchronously within the current execution context.
+   * Rendering mode.
    *
    * @type { ?RenderMode }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5309,9 +5329,10 @@ declare interface WebOptions {
   renderMode? : RenderMode;
 
   /**
-   * Sets the incognito mode of the Web, the parameter is optional and default value is false.
-   * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
-   * will not save in persistent files.
+   * Whether to enable incognito mode. The value **true** means to enable incognito mode, and **false** means the
+   * opposite.
+   * Default value: **false**.
+   * If **undefined** or **null** is passed, the value is **false**.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5322,11 +5343,11 @@ declare interface WebOptions {
   incognitoMode? : boolean;
 
   /**
-   * A token indicating that the current Web component specifies a shared rendering process.
-   * In the multi-rendering process mode, Web components with the same token will preferentially try to reuse
-   * the rendering process bound to the token.
-   * The binding of token to the rendering process occurs in the initialization stage of the rendering process.
-   * When the rendering process has no associated Web component, its binding relationship with token will be removed.
+   * Token of the shared rendering process specified by the **Web** component. In multi-rendering process mode, the
+   * **Web** component with the same token preferentially attempts to reuse the rendering process bound to the token.
+   * The token is bound to the rendering process when the rendering process is initialized. When the rendering process
+   * is not associated with a **Web** component, its binding to the token is removed.
+   * Default value: **""**.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5894,7 +5915,7 @@ declare interface LargestContentfulPaint {
 }
 
 /**
- * Defines the render process not responding info.
+ * Provides detailed information about the unresponsive rendering process.
  *
  * @interface RenderProcessNotRespondingData
  * @syscap SystemCapability.Web.Webview.Core
@@ -5902,7 +5923,7 @@ declare interface LargestContentfulPaint {
  */
 declare interface RenderProcessNotRespondingData {
   /**
-   * JavaScript stack info of the webpage when render process not responding.
+   * JavaScript call stack information of the web page.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5911,7 +5932,7 @@ declare interface RenderProcessNotRespondingData {
   jsStack: string;
 
   /**
-   * Process id of render process not responding.
+   * Process ID of the web page.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5920,7 +5941,7 @@ declare interface RenderProcessNotRespondingData {
   pid: number;
 
   /**
-   * Reason for the render process not responding.
+   * Reason why the rendering process does not respond.
    *
    * @type { RenderProcessNotRespondingReason }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6551,7 +6572,7 @@ declare interface OnRefreshAccessedHistoryEvent {
 }
 
 /**
- * Defines the triggered when the render process exits.
+ * Represents the callback invoked when the rendering process exits.
  *
  * @typedef OnRenderExitedEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -6560,7 +6581,7 @@ declare interface OnRefreshAccessedHistoryEvent {
  */
 declare interface OnRenderExitedEvent {
   /**
-   * The specific reason why the rendering process exits abnormally.
+   * Cause for the abnormal exit of the rendering process.
    *
    * @type { RenderExitReason }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7020,7 +7041,7 @@ declare interface OnClientAuthenticationEvent {
 }
 
 /**
- * Defines the triggered callback when web page requires the user to create a window.
+ * Represents the callback invoked when the web page requests the user to create a window.
  *
  * @typedef OnWindowNewEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -7029,7 +7050,8 @@ declare interface OnClientAuthenticationEvent {
  */
 declare interface OnWindowNewEvent {
   /**
-   * true indicates the request to create a dialog and false indicates a new tab.
+   * Whether to open the target URL in a new window. The value **true** means to open the target URL in a new window,
+   * and **false** means to open the target URL in a new tab.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7039,7 +7061,8 @@ declare interface OnWindowNewEvent {
   isAlert: boolean;
 
   /**
-   * true indicates that it is triggered by the user, and false indicates that it is triggered by a non-user.
+   * Whether the creation is triggered by the user. The value **true** means that the creation is triggered by the user,
+   * and **false** means the opposite.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7049,7 +7072,7 @@ declare interface OnWindowNewEvent {
   isUserTrigger: boolean;
 
   /**
-   * Destination URL.
+   * Target URL.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7059,7 +7082,7 @@ declare interface OnWindowNewEvent {
   targetUrl: string;
 
   /**
-   * Lets you set the WebviewController instance for creating a new window.
+   * **WebviewController** instance for setting the new window.
    *
    * @type { ControllerHandler }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7070,7 +7093,7 @@ declare interface OnWindowNewEvent {
 }
 
 /**
- * Enum type for navigationPolicy in OnWindowNewExtEvent.
+ * Enumerates the modes of opening a new window in the WebView.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -7078,7 +7101,7 @@ declare interface OnWindowNewEvent {
  */
 declare enum NavigationPolicy {
   /**
-   * NEW POPUP window.
+   * Open in a new pop-up window.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -7086,7 +7109,7 @@ declare enum NavigationPolicy {
   NEW_POPUP = 0,
 
   /**
-   * Shift key when clicking.
+   * Open in a new window.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -7094,7 +7117,7 @@ declare enum NavigationPolicy {
   NEW_WINDOW = 1,
 
   /**
-   * Middle mouse button or meta/ctrl key when clicking.
+   * Open in a new tab in background.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -7102,16 +7125,17 @@ declare enum NavigationPolicy {
   NEW_BACKGROUND_TAB = 2,
 
   /**
-   * Shift key + Middle mouse button or meta/ctrl key when clicking.
+   * Open in a new tab in foreground.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  NEW_FOREGROUND_TAB = 3,
+  NEW_FOREGROUND_TAB = 3
 }
 
 /**
- * Defines the window features info for window.open.
+ * Represents the feature information of the new window requested to be created by the web page, including the size and
+ * location.
  *
  * @interface WindowFeatures
  * @syscap SystemCapability.Web.Webview.Core
@@ -7119,7 +7143,7 @@ declare enum NavigationPolicy {
  */
 declare interface WindowFeatures {
   /**
-   * The requested height of the containing window. Unit:pixels.
+   * Height of the new window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7128,7 +7152,7 @@ declare interface WindowFeatures {
   height: number;
 
   /**
-   * The requested width of the containing window. Unit:pixels.
+   * Width of the new window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7137,7 +7161,7 @@ declare interface WindowFeatures {
   width: number;
 
   /**
-   * The requested x-coordinate of the containing window. Unit:pixels.
+   * X coordinate of the top-left corner of the new window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7146,7 +7170,7 @@ declare interface WindowFeatures {
   x: number;
 
   /**
-   * The requested y-coordinate of the containing window. Unit:pixels.
+   * Y coordinate of the top-left corner of the new window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7156,7 +7180,7 @@ declare interface WindowFeatures {
 }
 
 /**
- * Defines the triggered callback when web page requires the user to create a window.
+ * Callback invoked when the web page requests the user to create a window.
  *
  * @typedef OnWindowNewExtEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -7165,7 +7189,8 @@ declare interface WindowFeatures {
  */
 declare interface OnWindowNewExtEvent {
   /**
-   * true indicates the request to create a dialog and false indicates a new tab.
+   * The value **true** indicates that a dialog box is requested to be created, and the value **false** indicates that a
+   * new tab page is requested to be created.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7175,7 +7200,8 @@ declare interface OnWindowNewExtEvent {
   isAlert: boolean;
 
   /**
-   * true indicates that it is triggered by the user, and false indicates that it is triggered by a non-user.
+   * Whether the creation is triggered by the user. The value **true** means that the creation is triggered by the user,
+   * and **false** means the opposite.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7185,7 +7211,7 @@ declare interface OnWindowNewExtEvent {
   isUserTrigger: boolean;
 
   /**
-   * Destination URL.
+   * URL to be opened in the new window.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7195,7 +7221,7 @@ declare interface OnWindowNewExtEvent {
   targetUrl: string;
 
   /**
-   * Lets you set the WebviewController instance for creating a new window.
+   * **WebviewController** instance for setting the new window.
    *
    * @type { ControllerHandler }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7205,8 +7231,7 @@ declare interface OnWindowNewExtEvent {
   handler: ControllerHandler;
 
   /**
-   * Contains the attributes that a webpage requests from its containing web view, the parameters
-   * of window.open.
+   * Feature information of the new window requested to be created by the web page.
    *
    * @type { WindowFeatures }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7216,7 +7241,7 @@ declare interface OnWindowNewExtEvent {
   windowFeatures: WindowFeatures;
 
   /**
-   * The navigation policy causing the new web view to be created.
+   * Window opening mode when the web page requests a user to create a new window.
    *
    * @type { NavigationPolicy }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7277,7 +7302,8 @@ declare interface OnFaviconReceivedEvent {
 }
 
 /**
- * Defines the triggered callback when previous page will no longer be drawn and next page begin to draw.
+ * Represents the callback invoked when the old page is not displayed and the
+ * new page is about to be visible.
  *
  * @typedef OnPageVisibleEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -7287,7 +7313,7 @@ declare interface OnFaviconReceivedEvent {
  */
 declare interface OnPageVisibleEvent {
   /**
-   * The URL of page.
+   * URL for the download task.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7597,7 +7623,7 @@ declare interface JavaScriptProxy {
 }
 
 /**
- * Enum type supplied to {@link keyboardAvoidMode} for setting the web keyboard avoid mode.
+ * Enumerates the soft keyboard avoidance modes.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -7606,7 +7632,7 @@ declare interface JavaScriptProxy {
  */
 declare enum WebKeyboardAvoidMode {
   /**
-   * When the soft keyboard avoids, only the size of the visual viewport is adjusted, not the size of the layout viewport.
+   * For soft keyboard avoidance, the visual viewport is resized, but not the layout viewport.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7615,8 +7641,7 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_VISUAL = 0,
 
   /**
-   * By default, when the soft keyboard avoids,
-   * the sizes of the visual viewport and the layout viewport are adjusted at the same time.
+   * For soft keyboard avoidance, both the visual viewport and layout viewport are resized.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7625,7 +7650,7 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_CONTENT = 1,
 
   /**
-   * Without adjusting any viewport size, soft keyboard avoidance will not be triggered.
+   * No viewport is resized, and soft keyboard avoidance is not triggered.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7634,7 +7659,9 @@ declare enum WebKeyboardAvoidMode {
   OVERLAYS_CONTENT = 2,
 
   /**
-   * When the soft keyboard avoid, follow the avoid result of UIContext.
+   * The soft keyboard avoidance behavior of the **Web** component follows the
+   * [KeyboardAvoidMode]{@link ./../../../@ohos.arkui.UIContext:KeyboardAvoidMode} set by UIcontext. The **Web** component
+   * does not process the avoidance behavior of the component.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -8609,9 +8636,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   overScrollMode(mode: OverScrollMode): WebAttribute;
 
   /**
-   * Sets the blur on for elements on webview when soft keyboard is hidden manually.
+   * Sets whether to enable blur mode for the web element when soft keyboard is hidden.
    *
-   * @param { BlurOnKeyboardHideMode } mode - Default value is SILENT. Set BLUR to enable the blur on keyboard hide mode, which can be {@link BlurOnKeyboardHideMode}.
+   * @param { BlurOnKeyboardHideMode } mode - Whether to enable blur mode of the web
+   * element when soft keyboard is hidden. The default value is **BlurOnKeyboardHideMode.SILENT**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9292,12 +9320,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
   /**
-   * Triggered when the render process exits.
-   * Multiple Web components may share a single rendering process, and each affected Web component will trigger the callback.
-   * When the application handles this callback, it can call the related interface of the bound webviewController to
-   * restore the page. Such as {@link refresh}, {@link loadUrl}, etc.
-   * For details of component lifecycle callback, please refer to the lifecycle of Web components.
-   * @param { Callback<OnRenderExitedEvent> } callback The triggered when the render process exits. [since 12]
+   * Triggered when the rendering process exits abnormally. A rendering process may be shared by multiple **Web** components.
+   * Each affected **Web** component triggers this callback. You can call the bound **webviewController** APIs to restore the
+   * web page when this callback is triggered. For example, [refresh]{@link ./../../../@ohos.web.webview:webview.WebviewController#refresh()} and
+   * [loadUrl]{@link ./../../../@ohos.web.webview:webview.WebviewController.loadUrl}.
+   * For details about the component lifecycle, see [Lifecycle of the Web Components](docroot://web/web-event-sequence.md)
+   *
+   * @param { Callback<OnRenderExitedEvent> } callback - Triggered when the rendering process exits abnormally. [since 12]
    *     { function } callback The triggered when the render process exits. [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9579,7 +9608,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Called when a permission request is received. To call this API, you need to declare the ohos.permission.CAMERA and ohos.permission.MICROPHONE permissions.
+   * Triggered when a permission request is received. To call this API, you need to declare the **ohos.permission.CAMERA**
+   * and **ohos.permission.MICROPHONE** permissions.
    *
    * @param { Callback<OnPermissionRequestEvent> } callback Callback invoked when a permission request is received.
    * @returns { WebAttribute }
@@ -9878,20 +9908,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
 
   /**
-   * Triggered when web page requires the user to create a window.
+   * Triggered when web page requires to create a new window.
    * If the {@link setWebController} interface is not called, the render process will be blocked.
    * If no new window is created, it is set to null when calling the {@link setWebController} interface,
    * informing the Web that no new window is created.
-   * The new window should avoid being directly overlaid on the original Web component,
-   * and its URL (such as address bar) should be clearly displayed in the same form as the main page to
-   * prevent users from being confused. If credible URL visualization management cannot be achieved,
-   * it is necessary to consider prohibiting the creation of new windows. It should be noted that the source of
-   * the new window request cannot be traced reliably, and it may be initiated by a third party iframe.
-   * The application needs to take defensive measures such as sandbox isolation and permission restriction
-   * by default to ensure security.
-   * 
-   * @param {  Callback<OnWindowNewEvent> } callback The triggered callback when web page requires
-   *     the user to create a window. [since 12]
+   * New windows must not be placed to directly cover the original Web component. Additionally,
+   * their URLs―specifically the content shown in the address bar―should follow the same display
+   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where
+   * reliable visual management of URLs is not feasible, restricting the creation of new windows
+   * should be considered. It is also important to note that the origin of new window requests
+   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes.
+   * For this reason, applications must implement default defensive measures like sandbox isolation
+   * and permission controls to safeguard security.
+   *
+   * @param {  Callback<OnWindowNewEvent> } callback The web page requests the user to create a window. [since 12]
    *     { function } callback The triggered callback when web page requires the user to create a window. [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9923,9 +9953,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onWindowNewExt(callback: Callback<OnWindowNewExtEvent>): WebAttribute;
 
   /**
-   * Notifies the user of the window closing request.
-   * Like {@link onWindowNew}, from a security perspective, applications should ensure that users can know that
-   * the page they interact with is closed.
+   * Triggered when this window is closed. This API works in the same way as
+   * [onWindowNew](docroot://reference/apis-arkweb/arkts-basic-components-web-events.md#onwindownew9). For security,
+   * applications should notify users that the pages they interact with are closed.
+   *
    * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9935,8 +9966,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onWindowExit(callback: () => void): WebAttribute;
 
   /**
-   * Set whether multiple windows are supported.
-   * When multiple windows permissions are enabled, the {@link onWindowNew} event needs to be implemented.
+   * Sets whether to enable the multi-window permission.
+   *
    * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
    *    The default value is false.
    * @returns { WebAttribute }
@@ -9947,7 +9978,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   multiWindowAccess(multiWindow: boolean): WebAttribute;
 
   /**
-   * Key events notify the application before the WebView consumes them.
+   * Triggered when the key event is intercepted and before it is consumed by the webview.
    *
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
@@ -10305,10 +10336,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFaviconReceived(callback: Callback<OnFaviconReceivedEvent>): WebAttribute;
 
   /**
-   * Triggered when previous page will no longer be drawn and next page begin to draw.
+   * Triggered when the old page is not displayed and the new page is about to be visible.
    *
-   * @param {  Callback<OnPageVisibleEvent> } callback The triggered callback when previous page will
-   *     no longer be drawn and next page begin to draw. [since 12]
+   * @param {  Callback<OnPageVisibleEvent> } callback Callback invoked when the old
+   * page is not displayed and the new page is about to be visible. [since 12]
    *     { function } callback The triggered callback when previous page will no longer be drawn and next [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10486,12 +10517,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onLoadIntercept(callback: Callback<OnLoadInterceptEvent, boolean>): WebAttribute;
 
   /**
-   * The callback is triggered when the Controller is successfully bound to the Web component,
-   * and the Controller must be a WebviewController, and it is forbidden to call the interface related to
-   * the Web component before the event callback, otherwise a js-error exception will be thrown.
-   * Because the webpage has not been loaded when the callback is called, it is impossible to use interfaces related to
-   * operating webpages in the callback, such as {@link zoomIn} and {@link zoomOut}, and you can use interfaces unrelated to
-   * operating webpages such as {@link loadUrl} and {@link getWebId}.
+   * Triggered when the controller is successfully bound to the **Web** component. The controller must be
+   * **WebviewController**. Do not call APIs related to the **Web** component before this callback event. Otherwise, a js-
+   * error exception will be thrown.
    * @param { function } callback The triggered callback when web controller initialization success.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10500,7 +10528,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10 dynamic
    */
   onControllerAttached(callback: () => void): WebAttribute;
-
   /**
    * Triggered when the overscroll occurs.
    * @param { function } callback Function triggered when the overscroll occurs.
@@ -10899,13 +10926,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
 
   /**
-   * Triggered when render process not responding.
-   * If the Web component can't handle the input event, or can't navigate to the new URL within a reasonable time range,
-   * the Web page process is considered unresponsive and the callback will be triggered.
-   * As long as the web process has been unresponsive, this callback may continue to trigger until
-   * the web process responds again, at which time {@link onRenderProcessResponding} will trigger.
-   * Applications can terminate the associated rendering process through the WebviewController interface {@link terminateRenderProcess},
-   * which may affect other Web components in the same rendering process.
+   * Triggered when the rendering process does not respond. If the **Web** component cannot process the input event or
+   * navigate to a new URL within a proper time range, the web page process is considered unresponsive and the callback is
+   * triggered. If the web page process does not respond, this callback may be triggered until the web page process responds again.
+   * In this case, [onRenderProcessResponding] is triggered.
+   * You can terminate the associated rendering process through
+   * [terminateRenderProcess]{@link ./../../../@ohos.web.webview:webview.WebviewController.terminateRenderProcess}, which
+   * may affect other **Web** components in the same rendering process.
+   *
    * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10914,10 +10942,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
 
   /**
-   * This callback function is triggered when the rendering process changes from unresponsive state to normal operation state,
-   * which indicates that the webpage is not really stuck.
+   * Triggered when the rendering process transitions back to a normal operating state from an unresponsive state. This
+   * callback indicates that the web page was not actually frozen.
    *
-   * @param { OnRenderProcessRespondingCallback } callback The triggered function when the unresponsive render process becomes responsive.
+   * @param { OnRenderProcessRespondingCallback } callback Callback
+   * triggered when the rendering process transitions back to a normal operating state from an unresponsive state.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -10958,13 +10987,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
 
   /**
-   * Editable elements (such as input labels) in web pages will call back to this interface before pulling up
-   * the soft keyboard. Applications can use this interface to intercept the pop-up of the system soft keyboard
-   * and configure the application-customized soft keyboard (according to this interface,
-   * the application can decide to use the system default soft keyboard/the system soft keyboard with
-   * the enter key customized/all the soft keyboards customized by the application).
+   * Triggered before any editable element (such as the **input** tag) on the web page invokes the soft keyboard. The
+   * application can use this API to intercept the display of the system's soft keyboard and configure a custom soft
+   * keyboard. (With this API, the application can determine whether to use the system's default soft keyboard, a system
+   * soft keyboard with a custom Enter key, or a completely application-defined soft keyboard).
    *
-   * @param { WebKeyboardCallback } callback - The callback for onInterceptKeyboardAttach.
+   * @param { WebKeyboardCallback } callback - Callback invoked for intercepting the soft keyboard started by the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -10986,11 +11014,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 
   /**
-   * When the keyboard avoidance mode set by UIContext is {@link KeyboardAvoidMode.RESIZE} mode,
-   * the interface function will not take effect.
-   * @param { WebKeyboardAvoidMode } mode - The web keyboard avoid mode, which can be {@link WebKeyboardAvoidMode}.
-   *                                        Web soft keyboard avoidance is not recommended in nested scrolling scenes,
-   *                                        including RESIZE_VISUAL and RESIZE_CONTENT.
+   * Sets the custom soft keyboard avoidance mode.
+   * If the keyboard avoidance mode set in **UIContext** is [KeyboardAvoidMode.RESIZE]
+   * {@link ./../../../@ohos.arkui.UIContext:KeyboardAvoidMode}, this API does not take effect.
+   *
+   * @param { WebKeyboardAvoidMode } mode - Web soft keyboard avoidance mode. In
+   * the nested scrolling scenario, the soft keyboard avoidance mode of the **Web** component is not recommended,
+   * including **RESIZE_VISUAL** and **RESIZE_CONTENT**. Default value: **WebKeyboardAvoidMode.RESIZE_CONTENT**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -11167,9 +11197,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 
   /**
-   * Triggered when the web page is activated for window.open called by other web component.
+   * Triggered to check whether a bound **Web** instance exists based on the name when a web page triggers
+   * **window.open(url, name)**. If the instance exists, it receives this callback to notify the application of displaying
+   * it on the front end. If it does not exist, the application is notified to create a new **Web** instance through
+   * [onWindowNew](docroot://reference/apis-arkweb/arkts-basic-components-web-events.md#onwindownew9).
    *
-   * @param { Callback<void> } callback the triggered function when the web page is activated for window.open called by other web component.
+   * @param { Callback<void> } callback Callback triggered on a new page after **window.open** is triggered on the
+   *     original page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
