@@ -1696,6 +1696,25 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
   /**
+   * Sets the color filter for the image.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>When this attirbute is set, renderMode is not effective.
+   * <br>When value is ResourceColor type, it will be converted to ColorFilter with blend mode.
+   * </p>
+   *
+   * @param { ColorFilter | DrawingColorFilter | ResourceColor } value - Color filter of image.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorFilter(value: ColorFilter | DrawingColorFilter | ResourceColor): ImageAttribute;
+
+  /**
    * Allow replication.
    *
    * @param { CopyOptions } value
