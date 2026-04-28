@@ -71,4 +71,13 @@ export interface ContinuableInfo {
    * @since 23 static
    */
   continueType?: string;
+  /**
+   * Target AppId list of the application to which the mission belongs.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for internal system users.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  targetAppIds?: Array<string>;
 }
