@@ -1,7 +1,7 @@
 'use static'
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,85 +13,81 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
+import { LengthMetrics } from './arkui/Graphics';
 import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
-import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 
 /**
- * The LazyColumnLayoutAttribute
+ * Defines the lazy column layout attribute.
  *
  * @extends CommonMethod
- * @interface LazyColumnLayoutAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26 static
- * @noninterop
+ * @since 26.0.0 static
  */
 export declare interface LazyColumnLayoutAttribute extends CommonMethod {
-    /**
-     * Called attributeModifier.
-     *
-     * @param { AttributeModifier<LazyColumnLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26 static
-     */
-    default attributeModifier(
-      modifier: AttributeModifier<LazyColumnLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * The spacing between rows.
+   *
+   * @param { LengthMetrics | undefined } space - the spacing between rows.
+   *     <br>Default value 0. <br>Range: [0, +∞).
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default space(space: LengthMetrics | undefined): this;
 
-    /**
-     * Sets the spacing between list items along the main axis.
-     *
-     * @param { LengthMetrics } value - Spacing between list items along the main axis.<br>Default value: <em>0</em>
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26 static
-     */
-    default space(value: LengthMetrics): this;
+  /**
+   * Sets the horizontal alignment of the row content.
+   *
+   * @param { HorizontalAlign | undefined } value - the horizontal alignment of the row content.
+   *     <br>Default value HorizontalAlign.Center.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default alignItems(value: HorizontalAlign | undefined): this;
 
-    /**
-     * Sets the alignment mode of list items along the cross axis.
-     *
-     * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.<br>Default value: <em>ListItemAlign.Start</em>
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26 static
-     */
-    default alignListItem(value: ListItemAlign): this;
+  /**
+   * Triggered when the index of child components in the visible area changes.
+   *
+   * @param { onVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   *     when the index of child components in the visible area changes.
+   *     <br>Passing undefined will unregister the callback.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onVisibleIndexesChange(callback: onVisibleIndexesChangeCallback | undefined): this;
 
-    /**
-     * Called when a child component enters or leaves the list display area.
-     *
-     * @param { function } event - callback of list scroll,
-     * start is the first index in visible content,
-     * end is the last index in visible content.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26 static
-     */
-    default onScrollIndex(event: (start: number, end: number) => void): this;
+  /**
+   * Sets the attribute modifier.
+   *
+   * @param { AttributeModifier<LazyColumnLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default attributeModifier(modifier: AttributeModifier<LazyColumnLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines LazyColumnLayout Component.
  *
- * @param { CustomBuilder } content_
- * @returns { LazyColumnLayoutAttribute }
+ * @param { CustomBuilder } [content_] - container
+ * @returns { LazyColumnLayoutAttribute } The attribute of the lazyColumnLayout
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26 static
- * @noninterop
+ * @since 26.0.0 static
  */
 @ComponentBuilder
-export declare function LazyColumnLayout (
-    content_: CustomBuilder,
-): LazyColumnLayoutAttribute;
+export declare function LazyColumnLayout(
+    content_?: CustomBuilder,
+): LazyColumnLayoutAttribute
