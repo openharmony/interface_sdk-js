@@ -21,8 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * The **hiSysEvent** module provides the system event logging functions, such as configuring trace points, subscribing
- * to system events, and querying system events written to the event file.
+ * 本模块提供了系统事件打点能力，包括系统事件的埋点、落盘系统事件的订阅及已落盘的系统事件的查询能力。
  *
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
@@ -31,7 +30,7 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace hiSysEvent {
   /**
-   * Enumerate system event types.
+   * 系统事件类型枚举。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -40,7 +39,7 @@ declare namespace hiSysEvent {
    */
   enum EventType {
     /**
-     * Error event.
+     * 错误事件类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -50,7 +49,7 @@ declare namespace hiSysEvent {
     FAULT = 1,
 
     /**
-     * Statistic event.
+     * 统计事件类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -60,7 +59,7 @@ declare namespace hiSysEvent {
     STATISTIC = 2,
 
     /**
-     * Security event.
+     * 安全事件类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -70,7 +69,7 @@ declare namespace hiSysEvent {
     SECURITY = 3,
 
     /**
-     * User behavior event.
+     * 用户行为事件类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -81,7 +80,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Defines a system event.
+   * 系统事件信息对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -90,7 +89,7 @@ declare namespace hiSysEvent {
    */
   interface SysEventInfo {
     /**
-     * Event domain.
+     * 事件领域。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -100,7 +99,7 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * Event name.
+     * 事件名称。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -110,7 +109,7 @@ declare namespace hiSysEvent {
     name: string;
 
     /**
-     * Event type.
+     * 事件类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -120,7 +119,7 @@ declare namespace hiSysEvent {
     eventType: EventType;
 
     /**
-     * Event parameters.
+     * 事件参数。
      *
      * @type { object } [since 9 - 11]
      * @type { ?object } [since 12]
@@ -131,7 +130,7 @@ declare namespace hiSysEvent {
     params?: object;
 
     /**
-     * Event parameters.
+     * 事件参数。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -141,11 +140,10 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Writes event information to the event file. This API uses a promise to return the result.
+   * 系统事件打点方法，接收[SysEventInfo]{@link SysEventInfo}类型的对象作为事件参数，使用promise方式作为异步回调。
    *
-   * @param {SysEventInfo} info - System event information.
-   * @returns {Promise<void>} - Promise used to return the result. Depending on whether event writing is successful, you
-   *     can use the **then()** or **catch()** method to process the callback.
+   * @param {SysEventInfo} info - 系统事件。
+   * @returns {Promise<void>} - Promise实例，可以在其then()、catch()方法中分别对系统事件写入成功、写入异常的回调进行处理。
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -166,13 +164,13 @@ declare namespace hiSysEvent {
   function write(info: SysEventInfo): Promise<void>;
 
   /**
-   * Writes event information to the event file. This API uses an asynchronous callback to return the result.
+   * 系统事件打点方法，接收[SysEventInfo]{@link SysEventInfo}类型的对象作为事件参数，使用callback方式作为异步回调。
    *
-   * @param {SysEventInfo} info - System event information.
-   * @param {AsyncCallback<void>} callback - Callback used to process the received return value.
-   *     <br/>- Value **0**: The event verification is successful, and the event will be written to the event file asynchronously. 
-   *     <br/>- A value greater than **0**: Invalid parameters are present in the event, and the event will be written to the event file asynchronously after the invalid parameters are ignored.
-   *     <br/>- A value smaller than **0**: The event parameter verification fails, and the event will not be written to the event file.
+   * @param {SysEventInfo} info - 系统事件。
+   * @param {AsyncCallback<void>} callback - 回调函数，可以在回调函数中处理接口返回值。
+   *     <br/>- 0表示事件校验成功，事件正常异步写入事件文件；
+   *     <br/>- 正值表示事件打点存在异常，但可以正常写入；
+   *     <br/>- 负值表示事件打点失败。
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -193,7 +191,7 @@ declare namespace hiSysEvent {
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Enumerates matching rule types.
+   * 匹配规则类型枚举。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -202,7 +200,7 @@ declare namespace hiSysEvent {
    */
   enum RuleType {
     /**
-     * Whole word matching.
+     * 全词匹配类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -212,7 +210,7 @@ declare namespace hiSysEvent {
     WHOLE_WORD = 1,
 
     /**
-     * Prefix matching.
+     * 前缀匹配类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -222,7 +220,7 @@ declare namespace hiSysEvent {
     PREFIX = 2,
 
     /**
-     * Regular expression matching.
+     * 正则匹配类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -233,7 +231,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Defines event subscription rules.
+   * 系统事件订阅规则对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -242,7 +240,7 @@ declare namespace hiSysEvent {
    */
   interface WatchRule {
     /**
-     * Event domain.
+     * 事件领域。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -252,7 +250,7 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * Event name.
+     * 事件名称。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -262,7 +260,7 @@ declare namespace hiSysEvent {
     name: string;
 
     /**
-     * Event tag.
+     *  事件标签。
      *
      * @type { string } [since 9 - 11]
      * @type { ?string } [since 12]
@@ -273,7 +271,7 @@ declare namespace hiSysEvent {
     tag?: string;
 
     /**
-     * Event tag.
+     * 事件标签。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -282,7 +280,7 @@ declare namespace hiSysEvent {
     tag?: string | null | undefined;
 
     /**
-     * Matching rule type.
+     * 匹配规则类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -293,7 +291,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Defines a watcher for event subscription.
+   * 系统事件订阅者对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -302,7 +300,7 @@ declare namespace hiSysEvent {
    */
   interface Watcher {
     /**
-     * Array of matching event subscription rules.
+     * 订阅对象数组，每个订阅者对象包含多个订阅规则。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -312,7 +310,7 @@ declare namespace hiSysEvent {
     rules: WatchRule[];
 
     /**
-    * Callback for event subscription: (info: [SysEventInfo]{@link SysEventInfo}) => void
+    * 订阅事件的回调方法(info: [SysEventInfo]{@link SysEventInfo}) => void。
     *
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
@@ -322,7 +320,7 @@ declare namespace hiSysEvent {
     onEvent: (info: SysEventInfo) => void;
 
     /**
-     * Callback for disabling of event subscription: () => void
+     * 系统事件服务关闭的回调方法() => void。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -333,7 +331,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Defines arguments for an event query.
+   * 系统事件查询参数对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -342,8 +340,7 @@ declare namespace hiSysEvent {
    */
   interface QueryArg {
     /**
-     * Start time of the system event to be queried. The value is a 13-digit timestamp, indicating the number of
-     * milliseconds elapsed since 00:00:00:00 on January 1, 1970.
+     * 查询的系统事件起始时间（13位时间戳），表示距1970年1月1日0时0分0秒0毫秒的毫秒数。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -353,8 +350,7 @@ declare namespace hiSysEvent {
     beginTime: long;
 
     /**
-     * End time of the system event to be queried. The value is a 13-digit timestamp, indicating the number of
-     * milliseconds elapsed since 00:00:00:00 on January 1, 1970.
+     * 查询的系统事件结束时间（13位时间戳），表示距1970年1月1日0时0分0秒0毫秒的毫秒数。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -364,7 +360,7 @@ declare namespace hiSysEvent {
     endTime: long;
 
     /**
-     * Maximum number of events that can be queried.
+     * 查询的系统事件最多条数。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -374,7 +370,7 @@ declare namespace hiSysEvent {
     maxEvents: long;
 
     /**
-     * Start SN of the events to be queried. The default value is **-1**
+     * 查询的系统事件起始序列号，默认值为-1。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -383,7 +379,7 @@ declare namespace hiSysEvent {
     fromSeq?: long;
 
     /**
-     * Start SN of the events to be queried. The default value is **-1**
+     * 查询的系统事件起始序列号，默认值为-1。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -392,7 +388,7 @@ declare namespace hiSysEvent {
     fromSeq?: long | null | undefined;
 
     /**
-     * End SN of the system events to be queried. The default value is **-1**.
+     * 查询的系统事件结束序列号，默认值为-1。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -401,7 +397,7 @@ declare namespace hiSysEvent {
     toSeq?: long;
 
     /**
-     * End SN of the system events to be queried. The default value is **-1**.
+     * 查询的系统事件结束序列号，默认值为-1。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -411,7 +407,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Defines event query rules.
+   * 系统事件查询规则对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -420,7 +416,7 @@ declare namespace hiSysEvent {
    */
   interface QueryRule {
     /**
-     * Event domain.
+     * 查询包含的事件领域。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -430,7 +426,7 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * Array of event names. A **QueryRule** object contains multiple system event names.
+     * 查询所包含的多个事件名称，每个查询规则对象包含多个系统事件名称。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -440,14 +436,13 @@ declare namespace hiSysEvent {
     names: string[];
 
     /**
-     * Additional event conditions. The value of this parameter is in the format of
-     * **{"version":"V1","condition":{"and":[{"param":"*Parameter*","op":"*Operator*","value":"*Comparison value*"}]}}**.
+     * 事件的额外参数条件，格式：{"version":"V1","condition":{"and":[{"param":"参数","op":"操作符","value":"比较值"}]}}。
      *
-     * Parameter: key value of the specified event parameter.
+     * 参数：指定事件参数的键值。
      *
-     * Supported operators: **=**, **!=**, **<**, **<=**, **>** and **>=**.
+     * 操作符支持：=、!=、<、<=、>和>=。
      *
-     * Multiple conditions can be configured in the **"and"** array, and the intersection of the query results is used.
+     * 支持在“and”数组中配置多个条件，查询结果取交集。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -456,14 +451,13 @@ declare namespace hiSysEvent {
     condition?: string;
 
     /**
-     * Additional event conditions. The value of this parameter is in the format of
-     * **{"version":"V1","condition":{"and":[{"param":"*Parameter*","op":"*Operator*","value":"*Comparison value*"}]}}**.
+     * 事件的额外参数条件，格式：{"version":"V1","condition":{"and":[{"param":"参数","op":"操作符","value":"比较值"}]}}。
      *
-     * Parameter: key value of the specified event parameter.
+     * 参数：指定事件参数的键值。
      *
-     * Supported operators: **=**, **!=**, **<**, **<=**, **>** and **>=**.
-     * 
-     * Multiple conditions can be configured in the **"and"** array, and the intersection of the query results is used.
+     * 操作符支持：=、!=、<、<=、>和>=。
+     *
+     * 支持在“and”数组中配置多个条件，查询结果取交集。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -473,7 +467,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Defines an event query instance.
+   * 系统事件查询者对象接口。
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -482,8 +476,7 @@ declare namespace hiSysEvent {
    */
   interface Querier {
     /**
-     * Callback used to return the queried system events: (infos: [SysEventInfo]{@link SysEventInfo}[]) =>
-     * void.
+     * 返回查询到的系统事件的回调方法(infos: [SysEventInfo]{@link SysEventInfo}[]) => void。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -493,7 +486,7 @@ declare namespace hiSysEvent {
     onQuery: (infos: SysEventInfo[]) => void;
 
     /**
-     * Callback used to return the query result statistics: (reason: int, total: int) => void
+     * 查询结果统计的回调方法(reason: int, total: int) => void。
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -504,10 +497,10 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Adds a watcher for event subscription.
+   * 订阅系统事件，接收[Watcher]{@link Watcher}类型的对象作为事件参数。
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Watcher} watcher - Watcher for event subscription.
+   * @param {Watcher} watcher - 系统事件订阅者对象。
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
    *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -525,10 +518,10 @@ declare namespace hiSysEvent {
   function addWatcher(watcher: Watcher): void;
 
   /**
-   * Removes a watcher used for event subscription.
+   * 取消订阅系统事件，接收[Watcher]{@link Watcher}类型的对象作为事件参数。
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Watcher} watcher - Watcher for event subscription.
+   * @param {Watcher} watcher - 系统事件订阅者对象。
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
    *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -545,12 +538,12 @@ declare namespace hiSysEvent {
   function removeWatcher(watcher: Watcher): void;
 
   /**
-   * Queries system events.
+   * 查询系统事件。
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {QueryArg} queryArg - Arguments for event query.
-   * @param {QueryRule[]} rules - Array of event query rules.
-   * @param {Querier} querier - Event query instance.
+   * @param {QueryArg} queryArg - 查询需要配置的查询参数。
+   * @param {QueryRule[]} rules - 查询规则数组，每次查询可配置多个查询规则。
+   * @param {Querier} querier - 查询者对象，包含查询结果及结束的相关回调。
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
    *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -570,13 +563,12 @@ declare namespace hiSysEvent {
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 
   /**
-   * Exports system events in batches and writes them as a file to the fixed directory of the application sandbox (that
-   * is, /data/storage/el2/base/cache/hiview/event/).
+   * 批量导出系统事件，以文件格式写入应用沙箱固定目录(/data/storage/el2/base/cache/hiview/event/)。
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {QueryArg} queryArg - Event query parameters for the export.
-   * @param {QueryRule[]} rules - Array of event query rules for the export.
-   * @returns {long} API call timestamp.
+   * @param {QueryArg} queryArg - 导出需要配置的查询参数。     
+   * @param {QueryRule[]} rules - 查询规则数组，每次导出可配置多个查询规则。
+   * @returns {long} 接口调用时间戳。
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
    *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -595,13 +587,11 @@ declare namespace hiSysEvent {
   function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): long;
 
   /**
-   * Subscribes to real-time system events that occur occasionally or occur in a low frequency. These events are written
-   * as a file to the fixed directory of the application sandbox (that is,
-   * /data/storage/el2/base/cache/hiview/event/).
+   * 订阅实时系统事件(事件需满足低频率或偶发性的约束条件)，事件发生时立即以文件格式写入应用沙箱固定目录(/data/storage/el2/base/cache/hiview/event/)。
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {QueryRule[]} rules - Array of event query rules for the subscription.
-   * @returns {long} API call timestamp.
+   * @param {QueryRule[]} rules - 查询规则数组，每次订阅可配置多个查询规则。
+   * @returns {long} 接口调用时间戳。
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
    *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -619,7 +609,7 @@ declare namespace hiSysEvent {
   function subscribe(rules: QueryRule[]): long;
 
   /**
-   * Unsubscribes from system events.
+   * 取消订阅系统事件。
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
