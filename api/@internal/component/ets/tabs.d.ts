@@ -1083,6 +1083,132 @@ interface ScrollableBarModeOptions {
 }
 
 /**
+ * Provides an interface for the options for the floating bar width of the tab width at different breakpoints.
+ *
+ * @interface FloatingTabBarWidth
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+interface FloatingTabBarWidth {
+  /**
+   * The bar width of the small devices. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  smallBarWidth?: Length;
+  /**
+   * The bar width of the medium devices. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  mediumBarWidth?: Length;
+  /**
+   * The bar width of the large devices. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  largeBarWidth?: Length;
+}
+
+/**
+ * Provides an interface for the options for the floating bar mode.
+ *
+ * @interface FloatingTabBarStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+interface FloatingTabBarStyle {
+  /**
+   * The bar width of the tab width at different breakpoints.
+   *
+   * @type { ?FloatingTabBarWidth }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barWidth?: FloatingTabBarWidth;
+  /**
+   * The width of the left and right margins of the bar. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barSideMargin?: Length;
+  /**
+   * The distance between the bar and the bottom of tab. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barBottomMargin?: Length;
+  /**
+   * The color of the mask.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maskColor?: ResourceColor;
+  /**
+   * The height of the mask. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maskHeight?: Length;
+  /**
+   * Whether to adapt to the handedness.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  adaptToHandedness?: boolean;
+}
+
+/**
  * Defines a tabs callback when onAnimationStart.
  *
  * @typedef { function } OnTabsAnimationStartCallback
@@ -2119,6 +2245,19 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 24 dynamic
    */
   nestedScroll(value: TabsNestedScrollMode | undefined): TabsAttribute;
+
+  /**
+   * Enable floating style for bar.
+   *
+   * @param { Optional<FloatingTabBarStyle> } style - floating style for bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barFloatingStyle(style: Optional<FloatingTabBarStyle>): TabsAttribute;
 }
 
 /**
