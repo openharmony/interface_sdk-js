@@ -37,6 +37,7 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @stagemodelonly
  * @since 10 dynamic
  * @since 23 static
+ * @deprecated since 26.0.0
  */
 export default class ActionExtensionAbility extends UIExtensionAbility {
 }
