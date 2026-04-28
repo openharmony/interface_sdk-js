@@ -21930,17 +21930,6 @@ declare interface ContextMenuOptions {
    * @since 26.0.0 dynamic
    */
   maxHeight?: LengthMetrics;
-  /**
-   * Sets the animation effect mode of the menu with the new material;
-   *
-   * @type { ?UIMaterialAnimationMode }
-   * @default UIMaterialAnimationMode.IMMERSIVE
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  uiMaterialAnimationMode?: UIMaterialAnimationMode;
 }
 
 /**
