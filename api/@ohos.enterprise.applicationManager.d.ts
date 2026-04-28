@@ -202,7 +202,7 @@ declare namespace applicationManager {
      * @stagemodelonly
      * @since 26.0.0
      */
-    isOnCock: boolean;
+    isOnDock: boolean;
     /**
      * The name of the window.
      *
