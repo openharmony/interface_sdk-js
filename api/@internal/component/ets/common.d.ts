@@ -32192,6 +32192,17 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
+  
+  /**
+   * Set the component's inspector label which only display on DevEco Studio. 
+   * @param { string | undefined } label - the inspector label.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  inspectorLabel(label: string | undefined): T;
 }
 
 /**
