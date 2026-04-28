@@ -625,7 +625,7 @@ declare interface NativeEmbedParamDataInfo {
 }
 
 /**
- * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
+ * 组件旋转时，宽高动画过程中组件内容如何填充以适应新尺寸的方式。
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -633,7 +633,7 @@ declare interface NativeEmbedParamDataInfo {
  */
 declare enum WebRotateEffect {
   /**
-   * The content area is drawn in top-left of the node.
+   * 默认值，组件旋转时，保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -641,7 +641,7 @@ declare enum WebRotateEffect {
   TOPLEFT_EFFECT = 0,
 
   /**
-   * Scale the content area to cover the node.
+   * 组件旋转时，保持动画终态内容的宽高比进行缩小或放大，使内容两边都大于或等于组件两边，且与组件保持中心对齐，显示内容的中间部分。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -11266,9 +11266,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback): WebAttribute;
 
   /**
-   * Set up the effect of web rotation
+   * 设置Web组件旋转时，宽高动画过程中组件内容的填充方式。若未显式调用属性，默认保持动画终态的内容大小，内容始终与组件左上角对齐。
    *
-   * @param { WebRotateEffect } effect - The effect of rotation.
+   * @param { WebRotateEffect } effect - 设置Web组件旋转时，宽高动画过程中组件内容的填充方式。
    * @returns { WebAttribute }
       * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
