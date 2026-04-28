@@ -889,7 +889,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to the this service. </p>
+   * <p> System will publish a notification related to this service. </p>
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -912,7 +912,7 @@ declare namespace backgroundTaskManager {
    */
   /**
    * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to the this service. </p>
+   * <p> System will publish a notification related to this service. </p>
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -997,7 +997,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { string[] } bgModes - Indicates which background mode to request.
    * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<ContinuousTaskNotification> } The The continuous task notification.
+   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
@@ -1063,7 +1063,7 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
   /**
-   * UIAbility uses this method to update background mode, support update acording to continuous task id.
+   * UIAbility uses this method to update background mode, support update according to continuous task id.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -1194,7 +1194,7 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context): Promise<void>;
 
   /**
-   * UI ability uses this method to request stop running in background acording to continuous task id.
+   * UI ability uses this method to request stop running in background according to continuous task id.
    *
    * @param { Context } context - App running context.
    * @param { int } continuousTaskId - continuousTaskId.
@@ -1530,7 +1530,7 @@ declare namespace backgroundTaskManager {
   function off(type: 'continuousTaskActive', callback?: Callback<ContinuousTaskActiveInfo>): void;
 
   /**
-   * Unregister continuous task suspend callback.
+   * Unregister continuous task active callback.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.

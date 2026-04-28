@@ -113,7 +113,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Service ability uses this method to request start running in background.
-   * system will publish a notification related to the this service.
+   * system will publish a notification related to this service.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context app running context.
@@ -129,7 +129,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Service ability uses this method to request start running in background.
-   * system will publish a notification related to the this service.
+   * system will publish a notification related to this service.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context app running context.
