@@ -6122,73 +6122,90 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   function createImageCreator(size: Size, format: ImageFormat, capacity: int): ImageCreator;
   /**
-   * PixelMap instance.
+   * The **PixelMap** class provides APIs to read or write image data and obtain image information. Before calling any
+   * API in PixelMap, you must use
+   * [image.createPixelMap]{@link @ohos.multimedia.image:image.createPixelMap(colors: ArrayBuffer, options: InitializationOptions)}
+   * to create a PixelMap object. Currently, the maximum size of a serialized PixelMap is 128 MB. A larger size will
+   * cause a display failure. The size is calculated as follows: Width x Height x
+   * [Bytes per pixel]{@link @ohos.multimedia.image:image.PixelMapFormat}.
+   * Since API version 11, PixelMap supports cross-thread calls through [Worker]{@link @ohos.worker}. If a PixelMap
+   * object is invoked by another thread through [Worker]{@link @ohos.worker}, all APIs of the PixelMap object cannot be
+   * called in the original thread. Otherwise, error 501 is reported, indicating that the server cannot complete the
+   * request.
+   * Before calling any API in PixelMap, you can use
+   * [image.createPixelMap]{@link @ohos.multimedia.image:image.createPixelMap(colors: ArrayBuffer, options: InitializationOptions)}
+   * to pass pixel data to create a PixelMap object, or use [ImageSource]{@link @ohos.multimedia.image:image} to decode
+   * an image to a PixelMap object.
+   * To develop an atomic service, use [ImageSource]{@link @ohos.multimedia.image:image} to create a PixelMap object.
+   * Images occupy a large amount of memory. When you finish using a PixelMap instance, call
+   * [release]{@link image.PixelMap.release()} to free the memory promptly. Before releasing the instance, ensure that
+   * all asynchronous operations associated with the instance have finished and the instance is no longer needed.
    *
-   * @typedef PixelMap
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * PixelMap instance.
-   *
-   * @typedef PixelMap
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * PixelMap instance.
-   *
-   * @typedef PixelMap
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * PixelMap instance.
-   *
-   * @typedef PixelMap
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   interface PixelMap {
     /**
-     * Whether the image pixel map can be edited.
+     * Whether the image pixels are editable. **true** if editable, **false** otherwise. The value **false** provides
+     * better image rendering and transmission performance.<br>
+     * This API can be used in atomic services since API version 11.<br>
+     * This API can be used in ArkTS widgets since API version 12.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
+    readonly isEditable: boolean;
+
     /**
-     * Whether the image pixel map can be edited.
+     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
+     * This API uses a promise to return the result.
      *
-     * @type { boolean }
-     * @readonly
+     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
+    readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
+
     /**
-     * Whether the image pixel map can be edited.
+     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @type { boolean }
-     * @readonly
+     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
+    readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
+
     /**
-     * Whether the image pixel map can be edited.
+     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
+     * This API returns the result synchronously.
      *
-     * @type { boolean }
-     * @readonly
+     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -6196,7 +6213,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12 dynamic
      * @since 23 static
      */
-    readonly isEditable: boolean;
+    readPixelsToBufferSync(dst: ArrayBuffer): void;
 
     /**
      * Reads all the pixel data from the PixelMap and writes the data to a buffer.
@@ -6240,116 +6257,67 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readAllPixelsToBufferSync(dst: ArrayBuffer): void;
 
     /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
+     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
+     * of this PixelMap object in the BGRA_8888 format and writes the data to the
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API uses a promise to return
+     * the result.
+     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
+     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
+     * component + 0.25 * V component)
+     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
+     * component + 1 * B component + 1 * A component)
      *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { PositionArea } area - Area from which the pixels will be read.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
-     * 
-     * It is recommended to use {@link readAllPixelsToBuffer}.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
-    readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
+    readPixels(area: PositionArea): Promise<void>;
 
     /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a callback to return the result.
+     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
+     * of this PixelMap object in the BGRA_8888 format and writes the data to the
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API uses an asynchronous
+     * callback to return the result.
+     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
+     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
+     * component + 0.25 * V component)
+     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
+     * component + 1 * B component + 1 * A component)
      *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { PositionArea } area - Area from which the pixels will be read.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a callback to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a callback to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a callback to return the result.
-     * 
-     * It is recommended to use {@link readAllPixelsToBuffer}.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
-    readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
+    readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer.
-     * 
-     * It is recommended to use {@link readAllPixelsToBufferSync}.
+     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
+     * of this PixelMap object in the BGRA_8888 format and writes the data to the
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API returns the result
+     * synchronously.
      *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
+     * @param { PositionArea } area - Area from which the pixels will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    readPixelsToBufferSync(dst: ArrayBuffer): void;
+    readPixelsSync(area: PositionArea): void;
 
     /**
      * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
@@ -6395,107 +6363,68 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readPixelsToAreaSync(area: PositionArea): void;
 
     /**
-     * Reads image pixel map data in an area. This method uses a promise to return the data read.
+     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
+     * BGRA_8888 format and writes the data to the area specified by
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API uses a
+     * promise to return the result.
+     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
+     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
+     * component + 0.25 * V component)
+     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
+     * component + 1 * B component + 1 * A component)
      *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { PositionArea } area - Area to which the pixels will be written.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image pixel map data in an area. This method uses a promise to return the data read.
-     *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image pixel map data in an area. This method uses a promise to return the data read.
-     *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Reads image pixel map data in an area. This method uses a promise to return the data read.
-     * 
-     * It is recommended to use {@link readPixelsToArea}.
-     *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
-    readPixels(area: PositionArea): Promise<void>;
+    writePixels(area: PositionArea): Promise<void>;
 
     /**
-     * Reads image pixel map data in an area. This method uses a callback to return the data read.
+     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
+     * BGRA_8888 format and writes the data to the area specified by
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API uses an
+     * asynchronous callback to return the result.
+     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
+     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
+     * component + 0.25 * V component)
+     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
+     * component + 1 * B component + 1 * A component)
      *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { PositionArea } area - Area to which the pixels will be written.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image pixel map data in an area. This method uses a callback to return the data read.
-     *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image pixel map data in an area. This method uses a callback to return the data read.
-     *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Reads image pixel map data in an area. This method uses a callback to return the data read.
-     * 
-     * It is recommended to use {@link readPixelsToArea}.
-     *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
-    readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
+    writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
-     * Reads image pixel map data in an area.
-     * 
-     * It is recommended to use {@link readPixelsToAreaSync}.
+     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
+     * BGRA_8888 format and writes the data to the area specified by
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API returns
+     * the result synchronously.
      *
-     * @param { PositionArea } area Area from which the image pixel map data will be read.
+     * @param { PositionArea } area - Area to which the pixels will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    readPixelsSync(area: PositionArea): void;
+    writePixelsSync(area: PositionArea): void;
 
     /**
      * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
@@ -6543,116 +6472,54 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     writePixelsFromAreaSync(area: PositionArea): void;
 
     /**
-     * Writes image pixel map data to the specified area. This method uses a promise to return
-     * the operation result.
+     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
+     * This API uses a promise to return the result.
      *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Writes image pixel map data to the specified area. This method uses a promise to return
-     * the operation result.
-     *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Writes image pixel map data to the specified area. This method uses a promise to return
-     * the operation result.
-     *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Writes image pixel map data to the specified area. This method uses a promise to return
-     * the operation result.
-     * 
-     * It is recommended to use {@link writePixelsFromArea}.
-     *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
-    writePixels(area: PositionArea): Promise<void>;
+    writeBufferToPixels(src: ArrayBuffer): Promise<void>;
 
     /**
-     * Writes image pixel map data to the specified area. This method uses a callback to return
-     * the operation result.
+     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the pixels in the buffer are
+     *     successfully written to the PixelMap, **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Writes image pixel map data to the specified area. This method uses a callback to return
-     * the operation result.
-     *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Writes image pixel map data to the specified area. This method uses a callback to return
-     * the operation result.
-     *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Writes image pixel map data to the specified area. This method uses a callback to return
-     * the operation result.
-     * 
-     * It is recommended to use {@link writePixelsFromArea}.
-     *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
-    writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
+    writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
-     * Writes image pixel map data to the specified area.
-     * 
-     * It is recommended to use {@link writePixelsFromAreaSync}.
+     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
+     * This API returns the result synchronously.
      *
-     * @param { PositionArea } area Area to which the image pixel map data will be written.
+     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    writePixelsSync(area: PositionArea): void;
+    writeBufferToPixelsSync(src: ArrayBuffer): void;
 
     /**
      * Reads the pixel data from a buffer and writes the data to the PixelMap.
@@ -6698,119 +6565,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     writeAllPixelsFromBufferSync(src: ArrayBuffer): void;
 
     /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a promise to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a promise to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a promise to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a promise to return the result.
-     * 
-     * It is recommended to use {@link writeAllPixelsFromBuffer}.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    writeBufferToPixels(src: ArrayBuffer): Promise<void>;
-
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a callback to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a callback to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a callback to return the result.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
-     * uses a callback to return the result.
-     * 
-     * It is recommended to use {@link writeAllPixelsFromBuffer}.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
-
-    /**
-     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
-     * 
-     * It is recommended to use {@link writeAllPixelsFromBufferSync}.
-     *
-     * @param { ArrayBuffer } src A buffer from which the image data will be read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    writeBufferToPixelsSync(src: ArrayBuffer): void;
-
-    /**
      * Convert pixelmap to standard dynamic range.
-     * 
+     *
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980137 - Invalid image operation.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6818,89 +6574,39 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     toSdr(): Promise<void>;
-  
+
     /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
+     * Obtains the image information of a PixelMap. This API uses a promise to return the result.
      *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
+     * @returns { Promise<ImageInfo> } Promise used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
-     *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
-     *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
-     *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     getImageInfo(): Promise<ImageInfo>;
 
     /**
-     * Obtains pixel map information about this image. This method uses a callback to return the information.
+     * Obtains the image information. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image pixel map information.
-     * If the operation fails, an error message is returned.
+     * @param { AsyncCallback<ImageInfo> } callback - Callback used to return the result. If the operation is successful
+     *     , **err** is **undefined** and **data** is the image information obtained; otherwise, **err** is an error
+     *     object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a callback to return the information.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image pixel map information.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a callback to return the information.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image pixel map information.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a callback to return the information.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image pixel map information.
-     * If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
     /**
-     * Get image information from image source.
+     * Obtains the image information. This API returns the result synchronously.
      *
-     * @returns { ImageInfo } the image information.
+     * @returns { ImageInfo } Image information.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -6912,112 +6618,40 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageInfoSync(): ImageInfo;
 
     /**
-     * Obtains the number of bytes in each line of the image pixel map.
+     * Obtains the number of bytes per row of this image. Unit: bytes.
      *
-     * @returns { number } Number of bytes in each line.
+     * @returns { int } Number of bytes per row.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { number } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { number } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { int } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     getBytesNumberPerRow(): int;
 
     /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains the total number of bytes of the image pixel map.
+     * Obtains the total number of bytes of this image. Unit: bytes.
      *
      * @returns { int } Total number of bytes.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     getPixelBytesNumber(): int;
 
     /**
-     * Obtains the density of the image pixel map.
+     * Obtains the pixel density of this image. Unit: ppi (pixels/inch)
      *
-     * @returns { number } The number of density, in ppi.
+     * @returns { int } Pixel density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Obtains the density of the image pixel map.
-     *
-     * @returns { number } The number of density, in ppi.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the density of the image pixel map.
-     *
-     * @returns { number } The number of density, in ppi.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains the density of the image pixel map.
-     *
-     * @returns { int } The number of density.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     getDensity(): int;
@@ -7066,99 +6700,41 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setOpacitySync(value: double): void;
 
     /**
-     * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
+     * Sets an opacity rate for this image. This API uses an asynchronous callback to return the result. It is invalid
+     * for YUV images.
      *
-     * @param { double } rate The value of transparent rate.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } rate - Opacity rate. The value range is (0,1].
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
-     *
-     * @param { double } rate The value of transparent rate.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
-     *
-     * @param { double } rate The value of transparent rate.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
-     * 
-     * It is recommended to use {@link setOpacity}.
-     *
-     * @param { double } rate The value of transparent rate.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     opacity(rate: double, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     * Sets an opacity rate for this image. It is invalid for YUV images. This API uses a promise to return the result.
      *
-     * @param { double } rate The value of transparent rate.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } rate - Opacity rate. The value range is (0,1].
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Set the transparent rate of pixel map. This method uses a promise to return the result.
-     *
-     * @param { double } rate The value of transparent rate.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Set the transparent rate of pixel map. This method uses a promise to return the result.
-     *
-     * @param { double } rate The value of transparent rate.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Set the transparent rate of pixel map. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link setOpacity}.
-     *
-     * @param { double } rate The value of transparent rate.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     opacity(rate: double): Promise<void>;
 
     /**
-     * Set the transparent rate of pixel map.
-     * 
-     * It is recommended to use {@link setOpacitySync}.
+     * Sets an opacity rate for this image. This API returns the result synchronously. It is invalid for YUV images.
      *
-     * @param { double } rate The value of transparent rate.
+     * @param { double } rate - Opacity rate. The value range is (0,1].
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7211,89 +6787,39 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     extractAlphaPixelMapSync(): PixelMap;
 
     /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
+     * Creates a PixelMap object that contains only the alpha channel information. This object can be used for the
+     * shadow effect. It is invalid for YUV images. This API uses a promise to return the result.
      *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
-     *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
-     *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
-     * 
-     * It is recommended to use {@link extractAlphaPixelMap}.
-     *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     createAlphaPixelmap(): Promise<PixelMap>;
 
     /**
-     * Obtains new pixel map with alpha information. This method uses a callback to return the information.
+     * Creates a PixelMap object that contains only the alpha channel information. This object can be used for the
+     * shadow effect. It is invalid for YUV images. This API returns the result through a callback.
      *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<PixelMap> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is undefined and **data** is the PixelMap object obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a callback to return the information.
-     *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a callback to return the information.
-     *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a callback to return the information.
-     * 
-     * It is recommended to use {@link extractAlphaPixelMap}.
-     *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
     /**
-     * Obtains new pixel map with alpha information.
-     * 
-     * It is recommended to use {@link extractAlphaPixelMapSync}.
+     * Creates a PixelMap object that contains only the alpha channel information. This object can be used for the
+     * shadow effect. This API returns the result synchronously. It is invalid for YUV images.
      *
-     * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
+     * @returns { PixelMap } PixelMap object. If the operation fails, an error is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7352,108 +6878,45 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     applyScaleSync(x: double, y: double, level?: AntiAliasingLevel): void;
 
     /**
-     * Image zoom in width and height. This method uses a callback to return the operation result.
+     * Scales this image based on the scale factors of the width and height. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image zoom in width and height. This method uses a callback to return the operation result.
-     *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image zoom in width and height. This method uses a callback to return the operation result.
-     *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image zoom in width and height. This method uses a callback to return the operation result.
-     * 
-     * It is recommended to use {@link applyScale}.
-     *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     scale(x: double, y: double, callback: AsyncCallback<void>): void;
 
     /**
-     * Image zoom in width and height. This method uses a promise to return the result.
+     * Scales this image based on the scale factors of the width and height. This API uses a promise to return the
+     * result.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image zoom in width and height. This method uses a promise to return the result.
-     *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image zoom in width and height. This method uses a promise to return the result.
-     *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image zoom in width and height. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link applyScale}.
-     *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     scale(x: double, y: double): Promise<void>;
 
     /**
-     * Image zoom in width and height.
-     * 
-     * It is recommended to use {@link applyScaleSync}.
+     * Scales this image based on the scale factors of the width and height. This API returns the result synchronously.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7464,16 +6927,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     scaleSync(x: double, y: double): void;
 
     /**
-     * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link applyScale}.
+     * Scales this image based on the specified anti-aliasing level and the scale factors for the width and height. This
+     * API uses a promise to return the result.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
+     * @param { AntiAliasingLevel } level - Anti-aliasing level.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7485,15 +6947,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     scale(x: double, y: double, level: AntiAliasingLevel): Promise<void>;
 
     /**
-     * Image zoom in width and height with anti-aliasing.
-     * 
-     * It is recommended to use {@link applyScaleSync}.
+     * Scales this image based on the specified anti-aliasing level and the scale factors for the width and height. This
+     * API returns the result synchronously.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
+     * @param { AntiAliasingLevel } level - Anti-aliasing level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7504,14 +6965,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     scaleSync(x: double, y: double, level: AntiAliasingLevel): void;
 
     /**
-     * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing. This method uses a promise to return the information.
+     * Creates an image that has been resized based on the specified anti-aliasing level and the scale factors of the
+     * width and height. This API uses a promise to return the result.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new scaled pixelmap. If the operation fails, an error message is returned.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
+     * @param { AntiAliasingLevel } level - Anti-aliasing level. The default value is **AntiAliasingLevel.NONE**.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
@@ -7520,14 +6982,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createScaledPixelMap(x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
 
     /**
-     * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing.
+     * Creates an image that has been resized based on the specified anti-aliasing level and the scale factors of the
+     * width and height. This API returns the result synchronously.
      *
-     * @param { double } x The zoom value of width.
-     * @param { double } y The zoom value of height.
-     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
-     * @returns { PixelMap } return the new scaled pixelmap. If the operation fails, an error message is returned.
+     * @param { double } x - Scale factor of the width.
+     * @param { double } y - Scale factor of the height.
+     * @param { AntiAliasingLevel } level - Anti-aliasing level. The default value is **AntiAliasingLevel.NONE**.
+     * @returns { PixelMap } PixelMap object. If the operation fails, an error is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
@@ -7581,108 +7044,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     applyTranslateSync(x: double, y: double): void;
 
     /**
-     * Image position transformation. This method uses a callback to return the operation result.
+     * Translates this image based on given coordinates. This API uses an asynchronous callback to return the result.
+     * The size of the translated image is changed to width+X and height+Y. It is recommended that the new width and
+     * height not exceed the width and height of the screen.
      *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } x - X coordinate to translate, in px.
+     * @param { double } y - Y coordinate to translate, in px.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image position transformation. This method uses a callback to return the operation result.
-     *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image position transformation. This method uses a callback to return the operation result.
-     *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image position transformation. This method uses a callback to return the operation result.
-     * 
-     * It is recommended to use {@link applyTranslate}.
-     *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     translate(x: double, y: double, callback: AsyncCallback<void>): void;
 
     /**
-     * Image position transformation. This method uses a promise to return the result.
+     * Translates a PixelMap based on given coordinates. This API uses a promise to return the result.
+     * The size of the translated image is changed to width+X and height+Y. It is recommended that the new width and
+     * height not exceed the width and height of the screen.
      *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } x - X coordinate to translate, in px.
+     * @param { double } y - Y coordinate to translate, in px.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image position transformation. This method uses a promise to return the result.
-     *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image position transformation. This method uses a promise to return the result.
-     *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image position transformation. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link applyTranslate}.
-     *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     translate(x: double, y: double): Promise<void>;
 
     /**
-     * Image position transformation.
-     * 
-     * It is recommended to use {@link applyTranslateSync}.
+     * Translates this image based on given coordinates. This API returns the result synchronously.
+     * The size of the translated image is changed to width+X and height+Y. It is recommended that the new width and
+     * height not exceed the width and height of the screen.
      *
-     * @param { double } x The position value of width, in px.
-     * @param { double } y The position value of height, in px.
+     * @param { double } x - X coordinate to translate, in px.
+     * @param { double } y - Y coordinate to translate, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7694,7 +7098,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Rotates the PixelMap.
-     * 
+     *
      * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
      *
      * @param { double } angle - The rotation angle in degrees. Unit: Degree.
@@ -7718,7 +7122,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Rotates the PixelMap.
-     * 
+     *
      * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
      *
      * @param { double } angle - The rotation angle in degrees. Unit: Degree.
@@ -7740,99 +7144,40 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     applyRotateSync(angle: double): void;
 
     /**
-     * Image rotation. This method uses a callback to return the operation result.
+     * Rotates this image based on a given angle. This API uses an asynchronous callback to return the result.
      *
-     * @param { double } angle The rotation angle, in degrees.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } angle - Angle to rotate. Unit: degrees.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image rotation. This method uses a callback to return the operation result.
-     *
-     * @param { double } angle The rotation angle, in degrees.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image rotation. This method uses a callback to return the operation result.
-     *
-     * @param { double } angle The rotation angle, in degrees.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image rotation. This method uses a callback to return the operation result.
-     * 
-     * It is recommended to use {@link applyRotate}.
-     *
-     * @param { double } angle The rotation angle, in degrees.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     rotate(angle: double, callback: AsyncCallback<void>): void;
 
     /**
-     * Image rotation. This method uses a promise to return the result.
+     * Rotates a PixelMap based on a given angle. This API uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle, in degrees.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { double } angle - Angle to rotate. Unit: degrees.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image rotation. This method uses a promise to return the result.
-     *
-     * @param { double } angle The rotation angle, in degrees.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image rotation. This method uses a promise to return the result.
-     *
-     * @param { double } angle The rotation angle, in degrees.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image rotation. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link applyRotate}.
-     *
-     * @param { double } angle The rotation angle, in degrees.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     rotate(angle: double): Promise<void>;
 
     /**
-     * Image rotation.
-     * 
-     * It is recommended to use {@link applyRotateSync}.
+     * Rotates this image based on a given angle. This API returns the result synchronously.
      *
-     * @param { double } angle The rotation angle, in degrees.
+     * @param { double } angle - Angle to rotate. Unit: degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7886,108 +7231,50 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     applyFlipSync(horizontal: boolean, vertical: boolean): void;
 
     /**
-     * Image flipping. This method uses a callback to return the operation result.
+     * Flips this image horizontally or vertically, or both. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { boolean } horizontal - Whether to flip the image horizontally. **true** to flip the image horizontally,
+     *     **false** otherwise.
+     * @param { boolean } vertical - Whether to flip the image vertically. **true** to flip the image vertically,
+     *     **false** otherwise.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image flipping. This method uses a callback to return the operation result.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image flipping. This method uses a callback to return the operation result.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image flipping. This method uses a callback to return the operation result.
-     * 
-     * It is recommended to use {@link applyFlip}.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Image flipping. This method uses a promise to return the result.
+     * Flips a PixelMap based on a given angle. This API uses a promise to return the result.
      *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { boolean } horizontal - Whether to flip the image horizontally. **true** to flip the image horizontally,
+     *     **false** otherwise.
+     * @param { boolean } vertical - Whether to flip the image vertically. **true** to flip the image vertically,
+     *     **false** otherwise.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Image flipping. This method uses a promise to return the result.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image flipping. This method uses a promise to return the result.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image flipping. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link applyFlip}.
-     *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
     /**
-     * Image flipping.
-     * 
-     * It is recommended to use {@link applyFlipSync}.
+     * Flips this image horizontally or vertically, or both. This API returns the result synchronously.
      *
-     * @param { boolean } horizontal Is flip in horizontal.
-     * @param { boolean } vertical Is flip in vertical.
+     * @param { boolean } horizontal - Whether to flip the image horizontally. **true** to flip the image horizontally,
+     *     **false** otherwise.
+     * @param { boolean } vertical - Whether to flip the image vertically. **true** to flip the image vertically,
+     *     **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -8041,99 +7328,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     applyCropSync(region: Region): void;
 
     /**
-     * Crop the image. This method uses a callback to return the operation result.
+     * Crops this image based on a given size. This API uses an asynchronous callback to return the result.
      *
-     * @param { Region } region The region to crop.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { Region } region - Size of the image after cropping. The value cannot exceed the width or height of the
+     *     image.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Crop the image. This method uses a callback to return the operation result.
-     *
-     * @param { Region } region The region to crop.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Crop the image. This method uses a callback to return the operation result.
-     *
-     * @param { Region } region The region to crop.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Crop the image. This method uses a callback to return the operation result.
-     * 
-     * It is recommended to use {@link applyCrop}.
-     *
-     * @param { Region } region The region to crop.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     crop(region: Region, callback: AsyncCallback<void>): void;
 
     /**
-     * Crop the image. This method uses a promise to return the result.
+     * Crops a PixelMap based on a given size. This API uses a promise to return the result.
      *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { Region } region - Size of the image after cropping. The value cannot exceed the width or height of the
+     *     image.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Crop the image. This method uses a promise to return the result.
-     *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Crop the image. This method uses a promise to return the result.
-     *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Crop the image. This method uses a promise to return the result.
-     * 
-     * It is recommended to use {@link applyCrop}.
-     *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     crop(region: Region): Promise<void>;
 
     /**
-     * Crop the image.
-     * 
-     * It is recommended to use {@link applyCropSync}.
+     * Crops this image based on a given size. This API returns the result synchronously.
      *
-     * @param { Region } region The region to crop.
+     * @param { Region } region - Size of the image after cropping. The value cannot exceed the width or height of the
+     *     image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -8144,36 +7375,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     cropSync(region: Region): void;
 
     /**
-     * Get color space of pixel map.
+     * Obtains the color space of this image.
      *
-     * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
+     * @returns { colorSpaceManager.ColorSpaceManager } Color space obtained.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
-     */
-    /**
-     * Get color space of pixel map.
-     *
-     * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform  
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
     /**
-     * Marshalling pixelmap and write into MessageSequence.
+     * Marshals this PixelMap object and writes it to a MessageSequence object.
      *
-     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @param { rpc.MessageSequence } sequence - MessageSequence object.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
-     * 3. Decode process exception. 4. Insufficient memory.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload
+     *     exception.
+     *     3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
      * @since 23 static
@@ -8181,15 +7403,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     marshalling(sequence: rpc.MessageSequence): void;
 
     /**
-     * Creates a PixelMap object based on MessageSequence parameter.
+     * Unmarshals a MessageSequence object to obtain a PixelMap object. To create a PixelMap object in synchronous mode,
+     * use [createPixelMapFromParcel]{@link @ohos.multimedia.image:image.createPixelMapFromParcel}.
      *
-     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @param { rpc.MessageSequence } sequence - MessageSequence object that stores the PixelMap information.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
-     * 3. Decode process exception. 4. Insufficient memory.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload
+     *     exception.
+     *     3. Decode process exception. 4. Insufficient memory.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
      * @since 23 static
@@ -8198,7 +7422,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Set color space of pixel map.
-     * 
+     *
      * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
      * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
      * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
@@ -8211,7 +7435,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set color space of pixel map.
-     * 
+     *
      * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
      * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
      * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
@@ -8220,12 +7444,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - If the operation invalid.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform 
+     * @crossplatform
      * @since 11
      */
-     /**
+    /**
      * Set color space of pixel map.
-     * 
+     *
      * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
      * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
      * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
@@ -8234,33 +7458,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform 
+     * @crossplatform
      * @since 12 dynamic
      * @since 23 static
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
     /**
-     * Is it stride Alignment
+     * Whether the row data of the image is memory aligned. The value **true** means that the row data is memory-aligned
+     * , and there may be blank bytes padded at the end of each row to meet alignment requirements. The value **false**
+     * means that the row data is not memory-aligned, and rows are packed contiguously with no padding bytes at the end.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11 dynamic
      * @since 23 static
      */
     readonly isStrideAlignment: boolean;
 
-     /**
-     * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a callback to return the operation result.
-     * 
-     * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
-     * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+    /**
+     * Performs color space conversion (CSC) on the image pixel color based on a given color space. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
-     * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - Target color space. SRGB, DCI_P3, DISPLAY_P3,
+     *     and ADOBE_RGB_1998 are supported.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
      * @throws { BusinessError } 62980108 - Failed to convert the color space.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -8272,15 +7496,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
 
     /**
-     * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a promise to return the result.
-     * 
-     * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
-     * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     * Performs Color Space Converters (CSC) on the image pixel color based on a given color space. This API uses a
+     * promise to return the result.
      *
-     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - Target color space. SRGB, DCI_P3, DISPLAY_P3,
+     *     and ADOBE_RGB_1998 are supported.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
      * @throws { BusinessError } 62980108 - Failed to convert the color space.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -8305,90 +7528,61 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12 dynamic
      * @since 23 static
      */
-     convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
-     
-     /**
-     * Releases this PixelMap object. This method uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
+    convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
+
     /**
-     * Releases this PixelMap object. This method uses a callback to return the result.
+     * Releases this PixelMap instance. After the release, any attempt to access the internal data of this object will
+     * fail. This API uses an asynchronous callback to return the result.
+     * Images occupy a large amount of memory. When you finish using a PixelMap instance, call this API to free the
+     * memory promptly.
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Releases this PixelMap object. This method uses a callback to return the result.
+     * > **NOTE**
+     * >
+     * > Release occurs when an ArkTS object relinquishes control over its associated native object. The memory occupied
+     * > by the native object is reclaimed only after all managing ArkTS objects have relinquished their control.
      *
-     * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail.
-     * This method uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
+     * Releases this PixelMap instance. After the release, any attempt to access the internal data of this object will
+     * fail. This API uses a promise to return the result.
+     * Images occupy a large amount of memory. When you finish using a PixelMap instance, call this API to free the
+     * memory promptly.
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
+     * > **NOTE**
+     * >
+     * > Release occurs when an ArkTS object relinquishes control over its associated native object. The memory occupied
+     * > by the native object is reclaimed only after all managing ArkTS objects have relinquished their control.
      *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail.
-     * This method uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     release(): Promise<void>;
 
-   /**
-     * Enables the PixelMap object to be transferred across threads and detaches the reference from the current
-     * thread upon transfer.
+    /**
+     * Sets whether to detach from the original thread when this PixelMap is transmitted across threads. This API
+     * applies to the scenario where the PixelMap needs to be released immediately.
      *
-     * @param { boolean } detached A boolean value indicating whether to enable or disable the transfer and
-     * detachment feature.
+     * @param { boolean } detached - Whether to detach from the original thread. **true** to detach, **false**
+     *     otherwise.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -8397,12 +7591,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setTransferDetached(detached: boolean): void;
 
     /**
-     * Get metadata.
-     * 
-     * @param { HdrMetadataKey } key Type of metadata.
-     * @returns { HdrMetadataValue } Returns the value of metadata.
+     * Obtains the value of the metadata with a given key in this PixelMap.
+     *
+     * @param { HdrMetadataKey } key - Key of the HDR metadata.
+     * @returns { HdrMetadataValue } Value of the metadata with the given key.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980302 - Memory copy failed. Possibly caused by invalid metadata value.
@@ -8413,11 +7607,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getMetadata(key: HdrMetadataKey): HdrMetadataValue;
 
     /**
-     * Set pixelmap memory name.
-     * 
-     * @param { string } name The name of the memory that needs to be set
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.The length of the input parameter is too long.
-     * 2.Parameter verification failed.
+     * Sets a memory name for this PixelMap.
+     *
+     * @param { string } name - Memory name, which can be set only for a PixelMap with the DMA or ASHMEM memory format.
+     *     The name length for DMA memory settings should be within the range of 1 to 255 bytes. For ASHMEM memory
+     *     settings, the name length should be within the range of 1 to 244 bytes.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.The length of the input parameter is too
+     *     long.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980286 - Memory format not supported.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8427,15 +7624,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setMemoryNameSync(name: string): void;
 
     /**
-     * Clone pixelmap from current pixelmap.
-     * 
-     * @returns { PixelMap } A instance used to return the PixelMap object.
+     * Copies this PixelMap object. This API returns the result synchronously.
+     *
+     * @returns { PixelMap } PixelMap object. If the operation fails, an error is thrown.
      * @throws { BusinessError } 501 - Resource unavailable.
-     * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs
+     *     during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
      * @throws { BusinessError } 62980104 - Image initialization abnormal.
      *     This status code is thrown when an error occurs during the process of creating empty pixelmap.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
      * @since 23 static
@@ -8443,15 +7642,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     cloneSync(): PixelMap;
 
     /**
-     * Clone pixelmap from current pixelmap.
-     * 
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * Copies this PixelMap object. This API uses a promise to return the result.
+     *
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @throws { BusinessError } 501 - Resource unavailable.
-     * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs
+     *     during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
      * @throws { BusinessError } 62980104 - Image initialization abnormal.
      *     This status code is thrown when an error occurs during the process of creating empty pixelmap.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
      * @since 23 static
@@ -8459,14 +7660,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     clone(): Promise<PixelMap>;
 
     /**
-     * Set metadata.
-     * 
-     * @param { HdrMetadataKey } key Type of metadata.
-     * @param { HdrMetadataValue } value Value of metadata.
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails,
-     * an error message is returned.
+     * Sets the value for the metadata with a given key in this PixelMap. This API uses a promise to return the result.
+     *
+     * @param { HdrMetadataKey } key - Key of the HDR metadata.
+     * @param { HdrMetadataValue } value - Value of the metadata.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980302 - Memory copy failed. Possibly caused by invalid metadata value.
@@ -8478,7 +7678,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Checks whether the PixelMap is released. If so, then any method call that accesses the object's internal data will fail.
-     * 
+     *
      * @returns { boolean } True if the PixelMap is released, false otherwise.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 22 dynamic
@@ -8487,9 +7687,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isReleased(): boolean;
 
     /**
-     * Gets the unique ID of the PixelMap.
-     * 
-     * @returns { int } The unique ID of the PixelMap.
+     * Obtains the unique ID of this PixelMap.
+     *
+     * @returns { int } Unique ID. The value is a positive integer.
      * @throws { BusinessError } 7600201 - The PixelMap has been released.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 22 dynamic
