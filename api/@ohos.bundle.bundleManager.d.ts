@@ -4161,6 +4161,24 @@ declare namespace bundleManager {
   function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
 
   /**
+   * Set the alternate icon for the current application.
+   * If you need to restore the app's default icon, please input an empty value for the icon name parameter.
+   *
+   * @param { string } alternateIconName - Indicates the alternate icon name.
+   *     This value matches the name field under alternateIcons in the app.json5 file.
+   *     If an empty string is passed, the app's default icon will be restored.
+   * @returns { Promise<void> } Returns the result of setAlternateIcon.
+   * @throws { BusinessError } 17700308 - The alternateIconName must match the name field under alternateIcons
+   *     in the app.json5 file.
+   * @throws { BusinessError } 17700309 - No alternate icon is enabled.
+   * @throws { BusinessError } 17700310 - Failed to set the alternate icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setAlternateIcon(alternateIconName: string): Promise<void>;
+
+  /**
    * Get dynamic icon.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
