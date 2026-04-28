@@ -66,7 +66,9 @@ declare namespace contact {
    * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
    * creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -112,7 +114,9 @@ declare namespace contact {
    * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
    * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
