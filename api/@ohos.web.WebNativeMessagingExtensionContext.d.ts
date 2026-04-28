@@ -25,7 +25,9 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 import { AbilityResult } from './ability/abilityResult';
 
 /**
- * The context of web native messaging extension. It allows access to WebNativeMessagingExtension-specific resources.
+ * WebNativeMessagingExtensionContext is the context of web native message extension and is inherited from
+ * ExtensionContext. It provides the capability of exchanging messages with WebNativeMessagingExtension.
+ * The APIs of this module can be used only in the stage model.
  * 
  * @extends ExtensionContext
  * @syscap SystemCapability.Web.Webview.Core
@@ -34,11 +36,11 @@ import { AbilityResult } from './ability/abilityResult';
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
-   * Starts a new ability.
+   * Starts an ability using a promise.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Information about the ability to start.
+   * @param { StartOptions } [options] - Startup options.
+   * @returns { Promise<void> } Promise that returns by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -108,9 +110,9 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
  
   /**
-   * Destroys this web native messaging extension.
+   * Destroys the current native web message extension.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns by the function.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
@@ -122,10 +124,11 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   terminateSelf(): Promise<void>;
 
   /**
-   * Stop the specified native connection.
-   * 
-   * @param { number } connectionId - Indicates the id of the specified connection.
-   * @returns { Promise<void> } The promise returned by the function.
+   * Stops a native connection. This API uses a promise to return the result.
+   *
+   * @param { number } connectionId - ID of the connection to stop
+   *     <br>The value range is all integers.
+   * @returns { Promise<void> } Promise that returns by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
