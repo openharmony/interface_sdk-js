@@ -304,7 +304,8 @@ declare namespace picker {
   /**
    * Enumerates the types of documents selected.
    *
-   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
+   * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
    * @crossplatform [since 12]
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -314,7 +315,8 @@ declare namespace picker {
     /**
      * 文件类型（默认类型）。
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
+     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
      * @crossplatform [since 12]
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -325,7 +327,8 @@ declare namespace picker {
     /**
      * 文件夹类型。
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
+     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
      * @crossplatform [since 12]
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -336,7 +339,8 @@ declare namespace picker {
     /**
      * 文件和文件夹混合类型。
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
+     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -493,7 +497,8 @@ declare namespace picker {
     /**
      * Picker选择的文档类型，默认值是FILE(文件类型)。
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
+     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
      * @crossplatform [since 12]
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -701,7 +706,8 @@ declare namespace picker {
     /**
      * Picker选择的文档类型，默认值是FILE(文件类型)。
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 23 - 24]
+     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
      * @stagemodelonly
      * @since 23 static
      */
