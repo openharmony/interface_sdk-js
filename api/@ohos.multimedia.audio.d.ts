@@ -8486,7 +8486,7 @@ declare namespace audio {
     * @syscap SystemCapability.Multimedia.Audio.Spatialization
     * @systemapi
     * @since 26.0.0 dynamic&static
-    */
+  */
   interface AudioHRTFAnonymousDescriptor {
     /**
      * The file descriptor of personalzied HRTF.
@@ -8574,7 +8574,7 @@ declare namespace audio {
     /**
      * Checks whether personalized spatialization is supported by system.
      * @returns { boolean } Whether personalized spatialization is supported by system.
-     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 26.0.0 dynamic&static
@@ -8585,7 +8585,7 @@ declare namespace audio {
      * Checks whether personalized spatialization is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
      * @returns { boolean } Whether personalized spatialization is supported by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -9157,7 +9157,7 @@ declare namespace audio {
      * When the state changes, registered clients will receive the callback.
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -9183,7 +9183,7 @@ declare namespace audio {
      * Downloads personalized HRTF data from anonymous file descriptor.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - Personalized HRTF data descriptor.
-     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 801 - Capability not supported on the device.
      * @throws { BusinessError } 6800101 - Parameter verification failed, fd or length wrong.
