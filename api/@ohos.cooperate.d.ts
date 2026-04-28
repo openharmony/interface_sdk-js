@@ -743,7 +743,7 @@ declare namespace cooperate {
    * Disables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type - Event type. The value is **cooperate**.
+   * @param { 'cooperateMessage' } type - Event type. The value is **cooperateMessage**.
    * @param { Callback<CooperateMessage> } [callback] - Callback to be unregistered. If this parameter is not specified,
    *     all callbacks registered by the current application will be unregistered.
    * @throws { BusinessError } 201 - Permission denied.
