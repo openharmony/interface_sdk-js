@@ -259,7 +259,7 @@ export declare class PickerController {
    * @returns { Promise<CompletedResult> } Promise<CompletedResult>
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   public completed(): Promise<CompletedResult>;
 }
@@ -472,7 +472,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   public contextRecoveryInfo?: photoAccessHelper.ContextRecoveryInfo;
 }
@@ -718,7 +718,7 @@ export declare class BadgeConfig {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class CompletedResult {
   /**
@@ -727,7 +727,7 @@ export declare class CompletedResult {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   photoUris: Array<string>;
 
@@ -736,7 +736,7 @@ export declare class CompletedResult {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
 
@@ -747,7 +747,7 @@ export declare class CompletedResult {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   movingPhotoBadgeStates: Array<photoAccessHelper.MovingPhotoBadgeStateType>;
 }
