@@ -204,7 +204,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
-* @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000021 - the UKey PIN is locked
    * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
    * @throws { BusinessError } 12000024 - the provider or UKey is busy
