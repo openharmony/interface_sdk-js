@@ -43,8 +43,8 @@ import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bun
 import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
-  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity,
-  DynamicIconInfo as _DynamicIconInfo, BundleOptions as _BundleOptions} from './bundleManager/BundleInfo';
+  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
+  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo} from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -4738,6 +4738,17 @@ declare namespace bundleManager {
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
 
   /**
+   * Get all alternate icon info configured by the application itself.
+   * 
+   * @returns { Promise<Array<AlternateIconInfo>> } Returns a list of AlternateIconInfo objects.
+   * @throws { BusinessError } 17700311 - Failed to obtain alternate icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAlternateIcons(): Promise<Array<AlternateIconInfo>>;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
@@ -5414,6 +5425,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   export type BundleOptions = _BundleOptions;
+
+  /**
+   * Indicates the alternate icon configured by the aplication.
+   *
+   * @typedef { _BundleInfo.AlternateIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  export type AlternateIconInfo = _BundleInfo.AlternateIconInfo;
+
+  /**
+   * Indicates the alternate icon configured by the aplication.
+   *
+   * @typedef { _AlternateIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export type AlternateIconInfo = _AlternateIconInfo;
 }
 
 export default bundleManager;
