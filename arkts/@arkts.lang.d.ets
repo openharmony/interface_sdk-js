@@ -19,43 +19,24 @@
  */
 
 /**
- * ArkTS lang.
+ * ArkTS language
  *
- * @namespace lang
  * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * ArkTS lang.
- *
- * @namespace lang
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 18 dynamiconly
+ * @since 12 dynamiconly
  */
 declare namespace lang {
   /**
    * Base interface for all Sendable classes/interfaces.
-   * 
-   * @interface ISendable
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Base interface for all Sendable classes/interfaces.
    *
-   * @interface ISendable
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 12 dynamiconly
    */
-  interface ISendable {}
+  interface ISendable {  }
 }
-
 
 /**
  * Enum for Retention annotation field type.
