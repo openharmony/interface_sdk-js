@@ -107,7 +107,7 @@ export interface AutoStartupInfo {
   readonly setterUserId?: int;
 
   /**
-   * Whether the developer is allowed to modify the auto-startup status of this application. The options include 
+   * Whether the developer is allowed to modify the auto-startup status of this application. The options include
    * **true** (yes) and **false** (no).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

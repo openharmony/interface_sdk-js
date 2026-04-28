@@ -21,7 +21,7 @@
 import lang from '../../arkts/@arkts.lang';
 
 /**
- * SendableContext complies with the [Sendable protocol](docroot://arkts-utils/arkts-sendable.md#sendable-protocol) and 
+ * SendableContext complies with the [Sendable protocol](docroot://arkts-utils/arkts-sendable.md#sendable-protocol) and
  * inherits from [lang.ISendable](docroot://reference/apis-arkts/js-apis-arkts-lang.md#langisendable).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -29,5 +29,4 @@ import lang from '../../arkts/@arkts.lang';
  * @atomicservice
  * @since 12 dynamiconly
  */
-interface SendableContext extends lang.ISendable {
-}
+interface SendableContext extends lang.ISendable {}

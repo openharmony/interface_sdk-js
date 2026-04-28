@@ -31,7 +31,7 @@ import { RecordData } from '../@ohos.base';
 
 /**
  * Defines the information required for triggering a WantAgent object. The information can be used as an input parameter
- * in [getWantAgent](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#wantagentgetwantagent) to 
+ * in [getWantAgent](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#wantagentgetwantagent) to
  * obtain a specified WantAgent object.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -41,7 +41,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface WantAgentInfo {
   /**
-   * Array of all Want objects. Currently, only one Want is supported. The array is reserved for future capability 
+   * Array of all Want objects. Currently, only one Want is supported. The array is reserved for future capability
    * expansion. If multiple values are passed in, only the first member in the array is used.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -53,15 +53,15 @@ export interface WantAgentInfo {
 
   /**
    * Operation type.
-   * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
+   *
+   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use
    * actionType<sup>11+</sup> instead.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7 dynamiconly
    * @deprecated since 11
-   * @useinstead WantAgentInfo.actionFlags
+   * @useinstead WantAgentInfo.actionType
    */
   operationType?: wantAgent.OperationType;
 
@@ -87,8 +87,8 @@ export interface WantAgentInfo {
 
   /**
    * Array of flags for using the WantAgent object.
-   * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
+   *
+   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use
    * actionFlags<sup>11+</sup> instead.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -128,7 +128,7 @@ export interface WantAgentInfo {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set, 
+   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set,
    * **extraInfo** does not take effect.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -149,11 +149,11 @@ export interface WantAgentInfo {
 
   /**
    * User ID.
-   * 
+   *
    * The value must be greater than or equal to 0.
-   * 
-   * The default value is the user ID of the caller. 
-   * 
+   *
+   * The default value is the user ID of the caller.
+   *
    * This API can be used only in the stage model.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -165,8 +165,8 @@ export interface WantAgentInfo {
 }
 
 /**
- * Defines the information required for triggering a local WantAgent object. The information can be used as an input 
- * parameter in 
+ * Defines the information required for triggering a local WantAgent object. The information can be used as an input
+ * parameter in
  * [createLocalWantAgent](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent-sys.md#wantagentcreatelocalwantagent20)
  * to obtain a local WantAgent object.
  *

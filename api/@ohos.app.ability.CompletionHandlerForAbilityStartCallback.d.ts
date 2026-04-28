@@ -26,7 +26,7 @@
  * Defines the callback for successful ability launches.
  *
  * @param { string } name - Name of the launched ability or system operation.
- *     
+ *
  *     The ability component name is in the format of '[bundleName]#[moduleName]#[abilityName]'.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -40,7 +40,7 @@ export type OnRequestSuccessFn = (name: string) => void;
  * Defines the callback for failed ability launches.
  *
  * @param { string } name - Name of the launched ability or system operation.
- *     The ability component name is in the format of '[bundleName]#[moduleName]#[abilityName]'. If the user cancels the 
+ *     The ability component name is in the format of '[bundleName]#[moduleName]#[abilityName]'. If the user cancels the
  *     launch automatically, this parameter is empty.
  * @param { AbilityStartFailureCode } failureCode - Error code of the failure cause.
  * @param { string } failureMessage - Description of the failure cause.
@@ -53,7 +53,7 @@ export type OnRequestSuccessFn = (name: string) => void;
 export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailureCode, failureMessage: string) => void;
 
 /**
- * CompletionHandlerForAbilityStartCallback provides two callback functions, **onRequestSuccess** and 
+ * CompletionHandlerForAbilityStartCallback provides two callback functions, **onRequestSuccess** and
  * **onRequestFailure**, which are invoked when launching the specified ability succeeds or fails, respectively.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -65,7 +65,7 @@ export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailure
 export class CompletionHandlerForAbilityStartCallback {
   /**
    * Callback invoked when the specified ability is successfully launched.
-   * 
+   *
    * This API can be used in atomic services since API version 21.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -78,7 +78,7 @@ export class CompletionHandlerForAbilityStartCallback {
 
   /**
    * Callback invoked when launching the specified ability fails.
-   * 
+   *
    * This API can be used in atomic services since API version 21.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -120,5 +120,5 @@ export enum AbilityStartFailureCode {
    * @since 21 dynamic
    * @since 23 static
    */
-  FAILURE_CODE_USER_CANCEL = 1,
+  FAILURE_CODE_USER_CANCEL = 1
 }

@@ -21,7 +21,7 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * The module defines detailed information about a mission. The information can be obtained through 
+ * The module defines detailed information about a mission. The information can be obtained through
  * [getMissionInfo]{@link @ohos.app.ability.missionManager:missionManager.getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>)}
  * .
  *
@@ -30,7 +30,6 @@ import Want from '../@ohos.app.ability.Want';
  * @since 8 dynamic
  * @since 23 static
  */
-
 export interface MissionInfo {
   /**
    * Indicates mission id.

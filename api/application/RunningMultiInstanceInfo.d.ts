@@ -19,8 +19,8 @@
  */
 
 /**
- * The module defines the information of a multi-instance application in the running state. The information can be 
- * obtained through [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} 
+ * The module defines the information of a multi-instance application in the running state. The information can be
+ * obtained through [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo}
  * of appManager.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -29,33 +29,33 @@
  * @since 23 static
  */
 export interface RunningMultiInstanceInfo {
-    /**
-     * Unique instance ID of a multi-instance application.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 14 dynamic
-     * @since 23 static
-     */
-    instanceKey: string;
+  /**
+   * Unique instance ID of a multi-instance application.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14 dynamic
+   * @since 23 static
+   */
+  instanceKey: string;
 
-    /**
-     * UID of the application.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 14 dynamic
-     * @since 23 static
-     */
-    uid: int;
+  /**
+   * UID of the application.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14 dynamic
+   * @since 23 static
+   */
+  uid: int;
 
-    /**
-     * Process ID set of the application.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 14 dynamic
-     * @since 23 static
-     */
-    pids: Array<int>;
-  }
+  /**
+   * Process ID set of the application.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14 dynamic
+   * @since 23 static
+   */
+  pids: Array<int>;
+}

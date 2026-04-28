@@ -22,16 +22,16 @@ import Want from '../@ohos.app.ability.Want';
 
 /**
  * # How to Use
- * 
- * In the stage model, you can use 
+ *
+ * In the stage model, you can use
  * [startAbilityForResult]{@link ./../application/UIAbilityContext:UIAbilityContext#startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>)}
- * to obtain the AbilityResult object returned when the started UIAbility is terminated by calling 
+ * to obtain the AbilityResult object returned when the started UIAbility is terminated by calling
  * [terminateSelfWithResult]{@link ./../application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
  * .
- * 
- * In the FA model, you can use 
+ *
+ * In the FA model, you can use
  * [startAbilityForResult]{@link ./../@ohos.ability.featureAbility:featureAbility.startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>)}
- * to obtain the AbilityResult object returned after the started UIAbility is terminated by calling 
+ * to obtain the AbilityResult object returned after the started UIAbility is terminated by calling
  * [terminateSelfWithResult]{@link ./../@ohos.ability.featureAbility:featureAbility.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
  * .
  */

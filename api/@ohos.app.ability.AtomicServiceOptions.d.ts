@@ -25,8 +25,8 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * **AtomicServiceOptions** is used as an input parameter of 
- * [openAtomicService()]{@link ./application/UIAbilityContext:UIAbilityContext.openAtomicService} to carry arguments. It 
+ * **AtomicServiceOptions** is used as an input parameter of
+ * [openAtomicService()]{@link ./application/UIAbilityContext:UIAbilityContext.openAtomicService} to carry arguments. It
  * inherits from [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -37,7 +37,7 @@ import { RecordData } from './@ohos.base';
  */
 export default class AtomicServiceOptions extends StartOptions {
   /**
-   * Mode in which the system processes the startup. For example, **wantConstant.Flags.FLAG_INSTALL_ON_DEMAND** 
+   * Mode in which the system processes the startup. For example, **wantConstant.Flags.FLAG_INSTALL_ON_DEMAND**
    * indicates that the installation-free capability is used.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -49,7 +49,7 @@ export default class AtomicServiceOptions extends StartOptions {
   flags?: int;
 
   /**
-   * Additional parameters. For details, see the parameters field in [Want]{@link @ohos.app.ability.Want:Want}.
+   * Additional parameters. For details, see the **parameters** field in [Want]{@link @ohos.app.ability.Want:Want}.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -59,7 +59,7 @@ export default class AtomicServiceOptions extends StartOptions {
   parameters?: Record<string, Object>;
 
   /**
-   * Additional parameters. For details, see the parameters field in [Want]{@link @ohos.app.ability.Want:Want}.
+   * Additional parameters. For details, see the **parameters** field in [Want]{@link @ohos.app.ability.Want:Want}.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

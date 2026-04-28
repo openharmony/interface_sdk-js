@@ -26,126 +26,76 @@ import { ShellCmdResult } from './shellCmdResult';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityStageMonitor } from './AbilityStageMonitor';
-import {InteropAbilityMonitor} from './InteropAbilityMonitor';
+import { InteropAbilityMonitor } from './InteropAbilityMonitor';
 
 /**
- * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+ * The **AbilityDelegator** module can listen for and manage the lifecycle changes of
+ * [UIAbility]{@link ./../@ohos.app.ability.UIAbility} through
+ * [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instances. For example, you can obtain the
+ * current state of a UIAbility (for example, whether the UIAbility has been created or is in the foreground), obtain
+ * the UIAbility that currently has the focus, wait for the UIAbility to enter a lifecycle node (for example, the
+ * **onForeground** state), start a specified UIAbility, and set the timeout mechanism.
+ * You can obtain **AbilityDelegator** by calling
+ * [getAbilityDelegator]{@link ./../@ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.getAbilityDelegator}.
  *
- * @interface AbilityDelegator
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
  *
- * @interface AbilityDelegator
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @since 10
- */
-/**
- * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
- *
- * @interface AbilityDelegator
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface AbilityDelegator {
   /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   * Adds an **AbilityMonitor** instance. This API uses an asynchronous callback to return the result. Multi-thread
+   * concurrent calls are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object
-   * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object
-   * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object
-   * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the **AbilityMonitor** instance is
+   *     added, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
   /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   * Adds an **AbilityMonitor** instance. This API uses a promise to return the result. Multi-thread concurrent calls
+   * are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
   /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   * Adds an **AbilityMonitor** instance. This API returns the result synchronously. Multi-thread concurrent calls are
+   * not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityMonitorSync failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling AddAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   addAbilityMonitorSync(monitor: AbilityMonitor): void;
@@ -153,7 +103,7 @@ export interface AbilityDelegator {
   /**
    * Add an InteropAbilityMonitor object for monitoring the lifecycle state changes of the specified ability
    *     in this process.
-   * 
+   *
    * @param { InteropAbilityMonitor } monitor - InteropAbilityMonitor object.
    * @throws { BusinessError } 16000100 - Calling AddInteropAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -164,193 +114,105 @@ export interface AbilityDelegator {
   addInteropAbilityMonitorSync(monitor: InteropAbilityMonitor): void;
 
   /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   * Adds an **AbilityStageMonitor** instance to monitor the lifecycle state changes of an ability stage. This API uses
+   * an asynchronous callback to return the result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the **AbilityStageMonitor** instance is
+   *     added, **err** is undefined. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
   /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   * Adds an **AbilityStageMonitor** instance to monitor the lifecycle state changes of an ability stage. This API uses
+   * a promise to return the result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
   /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   * Adds an **AbilityStageMonitor** instance to monitor the lifecycle state changes of an ability stage. This API
+   * returns the result synchronously.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - AddAbilityStageMonitorSync failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling AddAbilityStageMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
   /**
-   * Remove a specified AbilityMonitor object from the application memory.
+   * Removes an **AbilityMonitor** instance. This API uses an asynchronous callback to return the result.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Remove a specified AbilityMonitor object from the application memory.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified AbilityMonitor object from the application memory.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the **AbilityMonitor** instance is
+   *     removed, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove a specified AbilityMonitor object from the application memory.
+   * Removes an **AbilityMonitor** instance. This API uses a promise to return the result. Multi-thread concurrent calls
+   *  are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Remove a specified AbilityMonitor object from the application memory.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified AbilityMonitor object from the application memory.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
   /**
-   * Remove a specified AbilityMonitor object from the application memory.
+   * Removes an **AbilityMonitor** instance. This API returns the result synchronously. Multi-thread concurrent calls
+   * are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityMonitorSync failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified AbilityMonitor object from the application memory.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling RemoveAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   removeAbilityMonitorSync(monitor: AbilityMonitor): void;
@@ -368,458 +230,244 @@ export interface AbilityDelegator {
   removeInteropAbilityMonitorSync(monitor: InteropAbilityMonitor): void;
 
   /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
+   * Removes an **AbilityStageMonitor** instance from the application memory. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the **AbilityStageMonitor** instance is
+   *     removed, **err** is undefined. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
+   * Removes an **AbilityStageMonitor** instance from the application memory. This API uses a promise to return the
+   * result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
   /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
+   * Removes an **AbilityStageMonitor** instance from the application memory. This API returns the result synchronously.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitorSync failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a specified AbilityStageMonitor object from the application memory.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling RemoveAbilityStageMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
   /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+   * Waits for the **Ability** instance that matches the **AbilityMonitor** instance to reach the **onCreate** lifecycle
+   *  state and returns the **Ability** instance. This API uses an asynchronous callback to return the result. Multi-
+   * thread concurrent calls are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @param { AsyncCallback<UIAbility> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined** and **data** is the **Ability** instance obtained. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>): void;
 
   /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+   * Waits a period of time for the **Ability** instance that matches the **AbilityMonitor** instance to reach the
+   * **onCreate** lifecycle state and returns the **Ability** instance. This API uses an asynchronous callback to return
+   *  the result. Multi-thread concurrent calls are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { long } timeout - Maximum wait time, in milliseconds.
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @param { long } timeout - Maximum waiting time, in milliseconds. The default value is 5000 ms.
+   * @param { AsyncCallback<UIAbility> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout: long, callback: AsyncCallback<UIAbility>): void;
 
   /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+   * Waits a period of time for the **Ability** instance that matches the **AbilityMonitor** instance to reach the
+   * **onCreate** lifecycle state and returns the **Ability** instance. This API uses a promise to return the result.
+   * Multi-thread concurrent calls are not supported.
    *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
-   * @returns { Promise<UIAbility> } Returns the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
-   * @returns { Promise<UIAbility> } Returns the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
-   *
-   * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { long } [timeout] - Maximum wait time, in milliseconds.
-   * @returns { Promise<UIAbility> } Returns the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityMonitor } monitor - [AbilityMonitor]{@link ./application/AbilityMonitor:AbilityMonitor} instance.
+   * @param { long } [timeout] - Maximum waiting time, in milliseconds. The default value is 5000 ms.
+   * @returns { Promise<UIAbility> } Promise used to return the **Ability** instance obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout?: long): Promise<UIAbility>;
 
   /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+   * Returns an **AbilityStage** instance that matches the conditions set in an **AbilityStageMonitor** instance. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @param { AsyncCallback<AbilityStage> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is undefined and data is the [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage}
+   *     instance obtained. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void;
 
   /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+   * Returns an **AbilityStage** instance that matches the conditions set in an **AbilityStageMonitor** instance within
+   * the specified timeout period. This API uses an asynchronous callback to return the result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
-   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
-   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { long } timeout - Maximum wait time, in milliseconds.
-   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @param { long } timeout - Maximum waiting time, in milliseconds. The default value is 5000 ms.
+   * @param { AsyncCallback<AbilityStage> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is undefined and data is the [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage}
+   *     instance obtained. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: long, callback: AsyncCallback<AbilityStage>): void;
 
   /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+   * Returns an **AbilityStage** instance that matches the conditions set in an **AbilityStageMonitor** instance. You
+   * can specify the timeout period. This API uses a promise to return the result.
    *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
-   * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
-   * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
-   *
-   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { long } [timeout] - Maximum wait time, in milliseconds.
-   * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AbilityStageMonitor } monitor -
+   *     [AbilityStageMonitor]{@link ./application/AbilityStageMonitor:AbilityStageMonitor} instance.
+   * @param { long } [timeout] - Maximum waiting time, in milliseconds. The default value is 5000 ms.
+   * @returns { Promise<AbilityStage> } Promise used to return the
+   *     [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage} instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: long): Promise<AbilityStage>;
 
   /**
-   * Obtain the application context.
+   * Obtains the application context.
    *
-   * @returns { Context } Returns the app Context.
+   * @returns { Context } [Context]{@link ./app/context}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtain the application context.
-   *
-   * @returns { Context } Returns the app Context.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtain the application context.
-   *
-   * @returns { Context } Returns the app Context.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   getAppContext(): Context;
 
   /**
-   * Obtain the lifecycle state of a specified ability.
+   * Obtains the lifecycle state of an ability.
    *
-   * @param { UIAbility } ability - The Ability object.
-   * @returns { number } Returns the state of the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { UIAbility } ability - Target ability.
+   * @returns { int } Lifecycle state of the ability, For details about the state values, see
+   *     [AbilityLifecycleState]{@link ./../@ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.AbilityLifecycleState}
+   *     .
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtain the lifecycle state of a specified ability.
-   *
-   * @param { UIAbility } ability - The Ability object.
-   * @returns { number } Returns the state of the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtain the lifecycle state of a specified ability.
-   *
-   * @param { UIAbility } ability - The Ability object.
-   * @returns { int } Returns the state of the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   getAbilityState(ability: UIAbility): int;
 
   /**
-   * Obtain the ability that is currently being displayed in this process.
+   * Obtains the top ability of this application. This API uses an asynchronous callback to return the result. It cannot
+   *  be called in the worker thread.
    *
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtain the ability that is currently being displayed in this process.
-   *
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtain the ability that is currently being displayed in this process.
-   *
-   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { AsyncCallback<UIAbility> } callback - Callback used to return the result. If the top ability is obtained,
+   *     **err** is **undefined** and **data** is the **Ability** instance obtained. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling GetCurrentTopAbility failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void;
 
   /**
-   * Obtain the ability that is currently being displayed in this process.
+   * Obtains the top ability of this application. This API uses a promise to return the result. It cannot be called in
+   * the worker thread.
    *
-   * @returns { Promise<UIAbility> } Returns the Ability object.
-   * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtain the ability that is currently being displayed in this process.
-   *
-   * @returns { Promise<UIAbility> } Returns the Ability object.
-   * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtain the ability that is currently being displayed in this process.
-   *
-   * @returns { Promise<UIAbility> } Returns the Ability object.
+   * @returns { Promise<UIAbility> } Promise used to return the top ability.
    * @throws { BusinessError } 16000100 - Calling GetCurrentTopAbility failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [sicne 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   getCurrentTopAbility(): Promise<UIAbility>;
 
   /**
-   * Start a new ability.
+   * Starts an ability. This API uses an asynchronous callback to return the result.
    *
-   * @param { Want } want - Indicates the ability to start
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { Want } want - **Want** parameter for starting the ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is
+   *     **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -833,69 +481,23 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Start a new ability.
-   *
-   * @param { Want } want - Indicates the ability to start
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Start a new ability.
-   *
-   * @param { Want } want - Indicates the ability to start
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Start a new ability.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { Want } want - Indicates the ability to start
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { Want } want - **Want** parameter for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -909,460 +511,218 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Start a new ability.
-   *
-   * @param { Want } want - Indicates the ability to start
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Start a new ability.
-   *
-   * @param { Want } want - Indicates the ability to start
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 
   /**
-   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
+   * Schedules the lifecycle state of an ability to **Foreground**. This API uses an asynchronous callback to return the
+   *  result.
    *
-   * @param { UIAbility } ability - The ability object.
-   * @param { AsyncCallback<void> } callback - The callback of doAbilityForeground.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @param { AsyncCallback<void> } callback - The callback of doAbilityForeground.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @param { AsyncCallback<void> } callback - The callback of doAbilityForeground.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { UIAbility } ability - Target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability lifecycle state is changed
+   *     to **Foreground**, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling DoAbilityForeground failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
   /**
-   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
+   * Schedules the lifecycle state of an ability to **Foreground**. This API uses a promise to return the result.
    *
-   * @param { UIAbility } ability - The ability object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { UIAbility } ability - Target ability.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling DoAbilityForeground failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   doAbilityForeground(ability: UIAbility): Promise<void>;
 
   /**
-   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
+   * Schedules the lifecycle state of an ability to **Background**. This API uses an asynchronous callback to return the
+   *  result.
    *
-   * @param { UIAbility } ability - The ability object.
-   * @param { AsyncCallback<void> } callback - The callback of doAbilityBackground.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @param { AsyncCallback<void> } callback - The callback of doAbilityBackground.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @param { AsyncCallback<void> } callback - The callback of doAbilityBackground.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { UIAbility } ability - Target ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability lifecycle state is changed
+   *     to **Background**, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling DoAbilityBackground failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
   /**
-   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
+   * Schedules the lifecycle state of an ability to **Background**. This API uses a promise to return the result.
    *
-   * @param { UIAbility } ability - The ability object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
-   *
-   * @param { UIAbility } ability - The ability object.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { UIAbility } ability - Target ability.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling DoAbilityBackground failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   doAbilityBackground(ability: UIAbility): Promise<void>;
 
   /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
+   * Prints log information to the unit test console. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } msg - Log information
-   * @param { AsyncCallback<void> } callback - The callback of print.
+   * @param { string } msg - Log string. The value contains a maximum of 10,000 characters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the log information is printed to the
+   *     unit test console, **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
-   *
-   * @param { string } msg - Log information
-   * @param { AsyncCallback<void> } callback - The callback of print.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
-   *
-   * @param { string } msg - Log information
-   * @param { AsyncCallback<void> } callback - The callback of print.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   print(msg: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
+   * Prints log information to the unit test console. This API uses a promise to return the result.
    *
-   * @param { string } msg - Log information
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } msg - Log string. The value contains a maximum of 10,000 characters.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
-   *
-   * @param { string } msg - Log information
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
-   *
-   * @param { string } msg - Log information
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   print(msg: string): Promise<void>;
 
   /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
+   * Prints log information to the unit test console.
    *
-   * @param { string } msg - Log information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { string } msg - Log string. The value contains a maximum of 10,000 characters.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
-   *
-   * @param { string } msg - Log information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 10000 characters.
-   *
-   * @param { string } msg - Log information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   printSync(msg: string): void;
 
   /**
-   * Execute the given command in the aa tools side.
+   * Executes a shell command. This API uses an asynchronous callback to return the result.
+   * Only the following shell commands are supported: aa, bm, cp, mkdir, rm, uinput, hilog, ppwd, echo, uitest, acm,
+   * hidumper, wukong, pkill, ps, and pidof.
    *
-   * @param { string } cmd - Shell command
-   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
+   * @param { string } cmd - Shell command string.
+   * @param { AsyncCallback<ShellCmdResult> } callback - Callback used to return the result. If the shell command is executed
+   *     , **err** is **undefined** and **data** is the execution result obtained. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Execute the given command in the aa tools side.
-   *
-   * @param { string } cmd - Shell command
-   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
 
   /**
-   * Execute the given command in the aa tools side.
+   * Executes a shell command with the timeout period specified. This API uses an asynchronous callback to return the
+   * result.
+   * Only the following shell commands are supported: aa, bm, cp, mkdir, rm, uinput, hilog, ppwd, echo, uitest, acm,
+   * hidumper, wukong, pkill, ps, and pidof.
    *
-   * @param { string } cmd - Shell command
-   * @param { number } timeoutSecs - Timeout, in seconds
-   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
+   * @param { string } cmd - Shell command string.
+   * @param { long } timeoutSecs - Command timeout period, in seconds.
+   * @param { AsyncCallback<ShellCmdResult> } callback - Callback used to return the result. If the shell command is executed
+   *     , **err** is **undefined** and **data** is the execution result obtained. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Execute the given command in the aa tools side.
-   *
-   * @param { string } cmd - Shell command
-   * @param { long } timeoutSecs - Timeout, in seconds
-   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   executeShellCommand(cmd: string, timeoutSecs: long, callback: AsyncCallback<ShellCmdResult>): void;
 
   /**
-   * Execute the given command in the aa tools side.
+   * Executes a shell command with the timeout period specified. This API uses a promise to return the result.
+   * Only the following shell commands are supported: aa, bm, cp, mkdir, rm, uinput, hilog, ppwd, echo, uitest, acm,
+   * hidumper, wukong, pkill, ps, and pidof.
    *
-   * @param { string } cmd - Shell command
-   * @param { number } [timeoutSecs] - Timeout, in seconds
-   * @returns { Promise<ShellCmdResult> } the promise returned by the function.
+   * @param { string } cmd - Shell command string.
+   * @param { long } [timeoutSecs] - Command timeout period, in seconds. The default value is **0**, indicating that the
+   *     timeout period is not set.
+   * @returns { Promise<ShellCmdResult> } Promise used to return a
+   *     [ShellCmdResult]{@link ./application/shellCmdResult:ShellCmdResult} object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Execute the given command in the aa tools side.
-   *
-   * @param { string } cmd - Shell command
-   * @param { long } [timeoutSecs] - Timeout, in seconds
-   * @returns { Promise<ShellCmdResult> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   executeShellCommand(cmd: string, timeoutSecs?: long): Promise<ShellCmdResult>;
 
   /**
-   * Finish the test and print log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * Finishes the test and prints log information to the unit test console. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { string } msg - Log information.
-   * @param { number } code - Result code.
-   * @param { AsyncCallback<void> } callback - The callback of finishTest.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - FinishTest failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Finish the test and print log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
-   *
-   * @param { string } msg - Log information.
-   * @param { number } code - Result code.
-   * @param { AsyncCallback<void> } callback - The callback of finishTest.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - FinishTest failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Finish the test and print log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
-   *
-   * @param { string } msg - Log information.
-   * @param { long } code - Result code.
-   * @param { AsyncCallback<void> } callback - The callback of finishTest.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { string } msg - Log string.
+   * @param { long } code - Log code.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the test finishes and the log
+   *     information is printed to the unit test console, **err** is undefined. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   finishTest(msg: string, code: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Finish the test and print log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * Finishes the test and prints log information to the unit test console. This API uses a promise to return the
+   * result.
    *
-   * @param { string } msg - Log information.
-   * @param { number } code - Result code.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - FinishTest failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Finish the test and print log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
-   *
-   * @param { string } msg - Log information.
-   * @param { number } code - Result code.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000100 - FinishTest failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Finish the test and print log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
-   *
-   * @param { string } msg - Log information.
-   * @param { long } code - Result code.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { string } msg - Log string.
+   * @param { long } code - Log code.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   finishTest(msg: string, code: long): Promise<void>;
 
   /**
-   * Used to set a list of mock data.
-   * @param { Record<string, string> } mockList - An object with string keys and string values. The keys represent the
-   *                                              target path to be replaced and the values represent the path of the
-   *                                              mock implementation to be used for the replacement.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * Sets a list of mock data.
+   *
+   * @param { Record<string, string> } mockList - Key-value object of the mock, where **key** is the target path to be
+   *     replaced and **value** is the path of the mock implementation to be used for the replacement.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice

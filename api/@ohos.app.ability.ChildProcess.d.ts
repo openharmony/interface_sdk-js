@@ -21,8 +21,8 @@
 import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
 
 /**
- * ChildProcess is the base class for you to customize child processes. When starting a child process through 
- * [childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}, you must inherit this class 
+ * ChildProcess is the base class for you to customize child processes. When starting a child process through
+ * [childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}, you must inherit this class
  * and override the entrypoint method.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -33,7 +33,7 @@ import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
 declare class ChildProcess {
 
   /**
-   * Entrypoint method of the child process. This callback is triggered when the child process is started through 
+   * Entrypoint method of the child process. This callback is triggered when the child process is started through
    * [childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}.
    *
    * @param { ChildProcessArgs } [args] - Parameters transferred to the child process.

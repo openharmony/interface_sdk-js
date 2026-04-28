@@ -23,7 +23,7 @@ import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
 import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
 
 /**
- * The childProcessManager module provides the child process management capability. Currently, it provides APIs to 
+ * The childProcessManager module provides the child process management capability. Currently, it provides APIs to
  * create and start a child process
  * The created child process will exit when the parent process exits and cannot run independently.
  *
@@ -44,8 +44,8 @@ declare namespace childProcessManager {
   export const enum StartMode {
 
     /**
-     * The child process is forked from the application process. The child process started in this mode inherits the 
-     * resources of the parent process and cannot use Binder IPC to communicate with other processes. Otherwise, the 
+     * The child process is forked from the application process. The child process started in this mode inherits the
+     * resources of the parent process and cannot use Binder IPC to communicate with other processes. Otherwise, the
      * child process will crash.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -56,7 +56,7 @@ declare namespace childProcessManager {
     SELF_FORK = 0,
 
     /**
-     * The child process is forked from AppSpawn. The child process started in this mode does not inherit the resources 
+     * The child process is forked from AppSpawn. The child process started in this mode does not inherit the resources
      * of the parent process and can use Binder IPC to communicate with other processes.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -64,28 +64,28 @@ declare namespace childProcessManager {
      * @since 11 dynamic
      * @since 23 static
      */
-    APP_SPAWN_FORK = 1,
+    APP_SPAWN_FORK = 1
   }
 
   /**
-   * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API 
+   * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API
    * uses a promise to return the result.
    * This API can be properly called on PCs/2-in-1 devices and tablets. If it is called on other devices, error code 160
    * 00061 is returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > If the child process is created successfully, its PID is returned, and its 
-   * > [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess#onStart} function is executed. Once the 
+   * > If the child process is created successfully, its PID is returned, and its
+   * > [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess#onStart} function is executed. Once the
    * > function is done, the child process is automatically destroyed.
    * >
-   * > The child process started by calling this API does not support asynchronous ArkTS API calls. It supports only 
+   * > The child process started by calling this API does not support asynchronous ArkTS API calls. It supports only
    * > synchronous ArkTS API calls.
    *
-   * @param { string } srcEntry - Path of the source file of the child process relative to the root directory **src/main**. 
-   *     The source file can be stored only in the module of the entry type. For example, if the source file of a child 
+   * @param { string } srcEntry - Path of the source file of the child process relative to the root directory **src/main**.
+   *     The source file can be stored only in the module of the entry type. For example, if the source file of a child
    *     process is **src/main/ets/process/DemoProcess.ets** in the entry module, then **srcEntry** is **./ets/process/
-   *     DemoProcess.ets**.<br>In addition, ensure that the source file of the child process is referenced by other files to 
+   *     DemoProcess.ets**.<br>In addition, ensure that the source file of the child process is referenced by other files to
    *     prevent it from being optimized by the build tool. (For details, see the sample code below.)
    * @param { StartMode } startMode - Start mode of the child process.
    * @returns { Promise<int> } Promise used to return the PID of the child process.
@@ -102,27 +102,27 @@ declare namespace childProcessManager {
   function startChildProcess(srcEntry: string, startMode: StartMode): Promise<int>;
 
   /**
-   * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API 
+   * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API
    * uses an asynchronous callback to return the result.
    * This API can be properly called on PCs/2-in-1 devices and tablets. If it is called on other devices, error code 160
    * 00061 is returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > If the child process is created successfully, its PID is returned, and its 
-   * > [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess#onStart} function is executed. Once the 
+   * > If the child process is created successfully, its PID is returned, and its
+   * > [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess#onStart} function is executed. Once the
    * > function is done, the child process is automatically destroyed.
    * >
-   * > The child process started by calling this API does not support asynchronous ArkTS API calls. It supports only 
+   * > The child process started by calling this API does not support asynchronous ArkTS API calls. It supports only
    * > synchronous ArkTS API calls.
    *
-   * @param { string } srcEntry - Path of the source file of the child process relative to the root directory **src/main**. 
-   *     The source file can be stored only in the module of the entry type. For example, if the source file of a child 
+   * @param { string } srcEntry - Path of the source file of the child process relative to the root directory **src/main**.
+   *     The source file can be stored only in the module of the entry type. For example, if the source file of a child
    *     process is **src/main/ets/process/DemoProcess.ets** in the entry module, then **srcEntry** is **./ets/process/
-   *     DemoProcess.ets**.<br>In addition, ensure that the source file of the child process is referenced by other files to 
+   *     DemoProcess.ets**.<br>In addition, ensure that the source file of the child process is referenced by other files to
    *     prevent it from being optimized by the build tool. (For details, see the sample code below.)
    * @param { StartMode } startMode - Start mode of the child process.
-   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the subprocess is started, **err** is 
+   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the subprocess is started, **err** is
    *     **undefined** and **data** is the PID of the child process. Otherwise, **data** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -137,25 +137,25 @@ declare namespace childProcessManager {
   function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<int>): void;
 
   /**
-   * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API 
+   * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API
    * uses a promise to return the result.
    * This API can be properly called on PCs/2-in-1 devices and tablets. If it is called on other devices, error code 801
    *  is returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > The child process started by calling this API does not inherit the resources of the parent process. If the child 
-   * > process is created successfully, its PID is returned, and its 
+   * > The child process started by calling this API does not inherit the resources of the parent process. If the child
+   * > process is created successfully, its PID is returned, and its
    * > [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess#onStart} function is executed. After the
-   * >  function is done, the child process is not automatically destroyed. Instead, it must be destroyed by calling 
-   * > [process.abort]{@link @ohos.process:process.abort}. After the process that calls this API is destroyed, the 
+   * >  function is done, the child process is not automatically destroyed. Instead, it must be destroyed by calling
+   * > [process.abort]{@link @ohos.process:process.abort}. After the process that calls this API is destroyed, the
    * > created child process is also destroyed.
    *
-   * @param { string } srcEntry - Path of the source file of the child process relative to the root directory **src/main**. 
-   *     The source file cannot be stored in the module of the HAR type. The value consists of a module name, a slash (/), 
+   * @param { string } srcEntry - Path of the source file of the child process relative to the root directory **src/main**.
+   *     The source file cannot be stored in the module of the HAR type. The value consists of a module name, a slash (/),
    *     and a file path. For example, if the child process file is **src/main/ets/process/DemoProcess.ets** in module1, then
-   *     **srcEntry** is **module1/ets/process/DemoProcess.ets**.<br>In addition, ensure that the source file of the child 
-   *     process is referenced by other files to prevent it from being optimized by the build tool. (For details, see the 
+   *     **srcEntry** is **module1/ets/process/DemoProcess.ets**.<br>In addition, ensure that the source file of the child
+   *     process is referenced by other files to prevent it from being optimized by the build tool. (For details, see the
    *     sample code below.)
    * @param { ChildProcessArgs } args - Parameters transferred to the child process.
    * @param { ChildProcessOptions } [options] - Startup configuration of the child process.
@@ -178,12 +178,12 @@ declare namespace childProcessManager {
    *  uses a promise to return the result.
    * This API can be properly called on PCs/2-in-1 devices and tablets. If it is called on other devices, error code 801
    *  is returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > The child process started by calling this API does not inherit the resources of the parent process. After the 
-   * > child process is created, its PID is returned, the dynamic link library file specified in the parameters is 
-   * > loaded, and the entry function of the child process is executed. Once the entry function is done, the child 
+   * > The child process started by calling this API does not inherit the resources of the parent process. After the
+   * > child process is created, its PID is returned, the dynamic link library file specified in the parameters is
+   * > loaded, and the entry function of the child process is executed. Once the entry function is done, the child
    * > process is automatically destroyed. After the process that calls this API is destroyed, the created child process
    * >  is also destroyed.
    *
@@ -204,7 +204,6 @@ declare namespace childProcessManager {
    * @since 23 static
    */
   function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<int>;
-
 }
 
 export default childProcessManager;
