@@ -18,10 +18,13 @@ import { JSDoc, JSDocTag } from '../../../utils/api_check_wrapper_typedef';
 /**
  * 解析JSDoc字符串
  * 
- * @param { string } jsDocContent JSDoc字符串
+ * @param { string | undefined } jsDocContent JSDoc字符串
  * @returns { JSDoc[] } JSDoc数组
  */
-export function parseJSDoc(jsDocContent: string): JSDoc[] {
+export function parseJSDoc(jsDocContent: string | undefined): JSDoc[] {
+    if (!jsDocContent) {
+    return [];
+  }
   const jsdocReg: RegExp = /(\/\*\*\s)(.|\n)*?(\s\*\/)/g;
   const jsDocs: JSDoc[] = [];
   const matches: RegExpStringIterator<RegExpExecArray> = jsDocContent.matchAll(jsdocReg);

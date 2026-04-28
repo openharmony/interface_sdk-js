@@ -31,7 +31,7 @@ class CanIUseValidator implements NodeValidator {
 
   validate(node: arkts.AstNode): boolean {
     const program = arkts.getProgramFromAstNode(node);
-    const sourceText = program?.astNode.dumpSrc() || '';
+    const sourceText = program?.ast.dumpSrc() || '';
     if (!sourceText) {
       return false;
     }
@@ -83,7 +83,7 @@ class CanIUseValidator implements NodeValidator {
       }
     }
     
-    this.traversalNode(expression, importSymbol, container, result, config);
+    this.traversalNode(expression, importSymbol, container, result, this.config);
     return result.hasIfChecked;
   }
 
@@ -94,7 +94,7 @@ class CanIUseValidator implements NodeValidator {
       return;
     }
 
-    if (node.parent !== parent) {
+    if (!!node.parent && node.parent !== parent) {
       if (arkts.isIfStatement(node.parent)) {
         if (this.checkSyscapConditionValidCallback(node.parent, specifyFuncName, importSymbol)) {
           result.hasIfChecked = true;
@@ -122,11 +122,11 @@ class CanIUseValidator implements NodeValidator {
     }
     
     const callExpr = ifNode.test;
-    if (!callExpr.expr) {
+    if (!callExpr.callee) {
       return false;
     }
     
-    const funcName = callExpr.expr.name || '';
+    const funcName = callExpr.callee && arkts.isIdentifier(callExpr.callee) ? callExpr.callee.name : '';
     if (funcName !== specifyFuncName) {
       return false;
     }
@@ -140,7 +140,7 @@ class CanIUseValidator implements NodeValidator {
       return false;
     }
     
-    const argValue = arg.getString() || arg.name || '';
+    const argValue = arkts.isIdentifier(arg) && arg.name || '';
     return argValue.includes(importSymbol);
   }
 

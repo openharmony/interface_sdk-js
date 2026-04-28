@@ -51,9 +51,9 @@ export class ApiCheckWrapper {
     this.fileName = fileName;
   }
 
-  fileName: string // ets源文件位置
+  fileName: string = '' // ets源文件位置
 
-  sourcefile: string // 声明节点位置
+  sourcefile: string = '' // 声明节点位置
 
   apiCheckHost: ApiCheckWrapperServiceHost
 }
@@ -64,7 +64,7 @@ export class ApiCheckWrapper {
  * @param { ApiCheckWrapperServiceHost } apiCheckHost host对象，提供检查配置和工具方法
  * @param { number | undefined } peer 上下文标识
  */
-export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, peer: number | undefined): void {
+export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, peer: arkts.KNativePointer | undefined): void {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.CHECK_EXPR + '.total');
 
@@ -76,7 +76,7 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
 
   curApiCheckWrapper = new ApiCheckWrapper(apiCheckHost);
   curFileCheckModuleInfo = {} as FileCheckModuleInfo;
-  let fileNames: Map<number, string> = new Map();
+  let fileNames: Map<arkts.KNativePointer, string> = new Map();
   let legacyModuleList: string[] = [];
   let legacyStructMap: Map<string, LegacyStructMap> = new Map();
 
@@ -85,7 +85,7 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
   let program = arkts.getOrUpdateGlobalContext(contextPtr).program;
   monitor.end(PERF.GET_CONTEXT);
 
-  const visited: Set<number> = new Set();
+  const visited: Set<arkts.KNativePointer> = new Set();
   const queue: arkts.Program[] = [program];
 
   monitor.start(PERF.GET_LEGACY);
@@ -108,11 +108,11 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
         // 清空map对象
         checkedNode = new Map();
         // 获取根节点，开始apiCheck
-        traverseProgram(currProgram.astNode);
+        traverseProgram(currProgram.ast as arkts.ETSModule);
       }
     }
     visited.add(currProgram.peer);
-    for (const externalSource of currProgram.externalSources) {
+    for (const externalSource of currProgram.getExternalSources()) {
       visitNextProgramInQueue(queue, visited, externalSource, fileNames);
     }
   }
@@ -175,11 +175,11 @@ function matchPrefix(prefixCollection: (string | RegExp)[], name: string): boole
  */
 function visitNextProgramInQueue(
   queue: arkts.Program[],
-  visited: Set<number>,
+  visited: Set<arkts.KNativePointer>,
   externalSource: arkts.ExternalSource,
-  fileNames: Map<number, string>
+  fileNames: Map<arkts.KNativePointer, string>
 ): void {
-  const nextProgramArr: arkts.Program[] = externalSource.programs ?? [];
+  const nextProgramArr: readonly arkts.Program[] = externalSource.programs ?? [];
   for (const nextProgram of nextProgramArr) {
     fileNames.set(nextProgram.peer, externalSource.getName());
     if (!visited.has(nextProgram.peer)) {
@@ -193,7 +193,7 @@ function visitNextProgramInQueue(
  *
  * @param { arkts.AstNode } node 需要检查的标识符AST节点
  */
-export function checkIdentifier(node: arkts.AstNode): void {
+export function checkIdentifier(node: arkts.Identifier): void {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.CHECK_ID);
 
@@ -223,7 +223,7 @@ export function checkIdentifier(node: arkts.AstNode): void {
     return;
   }
   // 获取校验节点的行列信息, arkUI复制的节点不应该告警
-  if (confirmNodeChecked(node.name, node.startPosition.index())) {
+  if (confirmNodeChecked(node.name, node.startPosition.getIndex())) {
     monitor.end(PERF.CHECK_ID);
     return;
   }
@@ -266,9 +266,9 @@ function getSysPath(decl: arkts.AstNode): string {
  * 通过声明节点获取Jsdoc注释内容
  * 
  * @param { arkts.AstNode } decl 声明节点
- * @returns { string } 注释信息
+ * @returns { string | undefined } 注释信息
  */
-export function getPeerJsDocs(decl: arkts.AstNode): string {
+export function getPeerJsDocs(decl: arkts.AstNode): string | undefined {
   return getJSDocInformation(decl);
 }
 
@@ -276,16 +276,16 @@ export function getPeerJsDocs(decl: arkts.AstNode): string {
  * 遍历jsdoc信息，对AST节点进行规则校验并打印报错信息。
  *
  * @param { arkts.AstNode } declaration 声明节点
- * @param { arkts.AstNode } identifier AST节点
+ * @param { arkts.Identifier } identifier AST节点
  * @param { CurrentAddress } address 当前文件地址
  * @param { JsDocNodeCheckConfigItem[] } checkConfig 校验配置
  */
-function expressionCheckByJsDoc( declaration: arkts.AstNode, identifier: arkts.AstNode, checkConfig: JsDocNodeCheckConfigItem[]): void {
+function expressionCheckByJsDoc(declaration: arkts.AstNode, identifier: arkts.Identifier, checkConfig: JsDocNodeCheckConfigItem[]): void {
   const monitor = getGlobalMonitor();
 
   // 解析 JSDoc 字符串
   monitor.start(PERF.PARSE_JSDOC);
-  const jsDocsString: string = getPeerJsDocs(declaration);
+  const jsDocsString: string | undefined = getPeerJsDocs(declaration);
   const jsDocs: JSDoc[] = parseJSDoc(jsDocsString);
   monitor.end(PERF.PARSE_JSDOC);
 
@@ -352,8 +352,8 @@ function expressionCheckByJsDoc( declaration: arkts.AstNode, identifier: arkts.A
 export function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
   let address = {} as CurrentAddress;
   let startPosition = node.startPosition;
-  address.column = startPosition.col();
-  address.line = startPosition.line() + 1;
+  address.column = startPosition.getCol();
+  address.line = startPosition.getLine() + 1;
   return address;
 }
 

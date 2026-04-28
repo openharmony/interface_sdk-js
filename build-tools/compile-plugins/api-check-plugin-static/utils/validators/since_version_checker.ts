@@ -114,7 +114,7 @@ export class SinceJSDocChecker extends BaseVersionChecker {
 
   private _getJsDocsFromNode(node: arkts.AstNode): JSDoc[] | null {
     try {
-      const jsDocString: string = getPeerJsDocs(node);
+      const jsDocString: string | undefined = getPeerJsDocs(node);
       return parseJSDoc(jsDocString);
     } catch {
       return null;
