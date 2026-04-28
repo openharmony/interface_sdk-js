@@ -204,7 +204,7 @@ declare class LightWeightSet<T> {
   /**
    * Deletes an object of a specified Object type from an LightWeightSet container
    *
-   * @param { T } key - key key Target to be deleted
+   * @param { T } key - The key of the element to remove
    * @returns { T | undefined } the removed value if it was present, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -337,7 +337,7 @@ declare class LightWeightSet<T> {
   /**
    * Obtains the object at the location  identified by index in an LightWeightSet container
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - The index position to retrieve the value from
    * @returns { T | undefined } the value at the specified index, or undefined if the index out of range
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
