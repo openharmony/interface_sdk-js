@@ -29,6 +29,7 @@ import { DynamicNode } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export enum LazyForEachMemOptStrategy {
@@ -36,14 +37,15 @@ export enum LazyForEachMemOptStrategy {
      * No memory optimization.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-
-    * @since 26.0.0 static
-    */
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     DEFAULT = 0,
     /**
      * LazyForEach handle the memory optimization.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0,
@@ -802,31 +804,3 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
 export declare function LazyForEach<T = Any>(
     style: CustomBuilderT<LazyForEachAttribute>
 ): LazyForEachAttribute;
-
-/**
- * Defines type for memory optimization strategy.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export enum LazyForEachMemOptStrategy {
-
-  /**
-   * No memory optimization.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  DEFAULT = 0,
-
-  /**
-   * LazyForEach handles memory optimization.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
-}
