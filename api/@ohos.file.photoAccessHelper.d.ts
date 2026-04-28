@@ -10646,6 +10646,28 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 static
      */
     isReturnToPhotoBrowserEnabled?: boolean;
+
+    /**
+     * Support displaying index numbers.
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic
+     * @since 26.0.0 static
+     */
+    isSelectionNumberVisible?: boolean;
+    
+    /**
+     * Support selection order adjustment.
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic
+     * @since 26.0.0 static
+     */
+    isSelectionOrderAdjustable?: boolean;
   }
 
   /**
