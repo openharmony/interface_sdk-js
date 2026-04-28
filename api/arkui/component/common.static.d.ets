@@ -13277,6 +13277,25 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined): this;
+
+    /**
+     * Trigger a visible area change event.
+     *
+     * @param { Array<double> | undefined } ratios - Threshold array. Each threshold represents a ratio of the
+     *     component's visible area to the component's total area. The value range of the threshold is [0.0, 1.0].
+     * @param { VisibleAreaChangeCallback | undefined } event - Callback for visible area changes of the component.
+     * @param { boolean | undefined } measureFromViewport - When this parameter is set to true, the parts of the
+     *     component that exceed the parent component's area will also be included in the visible area calculation.
+     *     However, this only applies if the parent component does not explicitly set the clip property to true.
+     *     If the parent component sets clip to true, regardless of the value of this parameter, the parts that exceed
+     *     the parent component's area will still be treated as invisible in the visible area calculation.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined, measureFromViewport: boolean | undefined): this;
+
     /**
      * Set or reset the callback which is triggered when the visibleArea of component changed.
      * The interval between two visible area change callbacks will not be less than the expected update interval.
@@ -15828,6 +15847,20 @@ export declare interface VisibleAreaEventOptions {
      * @since 23 static
      */
     expectedUpdateInterval?: int;
+    /**
+     * When this parameter is set to true, the parts of the component that exceed the parent component's area will also
+     * be included in the visible area calculation. However, this only applies if the parent component does not
+     * explicitly set the clip property to true. If the parent component sets clip to true, regardless of the value
+     * of this parameter, the parts that exceed the parent component's area will still be treated as invisible in the
+     * visible area calculation.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    measureFromViewport?: boolean;
 }
 /**
  * Defines the callback type used in VisibleAreaChange events.
