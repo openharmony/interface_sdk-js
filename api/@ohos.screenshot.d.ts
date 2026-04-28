@@ -505,50 +505,6 @@ declare namespace screenshot {
      * @since 23 static
      */
     isCaptureFullOfScreen?: boolean;
-    /**
-     * screenshot display intent type.
-     *
-     * @type { ?DisplayIntentType }
-     * @default DisplayIntentType.CANONICAL
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    displayIntent?: DisplayIntentType;
-  }
-  
-  /**
-   * Enumerates the screenshot display intent type.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 24 dynamic&static
-   */
-  enum DisplayIntentType {  
-    /**
-     * Specifies that the screenshot renders with canonical display attributes optimizing output for
-     * presentation on the HDR display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    CANONICAL = 0,
-
-    /**
-     * Specifies that the screenshot renders with local display attributes optimizing output for
-     * presentation on the capture display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    LOCAL = 1
   }
 }
 
