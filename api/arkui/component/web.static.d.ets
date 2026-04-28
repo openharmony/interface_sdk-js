@@ -76,7 +76,6 @@ export type OnOverrideErrorPageCallback = (errorPageEvent: OnErrorReceiveEvent) 
 /**
  * The callback of largestContentfulPaint.
  *
- * @typedef { function } OnLargestContentfulPaintCallback
  * @param { LargestContentfulPaint } largestContentfulPaint - callback information of onLargestContentfulPaint.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -85,7 +84,6 @@ export type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestC
 /**
  * The callback of firstMeaningfulPaint.
  *
- * @typedef { function } OnFirstMeaningfulPaintCallback
  * @param { FirstMeaningfulPaint } firstMeaningfulPaint - callback information of onFirstMeaningfulPaint.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -115,7 +113,6 @@ export type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrack
 /**
  * The callback of onNativeEmbedVisibilityChange.
  *
- * @typedef { function } OnNativeEmbedVisibilityChangeCallback
  * @param { NativeEmbedVisibilityInfo } nativeEmbedVisibilityInfo - callback information of onNativeEmbedVisibilityChange.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -124,7 +121,6 @@ export type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: 
 /**
  * The callback when the param element which is a child item of the object element has changed.
  *
- * @typedef { function } OnNativeEmbedObjectParamChangeCallback
  * @param { NativeEmbedParamDataInfo } event - callback information of param element.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -133,7 +129,6 @@ export type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDat
 /**
  * Enum type supplied to {@link NativeEmbedParamItem} when onNativeEmbedObjectParamChange being called.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -153,17 +148,63 @@ export declare enum NativeEmbedParamStatus {
      */
     UPDATE = 1,
     /**
-     *The param element is deleted.
+     * The param element is deleted.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     DELETE = 2
 }
+
+/**
+* Enum type supplied to {@link keyboardAppearance} for setting the web keyboard appearance mode.
+*
+* @enum { number }
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+export declare enum WebKeyboardAppearanceMode {
+/**
+* Default skin mode, no immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+NONE_IMMERSIVE = 0,
+
+/**
+* No immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+IMMERSIVE = 1,
+
+/**
+*Light immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+LIGHT_IMMERSIVE = 2,
+
+/**
+*Dark immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+DARK_IMMERSIVE = 3
+}
+
 /**
  * Defines the information of param element.
  *
- * @typedef NativeEmbedParamItem
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -171,7 +212,6 @@ export declare interface NativeEmbedParamItem {
     /**
      * The status of the param.
      *
-     * @type { NativeEmbedParamStatus }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -179,7 +219,6 @@ export declare interface NativeEmbedParamItem {
     /**
      * The id attribute of the param element.
      *
-     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -187,7 +226,6 @@ export declare interface NativeEmbedParamItem {
     /**
      * The name attribute of the param element.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -195,7 +233,6 @@ export declare interface NativeEmbedParamItem {
     /**
      * The value attribute of the param element.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -204,7 +241,6 @@ export declare interface NativeEmbedParamItem {
 /**
  * Defines the param data info.
  *
- * @typedef NativeEmbedParamDataInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -212,7 +248,6 @@ export declare interface NativeEmbedParamDataInfo {
     /**
      * The native embed id.
      *
-     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -220,7 +255,6 @@ export declare interface NativeEmbedParamDataInfo {
     /**
      * The id attribute of the object element.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -228,7 +262,6 @@ export declare interface NativeEmbedParamDataInfo {
     /**
      * The param element array
      *
-     * @type { ?Array<NativeEmbedParamItem> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -306,7 +339,6 @@ export type OnRenderProcessRespondingCallback = () => void;
 /**
  * The callback of ViewportFit Changed.
  *
- * @typedef { function } OnViewportFitChangedCallback
  * @param { ViewportFit } viewportFit - details of OnViewportFitChangedCallback.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -324,7 +356,6 @@ export type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 /**
  * The callback when camera capturing state of current page has been changed.
  *
- * @typedef { function } OnCameraCaptureStateChangeCallback
  * @param { CameraCaptureStateChangeInfo } event - the camera capturing state event.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -334,7 +365,6 @@ export type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChang
 /**
  * The callback when microphone capturing state of current page has been changed.
  *
- * @typedef { function } OnMicrophoneCaptureStateChangeCallback
  * @param { MicrophoneCaptureStateChangeInfo } event - the microphone capturing state event.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -758,7 +788,6 @@ export declare enum BlurOnKeyboardHideMode {
 /**
  * Enum type supplied to {@link darkMode} for setting the web dark mode.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -861,7 +890,7 @@ export declare enum ThreatType {
  */
 export declare interface WebMediaOptions {
     /**
-     * Validity period for automatically resuming a paused web audio, in seconds.
+     * Validity period for automatically resuming a paused web audio, Unit: seconds.
      * The maximum validity period is 60 seconds. Due to the approximate value,
      * the validity period may have a deviation of less than 1 second.
      *
@@ -944,7 +973,7 @@ export declare interface FullScreenEnterEvent {
      */
     handler: FullScreenExitHandler;
     /**
-     * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+     * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -952,7 +981,7 @@ export declare interface FullScreenEnterEvent {
      */
     videoWidth?: int;
     /**
-     * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+     * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -972,7 +1001,6 @@ export type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 /**
  * The callback when mouse event is triggered in native embed area
  *
- * @typedef { function } MouseInfoCallback
  * @param { NativeEmbedMouseInfo } event - callback information of mouse event in native embed area.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -1107,7 +1135,6 @@ export declare enum FileSelectorMode {
 /**
  * Enum type supplied to {@link layoutMode} for setting the web layout mode.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -1789,7 +1816,6 @@ export declare enum ContextMenuInputFieldType {
  * CREATE is triggered. When the same-layer tag is moved or is enlarged,
  * **UPDATE **is triggered. When the page exits, DESTROY is triggered.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -1809,7 +1835,7 @@ export declare enum NativeEmbedStatus {
      */
     UPDATE = 1,
     /**
-     *The same-layer tag is destroyed.
+     * The same-layer tag is destroyed.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1961,7 +1987,6 @@ export declare enum RenderMode {
 /**
  * Defines the viewport-fit type, related to {@link ViewportFit}.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -2006,6 +2031,7 @@ export declare class WebContextMenuParam {
     constructor();
     /**
      * Horizontal offset coordinates of the menu within the Web component.
+     * The unit is vp.
      *
      * @returns { int } The context menu x coordinate.
      *                  Returns a non-negative integer if normal, otherwise returns -1.
@@ -2016,6 +2042,7 @@ export declare class WebContextMenuParam {
     x(): int;
     /**
      * Vertical offset coordinates for the menu within the Web component.
+     * The unit is vp.
      *
      * @returns { int } The context menu y coordinate.
      *                  Returns a non-negative integer if normal, otherwise returns -1.
@@ -2105,7 +2132,7 @@ export declare class WebContextMenuParam {
      */
     getEditStateFlags(): int;
     /**
-     * Returns the selection menu preview width.
+     * Returns the selection menu preview width. The unit is vp.
      *
      * @returns { int } The preview menu width.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2113,7 +2140,7 @@ export declare class WebContextMenuParam {
      */
     getPreviewWidth(): int;
     /**
-     * Returns the selection menu preview height.
+     * Returns the selection menu preview height. The unit is vp.
      *
      * @returns { int } The preview menu height.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2223,6 +2250,14 @@ export declare class WebContextMenuResult {
      * @since 23 static
      */
     requestPasswordAutoFill(): void;
+    /**
+     * Performing the "Save As Image" operation associated with this context menu will trigger the download process.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 static
+     */
+    saveImage(): void;
 }
 /**
  * Encompassed message information as parameters to {@link onConsole} method.
@@ -2696,7 +2731,6 @@ export declare interface WebOptions {
     /**
      * Sets whether mouse event will be transferred to touch event.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2849,7 +2883,6 @@ export declare interface IntelligentTrackingPreventionDetails {
 /**
  * Defines the embed info.
  *
- * @typedef NativeEmbedInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -2857,7 +2890,6 @@ export declare interface NativeEmbedInfo {
     /**
      * The embed id.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2865,7 +2897,6 @@ export declare interface NativeEmbedInfo {
     /**
      * Type of the same-layer tag. The value is in lowercase.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2873,7 +2904,6 @@ export declare interface NativeEmbedInfo {
     /**
      * The embed tag src.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2882,23 +2912,24 @@ export declare interface NativeEmbedInfo {
      * Position of the same-layer tag relative to the Web component in the screen coordinate system,
      * which is different from the standard Position. The unit is px.
      *
-     * @type { ?Position }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     position?: Position;
     /**
-     * The embed tag width, in px.
+     * The embed tag width.
+     * The value should be an integer.
+     * <br>Unit:px.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     width?: int;
     /**
      * The embed tag height, in px.
+     * The value should be an integer.
+     * <br>Unit:px.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2906,7 +2937,6 @@ export declare interface NativeEmbedInfo {
     /**
      * The embed tag url.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2914,7 +2944,6 @@ export declare interface NativeEmbedInfo {
     /**
      * The embed tag name, which is in uppercase.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2923,7 +2952,6 @@ export declare interface NativeEmbedInfo {
      * List of key-value pairs contained in the object tag that form a map of the Object type.
      * Use the methods provided by the Object type, such as embed.info?.param?.["name"] to operate the map object.
      *
-     * @type { ?Map<string, string> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2932,7 +2960,6 @@ export declare interface NativeEmbedInfo {
 /**
  * Provides detailed information about the changes of the same-layer tag lifecycle.
  *
- * @typedef NativeEmbedDataInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -2940,7 +2967,6 @@ export declare interface NativeEmbedDataInfo {
     /**
      * Lifecycle status of the same-layer tag.
      *
-     * @type { ?NativeEmbedStatus }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2948,7 +2974,6 @@ export declare interface NativeEmbedDataInfo {
     /**
      * Psurfaceid of the NativeImage.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2956,7 +2981,6 @@ export declare interface NativeEmbedDataInfo {
     /**
      * Unique id of the same-layer tag.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2964,7 +2988,6 @@ export declare interface NativeEmbedDataInfo {
     /**
      * Detailed information about the same-layer tag.
      *
-     * @type { ?NativeEmbedInfo }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2973,7 +2996,6 @@ export declare interface NativeEmbedDataInfo {
 /**
  * Provides visibility information about the same-layer tag.
  *
- * @typedef NativeEmbedVisibilityInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -2982,7 +3004,6 @@ export declare interface NativeEmbedVisibilityInfo {
      * Whether the same-layer tag is visible.
      * The value true indicates that the same-layer tag is visible, and false indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2990,7 +3011,6 @@ export declare interface NativeEmbedVisibilityInfo {
     /**
      * ID of the same-layer rendered tag.
      *
-     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2999,7 +3019,6 @@ export declare interface NativeEmbedVisibilityInfo {
 /**
  * Defines the user touch info.
  *
- * @typedef NativeEmbedTouchInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -3007,7 +3026,6 @@ export declare interface NativeEmbedTouchInfo {
     /**
      * The native embed id.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3015,7 +3033,6 @@ export declare interface NativeEmbedTouchInfo {
     /**
      * Touch action information.
      *
-     * @type { ?TouchEvent }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3023,7 +3040,6 @@ export declare interface NativeEmbedTouchInfo {
     /**
      * Gesture event consumption result.
      *
-     * @type { ?EventResult }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3032,7 +3048,6 @@ export declare interface NativeEmbedTouchInfo {
 /**
  * Defines the user mouse info on embed layer.
  *
- * @typedef NativeEmbedMouseInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -3040,7 +3055,6 @@ export declare interface NativeEmbedMouseInfo {
     /**
      * The native embed id.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3048,7 +3062,6 @@ export declare interface NativeEmbedMouseInfo {
     /**
      * An event sent when the state of contacts with a mouse-sensitive surface changes.
      *
-     * @type { ?MouseEvent }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3056,7 +3069,6 @@ export declare interface NativeEmbedMouseInfo {
     /**
      * Handle the user's mouse result.
      *
-     * @type { ?EventResult }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3066,23 +3078,22 @@ export declare interface NativeEmbedMouseInfo {
 /**
  * Provides detailed information about the first meaningful paint.
  *
- * @typedef FirstMeaningfulPaint
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface FirstMeaningfulPaint {
     /**
-     * Start time of navigation, in microseconds.
+     * Start time of navigation.
+     * <br>Unit:microseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     navigationStartTime?: long;
     /**
-     * Paint time of first meaningful content, in milliseconds.
+     * Paint time of first meaningful content.
+     * <br>Unit:microseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3091,31 +3102,30 @@ export declare interface FirstMeaningfulPaint {
 /**
  * Defines the largest content paint rendering of web page.
  *
- * @typedef LargestContentfulPaint
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface LargestContentfulPaint {
     /**
      * Start time of navigation, in microseconds.
+     * <br>Unit:microseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     navigationStartTime?: long;
     /**
-     * Paint time of largest image, in milliseconds.
+     * Paint time of largest image.
+     * <br>Unit:milliseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     largestImagePaintTime?: long;
     /**
-     * Paint time of largest text, in milliseconds.
+     * Paint time of largest text.
+     * <br>Unit:milliseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3123,23 +3133,22 @@ export declare interface LargestContentfulPaint {
     /**
      * Bits per pixel of maximum image.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     imageBPP?: double;
     /**
-     * Load start time of largest image, in milliseconds.
+     * Load start time of largest image.
+     * <br>Unit:milliseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     largestImageLoadStartTime?: long;
     /**
-     * Load end time of largest image, in milliseconds.
+     * Load end time of largest image.
+     * <br>Unit:milliseconds.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3571,7 +3580,7 @@ export declare interface OnDownloadStartEvent {
      */
     mimetype: string;
     /**
-     * The contentLength of page.
+     * The contentLength of page. Unit: bytes.
      *
      * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3849,7 +3858,7 @@ export declare interface OnSearchResultReceiveEvent {
  */
 export declare interface OnScrollEvent {
     /**
-     * The X offset of the scroll. Unit: vp.
+     * The X offset of the scroll. The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3857,7 +3866,7 @@ export declare interface OnScrollEvent {
      */
     xOffset: double;
     /**
-     * The Y offset of the scroll. Unit: vp.
+     * The Y offset of the scroll. The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4034,7 +4043,7 @@ export declare enum NavigationPolicy {
  */
 export declare interface WindowFeatures {
     /**
-     * The requested height of the containing window.
+     * The requested height of the containing window. Unit:pixels.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4042,7 +4051,7 @@ export declare interface WindowFeatures {
      */
     height: double;
     /**
-     * The requested width of the containing window.
+     * The requested width of the containing window. Unit:pixels.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4050,7 +4059,7 @@ export declare interface WindowFeatures {
      */
     width: double;
     /**
-     * The requested x-coordinate of the containing window.
+     * The requested x-coordinate of the containing window. Unit:pixels.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4058,7 +4067,7 @@ export declare interface WindowFeatures {
      */
     x: double;
     /**
-     * The requested y-coordinate of the containing window.
+     * The requested y-coordinate of the containing window. Unit:pixels.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4219,7 +4228,6 @@ export declare interface OnAudioStateChangedEvent {
 /**
  * Defines triggered when the first content rendering of web page.
  *
- * @typedef OnFirstContentfulPaintEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4227,7 +4235,6 @@ export declare interface OnFirstContentfulPaintEvent {
     /**
      * The time at which navigation begins, expressed in microseconds.
      *
-     * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4235,7 +4242,6 @@ export declare interface OnFirstContentfulPaintEvent {
     /**
      * The time it takes to draw content for the first time from navigation, expressed in milliseconds.
      *
-     * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4268,7 +4274,7 @@ export declare interface OnLoadInterceptEvent {
 export declare interface OnOverScrollEvent {
     /**
      * Based on the leftmost part of the page, the horizontal scroll offset is over.
-     * Unit: vp.
+     * The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4277,7 +4283,7 @@ export declare interface OnOverScrollEvent {
     xOffset: double;
     /**
      * Based on the top of the page, the vertical scroll offset is over.
-     * Unit: vp.
+     * The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4543,7 +4549,6 @@ export declare enum PdfLoadResult {
 /**
  * Enum type supplied to {@link bypassVsyncCondition} for setting the bypass vsync condition.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4632,7 +4637,6 @@ export declare interface SelectionMenuOptionsExt {
 /**
  * The details of this blank screen detection result.
  *
- * @typedef BlankScreenDetails
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4640,7 +4644,6 @@ export declare interface BlankScreenDetails {
     /**
      * The count of detected contentful nodes. This value only exists when developers configure a threshold.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4649,7 +4652,6 @@ export declare interface BlankScreenDetails {
 /**
  * Enum type supplied to {@link BlankScreenDetectionEventInfo} when onDetectedBlankScreen being called.
  *
- * @enum { int }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4672,7 +4674,6 @@ export declare enum DetectedBlankScreenReason {
 /**
  * Defines the blank screen detection event info.
  *
- * @typedef BlankScreenDetectionEventInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4680,7 +4681,6 @@ export declare interface BlankScreenDetectionEventInfo {
     /**
      * The url of detected blank screen page.
      *
-     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4688,7 +4688,6 @@ export declare interface BlankScreenDetectionEventInfo {
     /**
      * The reason why we consider this page is blank.
      *
-     * @type { DetectedBlankScreenReason }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4696,7 +4695,6 @@ export declare interface BlankScreenDetectionEventInfo {
     /**
      * The details of this detection result.
      *
-     * @type { ?BlankScreenDetails }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4705,7 +4703,6 @@ export declare interface BlankScreenDetectionEventInfo {
 /**
  * The callback when web engine detects current page is blank or nearly blank.
  *
- * @typedef { function } DetectBlankScreenCallback
  * @param { BlankScreenDetectionEventInfo } event - the detection event info.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
@@ -4723,7 +4720,6 @@ export type TextSelectionChangeCallback = (selectionText: string) => void;
 /**
  * The methods can be chosen to detect if current page is blank or nearly blank.
  *
- * @enum { int }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4740,7 +4736,6 @@ export declare enum BlankScreenDetectionMethod {
 /**
  * The strategy of blank screen detection.
  *
- * @typedef BlankScreenDetectionConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -4748,7 +4743,6 @@ export declare interface BlankScreenDetectionConfig {
     /**
      * Enable blank screen detection or not.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4756,8 +4750,8 @@ export declare interface BlankScreenDetectionConfig {
     /**
      * The settings of the timing when web try to detect current page is blank or not.
      * The timing is the duration after web navigation.
+     * <br>Length range:[0,+∞).Unit: second.Default value:[1.0,3.0,5.0].
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4765,7 +4759,6 @@ export declare interface BlankScreenDetectionConfig {
     /**
      * The combination of blank screen detection methods.
      *
-     * @type { ?BlankScreenDetectionMethod[] }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4774,7 +4767,6 @@ export declare interface BlankScreenDetectionConfig {
      * When using the specific detection method of detecting contentful nodes, the threshold is used
      * to determine how close the detection is to being blank screen page.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4783,23 +4775,22 @@ export declare interface BlankScreenDetectionConfig {
 /**
  * Defines the first screen paint info.
  *
- * @typedef FirstScreenPaint
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface FirstScreenPaint {
     /**
      * The url of first screen paint info.
+     * <br>Unit:milliseconds.
      *
-     * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     url: string;
     /**
      * The navigation start time of the url.
+     * <br>Unit:milliseconds.
      *
-     * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4807,7 +4798,6 @@ export declare interface FirstScreenPaint {
     /**
      * The first screen paint time of the url.
      *
-     * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -4816,12 +4806,20 @@ export declare interface FirstScreenPaint {
 /**
  * The callback reports the time required for the first screen painting of the current web page.
  *
- * @typedef { function } OnFirstScreenPaintCallback
  * @param { FirstScreenPaint } firstScreenPaint - the first screen paint info.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void;
+/**
+ * The callback will be triggered when inputmethod is attached.
+ *
+ * @typedef { function } OnInputmethodAttachedCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnInputmethodAttachedCallback = () => void;
 /**
  * Defines the Web attribute functions.
  *
@@ -5612,10 +5610,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the default font size for the web page.
      *
-     * @param { int | undefined } size Default fixed font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering,
-     *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
-     *    Default value: 13.
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5624,9 +5622,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the default font size for the web page.
      *
-     * @param { int | undefined } size Default font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72,
-     *    and values less than 1 are handled as 1. Default value: 16.
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5635,10 +5634,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the minimum font size for the web page.
      *
-     * @param { int | undefined } size Minimum font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering,
-     *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
-     *    Default value: 8
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5647,10 +5646,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the minimum logical font size for the web page.
      *
-     * @param { int | undefined } size Minimum logical font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering,
-     *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
-     *    Default value: 8
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6547,15 +6546,89 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default enableDefaultContextMenu(enable: boolean | undefined): this;
     /**
+     * Enables or disables dragging for this component.
+     *
+     * @param { boolean | undefined } value - {@code true} to enable dragging, {@code false} to disable it.
+     *     The default value is true.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableDrag(value: boolean | undefined): this;
+    /**
+     * Sets the scrollbar layout policy.
+     *
+     * @param { ScrollbarLayoutPolicy | undefined } policy - The layout policy to apply.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollbarLayoutPolicy(policy: ScrollbarLayoutPolicy | undefined): this;
+    /**
+     * Enables or disables directional lock for scroll gestures in the WebView component.
+     *
+     * When directional lock is enabled, the scroll axis is locked based on the initial
+     * swipe vector direction. This behavior helps prevent unintended scroll direction changes
+     * during touch interactions, especially in nested scroll scenarios.
+     *
+     * @param { boolean | undefined } value - Whether to enable directional lock.
+     *     - `true`: Enables directional lock (default in nested scroll scenarios).
+     *     - `false`: Disables directional lock.
+     * @param { ScrollDirectionalLockType | undefined } type - Specifies the scenario in which directional lock is applied.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableScrollDirectionalLock(value: boolean | undefined, type: ScrollDirectionalLockType | undefined): this;
+    /**
+     * Custom AI session configuration for Web components.
+     * Used to register multiple custom AI sessions.
+     *
+     * @param { Array<AISessionEvent> | undefined } aiSessions - Array of AISessionEvent objects.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default aiSessionOptions(aiSessions: Array<AISessionEvent> | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { WebAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+    * Set the WebKeyboardAppearanceMode to determine the immersive mode for the soft keyboard.
+    *
+    * @param { WebKeyboardAppearanceMode | undefined } mode - The WebKeyboardAppearanceMode of this web.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    default keyboardAppearance(mode: WebKeyboardAppearanceMode | undefined): this;
+
+    /**
+     * The callback is triggered when the inputmethod is attached to the IMF.
+     *
+     * @param { OnInputmethodAttachedCallback | undefined } callback - The triggered callback
+     *    when the inputmethod is attached to the IMF.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onInputmethodAttached(callback: OnInputmethodAttachedCallback | undefined): this;
 }
+
 /**
  * Defines the ssl error event.
  *
@@ -6695,7 +6768,6 @@ export declare interface NestedScrollOptionsExt {
 /**
  * Defines the Embed Options.
  *
- * @typedef EmbedOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -6706,7 +6778,6 @@ export declare interface EmbedOptions {
      * <br>If true, then the intrinsic size is 300 * 150.
      * <br>If false, the embed element will not be rendered when the CSS size is not set.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6718,7 +6789,6 @@ export declare interface EmbedOptions {
      * <br>Default value is false. If true, the changes of the display-related attributes of the
      * embed element will be reported through the {@link onNativeEmbedVisibilityChange} event.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6782,6 +6852,7 @@ export declare interface AcceptableFileType {
  * @param { CustomBuilder } [content_] - container
  * @returns { WebAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
@@ -6845,7 +6916,6 @@ export declare enum CredentialType {
 /**
  * Defines the camera capture state change info.
  *
- * @typedef CameraCaptureStateChangeInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -6853,7 +6923,6 @@ export declare interface CameraCaptureStateChangeInfo {
   /**
    * The original camera capture state.
    *
-   * @type { CameraCaptureState }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -6862,7 +6931,6 @@ export declare interface CameraCaptureStateChangeInfo {
   /**
    * The new camera capture state.
    *
-   * @type { CameraCaptureState }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -6870,25 +6938,28 @@ export declare interface CameraCaptureStateChangeInfo {
 }
 /**
  * Indicates current camera capture state of current web page.
- * @enum { number }
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare enum CameraCaptureState {
   /**
    * None of any cameras are in use.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   NONE = 0,
   /**
    * This web page is not actively using camera capturing.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   PAUSED = 1,
   /**
    * This web page is actively using camera capturing.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -6897,14 +6968,13 @@ export declare enum CameraCaptureState {
 /**
  * Defines the microphone capture state change info.
  *
- * @typedef MicrophoneCaptureStateChangeInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface MicrophoneCaptureStateChangeInfo {
   /**
-   * the original microphone capture state.
-   * @type { MicrophoneCaptureState}
+   * The original microphone capture state.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -6913,7 +6983,6 @@ export declare interface MicrophoneCaptureStateChangeInfo {
   /**
    * the new microphone capture state.
    *
-   * @type { MicrophoneCaptureState }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -6921,27 +6990,301 @@ export declare interface MicrophoneCaptureStateChangeInfo {
 }
 /**
  * Indicates current microphone capture state of current web page.
- * @enum { number }
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare enum MicrophoneCaptureState {
   /**
    * None of any microphone are in use.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   NONE = 0,
   /**
    * This web page is not actively using microphone capturing.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   PAUSED = 1,
   /**
    * This web page is actively using microphone capturing.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   ACTIVE = 2,
 }
+/**
+ * Defines the layout policy for scrollbars, used with {@link scrollbarLayoutPolicy}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ScrollbarLayoutPolicy {
+    /**
+     * Adheres to W3C standards (CSS/HTML/XHTML) for scrollbar layout.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    CONTENT = 0,
+
+    /**
+     * Follows the system UI conventions for scrollbar layout in the system language.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SYSTEM = 1
+}
+/**
+ * Enum defining the scope of directional lock behavior in the WebView, used with {@link enableScrollDirectionalLock}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ScrollDirectionalLockType {
+    /**
+     * Applies directional lock across all scroll contexts.
+     * This includes both nested and flat scroll scenarios.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ALL = 0,
+
+    /**
+     * Applies directional lock only within nested scroll scenarios.
+     * This is the default behavior in ArkWeb to improve UX in complex scroll hierarchies.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    NESTED_SCROLL = 1
+}
+/**
+ * Triggered when an AI session is created.
+ * Allows custom model initialization and result handling.
+ * Return `true` to bypass the default system behavior;
+ * return `false` to proceed with the default logic.
+ *
+ * @typedef { function }
+ * @param { string } id - The session task ID.
+ * @param { string } params - Contextual data passed during creation.
+ * @param { OnAISessionCallback } result - Callback function to notify the system of the creation result.
+ * @returns { boolean } - Whether to use custom logic. `true` = use custom, `false` = proceed with default.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnCreateAISession = (id: string, params: string, result: OnAISessionCallback) => boolean;
+/**
+ * Triggered when executing an AI session action.
+ * Enables custom implementation of AI model execution.
+ *
+ * @typedef { function }
+ * @param { string } id - The session task ID.
+ * @param { string } params - Contextual data passed during execution (in JSON string format).
+ * @param { OnAISessionCallback } result - Callback function to notify the system of the execution result.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnExecuteAIAction = (id: string, params: string, result: OnAISessionCallback) => void;
+/**
+ * Triggered when an AI session is destroyed.
+ * Used for cleaning up resources associated with custom AI models.
+ *
+ * @typedef { function }
+ * @param { string } id - The session task ID.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnDestroyAISession = (id: string) => void;
+/**
+ * Custom AI session model integration for Web components.
+ * Users can define custom AI session behaviors via this interface.
+ *
+ * @typedef AISessionEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AISessionEvent {
+  /**
+   * The type of AI session.
+   *
+   * @type { AISessionType }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  aiSessionType: AISessionType;
+
+  /**
+   * Triggered when an AI session is created.
+   * Allows custom model initialization and result handling.
+   * Return `true` to bypass the default system behavior;
+   * return `false` to proceed with the default logic.
+   *
+   * @type { OnCreateAISession }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onCreateAISession: OnCreateAISession;
+
+  /**
+   * Triggered when executing an AI session action.
+   * Enables custom implementation of AI model execution.
+   *
+   * @type { OnExecuteAIAction }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onExecuteAIAction: OnExecuteAIAction;
+
+  /**
+   * Triggered when an AI session is destroyed.
+   * Used for cleaning up resources associated with custom AI models.
+   *
+   * @type { OnDestroyAISession }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onDestroyAISession: OnDestroyAISession;
+}
+/**
+ * Enum representing the supported types of AI sessions.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum AISessionType {
+  /**
+   * Translator model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TRANSLATOR = 1,
+
+  /**
+   * Language detector model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LANGUAGE_DETECTOR = 2,
+
+  /**
+   * Summarization generator model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  SUMMARIZER = 3,
+
+  /**
+   * Writing assistant model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  WRITER = 4,
+
+  /**
+   * Rewriting assistant model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  REWRITER = 5,
+
+  /**
+   * Prompt engineering model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  PROMPT = 6,
+
+  /**
+   * Proofreading assistant model
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  PROOFREADER = 7
+}
+/**
+ * Enum representing the result states for AI session operations.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum AISessionResultType {
+  /**
+   * Operation completed successfully.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  SUCCESS = 0,
+
+  /**
+   * Operation failed.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  FAILURE = 1,
+
+  /**
+   * Operation is currently in progress.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RUNNING = 2
+}
+/**
+ * Callback type for AI session operations.
+ * Used to report the result of session creation or execution.
+ *
+ * @typedef { function } OnAISessionCallback
+ * @param { AISessionResultType } state - The current result state.
+ * @param { string } content - The detailed result or response content.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnAISessionCallback = (state: AISessionResultType, content: string) => void;

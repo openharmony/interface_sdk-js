@@ -19,18 +19,16 @@
  */
 
 /**
- * The NotificationCommonDef module provides APIs for describing the BundleOption information, that is, the bundle information of a specified application.
+ * Describes the bundle information of an application.
  *
- * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
  * @since 9 dynamic
  * @since 23 static
  */
 export interface BundleOption {
   /**
-   * Application name.
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
@@ -38,9 +36,8 @@ export interface BundleOption {
   bundle: string;
 
   /**
-   * UID of an application, which is obtained from ApplicationInfo. The default value is 0.
+   * UID of the application, which is obtained from [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo). The default value is **0**. This parameter is mandatory in application clone<!--Del--> or telematics device<!--DelEnd--> scenarios.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
@@ -49,19 +46,16 @@ export interface BundleOption {
 }
 
 /**
- * The NotificationCommonDef module provides APIs for describing the GrantedBundleInfo, that is,
- *  the bundle information of a specified application granted to third party wearable application by user.
+ * Describes the authorized bundle information.
  *
- * @typedef GrantedBundleInfo
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
  */
 export interface GrantedBundleInfo {
   /**
-   * Name of the bundle.
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -69,10 +63,10 @@ export interface GrantedBundleInfo {
   bundleName: string;
 
   /**
-   * The appIndex of application that creates the notification, only work in appClone mode.
+   * Index of an application clone, which takes effect only for application clones.
+   * The value is obtained from the **appIndex** of 
+   * [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo).
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -80,13 +74,39 @@ export interface GrantedBundleInfo {
   readonly appIndex: int;
 
   /**
-   * Name of the application.
+   * Application name, which is obtained from the **label** of 
+   * [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo).
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
    */
   readonly appName?: string;
+}
+
+/**
+ * Describes the user authorization settings.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface UserGrantSetting {
+  /**
+   * Whether the **Allow access to notifications on this device** switch is toggled on. true: **yes**; false: **no**.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly userGrantEnabled: boolean;
+
+  /**
+   * List of apps for which the **Allow access to notifications on this device** switch is toggled on.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly grantedBundleInfos?: Array<GrantedBundleInfo>;
 }

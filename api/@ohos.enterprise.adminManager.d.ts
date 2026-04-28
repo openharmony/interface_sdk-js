@@ -187,7 +187,25 @@ declare namespace adminManager {
      * @stagemodelonly
      * @since 24
      */
-    MANAGED_EVENT_BOOT_COMPLETED = 9
+    MANAGED_EVENT_BOOT_COMPLETED = 9,
+
+    /**
+     * Event of bundle updated.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MANAGED_EVENT_BUNDLE_UPDATED = 10,
+
+    /**
+     * Event indicating that enterprise device management policies changed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MANAGED_EVENT_POLICIES_CHANGED = 11
   }
 
   /**
@@ -228,7 +246,7 @@ declare namespace adminManager {
    */
   export enum Policy {
     /**
-     * flag bolck list.
+     * flag block list.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -867,7 +885,7 @@ declare namespace adminManager {
   function getDelegatedPolicies(admin: Want, bundleName: string): Array<string>;
 
   /**
-   * Query wether self is a BYOD administrater.
+   * Query whether self is a BYOD administrator.
    *
    * @permission ohos.permission.START_PROVISIONING_MESSAGE
    * @param { Want } admin - admin indicates the administrator ability information.

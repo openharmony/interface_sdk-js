@@ -225,6 +225,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -233,6 +234,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

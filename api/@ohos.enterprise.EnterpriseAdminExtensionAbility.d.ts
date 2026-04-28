@@ -121,7 +121,7 @@ export default class EnterpriseAdminExtensionAbility {
   onAppStop(bundleName: string): void;
 
   /**
-   * Called back when a system version need to update. 
+   * Called back when a system version needs to update. 
    *
    * @param { systemManager.SystemUpdateInfo } systemUpdateInfo - the information of the system version.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -261,4 +261,24 @@ export default class EnterpriseAdminExtensionAbility {
    */
   onDeviceBootCompleted(): void;
 
+  /**
+   * Called back when a bundle is updated under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onBundleUpdated(bundleName: string, accountId: number): void;
+
+  /**
+   * Called back when the policy changes.
+   *
+   * @param { common.PolicyChangedEvent } event - event indicates the information about the policy change.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onAdminPolicyChanged(event: common.PolicyChangedEvent): void;
 }

@@ -20,7 +20,7 @@
  */
 import { Theme, CustomTheme } from './@ohos.arkui.theme';
 import { Component, CustomDialog } from '@ohos.arkui.component';
-import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
+import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions, TextAlign } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
 import { PropRef, Link, Require } from '@ohos.arkui.stateManagement';
@@ -103,6 +103,16 @@ export declare class ButtonOptions {
    * @since 23 static
    */
   public defaultFocus?: boolean;
+  /**
+   * Set the alignment mode for the button label.
+   *
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  public textAlign?: TextAlign;
 }
 /**
  * Declare CustomDialog TipsDialog

@@ -23,6 +23,7 @@
  *
  * @interface PathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -261,7 +262,7 @@ interface PathInterface {
    */
   /**
    * Use new to create Path.
-   * Annonymous Object Rectification.
+   * Anonymous Object Rectification.
    *
    * @param { PathOptions } [options] - path options
    * @returns { PathAttribute }

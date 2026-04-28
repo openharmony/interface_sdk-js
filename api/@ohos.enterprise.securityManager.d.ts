@@ -213,6 +213,43 @@ declare namespace securityManager {
   function getSecurityStatus(admin: Want, item: string): string;
 
   /**
+   * Sets the screen lock disabled for current account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disable - true if disable the screen lock for account, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201021 - A lock screen password has been set for the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setScreenLockDisabledForAccount(admin: Want, disable: boolean): void;
+
+  /**
+   * Queries whether the screen lock is disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } Returns true if the screen lock for account is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function isScreenLockDisabledForAccount(admin: Want): boolean;
+
+  /**
    * Install user certificate.
    * This function can be called by a super administrator.
    *
@@ -560,6 +597,38 @@ declare namespace securityManager {
    * @since 24
    */
   function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: int): void;
+
+  /**
+   * Sets the watermark image to be displayed on the screen.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { image.PixelMap } pixelMap - pixelMap indicates the PixelMap of watermark image
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setScreenWatermarkImage(admin: Want, pixelMap: image.PixelMap): void;
+
+  /**
+   * Cancels the watermark image displayed on the screen.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function cancelScreenWatermarkImage(admin: Want): void;
 
   /**
    * Password policy.

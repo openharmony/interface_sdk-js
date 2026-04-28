@@ -228,6 +228,13 @@ declare namespace webview {
         M132 = 2,
 
         /**
+         * ArkWeb M144 version.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 26.0.0 static
+         */
+        M144 = 3,
+
+        /**
          * ArkWeb auto use the newest ArkWeb Engine version.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
@@ -443,7 +450,7 @@ declare namespace webview {
      */
     interface PdfConfiguration {
         /**
-         * Number of the width.
+         * Number of the width. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -452,7 +459,7 @@ declare namespace webview {
         width: double;
 
         /**
-         * Number of the height.
+         * Number of the height. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -461,7 +468,7 @@ declare namespace webview {
         height: double;
 
         /**
-         * Number of the marginTop.
+         * Number of the marginTop. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -470,7 +477,7 @@ declare namespace webview {
         marginTop: double;
 
         /**
-         * Number of the marginBottom.
+         * Number of the marginBottom. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -479,7 +486,7 @@ declare namespace webview {
         marginBottom: double;
 
         /**
-         * Number of the marginRight.
+         * Number of the marginRight. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -488,7 +495,7 @@ declare namespace webview {
         marginRight: double;
 
         /**
-         * Number of the marginLeft.
+         * Number of the marginLeft. Unit: in.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -532,7 +539,7 @@ declare namespace webview {
          */
         origin: string;
         /**
-         * Specify the amount of storage for the source.
+         * Specify the amount of storage for the source. Unit: byte.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -540,7 +547,7 @@ declare namespace webview {
          */
         usage: double;
         /**
-         * the callback of getOriginUsage.
+         * the callback of getOriginUsage. Unit: byte.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -699,7 +706,7 @@ declare namespace webview {
         /**
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function
+         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
@@ -725,7 +732,7 @@ declare namespace webview {
         /**
          * Get the web amount of storage with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function
+         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1609,7 +1616,6 @@ declare namespace webview {
     /**
      * Defines the snapshot info.
      *
-     * @typedef SnapshotInfo
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1617,7 +1623,6 @@ declare namespace webview {
         /**
          * Id of the snapshot.
          *
-         * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1630,7 +1635,6 @@ declare namespace webview {
          * If the size exceeds the specifications, the maximum size is returned.
          * (Example: width: '100px', height: '200px' or width: '20%', height'30%'. If only digits are written, the unit is vp.)
          *
-         * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1640,7 +1644,6 @@ declare namespace webview {
     /**
      * Represents a full drawing result.
      *
-     * @typedef SnapshotResult
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1648,7 +1651,6 @@ declare namespace webview {
         /**
          * Id of the snapshot.
          *
-         * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1659,7 +1661,6 @@ declare namespace webview {
          * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
          * the width and height of the returned size are both 0, and the map is empty.
          *
-         * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1669,7 +1670,6 @@ declare namespace webview {
          * Actual size drawn on the web page.
          * The value is of the number type, and the unit is vp.
          *
-         * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1678,7 +1678,6 @@ declare namespace webview {
         /**
          * Full drawing result in image.PixelMap format.
          *
-         * @type { ?image.PixelMap }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2204,6 +2203,8 @@ declare namespace webview {
          * Time when a frame is interpolated or removed.
          *
          * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         * The value must be an integer.
+         * <br>Unit: ms.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -2250,9 +2251,11 @@ declare namespace webview {
         enable: boolean;
 
         /**
-         * Duration of the frame interpolation, in ms. The valid range is the union of {0} and [200, 2000].
+         * Duration of the frame interpolation. The valid range is the union of {0} and [200, 2000].
          *
          * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         * The value must be an integer.
+         * <br>Unit: ms.
          *
          * @type { ?int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -2289,6 +2292,72 @@ declare namespace webview {
          */
         callback?: Callback<BlanklessFrameInterpolationInfo>;
     }
+
+  /**
+   * Defines the parameters for enableAdvancedSecurityMode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  interface SecurityParams {  
+    /**
+     * Decide whether JIT is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableJITCompilation?: boolean;
+    /**
+     * Decide whether WASM is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableWebAssembly?: boolean;
+    /**
+     * Decide whether WebGL is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableWebGL?: boolean;
+    /**
+     * Decide whether PDFViewer is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disablePDFViewer?: boolean;
+    /**
+     * Decide whether MathML is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableMathML?: boolean;
+    /**
+     * Decide whether ServiceWorker is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableServiceWorker?: boolean;
+    /**
+     * Decide whether NonProxyUDP is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableNonProxyUDP?: boolean;
+  }
 
     /**
      * WebviewController can control various behaviors of Web components
@@ -2668,6 +2737,7 @@ declare namespace webview {
 
         /**
          * Obtains the height of this web page.
+	 *
          * @returns { int } Height of the current web page. Unit: vp.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -2862,6 +2932,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2883,6 +2954,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -3134,8 +3206,8 @@ declare namespace webview {
         /**
          * Slide by the speed.
          *
-         * @param { double } vx - the x speed of the speed.
-         * @param { double } vy - the y speed of the speed.
+         * @param { double } vx - the x speed of the speed. The unit is vp/s.
+         * @param { double } vy - the y speed of the speed. The unit is vp/s.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
@@ -3276,7 +3348,7 @@ declare namespace webview {
          * and only allows one prefetch within 500ms.
          * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control:
          * no-store and adjusting the throttling interval.
-         * 
+         *
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
          * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
@@ -3301,8 +3373,10 @@ declare namespace webview {
         getCustomUserAgent(): string;
 
         /**
-         * Set web engine socket connection timeout.
+         * Set web engine socket connection timeout. Unit: seconds.
+         * 
          * @param { int } timeout - Socket connection timeout.
+         *     The value should be an integer.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
@@ -3477,6 +3551,18 @@ declare namespace webview {
          * @since 23 static
          */
         closeCamera(): void;
+
+        /**
+         * Gets URL of frame that sent the last postMessage to native application.
+         *
+         * @returns { string } The URL of frame that last sent a postMessage.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        getLastPostMessageURL(): string;
 
         /**
          * Pause all WebView timers.
@@ -4013,8 +4099,8 @@ declare namespace webview {
         /**
          * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
          *
-         * @param { double } deltaX - the delta x of the position.
-         * @param { double } deltaY - the delta y of the position.
+         * @param { double } deltaX - the delta x of the position. The unit is vp.
+         * @param { double } deltaY - the delta y of the position. The unit is vp.
          * @returns { boolean } true if the scroll operation is successful, otherwise false.
          * Return value scenario: when the Web page is in the touch state, return false, otherwise return true.
          * In the same layer rendering scene, when the same layer rendering area of ​​the Web is in the touching state, the return value is true.
@@ -4217,9 +4303,10 @@ declare namespace webview {
          * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
          * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
          *
-         * @param { int } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
-         * <br>The valid interval of avoidHeight is [0, the height of web component].
-         * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+         * @param { int } avoidHeight - the height value of the visible viewport avoidance.
+         *     The valid interval of avoidHeight is [0, the height of web component].
+         *     When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+         *     <br>Unit: vp.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 801 - Capability not supported.
@@ -4458,6 +4545,16 @@ declare namespace webview {
          * @since 23 static
          */
         static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+        /**
+         * Enable the application disable some features such as PDFViewer to enhance the security level of web application
+         *
+         * @param { SecurityParams } securityParams - The options means which supported option or item will be disabled.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
         /**
          * Resume current microphone.
@@ -4835,6 +4932,26 @@ declare namespace webview {
         getSuggestedFileName(): string;
 
         /**
+         * Get the original url of the web download.
+         *
+         * @returns { string } - Returns the original url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Get the referrer url of the web download.
+         *
+         * @returns { string } - Returns the referrer url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getReferrerUrl(): string;
+
+        /**
          * Start the web download.
          * Used in onBeforeDownload, If you want to start the current download, call this function.
          * @param { string } downloadPath - The content will be downloaded to this file.
@@ -4986,9 +5103,10 @@ declare namespace webview {
          */
         initialize(): Promise<void>;
         /**
-         * Read the data stream to the buffer.
+         * Read the data stream to the buffer. Unit: bytes.
          *
          * @param { int } size - Read size.
+         *     The value should be an integer.
          * @returns { Promise<ArrayBuffer> } Read array buffer of result.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -4997,7 +5115,7 @@ declare namespace webview {
          */
         read(size: int): Promise<ArrayBuffer>;
         /**
-         * Get the total size of the data stream. When data is chunked, always return zero.
+         * Get the total size of the data stream. When data is chunked, always return zero. Unit: bytes.
          *
          * @returns { long } Return size of data stream size.
          * @syscap SystemCapability.Web.Webview.Core
@@ -5005,7 +5123,7 @@ declare namespace webview {
          */
         getSize(): long;
         /**
-         * Get the current position of the data stream.
+         * Get the current position of the data stream. Unit: bytes.
          *
          * @returns { long } Return position in post data stream.
          * @syscap SystemCapability.Web.Webview.Core
@@ -5662,7 +5780,7 @@ declare namespace webview {
 
         /**
          * Handle native media player volume.
-         *  volume: float
+         *  volume: double
          *   value range: [0 - 1.0]
          *
          * @param { double } volume - Current volume of native media player.
@@ -5682,7 +5800,7 @@ declare namespace webview {
 
         /**
          * Handle playback rate of native media player.
-         *  playbackRate: float
+         *  playbackRate: double
          *   value range: [0 - infinity]
          *
          * @param { double } playbackRate - Current playback rate of native media player.
@@ -5693,10 +5811,10 @@ declare namespace webview {
 
         /**
          * Handle duration time of media.
-         *  duration: float
+         *  duration: double
          *   value range: [0 - infinity]
          *
-         * @param { double } duration - Duration time (in seconds) of media.
+         * @param { double } duration - Duration time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5704,10 +5822,10 @@ declare namespace webview {
 
         /**
          * Handle current playing time of media.
-         *  currentPlayTime: float
+         *  currentPlayTime: double
          *   value range: [0 - duration]
          *
-         * @param { double } currentPlayTime - Current playing time (in seconds) of media.
+         * @param { double } currentPlayTime - Current playing time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5715,10 +5833,10 @@ declare namespace webview {
 
         /**
          * Handle buffered end time of media.
-         *  bufferedEndTime: float
+         *  bufferedEndTime: double
          *   value range: [0 - duration]
          *
-         * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
+         * @param { double } bufferedEndTime - Buffered end time of media, Unit: seconds.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5788,8 +5906,8 @@ declare namespace webview {
         /**
          * Handle size of video.
          *
-         * @param { double } width - Width of video.
-         * @param { double } height - Height of video.
+         * @param { double } width - Width of video, Unit: px.
+         * @param { double } height - Height of video, Unit: px.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5896,7 +6014,7 @@ declare namespace webview {
 
         /**
          * Request to fast forward / back forward to targetTime.
-         *  targetTime: float
+         *  targetTime: double, Unit: seconds.
          *   value range: [0 - duration]
          *
          * @typedef { OneParamFn<double> }
@@ -5907,7 +6025,7 @@ declare namespace webview {
 
         /**
          * Request to change volume of native media player.
-         *  volume: float
+         *  volume: double
          *   value range: [0 - 1.0]
          *
          * @typedef { OneParamFn<double> }
@@ -5927,7 +6045,7 @@ declare namespace webview {
 
         /**
          * Request to change playback rate of native media player.
-         *  playbackRate: float
+         *  playbackRate: double
          *   value range: [0 - 10.0]
          *
          * @typedef { OneParamFn<double> }
@@ -6067,7 +6185,7 @@ declare namespace webview {
      */
     interface RectEvent {
         /**
-         * X coordinator of top left point.
+         * X coordinator of top left point, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6075,7 +6193,7 @@ declare namespace webview {
          */
         x: double;
         /**
-         * Y coordinator of top left point.
+         * Y coordinator of top left point, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6083,7 +6201,7 @@ declare namespace webview {
          */
         y: double;
         /**
-         * Width of this rectangle.
+         * Width of this rectangle, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6091,7 +6209,7 @@ declare namespace webview {
          */
         width: double;
         /**
-         * Height of this rectangle.
+         * Height of this rectangle, Unit: px.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6389,7 +6507,7 @@ declare namespace webview {
 
         /**
          * Set the lifetime in seconds in the BackForwardCache.
-         * Default is 600.
+         * The value should be an integer.Unit: seconds. Default is 600.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6415,7 +6533,7 @@ declare namespace webview {
         /**
          * ‌Set prefetch page interval limit.
          * <p><strong>API Note</strong>:<br>
-         * Default 500ms (ensures only one successful prefetch within 500ms).
+         * Unit: ms. Default 500ms (ensures only one successful prefetch within 500ms).
          * The interval throttles prefetch frequency to balance performance and resource usage.
          *
          * @type { int }
@@ -6681,7 +6799,16 @@ declare namespace webview {
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        FORCE_DISPLAY_SCROLLBAR = 1
+        FORCE_DISPLAY_SCROLLBAR = 1,
+
+        /**
+        * Overlay VisualViewport scrollbars: appear on scroll, hide when idle. Rendered via Visual Viewport, non-draggable.
+        *
+        * @syscap SystemCapability.Web.Webview.Core
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+        OVERLAY_VISUAL_SCROLLBAR = 2
     }
 
     /**
@@ -6761,7 +6888,7 @@ declare namespace webview {
          */
         STRICT = 2
     }
-    
+
     /**
      * The form factors for User-Agent metadata.
      *
@@ -6770,7 +6897,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    enum UserAgentFormFactor {    
+    enum UserAgentFormFactor {
         /**
          * Form factor option: Automotive.
          *
@@ -6838,7 +6965,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    class UserAgentBrandVersion {    
+    class UserAgentBrandVersion {
       /**
        * Sets the brand. Should not be blank.
        *
@@ -6907,7 +7034,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    class UserAgentMetadata {    
+    class UserAgentMetadata {
       /**
        * Sets User-Agent metadata brands and their versions.
        *
@@ -7143,7 +7270,7 @@ declare namespace webview {
        */
       getWow64(): boolean;
     }
-    
+
     /**
      * Defines the Web's HTTPCookie.
      * <p><strong>API Note</strong>:<br>

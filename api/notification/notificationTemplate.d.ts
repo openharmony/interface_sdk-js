@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationTemplate module describes the notification template.
+ * @file Describes a NotificationTemplate instance
  * @kit NotificationKit
  */
 
@@ -23,18 +23,23 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The NotificationTemplate module describes the notification template.
+ * The **NotificationTemplate** module describes the notification template.
+ * 
+ * > **NOTE**
+ * >
+ * > The predefined system templates are supported. You only need to provide the template name and related data for the 
+ * > system to automatically render the notification style that complies with the specifications.
+ * > > Application scenario: Currently, only the upload and download scenarios are supported.
  *
- * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
  * @since 23 static
  */
 export interface NotificationTemplate {
   /**
-   * Template name. Currently, only downloadTemplate is supported.
+   * Template name. Currently, only **downloadTemplate** is supported, indicating the progress bar template that 
+   * displays download progress.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static
@@ -43,11 +48,12 @@ export interface NotificationTemplate {
 
   /**
    * Template data.
-   * - title: title of the file. This parameter is mandatory, and the value is of the string type.
-   * - fileName: name of the file to be downloaded. This parameter is mandatory, and the value is of the string type.
-   * - progressValue: download progress. The value is a number.
+   * 
+   * - **title**: title of the file. This parameter is mandatory, and the value is of the string type.
+   * - **fileName**: name of the file to be downloaded. This parameter is mandatory, and the value is of the string 
+   * type.
+   * - **progressValue**: download progress. The value is a number.
    *
-   * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    */
@@ -55,11 +61,12 @@ export interface NotificationTemplate {
 
   /**
    * Template data.
-   * - title: title of the file. This parameter is mandatory, and the value is of the string type.
-   * - fileName: name of the file to be downloaded. This parameter is mandatory, and the value is of the string type.
-   * - progressValue: download progress. The value is a number.
+   * 
+   * - **title**: title of the file. This parameter is mandatory, and the value is of the string type.
+   * - **fileName**: name of the file to be downloaded. This parameter is mandatory, and the value is of the string 
+   * type.
+   * - **progressValue**: download progress. The value is a number.
    *
-   * @type { Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
    */

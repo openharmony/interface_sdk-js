@@ -27,6 +27,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface WithThemeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface WithThemeOptions {
@@ -35,6 +36,7 @@ export declare interface WithThemeOptions {
    *
    * @type { ?CustomTheme }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   theme?: CustomTheme;
@@ -44,6 +46,7 @@ export declare interface WithThemeOptions {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   colorMode?: ThemeColorMode;
@@ -53,9 +56,21 @@ export declare interface WithThemeOptions {
  * Defines the WithTheme attribute functions..
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export declare interface WithThemeAttribute {}
+export declare interface WithThemeAttribute {
+  /**
+   * Set the component's source code redirection information. 
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 staticonly
+   */
+  default debugLine(sourceLine: string, moduleName?: string): this;
+}
 
 /**
  * Defines WithTheme Component
@@ -64,6 +79,7 @@ export declare interface WithThemeAttribute {}
  * @param { CustomBuilder } [content_] - the content of the component
  * @returns { WithThemeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

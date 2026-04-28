@@ -14,14 +14,21 @@
  */
 
 /**
+ * This module manages input method extension information. It enables the ArkUI editor to pass such information to the 
+ * input method application when the input method is launched. After processing the extension information, the input 
+ * method application can retrieve the details added by the host application. The total length of the information cannot
+ * exceed 32 KB.
+ *
  * @file The extra config of edit box.
  * @kit IMEKit
  */
 
 /**
- * Indicates the possible data types of the custom setting value.
+ * Represents the extension information type. The specific type of the parameter depends on its functionality.
  *
- * @typedef { int | string | boolean }
+ * @unionmember { int } Number.
+ * @unionmember { string } String.
+ * @unionmember { boolean } Boolean.
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22 dynamic
  * @since 23 static
@@ -29,19 +36,19 @@
 export type CustomValueType = int | string | boolean;
 
 /**
- * The extra config of edit box.
+ * Represents the extension information of an input method.
  *
- * @typedef InputMethodExtraConfig
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22 dynamic
  * @since 23 static
  */
 export interface InputMethodExtraConfig {
     /**
-     * Indicates extra customized settings.
-     * The size of all records can not exceed 32KB.
+     * Input method extension information, which is used to store custom key-value pairs. These key-value pairs can be 
+     * any configuration information related to the input method, such as user input habits, shortcut key settings, 
+     * theme colors, and more. The settings are loaded when the input method application is bound to the system, 
+     * delivering a personalized user experience. The total length of the information cannot exceed 32 KB.
      *
-     * @type { Record<string, CustomValueType> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
      * @since 23 static

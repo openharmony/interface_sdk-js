@@ -55,6 +55,15 @@ declare class StartOptions {
   windowMode?: int;
 
   /**
+   * The type of split ratio preference
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  splitRatio?: window.SplitRatioPreference;
+
+  /**
    * The type of displayId
    *
    * @type { ?number }
@@ -86,7 +95,7 @@ declare class StartOptions {
   withAnimation?: boolean;
 
   /**
-   * The left position of window rectangle
+   * The left position of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -97,7 +106,7 @@ declare class StartOptions {
   windowLeft?: int;
 
   /**
-   * The top position of window rectangle
+   * The top position of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -108,7 +117,7 @@ declare class StartOptions {
   windowTop?: int;
 
   /**
-   * The width of window rectangle
+   * The width of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -119,7 +128,7 @@ declare class StartOptions {
   windowWidth?: int;
 
   /**
-   * The height of window rectangle
+   * The height of window rectangle, in px.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -201,7 +210,7 @@ declare class StartOptions {
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
 
   /**
-   * The min width of window rectangle.
+   * The min width of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -212,7 +221,7 @@ declare class StartOptions {
   minWindowWidth?: int;
 
   /**
-   * The min height of window rectangle.
+   * The min height of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -223,7 +232,7 @@ declare class StartOptions {
   minWindowHeight?: int;
 
   /**
-   * The max width of window rectangle.
+   * The max width of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -234,7 +243,7 @@ declare class StartOptions {
   maxWindowWidth?: int;
 
   /**
-   * The max height of window rectangle.
+   * The max height of window rectangle, in vp.
    *
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

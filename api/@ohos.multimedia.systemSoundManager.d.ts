@@ -1221,8 +1221,12 @@ declare namespace systemSoundManager {
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
-     * @throws { BusinessError } 5400103 - I/O error.
-     * @throws { BusinessError } 20700004 - Data size exceeds the limit.
+     * @throws { BusinessError } 5400103 - I/O error. Possible causes:
+     *     1. The target file size exceeds 2 GB;
+     *     2. Failed to find the specified file;
+     *     3. System sound manager service error.
+     * @throws { BusinessError } 20700004 - Data size exceeds the limit. Note:
+     *     This error is returned when the file size is between 200MB and 2GB.
      * @throws { BusinessError } 20700005 - The number of files exceeds the limit.
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -1271,8 +1275,13 @@ declare namespace systemSoundManager {
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
-     * @throws { BusinessError } 5400103 - I/O error.
-     * @throws { BusinessError } 20700004 - Data size exceeds the limit.
+     * @throws { BusinessError } 5400103 - I/O error. Possible causes:
+     *     1. The target file size exceeds 2 GB;
+     *     2. Failed to find the specified file;
+     *     3. Ringtone library error.
+     *     4. System sound manager service error.
+     * @throws { BusinessError } 20700004 - Data size exceeds the limit. Note:
+     *     This error is returned when the file size is between 200MB and 2GB.
      * @throws { BusinessError } 20700005 - The number of files exceeds the limit.
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core

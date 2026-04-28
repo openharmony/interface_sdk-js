@@ -2221,6 +2221,14 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     value: double;
+    /**
+     * Data normalized.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    isNormalized?: boolean;
   }
 
   /**
@@ -3256,6 +3264,17 @@ declare namespace text {
      * @since 24 dynamic&static
      */
      clearCaches(): void;
+
+     /**
+     * Sets whether paragraph caches are enabled.
+     * 
+     * @param { boolean } enable - Indicates whether to enable paragraph caches, where true enables and false disables.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setParagraphCachesEnabled(enable: boolean): void;
   }
 
   /**
@@ -3929,6 +3948,46 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     fallbackLineSpacing?: boolean;
+
+    /**
+     * Indentation before the first line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    firstLineHeadIndent?: double;
+
+    /**
+     * Indentation after each line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tailIndents?: Array<double>;
+
+    /**
+     * Indentation before each line of text.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    headIndents?: Array<double>;
+
+    /**
+     * Whether to enable orphan char optimization.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    orphanCharOptimization?: boolean;
   }
 
   /**
@@ -4449,6 +4508,126 @@ declare namespace text {
   }
 
   /**
+   * Font variation axis.
+   * 
+   * @typedef FontVariationAxis
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface FontVariationAxis {
+    /**
+     * Font variation axis keyword.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    key: string;
+
+    /**
+     * Font variation axis min value.
+     * 
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    minValue: double;
+
+    /**
+     * Font variation axis max value.
+     * 
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    maxValue: double;
+
+    /**
+     * Font variation axis default value.
+     * 
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    defaultValue: double;
+
+    /**
+     * Font variation axis flags.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    flags: int;
+
+    /**
+     * Font variation axis english name.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    name: string;
+
+    /**
+     * Font variation axis local name, maybe empty.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    localName: string;
+  }
+
+  /**
+   * Font variation instance.
+   * 
+   * @typedef FontVariationInstance
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface FontVariationInstance {
+    /**
+     * Font variation instance english name.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    name: string;
+
+    /**
+     * Font variation instance local name, maybe empty.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    localName: string;
+
+    /**
+     * Returns the array of font variation.
+     * 
+     * @type { Array<FontVariation> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    coordinates: Array<FontVariation>;
+  }
+
+  /**
    * Describes the font descriptor information.
    * @typedef FontDescriptor
    * @syscap SystemCapability.Graphics.Drawing
@@ -4800,6 +4979,26 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     license?: string;
+
+    /**
+     * Returns the array of font variation axis.
+     * 
+     * @type { ?Array<FontVariationAxis> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    variationAxisRecords?: Array<FontVariationAxis>;
+
+    /**
+     * Returns the array of font variation instance.
+     * 
+     * @type { ?Array<FontVariationInstance> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    variationInstanceRecords?: Array<FontVariationInstance>;
 
     /**
      * The font index in ttc file
@@ -5620,6 +5819,50 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     getCharacterPositionAtCoordinate(x: double, y: double, encoding: drawing.TextEncoding): PositionWithAffinity;
+
+    /**
+     * Obtains the text processing state of the paragraph.
+     *
+     * @returns { TextProcessState } Text processing state of the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getProcessState(): TextProcessState;
+
+    /**
+     * Obtains the text display state of the paragraph.
+     *
+     * @returns { TextDisplayState } Text display state of the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getTextDisplayState(): TextDisplayState;
+
+    /**
+     * Obtains the style configuration of the paragraph.
+     *
+     * @returns { ParagraphStyle } Style configuration of the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getParagraphStyle(): ParagraphStyle;
+
+    /**
+     * Obtains the visible text ranges of the paragraph.
+     *
+     * @returns { Array<Range> } The visible text ranges of the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getVisibleTextRanges(): Array<Range>;
   }
 
   /**
@@ -8280,6 +8523,127 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     USE_TOFU,
+  }
+
+  /**
+   * Enumerates the text processing states.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum TextProcessState {
+    /**
+     * Initial state, text processing has not started.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    INIT = 0,
+    /**
+     * Indexed state, text has been indexed.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    INDEXED = 1,
+    /**
+     * Shaped state, text has been shaped.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SHAPED = 2,
+    /**
+     * Line-broken state, text has been split into lines.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    LINE_BROKEN = 3,
+    /**
+     * Formatted state, text has been formatted.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    FORMATTED = 4,
+    /**
+     * Paint state, text has been painted.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PAINT = 5,
+    /**
+     * Update attribute state, text attributes have been updated.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    UPDATE_ATTRIBUTE = 6
+  }
+
+  /**
+   * Enumerates the text display states.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum TextDisplayState {
+    /**
+     * Unknown display state, the default state.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN = 0,
+    /**
+     * Full display state, all text is displayed normally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ALL = 1,
+    /**
+     * Clipped display state, part of the text is clipped.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    CLIP = 2,
+    /**
+     * Omitted display state, part of the text is omitted (e.g., replaced with '...').
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    OMITTED = 3
   }
 
   /**

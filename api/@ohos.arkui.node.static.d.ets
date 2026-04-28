@@ -17,10 +17,18 @@
  * @kit ArkUI
  */
 
-export { NodeRenderType, RenderOptions, BuilderNode } from 'arkui.BuilderNode';
+/**
+ * Export NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, which is used to create a node trees by
+ * builder function and manage the update of the tree.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export { NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode } from 'arkui.BuilderNode';
 /**
  * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { BuildOptions } from 'arkui.BuilderNode';
@@ -31,6 +39,7 @@ export { BuildOptions } from 'arkui.BuilderNode';
  * and methods to control the child node of the NodeContainer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { NodeController } from 'arkui.NodeController';
@@ -38,6 +47,7 @@ export { NodeController } from 'arkui.NodeController';
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { FrameNode, LayoutConstraint, ExpandMode } from 'arkui.FrameNode';
@@ -53,6 +63,7 @@ export { UIState } from 'arkui.FrameNode';
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { typeNode, NodeAdapter } from 'arkui.FrameNode';
@@ -61,6 +72,7 @@ export { typeNode, NodeAdapter } from 'arkui.FrameNode';
  * Export Graphics. Defines the basic types related to the Graphics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, Rect, NodeEdges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from 'arkui.Graphics';
@@ -69,6 +81,7 @@ export { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation,
  * Export Graphics. Defines the basic types related to the Graphics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { LengthUnit, SizeT, PositionT, LengthMetrics, ColorMetrics } from 'arkui.Graphics';
@@ -77,6 +90,7 @@ export { LengthUnit, SizeT, PositionT, LengthMetrics, ColorMetrics } from 'arkui
  * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { RenderNode } from 'arkui.RenderNode';
@@ -84,20 +98,23 @@ export { RenderNode } from 'arkui.RenderNode';
  * Export Content.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { Content } from 'arkui.Content';
 /**
- * Export ComponentContent.
+ * Export ComponentContent, ComponentContentBase and ReactiveComponentContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export { ComponentContent, ComponentContentBase } from 'arkui.ComponentContent';
+export { ComponentContent, ComponentContentBase, ReactiveComponentContent } from 'arkui.ComponentContent';
 /**
  * Export NodeContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export { NodeContent } from 'arkui.NodeContent';

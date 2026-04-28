@@ -24,6 +24,7 @@
  *
  * @interface EmbeddedComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -36,6 +37,7 @@ interface EmbeddedComponentInterface {
    * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -50,6 +52,7 @@ interface EmbeddedComponentInterface {
  *
  * @interface TerminationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -59,6 +62,7 @@ declare interface TerminationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -69,6 +73,7 @@ declare interface TerminationInfo {
    *
    * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -80,6 +85,7 @@ declare interface TerminationInfo {
  *
  * @extends CommonMethod<EmbeddedComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -90,6 +96,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -101,6 +108,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @param { import('../api/@ohos.base').ErrorCallback } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -111,6 +119,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
  * Defines EmbeddedComponent Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -120,6 +129,7 @@ declare const EmbeddedComponent: EmbeddedComponentInterface;
  * Defines EmbeddedComponent Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */

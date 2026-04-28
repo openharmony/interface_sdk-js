@@ -456,6 +456,31 @@ declare namespace image {
     YCRCB_P010 = 12,
 
     /**
+     * Indicates that each pixel is stored on 8 bits, without 4-byte stride alignment.
+     * Each pixel contains 1 component: ALPHA(8bits) and is stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    ALPHA_U8 = 15,
+
+    /**
+     * Indicates that each pixel is stored on 16 bits.
+     * Each pixel contains 1 component: ALPHA(16bits) and is stored from the higher-order to the lower-order bits in
+     * FP16.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    ALPHA_F16 = 16,
+
+    /**
      * The storage format is ASTC 4x4 format, and the memory usage is only 1/4 of RGBA_8888.
      * This format is only used for direct display scenes and does not support pixel access or post-
      * processing editing.
@@ -546,6 +571,7 @@ declare namespace image {
   interface Size {
     /**
      * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -553,6 +579,7 @@ declare namespace image {
      */
     /**
      * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -561,6 +588,7 @@ declare namespace image {
      */
     /**
      * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -570,6 +598,7 @@ declare namespace image {
      */
     /**
      * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -583,6 +612,7 @@ declare namespace image {
 
     /**
      * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -590,6 +620,7 @@ declare namespace image {
      */
     /**
      * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -598,6 +629,7 @@ declare namespace image {
      */
     /**
      * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -607,6 +639,7 @@ declare namespace image {
      */
     /**
      * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -985,7 +1018,7 @@ declare namespace image {
     ISO_SPEED = 'ISOSpeedRatings',
  
     /**
-     * The lens aperture. The unit is the APEX((Additive System of Photographic Exposure) value.
+     * The lens aperture, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1535,7 +1568,7 @@ declare namespace image {
     SHUTTER_SPEED = 'ShutterSpeedValue',
 
     /**
-     * The brightness value of the image, in APEX units.
+     * The brightness value of the image, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -3236,6 +3269,7 @@ declare namespace image {
 
     /**
      * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3243,6 +3277,7 @@ declare namespace image {
      */
     /**
      * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3251,6 +3286,7 @@ declare namespace image {
      */
     /**
      * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3260,6 +3296,7 @@ declare namespace image {
      */
     /**
      * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3273,6 +3310,7 @@ declare namespace image {
 
     /**
      * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3280,6 +3318,7 @@ declare namespace image {
      */
     /**
      * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3288,6 +3327,7 @@ declare namespace image {
      */
     /**
      * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3297,6 +3337,7 @@ declare namespace image {
      */
     /**
      * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3383,14 +3424,14 @@ declare namespace image {
     pixels: ArrayBuffer;
 
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3398,7 +3439,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3407,7 +3448,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3569,6 +3610,7 @@ declare namespace image {
 
     /**
      * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3576,6 +3618,7 @@ declare namespace image {
      */
     /**
      * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3584,6 +3627,7 @@ declare namespace image {
      */
     /**
      * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3593,6 +3637,7 @@ declare namespace image {
      */
     /**
      * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3783,7 +3828,8 @@ declare namespace image {
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
+     * <br>Unit:bytes.Default value:25MB.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 9
@@ -3791,7 +3837,8 @@ declare namespace image {
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
+     * <br>Unit:bytes.Default value:25MB.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
@@ -3800,7 +3847,8 @@ declare namespace image {
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
+     * <br>Unit:bytes.Default value:25MB.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
@@ -3829,6 +3877,19 @@ declare namespace image {
      * @since 23 static
      */
     needsPackProperties?: boolean;
+    
+    /**
+     * This parameter is valid only when needsPackProperties is set to true. It specifies the maximum width and height
+     *     of the thumbnail generated during encoding. If this parameter is not specified, no thumbnail will be
+     *     generated during encoding.
+     * The value should be an integer.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxEmbedThumbnailDimension?: int;
   }
 
   /**
@@ -4090,23 +4151,26 @@ declare namespace image {
     sampleSize?: int;
 
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
      */
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
      */
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -4114,8 +4178,9 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -4280,6 +4345,7 @@ declare namespace image {
 
     /**
      * The density for image pixel map.
+     * <br>Unit:ppi.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -4287,7 +4353,8 @@ declare namespace image {
      */
     /**
      * The density for image pixel map.
-     *
+     * <br>Unit:ppi.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -4295,6 +4362,7 @@ declare namespace image {
      */
     /**
      * The density for image pixel map.
+     * <br>Unit:ppi.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -4304,6 +4372,7 @@ declare namespace image {
      */
     /**
      * The density for image pixel map.
+     * <br>Unit:ppi.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -4380,6 +4449,7 @@ declare namespace image {
 
     /**
      * Row stride.
+     * <br>Unit:bytes.
      *
      * @type { int }
      * @readonly
@@ -4391,6 +4461,7 @@ declare namespace image {
 
     /**
      * Pixel stride.
+     * <br>Unit:bytes.
      *
      * @type { int }
      * @readonly
@@ -4682,6 +4753,7 @@ declare namespace image {
   interface SourceOptions {
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4689,6 +4761,7 @@ declare namespace image {
      */
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4697,6 +4770,7 @@ declare namespace image {
      */
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4706,6 +4780,7 @@ declare namespace image {
      */
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4850,6 +4925,7 @@ declare namespace image {
     /**
      * Maximum luminance of the image's primary display.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
+     * <br>Unit:nit.
      *
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4861,6 +4937,7 @@ declare namespace image {
     /**
      * Minimum luminance of the image's primary display.
      * The value is measured in units of 0.0001, with a maximum allowed value of 6.55535.
+     * <br>Unit:nit.
      *
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4872,7 +4949,8 @@ declare namespace image {
     /**
      * Maximum brightness of displayed content.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     *
+     * <br>Unit:nit.
+     * 
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -4883,7 +4961,8 @@ declare namespace image {
     /**
      * Maximum average brightness of displayed content.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     *
+     * <br>Unit:nit.
+     * 
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -5117,6 +5196,70 @@ declare namespace image {
   type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata;
 
   /**
+   * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
+   * pixel format to initialize the PixelMap.
+   * 
+   * The following pixel formats are not supported for PixelMap creation:
+   * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
+   *
+   * @param { ArrayBuffer } pixels - The pixel data buffer used to initialize the PixelMap.
+   *     The format of the pixel data can be specified by InitializationOptions.srcPixelFormat.
+   *     The size of the buffer should be: image width * image height * bytes per pixel.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
+   *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
+   *     If InitializationOptions.srcPixelFormat is set to ASTC_4x4, it will be reset to the default value BGRA_8888.
+   * @returns { Promise<PixelMap> } A Promise of the new PixelMap created.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   *     Possible cause: Size of the pixel data buffer does not match InitializationOptions.size.
+   * @throws { BusinessError } 7600207 - Unsupported pixel format.
+   * @throws { BusinessError } 7600301 - Failed to allocate memory.
+   *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   *     Possible causes:
+   *     1. Failed to perform pixel format conversion.
+   *     2. Internal data is corrupted. Please check the logs for detailed information.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createPixelMapFromPixels(pixels: ArrayBuffer, param: InitializationOptions): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
+   * pixel format to initialize the PixelMap.
+   * 
+   * The following pixel formats are not supported for PixelMap creation:
+   * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
+   *
+   * @param { ArrayBuffer } pixels - The pixel data buffer used to initialize the PixelMap.
+   *     The format of the pixel data can be specified by InitializationOptions.srcPixelFormat.
+   *     The size of the buffer should be: image width * image height * bytes per pixel.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
+   *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
+   *     If InitializationOptions.srcPixelFormat is set to ASTC_4x4, it will be reset to the default value BGRA_8888.
+   * @returns { PixelMap } The new PixelMap created.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   *     Possible cause: Size of the pixel data buffer does not match InitializationOptions.size.
+   * @throws { BusinessError } 7600207 - Unsupported pixel format.
+   * @throws { BusinessError } 7600301 - Failed to allocate memory.
+   *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   *     Possible causes:
+   *     1. Failed to perform pixel format conversion.
+   *     2. Internal data is corrupted. Please check the logs for detailed information.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createPixelMapFromPixelsSync(pixels: ArrayBuffer, param: InitializationOptions): PixelMap;
+
+  /**
    * Create pixelmap by data buffer.
    *
    * @param { ArrayBuffer } colors The image color buffer.
@@ -5127,6 +5270,8 @@ declare namespace image {
    */
   /**
    * Create pixelmap by data buffer.
+   * 
+   * It is recommended to use {@link createPixelMapFromPixels}.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5149,6 +5294,8 @@ declare namespace image {
    */
   /**
    * Create pixelmap by data buffer.
+   * 
+   * It is recommended to use {@link createPixelMapFromPixels}.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5162,6 +5309,8 @@ declare namespace image {
 
   /**
    * Create pixelmap by data buffer.
+   * 
+   * It is recommended to use {@link createPixelMapFromPixelsSync}.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5216,7 +5365,31 @@ declare namespace image {
     allocatorType?: AllocatorType): PixelMap;
 
   /**
+   * Creates an empty PixelMap.
+   * 
+   * The following pixel format is not supported for PixelMap creation: ASTC_4x4.
+   *
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
+   *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
+   * @returns { PixelMap } The new PixelMap created.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600301 - Failed to allocate memory.
+   *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createEmptyPixelMap(param: InitializationOptions): PixelMap;
+  
+  /**
    * Create an empty pixelmap.
+   * 
+   * It is recommended to use {@link createEmptyPixelMap}.
    *
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
@@ -5227,7 +5400,7 @@ declare namespace image {
    * @since 12 dynamic
    * @since 23 static
    */
-function createPixelMapSync(options: InitializationOptions): PixelMap;
+  function createPixelMapSync(options: InitializationOptions): PixelMap;
 
   /**
    * Create an empty pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
@@ -6026,6 +6199,47 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly isEditable: boolean;
 
     /**
+     * Reads all the pixel data from the PixelMap and writes the data to a buffer.
+     * The resulting data will be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } dst - The buffer to receive the pixel data from the PixelMap.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readAllPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads all the pixel data from the PixelMap and writes the data to a buffer.
+     * The resulting data will be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } dst - The buffer to receive the pixel data from the PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readAllPixelsToBufferSync(dst: ArrayBuffer): void;
+
+    /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a promise to return the result.
      *
@@ -6058,6 +6272,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a promise to return the result.
+     * 
+     * It is recommended to use {@link readAllPixelsToBuffer}.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6103,6 +6319,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a callback to return the result.
+     * 
+     * It is recommended to use {@link readAllPixelsToBuffer}.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6117,6 +6335,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer.
+     * 
+     * It is recommended to use {@link readAllPixelsToBufferSync}.
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6130,6 +6350,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     readPixelsToBufferSync(dst: ArrayBuffer): void;
+
+    /**
+     * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to read the data.
+     *     Data will be read from the PixelMap and copied into PositionArea.pixels.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readPixelsToArea(area: PositionArea): Promise<void>;
+
+    /**
+     * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to read the data.
+     *     Data will be read from the PixelMap and copied into PositionArea.pixels.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readPixelsToAreaSync(area: PositionArea): void;
 
     /**
      * Reads image pixel map data in an area. This method uses a promise to return the data read.
@@ -6160,6 +6423,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Reads image pixel map data in an area. This method uses a promise to return the data read.
+     * 
+     * It is recommended to use {@link readPixelsToArea}.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6201,6 +6466,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Reads image pixel map data in an area. This method uses a callback to return the data read.
+     * 
+     * It is recommended to use {@link readPixelsToArea}.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6215,6 +6482,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Reads image pixel map data in an area.
+     * 
+     * It is recommended to use {@link readPixelsToAreaSync}.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6227,6 +6496,51 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     readPixelsSync(area: PositionArea): void;
+
+    /**
+     * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to write the data.
+     *     Data will be copied from PositionArea.pixels to the PixelMap.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writePixelsFromArea(area: PositionArea): Promise<void>;
+
+    /**
+     * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
+     *
+     * @param { PositionArea } area - Area of the PixelMap to write the data.
+     *     Data will be copied from PositionArea.pixels to the PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     *     Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writePixelsFromAreaSync(area: PositionArea): void;
 
     /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
@@ -6261,6 +6575,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
      * the operation result.
+     * 
+     * It is recommended to use {@link writePixelsFromArea}.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6306,6 +6622,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Writes image pixel map data to the specified area. This method uses a callback to return
      * the operation result.
+     * 
+     * It is recommended to use {@link writePixelsFromArea}.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6320,6 +6638,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Writes image pixel map data to the specified area.
+     * 
+     * It is recommended to use {@link writePixelsFromAreaSync}.
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6333,6 +6653,50 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     writePixelsSync(area: PositionArea): void;
+
+    /**
+     * Reads the pixel data from a buffer and writes the data to the PixelMap.
+     * The source data must be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } src - The buffer that contains pixel data to be written to the PixelMap.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writeAllPixelsFromBuffer(src: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads the pixel data from a buffer and writes the data to the PixelMap.
+     * The source data must be in the same pixel format as the PixelMap.
+     *
+     * @param { ArrayBuffer } src - The buffer that contains pixel data to be written to the PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is not editable or is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: Size of the buffer is too small.
+     * @throws { BusinessError } 7600302 - Failed to copy the memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    writeAllPixelsFromBufferSync(src: ArrayBuffer): void;
+
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
@@ -6366,6 +6730,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
+     * 
+     * It is recommended to use {@link writeAllPixelsFromBuffer}.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6411,6 +6777,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a callback to return the result.
+     * 
+     * It is recommended to use {@link writeAllPixelsFromBuffer}.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6425,6 +6793,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
+     * 
+     * It is recommended to use {@link writeAllPixelsFromBufferSync}.
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6618,14 +6988,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -6633,7 +7003,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -6651,6 +7021,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     getDensity(): int;
+
+    /**
+     * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+     *
+     * @param { double } value - The target opacity value to be set. Unit: Percentage, Value range: (0,1].
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming transparent as it approaches 0.0.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: The specified value is out of range.
+     * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setOpacity(value: double): Promise<void>;
+
+    /**
+     * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+     *
+     * @param { double } value - The target opacity value to be set. Unit: Percentage, Value range: (0,1].
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming transparent as it approaches 0.0.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: The specified value is out of range.
+     * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setOpacitySync(value: double): void;
 
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
@@ -6681,6 +7094,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link setOpacity}.
      *
      * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -6722,6 +7137,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link setOpacity}.
      *
      * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -6736,6 +7153,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Set the transparent rate of pixel map.
+     * 
+     * It is recommended to use {@link setOpacitySync}.
      *
      * @param { double } rate The value of transparent rate.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6748,6 +7167,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     opacitySync(rate: double): void;
+
+    /**
+     * Extracts the alpha channel from the current PixelMap to create a new ALPHA_U8 format PixelMap.
+     *
+     * @returns { Promise<PixelMap> } A Promise of the new ALPHA_U8 format PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The current PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The current PixelMap has been passed across threads.
+     * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+     *     Possible cause: Current PixelMap data is corrupted.
+     * @throws { BusinessError } 7600306 - Failed to convert the data.
+     *     Possible causes: 1. Failed to perform pixel format conversion. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    extractAlphaPixelMap(): Promise<PixelMap>;
+
+    /**
+     * Extracts the alpha channel from the current PixelMap to create a new ALPHA_U8 format PixelMap.
+     *
+     * @returns { PixelMap } A new ALPHA_U8 format PixelMap.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The current PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The current PixelMap has been passed across threads.
+     * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+     *     Possible cause: Current PixelMap data is corrupted.
+     * @throws { BusinessError } 7600306 - Failed to convert the data.
+     *     Possible causes: 1. Failed to perform pixel format conversion. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    extractAlphaPixelMapSync(): PixelMap;
+
     /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
@@ -6774,6 +7236,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
+     * 
+     * It is recommended to use {@link extractAlphaPixelMap}.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6811,6 +7275,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Obtains new pixel map with alpha information. This method uses a callback to return the information.
+     * 
+     * It is recommended to use {@link extractAlphaPixelMap}.
      *
      * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6824,6 +7290,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Obtains new pixel map with alpha information.
+     * 
+     * It is recommended to use {@link extractAlphaPixelMapSync}.
      *
      * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
@@ -6835,6 +7303,54 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     createAlphaPixelmapSync(): PixelMap;
+
+    /**
+     * Scales the PixelMap in the horizontal and/or vertical dimensions.
+     *
+     * @param { double } x - The scale ratio of width. Unit: Percentage.
+     * @param { double } y - The scale ratio of height. Unit: Percentage.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used. Default value: NONE.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyScale(x: double, y: double, level?: AntiAliasingLevel): Promise<void>;
+
+    /**
+     * Scales the PixelMap in the horizontal and/or vertical dimensions.
+     *
+     * @param { double } x - The scale ratio of width. Unit: Percentage.
+     * @param { double } y - The scale ratio of height. Unit: Percentage.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used. Default value: NONE.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyScaleSync(x: double, y: double, level?: AntiAliasingLevel): void;
+
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
@@ -6867,6 +7383,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6912,6 +7430,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6927,6 +7447,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height.
+     * 
+     * It is recommended to use {@link applyScaleSync}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6943,6 +7465,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -6962,6 +7486,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height with anti-aliasing.
+     * 
+     * It is recommended to use {@link applyScaleSync}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7010,10 +7536,55 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createScaledPixelMapSync(x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
     /**
+     * Repositions the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { double } x - The distance in pixels to move in the horizontal direction. Unit: px.
+     * @param { double } y - The distance in pixels to move in the vertical direction. Unit: px.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyTranslate(x: double, y: double): Promise<void>;
+
+    /**
+     * Repositions the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { double } x - The distance in pixels to move in the horizontal direction. Unit: px.
+     * @param { double } y - The distance in pixels to move in the vertical direction. Unit: px.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyTranslateSync(x: double, y: double): void;
+
+    /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7021,8 +7592,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7031,8 +7602,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7041,9 +7612,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image position transformation. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyTranslate}.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7057,8 +7630,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7066,8 +7639,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7076,8 +7649,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7086,9 +7659,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image position transformation. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyTranslate}.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7101,9 +7676,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image position transformation.
+     * 
+     * It is recommended to use {@link applyTranslateSync}.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -7116,9 +7693,56 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     translateSync(x: double, y: double): void;
 
     /**
+     * Rotates the PixelMap.
+     * 
+     * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+     *
+     * @param { double } angle - The rotation angle in degrees. Unit: Degree.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyRotate(angle: double): Promise<void>;
+
+    /**
+     * Rotates the PixelMap.
+     * 
+     * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+     *
+     * @param { double } angle - The rotation angle in degrees. Unit: Degree.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyRotateSync(angle: double): void;
+
+    /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7126,7 +7750,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7135,7 +7759,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7144,8 +7768,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image rotation. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyRotate}.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7159,7 +7785,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7167,7 +7793,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7176,7 +7802,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7185,8 +7811,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image rotation. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyRotate}.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7199,8 +7827,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image rotation.
+     * 
+     * It is recommended to use {@link applyRotateSync}.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -7211,6 +7841,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     rotateSync(angle: double): void;
+
+    /**
+     * Flips the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { boolean } horizontal - Whether to flip horizontally.
+     * @param { boolean } vertical - Whether to flip vertically.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyFlip(horizontal: boolean, vertical: boolean): Promise<void>;
+
+    /**
+     * Flips the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { boolean } horizontal - Whether to flip horizontally.
+     * @param { boolean } vertical - Whether to flip vertically.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyFlipSync(horizontal: boolean, vertical: boolean): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
@@ -7244,6 +7917,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image flipping. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyFlip}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7289,6 +7964,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image flipping. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyFlip}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7304,6 +7981,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image flipping.
+     * 
+     * It is recommended to use {@link applyFlipSync}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7317,6 +7996,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     flipSync(horizontal: boolean, vertical: boolean): void;
+
+    /**
+     * Crops the PixelMap.
+     *
+     * @param { Region } region - The region to crop.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600204 - The specified region is invalid or out of range.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyCrop(region: Region): Promise<void>;
+
+    /**
+     * Crops the PixelMap.
+     *
+     * @param { Region } region - The region to crop.
+     * @throws { BusinessError } 7600104 - Failed to get image data.
+     *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600204 - The specified region is invalid or out of range.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    applyCropSync(region: Region): void;
 
     /**
      * Crop the image. This method uses a callback to return the operation result.
@@ -7347,6 +8069,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Crop the image. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyCrop}.
      *
      * @param { Region } region The region to crop.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -7388,6 +8112,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Crop the image. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyCrop}.
      *
      * @param { Region } region The region to crop.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -7402,6 +8128,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Crop the image.
+     * 
+     * It is recommended to use {@link applyCropSync}.
      *
      * @param { Region } region The region to crop.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -8054,6 +8782,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
 
   /**
+   * Create an <b>AuxiliaryPicture</b> object, the memory type used by the AuxiliaryPicture can be specified by
+   * allocatorType {@link IMAGE_ALLOCATOR_TYPE}. By default, the system selects the memory type based on the image type,
+   * image size, platform capability, etc. When processing the AuxiliaryPicture returned by this interface, please
+   * always consider the impact of stride. The created auxiliary picture is initialized with the input pixels.
+   *
+   * @param { AuxiliaryPictureInfo } auxiliaryPictureInfo - The basic information of the auxiliary picture.
+   * @param { AllocatorType } [allocatorType] - Memory type.
+   * @param { ArrayBuffer } [pixels] - Pixel data used to initialize the auxiliary picture.
+   * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
+   * @throws { BusinessError } 7600205 - Unsupported allocator type, e.g., use shared memory to create a gainmap as
+   * only DMA supported hdr metadata.
+   * @throws { BusinessError } 7600206 - Invalid parameter, size.height or size.width is less than or equal to 0.
+   * @throws { BusinessError } 7600301 - Alloc memory failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function createAuxiliaryPictureUsingAllocator(auxiliaryPictureInfo: AuxiliaryPictureInfo,
+    allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture;
+
+  /**
    * AuxiliaryPicture instance.
    *
    * @typedef AuxiliaryPicture
@@ -8305,6 +9054,69 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     HEIFS_METADATA = 15,
+
+      /**
+     * Metadata of a DNG image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_METADATA = 16,
+
+    /**
+     * Metadata of a WebP image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    WEBP_METADATA = 17,
+
+    /**
+     * Metadata of a PNG image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PNG_METADATA = 19,
+
+    /**
+     * Metadata of a JFIF image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    JFIF_METADATA = 20,
+
+    /**
+     * Metadata of a TIFF image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TIFF_METADATA = 21,
+
+    /**
+     * XMP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XMP_METADATA = 22,
+
+    /**
+     * Metadata of a Avis image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AVIS_METADATA = 23
   }
 
   /**
@@ -8480,7 +9292,52 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 20 dynamic
      * @since 23 static
      */
-    GIF_DISPOSAL_TYPE = 'GifDisposalType'
+    GIF_DISPOSAL_TYPE = 'GifDisposalType',
+
+    /**
+     * Whether the GIF image has a global color map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_HAS_GLOBAL_COLOR_MAP = 'GifHasGlobalColorMap',
+
+    /**
+     * Canvas width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_CANVAS_WIDTH = 'GifCanvasWidth',
+
+    /**
+     * Canvas height.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_CANVAS_HEIGHT = 'GifCanvasHeight',
+
+    /**
+     * Loop count.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_LOOP_COUNT = 'GifLoopCount',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GIF_UNCLAMPED_DELAY_TIME = 'GifUnclampedDelayTime'
   }
 
   /**
@@ -8497,7 +9354,1237 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    HEIFS_DELAY_TIME = 'HeifsDelayTime'
+    HEIFS_DELAY_TIME = 'HeifsDelayTime',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HEIFS_UNCLAMPED_DELAY_TIME = 'HeifsUnclampedDelayTime',
+
+    /**
+     * Canvas height.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HEIFS_CANVAS_HEIGHT = 'HeifsCanvasHeight',
+
+    /**
+     * Canvas width.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HEIFS_CANVAS_WIDTH = 'HeifsCanvasWidth'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a DNG image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DngPropertyKey {
+    /**
+     * The DNG version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_VERSION = 'DNGVersion',
+
+    /**
+     * The DNG backward version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_BACKWARD_VERSION = 'DNGBackwardVersion',
+
+    /**
+     * A unique camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    UNIQUE_CAMERA_MODEL = 'UniqueCameraModel',
+
+    /**
+     * A localized camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOCALIZED_CAMERA_MODEL = 'LocalizedCameraModel',
+
+    /**
+     * The CFA (color filter array) plane color.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CFA_PLANE_COLOR = 'CFAPlaneColor',
+
+    /**
+     * The CFA (color filter array) layout.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CFA_LAYOUT = 'CFALayout',
+
+    /**
+     * The linearization table.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LINEARIZATION_TABLE = 'LinearizationTable',
+
+    /**
+     * The black level repeat dimension.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL_REPEAT_DIM = 'BlackLevelRepeatDim',
+
+    /**
+     * The zero light encoding level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL = 'BlackLevel',
+
+    /**
+     * The black level delta H.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL_DELTA_H = 'BlackLevelDeltaH',
+
+    /**
+     * The black level delta V.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL_DELTA_V = 'BlackLevelDeltaV',
+
+    /**
+     * The white level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    WHITE_LEVEL = 'WhiteLevel',
+
+    /**
+     * The default scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_SCALE = 'DefaultScale',
+
+    /**
+     * The default crop origin.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_CROP_ORIGIN = 'DefaultCropOrigin',
+
+    /**
+     * The default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_CROP_SIZE = 'DefaultCropSize',
+
+    /**
+     * A transformation matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COLOR_MATRIX1 = 'ColorMatrix1',
+
+    /**
+     * A transformation matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COLOR_MATRIX2 = 'ColorMatrix2',
+
+    /**
+     * A calibration matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_CALIBRATION1 = 'CameraCalibration1',
+
+    /**
+     * A calibration matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_CALIBRATION2 = 'CameraCalibration2',
+
+    /**
+     * A dimensionality reduction matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    REDUCTION_MATRIX1 = 'ReductionMatrix1',
+
+    /**
+     * A dimensionality reduction matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    REDUCTION_MATRIX2 = 'ReductionMatrix2',
+
+    /**
+     * The analog balance.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALOG_BALANCE = 'AnalogBalance',
+
+    /**
+     * The as-shot neutral.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_NEUTRAL = 'AsShotNeutral',
+
+    /**
+     * The as-shot white, encoded as X‑Y chromaticity coordinates.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_WHITEXY = 'AsShotWhiteXY',
+
+    /**
+     * The baseline exposure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_EXPOSURE = 'BaselineExposure',
+
+    /**
+     * The baseline noise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_NOISE = 'BaselineNoise',
+
+    /**
+     * The baseline sharpness.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_SHARPNESS = 'BaselineSharpness',
+
+    /**
+     * The Bayer green split.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BAYER_GREEN_SPLIT = 'BayerGreenSplit',
+
+    /**
+     * The linear response limit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LINEAR_RESPONSE_LIMIT = 'LinearResponseLimit',
+
+    /**
+     * The serial number of the camera.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_SERIAL_NUMBER = 'CameraSerialNumber',
+
+    /**
+     * Information about the lens.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LENS_INFO = 'LensInfo',
+
+    /**
+     * The chroma blur radius.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CHROMA_BLUR_RADIUS = 'ChromaBlurRadius',
+
+    /**
+     * The anti-alias strength.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANTI_ALIAS_STRENGTH = 'AntiAliasStrength',
+
+    /**
+     * The shadow scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SHADOW_SCALE = 'ShadowScale',
+
+    /**
+     * The private data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_PRIVATE_DATA = 'DNGPrivateData',
+
+    /**
+     * Whether the EXIF MakerNote tag is safe.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    MAKER_NOTE_SAFETY = 'MakerNoteSafety',
+
+    /**
+     * The first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CALIBRATION_ILLUMINANT1 = 'CalibrationIlluminant1',
+
+    /**
+     * The second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CALIBRATION_ILLUMINANT2 = 'CalibrationIlluminant2',
+
+    /**
+     * The best quality scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BEST_QUALITY_SCALE = 'BestQualityScale',
+
+    /**
+     * The unique identifier of raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    RAW_DATA_UNIQUE_ID = 'RawDataUniqueID',
+
+    /**
+     * The original raw file name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_RAW_FILE_NAME = 'OriginalRawFileName',
+
+    /**
+     * The original raw file data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_RAW_FILE_DATA = 'OriginalRawFileData',
+
+    /**
+     * The active area.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ACTIVE_AREA = 'ActiveArea',
+
+    /**
+     * The masked areas.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    MASKED_AREAS = 'MaskedAreas',
+
+    /**
+     * An ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_ICC_PROFILE = 'AsShotICCProfile',
+
+    /**
+     * The as-shot pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_PRE_PROFILE_MATRIX = 'AsShotPreProfileMatrix',
+
+    /**
+     * The current ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CURRENT_ICC_PROFILE = 'CurrentICCProfile',
+
+    /**
+     * The current pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CURRENT_PRE_PROFILE_MATRIX = 'CurrentPreProfileMatrix',
+
+    /**
+     * The colorimetric reference.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COLORIMETRIC_REFERENCE = 'ColorimetricReference',
+
+    /**
+     * The camera calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_CALIBRATION_SIGNATURE = 'CameraCalibrationSignature',
+
+    /**
+     * The profile calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_CALIBRATION_SIGNATURE = 'ProfileCalibrationSignature',
+
+    /**
+     * The extra camera profiles.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    EXTRA_CAMERA_PROFILES = 'ExtraCameraProfiles',
+
+    /**
+     * The "as-shot" camera profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_PROFILE_NAME = 'AsShotProfileName',
+
+    /**
+     * The applied noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    NOISE_REDUCTION_APPLIED = 'NoiseReductionApplied',
+
+    /**
+     * The profile name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_NAME = 'ProfileName',
+
+    /**
+     * The profile hue/saturation map dimensions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_DIMS = 'ProfileHueSatMapDims',
+
+    /**
+     * The first hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_DATA1 = 'ProfileHueSatMapData1',
+
+    /**
+     * The second hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_DATA2 = 'ProfileHueSatMapData2',
+
+    /**
+     * The profile tone curve.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_TONE_CURVE = 'ProfileToneCurve',
+
+    /**
+     * The profile embed policy.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_EMBED_POLICY = 'ProfileEmbedPolicy',
+
+    /**
+     * The profile copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_COPYRIGHT = 'ProfileCopyright',
+
+    /**
+     * The first forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    FORWARD_MATRIX1 = 'ForwardMatrix1',
+
+    /**
+     * The second forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    FORWARD_MATRIX2 = 'ForwardMatrix2',
+
+    /**
+     * The preview application name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_APPLICATION_NAME = 'PreviewApplicationName',
+
+    /**
+     * The preview application version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_APPLICATION_VERSION = 'PreviewApplicationVersion',
+
+    /**
+     * The preview settings name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_SETTINGS_NAME = 'PreviewSettingsName',
+
+    /**
+     * The preview settings digest.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_SETTINGS_DIGEST = 'PreviewSettingsDigest',
+
+    /**
+     * The preview color space.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_COLOR_SPACE = 'PreviewColorSpace',
+
+    /**
+     * The preview date time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_DATE_TIME = 'PreviewDateTime',
+
+    /**
+     * An MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    RAW_IMAGE_DIGEST = 'RawImageDigest',
+
+    /**
+     * An MD5 digest of the data stored in the OriginalRawFileData.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_RAW_FILE_DIGEST = 'OriginalRawFileDigest',
+
+    /**
+     * The sub‑tile block size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SUB_TILE_BLOCK_SIZE = 'SubTileBlockSize',
+
+    /**
+     * The row interleave factor.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ROW_INTERLEAVE_FACTOR = 'RowInterleaveFactor',
+
+    /**
+     * The profile look table dimensions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_LOOK_TABLE_DIMS = 'ProfileLookTableDims',
+
+    /**
+     * The profile look table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_LOOK_TABLE_DATA = 'ProfileLookTableData',
+
+    /**
+     * The first opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    OPCODE_LIST1 = 'OpcodeList1',
+
+    /**
+     * The second opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    OPCODE_LIST2 = 'OpcodeList2',
+
+    /**
+     * The third opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    OPCODE_LIST3 = 'OpcodeList3',
+
+    /**
+     * The noise profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    NOISE_PROFILE = 'NoiseProfile',
+
+    /**
+     * The original default final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_DEFAULT_FINAL_SIZE = 'OriginalDefaultFinalSize',
+
+    /**
+     * The original best quality final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_BEST_QUALITY_FINAL_SIZE = 'OriginalBestQualityFinalSize',
+
+    /**
+     * The original default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_DEFAULT_CROP_SIZE = 'OriginalDefaultCropSize',
+
+    /**
+     * The profile hue/saturation map encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_ENCODING = 'ProfileHueSatMapEncoding',
+
+    /**
+     * The profile look table encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_LOOK_TABLE_ENCODING = 'ProfileLookTableEncoding',
+
+    /**
+     * The baseline exposure offset.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_EXPOSURE_OFFSET = 'BaselineExposureOffset',
+
+    /**
+     * The default black render.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_BLACK_RENDER = 'DefaultBlackRender',
+
+    /**
+     * A modified MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    NEW_RAW_IMAGE_DIGEST = 'NewRawImageDigest',
+
+    /**
+     * The gain between the main raw IFD and the preview IFD.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    RAW_TO_PREVIEW_GAIN = 'RawToPreviewGain',
+
+    /**
+     * The default user crop.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_USER_CROP = 'DefaultUserCrop',
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a TIFF image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum TiffPropertyKey {
+    /**
+     * Name of the document or image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DOCUMENT_NAME = 'TiffDocumentName',
+
+    /**
+     * Defines how pixel colors are interpreted (e.g., RGB, grayscale).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PHOTOMETRIC_INTERPRETATION = 'TiffPhotometricInterpretation',
+
+    /**
+     * Indicates image orientation for correct display rotation/flip.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION = 'TiffOrientation',
+
+    /**
+     * Unit for X/Y resolution.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RESOLUTION_UNIT = 'TiffResolutionUnit',
+
+    /**
+     * Copyright notice for the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COPYRIGHT = 'TiffCopyright',
+
+    /**
+     * Date and time associated with the image (typically last modification).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATE_TIME = 'TiffDateTime',
+
+    /**
+     * Description of the image content.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    IMAGE_DESCRIPTION = 'TiffImageDescription',
+
+    /**
+     * Vertical resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_RESOLUTION = 'TiffYResolution',
+
+    /**
+     * Horizontal resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_RESOLUTION = 'TiffXResolution',
+
+    /**
+     * Chromaticity coordinates of the reference white point.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WHITE_POINT = 'TiffWhitePoint',
+
+    /**
+     * Height of each image tile in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TILE_LENGTH = 'TiffTileLength',
+
+    /**
+     * Tone transfer curve mapping pixel values to output intensity.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TRANSFER_FUNCTION = 'TiffTransferFunction',
+
+    /**
+     * Width of each image tile in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TILE_WIDTH = 'TiffTileWidth',
+
+    /**
+     * Manufacturer of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MAKE = 'TiffMake',
+
+    /**
+     * Model name/number of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODEL = 'TiffModel',
+
+    /**
+     * Host computer/system used for image processing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HOST_COMPUTER = 'TiffHostComputer',
+
+    /**
+     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPRESSION = 'TiffCompression',
+
+    /**
+     * Software used to create or process the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SOFTWARE = 'TiffSoftware',
+
+    /**
+     * Chromaticity coordinates of the RGB primaries.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PRIMARY_CHROMATICITIES = 'TiffPrimaryChromaticities',
+
+    /**
+     * Name of the image creator or artist.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ARTIST = 'TiffArtist'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a JFIF image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum JfifPropertyKey {
+    /**
+     * JFIF density unit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DENSITY_UNIT = 'JfifDensityUnit',
+
+    /**
+     * JFIF x density.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_DENSITY = 'JfifXDensity',
+
+    /**
+     * JFIF y density.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_DENSITY = 'JfifYDensity',
+
+    /**
+     * JFIF version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VERSION = 'JfifVersion',
+
+    /**
+     * whether the JFIF image is progressive.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    IS_PROGRESSIVE = 'JfifIsProgressive'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a PNG image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum PngPropertyKey {
+    /**
+     * PNG x pixels per meter.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_PIXELS_PER_METER = 'PngXPixelsPerMeter',
+
+    /**
+     * PNG modification time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODIFICATION_TIME = 'PngModificationTime',
+      
+    /**
+     * PNG software.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SOFTWARE = 'PngSoftware',
+      
+    /**
+     * PNG copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COPYRIGHT = 'PngCopyright',
+      
+    /**
+     * PNG creation time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CREATION_TIME = 'PngCreationTime',
+      
+    /**
+     * PNG sRGB rendering intent.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SRGB_INTENT = 'PngSRGBIntent',
+      
+    /**
+     * PNG author.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AUTHOR = 'PngAuthor',
+      
+    /**
+     * PNG interlacing mode.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INTERLACE_TYPE = 'PngInterlaceType',
+      
+    /**
+     * PNG warning.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WARNING = 'PngWarning',
+      
+    /**
+     * PNG y pixels per meter.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_PIXELS_PER_METER = 'PngYPixelsPerMeter',
+      
+    /**
+     * PNG gamma.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GAMMA = 'PngGamma',
+
+    /**
+     * PNG color primary/white-point coordinates.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CHROMATICITIES = 'PngChromaticities',
+
+    /**
+     * PNG description.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DESCRIPTION = 'PngDescription',
+
+    /**
+     * PNG title.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TITLE = 'PngTitle',
+
+    /**
+     * PNG comment.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMENT = 'PngComment',
+
+    /**
+     * PNG disclaimer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISCLAIMER = 'PngDisclaimer'
   }
 
   /**
@@ -8519,6 +10606,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     readonly heifsDelayTime?: int;
+
+    /**
+     * Canvas height.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly heifsCanvasHeight?: int;
+
+    /**
+     * Canvas width.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly heifsCanvasWidth?: int;
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly heifsUnclampedDelayTime?: int;
 
     /**
      * Create an empty instance of HeifsMetadata.
@@ -8548,7 +10665,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { Record<string, string | null> } records Property records whose values are to be set.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -8597,6 +10714,484 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     setBlob(blob: ArrayBuffer): Promise<void>;
+  }
+
+  /**
+   * JFIF metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class JfifMetadata {
+    /**
+     * JFIF density unit.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly densityUnit?: int;
+
+    /**
+     * JFIF x density.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly xDensity?: int;
+
+    /**
+     * JFIF y density.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly yDensity?: int;
+
+    /**
+     * whether the JFIF image is progressive.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly isProgressive?: boolean;
+
+    /**
+     * JFIF version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly version?: int[];
+  }
+
+  /**
+   * Gif metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class GifMetadata {
+    /**
+     * Delay of each frame in milliseconds.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly delayTime?: int;
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly unclampedDelayTime?: int;
+
+    /**
+     * whether the GIF image has a global color map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly hasGlobalColorMap?: boolean;
+
+    /**
+     * Loop count.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly loopCount?: int;
+
+    /**
+     * Disposal type of each frame in the image.
+     * 0 - No disposal specified.
+     * 1 - Do not dispose.
+     * 2 - Restore to background color.
+     * 3 - Restore to previous.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly disposalType?: int;
+
+    /**
+     * Canvas height.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly canvasHeight?: int;
+
+    /**
+     * Canvas width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly canvasWidth?: int;
+  }
+
+
+  /**
+   * TIFF metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class TiffMetadata {
+    /**
+     * Chromaticity coordinates of the RGB primaries.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly primaryChromaticities?: double[];
+
+    /**
+     * Width of each image tile in pixels.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly tileWidth?: int;
+
+    /**
+     * Height of each image tile in pixels.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly tileLength?: int;
+
+    /**
+     * Date and time associated with the image (typically last modification).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly dateTime?: string;
+
+    /**
+     * Manufacturer of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly make?: string;
+
+    /**
+     * Defines how pixel colors are interpreted (e.g., RGB, grayscale).
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly photometricInterpretation?: int;
+
+    /**
+     * Chromaticity coordinates of the reference white point.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly whitePoint?: double[];
+
+    /**
+     * Name of the document or image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly documentName?: string;
+
+    /**
+     * Description of the image content.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly imageDescription?: string;
+
+    /**
+     * Software used to create or process the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly software?: string;
+
+
+    /**
+     * Horizontal resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly xResolution?: double;
+
+    /**
+     * Vertical resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly yResolution?: double;
+
+    /**
+     * Host computer/system used for image processing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly hostComputer?: string;
+
+    /**
+     * Tone transfer curve mapping pixel values to output intensity.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly transferFunction?: string;
+
+    /**
+     * Name of the image creator or artist.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly artist?: string;
+
+    /**
+     * Indicates image orientation for correct display rotation/flip.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly orientation?: Orientation;
+
+    /**
+     * Model name/number of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly model?: string;
+
+    /**
+     * Unit for X/Y resolution.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly resolutionUnit?: int;
+
+    /**
+     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly compression?: int;
+
+    /**
+     * Copyright notice for the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly copyright?: string;
+  }
+
+  /**
+   * Png metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class PngMetadata {
+    /**
+     *PNG x pixels per meter.
+     *The value should be an integer.
+     *
+     *@syscap SystemCapability.Multimedia.Image.Core
+     *@stagemodelonly
+     *@since 26.0.0 dynamic&static
+     */
+    readonly xPixelsPerMeter?: int;
+
+    /**
+     * PNG software.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly software?: string;
+
+    /**
+     * PNG disclaimer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly disclaimer?: string;
+
+    /**
+     * PNG description.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly description?: string;
+
+    /**
+     * PNG copyright.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly copyright?: string;
+
+    /**
+     * PNG interlacing mode.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly interlaceType?: int;
+
+    /**
+     * PNG comment.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly comment?: string;
+
+    /**
+     * PNG author.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly author?: string;
+
+    /**
+     * PNG creation time.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly creationTime?: string;
+
+    /**
+     * PNG modification time.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly modificationTime?: string;
+
+    /**
+     * PNG gamma.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly gamma?: double;
+
+    /**
+     * PNG y pixels per meter.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly yPixelsPerMeter?: int;
+
+    /**
+     * PNG sRGB rendering intent.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly sRGBIntent?: int;
+
+    /**
+     * PNG color primary/white-point coordinates.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly chromaticities?: double[];
+
+    /**
+     * PNG title.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly title?: string;
+
+    /**
+     * PNG warning.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly warning?: string;
   }
 
   /**
@@ -8712,6 +11307,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
  
     /**
      * Image width.
+     * <br>Unit:px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8722,6 +11318,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image length.
+     * <br>Unit:px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9220,6 +11817,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * The direction of GPS receiver movement.
+     * <br>Unit:deg.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9240,6 +11838,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * The direction of the image when captured.
+     * <br>Unit:deg.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9379,7 +11978,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDifferential?: int;
 
     /**
-     * This tag indicates horizontal positioning errors in meters.
+     * This tag indicates horizontal positioning errors.
+     * <br>Unit:m.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9450,6 +12050,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * ISO speed latitude yyy value of the camera or input device, which is defined in ISO 12232.
+     * <br>Unit:EV.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9460,6 +12061,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * ISO speed latitude zzz value of the camera or input device, which is defined in ISO 12232.
+     * <br>Unit:EV.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9542,7 +12144,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     componentsConfiguration?: string;
 
     /**
-     * The compression mode used for a compressed image, in unit bits per pixel.
+     * The compression mode used for a compressed image.
+     * <br>Unit:bits per pixel.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9562,7 +12165,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     shutterSpeedValue?: double;
 
     /**
-     * The lens aperture. The unit is the APEX(Additive System of Photographic Exposure) value.
+     * The lens aperture, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9572,7 +12175,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     apertureValue?: double;
 
     /**
-     * The brightness value of the image, in APEX units.
+     * The brightness value of the image, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9602,7 +12205,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     maxApertureValue?: double;
 
     /**
-     * The distance to the subject, measured in meters.
+     * The distance to the subject.
+     * <br>Unit:m.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9642,7 +12246,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     flash?: int;
 
     /**
-     * Focal length
+     * Focal length 
+     * <br>Unit:mm.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9762,7 +12367,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     relatedSoundFile?: string;
 	
     /**
-     * Strobe energy at image capture, in BCPS.
+     * Strobe energy at image capture.
+     * <br>Unit:BCPS.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9913,6 +12519,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 	
     /**
      * Focal length in 35mm film.
+     * <br>Unit:mm.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10821,6 +13428,1308 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
+/**
+   * DNG metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  class DngMetadata {
+    /**
+     * The DNG version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly dngVersion?: int[];
+
+    /**
+     * The DNG backward compatibility version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly dngBackwardVersion?: int[];
+
+    /**
+     * A unique camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly uniqueCameraModel?: string;
+
+    /**
+     * A localized camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly localizedCameraModel?: string;
+
+    /**
+     * The CFA (color filter array) plane color.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cfaPlaneColor?: int[];
+
+    /**
+     * The CFA (color filter array) layout.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cfaLayout?: int;
+
+    /**
+     * The linearization table.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly linearizationTable?: int[];
+
+    /**
+     * The black level repeat dimension.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevelRepeatDim?: int[];
+
+    /**
+     * The zero-light encoding level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevel?: double[];
+
+    /**
+     * The black level delta H.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevelDeltaH?: double[];
+
+    /**
+     * The black level delta V.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevelDeltaV?: double[];
+
+    /**
+     * The white level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly whiteLevel?: double[];
+
+    /**
+     * The default scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultScale?: double[];
+
+    /**
+     * The default crop origin.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultCropOrigin?: double[];
+
+    /**
+     * The default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultCropSize?: int[];
+
+    /**
+     * A transformation matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly colorMatrix1?: double[];
+
+    /**
+     * A transformation matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly colorMatrix2?: double[];
+
+    /**
+     * A calibration matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraCalibration1?: double[];
+
+    /**
+     * A calibration matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraCalibration2?: double[];
+
+    /**
+     * A dimensionality reduction matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly reductionMatrix1?: double[];
+
+    /**
+     * A dimensionality reduction matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly reductionMatrix2?: double[];
+
+    /**
+     * The analog balance.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly analogBalance?: double[];
+
+    /**
+     * The as-shot neutral.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotNeutral?: double[];
+
+    /**
+     * The as-shot white, encoded as x-y chromaticity coordinates.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotWhiteXY?: double[];
+
+    /**
+     * The baseline exposure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineExposure?: double;
+
+    /**
+     * The baseline noise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineNoise?: double;
+
+    /**
+     * The baseline sharpness.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineSharpness?: double;
+
+    /**
+     * The Bayer green split.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly bayerGreenSplit?: int;
+
+    /**
+     * The linear response limit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly linearResponseLimit?: double;
+
+    /**
+     * The serial number of the camera.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraSerialNumber?: string;
+
+    /**
+     * Information about the lens.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly lensInfo?: double[];
+
+    /**
+     * The chroma blur radius.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly chromaBlurRadius?: double;
+
+    /**
+     * The anti-alias strength.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly antiAliasStrength?: double;
+
+    /**
+     * The shadow scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly shadowScale?: double;
+
+    /**
+     * The private data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly dngPrivateData?: ArrayBuffer;
+
+    /**
+     * Whether the EXIF MakerNote tag is safe.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly makerNoteSafety?: boolean;
+
+    /**
+     * The first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly calibrationIlluminant1?: int;
+
+    /**
+     * The second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly calibrationIlluminant2?: int;
+
+    /**
+     * The best quality scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly bestQualityScale?: double;
+
+    /**
+     * The unique identifier of raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rawDataUniqueID?: string;
+
+    /**
+     * The original raw file name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalRawFileName?: string;
+
+    /**
+     * The original raw file data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalRawFileData?: ArrayBuffer;
+
+    /**
+     * The active area.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly activeArea?: int[];
+
+    /**
+     * The masked areas.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly maskedAreas?: int[];
+
+    /**
+     * An ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotICCProfile?: ArrayBuffer;
+
+    /**
+     * The as-shot pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotPreProfileMatrix?: double[];
+
+    /**
+     * The current ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly currentICCProfile?: ArrayBuffer;
+
+    /**
+     * The current pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly currentPreProfileMatrix?: double[];
+
+    /**
+     * The colorimetric reference.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly colorimetricReference?: int;
+
+    /**
+     * The camera calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraCalibrationSignature?: string;
+
+    /**
+     * The profile calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileCalibrationSignature?: string;
+
+    /**
+     * The extra camera profiles.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly extraCameraProfiles?: int[];
+
+    /**
+     * The as-shot camera profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotProfileName?: string;
+
+    /**
+     * The applied noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly noiseReductionApplied?: double;
+
+    /**
+     * The profile name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileName?: string;
+
+    /**
+     * The profile hue/saturation map dims.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapDims?: int[];
+
+    /**
+     * The first hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapData1?: double[];
+
+    /**
+     * The second hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapData2?: double[];
+
+    /**
+     * The profile tone curve.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileToneCurve?: double[];
+
+    /**
+     * The profile embed policy.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileEmbedPolicy?: int;
+
+    /**
+     * The profile copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileCopyright?: string;
+
+    /**
+     * The first forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly forwardMatrix1?: double[];
+
+    /**
+     * The second forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly forwardMatrix2?: double[];
+
+    /**
+     * The preview application name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewApplicationName?: string;
+
+    /**
+     * The preview application version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewApplicationVersion?: string;
+
+    /**
+     * The preview settings name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewSettingsName?: string;
+
+    /**
+     * The preview settings digest.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewSettingsDigest?: string;
+
+    /**
+     * The preview color space.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewColorSpace?: int;
+
+    /**
+     * The preview date time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewDateTime?: string;
+
+    /**
+     * An MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rawImageDigest?: string;
+
+    /**
+     * An MD5 digest of the data stored in the OriginalRawFileData.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalRawFileDigest?: string;
+
+    /**
+     * The sub‑tile block size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly subTileBlockSize?: int[];
+
+    /**
+     * The row interleave factor.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rowInterleaveFactor?: int;
+
+    /**
+     * The profile lookup table dimensions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileLookTableDims?: int[];
+
+    /**
+     * The profile lookup table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileLookTableData?: double[];
+
+    /**
+     * The first opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly opcodeList1?: ArrayBuffer;
+
+    /**
+     * The second opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly opcodeList2?: ArrayBuffer;
+
+    /**
+     * The third opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly opcodeList3?: ArrayBuffer;
+
+    /**
+     * The noise profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly noiseProfile?: double[];
+
+    /**
+     * The original default final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalDefaultFinalSize?: int[];
+
+    /**
+     * The original best quality final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalBestQualityFinalSize?: int[];
+
+    /**
+     * The original default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalDefaultCropSize?: double[];
+
+    /**
+     * The profile hue/saturation map encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapEncoding?: int;
+
+    /**
+     * The profile lookup table encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileLookTableEncoding?: int;
+
+    /**
+     * The baseline exposure offset.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineExposureOffset?: double;
+
+    /**
+     * The default black render.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultBlackRender?: int;
+
+    /**
+     * A modified MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly newRawImageDigest?: string;
+
+    /**
+     * The gain between the main raw IFD and the preview IFD.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rawToPreviewGain?: double;
+
+    /**
+     * The default user crop.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultUserCrop?: int[];
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a WebP image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum WebPPropertyKey {
+    /**
+     * Canvas Width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_WIDTH = 'WebPCanvasWidth',
+
+    /**
+     * Canvas Height.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_HEIGHT = 'WebPCanvasHeight',
+
+    /**
+     * Delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DELAY_TIME = 'WebPDelayTime',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    UNCLAMPED_DELAY_TIME = 'WebPUnclampedDelayTime',
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOOP_COUNT = 'WebPLoopCount',
+  }
+
+  /**
+   * WebP metadata.
+   * 
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  class WebPMetadata {
+    /**
+     * Canvas Width.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasWidth?: int;
+
+    /**
+     * Canvas Height.
+     * <br>Unit:px.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasHeight?: int;
+
+    /**
+     * Delay of each frame.
+     * <br>Unit:ms.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly delayTime?: int;
+
+    /**
+     * Unclamped delay of each frame.
+     * <br>Unit:ms.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly unclampedDelayTime?: int;
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly loopCount?: int;
+  }
+
+  /**
+   * Enumerates XMP tag type.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum XMPTagType {
+    /**
+     * Unknown XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN = 0,
+
+    /**
+     * String XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STRING = 1,
+
+    /**
+     * Unordered array XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNORDERED_ARRAY = 2,
+
+    /**
+     * Ordered array XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ORDERED_ARRAY = 3,
+
+    /**
+     * Alternate array XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALTERNATE_ARRAY = 4,
+
+    /**
+     * Alternate text XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALTERNATE_TEXT = 5,
+
+    /**
+     * Structure XMP tag type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STRUCTURE = 6,
+  }
+
+  /**
+   * Describes XMP namespace parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface XMPNamespace {
+    /**
+     * The uri of XMP namespace.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uri: string;
+
+    /**
+     * The prefix of XMP namespace.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    prefix: string;
+  }
+
+  /**
+   * XMP namespace: XMP basic.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const XMP_BASIC: XMPNamespace;
+
+  /**
+   * XMP namespace: XMP rights.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const XMP_RIGHTS: XMPNamespace;
+
+  /**
+   * XMP namespace: exif.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const EXIF: XMPNamespace;
+
+  /**
+   * XMP namespace: dublin core.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const DUBLIN_CORE: XMPNamespace;
+
+  /**
+   * XMP namespace: tiff.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const TIFF: XMPNamespace;
+
+  /**
+   * Describes XMP Tag parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface XMPTag {
+    /**
+     * The namespace of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    xmpNamespace: XMPNamespace;
+
+    /**
+     * The name of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    name: string;
+
+    /**
+     * The type of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    type: XMPTagType;
+
+    /**
+     * The value of XMP tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    value?: string;
+  }
+
+  /**
+   * Describes XMP enumerate option parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface XMPEnumerateOptions {
+    /**
+     * The option that controls recursive enabling.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isRecursive?: boolean;
+
+    /**
+     * Whether to return only qualifier data.
+     * <br>Default value:false.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onlyQualifier?: boolean;
+  }
+
+  /**
+   * XMPMetadata instance.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class XMPMetadata {
+    /**
+     * Register a new namespace according to the xml namespace and prefix.
+     *
+     * @param { XMPNamespace } xmpNamespace - The xmp namespace.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Invalid namespace format.
+     *     2. The uri is already registered. 3. The prefix is already registered.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public registerXMPNamespace(xmpNamespace: XMPNamespace): Promise<void>;
+
+    /**
+     * Set the XMP type and value of the XMP tag in the specified path.
+     *
+     * @param { string } path - The specified path of the target XMP tag.(e.g., "dc:title").
+     * @param { XMPTagType } type - The specified XMP tag type.
+     * @param { string } [value] - The specified value. If this parameter is not specified, the default value is empty.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The path syntax is invalid. 3. The path does not match the type. 4. The value is invalid for the type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public setValue(path: string, type: XMPTagType, value?: string): Promise<void>;
+
+    /**
+     * Get a single XMP tag from specified path.
+     *
+     * @param { string } path - The specified path of the target XMP tag.(e.g., "dc:title").
+     * @returns { Promise<XMPTag | null> } Promise used to return the XMP tag.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The path syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public getTag(path: string): Promise<XMPTag | null>;
+
+    /**
+     * Remove the XMP tag from specified path.
+     *
+     * @param { string } path - The specified path of the target XMP tag.(e.g., "dc:title").
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The path syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public removeTag(path: string): Promise<void>;
+
+    /**
+     * Enumerate the XMP tags from specified path and uses a callback to return the result.
+     *
+     * @param { function } callback - Callback used to return the XMP node and the corresponding XMPTag.
+     *     The callback receives a path argument that follows the XMP namespace:path format.
+     * @param { string } [rootPath] - Enumerate root path. If this parameter is not specified, the default value is root
+     *     path.
+     * @param { XMPEnumerateOptions } [options] - XMP enumerate option.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The rootPath syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public enumerateTags(
+      callback: (path: string, tag: XMPTag) => boolean,
+      rootPath?: string,
+      options?: XMPEnumerateOptions
+    ): void;
+
+    /**
+     * Get all XMP tags from specified path.
+     *
+     * @param { string } [rootPath] - The specified path. If this parameter is not specified, the default value is root
+     *     path.
+     * @param { XMPEnumerateOptions } [options] - XMP enumerate option.
+     * @returns { Promise<Record<string, XMPTag>> } A Promise instance used to return all XMP tags.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. Namespace is not registered.
+     *     2. The rootPath syntax is invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public getTags(rootPath?: string, options?: XMPEnumerateOptions): Promise<Record<string, XMPTag>>;
+
+    /**
+     * Set a blob into the XMP metadata.
+     *
+     * @param { ArrayBuffer } buffer - blob data.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 7600206 - Invalid argument. Possible causes: 1. The buffer is empty or invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public setBlob(buffer: ArrayBuffer): Promise<void>;
+
+    /**
+     * Obtains the XMP metadata as a blob.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the ArrayBuffer of blob.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    public getBlob(): Promise<ArrayBuffer>;
+  }
+
+  /**
+ 	 * Enumerates the properties available for the metadata of a Avis image.
+ 	 *
+ 	 * @syscap SystemCapability.Multimedia.Image.Core
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 dynamic&static
+ 	 */
+ 	enum AvisPropertyKey {
+ 	  /**
+ 	   * Delay of each frame in milliseconds.
+ 	   * 
+ 	   * @syscap SystemCapability.Multimedia.Image.Core
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic&static
+ 	   */
+ 	  DELAY_TIME = 'AvisDelayTime',
+ 	}
+
+ 	/**
+ 	 * Avis metadata.
+ 	 * 
+ 	 * @syscap SystemCapability.Multimedia.Image.Core
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 dynamic&static
+ 	 */
+ 	class AvisMetadata {
+ 	  /**
+ 	   * Delay of each frame. Unit: ms, The value should be an integer.
+ 	   * <br>Unit:ms.
+ 	   * 
+ 	   * @syscap SystemCapability.Multimedia.Image.Core
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic&static
+ 	   */
+ 	  readonly delayTime?: int;
+ 	}
+
   /**
    * Metadata set of an image.
    *
@@ -10859,6 +14768,74 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     heifsMetadata?: HeifsMetadata;
+
+    /**
+     * Dng metadata.
+     *
+     * @type { ?DngMetadata }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    dngMetadata?: DngMetadata;
+
+    /**
+     * WebP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    webPMetadata?: WebPMetadata;
+
+    /**
+     * Gif metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    gifMetadata?: GifMetadata;
+
+    /**
+     * Tiff metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    tiffMetadata?: TiffMetadata;
+
+    /**
+     * Jfif metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    jfifMetadata?: JfifMetadata;
+
+    /**
+     * Png metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pngMetadata?: PngMetadata;
+
+    /**
+     * XMP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    xmpMetadata?: XMPMetadata;
+
+    /**
+     * Avis metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    avisMetadata?: AvisMetadata;
   }
 
   /**
@@ -10879,6 +14856,60 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+
+    /**
+     * Desired size of the main pixel map. The value (0, 0) indicates that the pixels are decoded
+     * based on the original image size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredSizeForMainPixelMap?: Size;
+
+    /**
+     * Desired Pixel format, RGBA_8888\BGRA_8888\RGB_565\NV12\NV21 are supported.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredPixelFormat?: PixelMapFormat;
+  }
+
+  /**
+   * Describes thumbnail decoding parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface DecodingOptionsForThumbnail {
+    /**
+     * Flag to specify whether the thumbnail should be generated, if the image does not have a thumbnail.
+     *
+     * <br>Default value: true.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    generateThumbnailIfAbsent?: boolean;
+
+    /**
+     * This parameter is valid only when generateThumbnailIfAbsent is set to true. The width and height of the image
+     *     cannot exceed the value of this parameter.
+     * The value should be an integer.
+     * <br>Unit:px.
+     * <br>Default value:512.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxGeneratedPixelDimension?: int;
   }
 
    /**
@@ -10939,6 +14970,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
      colorSpace: colorSpaceManager.ColorSpaceManager;
+  }
+
+  /**
+   * Describes raw data in an image.
+   *
+   * @typedef ImageRawData
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface ImageRawData {  
+    /**
+     * Binary data of the raw image.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    buffer: ArrayBuffer;
+
+    /**
+     * Number of bits that each pixel actually occupies in the buffer data.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    bitsPerPixel: int;
   }
 
   /**
@@ -12106,12 +16167,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise<void>;
 
     /**
+     * Modify the value of properties in an image with the specified keys.The HwMnote read-only key is supported.
+     *
+     * @param { Record<string, string|null> } records - Property Records whose values are to be modified,
+     *     when the value is set to null the tag will be removed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
+     *     an error message is returned.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
+     *     or the property value is invalid.
+     * @throws { BusinessError } 7700304 - Failed to write image properties to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    modifyImageAllProperties(records: Record<string, string|null>): Promise<void>;
+
+    /**
      * Update the data in the incremental ImageSource.
      *
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
@@ -12122,7 +16204,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -12134,7 +16218,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { int } offset The offset of data.
+     * <br>Unit:bytes.
      * @param { int } length The length fo buf.
+     * <br>Unit:bytes.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -12149,7 +16235,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
@@ -12160,7 +16248,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -12172,7 +16262,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { int } offset The offset of data.
+     * <br>Unit:bytes.
      * @param { int } length The length fo buf.
+     * <br>Unit:bytes.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -12227,13 +16319,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a Picture object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
-     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
      * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700301 - Decode failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
+     */
+    /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
+     * a failure in converting an image into the desired pixel format.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 24 dynamic
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
@@ -12380,6 +16486,72 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     isJpegProgressive(): Promise<boolean>;
+
+    /**
+     * Read metadata of the image source, use metadataType to specify metadata of interest. If metadataType
+     * is not specified, all supported metadata will be returned.
+     *
+     * @param { MetadataType[] } [metadataTypes] - Metadata of interest.
+     * @param { int }[index] - Index of interest, default is 0.
+     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1.The index is negative.
+     * 2. The index is greater than or equal to the number of frames in the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readImageMetadataByType(metadataTypes?: MetadataType[], index?: int): Promise<ImageMetadata>;
+
+    /**
+    * Obtains raw data from an image.
+    *
+    * @returns { Promise<ImageRawData> } A Promise instance used to return image raw data.
+    * @throws { BusinessError } 7700101 - Bad source.
+    * @throws { BusinessError } 7700102 - Unsupported MIME type.
+    * @syscap SystemCapability.Multimedia.Image.ImageSource
+    * @stagemodelonly
+    * @since 24 dynamic&static
+    */
+    createImageRawData(): Promise<ImageRawData>
+
+    /**
+     * Creates a thumbnail image based on image decoding parameters.
+     * This method uses a promise to return the PixelMap object, which represents the thumbnail.
+     *
+     * @param { DecodingOptionsForThumbnail } [options] - Image decoding parameters for creating the thumbnail.
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object representing
+     *     the thumbnail.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700204 - Invalid parameter, e.g, invalid generate size.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700303 - Image does not carry thumbnail data.
+     * @throws { BusinessError } 7700305 - Thumbnail generation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createThumbnail(options?: DecodingOptionsForThumbnail): Promise<PixelMap | undefined>;
+
+    /**
+     * Synchronously creates a thumbnail image based on image decoding parameters.
+     * This method returns a `PixelMap` object, which represents the generated thumbnail.
+     *
+     * @param { DecodingOptionsForThumbnail } [options] - Image decoding parameters for creating the thumbnail.
+     * @returns { PixelMap | undefined } The PixelMap object representing the generated thumbnail.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700204 - Invalid parameter, e.g, invalid generate size.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700303 - Image does not carry thumbnail data.
+     * @throws { BusinessError } 7700305 - Thumbnail generation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createThumbnailSync(options?: DecodingOptionsForThumbnail): PixelMap | undefined;
   }
 
   /**
@@ -12874,6 +17046,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image timestamp.
+     * <br>Unit:ns.
      *
      * @type { long }
      * @readonly

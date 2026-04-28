@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1016,7 +1016,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 21 dynamic
      * @since 23 static
-    */
+     */
     FAULT_LOG = 33,
 
     /**
@@ -1043,6 +1043,22 @@ declare namespace bundleManager {
      * @since 23 dynamic&static
      */
     PARTNER_AGENT = 36,
+
+    /**
+     * Indicates extension info with type of the agent.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AGENT = 37,
+
+    /**
+     * Indicates extension info with type of the agent UI extension.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AGENT_UI = 38,
 
     /**
      * Indicates extension info with type of unspecified
@@ -1917,7 +1933,17 @@ declare namespace bundleManager {
      * @since 11 dynamic
      * @since 23 static
      */
-    INTENT_PROFILE = 1
+    INTENT_PROFILE = 1,
+
+    /**
+     * Indicates the JSON profile of the cloud.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CLOUD_PROFILE = 8,
   }
 
   /**
@@ -2221,7 +2247,8 @@ declare namespace bundleManager {
   function getBundleInfoForSelfSync(bundleFlags: int): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2238,7 +2265,8 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2258,7 +2286,8 @@ declare namespace bundleManager {
     bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2730,7 +2759,8 @@ declare namespace bundleManager {
     userId?: int): Array<ExtensionAbilityInfo>;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -2745,7 +2775,8 @@ declare namespace bundleManager {
   function getBundleNameByUid(uid: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -2760,7 +2791,8 @@ declare namespace bundleManager {
   function getBundleNameByUid(uid: int): Promise<string>;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -2899,7 +2931,7 @@ declare namespace bundleManager {
   function cleanBundleCacheFilesForSelf(): Promise<void>;
 
   /**
-   * Get the all bundle cache size of the current user.
+   * Get the all bundle cache size of the current user,the unit is bytes.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<long> } Returns all bundle cache size.
@@ -3698,7 +3730,8 @@ declare namespace bundleManager {
   function getApplicationInfoSync(bundleName: string, applicationFlags: int): ApplicationInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -3717,7 +3750,8 @@ declare namespace bundleManager {
   function getBundleInfoSync(bundleName: string, bundleFlags: int, userId: int): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -4460,7 +4494,8 @@ declare namespace bundleManager {
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
 
   /**
-   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -4546,30 +4581,6 @@ declare namespace bundleManager {
   function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
   /**
-   * Set the file types for a specific ability.
-   *
-   * @permission ohos.permission.MANAGE_SELF_SKILLS
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { Array<string> } fileTypes - Indicates the file types to associate with the ability.
-   *     Each item must be a Uniform Type Descriptor.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
-   * @throws { BusinessError } 17700351 - Invalid fileTypes. Possible causes:
-   *     1. The array length exceeds 1024;
-   *     2. The array contains an empty item;
-   *     3. An item exceeds 512 characters;
-   *     4. The array contains wildcard or general.object.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
-
-  /**
    * Get the bundle path of the specified plugin.
    *
    * @param { string } pluginBundleName - Indicates the plugin bundle name.
@@ -4622,6 +4633,30 @@ declare namespace bundleManager {
   function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
   /**
+   * Set the file types for a specific ability.
+   *
+   * @permission ohos.permission.MANAGE_SELF_SKILLS
+   * @param { string } moduleName - Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @param { Array<string> } fileTypes - Indicates the file types to associate with the ability.
+   *     Each item must be a Uniform Type Descriptor.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @throws { BusinessError } 17700351 - Invalid fileTypes. Possible causes:
+   *     1. The array length exceeds 1024;
+   *     2. The array contains an empty item;
+   *     3. An item exceeds 512 characters;
+   *     4. The array contains wildcard or general.object.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
+
+  /**
    * Get the bundle install status.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -4658,6 +4693,49 @@ declare namespace bundleManager {
    * @since 24 dynamic&static
    */
   function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
+
+  /**
+   * Obtains the label of a specified application.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<string> } Returns label of specified application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getApplicationLabel(bundleName: string, appIndex: int): Promise<string>;
+
+  /**
+   * Obtains PreinstalledApplicationInfo of all newly added preinstalled applications during device OTA upgrade.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<PreinstalledApplicationInfo>> } Returns a list of PreinstalledApplicationInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getAllNewPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   * 
+   * @permission ohos.permission.ENTERPRISE_GET_INSTALLED_BUNDLE_LIST
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains configuration information about an application.

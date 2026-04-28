@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -138,7 +138,7 @@ declare namespace formInfo {
     displayName: string;
 
     /**
-     * Obtains the displayName resource id of this form.
+     * Obtains the displayName resource id of this form. The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
@@ -329,14 +329,14 @@ declare namespace formInfo {
     formConfigAbility: string;
 
     /**
-     * Obtains the updateDuration.
+     * Obtains the updateDuration. The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
-     * Obtains the updateDuration.
+     * Obtains the updateDuration. The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
@@ -347,14 +347,14 @@ declare namespace formInfo {
     updateDuration: int;
 
     /**
-     * Obtains the default grid style of this form.
+     * Obtains the default grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
-     * Obtains the default grid style of this form.
+     * Obtains the default grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
@@ -365,14 +365,14 @@ declare namespace formInfo {
     defaultDimension: int;
 
     /**
-     * Obtains the grid styles supported by this form.
+     * Obtains the grid styles supported by this form. The maximum length is 9 and cannot be empty.
      *
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
-     * Obtains the grid styles supported by this form.
+     * Obtains the grid styles supported by this form. The maximum length is 9 and cannot be empty.
      *
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.Form
@@ -431,7 +431,7 @@ declare namespace formInfo {
     transparencyEnabled: boolean;
 
     /**
-     * Obtains the shape supported by this form.
+     * Obtains the shape supported by this form. 1 represents a square, 2 represents a circle.
      *
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.Form
@@ -442,7 +442,8 @@ declare namespace formInfo {
     supportedShapes: Array<int>;
 
     /**
-     * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\".
+     * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\". The maximum length is +∞, positive int
+     * eger.
      *
      * @type { ?Array<int> }
      * @readonly
@@ -573,6 +574,17 @@ declare namespace formInfo {
      * @since 23 dynamic&static
      */
     readonly isPrivacySensitive?: boolean;
+
+    /**
+     * Obtains whether the font scaling factor follows system settings.
+     * <br>Default value:The default value is true.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFontScaleFollowSystem?: boolean;
   }
 
   /**
@@ -848,6 +860,36 @@ declare namespace formInfo {
      * @since 23 static
      */
     READY = 1
+  }
+
+  /**
+   * Form update reason.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum FormUpdateReason {
+    /**
+     * The reason for the form update is unknown.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UNKNOWN = -1,
+    /**
+     * The reason for the form update is node reuse.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FORM_NODE_REUSE = 0
   }
 
   /**
@@ -1381,7 +1423,55 @@ declare namespace formInfo {
      * @systemapi
      * @since 23 dynamic&static
      */
-    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description'
+    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description',
+
+    /**
+     * Indicates the key specifying the reason for the form update.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       UPDATE_FORM_REASON_KEY: FormUpdateReason.FORM_NODE_REUSE
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UPDATE_FORM_REASON_KEY = 'ohos.extra.param.key.update_form_reason',
+
+    /**
+     * Indicates the key specifying font size scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_SIZE_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_SIZE_SCALE_KEY = 'ohos.extra.param.key.form_font_size_scale',
+
+    /**
+     * Indicates the key specifying font weight scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_WEIGHT_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_WEIGHT_SCALE_KEY = 'ohos.extra.param.key.form_font_weight_scale'
   }
 
   /**
@@ -2111,7 +2201,7 @@ declare namespace formInfo {
     readonly formName: string;
 
     /**
-     * Obtains the grid style of this form.
+     * Obtains the grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @default -
@@ -2121,7 +2211,7 @@ declare namespace formInfo {
      * @since 10
      */
     /**
-     * Obtains the grid style of this form.
+     * Obtains the grid style of this form. The value must be an integer within [1,9].
      *
      * @type { int }
      * @default -
@@ -2364,7 +2454,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Provides OverflowInfo about funInteraction or sceneAniamtion form
+   * Provides OverflowInfo about funInteraction or sceneAnimation form
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
@@ -2385,7 +2475,8 @@ declare namespace formInfo {
     area: Rect;
 
     /**
-     * The overflow animation duration
+     * The overflow animation duration, unit is ms. Unit: milliseconds, The value must be an integer within [0,10000], Default
+     * value: 10000.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
@@ -2440,7 +2531,7 @@ declare namespace formInfo {
     isOverflow: boolean;
 
     /**
-     * The form's overflow animation paramter
+     * The form's overflow animation parameter
      *
      * @type { ?OverflowInfo }
      * @syscap SystemCapability.Ability.Form
@@ -2473,7 +2564,7 @@ declare namespace formInfo {
     formId: string;
 
     /**
-     * The state of scene animation.
+     * The state of scene animation. The value must be an integer within [0,1], 0 means deactivate, 1 means activate.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.Form
@@ -2485,17 +2576,17 @@ declare namespace formInfo {
   }
 
   /**
-   * Indicates rectangle
+   * Indicates rectangle, unit is vp.
    *
-   * @typedef { Rect }
+   * @typedef Rect
    * @syscap SystemCapability.Ability.Form
-   * @atomicservice
+   * @atomicservice 
    * @since 20 dynamic
    * @since 23 static
    */
   interface Rect {
     /**
-     * The left position of rect
+     * The left position of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
@@ -2504,9 +2595,8 @@ declare namespace formInfo {
      * @since 23 static
      */
     left: double;
-
     /**
-     * The top position of rect
+     * The top position of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
@@ -2515,9 +2605,8 @@ declare namespace formInfo {
      * @since 23 static
      */
     top: double;
-
     /**
-     * The width of rect
+     * The width of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
@@ -2526,9 +2615,8 @@ declare namespace formInfo {
      * @since 23 static
      */
     width: double;
-
     /**
-     * The height of rect
+     * The height of Rect. Unit: vp, The value must be greater than or equal to 0.
      *
      * @type { double }
      * @syscap SystemCapability.Ability.Form
@@ -2581,9 +2669,9 @@ declare namespace formInfo {
      * @since 23 static
      */
     subBundleName: string;
-
     /**
-     * The duration of the fun interaction form will be paused if not operate, default is 10s
+     * duration of the fun interaction form will be paused if not operate， default is 10s. Unit: milliseconds, The value must b
+     * e an integer within [0,10000]. Default value: Default value: 10000.
      *
      * @type { ?int }
      * @syscap SystemCapability.Ability.Form
@@ -2591,7 +2679,7 @@ declare namespace formInfo {
      * @since 20 dynamic
      * @since 23 static
      */
-    keepStateDuration? :int;
+    keepStateDuration?: int;
   }
 
   /**

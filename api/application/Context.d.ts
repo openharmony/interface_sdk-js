@@ -694,6 +694,18 @@ declare class Context extends BaseContext {
    * @since 23 static
    */
   createDisplayContext(displayId: long): Context;
+
+  /**
+   * Checks if the current instance is associated with the specified context type.
+   *
+   * @param { contextConstant.ContextType } contextType - Indicates the context type.
+   * @returns { boolean } Returns {@code true} if the contextType is matched; returns {@code false} otherwise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  isContextOf(contextType: contextConstant.ContextType): boolean;
 }
 
 export default Context;

@@ -25,6 +25,7 @@ import { Length } from './units';
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface EllipseOptions {
@@ -33,6 +34,7 @@ export interface EllipseOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width?: Length;
@@ -41,6 +43,7 @@ export interface EllipseOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height?: Length;
@@ -51,6 +54,7 @@ export interface EllipseOptions {
  * @extends CommonShapeMethod
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
@@ -60,6 +64,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EllipseAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;

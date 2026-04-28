@@ -59,9 +59,9 @@ declare namespace systemTime {
   function setTime(time: number): Promise<void>;
 
   /**
-   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   * Obtains the time elapsed since the Unix epoch.
    *
-   * @param { boolean } isNano
+   * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
@@ -84,9 +84,9 @@ declare namespace systemTime {
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   * Obtains the time elapsed since the Unix epoch.
    *
-   * @param { boolean } isNano
+   * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
@@ -97,9 +97,9 @@ declare namespace systemTime {
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+   * Obtains the time elapsed since the system was booted, not including deep sleep time.
    *
-   * @param { boolean } isNano
+   * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
@@ -122,9 +122,9 @@ declare namespace systemTime {
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+   * Obtains the time elapsed since the system was booted, not including deep sleep time.
    *
-   * @param { boolean } isNano
+   * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
@@ -135,9 +135,9 @@ declare namespace systemTime {
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+   * Obtains the time elapsed since the system was booted, including deep sleep time.
    *
-   * @param { boolean } isNano
+   * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
@@ -160,9 +160,9 @@ declare namespace systemTime {
   function getRealTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+   * Obtains the time elapsed since the system was booted, including deep sleep time.
    *
-   * @param { boolean } isNano
+   * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time

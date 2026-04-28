@@ -77,6 +77,7 @@ interface MenuInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -86,6 +87,7 @@ declare enum SubMenuExpandingMode {
      * Sub-menu will expand besides main menu
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -95,6 +97,7 @@ declare enum SubMenuExpandingMode {
      * Sub-menu will expand embedded in main menu
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -104,6 +107,7 @@ declare enum SubMenuExpandingMode {
      * Sub-menu will expand over main menu
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -157,6 +161,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { Font } value - Indicates the font style of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -167,6 +172,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { Font } value - Indicates the font style of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -178,6 +184,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { ResourceColor } value - Indicates the font color of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -187,6 +194,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { ResourceColor } value - Indicates the font color of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -199,6 +207,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { Dimension | BorderRadiuses } value - the border radius.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -209,6 +218,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { Dimension | BorderRadiuses } value - the border radius.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -220,6 +230,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { DividerStyleOptions | undefined } options
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -231,6 +242,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { DividerStyleOptions | undefined } options
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -242,6 +254,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { SubMenuExpandingMode } mode
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -253,6 +266,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { SymbolGlyphModifier } symbol
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
      */
@@ -262,6 +276,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { SymbolGlyphModifier } symbol
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 23 dynamic

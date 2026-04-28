@@ -23,6 +23,7 @@
  *
  * @interface PolygonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -392,7 +393,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @since 7
  */
 /**
- * Defines CheckboxGroup Component.
+ * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -400,7 +401,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @since 9
  */
 /**
- * Defines CheckboxGroup Component.
+ * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -409,7 +410,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @since 10
  */
 /**
- * Defines CheckboxGroup Component.
+ * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

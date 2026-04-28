@@ -2675,6 +2675,33 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_CANCEL = 2731,
 
   /**
+   * KEYCODE_MOUSE_ASSISTANT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_MOUSE_ASSISTANT = 2732,
+
+  /**
+   * KEYCODE_MOUSE_INTELLIGENCE_SELECTION
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
+
+  /**
+   * KEYCODE_AOD_SINGLE_CLICK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_AOD_SINGLE_CLICK = 2740,
+
+  /**
    * KEYCODE_FRONT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -3221,5 +3248,32 @@ export declare enum KeyCode {
    * @since 20 dynamic
    * @since 23 static
    */
-  KEYCODE_DIV = 3220
+  KEYCODE_DIV = 3220,
+
+  /**
+   * KEYCODE_XKEY
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_XKEY = 3232,
+ 
+  /**
+   * KEYCODE_FINGERPRINT_SLIDE_UP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_FINGERPRINT_SLIDE_UP = 3233,
+ 
+  /**
+   * KEYCODE_FINGERPRINT_SLIDE_DOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_FINGERPRINT_SLIDE_DOWN = 3234
 }

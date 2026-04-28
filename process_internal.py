@@ -91,6 +91,9 @@ def main(argv):
     result = copy_files(options)
     for file_path in result:
         shutil.copy(file_path, options.output)
+
+    # 更新输出文件夹的修改时间，防止后续编译工具误认为文件未修改而跳过编译
+    os.utime(options.output)
     return 0
 
 

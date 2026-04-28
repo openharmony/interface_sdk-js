@@ -25,7 +25,8 @@ import type accessibility from '../@ohos.accessibility';
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
-import { AccessibilityAction, FocusMoveResultCode } from '../@ohos.accessibility';
+import { AccessibilityAction, FocusMoveResultCode, InjectActionType,
+    AccessibilityFocusScene } from '../@ohos.accessibility';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -1267,7 +1268,7 @@ export declare interface AccessibilityElement {
   windowId?: int;
 
   /**
-   * Indicates the offset.
+   * Indicates the offset, in units of px.
    *
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1308,6 +1309,36 @@ export declare interface AccessibilityElement {
    * @since 23 dynamic&static
    */
   accessibilityStateDescription?: string;
+
+  /**
+   * Indicates whether this node is essential to users.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isEssential?: boolean;
+
+  /**
+   * Indicates id of the component tree to which the node belongs.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  belongTreeId?: int;
+
+  /**
+   * Indicates the id of a child component tree.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  childrenTreeId?: int;
 
   /**
    * Indicates the hot area of the element.
@@ -1495,6 +1526,15 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   childrenIds?: Array<long>;
+
+  /**
+   * Indicates the custom actions supported by the component.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  customActions?: Array<string>;
 
   /**
    * Execute the specified action.
@@ -1809,6 +1849,32 @@ export declare class Parameter {
    * @since 23 static
    */
   scrollType?: string;
+  /**
+   * Indicates the action type for AccessibilityAction.INJECT_ACTION.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  injectActionType?: InjectActionType;
+  /**
+   * Indicates the action for AccessibilityAction.EXECUTE_CUSTOM_ACTION.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  customAction?: string;
+  /**
+   * Indicates the scene for AccessibilityAction.ACCESSIBILITY_FOCUS.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  accessibilityFocusScene?: AccessibilityFocusScene;
 }
 
 /**
@@ -2210,7 +2276,7 @@ export interface ElementAttributeValues {
    */
   windowId: int;
   /**
-   * Indicates the offset.
+   * Indicates the offset, in units of px.
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2289,6 +2355,105 @@ export interface ElementAttributeValues {
    * @since 18 dynamiconly
    */
   accessibilityScrollable?: boolean;
+  /**
+   * Indicates whether this node is essential to users.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  isEssential?: boolean;
+  /**
+   * Indicates id of the component tree to which the node belongs.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  belongTreeId?: int;
+
+  /**
+   * Indicates the id of a child component tree.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  childrenTreeId?: int;
+  /**
+   * Indicates the current item in grid of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  currentItem?: AccessibilityGrid;
+  /**
+   * Indicates the span array of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  span?: AccessibilitySpan[];
+  /**
+   * Indicates the children elements id list of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  childrenIds?: Array<long>;
+  /**
+   * Indicates the parent element id of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  parentId?: long;
+  /**
+   * Indicates the main windowId of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  mainWindowId?: int;
+  /**
+   * Indicates whether the component is accessibility visible.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  accessibilityVisible?: boolean;
+  /**
+   * Indicates the navDestination id of component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  navDestinationId?: long;
+  /**
+   * Indicates the custom actions supported by the component.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  customActions?: Array<string>;
 }
 
 /**
@@ -2354,7 +2519,7 @@ export type FocusRule = 'bypassSelf' | 'bypassSelfDescendants' |
  */
 export interface Rect {
   /**
-   * The left position of Rect
+   * The left position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2363,7 +2528,7 @@ export interface Rect {
    */
   left: int;
   /**
-   * The top position of Rect
+   * The top position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2372,7 +2537,7 @@ export interface Rect {
    */
   top: int;
   /**
-   * The width position of Rect
+   * The width position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2381,7 +2546,7 @@ export interface Rect {
    */
   width: int;
   /**
-   * The height position of Rect
+   * The height position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core

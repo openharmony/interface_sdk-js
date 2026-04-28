@@ -22,7 +22,7 @@ import { Length, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { AttributeModifier, Bindable, CommonMethod, UIScrollableCommonEvent } from "./common";
 
 /**
  * Define start line info used in GridLayoutOptions.
@@ -110,6 +110,7 @@ export type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInfo
  *
  * @interface GridLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface GridLayoutOptions {
@@ -118,6 +119,7 @@ export declare interface GridLayoutOptions {
      *
      * @type { [int, int] } regularSize
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     regularSize: [
@@ -130,6 +132,7 @@ export declare interface GridLayoutOptions {
      * @type { ?int[] } irregularIndexes
      * @default int[] no irregular grid item
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     irregularIndexes?: int[];
@@ -139,6 +142,7 @@ export declare interface GridLayoutOptions {
      * @type { ?function } onGetIrregularSizeByIndex,
      * all irregular grid items will occupy an entire line if not set
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onGetIrregularSizeByIndex?: (index: int) => [
@@ -151,6 +155,7 @@ export declare interface GridLayoutOptions {
      *
      * @type { ?function } onGetRectByIndex
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onGetRectByIndex?: (index: int) => [
@@ -187,6 +192,7 @@ export declare interface GridLayoutOptions {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum GridDirection {
@@ -194,6 +200,7 @@ export declare enum GridDirection {
      * The row direction.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Row,
@@ -201,6 +208,7 @@ export declare enum GridDirection {
      * The column direction.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Column,
@@ -208,6 +216,7 @@ export declare enum GridDirection {
      * The row reverse direction.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RowReverse,
@@ -215,6 +224,7 @@ export declare enum GridDirection {
      * The column reverse direction.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ColumnReverse
@@ -224,6 +234,7 @@ export declare enum GridDirection {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum GridItemAlignment {
@@ -231,6 +242,7 @@ export declare enum GridItemAlignment {
      * Use the default alignment of the Grid.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DEFAULT = 0,
@@ -239,6 +251,7 @@ export declare enum GridItemAlignment {
      * will be used as the height for the other items in the same line
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     STRETCH = 1
@@ -248,6 +261,7 @@ export declare enum GridItemAlignment {
  *
  * @interface ComputedBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ComputedBarAttribute {
@@ -256,6 +270,7 @@ export declare interface ComputedBarAttribute {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     totalOffset: double;
@@ -264,6 +279,7 @@ export declare interface ComputedBarAttribute {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     totalLength: double;
@@ -274,6 +290,7 @@ export declare interface ComputedBarAttribute {
  * @extends UIScrollableCommonEvent
  * @interface UIGridEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 24 static
  */
 export declare interface UIGridEvent extends UIScrollableCommonEvent {
@@ -283,6 +300,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
@@ -292,6 +310,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
@@ -301,6 +320,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
@@ -312,6 +332,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 24 static
  */
 export type OnGridScrollIndexCallback = (first: int, last: int) => void;
@@ -321,6 +342,7 @@ export type OnGridScrollIndexCallback = (first: int, last: int) => void;
  * @extends ScrollableCommonMethod
  * @interface GridAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface GridAttribute extends ScrollableCommonMethod {
@@ -341,6 +363,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default rowsTemplate(value: string | undefined): this;
@@ -350,6 +373,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { Length | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default columnsGap(value: Length | undefined): this;
@@ -359,6 +383,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { Length | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default rowsGap(value: Length | undefined): this;
@@ -368,9 +393,24 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default scrollBarWidth(value: double | string | undefined): this;
+    /**
+     * Sets the scrollbar width.
+     *
+     * @param { Resource | undefined } value  - Scrollbar width.
+     *     <br>Unit: vp
+     *     <br>Default value: <em>4</em>
+     *     <br>If this parameter is set to a value less than or equal to 0, the default value is used.
+     *     The value <em>0</em> means not to show the scrollbar.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollBarWidth(value: Resource | undefined): this;
     /**
      * Sets the scrollbar color.
      *
@@ -390,6 +430,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { BarState | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default scrollBar(value: BarState | undefined): this;
@@ -401,6 +442,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     return ComputedBarAttribute to update scrollbar position and height.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onScrollBarUpdate(event: ((index: int, offset: double) => ComputedBarAttribute) | undefined): this;
@@ -412,6 +454,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     last is the index of the last item displayed in the grid.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onScrollIndex(event: ((first: int, last: int) => void) | undefined): this;
@@ -421,6 +464,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { int | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default cachedCount(value: int | undefined): this;
@@ -430,6 +474,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } show - if true, cached items are displayed when clip is disabled.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default cachedCount(count: int | undefined, show: boolean | undefined): this;
@@ -439,6 +484,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default editMode(value: boolean | undefined): this;
@@ -448,6 +494,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default multiSelectable(value: boolean | undefined): this;
@@ -457,6 +504,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { int | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default maxCount(value: int | undefined): this;
@@ -466,6 +514,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { int | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default minCount(value: int | undefined): this;
@@ -475,6 +524,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default cellLength(value: double | undefined): this;
@@ -484,6 +534,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { GridDirection | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default layoutDirection(value: GridDirection | undefined): this;
@@ -493,6 +544,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default supportAnimation(value: boolean | undefined): this;
@@ -517,6 +569,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
     * @param { OnItemDragStartCallback | undefined } event
     * @returns { this }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     default onItemDragStart(event: OnItemDragStartCallback | undefined): this;
@@ -526,6 +579,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onItemDragEnter(event: ((event: ItemDragInfo) => void) | undefined): this;
@@ -535,6 +589,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onItemDragMove(event: ((event: ItemDragInfo, itemIndex: int, insertIndex: int) => void) | undefined): this;
@@ -544,6 +599,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: int) => void) | undefined): this;
@@ -554,6 +610,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onItemDrop(event: ((event: ItemDragInfo, itemIndex: int, insertIndex: int, isSuccess: boolean) => void) | undefined): this;
@@ -564,6 +621,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { EdgeEffectOptions } [options]
      * @returns { this } The attribute of the grid
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default edgeEffect(value: EdgeEffect | undefined, options?: EdgeEffectOptions): this;
@@ -573,6 +631,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { NestedScrollOptions | undefined } value - options for nested scrolling.
      * @returns { this } the attribute of the grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default nestedScroll(value: NestedScrollOptions | undefined): this;
@@ -582,6 +641,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } value
      * @returns { this } The attribute of the grid
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableScrollInteraction(value: boolean | undefined): this;
@@ -591,6 +651,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { double | Resource | undefined } value - options for scrolling friction.
      * @returns { this } the attribute of the grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default friction(value: double | Resource | undefined): this;
@@ -600,6 +661,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { GridItemAlignment | undefined } alignment - Items alignment
      * @returns { this } The attribute of the grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default alignItems(alignment: GridItemAlignment | undefined): this;
@@ -610,9 +672,22 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
      * @returns { this } The attribute of the grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default editModeOptions(options?: EditModeOptions): this;
+    /**
+     * Set whether to enable edit mode.
+     *
+     * @param { boolean | Bindable<boolean> |  undefined } enabled - enable edit mode.
+     *     <br>Default value: false.
+     *     <br>This parameter supports two-way binding of variables.
+     * @returns { this } The attribute of the Grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableEditMode(enabled: boolean | Bindable<boolean> | undefined): this;
     /**
      * Sets the focus wrap mode of the Gird component.
      *
@@ -620,6 +695,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
      * @returns { this } the attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
@@ -630,6 +706,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this } The attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default syncLoad(enable: boolean | undefined): this;
@@ -641,6 +718,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     triggered when the scrolling begin each frame.
      * @returns { this } Returns the instance of the GridAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
@@ -650,6 +728,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { OnWillScrollCallback | undefined } handler - callback of scrollable.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onWillScroll(handler: OnWillScrollCallback | undefined): this;
@@ -660,6 +739,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
@@ -669,6 +749,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @param { AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -682,6 +763,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { GridAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

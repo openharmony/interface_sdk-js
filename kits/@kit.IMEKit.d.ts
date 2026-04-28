@@ -26,10 +26,12 @@ import InputMethodSubtype from '@ohos.InputMethodSubtype';
 import { InputMethodListDialog, PatternOptions, Pattern } from '@ohos.inputMethodList';
 import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
 import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig';
+import inputMethodSystemPanelManager from '@ohos.inputMethodSystemPanelManager';
 
 export {
   InputMethodExtensionAbility, InputMethodExtensionContext, InputMethodSubtype, inputMethod, inputMethodEngine,
-  InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag, InputMethodExtraConfig
+  InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag, InputMethodExtraConfig,
+  inputMethodSystemPanelManager
 };
 
 /*** if arkts static */
@@ -41,10 +43,11 @@ import InputMethodSubtype from '@ohos.InputMethodSubtype';
 import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
 import { InputMethodListDialog, PatternOptions, Pattern } from '@ohos.inputMethodList';
 import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig';
+import inputMethodSystemPanelManager from '@ohos.inputMethodSystemPanelManager';
 
 export {
   InputMethodExtensionAbility, InputMethodExtensionContext, InputMethodSubtype, inputMethod, inputMethodEngine,
-  InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag, InputMethodExtraConfig
-
+  InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag, InputMethodExtraConfig,
+  inputMethodSystemPanelManager
 };
 /*** endif */

@@ -19,7 +19,11 @@
  */
 
 /**
- * The ability or extension state data.
+ * The AbilityStateData module defines a struct for ability state information. Once a lifecycle change listener is 
+ * registered using 
+ * [on]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
+ * , you can obtain an instance of this struct from the input parameter of the **onAbilityStateChanged** callback of 
+ * [ApplicationStateObserver]{@link ApplicationStateObserver}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
@@ -27,9 +31,8 @@
  */
 declare class AbilityStateData {
   /**
-   * The module name.
+   * Module name to which the ability belongs.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -37,9 +40,8 @@ declare class AbilityStateData {
   moduleName: string;
 
   /**
-   * The bundle name.
+   * Bundle name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -47,9 +49,8 @@ declare class AbilityStateData {
   bundleName: string;
 
   /**
-   * The ability name.
+   * Ability name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -57,9 +58,8 @@ declare class AbilityStateData {
   abilityName: string;
 
   /**
-   * The pid.
+   * Process ID.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -67,9 +67,8 @@ declare class AbilityStateData {
   pid: int;
 
   /**
-   * The uid.
+   * UID of the application.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -77,9 +76,20 @@ declare class AbilityStateData {
   uid: int;
 
   /**
-   * The application state.
+   * Ability state.
+   * 
+   * - [Stage model](docroot://application-models/ability-terminology.md#stage-model): For the 
+   * [UIAbility]{@link ./../@ohos.app.ability.UIAbility}, see 
+   * [UIAbility States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#uiability-states)
+   * . For the [ExtensionAbility]{@link ./../@ohos.app.ability.ExtensionAbility:ExtensionAbility}, see 
+   * [ExtensionAbility States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#extensionability-states)
+   * . For the [UIExtensionAbility]{@link ./../@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, see 
+   * [UIExtensionAbility States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#uiextensionability-states)
+   * .
+   * - [FA model](docroot://application-models/ability-terminology.md#fa-model): For the ability, see 
+   * [Ability States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#ability-states)
+   * .
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -87,9 +97,10 @@ declare class AbilityStateData {
   state: int;
 
   /**
-   * The ability type, page or service and so on.
+   * [Ability type](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#ability-types), 
+   * which can be [UIAbility]{@link ./../@ohos.app.ability.UIAbility} or 
+   * [ExtensionAbility]{@link ./../@ohos.app.ability.ExtensionAbility:ExtensionAbility}.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -97,9 +108,12 @@ declare class AbilityStateData {
   abilityType: int;
 
   /**
-   * Indicates whether the application is atomic service.
+   * Whether the ability belongs to an atomic service.
+   * 
+   * **true**: The ability belongs to an atomic service.
+   * 
+   * **false**: The ability does not belong to an atomic service.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -107,8 +121,8 @@ declare class AbilityStateData {
   isAtomicService: boolean;
 
   /**
-   * The app clone index of ability instance.
-   * @type { ?int }
+   * Index of an [application clone](docroot://quick-start/app-clone.md).
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 23 static
@@ -116,9 +130,8 @@ declare class AbilityStateData {
   appCloneIndex?: int;
 
   /**
-   * The caller bundle name.
+   * Bundle name of the application that triggers the creation of the ability.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 23 dynamic&static
    */

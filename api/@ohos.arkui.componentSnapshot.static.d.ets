@@ -26,6 +26,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  *
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 declare namespace componentSnapshot {
@@ -34,6 +35,7 @@ declare namespace componentSnapshot {
      *
      * @typedef SnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface SnapshotRegion {
@@ -42,6 +44,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         left: double;
@@ -50,6 +53,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         right: double;
@@ -58,6 +62,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         top: double;
@@ -66,16 +71,18 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         bottom: double;
     }
     /**
      * Defines the extra options for snapshot taking, if this is used, the start and end will
-     * be assigned to left and right value according to the layout direction of node automaticlly.
+     * be assigned to left and right value according to the layout direction of node automatically.
      *
      * @typedef LocalizedSnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface LocalizedSnapshotRegion {
@@ -84,6 +91,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         start: double;
@@ -92,6 +100,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         end: double;
@@ -100,6 +109,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         top: double;
@@ -108,6 +118,7 @@ declare namespace componentSnapshot {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         bottom: double;
@@ -117,6 +128,7 @@ declare namespace componentSnapshot {
      *
      * @typedef { SnapshotRegion | LocalizedSnapshotRegion } SnapshotRegionType
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
@@ -132,6 +144,7 @@ declare namespace componentSnapshot {
      *
      * @typedef ColorModeOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface ColorModeOptions {    
@@ -140,12 +153,13 @@ declare namespace componentSnapshot {
        *
        * @type { ?colorSpaceManager.ColorSpace }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @since 23 static
        */
       colorSpace?: colorSpaceManager.ColorSpace;
       /**
-       * Indicate that if the system should decide the color space automaticlly.
-       * If set this to true, the one specificed by colorSpace parameter will be ignored.
+       * Indicate that if the system should decide the color space automatically.
+       * If set this to true, the one specified by colorSpace parameter will be ignored.
        *
        * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
        * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
@@ -155,6 +169,7 @@ declare namespace componentSnapshot {
        *     actual component situation. False means using the value set via the colorSpace field.
        *     The default value is false.
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @since 23 static
        */
       isAuto?: boolean;
@@ -172,19 +187,20 @@ declare namespace componentSnapshot {
      * @stagemodelonly
      * @since 23 static
      */
-    export interface DynamicRangeModeOptions {    
+    export interface DynamicRangeModeOptions {
       /**
        * Set one specific dynamic range mode that you want to use.
        *
        * @type { ?DynamicRangeMode }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @since 23 static
        */
       dynamicRangeMode?: DynamicRangeMode;
 
       /**
-       * Indicate that if the system should decide the dynamic range mode automaticlly.
-       * If set this to true, the one specificed by dynamicRangeMode parameter will be ignored.
+       * Indicate that if the system should decide the dynamic range mode automatically.
+       * If set this to true, the one specified by dynamicRangeMode parameter will be ignored.
        *
        * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
        * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
@@ -194,9 +210,38 @@ declare namespace componentSnapshot {
        *     based on the actual component situation. False means using the value set via the dynamicRangeMode field.
        *     The default value is false.
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @since 23 static
        */
       isAuto?: boolean;
+    }
+
+    /**
+     * Defines the size limitation for component snapshot taking.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    export interface SnapshotSizeLimitation {
+      /**
+       * Maximum width limitation for component snapshot, in PX.
+       *
+       * @type { int }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
+       * @since 26.0.0 static
+       */
+      maxWidth: int;
+      /**
+       * Maximum height limitation for component snapshot, in PX.
+       *
+       * @type { int }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
+       * @since 26.0.0 static
+       */
+      maxHeight: int;
     }
 
     /**
@@ -204,6 +249,7 @@ declare namespace componentSnapshot {
      *
      * @typedef SnapshotOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface SnapshotOptions {
@@ -212,6 +258,7 @@ declare namespace componentSnapshot {
          *
          * @type {?double}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         scale?: double;
@@ -220,14 +267,15 @@ declare namespace componentSnapshot {
          *
          * @type {?boolean}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         waitUntilRenderFinished?: boolean;
         /**
-         * Defines the rect reigon type of the snapshot.
+         * Defines the rect region type of the snapshot.
          *
-         * @type {?SnapshotRegionType}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         region?: SnapshotRegionType;
@@ -236,6 +284,7 @@ declare namespace componentSnapshot {
          *
          * @type { ?ColorModeOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         colorMode?: ColorModeOptions;
@@ -245,6 +294,7 @@ declare namespace componentSnapshot {
          *
          * @type { ?DynamicRangeModeOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         dynamicRangeMode?: DynamicRangeModeOptions;
@@ -261,6 +311,7 @@ declare namespace componentSnapshot {
      * @throws { BusinessError } 160002 - Timeout.
      * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function getSync(id: string, options?: SnapshotOptions): image.PixelMap | null;

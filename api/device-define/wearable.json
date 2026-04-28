@@ -108,6 +108,7 @@
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiSysEvent",
+    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.HiviewDFX.HiTrace",
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",
@@ -194,6 +195,6 @@
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.MiscServices.Pasteboard",
-    "SystemCapability.FileManagement.PhotoAccessHelper.Core"
+    "SystemCapability.Applications.Settings.Core.Lite"
   ]
 }

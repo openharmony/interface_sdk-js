@@ -18,17 +18,20 @@
  * @file
  * @kit ArkUI
  */
-import { Resource, Dimension, BorderRadiuses, SizeOptions } from './units';
+import { Resource, Dimension, BorderRadiuses, SizeOptions, ResourceColor } from './units';
 import { ButtonType } from './button';
 import { ClickEvent, AttributeModifier, CommonMethod } from './common';
 import { SecurityComponentMethod } from './securityComponent';
 import { BusinessError } from '../../@ohos.base';
 import { ComponentBuilder } from './builder';
+import { FontWeight } from './enums';
+import { SymbolRenderingStrategy } from './symbolglyph';
 /**
  * Enumerates the icon styles.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SaveIconStyle {
@@ -36,6 +39,7 @@ export declare enum SaveIconStyle {
    * Icon filled with the specified color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   FULL_FILLED = 0,
@@ -43,6 +47,7 @@ export declare enum SaveIconStyle {
    * Icon rendered as lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   LINES = 1,
@@ -51,6 +56,7 @@ export declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   PICTURE = 2
@@ -60,6 +66,7 @@ export declare enum SaveIconStyle {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SaveDescription {
@@ -67,6 +74,7 @@ export declare enum SaveDescription {
    * Download
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   DOWNLOAD = 0,
@@ -74,6 +82,7 @@ export declare enum SaveDescription {
    * Download File
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   DOWNLOAD_FILE = 1,
@@ -81,6 +90,7 @@ export declare enum SaveDescription {
    * Save
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   SAVE = 2,
@@ -88,6 +98,7 @@ export declare enum SaveDescription {
    * Save Image
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   SAVE_IMAGE = 3,
@@ -95,6 +106,7 @@ export declare enum SaveDescription {
    * Save File
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   SAVE_FILE = 4,
@@ -102,6 +114,7 @@ export declare enum SaveDescription {
    * Download and Share
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   DOWNLOAD_AND_SHARE = 5,
@@ -109,6 +122,7 @@ export declare enum SaveDescription {
    * Receive
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   RECEIVE = 6,
@@ -116,6 +130,7 @@ export declare enum SaveDescription {
    * Continue to Receive
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   CONTINUE_TO_RECEIVE = 7,
@@ -123,6 +138,7 @@ export declare enum SaveDescription {
    * Save to gallery
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   SAVE_TO_GALLERY = 8,
@@ -130,6 +146,7 @@ export declare enum SaveDescription {
    * Export to gallery
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   EXPORT_TO_GALLERY = 9,
@@ -137,6 +154,7 @@ export declare enum SaveDescription {
    * Quick save to gallery
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   QUICK_SAVE_TO_GALLERY = 10,
@@ -144,6 +162,7 @@ export declare enum SaveDescription {
    * Resave to gallery
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   RESAVE_TO_GALLERY = 11,
@@ -152,6 +171,7 @@ export declare enum SaveDescription {
    * Save all
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   SAVE_ALL = 12
@@ -161,6 +181,7 @@ export declare enum SaveDescription {
  *
  * @interface SaveButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SaveButtonOptions {
@@ -169,6 +190,7 @@ export declare interface SaveButtonOptions {
    *
    * @type { ?SaveIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   icon?: SaveIconStyle;
@@ -177,6 +199,7 @@ export declare interface SaveButtonOptions {
    *
    * @type { ?SaveDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   text?: SaveDescription;
@@ -185,6 +208,7 @@ export declare interface SaveButtonOptions {
    *
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   buttonType?: ButtonType;
@@ -194,6 +218,7 @@ export declare interface SaveButtonOptions {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SaveButtonOnClickResult {
@@ -201,6 +226,7 @@ export declare enum SaveButtonOnClickResult {
    * Success.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   SUCCESS = 0,
@@ -208,6 +234,7 @@ export declare enum SaveButtonOnClickResult {
    * Failure because the application is not temporarily authorized for saving files.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1,
@@ -215,9 +242,10 @@ export declare enum SaveButtonOnClickResult {
    * Canceled by user.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  CANCELED_BY_USER = 2,
+  CANCELED_BY_USER = 2
 }
 /**
  * Callback function when the save button is clicked.
@@ -227,6 +255,7 @@ export declare enum SaveButtonOnClickResult {
  * @param { SaveButtonOnClickResult } result - The result of click event.
  * @param { BusinessError<void> } [error] - The error code and message of click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SaveButtonCallback 
@@ -238,6 +267,7 @@ export type SaveButtonCallback
  * @extends SecurityComponentMethod
  * @interface SaveButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SaveButtonAttribute extends SecurityComponentMethod {
@@ -247,6 +277,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @param { SaveButtonCallback | undefined } event
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onClick(event: SaveButtonCallback | undefined): this;
@@ -258,6 +289,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @param { Resource | undefined } icon - Source of the icon.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   setIcon(icon: Resource | undefined): this;
@@ -269,6 +301,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @param { string | Resource | undefined } text - Content of text.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   setText(text: string | Resource | undefined): this;
@@ -279,6 +312,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @param { Dimension | SizeOptions | undefined } size - Dimensions of the icon to set.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   iconSize(size: Dimension | SizeOptions | undefined): this;
@@ -290,6 +324,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @param { Dimension | BorderRadiuses | undefined } radius - Border radius of the icon to set.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   iconBorderRadius(radius: Dimension | BorderRadiuses | undefined): this;
@@ -302,6 +337,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    *     to enable the press effect; the value false means the opposite.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   stateEffect(enabled: boolean | undefined): this;
@@ -312,9 +348,46 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @param { boolean | undefined } enabled Whether to receive the event when the user clicks cancel.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   userCancelEvent(enabled: boolean | undefined): this;
+  
+  /**
+ 	 * Sets the color of the symbol icon.
+ 	 *
+ 	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+ 	 * @param { Array<ResourceColor> | undefined } color - Color of the symbol icon.
+ 	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	symbolIconColor(color: Array<ResourceColor> | undefined): this;
+
+ 	/**
+ 	 * Sets the rendering policy of the symbol icon.
+ 	 *
+ 	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+ 	 * @param { SymbolRenderingStrategy | undefined } strategy - Rendering policy of the symbol icon.
+ 	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	symbolRenderingStrategy(strategy: SymbolRenderingStrategy | undefined): this;
+
+ 	/**
+ 	 * Sets the font weight of the symbol icon.
+ 	 *
+ 	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+ 	 * @param { int | FontWeight | string | Resource | undefined } fontWeight - Font weight of the symbol icon.
+ 	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	symbolFontWeight(fontWeight: int | FontWeight | string | Resource | undefined): this;
 }
 
 
@@ -324,6 +397,7 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
  * @param { SaveButtonOptions } [options] - Options of the save button.
  * @returns { SaveButtonAttribute } Attributes of the save button.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

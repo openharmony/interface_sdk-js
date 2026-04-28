@@ -23,6 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -31,6 +32,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -39,12 +41,14 @@ declare enum CounterType {
     /**
      * List counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
      * List counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -54,12 +58,14 @@ declare enum CounterType {
     /**
      * Compact counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
      * Compact counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -69,12 +75,14 @@ declare enum CounterType {
     /**
      * Inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
      * Inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -84,12 +92,14 @@ declare enum CounterType {
     /**
      * Date inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
      * Date inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -101,6 +111,7 @@ declare enum CounterType {
  * Defines the common options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -108,6 +119,7 @@ declare enum CounterType {
  * Defines the common options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -118,6 +130,7 @@ declare class CommonOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -126,6 +139,7 @@ declare class CommonOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -133,20 +147,22 @@ declare class CommonOptions {
     focusable?: boolean;
 
     /**
-     * Set the step of the couter component, ranges greater than or equal to 1
+     * Set the step of the counter component, ranges greater than or equal to 1
      *
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Set the step of the couter component, ranges greater than or equal to 1
+     * Set the step of the counter component, ranges greater than or equal to 1
      *
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -154,18 +170,20 @@ declare class CommonOptions {
     step?: number;
 
     /**
-     * Trigger a mouse hover event at the increased button.
+     * Trigger a mouse hover event at the increase button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a mouse hover event at the increased button.
+     * Trigger a mouse hover event at the increase button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -173,18 +191,20 @@ declare class CommonOptions {
     onHoverIncrease?: (isHover: boolean) => void;
 
     /**
-     * Trigger a mouse hover event at the decreased button.
+     * Trigger a mouse hover event at the decrease button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a mouse hover event at the decreased button.
+     * Trigger a mouse hover event at the decrease button.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -196,6 +216,7 @@ declare class CommonOptions {
  * Defines the inline style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -203,6 +224,7 @@ declare class CommonOptions {
  * Defines the inline style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -214,6 +236,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -223,6 +246,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -235,6 +259,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -244,6 +269,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -256,6 +282,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -265,6 +292,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -272,20 +300,22 @@ declare class InlineStyleOptions extends CommonOptions {
     max?: number;
 
     /**
-     * Set text width  of the counter component,  ranges greater than or equal to 0
+     * Set text width of the counter component,  ranges greater than or equal to 0
      *
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Set text width  of the counter component,  ranges greater than or equal to 0
+     * Set text width of the counter component,  ranges greater than or equal to 0
      *
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -293,18 +323,20 @@ declare class InlineStyleOptions extends CommonOptions {
     textWidth?: number;
 
     /**
-     * Trigger a event when the value of the counter has been changed.
+     * Trigger an event when the value of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a event when the value of the counter has been changed.
+     * Trigger an event when the value of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -316,6 +348,7 @@ declare class InlineStyleOptions extends CommonOptions {
  * Defines the number style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -323,6 +356,7 @@ declare class InlineStyleOptions extends CommonOptions {
  * Defines the number style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -333,6 +367,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -341,6 +376,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -348,18 +384,20 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     label?: ResourceStr;
 
     /**
-     * Trigger a event when the increased button got focus.
+     * Trigger an event when the increase button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a event when the increased button got focus.
+     * Trigger an event when the increase button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -367,18 +405,20 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     onFocusIncrease?: () => void;
 
     /**
-     * Trigger a event when the decreased button got focus.
+     * Trigger an event when the decrease button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a event when the decreased button got focus.
+     * Trigger an event when the decrease button gets focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -386,18 +426,20 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     onFocusDecrease?: () => void;
 
     /**
-     * Trigger a event when the increased button lose focus.
+     * Trigger an event when the increase button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a event when the increased button lose focus.
+     * Trigger an event when the increase button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -405,18 +447,20 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     onBlurIncrease?: () => void;
 
     /**
-     * Trigger a event when the decreased button lose focus.
+     * Trigger an event when the decrease button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a event when the decreased button lose focus.
+     * Trigger an event when the decrease button loses focus.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -428,6 +472,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  * Defines the date data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -435,6 +480,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  * Defines the date data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -445,6 +491,7 @@ declare class DateData {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -453,6 +500,7 @@ declare class DateData {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -464,6 +512,7 @@ declare class DateData {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -472,6 +521,7 @@ declare class DateData {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -483,6 +533,7 @@ declare class DateData {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -491,6 +542,7 @@ declare class DateData {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -504,6 +556,7 @@ declare class DateData {
      * @param { number } month - set the month of the DateData.
      * @param { number } day - set the day of the DateData.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -514,6 +567,7 @@ declare class DateData {
      * @param { number } month - set the month of the DateData.
      * @param { number } day - set the day of the DateData.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -525,6 +579,7 @@ declare class DateData {
      *
      * @returns { string } date data in string form.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -533,6 +588,7 @@ declare class DateData {
      *
      * @returns { string } date data in string form.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -544,6 +600,7 @@ declare class DateData {
  * Defines the date style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -551,6 +608,7 @@ declare class DateData {
  * Defines the date style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -562,6 +620,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -571,6 +630,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -583,6 +643,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -592,6 +653,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -604,6 +666,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -613,6 +676,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -620,18 +684,20 @@ declare class DateStyleOptions extends CommonOptions {
     day?: number;
 
     /**
-     * Trigger a event when the date of the counter has been changed.
+     * Trigger an event when the date of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
      /**
-     * Trigger a event when the date of the counter has been changed.
+     * Trigger an event when the date of the counter has been changed.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -644,6 +710,7 @@ declare class DateStyleOptions extends CommonOptions {
  * Defines the counter options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -651,6 +718,7 @@ declare class DateStyleOptions extends CommonOptions {
  * Defines the counter options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -661,6 +729,7 @@ declare class CounterOptions {
      *
      * @type { CounterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -669,6 +738,7 @@ declare class CounterOptions {
      *
      * @type { CounterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -680,6 +750,7 @@ declare class CounterOptions {
      *
      * @type { ?NumberStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -688,6 +759,7 @@ declare class CounterOptions {
      *
      * @type { ?NumberStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -699,6 +771,7 @@ declare class CounterOptions {
      *
      * @type { ?InlineStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -707,6 +780,7 @@ declare class CounterOptions {
      *
      * @type { ?InlineStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -718,6 +792,7 @@ declare class CounterOptions {
      *
      * @type { ?DateStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -726,6 +801,7 @@ declare class CounterOptions {
      *
      * @type { ?DateStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -737,6 +813,7 @@ declare class CounterOptions {
      *
      * @type { ?Direction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -748,6 +825,7 @@ declare class CounterOptions {
  * Defines Counter Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -755,6 +833,7 @@ declare class CounterOptions {
  * Defines Counter Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -766,6 +845,7 @@ declare struct CounterComponent {
      *
      * @type { CounterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 11
      */
@@ -774,6 +854,7 @@ declare struct CounterComponent {
      *
      * @type { CounterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic

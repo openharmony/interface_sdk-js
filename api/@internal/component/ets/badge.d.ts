@@ -373,6 +373,7 @@ declare interface BadgeStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -382,6 +383,7 @@ declare interface BadgeStyle {
    * @type { ?ResourceColor }
    * @default Color.Red
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -393,6 +395,7 @@ declare interface BadgeStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -404,6 +407,7 @@ declare interface BadgeStyle {
    * @type { ?Length }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -415,6 +419,7 @@ declare interface BadgeStyle {
    *
    * @type { ?(number | FontWeight | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -423,6 +428,7 @@ declare interface BadgeStyle {
    *
    * @type { ?(number | FontWeight | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -439,6 +445,7 @@ declare interface BadgeStyle {
    *
    * @type { ?(number | FontWeight | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -451,6 +458,7 @@ declare interface BadgeStyle {
    * @type { ?ResourceColor }
    * @default Color.White
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -465,6 +473,7 @@ declare interface BadgeStyle {
    * @type { ?LengthMetrics }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -477,6 +486,7 @@ declare interface BadgeStyle {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic

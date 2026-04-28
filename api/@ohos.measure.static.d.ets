@@ -27,6 +27,7 @@ import { Resource } from './global/resource'
  *
  * @interface MeasureOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface MeasureOptions {
@@ -35,6 +36,7 @@ export interface MeasureOptions {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   textContent: string | Resource;
@@ -44,6 +46,7 @@ export interface MeasureOptions {
    *
    * @type { ?(double | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   constraintWidth?: double | string | Resource;
@@ -53,6 +56,7 @@ export interface MeasureOptions {
    *
    * @type { ?(double | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   fontSize?: double | string | Resource;
@@ -62,6 +66,7 @@ export interface MeasureOptions {
    *
    * @type { ?(int | FontStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   fontStyle?: int | FontStyle;
@@ -71,6 +76,7 @@ export interface MeasureOptions {
    *
    * @type { ?(int | string | FontWeight) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   fontWeight?: int | string | FontWeight;
@@ -80,6 +86,7 @@ export interface MeasureOptions {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   fontFamily?: string | Resource;
@@ -89,6 +96,7 @@ export interface MeasureOptions {
    *
    * @type { ?(double | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   letterSpacing?: double | string;
@@ -98,6 +106,7 @@ export interface MeasureOptions {
    *
    * @type { ?(int | TextAlign) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   textAlign?: int | TextAlign;
@@ -107,6 +116,7 @@ export interface MeasureOptions {
    *
    * @type { ?(int | TextOverflow) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   overflow?: int | TextOverflow;
@@ -116,6 +126,7 @@ export interface MeasureOptions {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   maxLines?: int;
@@ -125,6 +136,7 @@ export interface MeasureOptions {
    *
    * @type { ?(double | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   lineHeight?: double | string | Resource;
@@ -134,6 +146,7 @@ export interface MeasureOptions {
    *
    * @type { ?(double | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   baselineOffset?: double | string;
@@ -143,6 +156,7 @@ export interface MeasureOptions {
    *
    * @type { ?(int | TextCase) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   textCase?: int | TextCase;
@@ -152,6 +166,7 @@ export interface MeasureOptions {
    *
    * @type { ?(double | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   textIndent?: double | string;
@@ -161,6 +176,7 @@ export interface MeasureOptions {
    *
    * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   wordBreak?: WordBreak;
@@ -170,6 +186,7 @@ export interface MeasureOptions {
  * Defines the Measure interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 declare class MeasureText {
@@ -179,6 +196,7 @@ declare class MeasureText {
    * @param { MeasureOptions } options - Options.
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   static measureText(options: MeasureOptions): double;
@@ -189,6 +207,7 @@ declare class MeasureText {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;

@@ -170,7 +170,8 @@ declare namespace insightIntent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   interface IntentEntity {
     /**
@@ -180,11 +181,114 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamiconly
+     * @since 20 dynamic
+     * @since 26.0.0 static
      */
     entityId: string;
   }
   
+  /**
+   * Enum for query entity mode.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum QueryType {
+    /**
+     * Query all entities.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ALL = 'all',
+
+    /**
+     * Query entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    BY_PROPERTY = 'byProperty',
+  }
+
+  /**
+   * Parameter for query entity.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface QueryEntityParam {
+    /**
+     * The query type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    queryType: QueryType;
+
+    /**
+     * Indicates the parameters when querying entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    parameters?: Record<string, Object>;
+
+    /**
+     * Indicates the parameters when querying entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    parameters?: Record<string, RecordData>;
+  }
+
+  /**
+   * Define AppIntentEntity.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+  */
+  abstract class AppIntentEntity<T> implements IntentEntity {
+    /**
+     * Called when query entity execute.
+     *
+     * @param { QueryEntityParam } params - The params of query entity.
+     * @returns { Promise<Array<T>> } - Returns an array of subclasses of the AppIntentEntity class, support promise.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    abstract onQueryEntity(params: QueryEntityParam): Promise<Array<T>>;
+
+    /**
+     * The display name of entity.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    displayName: string;
+  }
+
   /**
    * The class of insight intent result.
    *
@@ -192,7 +296,8 @@ declare namespace insightIntent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   interface IntentResult<T> {
     /**
@@ -202,9 +307,10 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamiconly
+     * @since 20 dynamic
+     * @since 26.0.0 static
      */
-    code: number;
+    code: int;
 
     /**
      * The insight intent result.
@@ -213,7 +319,8 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamiconly
+     * @since 20 dynamic
+     * @since 26.0.0 static
      */
     result?: T;
   }

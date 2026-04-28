@@ -19,9 +19,21 @@
  */
 
 /**
- * Vector is a linear data structure that is implemented based on arrays. When the memory of a vector is used up,
- * a larger contiguous memory area is automatically allocated, all the elements are copied to the new memory area,
- * and the current memory area is reclaimed.
+ * Vector is a linear data structure that is implemented based on arrays. When the memory of a vector is used up, a
+ * larger contiguous memory area is automatically allocated, all the elements are copied to the new memory area, and the
+ * current memory area is reclaimed. Vector can be used to efficiently access elements.
+ * Both Vector and [ArrayList]{@link @ohos.util.ArrayList} are implemented based on arrays, but Vector provides more
+ * interfaces for operating the arrays. Both of them can dynamically adjust the capacity. Vector doubles the capacity
+ * each time, whereas ArrayList increases the capacity by 50%.
+ * **Recommended use case**: Use Vector when the data volume is large.
+ * This topic uses the following to identify the use of generics:
+ *
+ * - T: Type
+ *
+ * > **NOTE**
+ * >
+ * > - The APIs provided by this module are deprecated since API version 9. You are advised to use
+ * > [@ohos.util.ArrayList]{@link @ohos.util.ArrayList}.
  *
  * @syscap SystemCapability.Utils.Lang
  * @since 8 dynamiconly
@@ -30,7 +42,7 @@
  */
 declare class Vector<T> {
   /**
-   * A constructor used to create a Vector object.
+   * A constructor used to create a **Vector** instance.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -38,7 +50,7 @@ declare class Vector<T> {
    */
   constructor();
   /**
-   * Gets the element number of the Vector. This is a number one higher than the highest index in the vector.
+   * Number of elements in a Vector.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -46,211 +58,197 @@ declare class Vector<T> {
    */
   length: number;
   /**
-   * Appends the specified element to the end of this vector.
+   * Adds an element at the end of this Vector.
    *
-   * @param { T } element - Element to be appended to this vector
-   * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
+   * @param { T } element - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise, **false**
+   *     is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   add(element: T): boolean;
   /**
-   * Inserts the specified element at the specified position in this
-   * vector. Shifts the element currently at that position (if any) and
-   * any subsequent elements to the right (adds one to their index).
+   * Inserts an element within the length range and moves its subsequent elements rightwards.
    *
-   * @param { T } element - Element at which the specified element is to be inserted
-   * @param { number } index - Index to be inserted
+   * @param { T } element - Target element.
+   * @param { number } index - Index of the position where the element is to be inserted.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   insert(element: T, index: number): void;
   /**
-   * Check if vector contains the specified element
+   * Checks whether this Vector has the specified element.
    *
-   * @param { T } element - Element to be contained
-   * @returns { boolean } the boolean type,if vector contains the specified element,return true,else return false
+   * @param { T } element - Target element.
+   * @returns { boolean } Check result. The value **true** is returned if the Vector has the specified element;
+   *     otherwise, **false** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   has(element: T): boolean;
   /**
-   * Returns the element at the specified position in this Vector,or returns undefined if vector is empty
+   * Obtains an element at the specified position in this Vector.
    *
-   * @param { number } index - Index to be contained
-   * @returns { T } the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @param { number } index - Position index of the target element.
+   * @returns { T } Element obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   get(index: number): T;
   /**
-   * Returns the index of the first occurrence of the specified element
-   * in this vector, or -1 if this vector does not contain the element.
+   * Obtains the index of the first occurrence of the specified element in this Vector.
    *
-   * @param { T } element - Element current index
-   * @returns { number } the number type
+   * @param { T } element - Target element.
+   * @returns { number } Index of the element. If no match is found, **-1** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getIndexOf(element: T): number;
   /**
-   * Returns the first component (the item at index 0) of this vector.
-   * or returns undefined if vector is empty
+   * Obtains the first element in this Vector.
    *
-   * @returns { T } the T type ,returns undefined if vector is empty
+   * @returns { T } The first element obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getFirstElement(): T;
   /**
-   * Returns the Last component (the item at index length-1) of this vector.
-   * or returns undefined if vector is empty
+   * Obtains the last element in this Vector.
    *
-   * @returns { T } the T type ,returns undefined if vector is empty
+   * @returns { T } The last element obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastElement(): T;
   /**
-   * Find the corresponding element according to the index,
-   * delete the element, and move the index of all elements to the right of the element forward by one.
+   * Searches for an element based on its index, removes the element after returning it, and moves its subsequent
+   * elements leftwards.
    *
-   * @param { number } index - The index in the vector
-   * @returns { T } the T type ,returns undefined if vector is empty,If the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   * @param { number } index - Position index of the target element.
+   * @returns { T } Element removed. If the Vector is empty, **undefined** is returned. If the index is out of range, an
+   *     exception is thrown.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   removeByIndex(index: number): T;
   /**
-   * Removes the first occurrence of the specified element from this vector,
-   * if it is present.  If the vector does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
+   * Removes the first occurrence of the specified element from this Vector.
    *
-   * @param { T } element - Element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
+   * @param { T } element - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is removed; otherwise,
+   *     **false** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   remove(element: T): boolean;
   /**
-   * Replaces the element at the specified position in this Vector with the specified element
+   * Replaces an element at the specified position in this Vector with a given element.
    *
-   * @param { number } index - Index to find
-   * @param { T } element - Element replaced element
-   * @returns { T } the T type
+   * @param { number } index - Position index of the target element.
+   * @param { T } element - Element to be used for replacement.
+   * @returns { T } New element.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   set(index: number, element: T): T;
   /**
-   * Returns in the index of the last occurrence of the specified element in this vector ,
-   * or -1 if the vector does not contain the element.
+   * Obtains the index of the last occurrence of the specified element in this Vector.
    *
-   * @param { T } element - Element to find
-   * @returns { number } The number type
+   * @param { T } element - Target element.
+   * @returns { number } Index of the element. If no match is found, **-1** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastIndexOf(element: T): number;
   /**
-   * Returns the index of the last occurrence of the specified element in this vector ,searching backwards from index,
-   * or returns -1 if the element is not found,or -1 if there is no such index
+   * Searches for an element backward from the specified position index and returns the position index of the element.
    *
-   * @param { T } element - Element to find
-   * @param { number } index - Index start index
-   * @returns { number } the number type
+   * @param { T } element - Target element.
+   * @param { number } index - Position index where the search starts.
+   * @returns { number } Index of the element. If no match is found, **-1** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastIndexFrom(element: T, index: number): number;
   /**
-   * Returns the index of the first occurrence of the specified element in this vector ,searching forwards from index,
-   * or returns -1 if the element is not found,or -1 if there is no such index
+   * Searches for an element forward from the specified position index and returns the position index of the element.
    *
-   * @param { T } element - Element to find
-   * @param { number } index - Index start index
-   * @returns { number } the number type
+   * @param { T } element - Target element.
+   * @param { number } index - Position index where the search starts.
+   * @returns { number } Index of the element. If no match is found, **-1** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getIndexFrom(element: T, index: number): number;
   /**
-   * Removes from this vector all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
+   * Removes from this Vector all of the elements within a range, including the element at the start position but not
+   * that at the end position.
    *
-   * @param { number } fromIndex - The starting position of the index, containing the value at that index position
-   * @param { number } toIndex - The end of the index, excluding the value at that index
+   * @param { number } fromIndex - Index of the start position.
+   * @param { number } toIndex - Index of the end position.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   removeByRange(fromIndex: number, toIndex: number): void;
   /**
-   * Replaces each element of this vector with the result of applying the operator to that element.
+   * Replaces all elements in this Vector with new elements, and returns the new ones.
    *
-   * @param { function } callbackFn - A function that accepts up to four arguments.The function to be called
-   * for each element in the vector,Returns the result of an operation
-   * @param { Object } thisArg - The value passed to the function generally uses the
-   * "this" value.If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - Callback invoked for replacement.
+   * @param { Object } thisArg - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector<T>) => T, thisArg?: Object): void;
   /**
-   * Executes a provided function once for each value in the vector object.
+   * Uses a callback to traverse the elements in this Vector and obtain their position indexes.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to be
-   * called for each element in the vector
-   * @param { Object } thisArg - The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - Callback invoked for replacement.
+   * @param { Object } thisArg - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void, thisArg?: Object): void;
   /**
-   * Sorts this vector according to the order induced by the specified comparator,without comparator
-   * this parameter, it will default to ASCII sorting
+   * Sorts elements in this Vector.
    *
-   * @param { function } comparator - comparator
-   * (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an vector sorted
-   * in ascending order;If it returns secondValue minus firstValue, it returns an vector sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   * @param { function } comparator - Callback invoked for sorting. The default value is this instance.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   sort(comparator?: (firstValue: T, secondValue: T) => number): void;
   /**
-   * Returns a view of the portion of this vector between the specified fromIndex,inclusive,and toIndex,exclusive
+   * Obtains elements within a range in this Vector, including the element at the start position but not that at the end
+   * position, and returns these elements as a new **Vector** instance.
    *
-   * @param { number } fromIndex - The starting position of the index, containing the value at that index position
-   * @param { number } toIndex - The end of the index, excluding the value at that index
-   * @returns { Vector<T> }
+   * @param { number } fromIndex - Index of the start position.
+   * @param { number } toIndex - Index of the end position.
+   * @returns { Vector<T> } New **Vector** instance obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   subVector(fromIndex: number, toIndex: number): Vector<T>;
   /**
-   * Removes all of the elements from this vector.The vector will
-   * be empty after this call returns.length becomes 0
+   * Clears all elements in this Vector and sets its length to **0**.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -258,72 +256,71 @@ declare class Vector<T> {
    */
   clear(): void;
   /**
-   * Returns a shallow copy of this instance. (The elements themselves are not copied.)
+   * Clones this Vector and returns a copy. The modification to the copy does not affect the original instance.
    *
-   * @returns { Vector<T> } this vector instance
+   * @returns { Vector<T> } New **Vector** instance obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   clone(): Vector<T>;
   /**
-   * Sets the length of this vector
+   * Sets a new length for this Vector.
    *
-   * @param { number } newSize - newSize
+   * @param { number } newSize - New length to set.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   setLength(newSize: number): void;
   /**
-   * returns the capacity of this vector
+   * Obtains the capacity of this Vector.
    *
-   * @returns { number } the number type
+   * @returns { number } Capacity obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getCapacity(): number;
   /**
-   * convert vector to array
+   * Converts this Vector into an array.
    *
-   * @returns { Array<T> } the Array type
+   * @returns { Array<T> } Array obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   convertToArray(): Array<T>;
   /**
-   * Determine whether vector is empty and whether there is an element
+   * Checks whether this Vector is empty (contains no elements).
    *
-   * @returns { boolean } the boolean type
+   * @returns { boolean } Check result. The value **true** is returned if the Vector is empty; otherwise, **false** is
+   *     returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   isEmpty(): boolean;
   /**
-   * If the newCapacity provided by the user is greater than or equal to length,
-   * change the capacity of the vector to newCapacity, otherwise the capacity will not be changed
+   * Increases the capacity of this Vector.
    *
-   * @param { number } newCapacity - newCapacity
+   * @param { number } newCapacity - New capacity.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   increaseCapacityTo(newCapacity: number): void;
   /**
-   * Returns a string representation of this Vector,
-   * containing the String representation of each element
+   * Uses commas (,) to concatenate elements in this Vector into a string.
    *
-   * @returns { string }
+   * @returns { string } String obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   toString(): string;
   /**
-   * Limit the capacity to the current length
+   * Trims the capacity of this Vector into its current length.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -331,10 +328,9 @@ declare class Vector<T> {
    */
   trimToCurrentLength(): void;
   /**
-   * Copies the components of this vector into the specified array,
-   * to overwrite elements of the same index
+   * Copies elements in this Vector into an array to overwrite elements of the same position indexes.
    *
-   * @param { Array<T> } array - Replaced array
+   * @param { Array<T> } array - Array to which the elements in the Vector will be copied.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9

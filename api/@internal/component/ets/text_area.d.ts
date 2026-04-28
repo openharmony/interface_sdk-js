@@ -29,6 +29,7 @@
  *
  * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -37,6 +38,7 @@
  *
  * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -98,6 +100,7 @@ declare class TextAreaController extends TextContentControllerBase {
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -107,6 +110,7 @@ declare class TextAreaController extends TextContentControllerBase {
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -130,6 +134,7 @@ declare class TextAreaController extends TextContentControllerBase {
    * A value greater than the maximum text length is handled as the maximum text length.
    * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -140,6 +145,7 @@ declare class TextAreaController extends TextContentControllerBase {
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -147,6 +153,7 @@ declare class TextAreaController extends TextContentControllerBase {
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -329,6 +336,7 @@ interface TextAreaInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -337,6 +345,7 @@ interface TextAreaInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -346,6 +355,7 @@ declare enum TextAreaType {
    * Basic input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -353,6 +363,7 @@ declare enum TextAreaType {
    * Basic input mode.
    * The value can contain digits, letters, underscores (_), spaces, and special characters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -363,6 +374,7 @@ declare enum TextAreaType {
    * Pure digital input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -370,6 +382,7 @@ declare enum TextAreaType {
    * Pure digital input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -380,6 +393,7 @@ declare enum TextAreaType {
    * Phone number entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -388,6 +402,7 @@ declare enum TextAreaType {
    * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number signs (#).
    * the length is not limited.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -398,6 +413,7 @@ declare enum TextAreaType {
    * E-mail address input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -406,6 +422,7 @@ declare enum TextAreaType {
    * This mode accepts only digits, letters, underscores (_), dots (.), 
    * and the following special characters: ! # $ % & ' * + - / = ? ^ ` { | } ~ @ (which can only appear once).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -416,6 +433,7 @@ declare enum TextAreaType {
    * Number decimal entry mode.
    * The value can contain digits and one decimal point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -426,6 +444,7 @@ declare enum TextAreaType {
    * URL entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -436,6 +455,7 @@ declare enum TextAreaType {
    * One time code mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -450,6 +470,7 @@ declare enum TextAreaType {
  * If the type is EnterKeyType.NEW_LINE, onSubmit is not triggered.
  * @param { SubmitEvent } [event] - Provides the method of keeping textArea editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -546,6 +567,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { EnterKeyType } value the type of soft keyboard
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -555,6 +577,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { EnterKeyType } value the type of soft keyboard - Default value is EnterKeyType.NEW_LINE.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -819,6 +842,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextOverflow } value - Default value is TextOverflow.Clip.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -831,6 +855,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Dimension } value - The length of text indent.Default value is 0.
    * @returns { TextAreaAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -881,6 +906,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { CaretStyle } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -894,6 +920,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { ResourceColor } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -906,6 +933,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -915,6 +943,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { function } callback - If it is EnterKeyType.NEW_LINE and the text box is in inline input style, onSubmit is not triggered.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -928,6 +957,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextAreaSubmitCallback } callback - callback of the listened event.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -985,6 +1015,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -995,6 +1026,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * { number } selectionStart - The start position of text is 0.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1007,6 +1039,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1018,6 +1051,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * { number } totalOffsetY - The unit is px.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1031,6 +1065,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * If the value of isEditing is true, text area is in progress.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1042,6 +1077,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * If the value of isEditing is true, text area is in progress.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1078,6 +1114,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onCopy(callback: (value: string) => void): TextAreaAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): TextAreaAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback
@@ -1105,6 +1154,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11 dynamic
    */
   onCut(callback: (value: string) => void): TextAreaAttribute;
+
+  /**
+   * Called before using the Clipboard cut menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCut(callback: Callback<string, boolean>): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1179,6 +1241,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } value
    * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1188,6 +1251,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } value - Default value is true.
    * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1200,6 +1264,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1214,6 +1279,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1226,6 +1292,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1253,6 +1320,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { InputCounterOptions } options - Set the percentage of counter.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1265,6 +1333,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextContentStyle } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1277,6 +1346,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextContentStyle } value - Default value is TextContentStyle.DEFAULT.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1289,6 +1359,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { BarState } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1297,6 +1368,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { BarState } value - Default value is BarState.Auto.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1306,6 +1378,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { BarState } value - Default value is BarState.Auto.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -1318,6 +1391,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { ColorMetrics | undefined } thumbColor - scroll bar thumb Color of the TextArea.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -1330,6 +1404,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1348,6 +1423,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } value - Default value is false.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1366,6 +1442,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number | string | Resource } value - The unit is fp.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1384,6 +1461,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number | string | Resource } value - The unit is fp.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1404,6 +1482,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -1421,6 +1500,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1439,6 +1519,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -1454,6 +1535,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1485,6 +1567,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1497,6 +1580,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1517,6 +1601,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1530,6 +1615,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { MaxLinesOptions } options - max lines of setting options.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1542,6 +1628,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<number> } lines - Min lines of the node
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1560,6 +1647,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { WordBreak } value - The word break type.Default value is WordBreak.BREAK_WORD.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1576,6 +1664,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { LineBreakStrategy } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
    * @returns { TextAreaAttribute } The attribute of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1588,6 +1677,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { CustomBuilder } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1596,6 +1686,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { CustomBuilder } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1621,6 +1712,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1646,6 +1738,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -1658,6 +1751,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextDecorationOptions } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1677,6 +1771,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number | string | Resource } value - The unit is fp.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1693,6 +1788,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { LengthMetrics } value - Default value is 0.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1706,6 +1802,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { LineSpacingOptions } options
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1723,6 +1820,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number | string | Resource } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1735,6 +1833,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextAreaType } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1744,6 +1843,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { TextAreaType } value - Default value is TextAreaType.Normal.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1756,6 +1856,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } value - Indicates the flag whether autofill is enabled.Default value is true.True: enable, false: disable.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1767,6 +1868,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { ContentType } contentType - Indicates autofill type.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1778,6 +1880,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean | undefined } enable - whether to enable the selected data detector.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -1793,6 +1896,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1811,6 +1915,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1827,6 +1932,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1845,6 +1951,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1861,6 +1968,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1875,6 +1983,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1892,6 +2001,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } enable - Indicates the preview text mode.Default value is true.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1916,6 +2026,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -1928,6 +2039,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { AutoCapitalizationMode } mode - Automatic case mode values.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1940,6 +2052,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1958,6 +2071,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { EllipsisMode } mode - The ellipsis mode.Default value is EllipsisMode.END.
    * @returns { TextAreaAttribute } The attribute of TextArea.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1970,6 +2084,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */
@@ -1979,6 +2094,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -1996,6 +2112,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Returning true allows the change to proceed, while returning false cancels the change.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2008,6 +2125,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */
@@ -2019,6 +2137,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<LengthMetrics> } width - indicates the stroke width.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2031,6 +2150,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<ResourceColor> } color - indicates the stroke color.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2043,6 +2163,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2055,6 +2176,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
    * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2068,6 +2190,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *     If `undefined` is passed, the existing registered event will be removed.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -2080,6 +2203,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
    * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2092,6 +2216,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
    * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2105,6 +2230,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *     If set undefined will reset the style.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2118,6 +2244,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2131,6 +2258,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
@@ -2150,6 +2278,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 24 dynamic
    */
   horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute;
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false,
+   *     indicates the flag whether to enable this feature.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

@@ -28,6 +28,7 @@ import { Callback } from '../../@ohos.base';
  * @namespace Profiler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @test
  */
@@ -38,6 +39,7 @@ export declare namespace Profiler {
      * @param { Callback<string> } callback - the callback info is json string with ui update info.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      * @test
      */
@@ -47,6 +49,7 @@ export declare namespace Profiler {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      * @test
      */
@@ -58,6 +61,7 @@ export declare namespace Profiler {
  * @param { string } value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @test
  */

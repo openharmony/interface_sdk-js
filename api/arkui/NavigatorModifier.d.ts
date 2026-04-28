@@ -24,6 +24,7 @@
  * @extends NavigatorAttribute
  * @implements AttributeModifier<NavigatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamiconly
  * @deprecated since 20
@@ -36,6 +37,7 @@ export declare class NavigatorModifier extends NavigatorAttribute implements Att
    * 
    * @param { NavigatorAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly

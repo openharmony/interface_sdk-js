@@ -136,20 +136,20 @@ declare enum PanDirection {
   Right,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -300,20 +300,20 @@ declare enum SwipeDirection {
   Horizontal,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -518,6 +518,7 @@ declare enum GestureMask {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -526,6 +527,7 @@ declare enum GestureMask {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -535,6 +537,7 @@ declare enum GestureJudgeResult {
    * The system gesture determination is not affected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -542,6 +545,7 @@ declare enum GestureJudgeResult {
    * The system gesture determination is not affected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -552,6 +556,7 @@ declare enum GestureJudgeResult {
    * The user-defined gesture determination result of the current component is fail.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -559,6 +564,7 @@ declare enum GestureJudgeResult {
    * The user-defined gesture determination result of the current component is fail.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -571,6 +577,7 @@ declare enum GestureJudgeResult {
  *
  * @namespace GestureControl 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -579,6 +586,7 @@ declare enum GestureJudgeResult {
  *
  * @namespace GestureControl 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -814,6 +822,7 @@ declare namespace GestureControl {
  *
  * @interface GestureInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -822,6 +831,7 @@ declare namespace GestureControl {
  *
  * @interface GestureInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -832,6 +842,7 @@ declare interface GestureInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -840,6 +851,7 @@ declare interface GestureInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -851,6 +863,7 @@ declare interface GestureInfo {
    *
    * @type { GestureControl.GestureType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -859,6 +872,7 @@ declare interface GestureInfo {
    *
    * @type { GestureControl.GestureType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -870,6 +884,7 @@ declare interface GestureInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -878,6 +893,7 @@ declare interface GestureInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -890,6 +906,7 @@ declare interface GestureInfo {
  *
  * @interface EventLocationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -900,6 +917,7 @@ declare interface EventLocationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -911,6 +929,7 @@ declare interface EventLocationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -922,6 +941,7 @@ declare interface EventLocationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -933,6 +953,7 @@ declare interface EventLocationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -944,6 +965,7 @@ declare interface EventLocationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -955,6 +977,7 @@ declare interface EventLocationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -966,6 +989,7 @@ declare interface EventLocationInfo {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -977,11 +1001,25 @@ declare interface EventLocationInfo {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
   globalDisplayY?: number;
+
+  /**
+   * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+   *
+   * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+   * real-time position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
 }
 
 /**
@@ -1040,6 +1078,7 @@ interface FingerInfo {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1051,6 +1090,7 @@ interface FingerInfo {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1166,6 +1206,7 @@ interface FingerInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1177,6 +1218,7 @@ interface FingerInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1188,11 +1230,25 @@ interface FingerInfo {
    *
    * @type { InteractionHand }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
   hand?: InteractionHand;
+
+  /**
+   * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+   *
+   * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+   * real-time position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
 }
 
 /**
@@ -1234,6 +1290,7 @@ declare type GestureType =
  * @extends BaseEvent
  * @interface BaseGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1243,6 +1300,7 @@ declare type GestureType =
  * @extends BaseEvent
  * @interface BaseGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1253,6 +1311,7 @@ interface BaseGestureEvent extends BaseEvent {
    *
    * @type { FingerInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1261,6 +1320,7 @@ interface BaseGestureEvent extends BaseEvent {
    *
    * @type { FingerInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1273,6 +1333,7 @@ interface BaseGestureEvent extends BaseEvent {
    * 
    * @type { ?FingerInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1286,6 +1347,7 @@ interface BaseGestureEvent extends BaseEvent {
  * @extends BaseGestureEvent
  * @interface TapGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1295,6 +1357,7 @@ interface BaseGestureEvent extends BaseEvent {
  * @extends BaseGestureEvent
  * @interface TapGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1305,6 +1368,7 @@ interface TapGestureEvent extends BaseGestureEvent {
    * 
    * @type {?EventLocationInfo}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1318,6 +1382,7 @@ interface TapGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface LongPressGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1327,6 +1392,7 @@ interface TapGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface LongPressGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1337,6 +1403,7 @@ interface LongPressGestureEvent extends BaseGestureEvent {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1345,6 +1412,7 @@ interface LongPressGestureEvent extends BaseGestureEvent {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1358,6 +1426,7 @@ interface LongPressGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface PanGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1367,6 +1436,7 @@ interface LongPressGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface PanGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1378,6 +1448,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1387,6 +1458,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1399,6 +1471,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1408,6 +1481,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1418,6 +1492,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    * X-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1425,6 +1500,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    * X-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1435,6 +1511,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    * Y-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1442,6 +1519,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    * Y-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1452,6 +1530,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    * velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1459,6 +1538,7 @@ interface PanGestureEvent extends BaseGestureEvent {
    * velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1472,6 +1552,7 @@ interface PanGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface PinchGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1481,6 +1562,7 @@ interface PanGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface PinchGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1491,6 +1573,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1499,6 +1582,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1511,6 +1595,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1520,6 +1605,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1532,6 +1618,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1541,6 +1628,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1554,6 +1642,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface RotationGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1563,6 +1652,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface RotationGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1574,6 +1664,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1583,6 +1674,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1596,6 +1688,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface SwipeGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1605,6 +1698,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
  * @extends BaseGestureEvent
  * @interface SwipeGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1616,6 +1710,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1625,6 +1720,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1637,6 +1733,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1646,6 +1743,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1745,6 +1843,7 @@ interface GestureEvent extends BaseEvent {
    * 
    * @type { ?FingerInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1976,6 +2075,7 @@ interface GestureEvent extends BaseEvent {
    * X-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1983,6 +2083,7 @@ interface GestureEvent extends BaseEvent {
    * X-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1993,6 +2094,7 @@ interface GestureEvent extends BaseEvent {
    * Y-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2000,6 +2102,7 @@ interface GestureEvent extends BaseEvent {
    * Y-axis velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2010,6 +2113,7 @@ interface GestureEvent extends BaseEvent {
    * velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2017,6 +2121,7 @@ interface GestureEvent extends BaseEvent {
    * velocity of the gesture.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2028,6 +2133,7 @@ interface GestureEvent extends BaseEvent {
    * 
    * @type {?EventLocationInfo}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2040,6 +2146,7 @@ interface GestureEvent extends BaseEvent {
  *
  * @interface GestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2051,6 +2158,7 @@ interface GestureInterface<T> {
    * @param { string } tag
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2063,6 +2171,7 @@ interface GestureInterface<T> {
    * @param { Array<SourceTool> } types - indicate the allowed input source for gesture to response
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -2074,6 +2183,7 @@ interface GestureInterface<T> {
    * Defines the BaseHandlerOptions options.
    * @interface BaseHandlerOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2085,6 +2195,7 @@ interface GestureInterface<T> {
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2097,6 +2208,7 @@ interface GestureInterface<T> {
  *
  * @interface TapGestureParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -2107,6 +2219,7 @@ interface GestureInterface<T> {
  * @extends BaseHandlerOptions
  * @interface TapGestureParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -2117,6 +2230,7 @@ declare interface TapGestureParameters extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2127,6 +2241,7 @@ declare interface TapGestureParameters extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2137,6 +2252,7 @@ declare interface TapGestureParameters extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2321,6 +2437,7 @@ interface LongPressGestureInterface extends GestureInterface<LongPressGestureInt
    * @param { LongPressGestureHandlerOptions } options
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2418,6 +2535,7 @@ interface LongPressGestureInterface extends GestureInterface<LongPressGestureInt
    * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2556,6 +2674,7 @@ declare class PanGestureOptions {
    *
    * @returns { PanDirection } - Pan gesture direction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2567,6 +2686,7 @@ declare class PanGestureOptions {
    *
    * @returns { number } - the distance of the pan gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2646,6 +2766,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    * @param { PanGestureHandlerOptions } options
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2773,6 +2894,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2854,6 +2976,7 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
    * @param { SwipeGestureHandlerOptions } options
    * @returns { SwipeGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2960,6 +3083,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    * @param { PinchGestureHandlerOptions } options
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -3087,6 +3211,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3164,6 +3289,7 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    * @param { RotationGestureHandlerOptions } options
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -3291,6 +3417,7 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3551,6 +3678,7 @@ declare const GestureGroup: GestureGroupInterface;
  *
  * @implements GestureInterface<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -3562,6 +3690,7 @@ declare class GestureHandler<T> implements GestureInterface<T> {
    * @param { string } tag
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3574,6 +3703,7 @@ declare class GestureHandler<T> implements GestureInterface<T> {
    * @param { Array<SourceTool> } types - indicate the allowed input source for gesture to response
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -3586,6 +3716,7 @@ declare class GestureHandler<T> implements GestureInterface<T> {
  *
  * @interface TapGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -3596,6 +3727,7 @@ declare class GestureHandler<T> implements GestureInterface<T> {
  * @extends BaseHandlerOptions
  * @interface TapGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -3607,6 +3739,7 @@ interface TapGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3618,6 +3751,7 @@ interface TapGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3629,6 +3763,7 @@ interface TapGestureHandlerOptions extends BaseHandlerOptions {
    * @type { ?number }
    * @default Infinity
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3641,6 +3776,7 @@ interface TapGestureHandlerOptions extends BaseHandlerOptions {
  *
  * @extends GestureHandler<TapGestureHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -3651,6 +3787,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
    *
    * @param { TapGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3662,6 +3799,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { TapGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3674,6 +3812,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
  *
  * @interface LongPressGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -3684,6 +3823,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
  * @extends BaseHandlerOptions
  * @interface LongPressGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -3695,6 +3835,7 @@ interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3706,6 +3847,7 @@ interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3717,6 +3859,7 @@ interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3728,6 +3871,7 @@ interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -3740,6 +3884,7 @@ interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
  *
  * @extends GestureHandler<LongPressGestureHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -3750,6 +3895,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    *
    * @param { LongPressGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3761,6 +3907,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    * @param { Callback<GestureEvent> } event
    * @returns { LongPressGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3772,6 +3919,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    * @param { Callback<GestureEvent> } event
    * @returns { LongPressGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3783,6 +3931,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    * @param { Callback<void> } event
    * @returns { LongPressGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3795,6 +3944,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    * @param { Callback<GestureEvent> } event
    * @returns { LongPressGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3807,6 +3957,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
  *
  * @interface PanGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -3817,6 +3968,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
  * @extends BaseHandlerOptions
  * @interface PanGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -3828,6 +3980,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3839,6 +3992,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?PanDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3850,6 +4004,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3860,6 +4015,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?Map<SourceTool, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -3872,6 +4028,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
  *
  * @extends GestureHandler<PanGestureHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -3882,6 +4039,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    *
    * @param { PanGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3893,6 +4051,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PanGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3904,6 +4063,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PanGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3915,6 +4075,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PanGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3926,6 +4087,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @param { Callback<void> } event
    * @returns { PanGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3938,6 +4100,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PanGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3950,6 +4113,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
  *
  * @interface SwipeGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -3960,6 +4124,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
  * @extends BaseHandlerOptions
  * @interface SwipeGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -3971,6 +4136,7 @@ interface SwipeGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3982,6 +4148,7 @@ interface SwipeGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?SwipeDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3993,6 +4160,7 @@ interface SwipeGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4005,6 +4173,7 @@ interface SwipeGestureHandlerOptions extends BaseHandlerOptions {
  *
  * @extends GestureHandler<SwipeGestureHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4015,6 +4184,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
    *
    * @param { SwipeGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4026,6 +4196,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { SwipeGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4038,6 +4209,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
  *
  * @interface PinchGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -4048,6 +4220,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
  * @extends BaseHandlerOptions
  * @interface PinchGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -4059,6 +4232,7 @@ interface PinchGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4070,6 +4244,7 @@ interface PinchGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4082,6 +4257,7 @@ interface PinchGestureHandlerOptions extends BaseHandlerOptions {
  *
  * @extends GestureHandler<PinchGestureHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4092,6 +4268,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    *
    * @param { PinchGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4103,6 +4280,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PinchGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4114,6 +4292,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PinchGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4125,6 +4304,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PinchGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4136,6 +4316,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @param { Callback<void> } event
    * @returns { PinchGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4148,6 +4329,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @param { Callback<GestureEvent> } event
    * @returns { PinchGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4160,6 +4342,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
  *
  * @interface RotationGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -4170,6 +4353,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
  * @extends BaseHandlerOptions
  * @interface RotationGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -4181,6 +4365,7 @@ interface RotationGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4192,6 +4377,7 @@ interface RotationGestureHandlerOptions extends BaseHandlerOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4204,6 +4390,7 @@ interface RotationGestureHandlerOptions extends BaseHandlerOptions {
  *
  * @extends GestureHandler<RotationGestureHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4214,6 +4401,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    *
    * @param { RotationGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4225,6 +4413,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @param { Callback<GestureEvent> } event
    * @returns { RotationGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4236,6 +4425,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @param { Callback<GestureEvent> } event
    * @returns { RotationGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4247,6 +4437,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @param { Callback<GestureEvent> } event
    * @returns { RotationGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4258,6 +4449,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @param { Callback<void> } event
    * @returns { RotationGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4270,6 +4462,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @param { Callback<GestureEvent> } event
    * @returns { RotationGestureHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4282,6 +4475,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
  *
  * @interface GestureGroupGestureHandlerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4292,6 +4486,7 @@ interface GestureGroupGestureHandlerOptions {
    *
    * @type { GestureMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4302,6 +4497,7 @@ interface GestureGroupGestureHandlerOptions {
    *
    * @type { GestureHandler<TapGestureHandler | LongPressGestureHandler | PanGestureHandler | SwipeGestureHandler | PinchGestureHandler | RotationGestureHandler | GestureGroupHandler>[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4314,6 +4510,7 @@ interface GestureGroupGestureHandlerOptions {
  *
  * @extends GestureHandler<GestureGroupHandler>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4324,6 +4521,7 @@ declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
    *
    * @param { GestureGroupGestureHandlerOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4335,6 +4533,7 @@ declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
    * @param { Callback<void> } event
    * @returns { GestureGroupHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4347,6 +4546,7 @@ declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4356,6 +4556,7 @@ declare enum GesturePriority {
    * The normal gesture priority.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4365,6 +4566,7 @@ declare enum GesturePriority {
    * The high gesture priority.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4377,6 +4579,7 @@ declare enum GesturePriority {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4386,6 +4589,7 @@ declare enum GestureRecognizerState {
    * Ready state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4395,6 +4599,7 @@ declare enum GestureRecognizerState {
    * Detecting state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4404,6 +4609,7 @@ declare enum GestureRecognizerState {
    * Pending state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4413,6 +4619,7 @@ declare enum GestureRecognizerState {
    * Blocked state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4422,6 +4629,7 @@ declare enum GestureRecognizerState {
    * Successful state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4431,6 +4639,7 @@ declare enum GestureRecognizerState {
    * Failed state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4443,6 +4652,7 @@ declare enum GestureRecognizerState {
  *
  * @extends EventTargetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4453,6 +4663,7 @@ declare class ScrollableTargetInfo extends EventTargetInfo {
    * 
    * @returns { boolean } - true is at begin, false is not at begin
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4463,6 +4674,7 @@ declare class ScrollableTargetInfo extends EventTargetInfo {
    * 
    * @returns { boolean } - true is at end, false is not at end
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4474,6 +4686,7 @@ declare class ScrollableTargetInfo extends EventTargetInfo {
  * Defines the event target information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4484,17 +4697,30 @@ declare class EventTargetInfo {
    * 
    * @returns { string } - the inspector id of the component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   getId(): string;
+  /**
+   * Returns the component's unique id.
+   * 
+   * @returns { number } - the unique id of the component
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getUniqueId(): number;
 }
 
 /**
  * Defines the touch recognizer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -4505,6 +4731,7 @@ declare class TouchRecognizer {
      *
      * @returns { EventTargetInfo } - the event target information of the component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -4514,17 +4741,31 @@ declare class TouchRecognizer {
      * Dispatch touch cancel to the touch recognizer.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     cancelTouch(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { number } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    isHostBelongsTo(uniqueId: number): boolean;
 }
 
 /**
  * Defines the gesture recognizer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4535,6 +4776,7 @@ declare class GestureRecognizer {
    * 
    * @returns { string } - the gesture's tag
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4545,6 +4787,7 @@ declare class GestureRecognizer {
    * 
    * @returns { GestureControl.GestureType } - the gesture's type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4555,6 +4798,7 @@ declare class GestureRecognizer {
    * 
    * @returns { boolean } - true is built in recognizer, false is not built in recognizer
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4565,6 +4809,7 @@ declare class GestureRecognizer {
    *
    * @param { boolean } isEnabled - Indicates the enabled state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4575,6 +4820,7 @@ declare class GestureRecognizer {
    * 
    * @returns { boolean } - true is enabled, false is not enabled
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4585,6 +4831,7 @@ declare class GestureRecognizer {
    * 
    * @returns { GestureRecognizerState } - the gesture recognizer's state
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4595,6 +4842,7 @@ declare class GestureRecognizer {
    * 
    * @returns { EventTargetInfo } - the event target information of the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4605,6 +4853,7 @@ declare class GestureRecognizer {
    * 
    * @returns { boolean } - true is valid, false is invalid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 12 dynamic
    */
@@ -4614,6 +4863,7 @@ declare class GestureRecognizer {
    *
    * @returns { number } - the finger count of the tap gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4624,6 +4874,7 @@ declare class GestureRecognizer {
    *
    * @returns { boolean } - the limitFingerCount of the tap gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4639,11 +4890,24 @@ declare class GestureRecognizer {
    * whether the gesture's corresponding callback function is executed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
   preventBegin(): void;
+  /**
+   * Check whether the current gesture binding node is a descendant of the passed-in component.
+   *
+   * @param { number } uniqueId - the unique id of the component.
+   * @returns { boolean } - the query result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  isHostBelongsTo(uniqueId: number): boolean;
 }
 
 /**
@@ -4651,6 +4915,7 @@ declare class GestureRecognizer {
  *
  * @extends GestureRecognizer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -4661,6 +4926,7 @@ declare class TapRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the count of the tap gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4673,6 +4939,7 @@ declare class TapRecognizer extends GestureRecognizer {
  *
  * @extends GestureRecognizer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -4683,6 +4950,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
    *
    * @returns { boolean } - the repeat state of the long press gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4694,6 +4962,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the duration of the long press gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4705,6 +4974,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the maximum moving distance of the long press gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4717,6 +4987,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
  *
  * @extends GestureRecognizer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -4728,6 +4999,7 @@ declare class SwipeRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the velocity threshold of the swipe gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4738,6 +5010,7 @@ declare class SwipeRecognizer extends GestureRecognizer {
    *
    * @returns { SwipeDirection } - the direction of the swipe gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4750,6 +5023,7 @@ declare class SwipeRecognizer extends GestureRecognizer {
  *
  * @extends GestureRecognizer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -4761,6 +5035,7 @@ declare class PinchRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the distance of the pinch gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4773,6 +5048,7 @@ declare class PinchRecognizer extends GestureRecognizer {
  *
  * @extends GestureRecognizer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -4783,6 +5059,7 @@ declare class RotationRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the angle of the rotation gesture.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -4795,6 +5072,7 @@ declare class RotationRecognizer extends GestureRecognizer {
  *
  * @extends GestureRecognizer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -4805,6 +5083,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * 
    * @returns { PanGestureOptions } - Pan gesture options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4815,6 +5094,7 @@ declare class PanRecognizer extends GestureRecognizer {
    *
    * @returns { PanDirection } - Pan recognizer direction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -4826,6 +5106,7 @@ declare class PanRecognizer extends GestureRecognizer {
    *
    * @returns { number } - the distance of the pan recognizer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -4837,6 +5118,7 @@ declare class PanRecognizer extends GestureRecognizer {
    *
    * @returns { Map<SourceTool, number> } - the distance map of the pan recognizer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic

@@ -21,18 +21,17 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides Environment APIs.
+ * The **Environment** module provides ArkTS APIs for obtaining the root directories of the storage and user files.
  *
- * @namespace Environment
  * @syscap SystemCapability.FileManagement.File.Environment
  * @since 11 dynamic
  * @since 23 static
  */
 declare namespace Environment {
   /**
-   * Get the user data path.
+   * Obtains the root directory of the memory. This API uses a promise to return the result.
    *
-   * @returns { Promise<string> } return Promise
+   * @returns { Promise<string> } Promise used to return the root directory of the memory.
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -44,9 +43,9 @@ declare namespace Environment {
   function getStorageDataDir(): Promise<string>;
 
   /**
-   * Get the user data path.
+   * Obtains the root directory of the memory. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<string> } [callback] - callback
+   * @param { AsyncCallback<string> } [callback] - Callback used to return the root directory of the memory.
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -58,9 +57,9 @@ declare namespace Environment {
   function getStorageDataDir(callback: AsyncCallback<string>): void;
 
   /**
-   * Get the User storage path.
+   * Obtains the root directory of user files. This API uses a promise to return the result.
    *
-   * @returns { Promise<string> } return Promise
+   * @returns { Promise<string> } Promise used to return the root directory of user files.
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -72,9 +71,9 @@ declare namespace Environment {
   function getUserDataDir(): Promise<string>;
 
   /**
-   * Get the User storage path.
+   * Obtains the root directory of user files. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<string> } [callback] - callback
+   * @param { AsyncCallback<string> } [callback] - Callback used to return the root directory of user files.
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -86,81 +85,59 @@ declare namespace Environment {
   function getUserDataDir(callback: AsyncCallback<string>): void;
 
   /**
-   * Get the public download directory.
+   * Obtains the sandbox path of the pre-authorized **Download** directory.
    *
-   * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
-   * @returns { string } Return the public download directory.
+   * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY [since 11 - 11]
+   * @returns { string } Sandbox path of the **Download** directory obtained.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   *     [since 11 - 11]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since 11
-   */
-  /**
-   * Get the public download directory.
-   *
-   * @returns { string } Return the public download directory.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function getUserDownloadDir(): string;
 
   /**
-   * Get the public desktop directory.
+   * Obtains the sandbox path of the pre-authorized **Desktop** directory.
    *
-   * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
-   * @returns { string } Return the public desktop directory.
+   * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY [since 11 - 11]
+   * @returns { string } Sandbox path of the **Desktop** directory obtained.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   *     [since 11 - 11]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since 11
-   */
-  /**
-   * Get the public desktop directory.
-   *
-   * @returns { string } Return the public desktop directory.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function getUserDesktopDir(): string;
 
   /**
-   * Get the public document directory.
+   * Obtains the sandbox path of the pre-authorized **Document** directory.
    *
-   * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
-   * @returns { string } Return the public document directory.
+   * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY [since 11 - 11]
+   * @returns { string } Sandbox path of the **Documents** directory obtained.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   *     [since 11 - 11]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since 11
-   */
-  /**
-   * Get the public document directory.
-   *
-   * @returns { string } Return the public document directory.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function getUserDocumentDir(): string;
 
   /**
-   * Get external storage directory.
+   * Obtains the sandbox path of the root directory of an external storage card. This API is available only to the
+   * devices with the SystemCapability.FileManagement.File.Environment.FolderObtain system capability.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Return external storage directory.
+   * @returns { string } Sandbox path of the root directory obtained.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+   *     system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
@@ -171,12 +148,14 @@ declare namespace Environment {
   function getExternalStorageDir(): string;
 
   /**
-   * Get home directory of the application sandbox path for the current user.
+   * Obtains the sandbox path of the built-in card directory of the current user. This API is available only to the
+   * devices with the SystemCapability.FileManagement.File.Environment.FolderObtain system capability.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Return home directory of the application sandbox path for the current user.
+   * @returns { string } Sandbox path of the built-in card directory obtained.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+   *     system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
