@@ -34,7 +34,7 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * .
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10 dynamic
  * @since 23 static
  */

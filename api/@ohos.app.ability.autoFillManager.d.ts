@@ -91,6 +91,15 @@ declare namespace autoFillManager {
    * @since 23 static
    */
   export interface AutoSaveCallback {
+    /**
+     * Called when auto save request is successfully handled.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     */
+    onSuccess(): void;
 
     /**
      * Called when auto-save is successful.
@@ -108,6 +117,16 @@ declare namespace autoFillManager {
      * @since 23 static
      */
     onSuccess: OnSuccessFn;
+
+    /**
+     * Called when auto save request is failed to be handled.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     */
+    onFailure(): void;
 
     /**
      * Called when auto-save fails.
