@@ -270,7 +270,6 @@ export declare interface NativeEmbedParamDataInfo {
 /**
  * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
