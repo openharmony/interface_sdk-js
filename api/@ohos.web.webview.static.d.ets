@@ -1616,7 +1616,6 @@ declare namespace webview {
     /**
      * Defines the snapshot info.
      *
-     * @typedef SnapshotInfo
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1624,7 +1623,6 @@ declare namespace webview {
         /**
          * Id of the snapshot.
          *
-         * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1637,7 +1635,6 @@ declare namespace webview {
          * If the size exceeds the specifications, the maximum size is returned.
          * (Example: width: '100px', height: '200px' or width: '20%', height'30%'. If only digits are written, the unit is vp.)
          *
-         * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1647,7 +1644,6 @@ declare namespace webview {
     /**
      * Represents a full drawing result.
      *
-     * @typedef SnapshotResult
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1655,7 +1651,6 @@ declare namespace webview {
         /**
          * Id of the snapshot.
          *
-         * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1666,7 +1661,6 @@ declare namespace webview {
          * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
          * the width and height of the returned size are both 0, and the map is empty.
          *
-         * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1676,7 +1670,6 @@ declare namespace webview {
          * Actual size drawn on the web page.
          * The value is of the number type, and the unit is vp.
          *
-         * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -1685,7 +1678,6 @@ declare namespace webview {
         /**
          * Full drawing result in image.PixelMap format.
          *
-         * @type { ?image.PixelMap }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2745,6 +2737,7 @@ declare namespace webview {
 
         /**
          * Obtains the height of this web page.
+	 *
          * @returns { int } Height of the current web page. Unit: vp.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
