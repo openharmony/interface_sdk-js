@@ -19,95 +19,96 @@
  */
 
 /**
- * Defines the LazyColumnLayout Component.
+ * Defines the lazy column layout component.
  *
  * @interface LazyColumnLayoutInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @form
  * @atomicservice
- * @since 26 dynamic
+ * @since 26.0.0 dynamic
  */
 export interface LazyColumnLayoutInterface {
-    /**
-     * Creates a LazyColumnLayout component.
-     *
-     * @returns { LazyColumnLayoutAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 26 dynamic
-     */
-    (): LazyColumnLayoutAttribute;
+  /**
+   * Construct the lazy column layout attribute.
+   *
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (): LazyColumnLayoutAttribute;
 }
 
 /**
- * Defines the LazyColumnLayout attribute functions.
+ * Defines the lazy column layout attribute.
  *
  * @extends CommonMethod<LazyColumnLayoutAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @form
  * @atomicservice
- * @since 26 dynamic
+ * @since 26.0.0 dynamic
  */
 export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLayoutAttribute> {
-    /**
-     * Sets the spacing between list items along the main axis.
-     *
-     * <p><strong>NOTE</strong>
-     * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list content area, the default value is used.
-     * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider is used as the spacing.
-     * <br> Child components of <em>LazyColumnLayout</em> whose <em>visibility</em> attribute is set to <em>None</em> are not displayed,
-     * but the spacing above and below them still takes effect.
-     * </p>
-     *
-     * @param { LengthMetrics } value - Spacing between list items along the main axis.<br>Default value: <em>0</em>
-     * @returns { LazyColumnLayoutAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 26 dynamic
-     */
-    space(value: LengthMetrics): LazyColumnLayoutAttribute;
+  /**
+   * The spacing between child components in the vertical direction.
+   *
+   * @param { LengthMetrics | undefined } value - The spacing between child components in the vertical direction.
+   *     <br>Default value: LengthMetrics.vp(0)
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  space(value: LengthMetrics | undefined): LazyColumnLayoutAttribute;
 
-    /**
-     * Sets the alignment mode of list items along the cross axis when the cross-axis width of the list is greater
-     * than the cross-axis width of list items.
-     *
-     * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.<br>Default value: <em>ListItemAlign.Start</em>
-     * @returns { LazyColumnLayoutAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 26 dynamic
-     */
-    alignListItem(value: ListItemAlign): LazyColumnLayoutAttribute;
+  /**
+   * Sets the alignment mode of child components in the horizontal direction when the width of the LazyColumnLayout
+   * is greater than the width of the child components.
+   *
+   * @param { ListItemAlign } value - Alignment mode of child components in the horizontal direction.<br>Default value: <em>ListItemAlign.Start</em>
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  alignListItem(value: ListItemAlign): LazyColumnLayoutAttribute;
 
-    /**
-     * Called when a child component enters or leaves the list display area.
-     *
-     * @param { function } event - callback of list scroll,
-     * start is the first index in visible content,
-     * end is the last index in visible content.
-     * @returns { LazyColumnLayoutAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 26 dynamic
-     */
-    onScrollIndex(event: (start: number, end: number) => void): LazyColumnLayoutAttribute;
+  /**
+   * Set or reset the callback which is triggered when the start and end positions of the display change.
+   *
+   * @param { OnScrollIndexCallback | undefined } callback - callback function, triggered when the start or
+   *     end positions of the display change.
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onScrollIndex(callback: OnScrollIndexCallback | undefined): LazyColumnLayoutAttribute;
 }
+
+/**
+ * Defines the callback type used in onScrollIndex.
+ *
+ * @typedef {function} OnScrollIndexCallback
+ * @param {number} start - the first index in visible content.
+ * @param {number} end - the last index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type OnScrollIndexCallback = (start: number, end: number) => void;
 
 /**
  * Defines LazyColumnLayout Component.
@@ -116,19 +117,19 @@ export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLa
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @form
  * @atomicservice
- * @since 26 dynamic
+ * @since 26.0.0 dynamic
  */
 export declare const LazyColumnLayout: LazyColumnLayoutInterface;
+
 /**
  * Defines LazyColumnLayout Component instance.
+ *
  * @type { LazyColumnLayoutAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @form
  * @atomicservice
- * @since 26 dynamic
+ * @since 26.0.0 dynamic
  */
 export declare const LazyColumnLayoutInstance: LazyColumnLayoutAttribute;
