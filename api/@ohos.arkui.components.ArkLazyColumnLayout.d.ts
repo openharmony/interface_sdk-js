@@ -57,7 +57,7 @@ export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLa
    * The spacing between rows.
    *
    * @param { LengthMetrics | undefined } space - the spacing between rows.
-   *     <br>Default value 0. <br>Range: [0, +∞).
+   *     <br>Default value: 0. <br>Range: [0, +∞).
    * @returns { LazyColumnLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -100,10 +100,12 @@ export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLa
 /**
  * Defines the lazy column layout component.
  *
+ * @type { LazyColumnLayoutInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 26.0.0 dynamic
  */
 export declare const LazyColumnLayout: LazyColumnLayoutInterface;
@@ -111,6 +113,7 @@ export declare const LazyColumnLayout: LazyColumnLayoutInterface;
 /**
  * Defines the lazy column layout component instance.
  *
+ * @type { LazyColumnLayoutAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
