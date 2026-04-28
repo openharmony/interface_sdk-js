@@ -778,7 +778,6 @@ declare namespace userAuth {
     /**
      * Companion device authentication.
      *
-     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 24 dynamic
      * @since 24 static
