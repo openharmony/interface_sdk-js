@@ -131,7 +131,6 @@ interface DistortionComponentInterface {
   /**
    * Creates a DistortionComponent with content.
    *
-   * @param { ComponentContent } content - Content builder function.
    * @param { DistortionComponentOptions } [options] - DistortionComponent Options.
    * @returns { DistortionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -139,7 +138,7 @@ interface DistortionComponentInterface {
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  (content: ComponentContent, options?: DistortionComponentOptions): DistortionComponentAttribute;
+  (options?: DistortionComponentOptions): DistortionComponentAttribute;
 }
 
 /**
