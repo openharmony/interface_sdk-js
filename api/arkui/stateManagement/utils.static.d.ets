@@ -53,6 +53,19 @@ export declare class UIUtils {
    */
    static makeObserved<T extends object | null | undefined>(source: T): T;
 
+  /**
+   * Make non-observed data into observed data.
+   * Support built-in type and objectLiteral.
+   *
+   * @param { T } source - input source object data.
+   * @param { boolean } allowDeep - enable deep observable.
+   * @returns { T } proxy object from the source object data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+   static makeObserved<T extends object | null | undefined>(source: T, allowDeep: boolean): T;
+
    /**
    * Creates read-only data binding.
    *
@@ -542,3 +555,177 @@ export declare interface CustomComponentContext {
  * @since 26.0.0 static
  */
 export type ActiveAndInactiveCallbackType = () => void;
+
+/**
+ * observable Array base class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedArray<T> extends Array<T> {
+  /**
+   * No arg constructor for observable array.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Elements constructor for observable array.
+   *
+   * @param { T } first - first element.
+   * @param { T[] } first d - more elements.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(first: T, ...d: T[]);
+
+  /**
+   * Array length and initializer constructor for observable array.
+   *
+   * @param { int } arrayLen - initial array length
+   * @param { ObservedArrayInitializer<T> } initializer - element initializer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(arrayLen: int, initializer: ObservedArrayInitializer<T>);
+}
+
+/**
+ * Array initializer Type.
+ *
+ * @param { int } index - initializer index.
+ * @returns { T } index array element.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+type ObservedArrayInitializer<T> = (index: int) => T;
+
+/**
+ * observable Date base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedDate extends Date {
+  /**
+   * No arg constructor for observable date.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Constructor for observable date.
+   *
+   * @param { long | string | Date } value - initial value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(value: long | string | Date);
+}
+
+/**
+ * observable Map base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedMap<K, V> extends Map<K, V> {
+  /**
+   * No arg constructor for observable Map.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { int } initialCapacity - initial capacity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(initialCapacity: int);
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { [K, V][] } entries - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(entries: [K, V][]);
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { Map<K, V> } map - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(map: Map<K, V>); 
+}
+
+/**
+ * observable Set base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedSet<K> extends Set<K> {
+  /**
+   * No arg constructor for observable Set.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { int } bucketsCount - buckets count
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(bucketsCount: int);
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { K[] } values - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(values: K[]);
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { Set<K> } set - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(set: Set<K>); 
+}
