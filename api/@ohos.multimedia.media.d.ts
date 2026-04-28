@@ -9074,7 +9074,6 @@ declare namespace media {
     left: int;
   }
 
-  
   /**
    * Set configuration of a watermark. The position starts at top left corner.
    *
@@ -9144,7 +9143,7 @@ declare namespace media {
     audioEncoder?: AudioEncoder;
 
     /**
-     * Audio encoding bit rate.
+     * Audio encoding bit rate, in bit/s.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -9154,7 +9153,7 @@ declare namespace media {
     audioEncodeBitRate?: number;
 
     /**
-     * Audio sampling rate.
+     * Audio sampling rate, in Hz.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -10956,7 +10955,7 @@ declare namespace media {
    */
   interface VideoRecorderProfile {
     /**
-     * Indicates the audio bit rate.
+     * Indicates the audio bit rate, in bit/s.
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -10989,7 +10988,7 @@ declare namespace media {
     readonly audioCodec: CodecMimeType;
 
     /**
-     * Indicates the audio sampling rate.
+     * Indicates the audio sampling rate, in Hz.
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -11011,7 +11010,7 @@ declare namespace media {
     readonly fileFormat: ContainerFormatType;
 
     /**
-     * Indicates the video bit rate.
+     * Indicates the video bit rate, in bit/s.
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -11033,7 +11032,7 @@ declare namespace media {
     readonly videoCodec: CodecMimeType;
 
     /**
-     * Indicates the video width.
+     * Indicates the video width, in px.
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -11044,7 +11043,7 @@ declare namespace media {
     readonly videoFrameWidth: int;
 
     /**
-     * Indicates the video height.
+     * Indicates the video height, in px.
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -11055,7 +11054,7 @@ declare namespace media {
     readonly videoFrameHeight: int;
 
     /**
-     * Indicates the video frame rate.
+     * Indicates the video frame rate, in fps.
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -11363,7 +11362,7 @@ declare namespace media {
     type: string;
 
     /**
-     * Bit rate range of the encoder, with the minimum and maximum bit rates specified.
+     * Bit rate range of the encoder, with the minimum and maximum bit rates specified, in bit/s.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -11372,7 +11371,7 @@ declare namespace media {
     bitRate?: Range;
 
     /**
-     * Video frame rate range, with the minimum and maximum frame rates specified.
+     * Video frame rate range, with the minimum and maximum frame rates specified, in fps.
      * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -11382,7 +11381,7 @@ declare namespace media {
     frameRate?: Range;
 
     /**
-     * Video frame width range, with the minimum and maximum widths specified.
+     * Video frame width range, with the minimum and maximum widths specified, in px.
      * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -11392,7 +11391,7 @@ declare namespace media {
     width?: Range;
 
     /**
-     * Video frame height range, with the minimum and maximum heights specified.
+     * Video frame height range, with the minimum and maximum heights specified, in px.
      * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -11412,7 +11411,7 @@ declare namespace media {
     channels?: Range;
 
     /**
-     * Audio sampling rate, including all available audio sampling rates. The value depends on the encoder type,
+     * Audio sampling rate, including all available audio sampling rates, in Hz. The value depends on the encoder type,
      * and this parameter is available only for audio encoders.
      * @type { ?Array<int> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -11512,7 +11511,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Audio encoding bit rate. This parameter is mandatory for audio recording.<br>Supported bit rate ranges:
+     * Audio encoding bit rate, in bit/s. This parameter is mandatory for audio recording.<br>Supported bit rate ranges:
      * <br>- Range [32000 - 500000] for the AAC encoding format.<br>- Range [64000] for the G.711 μ-law encoding format.
      * <br>- Range [8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000,
      * 224000, 256000, 320000] for the MP3 encoding format.<br>When the MP3 encoding format is used,
@@ -11579,12 +11578,12 @@ declare namespace media {
     aacProfile?: AacProfile;
 
     /**
-     * Indicates the audio sampling rate.
+     * Indicates the audio sampling rate, in Hz.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
     /**
-     * Audio sampling rate. This parameter is mandatory for audio recording.<br>Supported sampling rate ranges:
+     * Audio sampling rate, in Hz. This parameter is mandatory for audio recording.<br>Supported sampling rate ranges:
      * <br>- Range [8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000] for the AAC
      * encoding format.<br>- Range [8000] for the G.711 μ-law encoding format.<br>- Range [8000, 11025, 12000, 16000,
      * 22050, 24000, 32000, 44100, 48000] for the MP3 encoding format.<br>- Range [8000] for the AMR-NB encoding format.
@@ -11623,7 +11622,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Video encoding bit rate. This parameter is mandatory for video recording. The value range is [10000 - 100000000], in bit/s.
+     * Video encoding bit rate, in bit/s. This parameter is mandatory for video recording. The value range is [10000 - 100000000], in bit/s.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -11668,7 +11667,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Height of a video frame. This parameter is mandatory for video recording. The value range is [144 - 4096].
+     * Height of a video frame, in px. This parameter is mandatory for video recording. The value range is [144 - 4096].
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -11683,7 +11682,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Video frame rate. This parameter is mandatory for video recording. The value range is [1 - 60].
+     * Video frame rate, in fps. This parameter is mandatory for video recording. The value range is [1 - 60].
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -12524,7 +12523,7 @@ declare namespace media {
      */
     frameHeight?: int;
     /**
-     * Video bit rate. The default value is **10000000**.
+     * Video bit rate, in bit/s. The default value is **10000000**.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -12532,8 +12531,8 @@ declare namespace media {
      */
     videoBitrate?: int;
     /**
-     * Audio sampling rate. This value is used for both internal capture and external capture (using microphones), in Hz.
-     * Only **48000** (default value) and **16000** are supported.
+     * Audio sampling rate, in Hz. This value is used for both internal capture 
+     * and external capture (using microphones), in Hz. * Only **48000** (default value) and **16000** are supported.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -12550,7 +12549,7 @@ declare namespace media {
      */
     audioChannelCount?: int;
     /**
-     * Audio bit rate. This value is used for both internal capture and external capture (using microphones).
+     * Audio bit rate, in bit/s. This value is used for both internal capture and external capture (using microphones).
      * The default value is **96000**.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -12847,6 +12846,24 @@ declare namespace media {
      * })
      */
     release(): Promise<void>;
+
+    /**
+     * add a watermark for the AVScreenCaptureRecorder. This API uses a promise to return the result.
+     * App can add up to 5 watermarks.
+     * This API can be called only before calling startRecording().
+     *
+     * @param { image.PixelMap } watermark - : Watermark image.
+     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
+     * @returns { Promise<int> } Promise that returns the watermark id.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
 
     /**
      * Subscribes to screen capture state changes. An application can subscribe to only one screen capture
@@ -13607,6 +13624,24 @@ declare namespace media {
      * @since 23 static
      */
     offProgressUpdate(callback?: Callback<int>):void;
+
+    /**
+     * add a watermark for the AVTranscoder. This API uses a promise to return the result.
+     * App can add up to 5 watermarks.
+     * This API can be called only before the prepared state.
+     *
+     * @param { image.PixelMap } watermark - : Watermark image.
+     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
+     * @returns { Promise<int> } Promise that returns the watermark id.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
   }
 
   /**
