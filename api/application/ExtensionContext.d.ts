@@ -24,10 +24,10 @@ import Context from './Context';
 import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
 
 /**
- * ExtensionContext provides the context environment for an 
- * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}. It inherits from 
+ * ExtensionContext provides the context environment for an
+ * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}. It inherits from
  * [Context](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context).
- * This module provides APIs for accessing resources of a specific 
+ * This module provides APIs for accessing resources of a specific
  * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

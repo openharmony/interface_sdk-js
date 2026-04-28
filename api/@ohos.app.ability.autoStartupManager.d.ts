@@ -29,7 +29,7 @@ import type AutoStartupInfo from './application/AutoStartupInfo';
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The autoStartupManager module provides APIs for an application to query whether it is configured to start 
+ * The autoStartupManager module provides APIs for an application to query whether it is configured to start
  * automatically at boot time.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -40,11 +40,11 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace autoStartupManager {
   /**
    * Registers a callback to listen for auto-startup status changes of an application component.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -64,7 +64,7 @@ declare namespace autoStartupManager {
    */
   function on(type: 'systemAutoStartup', callback: AutoStartupCallback): void;
 
-/**
+  /**
    * Register the listener that watches for all applications auto startup state.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -82,11 +82,11 @@ declare namespace autoStartupManager {
 
   /**
    * Unregisters the callback used to listen for auto-startup status changes of an application component.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -123,13 +123,13 @@ declare namespace autoStartupManager {
   function offSystemAutoStartup(callback?: AutoStartupCallback): void;
 
   /**
-   * Sets an application component to automatically start upon system boot. This API uses an asynchronous callback to 
+   * Sets an application component to automatically start upon system boot. This API uses an asynchronous callback to
    * return the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -153,13 +153,13 @@ declare namespace autoStartupManager {
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets an application component to automatically start upon system boot. This API uses a promise to return the 
+   * Sets an application component to automatically start upon system boot. This API uses a promise to return the
    * result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -184,11 +184,11 @@ declare namespace autoStartupManager {
   /**
    * Cancels the auto-startup setting for an application component. This API uses an asynchronous callback to return the
    * result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -213,11 +213,11 @@ declare namespace autoStartupManager {
 
   /**
    * Cancels the auto-startup setting for an application component. This API uses a promise to return the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -242,11 +242,11 @@ declare namespace autoStartupManager {
   /**
    * Obtains information about all auto-startup application components. This API uses an asynchronous callback to return
    * the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -270,11 +270,11 @@ declare namespace autoStartupManager {
 
   /**
    * Obtains information about all auto-startup application components. This API uses a promise to return the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and 
+   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
    * wearables. On other devices, it returns the error code 16000050.
-   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on 
+   * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
-   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called 
+   * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
    * on other device types, error code 16000050 is returned.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -294,9 +294,9 @@ declare namespace autoStartupManager {
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 
   /**
-   * Checks whether the current application is enabled for automatic startup at boot time. This API uses a promise to 
+   * Checks whether the current application is enabled for automatic startup at boot time. This API uses a promise to
    * return the result.
-   * This API can be properly called only on phones, PC/2-in-1 devices, tablets, and wearables. On other devices, it 
+   * This API can be properly called only on phones, PC/2-in-1 devices, tablets, and wearables. On other devices, it
    * returns the error code 801.
    *
    * @returns { Promise<boolean> } Promise used to return the auto-startup status. **true** if enabled for automatic

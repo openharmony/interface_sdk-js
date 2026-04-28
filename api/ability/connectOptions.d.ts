@@ -48,7 +48,7 @@ type OnDisconnectFn = (elementName: ElementName) => void;
 /**
  * Callback invoked when a connection fails.
  *
- * @param { int } code - Result code. The value 0 means that the connection is successful, -1 means that a parameter is 
+ * @param { int } code - Result code. The value 0 means that the connection is successful, -1 means that a parameter is
  *     incorrect, and -2 means that the ability is not found
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 23 static
@@ -56,11 +56,11 @@ type OnDisconnectFn = (elementName: ElementName) => void;
 type OnFailedFn = (code: int) => void;
 
 /**
- * **ConnectOptions** can be used as an input parameter to receive status changes during the connection to a 
- * background service. For example, it is used as an input parameter of 
- * [connectServiceExtensionAbility]{@link ./application/UIAbilityContext:UIAbilityContext.connectServiceExtensionAbility} 
+ * **ConnectOptions** can be used as an input parameter to receive status changes during the connection to a
+ * background service. For example, it is used as an input parameter of
+ * [connectServiceExtensionAbility]{@link ./application/UIAbilityContext:UIAbilityContext.connectServiceExtensionAbility}
  * to connect to a ServiceExtensionAbility.
- * 
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7 dynamic
  * @since 23 static
@@ -105,28 +105,28 @@ export interface ConnectOptions {
    * Called when a connection fails.
    *
    * @param { number } code - Error code returned when connection to the specified ability fails.
-   *     
-   *     For details about the error codes, see [Universal Error Codes](../errorcode-universal.md) and 
+   *
+   *     For details about the error codes, see [Universal Error Codes](../errorcode-universal.md) and
    *     [Ability Error Codes](errorcode-ability.md).
-   *     
+   *
    *      201 - The application does not have permission to call the interface.
-   *     
+   *
    *      16000001 - The specified ability does not exist.
-   *     
+   *
    *      16000002 - Incorrect ability type.
-   *     
+   *
    *      16000004 - Cannot start an invisible component.
-   *     
+   *
    *      16000005 - The specified process does not have the permission.
-   *     
+   *
    *      16000006 - Cross-user operations are not allowed.
-   *     
+   *
    *      16000008 - The crowdtesting application expires.
-   *     
+   *
    *      16000053 - The ability is not on the top of the UI.
-   *     
+   *
    *      16000055 - Installation-free timed out.
-   *     
+   *
    *      16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7 dynamic

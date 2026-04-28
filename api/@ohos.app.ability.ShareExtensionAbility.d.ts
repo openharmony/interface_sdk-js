@@ -34,9 +34,8 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * .
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 10 dynamic
  * @since 23 static
  */
-export default class ShareExtensionAbility extends UIExtensionAbility {
-}
+export default class ShareExtensionAbility extends UIExtensionAbility {}

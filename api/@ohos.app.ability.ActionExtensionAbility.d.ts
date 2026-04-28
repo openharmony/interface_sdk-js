@@ -21,15 +21,15 @@
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 
 /**
- * The ActionExtensionAbility module provides a template for you to implement custom actions. It inherits from 
+ * The ActionExtensionAbility module provides a template for you to implement custom actions. It inherits from
  * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}.
- * 
- * By implementing ActionExtensionAbility, you can provide content viewing and processing functionalities for other 
- * applications. For example, you can use ActionExtensionAbility to implement a text translation feature. Other 
- * applications can then call this ActionExtensionAbility to process content that requires translation and obtain the 
+ *
+ * By implementing ActionExtensionAbility, you can provide content viewing and processing functionalities for other
+ * applications. For example, you can use ActionExtensionAbility to implement a text translation feature. Other
+ * applications can then call this ActionExtensionAbility to process content that requires translation and obtain the
  * translated result.
- * 
- * For details about the inheritance relationship of each ability, see 
+ *
+ * For details about the inheritance relationship of each ability, see
  * [Inheritance Relationship](docroot://reference/apis-ability-kit/js-apis-app-ability-ability.md#ability-inheritance-relationship)
  * .
  *
@@ -38,5 +38,4 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @since 10 dynamic
  * @since 23 static
  */
-export default class ActionExtensionAbility extends UIExtensionAbility {
-}
+export default class ActionExtensionAbility extends UIExtensionAbility {}

@@ -19,7 +19,7 @@
  */
 
 /**
- * The module defines the running information of a process. The information can be obtained through 
+ * The module defines the running information of a process. The information can be obtained through
  * [getProcessRunningInfos]{@link @ohos.application.appManager:appManager.getProcessRunningInfos()} of appManager.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -27,9 +27,9 @@
  * @deprecated since 9
  * @useinstead ProcessInformation/ProcessInformation
  */
-
 export interface ProcessRunningInfo {
   /**
+   * Process ID.
    *
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -40,6 +40,7 @@ export interface ProcessRunningInfo {
   pid: number;
 
   /**
+   * UID of the application.
    *
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -50,6 +51,7 @@ export interface ProcessRunningInfo {
   uid: number;
 
   /**
+   * Process name.
    *
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -60,6 +62,7 @@ export interface ProcessRunningInfo {
   processName: string;
 
   /**
+   * Names of all running bundles in the process.
    *
    * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission

@@ -19,7 +19,7 @@
  */
 
 /**
- * The module describes the startup configuration of a child process. When starting a child process through 
+ * The module describes the startup configuration of a child process. When starting a child process through
  * [childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}, you can configure the startup
  * configuration of the child process through **ChildProcessOptions**.
  *
@@ -30,8 +30,8 @@
  */
 export interface ChildProcessOptions {
   /**
-   * Controls the sandbox isolation level and network access permissions of the child process. **true** if the child 
-   * process runs in an independent sandbox environment and cannot access the network; **false** if the child process 
+   * Controls the sandbox isolation level and network access permissions of the child process. **true** if the child
+   * process runs in an independent sandbox environment and cannot access the network; **false** if the child process
    * shares the sandbox and network environment with the main process. The default value is **false**.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -43,7 +43,7 @@ export interface ChildProcessOptions {
 
   /**
    * Whether the child process uses an independent UID. **true** if the child process uses an independent UID; **false**
-   * if the child process and the main process share the same UID. The default value is **false**. This parameter is 
+   * if the child process and the main process share the same UID. The default value is **false**. This parameter is
    * valid only when **isolationMode** is set to **true**.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

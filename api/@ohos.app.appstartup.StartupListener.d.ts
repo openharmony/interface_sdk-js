@@ -29,7 +29,6 @@ import { BusinessError } from './@ohos.base';
  * @syscap SystemCapability.Ability.AppStartup
  * @since 23 staticonly
  */
-
 type OnCompletedFn = (error: BusinessError<void>) => void;
 
 /**

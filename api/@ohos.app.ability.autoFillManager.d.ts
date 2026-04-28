@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -49,9 +49,9 @@ import { AutoFillTriggerType as _AutoFillTriggerType } from './application/AutoF
 
 /**
  * The autoFillManager module provides APIs for saving accounts and passwords.
- * 
- * Unlike the system's auto-save feature that triggers during page transitions, this feature requires manual activation 
- * by the user. For example, the user must input their account and password on a website and click the **Save** button 
+ *
+ * Unlike the system's auto-save feature that triggers during page transitions, this feature requires manual activation
+ * by the user. For example, the user must input their account and password on a website and click the **Save** button
  * to initiate the saving process.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -91,24 +91,15 @@ declare namespace autoFillManager {
    * @since 23 static
    */
   export interface AutoSaveCallback {
-    /**
-     * Called when auto save request is successfully handled.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     */
-    onSuccess(): void;
 
     /**
      * Called when auto-save is successful.
-     * 
+     *
      * This API can be used in atomic services since API version 12.
-     * 
+     *
      * **NOTE**
-     * 
-     * Starting from API version 23, the original **onSuccess()** API is changed to a property, but its usage remains 
+     *
+     * Starting from API version 23, the original **onSuccess()** API is changed to a property, but its usage remains
      * unchanged.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -119,23 +110,13 @@ declare namespace autoFillManager {
     onSuccess: OnSuccessFn;
 
     /**
-     * Called when auto save request is failed to be handled.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     */
-    onFailure(): void;
-
-    /**
      * Called when auto-save fails.
-     * 
+     *
      * This API can be used in atomic services since API version 12.
-     * 
+     *
      * **NOTE**
-     * 
-     * Starting from API version 23, the original **onFailure()** API is changed to a property, but its usage remains 
+     *
+     * Starting from API version 23, the original **onFailure()** API is changed to a property, but its usage remains
      * unchanged.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -144,11 +125,11 @@ declare namespace autoFillManager {
      * @since 23 static
      */
     onFailure: OnFailureFn;
-  }
+}
 
   /**
    * Requests to automatically save the widget data. This API uses an asynchronous callback to return the result.
-   * If the current widget does not support widget switching, you can call this API to save historical widget input 
+   * If the current widget does not support widget switching, you can call this API to save historical widget input
    * data. The callback is triggered when the auto-save request is complete.
    *
    * @param { UIContext } context - UI context in which the auto-save operation will be performed.
@@ -305,7 +286,7 @@ declare namespace autoFillManager {
   export type FillResponse = _FillResponse;
 
   /**
-   * Defines the callback for an auto-fill request, which is used to automatically fill in or generate a password. The 
+   * Defines the callback for an auto-fill request, which is used to automatically fill in or generate a password. The
    * callback can be used to notify the client of the success or failure of the request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -315,8 +296,8 @@ declare namespace autoFillManager {
    */
   export type FillRequestCallback = _AutoFillRequest.FillRequestCallback;
 
-/**
-   * Defines the callback for an auto-fill request, which is used to automatically fill in or generate a password. The 
+  /**
+   * Defines the callback for an auto-fill request, which is used to automatically fill in or generate a password. The
    * callback can be used to notify the client of the success or failure of the request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

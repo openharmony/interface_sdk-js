@@ -26,7 +26,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * # Required Permissions
- * 
+ *
  * ohos.permission.MANAGE_MISSIONS
  */
 /**
@@ -249,7 +249,7 @@ declare namespace missionManager {
   function getMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
   /**
-   * Obtains the low-resolution snapshot of a given mission. This API uses an asynchronous callback to return the 
+   * Obtains the low-resolution snapshot of a given mission. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -362,7 +362,7 @@ declare namespace missionManager {
   function unlockMission(missionId: int): Promise<void>;
 
   /**
-   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the 
+   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -445,7 +445,7 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
    * an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -466,7 +466,7 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
    * a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -506,7 +506,7 @@ declare namespace missionManager {
   function moveMissionsToForeground(missionIds: Array<int>, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API 
+   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API
    * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -526,7 +526,7 @@ declare namespace missionManager {
   function moveMissionsToForeground(missionIds: Array<int>, topMission: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API 
+   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API
    * uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -547,7 +547,7 @@ declare namespace missionManager {
   function moveMissionsToForeground(missionIds: Array<int>, topMission?: int): Promise<void>;
 
   /**
-   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the 
+   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the
    * missions are switched. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -566,7 +566,7 @@ declare namespace missionManager {
   function moveMissionsToBackground(missionIds: Array<int>, callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the 
+   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the
    * missions are switched. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
