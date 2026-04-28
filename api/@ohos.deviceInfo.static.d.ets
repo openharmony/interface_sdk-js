@@ -28,7 +28,7 @@
  * > > The APIs of this module return information about device getants. You are not expected to call these APIs 
  * > frequently.
  *
- * @syscap SystemCapability.Startup.SystemInfo [since 24]
+ * @syscap SystemCapability.Startup.SystemInfo
  * @stagemodelonly
  * @since 24 static
  */
