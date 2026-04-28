@@ -18,6 +18,11 @@
  * @kit AbilityKit
  */
 
+import rpc from './@ohos.rpc';
+import ServiceExtensionContext from './application/ServiceExtensionContext';
+import Want from './@ohos.app.ability.Want';
+import { Configuration } from './@ohos.app.ability.Configuration';
+
 /**
  * ServiceExtensionAbility模块提供后台服务相关扩展能力，提供后台服务创建、销毁、连接、断开等生命周期回调。
  *

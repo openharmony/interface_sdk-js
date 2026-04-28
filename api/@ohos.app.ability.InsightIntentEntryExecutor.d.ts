@@ -24,19 +24,14 @@ import InsightIntentContext from './@ohos.app.ability.InsightIntentContext';
 import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 
 /**
- * The module provides the base class for implementing the execution of intents decorated with
- * [@InsightIntentEntry](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententry)
- * . It must be used together with the @InsightIntentEntry decorator.
- * You are required to implement the
- * [onExecute()]{@link InsightIntentEntryExecutor.InsightIntentEntryExecutor#onExecute} callback for intent execution in
- *  the child class that inherits from this base class and use the @InsightIntentEntry decorator to decorate the child
- * class.
+ * The class of insight intent entry executor.
  *
+ * @class InsightIntentEntryExecutor<T>
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @class InsightIntentEntryExecutor<T>
  * @atomicservice
- * @since 20 dynamiconly
+ * @since 20 dynamic
+ * @since 26.0.0 static
  */
 declare class InsightIntentEntryExecutor<T> {
   /**

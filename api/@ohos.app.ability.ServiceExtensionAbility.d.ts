@@ -18,6 +18,11 @@
  * @kit AbilityKit
  */
 
+import rpc from './@ohos.rpc';
+import ServiceExtensionContext from './application/ServiceExtensionContext';
+import Want from './@ohos.app.ability.Want';
+import { Configuration } from './@ohos.app.ability.Configuration';
+
 /**
  * The ServiceExtensionAbility module provides extended capabilities for background services, including lifecycle
  * callbacks for creating, destroying, connecting, and disconnecting background services.
