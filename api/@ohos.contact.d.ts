@@ -71,6 +71,7 @@ declare namespace contact {
    * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
+   * @since 10
    * @since 12
    */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
@@ -103,6 +104,7 @@ declare namespace contact {
    * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
+   * @since 10
    * @since 12
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
