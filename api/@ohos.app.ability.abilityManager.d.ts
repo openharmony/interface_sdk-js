@@ -37,7 +37,7 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * The AbilityManager module provides APIs for obtaining ability information and running status 
+ * The AbilityManager module provides APIs for obtaining, adding, and updating ability information and running status
  * information.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -47,7 +47,7 @@ import { RecordData } from './@ohos.base';
  */
 declare namespace abilityManager {
   /**
-   * Enumerates the ability states. This enum can be used together with 
+   * Enumerates the ability states. This enum can be used together with
    * [AbilityRunningInfo]{@link ./application/AbilityRunningInfo:AbilityRunningInfo} to return the ability state.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -165,7 +165,7 @@ declare namespace abilityManager {
    */
   export interface AtomicServiceStartupRule {
     /**
-     * 	Whether launching the atomic service is allowed. **true** if allowed, **false** otherwise.
+     * Whether launching the atomic service is allowed. **true** if allowed, **false** otherwise.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -221,9 +221,9 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'abilityForegroundState' } type - Event type. It is fixed at **'abilityForegroundState'**.
-   * @param { AbilityForegroundStateObserver } [observer] - Observer used to listen for ability start or exit events. If this 
-   *     parameter is not set, all observers associated with the specified event are deregistered. If this parameter is set, 
-   *     only the specified observer is deregistered..
+   * @param { AbilityForegroundStateObserver } [observer] - Observer used to listen for ability start or exit events. If this
+   *     parameter is not set, all observers associated with the specified event are deregistered. If this parameter is set,
+   *     only the specified observer is deregistered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -254,7 +254,7 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { Configuration } config - New configuration. You only need to configure the items to be updated.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful, **err** is 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful, **err** is
    *     **undefined**. Otherwise, **err** is an error object. You can perform error handling or other custom processing.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -288,15 +288,15 @@ declare namespace abilityManager {
 
   /**
    * Obtains the UIAbility running information. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > If the application has requested the ohos.permission.GET_RUNNING_INFO permission, it can obtain the UIAbility
-   * > running information of all applications; otherwise, it can obtain the UIAbility running information of the 
+   * > running information of all applications; otherwise, it can obtain the UIAbility running information of the
    * > current application.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @returns { Promise<Array<AbilityRunningInfo>> } Promise used to return the UIAbility running information. You can 
+   * @returns { Promise<Array<AbilityRunningInfo>> } Promise used to return the UIAbility running information. You can
    *     perform error handling or other custom processing.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -309,8 +309,8 @@ declare namespace abilityManager {
    * Obtains the UIAbility running information. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - 	Callback used to return the result. If the API call is 
-   *     successful, **err** is **undefined** and **data** is the UIAbility running information obtained. Otherwise, **err** 
+   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - Callback used to return the result. If the API call is
+   *     successful, **err** is **undefined** and **data** is the UIAbility running information obtained. Otherwise, **err**
    *     is an error object. You can perform error handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -328,7 +328,7 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { int } upperLimit - Maximum number of messages that can be obtained. The maximum value is 2<sup>31</sup>-1.
-   * @returns { Promise<Array<ExtensionRunningInfo>> } Promise used to return the API call result and the ExtensionAbility 
+   * @returns { Promise<Array<ExtensionRunningInfo>> } Promise used to return the API call result and the ExtensionAbility
    *     running information. You can perform error handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -346,8 +346,8 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { int } upperLimit - Maximum number of messages that can be obtained. The maximum value is 2<sup>31</sup>-1.
-   * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - 	Callback used to return the result. If the API call is 
-   *     successful, **err** is **undefined** and **data** is the ExtensionAbility running information obtained. Otherwise, 
+   * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - Callback used to return the result. If the API call is
+   *     successful, **err** is **undefined** and **data** is the ExtensionAbility running information obtained. Otherwise,
    *     **err** is an error object. You can perform error handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -361,10 +361,10 @@ declare namespace abilityManager {
   function getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
   /**
-   * Obtains the top ability, which is the ability that has the window focus. This API uses a promise to return the 
+   * Obtains the top ability, which is the ability that has the window focus. This API uses a promise to return the
    * result.
    *
-   * @returns { Promise<ElementName> } Promise used to return the API call result and the element name. You can perform error 
+   * @returns { Promise<ElementName> } Promise used to return the API call result and the element name. You can perform error
    *     handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -376,11 +376,11 @@ declare namespace abilityManager {
   function getTopAbility(): Promise<ElementName>;
 
   /**
-   * Obtains the top ability, which is the ability that has the window focus. This API uses an asynchronous callback to 
+   * Obtains the top ability, which is the ability that has the window focus. This API uses an asynchronous callback to
    * return the result.
    *
-   * @param { AsyncCallback<ElementName> } callback - 	Callback used to return the result. If the API call is successful, 
-   *     **err** is **undefined** and **data** is the top ability name obtained. Otherwise, **err** is an error object. You 
+   * @param { AsyncCallback<ElementName> } callback - Callback used to return the result. If the API call is successful,
+   *     **err** is **undefined** and **data** is the top ability name obtained. Otherwise, **err** is an error object. You
    *     can perform error handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -394,13 +394,13 @@ declare namespace abilityManager {
   function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
   /**
-   * Called by a system dialog box to obtain shared data, which is set by the target UIAbility through 
+   * Called by a system dialog box to obtain shared data, which is set by the target UIAbility through
    * [onShare]{@link @ohos.app.ability.UIAbility:UIAbility.onShare(wantParam: Record<string, Object>)}. This API uses an
    *  asynchronous callback to return the result.
    *
    * @param { int } missionId - Mission ID on the target application. The maximum value is 2<sup>31</sup>-1.
-   * @param { AsyncCallback<Record<string, Object>> } callback - Callback used to return the result. If the API call is 
-   *     successful, **err** is **undefined** and **data** is the shared data obtained. Otherwise, **err** is an error 
+   * @param { AsyncCallback<Record<string, Object>> } callback - Callback used to return the result. If the API call is
+   *     successful, **err** is **undefined** and **data** is the shared data obtained. Otherwise, **err** is an error
    *     object. You can perform error handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -428,14 +428,14 @@ declare namespace abilityManager {
   function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, RecordData>>): void;
 
   /**
-   * Called by a system dialog box to obtain shared data, which is set by the target UIAbility through 
-   * [onShare]{@link @ohos.app.ability.UIAbility:UIAbility.onShare(wantParam: Record<string, Object>)}. This API uses a 
+   * Called by a system dialog box to obtain shared data, which is set by the target UIAbility through
+   * [onShare]{@link @ohos.app.ability.UIAbility:UIAbility.onShare(wantParam: Record<string, Object>)}. This API uses a
    * promise to return the result.
    *
    * @param { int } missionId - Mission ID on the target application. The maximum value is 2<sup>31</sup>-1.
    * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function. [since 10 - 10]
-   * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared data. You can 
-   *     perform error handling or other custom processing. [since 11]
+   * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared data. You can
+   *     perform error handling or other custom processing.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -461,12 +461,12 @@ declare namespace abilityManager {
   function acquireShareData(missionId: int): Promise<Record<string, RecordData>>;
 
   /**
-   * Used by the [Data Loss Prevention (DLP)]{@link @ohos.dlpPermission:dlpPermission} management application to notify 
+   * Used by the [Data Loss Prevention (DLP)]{@link @ohos.dlpPermission:dlpPermission} management application to notify
    * a sandbox application of the data saving result. This API uses an asynchronous callback to return the result.
    *
    * @param { AbilityResult } parameter - Information returned to the caller.
    * @param { int } requestCode - Request code passed in by the DLP management application.
-   * @param { AsyncCallback<void> } callback - 	Callback used to return the result. If the API call is successful, **err** is 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful, **err** is
    *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -483,12 +483,12 @@ declare namespace abilityManager {
   function notifySaveAsResult(parameter: AbilityResult, requestCode: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Used by the [Data Loss Prevention (DLP)]{@link @ohos.dlpPermission:dlpPermission} management application to notify 
+   * Used by the [Data Loss Prevention (DLP)]{@link @ohos.dlpPermission:dlpPermission} management application to notify
    * a sandbox application of the data saving result. This API uses a promise to return the result.
    *
    * @param { AbilityResult } parameter - Information returned to the caller.
    * @param { int } requestCode - Request code passed in by the DLP management application.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -504,11 +504,11 @@ declare namespace abilityManager {
   function notifySaveAsResult(parameter: AbilityResult, requestCode: int): Promise<void>;
 
   /**
-   * Obtains the information about the UIAbility components of an application that is running in the foreground. This 
+   * Obtains the information about the UIAbility components of an application that is running in the foreground. This
    * API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AbilityStateData>> } callback - 	Callback used to return the API call result and the 
+   * @param { AsyncCallback<Array<AbilityStateData>> } callback - Callback used to return the API call result and the
    *     UIAbility information. You can perform error handling or custom processing in it.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -523,11 +523,11 @@ declare namespace abilityManager {
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
   /**
-   * Obtains the information about the UIAbility components of an application that is running in the foreground. This 
+   * Obtains the information about the UIAbility components of an application that is running in the foreground. This
    * API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @returns { Promise<Array<AbilityStateData>> } Promise used to return the API call result and the UIAbility information. 
+   * @returns { Promise<Array<AbilityStateData>> } Promise used to return the API call result and the UIAbility information.
    *     You can perform error handling or custom processing in it.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -540,12 +540,12 @@ declare namespace abilityManager {
   function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
 
   /**
-   * Checks whether the [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility} can be 
+   * Checks whether the [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility} can be
    * started in embedded mode. This API uses a promise to return the result.
    *
    * @param { Context } context - Context of the caller.
    * @param { string } appId - Unique ID of the application, which is allocated by the cloud.
-   * @returns { Promise<boolean> } Promise used to return the result. **true** if embedded startup is allowed, **false** 
+   * @returns { Promise<boolean> } Promise used to return the result. **true** if embedded startup is allowed, **false**
    *     otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -564,7 +564,7 @@ declare namespace abilityManager {
    * @permission ohos.permission.NOTIFY_DEBUG_ASSERT_RESULT
    * @param { string } sessionId - Session ID of the AssertFault.
    * @param { UserStatus } status - Assertion result of the user operation.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -597,15 +597,15 @@ declare namespace abilityManager {
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 
   /**
-   * Obtains the rule for launching an 
-   * [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility} in embedded mode. This API 
+   * Obtains the rule for launching an
+   * [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility} in embedded mode. This API
    * uses a promise to return the result.
    * This API can be properly called only on phones and tablets. On other devices, it returns the error code 801.
    *
-   * @param { Context } context - Context of the caller.<br>Note: Currently, only 
+   * @param { Context } context - Context of the caller.<br>Note: Currently, only
    *     [UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext} is supported.
    * @param { string } appId - Unique ID of the application, which is allocated by the cloud.
-   * @returns { Promise<AtomicServiceStartupRule> } Promise used to return the rule for launching the embedded atomic 
+   * @returns { Promise<AtomicServiceStartupRule> } Promise used to return the rule for launching the embedded atomic
    *     service.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -621,17 +621,17 @@ declare namespace abilityManager {
 
   /**
    * Restarts the current atomic service.
-   * 
+   *
    * > **NOTE**
    * >
    * > - Currently, atomic services can be started only in an independent window.
    * >
-   * > If you call this API, 
-   * > [ApplicationContext.restartApp()]{@link ./application/ApplicationContext:ApplicationContext/restartApp}, or 
-   * > [UIAbilityContext.restartApp()]{@link ./application/UIAbilityContext:UIAbilityContext.restartApp} within 3 seconds 
+   * > - If you call this API,
+   * > [ApplicationContext.restartApp()]{@link ./application/ApplicationContext:ApplicationContext/restartApp}, or
+   * > [UIAbilityContext.restartApp()]{@link ./application/UIAbilityContext:UIAbilityContext.restartApp} within 3 seconds
    * > after a successful call to this API, the system returns error code 16000064.
    *
-   * @param { Context } context - Context of the ability.<br>Note: Currently, only 
+   * @param { Context } context - Context of the ability.<br>Note: Currently, only
    *     [UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext} is supported.<br>
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
@@ -652,8 +652,8 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
    * @param { Want } want - Want information about the target ability.
-   * @returns { Promise<int> } Promise used to return the ID of the preloaded 
-   *     [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance for further 
+   * @returns { Promise<int> } Promise used to return the ID of the preloaded
+   *     [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance for further
    *     clearing or management.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -671,11 +671,11 @@ declare namespace abilityManager {
   function preloadUIExtensionAbility(want: Want): Promise<int>;
 
   /**
-   * Clears a [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance. This API 
+   * Clears a [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance. This API
    * uses a promise to return the result.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { int } preloadId - ID of a preloaded 
+   * @param { int } preloadId - ID of a preloaded
    *     [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -693,7 +693,7 @@ declare namespace abilityManager {
   function clearPreloadedUIExtensionAbility(preloadId: int): Promise<void>;
 
   /**
-   * Clears all preloaded [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instances 
+   * Clears all preloaded [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instances
    * in the current process. This API uses a promise to return the result.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
@@ -710,12 +710,12 @@ declare namespace abilityManager {
   function clearPreloadedUIExtensionAbilities(): Promise<void>;
 
   /**
-   * Subscribes to loaded events of a preloaded 
-   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current 
+   * Subscribes to loaded events of a preloaded
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current
    * process.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { PreloadedUIExtensionAbilityLoadedFn } callback - Callback used to receive the ID of the preloaded 
+   * @param { PreloadedUIExtensionAbilityLoadedFn } callback - Callback used to receive the ID of the preloaded
    *     [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance that is loaded.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -728,12 +728,12 @@ declare namespace abilityManager {
   function onPreloadedUIExtensionAbilityLoaded(callback: PreloadedUIExtensionAbilityLoadedFn): void;
 
   /**
-   * Unsubscribes from loaded events of a preloaded 
-   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current 
+   * Unsubscribes from loaded events of a preloaded
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current
    * process.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { PreloadedUIExtensionAbilityLoadedFn } [callback] - Callback used for unsubscription. If this parameter 
+   * @param { PreloadedUIExtensionAbilityLoadedFn } [callback] - Callback used for unsubscription. If this parameter
    *     is not specified, all callbacks associated with the specified event in the process will be unregistered.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -746,12 +746,12 @@ declare namespace abilityManager {
   function offPreloadedUIExtensionAbilityLoaded(callback?: PreloadedUIExtensionAbilityLoadedFn): void;
 
   /**
-   * Subscribes to destroyed events of a preloaded 
-   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current 
+   * Subscribes to destroyed events of a preloaded
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current
    * process.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { PreloadedUIExtensionAbilityDestroyedFn } callback - 	Callback used to receive the ID of the preloaded 
+   * @param { PreloadedUIExtensionAbilityDestroyedFn } callback - Callback used to receive the ID of the preloaded
    *     [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance that is destroyed.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -764,12 +764,12 @@ declare namespace abilityManager {
   function onPreloadedUIExtensionAbilityDestroyed(callback: PreloadedUIExtensionAbilityDestroyedFn): void;
 
   /**
-   * Unsubscribes from loaded events of a preloaded 
-   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current 
+   * Unsubscribes from loaded events of a preloaded
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance in the current
    * process.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { PreloadedUIExtensionAbilityDestroyedFn } [callback] - 	Callback used for unsubscription. If this parameter is 
+   * @param { PreloadedUIExtensionAbilityDestroyedFn } [callback] - Callback used for unsubscription. If this parameter is
    *     not specified, all callbacks associated with the specified event in the process will be unregistered.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -846,10 +846,10 @@ declare namespace abilityManager {
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
 
   /**
-   * Defines the callback function when the preloaded 
+   * Defines the callback function when the preloaded
    * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance is destroyed.
    *
-   * @param { int } preloadId - ID of the preloaded UIExtensionAbility instance.
+   * @param { int } preloadId - The preload UIExtensionAbility ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -858,10 +858,10 @@ declare namespace abilityManager {
   export type PreloadedUIExtensionAbilityDestroyedFn = (preloadId: int) => void;
 
   /**
-   * Defines the callback function when the preloaded 
+   * Defines the callback function when the preloaded
    * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance is loaded.
    *
-   * @param { int } preloadId - ID of the preloaded UIExtensionAbility instance.
+   * @param { int } preloadId - The preload UIExtensionAbility ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly

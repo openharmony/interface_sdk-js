@@ -19,9 +19,9 @@
  */
 
 /**
- * The module provides the capability to listen for a specified 
- * [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage} object. You can use AbilityStageMonitor as an 
- * input parameter of 
+ * The module provides the capability to listen for a specified
+ * [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage} object. You can use AbilityStageMonitor as an
+ * input parameter of
  * [abilityDelegator.waitAbilityStageMonitor]{@link AbilityDelegator:AbilityDelegator.waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>)}
  * to register a listener.
  *

@@ -31,7 +31,7 @@ import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveReque
 /*** endif */
 
 /**
- * The AutoFillExtensionAbility module provides APIs for automatically filling in and saving accounts and passwords. It 
+ * The AutoFillExtensionAbility module provides APIs for automatically filling in and saving accounts and passwords. It
  * inherits from [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -138,7 +138,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onBackground(): void;
 
   /**
-   * Called to clear resources when this AutoFillExtensionAbility is destroyed. This API either returns the result 
+   * Called to clear resources when this AutoFillExtensionAbility is destroyed. This API either returns the result
    * directly or uses a promise to return the result.
    *
    * @returns { void | Promise<void> } Returns no value or returns a Promise.
@@ -150,7 +150,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onDestroy(): void | Promise<void>;
 
   /**
-   * Called back before an auto fill extension is destroyed.
+   * Called to clear resources when this AutoFillExtensionAbility is destroyed.
    *
    * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

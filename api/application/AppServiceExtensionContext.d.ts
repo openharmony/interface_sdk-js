@@ -24,9 +24,19 @@ import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
- * The context of app service extension. It allows access to AppServiceExtension-specific resources.
+ * The AppServiceExtensionContext module provides the context environment for the
+ * [AppServiceExtensionAbility](docroot://reference/apis-ability-kit/js-apis-app-ability-appServiceExtensionAbility.md).
+ * It inherits from [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
+ * AppServiceExtensionContext provides APIs to connect to and disconnect from a ServiceExtensionAbility (an
+ * ExtensionAbility for system application background services), as well as to terminate an AppServiceExtensionAbility.
+ * Note that a ServiceExtensionAbility can only be developed by system applications and supports connections from third-
+ * party applications.
+ *
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20 dynamic
@@ -34,14 +44,16 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  */
 declare class AppServiceExtensionContext extends ExtensionContext {
   /**
-  * Connects the current ability to a service extension ability.
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Connects this AppServiceExtensionAbility to a ServiceExtensionAbility. It enables communication with the
+   * ServiceExtensionAbility via a proxy, allowing access to the capabilities exposed by the ServiceExtensionAbility.
+   * This API can be called only by the main thread.
    *
-   * @param { Want } want - The element name of the service ability
-   * @param { ConnectOptions } callback - The callback for obtaining the connection result
-   * @returns { long } Returns the number code of the ability connected
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { ConnectOptions } callback - Callback used to return the information indicating that the connection is
+   *     successful, failed, or interrupted.
+   * @returns { long } Connection ID. The client can call
+   *     [disconnectServiceExtensionAbility]{@link AppServiceExtensionContext.disconnectServiceExtensionAbility} with
+   *     this ID for disconnection.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -58,10 +70,12 @@ declare class AppServiceExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
   /**
-   * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
+   * Disconnects this AppServiceExtensionAbility from a ServiceExtensionAbility. This API can be called only by the main
+   * thread. It uses a promise to return the result.
    *
-   * @param { long } connection - The number code of the ability connected
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { long } connection - Connection ID returned by
+   *     [connectServiceExtensionAbility]{@link AppServiceExtensionContext.connectServiceExtensionAbility}.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -72,14 +86,11 @@ declare class AppServiceExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
-   * Start a UIAbility.
-   * If the target ability is visible, you can start the target ability: If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to appply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts the UIAbility. This API can be called only by the main thread. It uses a promise to return the result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { StartOptions } [options] - Parameters used for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -110,9 +121,10 @@ declare class AppServiceExtensionContext extends ExtensionContext {
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Destroys this app service extension.
+   * Terminates this AppServiceExtensionAbility. This API can be called only by the main thread. It uses a promise to
+   * return the result.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.

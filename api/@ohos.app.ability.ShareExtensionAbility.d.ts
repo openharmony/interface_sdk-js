@@ -38,5 +38,4 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @since 10 dynamic
  * @since 23 static
  */
-export default class ShareExtensionAbility extends UIExtensionAbility {
-}
+export default class ShareExtensionAbility extends UIExtensionAbility {}

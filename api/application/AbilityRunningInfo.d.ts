@@ -22,7 +22,7 @@ import { ElementName } from '../bundleManager/ElementName';
 import abilityManager from '../@ohos.app.ability.abilityManager';
 
 /**
- * AbilityRunningInfo is a struct that records the running information and state of an ability. It is obtained through 
+ * AbilityRunningInfo is a struct that records the running information and state of an ability. It is obtained through
  * [getAbilityRunningInfos]{@link @ohos.app.ability.abilityManager:abilityManager.getAbilityRunningInfos()}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -24,9 +24,9 @@ import { ElementName } from '../bundleManager/ElementName';
 import Context from './Context';
 
 /**
- * The AbilityStageContext module implements the context of an ability stage. It inherits from 
+ * The AbilityStageContext module implements the context of an ability stage. It inherits from
  * [Context]{@link ./../app/context}.
- * This module provides APIs for accessing a specific ability stage. You can use the APIs to obtain the ModuleInfo 
+ * This module provides APIs for accessing a specific ability stage. You can use the APIs to obtain the ModuleInfo
  * object and environment configuration of an ability stage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

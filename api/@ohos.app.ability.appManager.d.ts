@@ -42,9 +42,9 @@ import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './app
 /*** endif */
 
 /**
- * The appManager module implements application management. You can use the APIs of this module to  query whether the 
- * application is undergoing a stability test, whether the application is running on a RAM constrained device, the 
- * memory size of the application, and information about running processes.
+ * The appManager module implements application management. You can use the APIs of this module to query whether the
+ * application is undergoing a stability test, whether the application is running on a RAM constrained device, the
+ * memory size of the application, and information about the running process.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 11]
@@ -53,8 +53,8 @@ import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './app
  */
 declare namespace appManager {
   /**
-   * Enumerates the application state. This enum can be used together with 
-   * [ApplicationStateData]{@link ./application/ApplicationStateData:ApplicationStateData} to return the application state.
+   * Enumerates the application states. This enum can be used together with
+   * [AbilityStateData]{@link ./application/AbilityStateData:AbilityStateData} to return the application state.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -63,7 +63,7 @@ declare namespace appManager {
    */
   export enum ApplicationState {
     /**
-     * The state application is being created.
+     * The application is being created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -114,7 +114,7 @@ declare namespace appManager {
   }
 
   /**
-   * Enumerates the process state.
+   * Enumerates the processes states.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -174,7 +174,7 @@ declare namespace appManager {
   }
 
   /**
-   * Enumerates the mode used for preloading an application process.
+   * Enumerates the modes used for preloading an application process.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -205,7 +205,7 @@ declare namespace appManager {
    */
   export enum KeepAliveAppType {
     /**
-     * Thrid-party and system applications. This value can be called only as an input parameter of 
+     * Third-party and system applications. This value can be called only as an input parameter of
      * [getKeepAliveBundles]{@link appManager.getKeepAliveBundles}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -216,7 +216,7 @@ declare namespace appManager {
     ALL = 0,
 
     /**
-     * Thrid-party application.
+     * Third-party application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
@@ -267,9 +267,9 @@ declare namespace appManager {
   }
 
   /**
-   * Describes the keep-alive application information, which can be obtained by callling 
-   * [getKeepAliveBundles]{@link appManager.getKeepAliveBundles} or 
-   * [getKeepAliveAppServiceExtensions]{@link appManagerAliveAppServiceExtensions}.
+   * Describes the keep-alive application information, which can be obtained by calling
+   * [getKeepAliveBundles]{@link appManager.getKeepAliveBundles} or
+   * [getKeepAliveAppServiceExtensions]{@link appManager.getKeepAliveAppServiceExtensions}.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -327,9 +327,9 @@ declare namespace appManager {
      */
     allowUserToCancel?: boolean;
   }
-  
+
   /**
-   * Enumerates the types of applications to filter. It can be used with 
+   * Enumerates the types of applications to filter. It can be used with
    * [AppStateFilter]{@link appManager.AppStateFilter} to filter the application types you want to listen for.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -360,9 +360,9 @@ declare namespace appManager {
   }
 
   /**
-   * Enumerates the types of application states to filter. It can be used with 
-   * [AppStateFilter]{@link appManager.AppStateFilter} to filter the application types you want to listen for.
-   * 
+   * Enumerates the types of application states to filter. It can be used with
+   * [AppStateFilter]{@link appManager.AppStateFilter} to filter the application state types you want to listen for.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
@@ -370,7 +370,7 @@ declare namespace appManager {
    */
   export enum FilterAppStateType {
     /**
-     * The application is initializing. It corresponds to the state whose value is **0** in 
+     * The application is initializing. It corresponds to the state whose value is **0** in
      * [AppStateData](docroot://reference/apis-ability-kit/js-apis-inner-application-appStateData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -381,9 +381,9 @@ declare namespace appManager {
     CREATE = 1 << 0,
 
     /**
-     * The application is running in the foreground. It corresponds to the state whose value is **2** in 
+     * The application is running in the foreground. It corresponds to the state whose value is **2** in
      * [AppStateData](docroot://reference/apis-ability-kit/js-apis-inner-application-appStateData.md#properties).
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -392,7 +392,7 @@ declare namespace appManager {
     FOREGROUND = 1 << 1,
 
     /**
-     * The application is running in the background. It corresponds to the state whose value is **4** in 
+     * The application is running in the background. It corresponds to the state whose value is **4** in
      * [AppStateData](docroot://reference/apis-ability-kit/js-apis-inner-application-appStateData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -403,7 +403,7 @@ declare namespace appManager {
     BACKGROUND = 1 << 2,
 
     /**
-     * The application has exited. It corresponds to the state whose value is **5** in 
+     * The application has exited. It corresponds to the state whose value is **5** in
      * [AppStateData](docroot://reference/apis-ability-kit/js-apis-inner-application-appStateData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -415,7 +415,7 @@ declare namespace appManager {
   }
 
   /**
-   * Enumerates the types of process states to filter. It can be used with 
+   * Enumerates the types of process states to filter. It can be used with
    * [AppStateFilter]{@link appManager.AppStateFilter} to filter the process state types you want to listen for.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -425,7 +425,7 @@ declare namespace appManager {
    */
   export enum FilterProcessStateType {
     /**
-     * The process has just been created. It corresponds to the state whose value is **0** in 
+     * The process has just been created. It corresponds to the state whose value is **0** in
      * [ProcessData](docroot://reference/apis-ability-kit/js-apis-inner-application-processData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -436,7 +436,7 @@ declare namespace appManager {
     CREATE = 1 << 0,
 
     /**
-     * The process is running in the foreground. It corresponds to the state whose value is **2** in 
+     * The process is running in the foreground. It corresponds to the state whose value is **2** in
      * [ProcessData](docroot://reference/apis-ability-kit/js-apis-inner-application-processData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -447,7 +447,7 @@ declare namespace appManager {
     FOREGROUND = 1 << 1,
 
     /**
-     * The process is running in the background. It corresponds to the state whose value is 4 in 
+     * The process is running in the background. It corresponds to the state whose value is **4** in
      * [ProcessData](docroot://reference/apis-ability-kit/js-apis-inner-application-processData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -458,7 +458,7 @@ declare namespace appManager {
     BACKGROUND = 1 << 2,
 
     /**
-     * The process has terminated. It corresponds to the state whose value is 5 in 
+     * The process has terminated. It corresponds to the state whose value is **5** in
      * [ProcessData](docroot://reference/apis-ability-kit/js-apis-inner-application-processData.md#properties).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -470,8 +470,8 @@ declare namespace appManager {
   }
 
   /**
-   * Enumerates the types of ability states to filter. It can be used with 
-   * [AppStateFilter]{@link appManager.AppStateFilter} to filter the state types you want to listen for.
+   * Enumerates the types of ability states to filter. It can be used with
+   * [AppStateFilter]{@link appManager.AppStateFilter} to filter the ability state types you want to listen for.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -480,7 +480,7 @@ declare namespace appManager {
    */
   export enum FilterAbilityStateType {
     /**
-     * The ability is being created. It corresponds to the state **ABILITY_STATE_CREATE** in 
+     * The ability is being created. It corresponds to the state **ABILITY_STATE_CREATE** in
      * [Ability States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#ability-states)
      * .
      *
@@ -492,7 +492,7 @@ declare namespace appManager {
     CREATE = 1 << 0,
 
     /**
-     * The ability is running in the foreground. It corresponds to the state **ABILITY_STATE_FOREGROUND** in 
+     * The ability is running in the foreground. It corresponds to the state **ABILITY_STATE_FOREGROUND** in
      * [Ability States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#ability-states)
      * .
      *
@@ -504,7 +504,7 @@ declare namespace appManager {
     FOREGROUND = 1 << 1,
 
     /**
-     * The ability is running in the background. It corresponds to the state **ABILITY_STATE_BACKGROUND** in 
+     * The ability is running in the background. It corresponds to the state **ABILITY_STATE_BACKGROUND** in
      * [Ability States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#ability-states)
      * .
      *
@@ -516,10 +516,10 @@ declare namespace appManager {
     BACKGROUND = 1 << 2,
 
     /**
-     * The ability has been destroyed. It corresponds to the state **ABILITY_STATE_TERMINATED** in 
+     * The ability has been destroyed. It corresponds to the state **ABILITY_STATE_TERMINATED** in
      * [Ability States](docroot://reference/apis-ability-kit/js-apis-inner-application-abilityStateData.md#ability-states)
      * .
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -540,9 +540,9 @@ declare namespace appManager {
   export enum FilterCallback {
     /**
      * Corresponds to the
-     * [ApplicationStateObserver.onForegroundApplicationChanged](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationStateobserveronforegroundapplicationchanged)
+     * [ApplicationStateObserver.onForegroundApplicationChanged](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronforegroundapplicationchanged)
      *  callback, which is executed when the application's foreground/background state changes.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -551,8 +551,8 @@ declare namespace appManager {
     ON_FOREGROUND_APPLICATION_CHANGED = 1 << 0,
 
     /**
-     * Corresponds to the 
-     * [ApplicationStateObserver.onAbilityStateChanged](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateoberseronabilitystatechanged)
+     * Corresponds to the
+     * [ApplicationStateObserver.onAbilityStateChanged](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronabilitystatechanged)
      *  callback, which is executed when the ability state changes.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -563,10 +563,10 @@ declare namespace appManager {
     ON_ABILITY_STATE_CHANGED = 1 << 1,
 
     /**
-     * Corresponds to the 
+     * Corresponds to the
      * [ApplicationStateObserver.onProcessCreated](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocesscreated)
      *  callback, which is executed when a process is created.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -575,10 +575,10 @@ declare namespace appManager {
     ON_PROCESS_CREATED = 1 << 2,
 
     /**
-     * Corresponds to the 
+     * Corresponds to the
      * [ApplicationStateObserver.onProcessDied](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocessdied)
      *  callback, which is executed when a process is destroyed.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -587,10 +587,10 @@ declare namespace appManager {
     ON_PROCESS_DIED = 1 << 3,
 
     /**
-     * Corresponds to the 
+     * Corresponds to the
      * [ApplicationStateObserver.onProcessStateChanged](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocessstatechanged)
      *  callback, which is executed when the process state is updated.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -599,10 +599,10 @@ declare namespace appManager {
     ON_PROCESS_STATE_CHANGED = 1 << 4,
 
     /**
-     * Corresponds to the 
+     * Corresponds to the
      * [ApplicationStateObserver.onAppStarted](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronappstarted)
      *  callback, which is executed when the application's first process is created.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -611,10 +611,10 @@ declare namespace appManager {
     ON_APP_STARTED = 1 << 5,
 
     /**
-     * Corresponds to the 
+     * Corresponds to the
      * [ApplicationStateObserver.onAppStopped](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronappstopped)
      *  callback, which is executed when the application's last process is destroyed.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -624,8 +624,8 @@ declare namespace appManager {
   }
 
   /**
-   * Describes the filter for application lifecycle change events. It can be used as a parameter of 
-   * [on]{@link appManager.on(type: 'applicationState', observer: ApplicationStateObserver, filter: AppStateFilter)} to 
+   * Describes the filter for application lifecycle change events. It can be used as a parameter of
+   * [on]{@link appManager.on(type: 'applicationState', observer: ApplicationStateObserver, filter: AppStateFilter)} to
    * filter application lifecycle change events you want to listen for.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -636,7 +636,7 @@ declare namespace appManager {
   export interface AppStateFilter {
     /**
      * Type of application to filter. The options are as follows:
-     * 
+     *
      * - **0**: Do not listen for any application type.
      * - A bitwise OR combination of the enumerated values of [FilterBundleType](#filterbundletype21), for example, "
      * appManager.FilterBundleType.APP | appManager.FilterBundleType.ATOMIC_SERVICE" listens for lifecycle change events
@@ -652,10 +652,10 @@ declare namespace appManager {
 
     /**
      * Type of application state to filter. The options are as follows:
-     * 
+     *
      * - **0**: Do not listen for any application state.
-     * - A bitwise OR combination of the enumerated values of [FilterAppStateType](#filterAppStateType21), for example, 
-     * "appManager.FilterAppStateType.CREATE | appManager.FilterAppStateType.FOREGROUND" listens for both the creating 
+     * - A bitwise OR combination of the enumerated values of [FilterAppStateType](#filterappstatetype21), for example,
+     * "appManager.FilterAppStateType.CREATE | appManager.FilterAppStateType.FOREGROUND" listens for both the creating
      * and foreground states of applications.
      * - If this parameter is not set, all application state types are listened for by default.
      *
@@ -668,10 +668,10 @@ declare namespace appManager {
 
     /**
      * Type of process state to filter. The options are as follows:
-     * 
+     *
      * - **0**: Do not listen for any process state.
-     * - A bitwise OR combination of the enumerated values of [FilterProcessStateType](#filterProcessStateType), for 
-     * example, "appManager.FilterProcessStateType.CREATE | appManager.FilterProcessStateType.FOREGROUND" listens for 
+     * - A bitwise OR combination of the enumerated values of [FilterProcessStateType](#filterprocessstatetype21), for
+     * example, "appManager.FilterProcessStateType.CREATE | appManager.FilterProcessStateType.FOREGROUND" listens for
      * both the creating and foreground states of processes.
      * - If this parameter is not set, all process state types are listened for by default.
      *
@@ -684,10 +684,10 @@ declare namespace appManager {
 
     /**
      * Type of ability state to filter. The options are as follows:
-     * 
+     *
      * - **0**: Do not listen for any ability state.
-     * - A bitwise OR combination of the enumerated values of [FilterAbilityStateType](#filterAbilityStateType), for 
-     * example, "appManager.FilterAbilityStateType.CREATE | appManager.FilterAbilityStateType.FOREGROUND" listens for 
+     * - A bitwise OR combination of the enumerated values of [FilterAbilityStateType](#filterabilitystatetype21), for
+     * example, "appManager.FilterAbilityStateType.CREATE | appManager.FilterAbilityStateType.FOREGROUND" listens for
      * both the creating and foreground states of ability components.
      * - If this parameter is not set, all ability state types are listened for by default.
      *
@@ -700,18 +700,18 @@ declare namespace appManager {
 
     /**
      * Callback to filter. The options are as follows:
-     * 
+     *
      * - **0**: Do not listen for any callback.
-     * - A bitwise OR combination of the enumerated values of [FilterCallback](#filterCallback21), for example, "
-     * appManager.FilterCallback.ON_ABILITY_STATE_CHANGED | appManager.FilterCallback.ON_PROCESS_STATE_CHANGED" listens 
+     * - A bitwise OR combination of the enumerated values of [FilterCallback](#filtercallback21), for example, "
+     * appManager.FilterCallback.ON_ABILITY_STATE_CHANGED | appManager.FilterCallback.ON_PROCESS_STATE_CHANGED" listens
      * for both
      * [ApplicationStateObserver.onAbilityStateChanged](js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronabilitystatechanged)
-     * and
+     *  and
      * [ApplicationStateObserver.onProcessStateChanged](js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocessstatechanged)
      * .
-     * - If this parameter is not set, all callbacks enumerated in [FilterCallback](#filterCallback21) are listened for 
+     * - If this parameter is not set, all callbacks enumerated in [FilterCallback](#filtercallback21) are listened for
      * by default.
-     * 
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 21 dynamic
@@ -719,16 +719,16 @@ declare namespace appManager {
      */
     callbacks?: int;
   }
-  
+
   /**
-   * Register application state observer.
+   * Registers an observer to listen for lifecycle changes of all applications.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - Type of the API to call. It is fixed at **'applicationState'**.
-   * @param { ApplicationStateObserver } observer - Application state observer, which is used to listen for applications 
+   * @param { ApplicationStateObserver } observer - Application state observer, which is used to listen for applications
    *     lifecycle changes.
-   * @returns { int } ID of the observer registered. You can pass this ID to 
-   *     [off('applicationState')]{@link appManager.off(type: 'applicationState', observerId: int)} to unregister the 
+   * @returns { int } ID of the observer registered. You can pass this ID to
+   *     [off('applicationState')]{@link appManager.off(type: 'applicationState', observerId: int)} to unregister the
    *     observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -753,16 +753,16 @@ declare namespace appManager {
   function onApplicationStateChange(observer: ApplicationStateObserver): int;
 
   /**
-   * Register application state observer.
+   * Registers an observer to listen for lifecycle changes of the specified application.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - Type of the API to call. It is fixed at **'applicationState'**.
-   * @param { ApplicationStateObserver } observer - Application state observer, which is used to listen for application 
+   * @param { ApplicationStateObserver } observer - Application state observer, which is used to listen for application
    *     lifecycle changes.
-   * @param { Array<string> } bundleNameList - **bundleName** arrary of the application. A maximum of 128 bundle names can be 
+   * @param { Array<string> } bundleNameList - **bundleName** array of the application. A maximum of 128 bundle names can be
    *     passed.
-   * @returns { int } ID of the observer registered. You can pass this ID to 
-   *     [off('applicationState')]{@link appManager.off(type: 'applicationState', observerId: int)} to unregister the 
+   * @returns { int } ID of the observer registered. You can pass this ID to
+   *     [off('applicationState')]{@link appManager.off(type: 'applicationState', observerId: int)} to unregister the
    *     observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -788,16 +788,16 @@ declare namespace appManager {
   function onApplicationStateChange(observer: ApplicationStateObserver, bundleNameList: Array<string>): int;
 
   /**
-   * Registers an application state observer, which allows you to filter for specific application lifecycle changes by 
+   * Registers an application state observer, which allows you to filter for specific application lifecycle changes by
    * setting filter criteria.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - Type of the API to call. It is fixed at **'applicationState'**.
-   * @param { ApplicationStateObserver } observer - Application state observer, which is used to listen for application 
+   * @param { ApplicationStateObserver } observer - Application state observer, which is used to listen for application
    *     lifecycle changes.
-   * @param { AppStateFilter } filter - Filter configuration for targeted monitoring.
-   * @returns { int } ID of the observer registered. You can pass this ID to 
-   *     [off('applicationState')]{@link @ohos.app.abillity.appManager.off(type: 'applicationState', observerId: int)} to unregister 
+   * @param { AppStateFilter } filter - Filter for application lifecycle changes.
+   * @returns { int } ID of the observer registered. You can pass this ID to
+   *     [off]{@link @ohos.app.ability.appManager:appManager.off(type: 'applicationState', observerId: int)} to unregister
    *     the observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -827,7 +827,7 @@ declare namespace appManager {
   function onApplicationStateChange(observer: ApplicationStateObserver, filter: AppStateFilter): int;
 
   /**
-   * Registers an observer to listen for application start or exit events. The observer can be used by a system 
+   * Registers an observer to listen for application start or exit events. The observer can be used by a system
    * application to observe the start or event events of all applications.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -863,9 +863,9 @@ declare namespace appManager {
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'abilityFirstFrameState' } type - Event type. It is fixed at **'abilityFirstFrameState'**.
-   * @param { AbilityFirstFrameStateObserver } observer - Observer used to listen for the complete of the first frame 
+   * @param { AbilityFirstFrameStateObserver } observer - Observer used to listen for the complete of the first frame
    *     rendering of the ability.
-   * @param { string } [bundleName] - Bundle name of the ability to be listened for. If this parameter is left blank, the 
+   * @param { string } [bundleName] - Bundle name of the ability to be listened for. If this parameter is left blank, the
    *     event is listened for all applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -894,13 +894,13 @@ declare namespace appManager {
   function onAbilityFirstFrameStateChange(observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
 
   /**
-   * Unregister the observer used to listen for application state changes. This API uses an asynchronous callback to
+   * Unregisters the observer used to listen for application state changes. This API uses an asynchronous callback to
    * return the result.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - Type of the API to call. It is fixed at **'applicationState'**.
    * @param { int } observerId - ID of the observer registered, which is the listener ID returned by
-   *     [on('applicationState')]{@link appManager.on(type: 'applicationState', observer:ApplicationStateObserver)}.
+   *     [on('applicationState')]{@link appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the application state observer is
    *     deregistered, **err** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -926,13 +926,13 @@ declare namespace appManager {
   function offApplicationStateChange(observerId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Unregister the observer used to listen for application state changes. This API uses a promise to return the
+   * Unregisters the observer used to listen for application state changes. This API uses a promise to return the
    * result.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - Type of the API to call. It is fixed at **'applicationState'**.
    * @param { int } observerId - ID of the observer registered, which is the listener ID returned by
-   *     [on('applicationState')]{@link appManager.on(type: 'applicationState', observer:ApplicationStateObserver)}.
+   *     [on('applicationState')]{@link appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -957,7 +957,7 @@ declare namespace appManager {
   function offApplicationStateChange(observerId: int): Promise<void>;
 
   /**
-   * Unregisters the observer used to listen for application statrt or exit events.
+   * Unregisters the observer used to listen for application start or exit events.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'appForegroundState' } type - Event type. It is fixed at **'appForegroundState'**.
@@ -977,7 +977,7 @@ declare namespace appManager {
    * Unregister app foreground or background state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { AppForegroundStateObserver } observer - The app foreground state observer.
+   * @param { AppForegroundStateObserver } [observer] - The app foreground state observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1009,7 +1009,7 @@ declare namespace appManager {
    * Unregister ability first frame state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
+   * @param { AbilityFirstFrameStateObserver } [observer] - The ability first frame state observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1020,12 +1020,12 @@ declare namespace appManager {
   function offAbilityFirstFrameStateChange(observer?: AbilityFirstFrameStateObserver): void;
 
   /**
-   * Obtains applications that are running in the foreground. The application information is defined by 
-   * [AppStateData]{@link ./application/AppStateData:AppStateData}. This API uses an asynchronous callback to return the 
+   * Obtains applications that are running in the foreground. The application information is defined by
+   * [AppStateData]{@link ./application/AppStateData:AppStateData}. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AppStateData>> } callback - Callback used to return the API call result and an array 
+   * @param { AsyncCallback<Array<AppStateData>> } callback - Callback used to return the API call result and an array
    *     holding the application state data. You can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1040,8 +1040,8 @@ declare namespace appManager {
   function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
 
   /**
-   * Obtains applications that are running in the foreground. The application information is defined by 
-   * [AppStateData]{@link ./application/AppStateData:AppStateData}. This API uses a promise  to return the result.
+   * Obtains applications that are running in the foreground. The application information is defined by
+   * [AppStateData]{@link ./application/AppStateData:AppStateData}. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<AppStateData>> } Promise used to return an array holding the application state data.
@@ -1057,18 +1057,18 @@ declare namespace appManager {
 
   /**
    * Kills a process by bundle name and account ID. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
-   * > 
-   * > The ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is not required when **accountId** specifies the 
+   * >
+   * > The ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is not required when **accountId** specifies the
    * > current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES [since 9 - 13]
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
    *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES [since 14]
    * @param { string } bundleName - Bundle name.
-   * @param { int } accountId - ID of a system account. For details, see 
-   *     [getOsAccountLocalId]{@link @ohos.account.osAcccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   * @param { int } accountId - ID of a system account. For details, see
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     .
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1085,16 +1085,16 @@ declare namespace appManager {
 
   /**
    * Kills a process by bundle name and account ID. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > The ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is not required when **accountId** specifies the 
+   * > The ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is not required when **accountId** specifies the
    * > current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
    *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - Bundle name.
-   * @param { int } accountId - ID of a system account. For details, see 
+   * @param { int } accountId - ID of a system account. For details, see
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     .
    * @param { boolean } clearPageStack - Whether to clear the page stack. **true** to clear, **false** otherwise.
@@ -1114,20 +1114,20 @@ declare namespace appManager {
 
   /**
    * Kills a process by bundle name and account ID. This API uses an asynchronous callback to return the result.
-   * 
+   *
    * > **NOTE**
-   * > 
-   * > The ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is not required when **accountId** specifies the 
+   * >
+   * > The ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is not required when **accountId** specifies the
    * > current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES [since 9 - 13]
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
    *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES [since 14]
    * @param { string } bundleName - Bundle name.
-   * @param { int } accountId - ID of a system account. For details, see 
+   * @param { int } accountId - ID of a system account. For details, see
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     .
-   * @param { AsyncCallback<void> } callback - Callback used to return the API call result. You can perform error handling or 
+   * @param { AsyncCallback<void> } callback - Callback used to return the API call result. You can perform error handling or
    *     custom processing in this callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1142,17 +1142,17 @@ declare namespace appManager {
   function killProcessWithAccount(bundleName: string, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether the system is undergoing a stability test. This API uses an asynchronous callback to return the 
+   * Checks whether the system is undergoing a stability test. This API uses an asynchronous callback to return the
    * result.
-   * 
+   *
    * > **NOTE**
-   * > 
-   * > A stability test scenario refers to a specific testing environment designed to verify application reliability 
+   * >
+   * > A stability test scenario refers to a specific testing environment designed to verify application reliability
    * > under complex, extreme, or long-term operating conditions.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the API call is successful, **err** 
-   *     is **undefined** and **data** is the check result for whether the system is undergoing a stability test. Otherwise, 
-   *     **err** is an error object. You can perform error handling or other custom processing.<br> **true** is returned if
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the API call is successful, **err**
+   *     is **undefined** and **data** is the check result for whether the system is undergoing a stability test. Otherwise,
+   *     **err** is an error object. You can perform error handling or other custom processing.<br>**true** is returned if
    *     the system is undergoing a stability test; **false** is returned otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1166,7 +1166,7 @@ declare namespace appManager {
 
   /**
    * Checks whether the system is undergoing a stability test. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > A stability test scenario refers to a specific testing environment designed to verify application reliability
@@ -1174,7 +1174,7 @@ declare namespace appManager {
    *
    * @returns { Promise<boolean> } Promise used to return the API call result and the result **true** or **false**. You can
    *     perform error handling or custom processing in this callback.
-   * 
+   *
    *     **true** is returned if the system is undergoing a stability test; **false** is returned otherwise.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1209,10 +1209,10 @@ declare namespace appManager {
    * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - Bundle name.
    * @param { boolean } clearPageStack - Whether to clear the page stack. **true** to clear, **false** otherwise.
-   * @param { int } [appIndex] - ID of an application clone. The default value is **0**. If the value is **0**, all processes 
-   *     of the main application are terminated. If the value is greater than 0, all processes of the specified application 
+   * @param { int } [appIndex] - ID of an application clone. The default value is **0**. If the value is **0**, all processes
+   *     of the main application are terminated. If the value is greater than 0, all processes of the specified application
    *     clone are terminated.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1227,8 +1227,8 @@ declare namespace appManager {
    *
    * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES [since 9 - 13]
    * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES [since 14]
-   * @param { string } bundleName - bundle name.
-   * @param { AsyncCallback<void> } callback - Callback used to return the API call result. You can perform error 
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<void> } callback - Callback used to return the API call result. You can perform error
    *     handling or custom processing in this callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1247,7 +1247,7 @@ declare namespace appManager {
    *
    * @permission ohos.permission.CLEAN_APPLICATION_DATA
    * @param { string } bundleName - Bundle name.
-   * @returns { Promise<void> } Promise used to return the API call result. You can perform error handling or custom 
+   * @returns { Promise<void> } Promise used to return the API call result. You can perform error handling or custom
    *     processing in this callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1298,11 +1298,11 @@ declare namespace appManager {
   /**
    * Checks whether the current device is a RAM-constrained device (a device with severely limited memory resources).
    * This API uses an asynchronous callback to return the result.
-   * 
+   *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the API call is successful, **err**
-   *     **is** undefined and data is the check result for whether the device is RAM-constrained. Otherwise, **err** is
+   *     is **undefined** and **data** is the check result for whether the device is RAM-constrained. Otherwise, **err** is
    *     an error object. You can perform error handling or other custom processing.<br>**true** is returned if the device is
-   *     RAM-constrained; false is returned otherwise.
+   *     RAM-constrained; **false** is returned otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1332,8 +1332,8 @@ declare namespace appManager {
    * callback to return the result.
    *
    * @param { AsyncCallback<int> } callback - Callback used to return the result. If the API call is successful, **err** is
-   *      **undefined** and **data** is the maximum memory (RAM allocation) available to the current application. Otherwise,
-   *      **err** is an error object. You can perform error handling or other custom processing based on the return value.
+   *     **undefined** and **data** is the maximum memory (RAM allocation) available to the current application. Otherwise,
+   *     **err** is an error object. You can perform error handling or other custom processing based on the return value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1345,9 +1345,9 @@ declare namespace appManager {
   function getAppMemorySize(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains information about the running processes of the current application. This API uses a promise to return the 
+   * Obtains information about the running processes of the current application. This API uses a promise to return the
    * result.
-   * 
+   *
    * > **NOTE**
    * >
    * > - In versions earlier than API version 11, this API requires the ohos.permission.GET_RUNNING_INFO permission,
@@ -1368,11 +1368,11 @@ declare namespace appManager {
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
   /**
-   * Obtains the information about the running process based on the bundle type. This API uses a promise to return the 
+   * Obtains the information about the running process based on the bundle type. This API uses a promise to return the
    * result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { bundleManager.BundleType } bundleType - the bundle type of the process
+   * @param { bundleManager.BundleType } bundleType - Bundle type.
    * @returns { Promise<Array<ProcessInformation>> } Promise used to return the process information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1388,20 +1388,20 @@ declare namespace appManager {
     bundleType: bundleManager.BundleType): Promise<Array<ProcessInformation>>;
 
   /**
-   * Obtains information about the running processes of the current application. This API uses an asynchronous callback 
+   * Obtains information about the running processes of the current application. This API uses an asynchronous callback
    * to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > - In versions earlier than API version 11, this API requires the ohos.permission.GET_RUNNING_INFO permission,
-   * >  which is available only for system applications.
+   * > which is available only for system applications.
    * >
    * > - Starting from API version 11, this API is used only to obtain the process information of the caller. No
    * > permission is required.
    *
    * @permission ohos.permission.GET_RUNNING_INFO [since 9 - 10]
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the result. If the API call is
-   *     successful, **err** is undefined and **data** is the information about the running processes. Otherwise, **err**
+   *     successful, **err** is **undefined** and **data** is the information about the running processes. Otherwise, **err**
    *     is an error object. You can perform error handling or other custom processing.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1419,7 +1419,7 @@ declare namespace appManager {
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Bundle name of the shared library.
    * @param { long } versionCode - Version number of the shared library.
-   * @returns { Promise<boolean> } Promise used to return the result. **true** if the shared library is in use, **false** 
+   * @returns { Promise<boolean> } Promise used to return the result. **true** if the shared library is in use, **false**
    *     otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1439,7 +1439,7 @@ declare namespace appManager {
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Bundle name of the shared library.
    * @param { long } versionCode - Version number of the shared library.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** if the shared library is in 
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** if the shared library is in
    *     use, **false** otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1456,10 +1456,10 @@ declare namespace appManager {
   /**
    * Obtains the memory size of a process. This API uses a promise to return the result.
    *
-   * @param { int } pid - Process ID. For details, see 
+   * @param { int } pid - Process ID. For details, see
    *     [getRunningProcessInfoByBundleName]{@link appManager.getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>)}
    *     .
-   * @returns { Promise<int> } Promise used to return the API call result and the memory size (in KB). You can perform error 
+   * @returns { Promise<int> } Promise used to return the API call result and the memory size (in KB). You can perform error
    *     handling or custom processing in this callback.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1475,10 +1475,10 @@ declare namespace appManager {
   /**
    * Obtains the memory size of a process. This API uses an asynchronous callback to return the result.
    *
-   * @param { int } pid - Process ID. For details, see 
+   * @param { int } pid - Process ID. For details, see
    *     [getRunningProcessInfoByBundleName]{@link appManager.getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>)}
    *     .
-   * @param { AsyncCallback<int> } callback - Callback used to return the API call result and the memory size (in KB). You 
+   * @param { AsyncCallback<int> } callback - Callback used to return the API call result and the memory size (in KB). You
    *     can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1492,11 +1492,11 @@ declare namespace appManager {
   function getProcessMemoryByPid(pid: int, callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains information about the running processes by bundle name. This API uses an asynchronous callback to return 
+   * Obtains information about the running processes by bundle name. This API uses an asynchronous callback to return
    * the result.
    *
    * @param { string } bundleName - Bundle name.
-   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the API call result and the 
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the API call result and the
    *     process running information. You can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1510,12 +1510,12 @@ declare namespace appManager {
   function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
-   * Obtains information about the running processes by bundle name and user ID. This API uses an asynchronous callback 
+   * Obtains information about the running processes by bundle name and user ID. This API uses an asynchronous callback
    * to return the result.
    *
    * @param { string } bundleName - Bundle name.
    * @param { int } userId - User ID.
-   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the API call result and the 
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the API call result and the
    *     process running information. You can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1532,7 +1532,7 @@ declare namespace appManager {
    * Obtains information about the running processes by bundle name. This API uses a promise to return the result.
    *
    * @param { string } bundleName - Bundle name.
-   * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running 
+   * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running
    *     information. You can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1546,12 +1546,12 @@ declare namespace appManager {
   function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
 
   /**
-   * Obtains information about the running processes by bundle name and user ID. This API uses a promise to return the 
+   * Obtains information about the running processes by bundle name and user ID. This API uses a promise to return the
    * result.
    *
    * @param { string } bundleName - Bundle name.
    * @param { int } userId - User ID.
-   * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running 
+   * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running
    *     information. You can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1565,12 +1565,12 @@ declare namespace appManager {
   function getRunningProcessInfoByBundleName(bundleName: string, userId: int): Promise<Array<ProcessInformation>>;
 
   /**
-   * Checks whether the application with the specified bundle name is running across all users. This API uses a promise 
+   * Checks whether the application with the specified bundle name is running across all users. This API uses a promise
    * to return the result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Bundle name.
-   * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if at least one user is running 
+   * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if at least one user is running
    *     the specified application. **false** is returned if none of the users are running the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1585,12 +1585,12 @@ declare namespace appManager {
   function isApplicationRunning(bundleName: string): Promise<boolean>;
 
   /**
-   * Checks whether the application with the specified bundle name is running across all users. This API uses an 
+   * Checks whether the application with the specified bundle name is running across all users. This API uses an
    * asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Bundle name.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** is returned if at least one 
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** is returned if at least one
    *     user is running the specified application. **false** is returned if none of the users are running the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1606,7 +1606,7 @@ declare namespace appManager {
 
   /**
    * Preloads an application process. A successful call does not always mean that the preloading is successful. In other
-   *  words, the target application process may not be created even if the API is successfully called. This API uses a 
+   *  words, the target application process may not be created even if the API is successfully called. This API uses a
    * promise to return the result.
    *
    * @permission ohos.permission.PRELOAD_APPLICATION
@@ -1630,8 +1630,8 @@ declare namespace appManager {
   function preloadApplication(bundleName: string, userId: int, mode: PreloadMode, appIndex?: int): Promise<void>;
 
   /**
-   * Obtains the information about running applications in multi-app mode. The multi-app mode means that an application 
-   * can be simultaneously logged in with different accounts on the same device. This API uses a promise to return the 
+   * Obtains the information about running applications in multi-app mode. The multi-app mode means that an application
+   * can be simultaneously logged in with different accounts on the same device. This API uses a promise to return the
    * result.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
@@ -1653,19 +1653,19 @@ declare namespace appManager {
   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
 
   /**
-   * Checks whether the application with the specified bundle name and application clone index is running across all 
+   * Checks whether the application with the specified bundle name and application clone index is running across all
    * users. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > If the application is not installed for the current user, error code 16000073 is returned. If the application is 
+   * > If the application is not installed for the current user, error code 16000073 is returned. If the application is
    * > installed for the current user, the system checks whether the application is running across all users.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Bundle name.
-   * @param { int } [appCloneIndex] - Index of an application clone. The value ranges from 0 to 1000. The value **0** means 
+   * @param { int } [appCloneIndex] - Index of an application clone. The value ranges from 0 to 1000. The value **0** means
    *     the main application, and a value greater than 0 means a specific application clone.
-   * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if at least one user is running 
+   * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if at least one user is running
    *     the specified application. **false** is returned if none of the users are running the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1679,7 +1679,7 @@ declare namespace appManager {
   function isAppRunning(bundleName: string, appCloneIndex?: int): Promise<boolean>;
 
   /**
-   * Clears data of a specified application based on the bundle name and application clone index. This API uses a 
+   * Clears data of a specified application based on the bundle name and application clone index. This API uses a
    * promise to return the result.
    *
    * @permission ohos.permission.CLEAN_APPLICATION_DATA
@@ -1703,7 +1703,7 @@ declare namespace appManager {
    * Terminates a mission. This API uses a promise to return the result.
    *
    * @permission ohos.permission.KILL_APP_PROCESSES
-   * @param { int } missionId - Mission ID, which can be obtained by calling 
+   * @param { int } missionId - Mission ID, which can be obtained by calling
    *     [getMissionInfos]{@link @ohos.app.ability.missionManager:missionManager.getMissionInfos(deviceId: string, numMax: int, callback: AsyncCallback<Array<MissionInfo>>)}
    *     .
    * @returns { Promise<void> } Promise that returns no value.
@@ -1720,9 +1720,9 @@ declare namespace appManager {
   function terminateMission(missionId: int): Promise<void>;
 
   /**
-   * Obtains the PIDs of processes that support quick startup after caching in a specified application. This API uses a 
+   * Obtains the PIDs of processes that support quick startup after caching in a specified application. This API uses a
    * promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can only be used to obtain the PIDs of the system account to which the caller belongs.
@@ -1745,28 +1745,28 @@ declare namespace appManager {
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<int>>;
 
   /**
-   * Sets or cancels the keep-alive status for an application that belongs to a specified user. This API uses a promise 
+   * Sets or cancels the keep-alive status for an application that belongs to a specified user. This API uses a promise
    * to return the result.
-   * Starting from API version 18, this API can be properly called only on 2-in-1 devices and wearables. For versions 
-   * earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called on other 
+   * Starting from API version 18, this API can be properly called only on 2-in-1 devices and wearables. For versions
+   * earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called on other
    * device types, error code 801 is returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > - To support keep-alive, **mainElement** in the 
-   * > [module.json5](docroot://quick-start/module-configuration-file.md) file of the application must be a UIAbility. 
+   * > - To support keep-alive, **mainElement** in the
+   * > [module.json5](docroot://quick-start/module-configuration-file.md) file of the application must be a UIAbility.
    * > The system initiates the keep-alive operation only when this mainElement has been launched.
    * >
-   * > - On 2-in-1 devices, the application must appear in the status bar within 5 seconds of launch. Otherwise, the 
+   * > - On 2-in-1 devices, the application must appear in the status bar within 5 seconds of launch. Otherwise, the
    * > system revokes the application's keep-alive status and terminate the restarted process.
    * >
-   * > - When the kept-alive application process exits, the system attempts to restart it. If three consecutive restart 
+   * > - When the kept-alive application process exits, the system attempts to restart it. If three consecutive restart
    * > attempts fail, the system stops restarting the process.
    *
    * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { string } bundleName - Bundle name.
    * @param { int } userId - User ID.
-   * @param { boolean } enable - Whether to keep the application alive or cancel its keep-alive status. **true** to keep the 
+   * @param { boolean } enable - Whether to keep the application alive or cancel its keep-alive status. **true** to keep the
    *     application alive, **false** otherwise.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1787,10 +1787,10 @@ declare namespace appManager {
   function setKeepAliveForBundle(bundleName: string, userId: int, enable: boolean): Promise<void>;
 
   /**
-   * Obtains information about a specified type of keep-alive application of a user. The application information is 
-   * defined by [KeepAliveBundleInfo]{@link appManager.KeepAliveBundleInfo}. This API uses a promise to return the 
+   * Obtains information about a specified type of keep-alive application of a user. The application information is
+   * defined by [KeepAliveBundleInfo]{@link appManager.KeepAliveBundleInfo}. This API uses a promise to return the
    * result.
-   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is 
+   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is
    * returned.
    * **Required permissions**: ohos.permission.MANAGE_APP_KEEP_ALIVE
    *
@@ -1812,19 +1812,19 @@ declare namespace appManager {
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: int): Promise<Array<KeepAliveBundleInfo>>;
 
   /**
-   * Sets or cancels the keep-alive status for an AppServiceExtensionAbility. This API uses a promise to return the 
+   * Sets or cancels the keep-alive status for an AppServiceExtensionAbility. This API uses a promise to return the
    * result.
-   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is 
+   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is
    * returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > - This API takes effect only when the application is installed under the user with **userId** of 1 and the 
+   * > - This API takes effect only when the application is installed under the user with **userId** of 1 and the
    * > **mainElement** field in the **module.json5** file of the entry HAP is set to **AppServiceExtensionAbility**.
    *
    * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { string } bundleName - Bundle name.
-   * @param { boolean } enabled - Whether to keep the application alive or cancel its keep-alive status. **true** to keep, 
+   * @param { boolean } enabled - Whether to keep the application alive or cancel its keep-alive status. **true** to keep,
    *     **false** otherwise.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1845,7 +1845,7 @@ declare namespace appManager {
   /**
    * Obtains information about all AppServiceExtensionAbility components that are kept alive. The information is defined
    *  by [KeepAliveBundleInfo]{@link appManager.KeepAliveBundleInfo}. This API uses a promise to return the result.
-   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is 
+   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is
    * returned.
    * **Required permissions**: ohos.permission.MANAGE_APP_KEEP_ALIVE
    *
@@ -1864,7 +1864,7 @@ declare namespace appManager {
 
   /**
    * Kills processes in batches. This API uses a promise to return the result.
-   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is 
+   * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is
    * returned.
    * **Required permissions**: ohos.permission.KILL_APP_PROCESSES
    *

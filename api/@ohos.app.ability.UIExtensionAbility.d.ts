@@ -25,93 +25,107 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
 import type UIExtensionContext from './application/UIExtensionContext';
 
 /**
- * The class of UI extension ability.
+ * UIExtensionAbility is an ExtensionAbility component with a User Interface (UI). It inherits from
+ * [ExtensionAbility]{@link ./@ohos.app.ability.ExtensionAbility:ExtensionAbility} and provides basic lifecycle
+ * capabilities such as component creation, destruction, and foreground/background switching. Unlike the UIAbility, the
+ * UIExtensionAbility does not appear as a separate mission in the mission view. The foreground/background state and
+ * visibility of the UIExtensionAbility follow those of its host window.
+ * You cannot directly inherit from the UIExtensionAbility. However, you can choose other components that inherit from
+ * UIExtensionAbility based on specific service scenarios. For example, when handling data shared from other
+ * applications, you can use the
+ * [ShareExtensionAbility]{@link ./@ohos.app.ability.ShareExtensionAbility:ShareExtensionAbility}; when providing
+ * widget editing functionality, you can use the
+ * [FormEditExtensionAbility]{@link ./@ohos.app.form.FormEditExtensionAbility:FormEditExtensionAbility}.
+ * For details about the inheritance relationship of each ability, see
+ * [Inheritance Relationship](docroot://reference/apis-ability-kit/js-apis-app-ability-ability.md#ability-inheritance-relationship)
+ * .
  *
- * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10 dynamic
  * @since 23 static
  */
 declare class UIExtensionAbility extends ExtensionAbility {
   /**
-   * Indicates configuration information about an UI extension ability context.
+   * Context of the UIExtensionAbility.
    *
-   * @type { UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
   context: UIExtensionContext;
 
   /**
-   * Called back when an UI extension is started for initialization.
+   * Called when a UIExtensionAbility instance is created. You can execute initialization logic (such as defining
+   * variables and loading resources) within this callback.
    *
+   * @param { AbilityConstant.LaunchParam } launchParam - Parameters for application launch, including the reason for
+   *     application launch and the reason for the last application exit. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 10
-   */
-   /**
-   * Called back when an UI extension is started for initialization.
-   *
-   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the LaunchParam information about UIExtensionAbility.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 10 dynamic
    * @since 23 static
    */
   onCreate(launchParam: AbilityConstant.LaunchParam): void;
 
   /**
-   * Called back when an UI extension session is created.
+   * Called when a [UIExtensionContentSession]{@link ./@ohos.app.ability.UIExtensionContentSession} instance is created.
+   * You can load a page through the UIExtensionContentSession instance within this callback.
    *
-   * @param { Want } want - Indicates the want info of the UI extension.
-   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @param { Want } want - Data passed by the caller when launching the UIExtensionAbility.
+   * @param { UIExtensionContentSession } session - UIExtensionContentSession instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
   onSessionCreate(want: Want, session: UIExtensionContentSession): void;
 
   /**
-   * Called back when an UI extension session is destroyed.
+   * Called when a UIExtensionContentSession is destroyed. It informs applications that the UIExtensionContentSession
+   * instance is no longer available for use.
    *
-   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @param { UIExtensionContentSession } session - UIExtensionContentSession instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
   /**
-   * Called back when the state of an UI extension changes to foreground.
+   * Called when a UIExtensionAbility is initially launched into the foreground or transitions from the background to
+   * the foreground. You can apply for resources when the UI becomes visible within this callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
   onForeground(): void;
 
   /**
-   * Called back when the state of an UI extension changes to background.
+   * Called when a UIExtensionAbility transitions from the foreground to the background. You can release resources when
+   * the UI is no longer invisible within this callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
   onBackground(): void;
 
   /**
-   * Called back before an UI extension is destroyed.
+   * Called when a UIExtensionAbility is destroyed. You can clear resources and save data during this lifecycle. This
+   * API returns the result synchronously or uses a promise to return the result.
+   * After the **onDestroy()** lifecycle callback is executed, the application may exit. Consequently, the asynchronous
+   * function (for example, asynchronously writing data to the database) in **onDestroy()** may fail to be executed.
+   * Using a Promise for asynchronous callback is recommended to prevent such issues.
    *
-   * @returns { void | Promise<void> } the promise returned by the function.
+   * @returns { void | Promise<void> } No return value or a Promise object that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    */
   onDestroy(): void | Promise<void>;
@@ -121,7 +135,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    *
    * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 23 static
    */
   onDestroy(): Promise<void> | undefined;

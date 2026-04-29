@@ -22,10 +22,10 @@ import StartupConfig from './@ohos.app.appstartup.StartupConfig';
 import common from './@ohos.app.ability.common';
 
 /**
- * The module provides the capability to manage startup tasks in 
- * [AppStartup](docroot://application-models/app-startup.md). The APIs of this module can be called only on the main 
+ * The module provides the capability to manage startup tasks in
+ * [AppStartup](docroot://application-models/app-startup.md). The APIs of this module can be called only on the main
  * thread.
- * 
+ *
  * > **NOTE**
  * >
  * > This module supports .so file preloading since API version 18.
@@ -38,10 +38,10 @@ import common from './@ohos.app.ability.common';
 declare namespace startupManager {
   /**
    * Runs startup tasks or loads .so files.
-   * 
+   *
    * > **NOTE**
    * >
-   * > This API cannot be used to run startup tasks defined in a feature-type HAP. To run those tasks, use 
+   * > This API cannot be used to run startup tasks defined in a feature-type HAP. To run those tasks, use
    * > [startupManager.run]{@link startupManager.run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig)}
    * > .
    *
@@ -65,8 +65,8 @@ declare namespace startupManager {
   function run(startupTasks: Array<string>, config?: StartupConfig): Promise<void>;
 
   /**
-   * Runs startup tasks or loads .so files. You can specify 
-   * [AbilityStageContext]{@link ./application/AbilityStageContext:AbilityStageContext} for loading startup tasks. This 
+   * Runs startup tasks or loads .so files. You can specify
+   * [AbilityStageContext]{@link ./application/AbilityStageContext:AbilityStageContext} for loading startup tasks. This
    * API uses a promise to return the result.
    *
    * @param { Array<string> } startupTasks - Array of [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask}
@@ -91,7 +91,6 @@ declare namespace startupManager {
 
   /**
    * Removes all startup task results.
-   * 
    * If there are preloading tasks for .so files, the corresponding .so files is set to the unloaded state. However, .so
    * files that have already been loaded in the cache will not be removed.
    *
@@ -148,9 +147,9 @@ declare namespace startupManager {
 
   /**
    * Removes the initialization result of a startup task or .so file preloading task.
-   * 
+   *
    * - If a startup task name is passed, the initialization result of that startup task is removed.
-   * - If a .so file is passed, the .so file is set to the unloaded state, but the loaded .so file in the cache is not 
+   * - If a .so file is passed, the .so file is set to the unloaded state, but the loaded .so file in the cache is not
    * removed.
    *
    * @param { string } startupTask - Name of the [StartupTask]{@link @ohos.app.appstartup.StartupTask:StartupTask} or

@@ -63,7 +63,7 @@ declare enum FailureCode {
    * @since 20 dynamic
    * @since 23 static
    */
-  FAILURE_CODE_USER_REFUSE = 2,
+  FAILURE_CODE_USER_REFUSE = 2
 }
 
 /**
@@ -89,9 +89,9 @@ type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
 type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
 
 /**
- * CompletionHandlerForAtomicService provides two callback functions, 
+ * CompletionHandlerForAtomicService provides two callback functions,
  * [onAtomicServiceRequestSuccess]{@link CompletionHandlerForAtomicService#onAtomicServiceRequestSuccess(appId: string)}
- * and 
+ * and
  * [onAtomicServiceRequestFailure]{@link CompletionHandlerForAtomicService#onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string)}
  * , to handle the results of successful and failed atomic service launch requests, respectively.
  *

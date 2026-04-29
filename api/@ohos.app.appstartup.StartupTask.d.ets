@@ -21,7 +21,7 @@
 import AbilityStageContext from './application/AbilityStageContext';
 
 /**
- * The module provides capabilities related to startup tasks in 
+ * The module provides capabilities related to startup tasks in
  * [AppStartup](docroot://application-models/app-startup.md).
  *
  * @syscap SystemCapability.Ability.AppStartup
@@ -57,7 +57,7 @@ declare class StartupTask {
   onDependencyCompleted(dependency: string, result: Any): void;
 
   /**
-   * Called when all the dependent startup tasks are complete. You can initialize the startup task in this callback. 
+   * Called when all the dependent startup tasks are complete. You can initialize the startup task in this callback.
    * This API uses a promise to return the result.
    *
    * @param { AbilityStageContext } context - Context environment of the

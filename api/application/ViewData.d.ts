@@ -104,7 +104,7 @@ export default interface ViewData {
   pageRect: AutoFillRect;
 
   /**
-   * Whether the content to be filled is selected by the user. **true** if the content is selected by the user, and 
+   * Whether the content to be filled is selected by the user. **true** if the content is selected by the user, and
    * **false** otherwise.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

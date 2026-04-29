@@ -28,32 +28,11 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * # Usage
- * 
- * Before using the ServiceExtensionContext module, you must define a child class that inherits from 
- * ServiceExtensionAbility.
- * 
- * **Example**
- * 
- * ```ts
- * import { ServiceExtensionAbility } from '@kit.AbilityKit';
- * import { rpc } from '@kit.IPCKit';
- * 
- * let commRemote: rpc.IRemoteObject | null; // Release the instance when the connection is disconnected.
- * 
- * class EntryAbility extends ServiceExtensionAbility {
- *   onCreate() {
- *     let context = this.context; // Obtain a ServiceExtensionContext instance.
- *   }
- * }
- * ```
- */
-/**
  * The ServiceExtensionContext module provides the context environment for the ServiceExtensionAbility. It inherits from
  * ExtensionContext.
- * 
+ *
  * You can use the APIs of this module to start, terminate, connect, and disconnect an ability.
- * 
+ *
  * > **NOTE**
  * >
  * > - The APIs of this module must be used on the main thread, but not in child threads such as Worker and TaskPool.
@@ -66,7 +45,7 @@ import Want from '../@ohos.app.ability.Want';
  */
 declare class ServiceExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability. This API can be called only on the main thread. It uses an asynchronous callback to return the 
+   * Starts an ability. This API can be called only on the main thread. It uses an asynchronous callback to return the
    * result.
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
@@ -108,7 +87,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. This API can be called only on the main thread. It uses an asynchronous callback to return the 
+   * Starts an ability. This API can be called only on the main thread. It uses an asynchronous callback to return the
    * result.
    *
    * @param { Want } want - Want information about the target ability.
@@ -152,7 +131,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. This API can be called only on the main thread. It uses a promise to return the result 
+   * Starts an ability. This API can be called only on the main thread. It uses a promise to return the result
    * asynchronously.
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
@@ -196,22 +175,22 @@ declare class ServiceExtensionContext extends ExtensionContext {
   /**
    * Starts a UIAbility through App Linking. This API can be called only on the main thread. It uses a promise to return
    * the result asynchronously.
-   * 
+   *
    * A URL in the standard format is passed in to the **link** field to start the target UIAbility based on the implicit
-   * Want matching rules. The target UIAbility must have the following filter characteristics to process links of App 
+   * Want matching rules. The target UIAbility must have the following filter characteristics to process links of App
    * Linking:
-   * 
+   *
    * - The **actions** field must contain **ohos.want.action.viewData**.
    * - The **entities** field must contain **entity.system.browsable**.
    * - The **uris** field must contain elements whose **scheme** is **https** and **domainVerify** is **true**.
-   * 
-   * If an input parameter is invalid, for example, a mandatory parameter is not set or the URL set in **link** is not 
-   * in the standard format, an exception is thrown. If the parameter verification is successful but an error occurs 
+   *
+   * If an input parameter is invalid, for example, a mandatory parameter is not set or the URL set in **link** is not
+   * in the standard format, an exception is thrown. If the parameter verification is successful but an error occurs
    * when starting the target UIAbility, the error information is returned through promise.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { string } link - URL to open, which must be in the standard format.
@@ -244,16 +223,16 @@ declare class ServiceExtensionContext extends ExtensionContext {
   openLink(link: string, options?: OpenLinkOptions): Promise<void>;
 
   /**
-   * Starts an ability with the caller information specified. The caller information is carried in **Want** and 
-   * identified at the system service layer. The ability can obtain the caller information from the **Want** parameter 
-   * in the **onCreate** lifecycle callback. When this API is used to start an ability, the caller information carried 
-   * in **Want** is not overwritten by the current application information. The system service layer can obtain the 
-   * initial caller information. This API can be called only on the main thread. It uses an asynchronous callback to 
+   * Starts an ability with the caller information specified. The caller information is carried in **Want** and
+   * identified at the system service layer. The ability can obtain the caller information from the **Want** parameter
+   * in the **onCreate** lifecycle callback. When this API is used to start an ability, the caller information carried
+   * in **Want** is not overwritten by the current application information. The system service layer can obtain the
+   * initial caller information. This API can be called only on the main thread. It uses an asynchronous callback to
    * return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability.
@@ -295,16 +274,16 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability with the caller information and start options specified. The caller information is carried in 
-   * **Want** and identified at the system service layer. The ability can obtain the caller information from the 
-   * **Want** parameter in the **onCreate** lifecycle callback. When this API is used to start an ability, the caller 
+   * Starts an ability with the caller information and start options specified. The caller information is carried in
+   * **Want** and identified at the system service layer. The ability can obtain the caller information from the
+   * **Want** parameter in the **onCreate** lifecycle callback. When this API is used to start an ability, the caller
    * information carried in **Want** is not overwritten by the current application information. The system service layer
-   * can obtain the initial caller information. This API can be called only on the main thread. It uses an asynchronous 
+   * can obtain the initial caller information. This API can be called only on the main thread. It uses an asynchronous
    * callback to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability.
@@ -346,15 +325,15 @@ declare class ServiceExtensionContext extends ExtensionContext {
 
   /**
    * Starts an ability with the start options specified. The caller information is carried in **Want** and identified at
-   * the system service layer. The ability can obtain the caller information from the **Want** parameter in the 
-   * **onCreate** lifecycle callback. When this API is used to start an ability, the caller information carried in 
+   * the system service layer. The ability can obtain the caller information from the **Want** parameter in the
+   * **onCreate** lifecycle callback. When this API is used to start an ability, the caller information carried in
    * **Want** is not overwritten by the current application information. The system service layer can obtain the initial
-   * caller information. This API can be called only on the main thread. It uses a promise to return the result 
+   * caller information. This API can be called only on the main thread. It uses a promise to return the result
    * asynchronously.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability.
@@ -396,12 +375,12 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts an ability with the account ID specified. This API can be called only on the main thread. It uses an 
+   * Starts an ability with the account ID specified. This API can be called only on the main thread. It uses an
    * asynchronous callback to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -446,12 +425,12 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability with the account ID and start options specified. This API can be called only on the main thread. 
+   * Starts an ability with the account ID and start options specified. This API can be called only on the main thread.
    * It uses an asynchronous callback to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -498,12 +477,12 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability with the account ID specified. This API can be called only on the main thread. It uses a promise 
+   * Starts an ability with the account ID specified. This API can be called only on the main thread. It uses a promise
    * to return the result asynchronously.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -607,13 +586,13 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Starts a ServiceExtensionAbility with the account ID specified. This API uses an asynchronous callback to return 
+   * Starts a ServiceExtensionAbility with the account ID specified. This API uses an asynchronous callback to return
    * the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    * > > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -646,13 +625,13 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a ServiceExtensionAbility with the account ID specified. This API uses a promise to return the result 
+   * Starts a ServiceExtensionAbility with the account ID specified. This API uses a promise to return the result
    * asynchronously.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    * > > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -735,9 +714,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Stops a ServiceExtensionAbility with the specified account. This API uses an asynchronous callback to return the 
+   * Stops a ServiceExtensionAbility with the specified account. This API uses an asynchronous callback to return the
    * result.
-   * 
+   *
    * > **NOTE**
    * >
    * > Permission verification is not required when **accountId** specifies the current user.
@@ -768,9 +747,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops a ServiceExtensionAbility with the specified account. This API uses a promise to return the result 
+   * Stops a ServiceExtensionAbility with the specified account. This API uses a promise to return the result
    * asynchronously.
-   * 
+   *
    * > **NOTE**
    * >
    * > Permission verification is not required when **accountId** specifies the current user.
@@ -822,7 +801,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
   terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * Terminates this ability. This API can be called only on the main thread. It uses a promise to return the result 
+   * Terminates this ability. This API can be called only on the main thread. It uses a promise to return the result
    * asynchronously.
    *
    * @returns { Promise<void> } Promise that returns no value.
@@ -842,10 +821,10 @@ declare class ServiceExtensionContext extends ExtensionContext {
 
   /**
    * Connects this ability to a ServiceExtensionAbility. This API can be called only on the main thread.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
@@ -874,16 +853,16 @@ declare class ServiceExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
-   * Connects this ability to a ServiceExtensionAbility of a given account. This API can be called only on the main 
+   * Connects this ability to a ServiceExtensionAbility of a given account. This API can be called only on the main
    * thread.
-   * 
-   * This API can be properly called on phones and tablets. If it is called on other devices, error code 16000006 is 
+   *
+   * This API can be properly called on phones and tablets. If it is called on other devices, error code 16000006 is
    * returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    * > > Permission verification is not required when **accountId** specifies the current user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -914,8 +893,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote 
-   * object returned upon the connection to void. This API can be called only on the main thread. It uses an 
+   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
+   * object returned upon the connection to void. This API can be called only on the main thread. It uses an
    * asynchronous callback to return the result.
    *
    * @param { long } connection - Number returned after **connectServiceExtensionAbility** is called.
@@ -934,8 +913,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote 
-   * object returned upon the connection to void. This API can be called only on the main thread. It uses a promise to 
+   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
+   * object returned upon the connection to void. This API can be called only on the main thread. It uses a promise to
    * return the result asynchronously.
    *
    * @param { long } connection - Number returned after **connectServiceExtensionAbility** is called.
@@ -955,17 +934,17 @@ declare class ServiceExtensionContext extends ExtensionContext {
   /**
    * Starts an ability in the foreground or background and obtains the caller object for communicating with the ability.
    * This API can be called only on the main thread. It uses a promise to return the result asynchronously.
-   * 
-   * This API cannot be used to start the UIAbility with the launch type set to 
+   *
+   * This API cannot be used to start the UIAbility with the launch type set to
    * [specified](docroot://application-models/uiability-launch-type.md#specified).
-   * 
+   *
    * Observe the following when using this API:
-   * 
-   * - If an application running in the background needs to call this API to start an ability, it must have the 
+   *
+   * - If an application running in the background needs to call this API to start an ability, it must have the
    * ohos.permission.START_ABILITIES_FROM_BACKGROUND permission.
-   * - If **exported** of the target ability is **false** in cross-application scenarios, the caller must have the 
+   * - If **exported** of the target ability is **false** in cross-application scenarios, the caller must have the
    * ohos.permission.START_INVISIBLE_ABILITY permission.
-   * - The rules for using this API in the same-device and cross-device scenarios are different. For details, see 
+   * - The rules for using this API in the same-device and cross-device scenarios are different. For details, see
    * [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
@@ -992,23 +971,23 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @since 23 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
-  
+
   /**
-   * Starts an ability with the account ID specified and obtains the caller object for communicating with the ability. 
+   * Starts an ability with the account ID specified and obtains the caller object for communicating with the ability.
    * This API can be called only on the main thread. It uses a promise to return the result asynchronously.
-   * 
-   * This API cannot be used to start the UIAbility with the launch type set to 
+   *
+   * This API cannot be used to start the UIAbility with the launch type set to
    * [specified](docroot://application-models/uiability-launch-type.md#specified).
-   * 
+   *
    * Observe the following when using this API:
-   * 
-   * - If an application needs to call this API to start an ability that belongs to another user, it must have the 
+   *
+   * - If an application needs to call this API to start an ability that belongs to another user, it must have the
    * ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permissions.
-   * - If an application running in the background needs to call this API to start an ability, it must have the 
+   * - If an application running in the background needs to call this API to start an ability, it must have the
    * ohos.permission.START_ABILITIES_FROM_BACKGROUND permission.
-   * - If **exported** of the target ability is **false** in cross-application scenarios, the caller must have the 
+   * - If **exported** of the target ability is **false** in cross-application scenarios, the caller must have the
    * ohos.permission.START_INVISIBLE_ABILITY permission.
-   * - The rules for using this API in the same-device and cross-device scenarios are different. For details, see 
+   * - The rules for using this API in the same-device and cross-device scenarios are different. For details, see
    * [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -1042,12 +1021,12 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
   /**
-   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API can be called 
+   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API can be called
    * only on the main thread. It uses an asynchronous callback to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability.
@@ -1087,14 +1066,14 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API can be called 
+   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API can be called
    * only on the main thread. It uses an asynchronous callback to return the result.
-   * 
+   *
    * You can use this API to carry start options.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability.
@@ -1136,12 +1115,12 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API uses a promise 
+   * Starts an ability. If the ability has multiple instances, the latest instance is started. This API uses a promise
    * to return the result asynchronously. It can be called only on the main thread.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Want information about the target ability.
@@ -1181,21 +1160,21 @@ declare class ServiceExtensionContext extends ExtensionContext {
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type. The focused 
+   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type. The focused
    * application is specified by **bundleName** in **want.parameters**. If **bundleName** is left unspecified, or if the
-   * specified application does not gain focus, the UIExtensionAbility is directly started on the system UI. The 
-   * UIExtensionAbility to start is determined by the combination of the **bundleName**, **abilityName**, and 
-   * **moduleName** fields in **Want**, and its type is determined by the **ability.want.params.uiExtensionType** field 
-   * in **want.parameters**. This API can be called only on the main thread. It uses an asynchronous callback to return 
+   * specified application does not gain focus, the UIExtensionAbility is directly started on the system UI. The
+   * UIExtensionAbility to start is determined by the combination of the **bundleName**, **abilityName**, and
+   * **moduleName** fields in **Want**, and its type is determined by the **ability.want.params.uiExtensionType** field
+   * in **want.parameters**. This API can be called only on the main thread. It uses an asynchronous callback to return
    * the result.
-   * 
-   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
-   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
+   *
+   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization.
+   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the
    * UIExtensionAbility by listening for the page loading status.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } pickerWant - Want information used to start the UIExtensionAbility.
@@ -1217,23 +1196,23 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
-  
+
   /**
-   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type. The focused 
+   * Requests the specified focused application to start the UIExtensionAbility of the corresponding type. The focused
    * application is specified by **bundleName** in **want.parameters**. If **bundleName** is left unspecified, or if the
-   * specified application does not gain focus, the UIExtensionAbility is directly started on the system UI. The 
-   * UIExtensionAbility to start is determined by the combination of the **bundleName**, **abilityName**, and 
-   * **moduleName** fields in **Want**, and its type is determined by the **ability.want.params.uiExtensionType** field 
-   * in **want.parameters**. This API can be called only on the main thread. It uses a promise to return the result 
+   * specified application does not gain focus, the UIExtensionAbility is directly started on the system UI. The
+   * UIExtensionAbility to start is determined by the combination of the **bundleName**, **abilityName**, and
+   * **moduleName** fields in **Want**, and its type is determined by the **ability.want.params.uiExtensionType** field
+   * in **want.parameters**. This API can be called only on the main thread. It uses a promise to return the result
    * asynchronously.
-   * 
-   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
-   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
+   *
+   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization.
+   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the
    * UIExtensionAbility by listening for the page loading status.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } pickerWant - Want information used to start the UIExtensionAbility.
@@ -1263,14 +1242,14 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * **abilityName**, and **moduleName** fields in **Want**, and its type is determined by the
    * **ability.want.params.uiExtensionType** field in **want.parameters**. This API can be called only on the main thread.
    * It uses a promise to return the result asynchronously.
-   * 
-   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization. 
-   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the 
+   *
+   * Before starting the UIExtensionAbility, ensure that the focused application has finished page initialization.
+   * Otherwise, the UIExtensionAbility fails to start. The application can determine the time to start the
    * UIExtensionAbility by listening for the page loading status.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -1290,10 +1269,10 @@ declare class ServiceExtensionContext extends ExtensionContext {
   requestModalUIExtensionWithAccount(pickerWant: Want, accountId: int): Promise<void>;
 
   /**
-   * Starts an atomic service and pre-opens the window, with the loading box skipped. This API uses a promise to return 
+   * Starts an atomic service and pre-opens the window, with the loading box skipped. This API uses a promise to return
    * the result.
-   * 
-   * If parameter verification is successful but the atomic service fails to start, you need to implement an exception 
+   *
+   * If parameter verification is successful but the atomic service fails to start, you need to implement an exception
    * mechanism to capture the error.
    *
    * @permission ohos.permission.PRE_START_ATOMIC_SERVICE
@@ -1318,13 +1297,13 @@ declare class ServiceExtensionContext extends ExtensionContext {
   preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 
   /**
-   * Starts a new 
+   * Starts a new
    * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. This
    * API uses a promise to return the result asynchronously.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Want } want - Indicates the want info to start.
@@ -1355,10 +1334,10 @@ declare class ServiceExtensionContext extends ExtensionContext {
 
   /**
    * Starts an atomic service based on an application ID. This API uses a promise to return the result asynchronously.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { string } appId - Unique ID of the application, which is allocated by the cloud.
@@ -1384,18 +1363,18 @@ declare class ServiceExtensionContext extends ExtensionContext {
 
   /**
    * Starts multiple UIAbility components simultaneously. This API uses a promise to return the result asynchronously.
-   * 
-   * You can pass the Want information of multiple UIAbility instances, which can point to one or more applications. If 
-   * all the UIAbility instances can be started successfully, the system displays these UIAbility instances in multiple 
+   *
+   * You can pass the Want information of multiple UIAbility instances, which can point to one or more applications. If
+   * all the UIAbility instances can be started successfully, the system displays these UIAbility instances in multiple
    * windows simultaneously. Depending on the window handling, different devices may have varying display effects (
    * including window shape, quantity, and layout).
-   * 
-   * This API can be properly called on phones and tablets. If it is called on other devices, error code 801 is 
+   *
+   * This API can be properly called on phones and tablets. If it is called on other devices, error code 801 is
    * returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
+   * > For details about the startup rules for the components in the stage model, see
    * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @param { Array<Want> } wantList - List of launch parameters for multiple UIAbility components to be started

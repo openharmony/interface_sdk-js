@@ -27,12 +27,12 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * The module provides the base class for intent execution. You can use this module to interface with the 
- * [InsightIntent framework](docroot://application-models/insight-intent-overview.md) on the device side and implement 
+ * The module provides the base class for intent execution. You can use this module to interface with the
+ * [InsightIntent framework](docroot://application-models/insight-intent-overview.md) on the device side and implement
  * intent service logic through [configuration files](docroot://application-models/insight-intent-config-development.md)
  * .
- * In addition to developing intents via configuration files, intents can also be developed using decorators. For API 
- * version 20 and later, you are advised to 
+ * In addition to developing intents via configuration files, intents can also be developed using decorators. For API
+ * version 20 and later, you are advised to
  * [develop intents using decorators](docroot://application-models/insight-intent-decorator-development.md).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -54,28 +54,28 @@ declare class InsightIntentExecutor {
   context: InsightIntentContext;
 
   /**
-   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent 
-   * execution depends on is started in the foreground. Both synchronous calls and asynchronous calls using Promise are 
+   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent
+   * execution depends on is started in the foreground. Both synchronous calls and asynchronous calls using Promise are
    * supported.
-   * 
-   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence 
-   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate}, 
-   * [onWindowStageCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate}, 
+   *
+   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence
+   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate},
+   * [onWindowStageCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate},
    * onExecuteInUIAbilityForegroundMode, and [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility#onForeground}.
-   * - If the UIAbility is hot started in the background, the UIAbility lifecycle callbacks are triggered in the 
-   * following sequence during intent execution: [onNewWant]{@link @ohos.app.ability.UIAbility:UIAbility#onNewWant}, 
+   * - If the UIAbility is hot started in the background, the UIAbility lifecycle callbacks are triggered in the
+   * following sequence during intent execution: [onNewWant]{@link @ohos.app.ability.UIAbility:UIAbility#onNewWant},
    * onExecuteInUIAbilityForegroundMode, and [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility#onForeground}.
-   * - If the UIAbility is hot started in the foreground, the UIAbility lifecycle callbacks are triggered in the 
+   * - If the UIAbility is hot started in the foreground, the UIAbility lifecycle callbacks are triggered in the
    * following sequence during intent execution: onExecuteInUIAbilityForegroundMode.
    *
    * @param { string } name - Intent name.
-   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the 
+   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the
    *     application for this intent execution.
-   * @param { window.WindowStage } pageLoader - WindowStage instance, which is the same as the WindowStage instance in the 
-   *     [onWindowStageCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate} API and can be used to load 
+   * @param { window.WindowStage } pageLoader - WindowStage instance, which is the same as the WindowStage instance in the
+   *     [onWindowStageCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate} API and can be used to load
    *     the page for intent execution.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -86,25 +86,25 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent 
-   * execution depends on is started in the foreground. Both synchronous calls and asynchronous calls using Promise are 
+   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent
+   * execution depends on is started in the foreground. Both synchronous calls and asynchronous calls using Promise are
    * supported.
-   * 
-   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence 
-   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate}, 
-   * [onWindowStageCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate}, 
+   *
+   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence
+   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate},
+   * [onWindowStageCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate},
    * onExecuteInUIAbilityForegroundMode, and [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility#onForeground}.
-   * - If the UIAbility is hot started in the background, the UIAbility lifecycle callbacks are triggered in the 
-   * following sequence during intent execution: [onNewWant]{@link @ohos.app.ability.UIAbility:UIAbility#onNewWant}, 
+   * - If the UIAbility is hot started in the background, the UIAbility lifecycle callbacks are triggered in the
+   * following sequence during intent execution: [onNewWant]{@link @ohos.app.ability.UIAbility:UIAbility#onNewWant},
    * onExecuteInUIAbilityForegroundMode, and [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility#onForeground}.
-   * - If the UIAbility is hot started in the foreground, the UIAbility lifecycle callbacks are triggered in the 
+   * - If the UIAbility is hot started in the foreground, the UIAbility lifecycle callbacks are triggered in the
    * following sequence during intent execution: onExecuteInUIAbilityForegroundMode.
    *
    * @param { string } name - InsightIntent name.
    * @param { Record<string, RecordData> } param - 	InsightIntent call parameter.
    * @param { window.WindowStage } pageLoader - Page loader.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -114,21 +114,21 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent 
-   * execution depends on is started in the background. Both synchronous calls and asynchronous calls using Promise are 
+   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent
+   * execution depends on is started in the background. Both synchronous calls and asynchronous calls using Promise are
    * supported.
-   * 
-   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence 
-   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate}, 
+   *
+   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence
+   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate},
    * onExecuteInUIAbilityBackgroundMode, and [onBackground]{@link @ohos.app.ability.UIAbility:UIAbility#onBackground}.
    * - If the UIAbility is hot started, the UIAbility lifecycle callbacks are triggered in the following sequence during
    *  intent execution: onExecuteInUIAbilityBackgroundMode.
    *
    * @param { string } name - Intent name.
-   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the 
+   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the
    *     application for this intent execution.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -139,20 +139,20 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent 
-   * execution depends on is started in the background. Both synchronous calls and asynchronous calls using Promise are 
+   * Called during the UIAbility lifecycle when the [UIAbility]{@link @ohos.app.ability.UIAbility} that the intent
+   * execution depends on is started in the background. Both synchronous calls and asynchronous calls using Promise are
    * supported.
-   * 
-   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence 
-   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate}, 
+   *
+   * - If the UIAbility is cold started, the UIAbility lifecycle callbacks are triggered in the following sequence
+   * during intent execution: [onCreate]{@link @ohos.app.ability.UIAbility:UIAbility#onCreate},
    * onExecuteInUIAbilityBackgroundMode, and [onBackground]{@link @ohos.app.ability.UIAbility:UIAbility#onBackground}.
    * - If the UIAbility is hot started, the UIAbility lifecycle callbacks are triggered in the following sequence during
    *  intent execution: onExecuteInUIAbilityBackgroundMode.
    *
    * @param { string } name - InsightIntent name.
    * @param { Record<string, RecordData> } param - InsightIntent call parameter.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -162,25 +162,25 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the UIExtensionAbility lifecycle when the 
-   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} that the intent execution 
+   * Called during the UIExtensionAbility lifecycle when the
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} that the intent execution
    * depends on is started. Both synchronous calls and asynchronous calls using Promise are supported.
-   * 
-   * - The UIExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution: 
-   * [onCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onCreate}, 
-   * [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onSessionCreate}, 
-   * onExecuteInUIExtensionAbility, and 
+   *
+   * - The UIExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution:
+   * [onCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onCreate},
+   * [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onSessionCreate},
+   * onExecuteInUIExtensionAbility, and
    * [onForeground]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onForeground}.
    *
    * @param { string } name - Intent name.
-   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the 
+   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the
    *     application for this intent execution.
-   * @param { UIExtensionContentSession } pageLoader - UIExtensionContentSession instance, which is the same as the 
-   *     UIExtensionContentSession instance in the 
+   * @param { UIExtensionContentSession } pageLoader - UIExtensionContentSession instance, which is the same as the
+   *     UIExtensionContentSession instance in the
    *     [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onSessionCreate} API and can be used
    *     to load the page for intent execution.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -190,21 +190,21 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the UIExtensionAbility lifecycle when the 
-   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} that the intent execution 
+   * Called during the UIExtensionAbility lifecycle when the
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} that the intent execution
    * depends on is started. Both synchronous calls and asynchronous calls using Promise are supported.
-   * 
-   * - The UIExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution: 
-   * [onCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onCreate}, 
-   * [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onSessionCreate}, 
-   * onExecuteInUIExtensionAbility, and 
+   *
+   * - The UIExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution:
+   * [onCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onCreate},
+   * [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onSessionCreate},
+   * onExecuteInUIExtensionAbility, and
    * [onForeground]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onForeground}.
    *
    * @param { string } name - InsightIntent name.
    * @param { Record<string, RecordData> } param - InsightIntent call parameter.
    * @param { UIExtensionContentSession } pageLoader - Page loader.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -214,17 +214,17 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the ServiceExtensionAbility lifecycle when the ServiceExtensionAbility that the intent execution 
+   * Called during the ServiceExtensionAbility lifecycle when the ServiceExtensionAbility that the intent execution
    * depends on is started. Both synchronous calls and asynchronous calls using Promise are supported.
-   * 
-   * - The ServiceExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution: 
+   *
+   * - The ServiceExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution:
    * **onCreate**, **onRequest**, and **onExecuteInServiceExtensionAbility**.
    *
    * @param { string } name - Intent name.
-   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the 
+   * @param { Record<string, Object> } param - Intent parameter, which is the data passed from the system entry point to the
    *     application for this intent execution.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -234,16 +234,16 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
-   * Called during the ServiceExtensionAbility lifecycle when the ServiceExtensionAbility that the intent execution 
+   * Called during the ServiceExtensionAbility lifecycle when the ServiceExtensionAbility that the intent execution
    * depends on is started. Both synchronous calls and asynchronous calls using Promise are supported.
-   * 
-   * - The ServiceExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution: 
+   *
+   * - The ServiceExtensionAbility lifecycle callbacks are triggered in the following sequence during intent execution:
    * **onCreate**, **onRequest**, and **onExecuteInServiceExtensionAbility**.
    *
    * @param { string } name - InsightIntent name.
    * @param { Record<string, RecordData> } param - InsightIntent call parameter.
-   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise 
-   *     object containing the intent execution result, representing the data returned to the system entry point from this 
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } Intent execution result or a Promise
+   *     object containing the intent execution result, representing the data returned to the system entry point from this
    *     intent execution.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

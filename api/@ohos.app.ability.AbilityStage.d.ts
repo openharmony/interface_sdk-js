@@ -25,18 +25,18 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * AbilityStage is a [module](docroot://quick-start/application-package-overview.md#multi-module-design-mechanism)-level
- * component manager. It is used for initializing operations such as resource preloading and thread creation at the 
- * module level, as well as maintaining the application state under the module. An AbilityStage instance corresponds to 
+ * component manager. It is used for initializing operations such as resource preloading and thread creation at the
+ * module level, as well as maintaining the application state under the module. An AbilityStage instance corresponds to
  * a module.
- * 
- * When the [HAP](docroot://quick-start/hap-package.md) or [HSP](docroot://quick-start/in-app-hsp.md) of an application 
+ *
+ * When the [HAP](docroot://quick-start/hap-package.md) or [HSP](docroot://quick-start/in-app-hsp.md) of an application
  * is first loaded, an AbilityStage instance is created. If a module contains both AbilityStage and other components (
  * like UIAbility or ExtensionAbility), the AbilityStage instance is created before the other component instances.
- * 
- * An AbilityStage has the lifecycle callbacks [onCreate()]{@link AbilityStage.onCreate} and 
- * [onDestroy()]{@link AbilityStage.onDestroy}, and the event callbacks 
- * [onAcceptWant()]{@link AbilityStage.onAcceptWant}, 
- * [onConfigurationUpdate()]{@link AbilityStage.onConfigurationUpdate}, and 
+ *
+ * An AbilityStage has the lifecycle callbacks [onCreate()]{@link AbilityStage.onCreate} and
+ * [onDestroy()]{@link AbilityStage.onDestroy}, and the event callbacks
+ * [onAcceptWant()]{@link AbilityStage.onAcceptWant},
+ * [onConfigurationUpdate()]{@link AbilityStage.onConfigurationUpdate}, and
  * [onMemoryLevel()]{@link AbilityStage.onMemoryLevel}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -60,9 +60,9 @@ declare class AbilityStage {
   context: AbilityStageContext;
 
   /**
-   * Called when an AbilityStage instance is created. Such an instance is automatically created by the system before it 
+   * Called when an AbilityStage instance is created. Such an instance is automatically created by the system before it
    * loads the first Ability instance of the module.
-   * 
+   *
    * You can initialize the module (for example, preload resources or create threads) in this callback. This API returns
    * the result synchronously and does not support asynchronous callbacks.
    *
@@ -76,17 +76,17 @@ declare class AbilityStage {
   onCreate(): void;
 
   /**
-   * Called when a UIAbility with the launch mode set to 
+   * Called when a UIAbility with the launch mode set to
    * [specified](docroot://application-models/uiability-launch-type.md#specified) is launched. This API returns a string
-   * representing the unique ID of the UIAbility instance. This API returns the result synchronously and does not 
+   * representing the unique ID of the UIAbility instance. This API returns the result synchronously and does not
    * support asynchronous callbacks.
-   * 
-   * If a UIAbility instance with the same ID already exists in the system, that instance is reused. Otherwise, a new 
+   *
+   * If a UIAbility instance with the same ID already exists in the system, that instance is reused. Otherwise, a new
    * instance is created.
-   * 
+   *
    * > **NOTE**
    * >
-   * > Starting from API version 20, this callback is not triggered when 
+   * > Starting from API version 20, this callback is not triggered when
    * > [AbilityStage.onAcceptWantAsync]{@link AbilityStage.onAcceptWantAsync} is implemented.
    *
    * @param { Want } want - Want type parameter that includes the launch parameters provided by the caller, such as the
@@ -102,11 +102,11 @@ declare class AbilityStage {
   onAcceptWant(want: Want): string;
 
   /**
-   * Called when a UIAbility with the launch mode set to 
+   * Called when a UIAbility with the launch mode set to
    * [specified](docroot://application-models/uiability-launch-type.md#specified) is launched. This API returns a string
    * representing the unique ID of the UIAbility instance. This API uses a promise to return the result.
-   * 
-   * If a UIAbility instance with the same ID already exists in the system, that instance is reused. Otherwise, a new 
+   *
+   * If a UIAbility instance with the same ID already exists in the system, that instance is reused. Otherwise, a new
    * instance is created.
    *
    * @param { Want } want - Want information about the target UIAbility, such as the UIAbility name and bundle name.
@@ -122,32 +122,32 @@ declare class AbilityStage {
   onAcceptWantAsync(want: Want): Promise<string>;
 
   /**
-   * Called when a UIAbility<!--Del--> or UIExtensionAbility<!--DelEnd-->, which is configured to run in an independent 
-   * process (with **isolationProcess** set to **true** in the 
-   * [module.json5](docroot://quick-start/module-configuration-file.md) file), is launched. This API returns a string 
-   * representing the unique process ID. This API returns the result synchronously and does not support asynchronous 
+   * Called when a UIAbility<!--Del--> or UIExtensionAbility<!--DelEnd-->, which is configured to run in an independent
+   * process (with **isolationProcess** set to **true** in the
+   * [module.json5](docroot://quick-start/module-configuration-file.md) file), is launched. This API returns a string
+   * representing the unique process ID. This API returns the result synchronously and does not support asynchronous
    * callbacks.
-   * 
+   *
    * If the application already has a process with the same ID, the UIAbility<!--Del--> or UIExtensionAbility<!--DelEnd-
    * -> runs in that process. Otherwise, a new process is created.
-   * 
+   *
    * If you implement both **onNewProcessRequest** and [onAcceptWant]{@link AbilityStage.onAcceptWant}, the system first
    * invokes the **onNewProcessRequest** callback, and then the **onAcceptWant** callback.
-   * 
+   *
    * <!--Del-->
-   * 
-   * The **isolationProcess** field can be set to **true** in the 
+   *
+   * The **isolationProcess** field can be set to **true** in the
    * [module.json5](docroot://quick-start/module-configuration-file.md) file, but only for the UIExtensionAbility of the
    * sys/commonUI type.
-   * 
+   *
    * <!--DelEnd-->
-   * 
+   *
    * > **NOTE**
    * >
-   * > - In API version 19 and earlier, only a UIAbility can be launched in the specified process. <!--Del-->Starting 
+   * > - In API version 19 and earlier, only a UIAbility can be launched in the specified process. <!--Del-->Starting
    * > from API version 20, a UIExtensionAbility can also be launched in the specified process.<!--DelEnd-->
    * >
-   * > - Starting from API version 20, this callback is not executed when 
+   * > - Starting from API version 20, this callback is not executed when
    * > [AbilityStage.onNewProcessRequestAsync]{@link AbilityStage.onNewProcessRequestAsync} is implemented.
    *
    * @param { Want } want - Want type parameter that includes the launch parameters provided by the caller, such as the
@@ -162,20 +162,20 @@ declare class AbilityStage {
   onNewProcessRequest(want: Want): string;
 
   /**
-   * Called when a UIAbility<!--Del--> or UIExtensionAbility<!--DelEnd-->, which is configured to run in an independent 
-   * process (with **isolationProcess** set to **true** in the 
-   * [module.json5](docroot://quick-start/module-configuration-file.md) file), is launched. This API returns a string 
+   * Called when a UIAbility<!--Del--> or UIExtensionAbility<!--DelEnd-->, which is configured to run in an independent
+   * process (with **isolationProcess** set to **true** in the
+   * [module.json5](docroot://quick-start/module-configuration-file.md) file), is launched. This API returns a string
    * representing the unique process ID. This API uses a promise to return the result.
-   * 
+   *
    * If the application already has a process with the same ID, the UIAbility<!--Del--> or UIExtensionAbility<!--DelEnd-
    * -> runs in that process. Otherwise, a new process is created.
-   * 
+   *
    * <!--Del-->
-   * 
-   * The **isolationProcess** field can be set to **true** in the 
+   *
+   * The **isolationProcess** field can be set to **true** in the
    * [module.json5](docroot://quick-start/module-configuration-file.md) file, but only for the UIExtensionAbility of the
    * sys/commonUI type.
-   * 
+   *
    * <!--DelEnd-->
    *
    * @param { Want } want - Want type parameter that includes the launch parameters provided by the caller, such as the
@@ -192,15 +192,15 @@ declare class AbilityStage {
   onNewProcessRequestAsync(want: Want): Promise<string>;
 
   /**
-   * Called when the system global configuration (such as the system language and dark/light color mode) changes. All 
-   * the configuration items are defined in the [Configuration]{@link @ohos.app.ability.Configuration:Configuration} 
+   * Called when the system global configuration (such as the system language and dark/light color mode) changes. All
+   * the configuration items are defined in the [Configuration]{@link @ohos.app.ability.Configuration:Configuration}
    * class. This API returns the result synchronously and does not support asynchronous callbacks.
-   * 
+   *
    * > **NOTE**
    * >
-   * > There are certain restrictions when this callback is actually triggered. For example, if you set the application 
-   * > language by calling [setLanguage]{@link ./application/ApplicationContext:ApplicationContext.setLanguage}, the 
-   * > system does not trigger the **onConfigurationUpdate** callback even if the system language changes. For details, 
+   * > There are certain restrictions when this callback is actually triggered. For example, if you set the application
+   * > language by calling [setLanguage]{@link ./application/ApplicationContext:ApplicationContext.setLanguage}, the
+   * > system does not trigger the **onConfigurationUpdate** callback even if the system language changes. For details,
    * > see [When to Use](docroot://application-models/subscribe-system-environment-variable-changes.md#when-to-use).
    *
    * @param { Configuration } newConfig - Callback invoked when the global configuration is updated. The global
@@ -216,13 +216,13 @@ declare class AbilityStage {
   onConfigurationUpdate(newConfig: Configuration): void;
 
   /**
-   * Listens for changes in the system memory level status. Called when the available memory of the entire device 
-   * changes to a specified level. You can implement this callback to promptly release non-essential resources (such as 
-   * cached data or temporary objects) upon receiving a memory shortage event, thereby preventing the application 
+   * Listens for changes in the system memory level status. Called when the available memory of the entire device
+   * changes to a specified level. You can implement this callback to promptly release non-essential resources (such as
+   * cached data or temporary objects) upon receiving a memory shortage event, thereby preventing the application
    * process from being forcibly terminated by the system.
-   * 
+   *
    * This API returns the result synchronously and does not support asynchronous callbacks.
-   * 
+   *
    * > **NOTE**
    * >
    * > Releasing UI components in the **onMemoryLevel** callback may block the main thread tasks of the current process.
@@ -243,8 +243,8 @@ declare class AbilityStage {
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 
   /**
-   * Called when the last Ability instance of the corresponding module exits. This API is called during the normal 
-   * lifecycle. If the application exits abnormally or is terminated, this API is not called. This API returns the 
+   * Called when the last Ability instance of the corresponding module exits. This API is called during the normal
+   * lifecycle. If the application exits abnormally or is terminated, this API is not called. This API returns the
    * result synchronously and does not support asynchronous callbacks.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -256,16 +256,16 @@ declare class AbilityStage {
   onDestroy(): void;
 
   /**
-   * Called when the application is closed by the user, allowing the user to choose between immediate termination or 
+   * Called when the application is closed by the user, allowing the user to choose between immediate termination or
    * cancellation. This API returns the result synchronously and does not support asynchronous callbacks.
-   * 
+   *
    * > **NOTE**
    * >
    * > - The API is called only when the application exits under normal circumstances (for example, when the application
-   * > is closed through the doc bar or tray, or when the application shuts down along with the device). It will not be 
+   * > is closed through the doc bar or tray, or when the application shuts down along with the device). It will not be
    * > called if the application is terminated forcibly.
    * >
-   * > - This API is not executed when 
+   * > - This API is not executed when
    * > [AbilityStage.onPrepareTerminationAsync]{@link AbilityStage.onPrepareTerminationAsync} is implemented.
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
@@ -279,16 +279,16 @@ declare class AbilityStage {
   onPrepareTermination(): AbilityConstant.PrepareTermination;
 
   /**
-   * Called when the application is closed by the user, allowing the user to choose between immediate termination or 
+   * Called when the application is closed by the user, allowing the user to choose between immediate termination or
    * cancellation. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > - The API is called only when the application exits under normal circumstances (for example, when the application
-   * > is closed through the doc bar or tray, or when the application shuts down along with the device). It will not be 
+   * > is closed through the doc bar or tray, or when the application shuts down along with the device). It will not be
    * > called if the application is terminated forcibly.
    * >
-   * > - If an asynchronous callback crashes, it will be handled as a timeout. If the application does not respond 
+   * > - If an asynchronous callback crashes, it will be handled as a timeout. If the application does not respond
    * > within 10 seconds, it will be terminated forcibly.
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
@@ -309,7 +309,7 @@ declare class AbilityStage {
    * @since 24 dynamic&static
    */
   onLaunchFromHyperSnap(): void;
-  
+
   /**
    * Called when the ability stage is about to create the first ability.
    *
