@@ -5456,7 +5456,40 @@ declare namespace avSession {
      * @since 10 dynamic
      * @since 23 static
      */
-    STATE_DISCONNECTED = 6
+    STATE_DISCONNECTED = 6,
+
+    /**
+     * Authenticating with a remote device.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_AUTHENTICATING = 10,
+
+    /**
+     * Mirroring to the stream.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_MIRROR_TO_STREAM = 11,
+
+    /**
+     * Streaming to the mirror.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_STREAM_TO_MIRROR = 12
   }
 
   /**
@@ -6635,6 +6668,16 @@ declare namespace avSession {
    */
   enum DeviceType {
     /**
+     * The device type is unknown, which cannot be recogized.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_TYPE_UNKNOWN = -1,
+
+    /**
      * A device type indicating the route is on internal speakers or audio jack on the device itself.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6673,6 +6716,36 @@ declare namespace avSession {
      * @since 23 static
      */
     DEVICE_TYPE_BLUETOOTH = 10,
+
+    /**
+     * The device type is a car.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_TYPE_CAR = 131,
+
+    /**
+     * The device type is a 2in1.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_TYPE_2IN1 = 2607,
+
+    /**
+     * The device which supports HiPlay protocol.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_TYPE_HIPLAY = 2611,
   }
 
   /**
