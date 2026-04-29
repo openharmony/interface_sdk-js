@@ -61,7 +61,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead  ohos.systemParameterEnhance.getSync
+   * @useinstead ohos.systemParameterEnhance.getSync
    */
   function getSync(key: string, def?: string): string;
 
