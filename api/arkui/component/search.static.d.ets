@@ -1261,7 +1261,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
-
+ 
     /**
      * Set the join style of the stroke.
      *

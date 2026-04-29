@@ -3753,7 +3753,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 26.0.0 dynamic
    */
   strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextInputAttribute;
-
+ 
   /**
    * Set the shader style of the text, such as lineargradient or radialgradient.
    *

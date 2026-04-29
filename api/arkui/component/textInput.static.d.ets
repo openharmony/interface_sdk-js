@@ -2094,7 +2094,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
-
+ 
     /**
      * Set the join style of the stroke.
      *
