@@ -497,9 +497,9 @@ declare class CryptoExtensionAbility {
    * Callback to import a certificate specified by the resource handle.
    *
    * @param { string } handle - Indicates the import certificate's resource handle.
-   * @param { HuksCryptoExtensionCertInfo } certInfo - Indicates the certificate information to be imported.
-   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } [params] - Indicates
+   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } params - Indicates
    *     the needed properties for the import certificate operation.
+   * @param { HuksCryptoExtensionCertInfo } certInfo - Indicates the certificate information to be imported.
    * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
    *     If the function execution fails, the extension needs to set the detailed error information in
    *     HuksCryptoExtensionResult.errInfo.
@@ -508,9 +508,6 @@ declare class CryptoExtensionAbility {
    *     34800000 - An error occurred in the crypto extension. Possible causes:
    *                1. The input parameter is invalid.
    *                2. The crypto extension encountered an unresolvable error state.
-   *     34800001 - The UKey does not exist. Possible causes:
-   *                1. The UKey has been removed.
-   *                2. The crypto extension maintains an error UKey state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
    *                1. The handle you entered is invalid.
@@ -522,8 +519,8 @@ declare class CryptoExtensionAbility {
    * @stagemodelonly
    * @since 26.0.0
    */
-  onImportCertificate(handle: string, certInfo: HuksCryptoExtensionCertInfo,
-      params?: huksExternalCrypto.HuksExternalCryptoParam[]): Promise<HuksCryptoExtensionResult>;
+  onImportCertificate(handle: string, params: huksExternalCrypto.HuksExternalCryptoParam[],
+      certInfo: HuksCryptoExtensionCertInfo): Promise<HuksCryptoExtensionResult>;
 
   /**
    * Callback to list all certificates of the provider.
@@ -556,9 +553,6 @@ declare class CryptoExtensionAbility {
    *     34800000 - An error occurred in the crypto extension. Possible causes:
    *                1. The input parameter is invalid.
    *                2. The crypto extension encountered an unresolvable error state.
-   *     34800001 - The UKey does not exist. Possible causes:
-   *                1. The UKey has been removed.
-   *                2. The crypto extension maintains an error UKey state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
    *                1. The handle you entered is invalid.
@@ -585,9 +579,6 @@ declare class CryptoExtensionAbility {
    *     34800000 - An error occurred in the crypto extension. Possible causes:
    *                1. The input parameter is invalid.
    *                2. The crypto extension encountered an unresolvable error state.
-   *     34800001 - The UKey does not exist. Possible causes:
-   *                1. The UKey has been removed.
-   *                2. The crypto extension maintains an error UKey state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
    *                1. The handle you entered is invalid.
@@ -616,9 +607,6 @@ declare class CryptoExtensionAbility {
    *     34800000 - An error occurred in the crypto extension. Possible causes:
    *                1. The input parameter is invalid.
    *                2. The crypto extension encountered an unresolvable error state.
-   *     34800001 - The UKey does not exist. Possible causes:
-   *                1. The UKey has been removed.
-   *                2. The crypto extension maintains an error UKey state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
    *                1. The handle you entered is invalid.

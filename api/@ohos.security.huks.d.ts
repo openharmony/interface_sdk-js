@@ -209,6 +209,36 @@ declare namespace huks {
    * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
    * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
+   * It returns only the information indicating whether the API is successfully called.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   *     and key length are mandatory.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -1487,7 +1517,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
    * @throws { BusinessError } 12000026 - the secure element is not available
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -4094,6 +4124,7 @@ declare namespace huks {
    */
   function anonAttestKeyItemOfflineAsUser(userId: number, keyAlias: string,
       params: HuksParam[]): Promise<HuksReturnResult>;
+
   /**
    * Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
    * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
