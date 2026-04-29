@@ -8437,7 +8437,7 @@ declare namespace photoAccessHelper {
      * @param { AssetCompatibleCapability } capability - Asset compatible Capability
      *     <br>Asset compatible Capability
      * @returns { Promise<void> } Returns void.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails, Invalid tokenId.
+     * @throws { BusinessError } 23800151 - The capability is invalid.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
