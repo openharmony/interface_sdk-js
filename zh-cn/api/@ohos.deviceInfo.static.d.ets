@@ -27,7 +27,7 @@
  * > 部分参数返回值为default的，会在正式发布的版本中配置。
  * > > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。
  *
- * @syscap SystemCapability.Startup.SystemInfo [since 24]
+ * @syscap SystemCapability.Startup.SystemInfo
  * @stagemodelonly
  * @since 24 static
  */
