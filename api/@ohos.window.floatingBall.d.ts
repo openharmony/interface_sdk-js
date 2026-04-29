@@ -347,7 +347,37 @@ declare namespace floatingBall {
      * @since 23 static
      */
     content?: string;
+
+    /**
+     * The color of the floating ball title, in hexadecimal format without opacity
+     * (e.g., **'#008EF5'** or **'#FF008EF5'**).
+     * Providing titleColor is not allowed if 'backgroundColor' is not provided.
+     *
+     * @default Set different default values according to the 'backgroundColor'.
+     *     - If 'backgroundColor' is provided, when 'backgroundColor' is light color, default value is '#E5FFFFFF',
+     *       otherwise is '#E5000000'.
+     *     - If 'backgroundColor' is not provided, default value is $r('sys.color.font_primary').
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    titleColor?: string;
     
+    /**
+     * The color of the floating ball content, in hexadecimal format without opacity
+     * (e.g., **'#008EF5'** or **'#FF008EF5'**).
+     * Providing contentColor is not allowed if 'backgroundColor' is not provided.
+     *
+     * @default Set different default values according to the 'backgroundColor'.
+     *     - If 'backgroundColor' is provided, when 'backgroundColor' is light color, default value is '#99FFFFFF',
+     *       otherwise is '#99000000'
+     *     - If 'backgroundColor' is not provided, default value is $r('sys.color.font_secondary')
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    contentColor?: string;
+
     /**
      * The backgroundColor of floating ball.
      *
