@@ -2376,6 +2376,16 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
 
     /**
+     * This commonEvent means when the screen lock is exiting.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SCREEN_LOCK_EXITING = 'usual.event.SCREEN_LOCK_EXITING',
+
+    /**
      * Indicates that the network connection state has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2697,7 +2707,7 @@ declare namespace commonEventManager {
     /**
      * Indicates a common event that an application has completed restoration.
      *
-     * When a data migration¨Crelated application invokes the backup and restore framework to perform a restore task,
+     * When a data migration-related application invokes the backup and restore framework to perform a restore task,
      * this event is published after the application finishes restoring.
      *
      * To subscribe to this common event, your application must have the ohos.permission.RESTORE_END_NOTIFICATION
