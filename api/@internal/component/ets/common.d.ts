@@ -21943,6 +21943,26 @@ declare interface ContextMenuOptions {
    * @since 26.0.0 dynamic
    */
   maxHeight?: LengthMetrics;
+  /**
+   * Sets the distortion animation Mode of the menu.
+   * 
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+  /**
+   * Sets the edgeLight animation Mode of the menu.
+   * 
+   * @default EdgeLightMode.EDGELIGHT_DISABLED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
