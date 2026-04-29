@@ -267,15 +267,16 @@ declare interface NativeEmbedParamDataInfo {
 }
 
 /**
- * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
+ * Enumerates the modes in which the component's content is rendered to fit the new size during its width and height
+ * animation process when the component is rotated.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
  */
 declare enum WebRotateEffect {
   /**
-   * The content area is drawn in top-left of the node.
+   * The component's content stays at the final size and always aligned with the
+   * upper left corner of the component. This value is used by default.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -283,7 +284,9 @@ declare enum WebRotateEffect {
   TOPLEFT_EFFECT = 0,
 
   /**
-   * Scale the content area to cover the node.
+   * While maintaining its aspect ratio in the final state, the component's content is scaled
+   * to cover the component's entire content box. It is always aligned with the center of the component, so that its
+   * middle part is displayed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -11260,9 +11263,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback): WebAttribute;
 
   /**
-   * Set up the effect of web rotation
+   * Sets how the final state of the **Web** component's content is rendered during its width and height animation
+   * process when the component rotates. If this attribute is not explicitly called, by default, the component's
+   * content stays at the final size and always aligned with the upper left corner of the component.
    *
-   * @param { WebRotateEffect } effect - The effect of rotation.
+   * @param { WebRotateEffect } effect - How the final state of the **Web** component's content is rendered during
+   *     its width and height animation process when the component rotates.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
