@@ -41,7 +41,7 @@
  *
  * @namespace bytrace
  * @syscap SystemCapability.HiviewDFX.HiTrace
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.hiTraceMeter
  */
@@ -57,7 +57,7 @@ declare namespace bytrace {
    * @param { number } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
    * @param { number } expectedTime Indicates the expected time required for completing the task, in milliseconds.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.hiTraceMeter.startTrace
    */
@@ -73,7 +73,7 @@ declare namespace bytrace {
    * @param { number } taskId The unique id used to distinguish the tasks and must be the same with the .
    * {@code taskId} of startTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.hiTraceMeter.finishTrace
    */
@@ -85,7 +85,7 @@ declare namespace bytrace {
    * @param { string } name Indicates the name used to identify the count.
    * @param { number } count Indicates the number of the count.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.hiTraceMeter.traceByValue
    */

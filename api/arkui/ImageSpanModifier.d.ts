@@ -27,6 +27,7 @@
  * @extends ImageSpanAttribute
  * @implements AttributeModifier<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends ImageSpanAttribute
  * @implements AttributeModifier<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ImageSpanModifier extends ImageSpanAttribute implements AttributeModifier<ImageSpanAttribute> {
 
@@ -47,9 +49,10 @@ export declare class ImageSpanModifier extends ImageSpanAttribute implements Att
    * 
    * @param { ImageSpanAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ImageSpanAttribute): void;
 }

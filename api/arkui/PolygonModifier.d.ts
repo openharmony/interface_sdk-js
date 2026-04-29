@@ -27,6 +27,7 @@
  * @extends PolygonAttribute
  * @implements AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends PolygonAttribute
  * @implements AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class PolygonModifier extends PolygonAttribute implements AttributeModifier<PolygonAttribute> {
 
@@ -47,9 +49,10 @@ export declare class PolygonModifier extends PolygonAttribute implements Attribu
    * 
    * @param { PolygonAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: PolygonAttribute): void;
 }

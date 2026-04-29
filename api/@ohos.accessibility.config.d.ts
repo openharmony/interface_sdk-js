@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,8 +27,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace config
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace config {
   /**
@@ -36,7 +36,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   const daltonizationState: Config<boolean>;
   /**
@@ -44,129 +45,156 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   const audioMono: Config<boolean>;
   /**
    * Indicates the configuration of audio balance.
    *
+   * @type { Config<double> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
-  const audioBalance: Config<number>;
+  const audioBalance: Config<double>;
   /**
    * Indicates the configuration of high-contrast text.
    *
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   let highContrastText: Config<boolean>;
   /**
    * Indicates the configuration of invert color.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var invertColor: Config<boolean>;
+  let invertColor: Config<boolean>;
   /**
    * Indicates the configuration of daltonization color filter.
    *
+   * @type { Config<DaltonizationColorFilter> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var daltonizationColorFilter: Config<DaltonizationColorFilter>;
+  let daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
-   * Indicates the configuration of content timeout.
+   * Indicates the configuration of content timeout, in units of ms.
    *
+   * @type { Config<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var contentTimeout: Config<number>;
+  let contentTimeout: Config<int>;
   /**
    * Indicates the configuration of animation state.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var animationOff: Config<boolean>;
+  let animationOff: Config<boolean>;
   /**
    * Indicates the configuration of brightness discount.
    *
+   * @type { Config<double> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var brightnessDiscount: Config<number>;
+  let brightnessDiscount: Config<double>;
   /**
    * Indicates the configuration of mouse key state.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var mouseKey: Config<boolean>;
+  let mouseKey: Config<boolean>;
   /**
-   * Indicates the configuration of mouse auto click.
+   * Indicates the configuration of mouse auto click, in units of ms.
    *
+   * @type { Config<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var mouseAutoClick: Config<number>;
+  let mouseAutoClick: Config<int>;
   /**
    * Indicates the configuration of short key state.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var shortkey: Config<boolean>;
+  let shortkey: Config<boolean>;
   /**
    * Indicates the configuration of short key target.
    *
+   * @type { Config<string> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var shortkeyTarget: Config<string>;
+  let shortkeyTarget: Config<string>;
   /**
    * Indicates the configuration of short key multi targets.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   const shortkeyMultiTargets: Config<Array<string>>;
   /**
    * Indicates the configuration of captions state.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var captions: Config<boolean>;
+  let captions: Config<boolean>;
   /**
    * Indicates the configuration of captions style.
    *
+   * @type { Config<accessibility.CaptionsStyle> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  var captionsStyle: Config<accessibility.CaptionsStyle>;
+  let captionsStyle: Config<accessibility.CaptionsStyle>;
   /**
    * Indicates the configuration of click response time.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   const clickResponseTime: Config<ClickResponseTime>;
   /**
@@ -174,7 +202,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   const ignoreRepeatClick: Config<boolean>;
   /**
@@ -182,7 +211,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   const repeatClickInterval: Config<RepeatClickInterval>;
   /**
@@ -190,7 +220,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   const screenMagnification: Config<boolean>;
 
@@ -212,7 +243,8 @@ declare namespace config {
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
 
@@ -234,13 +266,38 @@ declare namespace config {
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function enableAbility(
     name: string,
     capability: Array<accessibility.Capability>,
     callback: AsyncCallback<void>
   ): void;
+
+  /**
+   * Enable the accessibility extension ability with connect callback.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
+   * @param { Array<accessibility.Capability> } capability Indicates the capability of ability.
+   * @param { ConnectCallback } connectCallback Indicates the connect callback when state change.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
+   * @throws { BusinessError } 9300002 - Target ability already enabled.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function enableAbilityWithCallback(
+    name: string,
+    capability: Array<accessibility.Capability>,
+    connectCallback: ConnectCallback
+  ): Promise<void>;
 
   /**
    * Disable the accessibility extension ability.
@@ -258,7 +315,8 @@ declare namespace config {
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function disableAbility(name: string): Promise<void>;
 
@@ -278,7 +336,8 @@ declare namespace config {
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
 
@@ -297,9 +356,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the enabled status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 static
+   */
+  function onEnabledAccessibilityExtensionListChange(callback: Callback<void>): void;
 
   /**
    * Register the listener that watches for changes in the installed status of accessibility extensions.
@@ -316,9 +389,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function on(type: 'installedAccessibilityListChange', callback: Callback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 static
+   */
+  function onInstalledAccessibilityListChange(callback: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
@@ -335,9 +422,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the enabled status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } [callback] Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 static
+   */
+  function offEnabledAccessibilityExtensionListChange(callback?: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the installed status of accessibility extensions.
@@ -354,9 +455,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } [callback] Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed. 
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 static
+   */
+  function offInstalledAccessibilityListChange(callback?: Callback<void>): void;
 
   /**
    * Set display magnification state.
@@ -369,7 +484,8 @@ declare namespace config {
    * @throws { BusinessError } 9300007 - Trigger magnification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function setMagnificationState(state: boolean): void;
 
@@ -379,8 +495,8 @@ declare namespace config {
    * @typedef Config<T>
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface Config<T> {
     /**
@@ -398,8 +514,8 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     set(value: T): Promise<void>;
 
@@ -418,8 +534,8 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     set(value: T, callback: AsyncCallback<void>): void;
 
@@ -432,8 +548,8 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     get(): Promise<T>;
 
@@ -444,8 +560,8 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     get(callback: AsyncCallback<T>): void;
 
@@ -463,7 +579,8 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     on(callback: Callback<T>): void;
 
@@ -477,10 +594,45 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     off(callback?: Callback<T>): void;
   }
+
+  /**
+   * As an input parameter when enable AccessibilityExtensionAbility, it is used to receive
+   * state changes during the connection.
+   *
+   * @interface ConnectCallback
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface ConnectCallback {
+    /**
+     * The callback function that is invoked when AccessibilityExtensionAbility disconnects.
+     *
+     * @type { OnDisconnectCallback }
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDisconnect: OnDisconnectCallback;
+  }
+
+  /**
+   * The callback interface for AccessibilityExtensionAbility disconnected.
+   *
+   * @typedef { function } OnDisconnectCallback
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type OnDisconnectCallback = () => void;
 
   /**
    * Indicates the type of daltonization color filter.
@@ -488,7 +640,8 @@ declare namespace config {
    * @typedef {'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 
@@ -498,7 +651,8 @@ declare namespace config {
    * @typedef {'Short' | 'Medium' | 'Long'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   type ClickResponseTime = 'Short' | 'Medium' | 'Long';
 
@@ -508,7 +662,8 @@ declare namespace config {
    * @typedef {'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
 }

@@ -27,19 +27,21 @@ import image from './@ohos.multimedia.image';
  * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace screenshot {
   /**
    * Takes a screenshot and saves it as a PixelMap object.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect,
+   *     imageSize, and rotation. You need to set these parameters
    * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -48,19 +50,98 @@ declare namespace screenshot {
    * Takes a screenshot and saves it as a PixelMap object.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { ScreenshotOptions } options - Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @param { ScreenshotOptions } options - Screenshot options, which consist of screenRect,
+   *     imageSize, and rotation. You need to set these parameters
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { ScreenshotOptions } [options] - Screenshot options, which consist of screenRect, imageSize, and rotation.
+   *     You need to set these parameters
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic
+   * @since 23 static
    */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7 dynamic
+   */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function save(callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize,
+   *     and rotation. You need to set these parameters
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7 dynamic
+   */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { ScreenshotOptions } [options] Screenshot options, which consist of screenRect, imageSize, and rotation.
+   *     You need to set these parameters
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
   /**
    * Screen capture, supporting HDR screenshots when there is HDR content.
@@ -79,40 +160,31 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   */
+  /**
+   * Screen capture, supporting HDR screenshots when there is HDR content.
+   * If HdrScreenshotOptions is null, save primary display Hdr picture.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
+   * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
+   *     return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available,
+   *     only return one SDR PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic
+   * @since 23 static
    */
   function saveHdrPicture(options?: HdrScreenshotOptions): Promise<Array<image.PixelMap>>;
-
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  function save(callback: AsyncCallback<image.PixelMap>): void;
-
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
   /**
    * Takes a capture and return as a PixelMap object.
@@ -120,14 +192,34 @@ declare namespace screenshot {
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @param { CaptureOption } options which consist of CaptureOption.
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   *                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+  /**
+   * Takes a capture and return as a PixelMap object.
+   *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { CaptureOption } [options] which consist of CaptureOption.
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Incorrect parameter types.
+   *     2.Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 23 static
    */
   function capture(options?: CaptureOption): Promise<image.PixelMap>;
 
@@ -139,7 +231,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   function pick(): Promise<PickInfo>;
 
@@ -149,7 +242,8 @@ declare namespace screenshot {
    * @interface PickInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface PickInfo {
     /**
@@ -158,7 +252,8 @@ declare namespace screenshot {
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     pickRect: Rect;
 
@@ -168,7 +263,8 @@ declare namespace screenshot {
      * @type { image.PixelMap }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
   }
@@ -179,51 +275,51 @@ declare namespace screenshot {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Rect {
     /**
-     * The X-axis coordinate of the upper left vertex of the rectangle.
+     * The X-axis coordinate of the upper left vertex of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     left: long;
 
     /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     * The Y-axis coordinate of the upper left vertex of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     top: long;
 
     /**
-     * Width of the rectangle.
+     * Width of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     width: long;
 
     /**
-     * Height of the rectangle.
+     * Height of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     height: long;
   }
@@ -234,29 +330,29 @@ declare namespace screenshot {
    * @interface Size
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   interface Size {
     /**
-     * Defines the width property.
+     * Defines the width property, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 23 static
      */
     width: long;
 
     /**
-     * Defines the height property.
+     * Defines the height property, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 23 static
      */
     height: long;
   }
@@ -267,7 +363,8 @@ declare namespace screenshot {
    * @interface CaptureOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 23 static
    */
   interface CaptureOption {
     /**
@@ -276,7 +373,8 @@ declare namespace screenshot {
      * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 23 static
      */
     displayId?: long;
 
@@ -286,7 +384,8 @@ declare namespace screenshot {
      * @type { ?Array<int> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 23 static
      */
     blackWindowIds?: Array<int>;
   }
@@ -297,8 +396,8 @@ declare namespace screenshot {
    * @interface ScreenshotOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   interface ScreenshotOptions {
     /**
@@ -307,8 +406,8 @@ declare namespace screenshot {
      * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 23 static
      */
     screenRect?: Rect;
     /**
@@ -317,8 +416,8 @@ declare namespace screenshot {
      * @type { ?Size }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 23 static
      */
     imageSize?: Size;
     /**
@@ -327,8 +426,8 @@ declare namespace screenshot {
      * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 23 static
      */
     rotation?: int;
     /**
@@ -337,8 +436,8 @@ declare namespace screenshot {
      * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 23 static
      */
     displayId?: long;
     /**
@@ -347,8 +446,8 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     isNotificationNeeded?: boolean;
     /**
@@ -357,8 +456,8 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     isCaptureFullOfScreen?: boolean;
   }
@@ -369,7 +468,8 @@ declare namespace screenshot {
    * @interface HdrScreenshotOptions
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   interface HdrScreenshotOptions {
     /**
@@ -379,7 +479,8 @@ declare namespace screenshot {
      * @default The ID of current display. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     displayId?: long;
     /**
@@ -389,7 +490,8 @@ declare namespace screenshot {
      * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     isNotificationNeeded?: boolean;
     /**
@@ -399,9 +501,54 @@ declare namespace screenshot {
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     isCaptureFullOfScreen?: boolean;
+    /**
+     * screenshot display intent type.
+     *
+     * @type { ?DisplayIntentType }
+     * @default DisplayIntentType.CANONICAL
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    displayIntent?: DisplayIntentType;
+  }
+  
+  /**
+   * Enumerates the screenshot display intent type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DisplayIntentType {  
+    /**
+     * Specifies that the screenshot renders with canonical display attributes optimizing output for
+     * presentation on the HDR display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANONICAL = 0,
+
+    /**
+     * Specifies that the screenshot renders with local display attributes optimizing output for
+     * presentation on the capture display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOCAL = 1
   }
 }
 

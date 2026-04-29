@@ -22,68 +22,78 @@ import lang from '../../arkts/@arkts.lang';
 import collections from '../../arkts/@arkts.collections';
 
 /**
- * Contains sendable resource descriptor information.
+ * The **SendableResource** module provides sendable resource information, such as the application bundle name, 
+ * application module name, and resource ID.
  *
- * @interface SendableResource
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 interface SendableResource extends lang.ISendable {
 
   /**
-   * bundle name in hap
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   bundleName: string;
 
   /**
-   * module name in hap
+   * Module name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   moduleName: string;
 
   /**
-   * resource id in hap
+   * Resource ID. The value can be:
+   * <br>- Application resource range: [0x01000000, 0x06FFFFFF] and [0x08000000, 0xFFFFFFFF]
+   * <br>- System resource range: [0x07000000, 0x07FFFFFF]
    *
-   * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   id: number;
 
   /**
-   * Set params.
+   * Other resource parameters, including the resource name, substitution value for the formatting API, and quantifier 
+   * for the singular-plural formatting API.
    *
-   * @type { ?collections.Array <string | number> }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   params?: collections.Array <string | number>;
 
   /**
-   * Set type.
+   * Resource type. The options are as follows:
+   * <br>- 10001: color
+   * <br>- 10002: float
+   * <br>- 10003: string
+   * <br>- 10004: plural
+   * <br>- 10005: boolean
+   * <br>- 10006: intarray
+   * <br>- 10007: integer
+   * <br>- 10008: pattern
+   * <br>- 10009: strarray
+   * <br>- 20000: media
+   * <br>- 30000: rawfile
+   * <br>- 40000: symbol
    *
-   * @type { ?number }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   type?: number;
 }

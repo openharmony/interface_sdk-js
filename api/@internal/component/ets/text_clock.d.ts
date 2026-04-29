@@ -38,7 +38,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class TextClockController {
   /**
@@ -61,7 +61,7 @@ declare class TextClockController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor();
   /**
@@ -84,7 +84,7 @@ declare class TextClockController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   start();
   /**
@@ -107,7 +107,7 @@ declare class TextClockController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stop();
 }
@@ -118,9 +118,10 @@ declare class TextClockController {
  * @extends CommonConfiguration<TextClockConfiguration>
  * @interface TextClockConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
   /**
@@ -130,9 +131,10 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   timeZoneOffset: number;
 
@@ -141,9 +143,10 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   started: boolean;
 
@@ -152,9 +155,10 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   timeValue: number;
 }
@@ -164,10 +168,11 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  *
  * @interface TextClockOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface TextClockOptions {
   /**
@@ -204,7 +209,7 @@ declare interface TextClockOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   timeZoneOffset?: number;
 
@@ -242,7 +247,7 @@ declare interface TextClockOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   controller?: TextClockController
 }
@@ -270,7 +275,7 @@ declare interface TextClockOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface TextClockInterface {
   /**
@@ -323,7 +328,7 @@ interface TextClockInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: TextClockOptions): TextClockAttribute;
 }
@@ -351,7 +356,7 @@ interface TextClockInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
@@ -409,7 +414,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   format(value: ResourceStr): TextClockAttribute;
 
@@ -456,7 +461,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onDateChange(event: (value: number) => void): TextClockAttribute;
 
@@ -486,7 +491,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontColor(value: ResourceColor): TextClockAttribute;
 
@@ -516,7 +521,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontSize(value: Length): TextClockAttribute;
 
@@ -546,7 +551,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontStyle(value: FontStyle): TextClockAttribute;
 
@@ -576,7 +581,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontWeight(value: number | FontWeight | string): TextClockAttribute;
 
@@ -606,7 +611,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontFamily(value: ResourceStr): TextClockAttribute;
 
@@ -616,6 +621,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -626,10 +632,11 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
 
@@ -642,6 +649,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -655,10 +663,11 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontFeature(value: string): TextClockAttribute;
 
@@ -668,9 +677,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { ContentModifier<TextClockConfiguration> } modifier - The content modifier of textclock.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
 
@@ -680,10 +690,11 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param { Optional<DateTimeOptions> } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
    * @returns { TextClockAttribute } the attribute of the text clock
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dateTimeOptions(dateTimeOptions: Optional<DateTimeOptions>): TextClockAttribute;
 }
@@ -708,7 +719,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const TextClock: TextClockInterface;
 
@@ -732,6 +743,6 @@ declare const TextClock: TextClockInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const TextClockInstance: TextClockAttribute;

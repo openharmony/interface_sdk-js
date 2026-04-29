@@ -18,7 +18,7 @@
  * @kit TelephonyKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import data from '@ohos.telephony.data';
 import observer from '@ohos.telephony.observer';
 import radio from '@ohos.telephony.radio';
@@ -31,7 +31,7 @@ import eSIM from '@ohos.telephony.esim';
 import vcard from '@ohos.telephony.vcard';
 export { data, observer, radio, sim, sms, vcard, call, eSIM };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export { data, observer, radio, sim, sms, call, eSIM };
 /*** endif */
 

@@ -25,7 +25,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace storage
  * @name storage
- * @since 6
+ * @since 6 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.preferences.preferences
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -42,7 +42,7 @@ declare namespace storage {
    * @param path Indicates the path of storage file stored.
    * @returns Returns the {@link Storage} instance matching the specified storage file name.
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
    */
@@ -57,7 +57,7 @@ declare namespace storage {
    * @param path Indicates the path of storage file stored.
    * @returns Returns the {@link Storage} instance matching the specified storage file name.
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
    */
@@ -72,7 +72,7 @@ declare namespace storage {
    * @param path Indicates the path of storage file stored.
    * @returns Returns the {@link Storage} instance matching the specified storage file name.
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
    */
@@ -89,7 +89,7 @@ declare namespace storage {
    *
    * @param path Indicates the path of storage file
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
    */
@@ -106,7 +106,7 @@ declare namespace storage {
    *
    * @param path Indicates the path of storage file
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
    */
@@ -123,7 +123,7 @@ declare namespace storage {
    *
    * @param path Indicates the path of storage file
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
    */
@@ -139,7 +139,7 @@ declare namespace storage {
    *
    * @param path Indicates the path of storage file.
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
    */
@@ -155,7 +155,7 @@ declare namespace storage {
    *
    * @param path Indicates the path of storage file.
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
    */
@@ -171,7 +171,7 @@ declare namespace storage {
    *
    * @param path Indicates the path of storage file.
    * @throws BusinessError if invoked failed
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
    */
@@ -187,7 +187,7 @@ declare namespace storage {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    *
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences
    */
@@ -201,7 +201,7 @@ declare namespace storage {
     * @param defValue Indicates the default value to return.
     * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
     * @throws BusinessError if invoked failed
-    * @since 6
+    * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
     */
@@ -216,7 +216,7 @@ declare namespace storage {
     * @param defValue Indicates the default value to return.
     * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
     * @throws BusinessError if invoked failed
-    * @since 6
+    * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
     */
@@ -231,7 +231,7 @@ declare namespace storage {
     * @param defValue Indicates the default value to return.
     * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
     * @throws BusinessError if invoked failed
-    * @since 6
+    * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
     */
@@ -244,7 +244,7 @@ declare namespace storage {
      * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.has
      */
@@ -257,7 +257,7 @@ declare namespace storage {
      * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.has
      */
@@ -270,7 +270,7 @@ declare namespace storage {
      * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.has
      */
@@ -286,7 +286,7 @@ declare namespace storage {
      * @param value Indicates the value of the storage.
      * <tt>MAX_KEY_LENGTH</tt>.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
      */
@@ -302,7 +302,7 @@ declare namespace storage {
      * @param value Indicates the value of the storage.
      * <tt>MAX_KEY_LENGTH</tt>.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
      */
@@ -318,7 +318,7 @@ declare namespace storage {
      * @param value Indicates the value of the storage.
      * <tt>MAX_KEY_LENGTH</tt>.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
      */
@@ -333,7 +333,7 @@ declare namespace storage {
      * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
      * <tt>MAX_KEY_LENGTH</tt>.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
      */
@@ -348,7 +348,7 @@ declare namespace storage {
      * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
      * <tt>MAX_KEY_LENGTH</tt>.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
      */
@@ -363,7 +363,7 @@ declare namespace storage {
      * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
      * <tt>MAX_KEY_LENGTH</tt>.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
      */
@@ -376,7 +376,7 @@ declare namespace storage {
      * file.
      *
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
      */
@@ -389,7 +389,7 @@ declare namespace storage {
      * file.
      *
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
      */
@@ -402,7 +402,7 @@ declare namespace storage {
      * file.
      *
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
      */
@@ -412,7 +412,7 @@ declare namespace storage {
      * Asynchronously saves the {@link Storage} object to the file.
      *
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
      */
@@ -422,7 +422,7 @@ declare namespace storage {
      * Asynchronously saves the {@link Storage} object to the file.
      *
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
      */
@@ -432,7 +432,7 @@ declare namespace storage {
      * Asynchronously saves the {@link Storage} object to the file.
      *
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
      */
@@ -443,7 +443,7 @@ declare namespace storage {
      *
      * @param callback Indicates the callback when storage changes.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.on
      */
@@ -454,7 +454,7 @@ declare namespace storage {
      *
      * @param callback Indicates the registered callback.
      * @throws BusinessError if invoked failed
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.off
      */
@@ -464,7 +464,7 @@ declare namespace storage {
   /**
    * Indicates possible value types
    * 
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   type ValueType = number | string | boolean;
@@ -474,14 +474,14 @@ declare namespace storage {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    *
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   interface StorageObserver {
     /**
      * Indicates which key changes
      * 
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     key: string;
@@ -490,7 +490,7 @@ declare namespace storage {
   /**
    * Indicates the maximum length of a key (80 characters).
    * 
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   const MAX_KEY_LENGTH: 80;
@@ -498,7 +498,7 @@ declare namespace storage {
   /**
    * Indicates the maximum length of a string (8192 characters).
    * 
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   const MAX_VALUE_LENGTH: 8192;
@@ -506,7 +506,7 @@ declare namespace storage {
 
 /**
  * Provides interfaces to obtain and modify storage data.
- * @since 6
+ * @since 6 dynamic
  * @deprecated since 9
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  */

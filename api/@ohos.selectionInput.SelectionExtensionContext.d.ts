@@ -22,21 +22,29 @@ import ExtensionContext from './application/ExtensionContext';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * Defines the ExtensionContext for the word selection service.
- * @extends ExtensionContext
+ * **SelectionExtensionContext** is the context of 
+ * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}, which is
+ * inherited from [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+ * When a **SelectionExtensionAbility** component is instantiated, the system automatically creates the corresponding 
+ * **SelectionExtensionContext**. You can use **SelectionExtensionContext** to start other abilities in the same 
+ * application.
+ * 
+ * > **NOTE**
+ * > - This module is supported only on PCs/2-in-1 devices.
+ *
  * @syscap SystemCapability.SelectionInput.Selection
- * @systemapi
- * @since 20
+ * @systemapi [since 20 - 23]
+ * @publicapi [since 24]
+ * @stagemodelonly
+ * @since 20 dynamic
+ * @since 24 static
  */
-export default class SelectionExtensionContext extends ExtensionContext {
-
+declare class SelectionExtensionContext extends ExtensionContext {
   /**
-   * Starts a specific ability. Only abilities with the same bundle name as the current application can be
-   * started. If the ability to start has a different bundle name, this operation fails and an error code is
-   * returned.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want information of the ability to start, including the ability name and bundle name.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -44,8 +52,7 @@ export default class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
-   * forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -56,11 +63,16 @@ export default class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000083 The ExtensionAbility cannot start the ability due to system control.
+   * @throws { BusinessError } 16000083 - The ExtensionAbility cannot start the ability due to system control.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
-   * @since 20
+   * @systemapi [since 20 - 23]
+   * @publicapi [since 24]
+   * @stagemodelonly
+   * @since 20 dynamic
+   * @since 24 static
    */
   startAbility(want: Want): Promise<void>;
 }
+
+export default SelectionExtensionContext;

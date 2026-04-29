@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,129 +20,86 @@
 
 import continuationManager from '../@ohos.continuation.continuationManager';
 
+
 /**
- * Indicates the description of additional parameters for continuation.
+ * The ContinuationExtraParams module provides the filter parameters required by the device selection module in the
+ * continuation management entry. These filter parameters can be used as an input parameter of
+ * [startContinuationDeviceManager]{@link @ohos.continuation.continuationManager:continuationManager.startContinuationDeviceManager(token: number, callback: AsyncCallback<void>)}
+ * .
  *
- * @typedef ContinuationExtraParams
- * @syscap SystemCapability.Ability.DistributedAbilityManager
- * @since 8
- */
-/**
- * Indicates the description of additional parameters for continuation.
  *
- * @typedef ContinuationExtraParams
  * @syscap SystemCapability.Ability.DistributedAbilityManager
- * @atomicservice
- * @since 11
+ * @stagemodelonly
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
+ * @deprecated since 22
  */
 export interface ContinuationExtraParams {
   /**
-   * Indicates the type of devices to be matched.
+   * Device type.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 8
-   */
-  /**
-   * Indicates the type of devices to be matched.
-   *
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
+   * @deprecated since 22
    */
   deviceType?: Array<string>;
 
   /**
-   * Indicates the bundle name of the target application where the ability will be hopped.
+   * Name of the target bundle.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 8
-   */
-  /**
-   * Indicates the bundle name of the target application where the ability will be hopped.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
+   * @deprecated since 22
    */
   targetBundle?: string;
 
   /**
-   * Indicates the description used for device filtering.
+   * Device filtering description.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 8
-   */
-  /**
-   * Indicates the description used for device filtering.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
+   * @deprecated since 22
    */
   description?: string;
 
   /**
-   * Parameters used for filtering devices, type must be { [key: string]: any }.
+   * Device filtering parameter.
    *
-   * @type { ?any }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 8
-   */
-  /**
-   * Parameters used for filtering devices, type must be { [key: string]: any }.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
+   * @deprecated since 22
    */
   filter?: any;
 
   /**
-   * Mode of continuation.
+   * Continuation mode.
    *
-   * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 8
-   */
-  /**
-   * Mode of continuation.
-   *
-   * @type { ?continuationManager.ContinuationMode }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
+   * @deprecated since 22
    */
   continuationMode?: continuationManager.ContinuationMode;
 
   /**
-   * Authentication extra infos.
+   * Authentication information.
    *
-   * @type { ?object }
+   * @type { ?object } [since 8 - 10]
+   * @type { ?Record<string, Object> } [since 11]
    * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 8
-   */
-  /**
-   * Authentication extra infos.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Authentication extra infos.
-   *
-   * @type { ?Record<string, Object> }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
+   * @deprecated since 22
    */
   authInfo?: Record<string, Object>;
 }

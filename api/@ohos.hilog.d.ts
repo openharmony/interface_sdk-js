@@ -23,535 +23,427 @@ import { RecordData } from '@ohos.base';
 /*** endif */
 
 /**
- * Provides interfaces to generate system logs.
+ * # Parameter Format
  *
- * @namespace hilog
- * @syscap SystemCapability.HiviewDFX.HiLog
- * @since 7
+ * Parameters in the log are printed in the following format:
+ *
+ * %{[private flag]}specifier
+ *
+ * |  Private Flag| Description|
+ * | ------------ | ---- |
+ * |      Unspecified     | The default value is **private**, indicating that parameters in plaintext are not printed.|
+ * |  private     | Prints private parameters.|
+ * |  public      | Prints parameters in plaintext.|
+ *
+ * | Specifier| Description| Example|
+ * | ------------ | ---- | ---- |
+ * |      d/i      | Prints logs of the **number** and **bigint** types.| 123 |
+ * |   s     | Prints logs of the **string undefined bool** and **null** types.| "123" |
+ * | o/O | Prints logs of the **object**, **undefined**, and **null** types.<br>This specifier is supported since API
+ * version 20.| { 'name': "Jack", 'age': 22 } |
+ *
  */
 /**
- * Provides interfaces to generate system logs.
+ * The HiLog subsystem allows your applications or services to output logs based on the specified type, level, and
+ * format string. Such logs help you learn the running status of applications and better debug programs.
  *
- * @namespace hilog
  * @syscap SystemCapability.HiviewDFX.HiLog
- * @crossplatform
- * @since 10
- */
-/**
- * Provides interfaces to generate system logs.
- *
- * @namespace hilog
- * @syscap SystemCapability.HiviewDFX.HiLog
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @since 23 static
  */
 declare namespace hilog {
 
   /**
-   * Outputs debug-level logs.
+   * Prints DEBUG logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Outputs debug-level logs.
+   * DEBUG logs are not recorded in official versions by default. They are available in debug versions or in official
+   * versions with the debug function enabled.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
+   * @param { number } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { any[] } args - Variable-length parameter list corresponding to the format string. The number and type of
+   *     parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Outputs debug-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function debug(domain: number, tag: string, format: string, ...args: any[]): void;
 
   /**
-   * Outputs debug-level logs.
+   * Prints DEBUG logs.
    *
-   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { RecordData[] }args Indicates the log parameters.
+   * @param { int } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { RecordData[] } args - Variable-length parameter list corresponding to the format string. The number and
+   *     type of parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   function debug(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
-   * Outputs info-level logs.
+   * Prints INFO logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
+   * @param { number } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { any[] } args - Variable-length parameter list corresponding to the format string. The number and type of
+   *     parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Outputs info-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Outputs info-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function info(domain: number, tag: string, format: string, ...args: any[]): void;
 
   /**
-   * Outputs info-level logs.
+   * Prints INFO logs.
    *
-   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { RecordData[] }args Indicates the log parameters.
+   * @param { int } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { RecordData[] } args - Variable-length parameter list corresponding to the format string. The number and
+   *     type of parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   function info(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
-   * Outputs warning-level logs.
+   * Prints WARN logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
+   * @param { number } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { any[] } args - Variable-length parameter list corresponding to the format string. The number and type of
+   *     parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Outputs warning-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Outputs warning-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function warn(domain: number, tag: string, format: string, ...args: any[]): void;
 
   /**
-   * Outputs warning-level logs.
+   * Prints WARN logs.
    *
-   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { RecordData[] }args Indicates the log parameters.
+   * @param { int } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { RecordData[] } args - Variable-length parameter list corresponding to the format string. The number and
+   *     type of parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   function warn(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
-   * Outputs error-level logs.
+   * Prints ERROR logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
+   * @param { number } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { any[] } args - Variable-length parameter list corresponding to the format string. The number and type of
+   *     parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Outputs error-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Outputs error-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function error(domain: number, tag: string, format: string, ...args: any[]): void;
 
   /**
-   * Outputs error-level logs.
+   * Prints ERROR logs.
    *
-   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { RecordData[] }args Indicates the log parameters.
+   * @param { int } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { RecordData[] } args - Variable-length parameter list corresponding to the format string. The number and
+   *     type of parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   function error(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
-   * Outputs fatal-level logs.
+   * Prints FATAL logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
+   * @param { number } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { any[] } args - Variable-length parameter list corresponding to the format string. The number and type of
+   *     parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Outputs fatal-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Outputs fatal-level logs.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { any[] }args Indicates the log parameters.
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function fatal(domain: number, tag: string, format: string, ...args: any[]): void;
 
   /**
-   * Outputs fatal-level logs.
+   * Prints FATAL logs.
    *
-   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { string } format Indicates the log format string.
-   * @param { RecordData[] }args Indicates the log parameters.
+   * @param { int } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value
+   *     exceeds the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { string } format - Format string used to output logs in a specified format. It can contain several elements
+   *     , where the parameter type and privacy identifier are mandatory.<br>Parameters labeled **{public}** are public
+   *     data and are displayed in plaintext; parameters labeled **{private}** (default value) are private data and are
+   *     filtered by **<private>**.
+   * @param { RecordData[] } args - Variable-length parameter list corresponding to the format string. The number and
+   *     type of parameters must map to the identifier in the format string.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   function fatal(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
-   * Checks whether logs of the specified tag, and level can be printed.
+   * Checks whether logs are printable based on the specified service domain, log tag, and log level.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { LogLevel } level log level
-   * @returns { boolean }
+   * @param { int } domain - Service domain of logs. The value ranges from **0x0** to **0xFFFF**. If the value exceeds
+   *     the range, logs cannot be printed.<br>You can define the value as required.
+   * @param { string } tag - Log tag in the string format. You are advised to use this parameter to identify a
+   *     particular service behavior or the class holding the ongoing method. A tag can contain a maximum of 31 bytes.
+   *     If a tag exceeds this limit, it will be truncated. Chinese characters are not recommended because garbled
+   *     characters or alignment problems may occur.
+   * @param { LogLevel } level - Log level.
+   * @returns { boolean } Returns **true** logs are printable based on the specified service domain, log tag, and log
+   *     level; returns **false** otherwise.
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Checks whether logs of the specified tag, and level can be printed.
-   *
-   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
-   * @param { LogLevel } level log level
-   * @returns { boolean }
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   function isLoggable(domain: int, tag: string, level: LogLevel): boolean;
 
   /**
-   * Sets the lowest log level of the current application process.
+   * Sets the minimum log level.
    *
-   * @param { LogLevel } level log level
+   * > **NOTE**
+   * >
+   * > If the set log level is lower than the
+   * > [global log level](docroot://dfx/hilog.md#displaying-and-setting-log-levels), the setting does not take effect.
+   * >
+   * > This function does not take effect for debug applications.
+   *
+   * @param { LogLevel } level - Log level.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
-   function setMinLogLevel(level: LogLevel): void;
+  function setMinLogLevel(level: LogLevel): void;
 
   /**
-   * Sets the lowest log level of the current application process. Different preference strategy can be set.
-   * 
-   * @param { LogLevel } level log level.
-   * @param { PreferStrategy } prefer preference strategy. See detail in PreferStrategy.
+   * Sets the minimum log level of the current application process.
+   *
+   * You can configure different preference strategies using the **prefer** parameter. The **PREFER_CLOSE_LOG** strategy
+   * has the same effect as the **setMinLogLevel()** function.
+   *
+   * > **NOTE**
+   * >
+   * > This function does not take effect for debug applications.
+   *
+   * @param { LogLevel } level - Log level.
+   * @param { PreferStrategy } prefer - Preference strategy.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   function setLogLevel(level: LogLevel, prefer: PreferStrategy): void;
 
   /**
-   * Log level define
+   * Enumerates the log levels.
    *
    * @syscap SystemCapability.HiviewDFX.HiLog
-   * @since 7
-   */
-  /**
-   * Log level define
-   *
-   * @enum { number }
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Log level define
-   *
-   * @enum { int }
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   enum LogLevel {
     /**
-     * DEBUG Log level define
+     * Log level used to record more detailed process information than INFO logs to help developers analyze service
+     * processes and locate faults.
      *
      * @syscap SystemCapability.HiviewDFX.HiLog
-     * @since 7
-     */
-    /**
-     * DEBUG Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * DEBUG Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     DEBUG = 3,
     /**
-     * INFO Log level define
+     * Log level used to record key service process nodes and exceptions that occur during service running,
+     *
+     * for example, no network signal or login failure.
+     *
+     * These logs should be recorded by the dominant module in the service to avoid repeated logging conducted by
+     * multiple invoked modules or low-level functions.
      *
      * @syscap SystemCapability.HiviewDFX.HiLog
-     * @since 7
-     */
-    /**
-     * INFO Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * INFO Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     INFO = 4,
     /**
-     * WARN Log level define
+     * Log level used to record severe, unexpected faults that have little impact on users and can be rectified by the
+     * programs themselves or through simple operations.
      *
      * @syscap SystemCapability.HiviewDFX.HiLog
-     * @since 7
-     */
-    /**
-     * WARN Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * WARN Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     WARN = 5,
     /**
-     * ERROR Log level define
+     * Log level used to record program or functional errors that affect the normal running or use of the functionality
+     * and can be fixed at a high cost, for example, by resetting data.
      *
      * @syscap SystemCapability.HiviewDFX.HiLog
-     * @since 7
-     */
-    /**
-     * ERROR Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * ERROR Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     ERROR = 6,
     /**
-     * FATAL Log level define
+     * Log level used to record program or functionality crashes that cannot be rectified.
      *
      * @syscap SystemCapability.HiviewDFX.HiLog
-     * @since 7
-     */
-    /**
-     * FATAL Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * FATAL Log level define
-     *
-     * @syscap SystemCapability.HiviewDFX.HiLog
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     FATAL = 7
   }
 
   /**
-   * Enumerates preference strategy to be used in setLogLevel.
-   * 
-   * @enum { int }
+   * Enumerates the preference strategies.
+   *
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   enum PreferStrategy {
-      /**
-       * UNSET_LOGLEVEL Used to unset SetLogLevel, then none is set
-       * 
-       * @syscap SystemCapability.HiviewDFX.HiLog
-       * @crossplatform
-       * @atomicservice
-       * @since 21
-       * @arkts 1.1&1.2
-       */
-      UNSET_LOGLEVEL = 0,
-      /**
-       * PREFER_CLOSE_LOG The actual lowest log level is determined by
-       * the maximum level between the new level and the system-controlled level.
-       * This is equivalent to calling OH_LOG_SetMinLogLevel.
-       * @syscap SystemCapability.HiviewDFX.HiLog
-       * @crossplatform
-       * @atomicservice
-       * @since 21
-       * @arkts 1.1&1.2
-       */
-      PREFER_CLOSE_LOG = 1,
-      /**
-       * PREFER_OPEN_LOG The actual lowest log level is determined by
-       * the minimum level between the new level and the system-controlled level.
-       * @syscap SystemCapability.HiviewDFX.HiLog
-       * @crossplatform
-       * @atomicservice
-       * @since 21
-       * @arkts 1.1&1.2
-       */
-      PREFER_OPEN_LOG = 2,
+    /**
+     * The setting is cleared. The system-controlled minimum log level takes effect.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    UNSET_LOGLEVEL = 0,
+    /**
+     * The larger value of the new log level and the system-controlled minimum log level takes effect.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    PREFER_CLOSE_LOG = 1,
+    /**
+     * The smaller value of the new log level and the system-controlled minimum log level takes effect.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    PREFER_OPEN_LOG = 2
   }
 }
 

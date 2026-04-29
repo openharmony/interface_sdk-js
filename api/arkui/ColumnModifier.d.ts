@@ -25,6 +25,7 @@
  * @extends ColumnAttribute
  * @implements AttributeModifier<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -34,9 +35,10 @@
  * @extends ColumnAttribute
  * @implements AttributeModifier<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ColumnModifier extends ColumnAttribute implements AttributeModifier<ColumnAttribute> {
 
@@ -45,9 +47,10 @@ export declare class ColumnModifier extends ColumnAttribute implements Attribute
    * 
    * @param { ColumnAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ColumnAttribute): void;
 }

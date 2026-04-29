@@ -16,55 +16,60 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { Callback, Optional, CommonMethod, Bindable } from './common';
+import { Callback, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
-import { ResourceStr } from './units';
+import { ResourceStr, Resource } from './units';
 import { ComponentContentBase } from '../ComponentContent';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The refresh status of the drop-down refresh.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum RefreshStatus {
     /**
      * The refresh status of the drop-down refresh.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     Inactive,
     /**
      * Drop down, but the drop-down distance is less than the refresh distance.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     Drag,
     /**
      * The pull-down exceeds the refresh distance.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     OverDrag,
     /**
      * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     Refresh,
     /**
      * After refresh, return to the initial state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     Done
 }
@@ -73,16 +78,18 @@ export declare enum RefreshStatus {
  *
  * @interface RefreshOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface RefreshOptions {
     /**
      * Whether the current component is being refreshed.
-     * This parameter supports $$ for two-way binding of variables.
+     * This parameter supports $ for two-way binding of variables.
      *
      * @type { boolean | Bindable<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     refreshing: boolean | Bindable<boolean>;
     /**
@@ -90,7 +97,8 @@ export interface RefreshOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     promptText?: ResourceStr;
     /**
@@ -98,7 +106,8 @@ export interface RefreshOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     builder?: CustomBuilder;
     /**
@@ -106,7 +115,8 @@ export interface RefreshOptions {
      *
      * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     refreshingContent?: ComponentContentBase;
 }
@@ -116,7 +126,8 @@ export interface RefreshOptions {
  * @extends CommonMethod
  * @interface RefreshAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface RefreshAttribute extends CommonMethod {
     /**
@@ -125,7 +136,8 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onStateChange(callback: ((state: RefreshStatus) => void) | undefined): this;
     /**
@@ -134,53 +146,101 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onRefreshing(callback: (() => void) | undefined): this;
     /**
      * The pull-down offset to trigger refresh.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default refreshOffset(value: number | undefined): this;
+    default refreshOffset(value: double | undefined): this;
+    /**
+     * The pull-down offset to trigger refresh.
+     *
+     * @param { Resource | undefined } value - The pull-down offset to trigger refresh.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default refreshOffset(value: Resource | undefined): this;
     /**
      * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
      *
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default pullToRefresh(value: boolean | undefined): this;
+    /**
+     * Sets whether to cancel refresh when the pull-up.
+     *
+     * @param { boolean | undefined } enabled - enable pull up to cancel refresh. <br>Default value: true.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default pullUpToCancelRefresh(enabled: boolean | undefined): this;
     /**
      * Called when the refresh offset changed.
      * The unit is vp.
      *
-     * @param { Callback<number> | undefined } callback
+     * @param { Callback<double> | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default onOffsetChange(callback: Callback<number> | undefined): this;
+    default onOffsetChange(callback: Callback<double> | undefined): this;
     /**
      * Pull-down follow ratio for Refresh.
      *
-     * @param { number | undefined } ratio - Pull-down follow ratio for Refresh.
+     * @param { double | undefined } ratio - Pull-down follow ratio for Refresh.
      * @returns { this } The attribute of the Refresh.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default pullDownRatio(ratio: number | undefined): this;
+    default pullDownRatio(ratio: double | undefined): this;
+    /**
+     * The max pull down distance for Refresh.
+     *
+     * @param { double | undefined } distance - The max pull down distance for Refresh,
+     *     value range is [0, +∞), default value is { undefined }, Unlimited maximum pull-down distance.
+     * @returns { this } The attribute of the Refresh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default maxPullDownDistance(distance: double | undefined): this;
+    /**
+     * The max pull down distance for Refresh.
+     *
+     * @param { Resource | undefined } distance - The max pull down distance for Refresh,
+     * value range is [0, +∞), default value is { undefined }.
+     * @returns { this } The attribute of the Refresh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default maxPullDownDistance(distance: Resource | undefined): this;
     /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -189,15 +249,14 @@ export declare interface RefreshAttribute extends CommonMethod {
  * Defines Refresh Component.
  *
  * @param { RefreshOptions } value - value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RefreshAttribute } The attribute of the grid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function Refresh(
     value: RefreshOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RefreshAttribute

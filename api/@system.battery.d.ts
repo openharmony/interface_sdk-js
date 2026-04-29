@@ -21,8 +21,9 @@
 /**
  * @interface BatteryResponse
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface BatteryResponse {
   /**
@@ -30,18 +31,22 @@ export interface BatteryResponse {
    *
    * @type { boolean }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
+   * @useinstead ohos.batteryInfo/batteryInfo#chargingStatus
    */
   charging: boolean;
 
   /**
-   * Current battery level, which ranges from 0.00 to 1.00.
+   * Current battery level in percent, which ranges from 0.00 to 1.00.
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
+   * @useinstead ohos.batteryInfo/batteryInfo#batterySOC
    */
   level: number;
 }
@@ -49,8 +54,9 @@ export interface BatteryResponse {
 /**
  * @interface GetStatusOptions
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface GetStatusOptions {
   /**
@@ -58,8 +64,9 @@ export interface GetStatusOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   success?: (data: BatteryResponse) => void;
 
@@ -68,8 +75,9 @@ export interface GetStatusOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -78,16 +86,18 @@ export interface GetStatusOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export default class Battery {
   /**
@@ -95,8 +105,9 @@ export default class Battery {
    *
    * @param { GetStatusOptions } options Options.
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   static getStatus(options?: GetStatusOptions): void;
 }

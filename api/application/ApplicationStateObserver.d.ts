@@ -14,36 +14,39 @@
  */
 
 /**
+ * The module defines an observer to listen for application state changes. It can be used as an input parameter in 
+ * [on('applicationState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
+ * to listen for lifecycle changes of the application.
+ *
  * @file
  * @kit AbilityKit
  */
 
 import AppStateData from './AppStateData';
 import AbilityStateData from './AbilityStateData';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type * as _ProcessData from './ProcessData';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import _ProcessData from './ProcessData';
 /*** endif */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 /**
  * The application state observer.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14
+ * @since 14 dynamic
  */
 export default class ApplicationStateObserver {
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 /**
  * The application state observer.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
 declare interface ApplicationStateObserver {
 /*** endif */
@@ -52,8 +55,8 @@ declare interface ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onForegroundApplicationChanged(appStateData: AppStateData): void;
 
@@ -62,8 +65,8 @@ declare interface ApplicationStateObserver {
    *
    * @param { AbilityStateData } abilityStateData - State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
@@ -72,8 +75,8 @@ declare interface ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onProcessCreated(processData: ProcessData): void;
 
@@ -82,8 +85,8 @@ declare interface ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onProcessDied(processData: ProcessData): void;
 
@@ -92,8 +95,8 @@ declare interface ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onProcessStateChanged(processData: ProcessData): void;
 
@@ -102,8 +105,8 @@ declare interface ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onAppStarted(appStateData: AppStateData): void;
 
@@ -112,29 +115,28 @@ declare interface ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onAppStopped(appStateData: AppStateData): void;
 }
 
 /**
  * The process data.
- * @typedef { _ProcessData.default }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14
+ * @since 14 dynamic
  */
 export type ProcessData = _ProcessData.default;
 
 /**
  * The process data.
- * @typedef { _ProcessData }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
 export type ProcessData = _ProcessData;
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export default ApplicationStateObserver;
 /*** endif */

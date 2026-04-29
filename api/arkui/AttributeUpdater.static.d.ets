@@ -1,4 +1,4 @@
-'use static';
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,29 +17,32 @@
 /**
  * @file Defines a modifier which can update attributes to native side.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
+import { RecordData } from '../@ohos.base';
 
 
 /**
  * function that returns by the function updateConstructorParams.
  *
  * @typedef { function } Initializer<T>
- * @param { FixedArray<Object> } params
+ * @param { FixedArray<RecordData> } params
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
-export type Initializer<T> = (...params:FixedArray<Object>) => T;
+export type Initializer<T> = (...params:FixedArray<RecordData>) => T;
 
 /**
  * Defines a modifier which can update attributes to native side.
  *
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    
@@ -48,7 +51,8 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    get attribute(): T | undefined;
 
@@ -57,7 +61,8 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    initializeModifier(instance: T): void;
 
@@ -66,7 +71,8 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @type { Initializer<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    get updateConstructorParams(): Initializer<T>;
 
@@ -75,7 +81,8 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    onComponentChanged(component: T): void;
 }

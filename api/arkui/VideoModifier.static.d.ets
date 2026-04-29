@@ -19,7 +19,6 @@ import { VideoAttribute } from '@ohos.arkui.component';
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,7 @@ import { VideoAttribute } from '@ohos.arkui.component';
  *
  * @implements VideoAttribute, AttributeModifier<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class VideoModifier implements VideoAttribute, AttributeModifier<VideoAttribute> {}

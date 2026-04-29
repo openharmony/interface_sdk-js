@@ -27,436 +27,241 @@ import resmgr from '../@ohos.resourceManager';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 
 /**
- * The base context of an ability or an application. It allows access to
- * application-specific resources.
- *
- * @extends BaseContext
+ * Context is the context base class of the stage model. It is used to access application-specific resources and perform
+ * callbacks for application-level operations.
+ *docroot://
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 9
- */
-/**
- * The base context of an ability or an application. It allows access to
- * application-specific resources.
- *
- * @extends BaseContext
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * The Context module, inherited frome {@link BaseContext}, provides context for abilities or applications, including
- * access to application-specific resources.
- *
- * @extends BaseContext
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare class Context extends BaseContext {
   /**
-   * Indicates the capability of accessing application resources.
-   *
-   * @type { resmgr.ResourceManager }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates the capability of accessing application resources.
-   *
-   * @type { resmgr.ResourceManager }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Object for resource management.
    *
-   * @type { resmgr.ResourceManager }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   resourceManager: resmgr.ResourceManager;
 
   /**
-   * Indicates configuration information about an application.
-   *
-   * @type { ApplicationInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates configuration information about an application.
-   *
-   * @type { ApplicationInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Application information.
    *
-   * @type { ApplicationInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   applicationInfo: ApplicationInfo;
 
   /**
-   * Indicates app cache dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates app cache dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Cache directory.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   cacheDir: string;
 
   /**
-   * Indicates app temp dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates app temp dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Temporary directory.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   tempDir: string;
 
   /**
-   * Indicates app files dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates app files dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * File directory.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   filesDir: string;
 
   /**
-   * Indicates app database dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates app database dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Database directory.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   databaseDir: string;
 
   /**
-   * Indicates app preferences dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates app preferences dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Preferences directory.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   preferencesDir: string;
 
   /**
-   * Indicates app bundle code dir.
+   * Bundle code directory. Do not access resource files using concatenated paths.
+   * Use [resource manager APIs]{@link ./../@ohos.resourceManager:resourceManager} instead.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates app bundle code dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Bundle code directory.
-   *
-   * <p>**NOTE**:
-   * <br>Do not access resource files using concatenated paths. Use @ohos.resourceManager instead.
-   * </p>
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   bundleCodeDir: string;
 
   /**
-   * Indicates app distributed files dir.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
    * Distributed file directory.
+   * For details, see [Application Sandbox](docroot://file-management/app-sandbox-directory.md).
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   distributedFilesDir: string;
 
   /**
    * Resource directory.
    *
-   * <p>**NOTE**:
-   * <br>You are required to manually create the resfile directory in <code><module-name>\resource</code>. The resfile
-   * directory can be accessed only in read-only mode.
-   * </p>
+   * > **NOTE: **
+   * >
+   * > You are required to manually create the resfile directory in **<module-name>\resource**.
+   * > The **resfile** directory can be accessed only in read-only mode.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   resourceDir: string;
 
   /**
    * Cloud file directory.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   cloudFileDir: string;
 
   /**
-   * Get log file directory.
+   * Directory for storing log files.
    *
-   * @returns { string } Returns the log file directory.
+   * @returns { string } Returns the directory for storing log files.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   get logFileDir(): string;
 
   /**
-   * Indicates event hub.
-   *
-   * @type { EventHub }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates event hub.
-   *
-   * @type { EventHub }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Event hub that implements event subscription, unsubscription, and triggering.
    *
-   * @type { EventHub }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   eventHub: EventHub;
 
   /**
-   * Indicates file area.
+   * Information about file partitions, which are divided according to the encryption level specified by
+   * [AreaMode]{@link ./../@ohos.app.ability.contextConstant:contextConstant.areaMode}.
    *
-   * @type { contextConstant.AreaMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Encryption level of the directory.
-   *
-   * @type { contextConstant.AreaMode }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   area: contextConstant.AreaMode;
 
   /**
    * Get encryption level of the directory.
    *
-   * @return { contextConstant.AreaMode }
+   * @return { contextConstant.AreaMode } Return encryption level of the directory.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   get area(): contextConstant.AreaMode;
 
   /**
    * Set encryption level of the directory.
    *
-   * @param { contextConstant.AreaMode }
+   * @param { contextConstant.AreaMode } Encryption level of the directory.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   set area(mode: contextConstant.AreaMode);
 
   /**
    * Process name of the current application.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   processName: string;
 
   /**
    * Creates the context based on the bundle name.
    *
-   * <p>**NOTE**:
-   * <br>If there are multiple modules in the stage model, resource ID conflicts may occur. You are advised to
-   * use application.createModuleContext instead.
-   * <br>This API is deprecated since API version 12. You are advised to use application.createBundleContext instead.
-   * </p>
+   * > **NOTE**
+   * >
+   * > If there are multiple modules in the stage model, resource ID conflicts may occur. You are advised to use
+   * > [application.createModuleContext]{@link ./../@ohos.app.ability.application:application.createModuleContext(context: Context, bundleName: string, moduleName: string)}
+   * > instead.
+   * >
+   * > This API has been supported since API version 9 and deprecated since API version 12. You are advised to use
+   * > [application.createBundleContext]{@link ./../@ohos.app.ability.application:application.createBundleContext}
+   * > instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
@@ -464,184 +269,137 @@ declare class Context extends BaseContext {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.app.ability.application/application#createBundleContext
+   * @useinstead @ohos.app.ability.application:application.createBundleContext
    */
   createBundleContext(bundleName: string): Context;
 
   /**
-   * Create a module context
-   *
-   * @param { string } moduleName - Indicates the module name.
-   * @returns { Context } Returns the application context.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Create a module context
-   *
-   * @param { string } moduleName - Indicates the module name.
-   * @returns { Context } Returns the application context.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Creates the context based on the module name.
    *
-   * <p>**NOTE**:
-   * <br>This API is deprecated since API version 12. You are advised to use application.createModuleContext instead.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - Only the context of other modules in the current application and the context of the intra-application HSP can
+   * > be obtained. The context of other applications cannot be obtained.
+   * >
+   * > - This API has been supported since API version 9 and deprecated since API version 12. You are advised to use
+   * > [application.createModuleContext]{@link ./../@ohos.app.ability.application:application.createModuleContext(context: Context, moduleName: string)}
+   * > instead. Otherwise, resource acquisition may fail.
+   * >
+   * > - Creating a module context involves resource querying and initialization, which can be time-consuming. In
+   * > scenarios where application fluidity is critical, avoid frequently or repeatedly calling the
+   * > **createModuleContext** API to create multiple context instances, as this may negatively impact user experience.
    *
    * @param { string } moduleName - Module name.
    * @returns { Context } Context created.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.app.ability.application/application#createModuleContext
+   * @useinstead @ohos.app.ability.application:application.createModuleContext
    */
   createModuleContext(moduleName: string): Context;
 
   /**
    * Creates the context based on the bundle name and module name.
    *
-   * <p>**NOTE**:
-   * <br>This API is deprecated since API version 12. You are advised to use application.createModuleContext instead.
-   * </p>
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 9 and deprecated since API version 12. You are advised to use
+   * > [application.createModuleContext]{@link ./../@ohos.app.ability.application:application.createModuleContext(context: Context, bundleName: string, moduleName: string)}
+   * > instead.
    *
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
    * @returns { Context } Context created.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.app.ability.application/application#createModuleContext
+   * @useinstead @ohos.app.ability.application:application.createModuleContext
    */
   createModuleContext(bundleName: string, moduleName: string): Context;
 
   /**
-   * This API allows OEM manufacturers to set up their own ResourceManager in the pre-installed system HSP.
+   * Creates a
+   * [resource manager]{@link ./../@ohos.resourceManager:resourceManager.getResourceManager(callback: AsyncCallback<ResourceManager>)}
+   * for an OEM-preset [system-level HSP](docroot://quick-start/application-package-glossary.md#system-level-hsp).
    *
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
    * @returns { resmgr.ResourceManager } Returns the system HSP module resource manager.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16400001 - The input bundleName is not a system HSP.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
   /**
-   * Get application context
+   * Obtains the application context.
    *
-   * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @returns { ApplicationContext } Application context.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Get application context
-   *
-   * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the context of this application.
-   *
-   * @returns { ApplicationContext } Application context obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   getApplicationContext(): ApplicationContext;
 
   /**
-   * Get group dir by the groupId.
+   * Obtains the shared directory based on a group ID. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } dataGroupID - Indicates the groupId.
-   * @param { AsyncCallback<string> } callback - The callback of getGroupDir.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Obtains the shared directory based on a group ID.
-   * This API uses an asynchronous callback to return the result.
-   *
-   * @param { string } dataGroupID - Group ID, which is assigned by the system when an atomic service project
-   * is created.
-   * @param { AsyncCallback<string> } callback - Group ID, which is assigned by the system when an atomic service
-   * project is created.
+   * @param { string } dataGroupID - Group ID, which is assigned by the system when an application of the atomic service
+   *     type is created.
+   * @param { AsyncCallback<string> } callback - Callback used to return the result. If the API call is successful,
+   *     **err** is **undefined** and **data** is the shared directory obtained (or empty if or is empty if non-existent
+   *     ). Otherwise, an error object is returned.<br>Note: Only the EL2 encryption level is supported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
   getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Get group dir by the groupId.
+   * Obtains the shared directory based on a group ID. This API uses a promise to return the result.
    *
-   * @param { string } dataGroupID - Indicates the groupId.
-   * @returns { Promise<string> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Obtains the shared directory based on a group ID.
-   * This API uses a promise to return the result.
-   *
-   * @param { string } dataGroupID - Group ID, which is assigned by the system when an atomic service project
-   * is created.
+   * @param { string } dataGroupID - Group ID, which is assigned by the system when an application of the atomic service
+   *     type is created.
    * @returns { Promise<string> } Promise used to return the result. If no shared directory exists, null is returned.
-   * Only the encryption level EL2 is supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   *     Only the encryption level EL2 is supported.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
   getGroupDir(dataGroupID: string): Promise<string>;
 
@@ -655,45 +413,57 @@ declare class Context extends BaseContext {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
   /**
-   * Creates the context for this application based on a data encryption level.
-   * This is required when an application needs to store different types of information in different directories.
-   * The application can obtain the corresponding directory.
+   * Creates an application context with a specific data encryption level. You can call this API to create contexts with
+   * different encryption levels, thereby obtaining the corresponding sandbox paths.
    *
    * @param { contextConstant.AreaMode } areaMode - Data encryption level.
    * @returns { Context } Context created based on the data encryption level.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
 
   /**
-   * Creates the context based on the specified display ID, so as to obtain and use other application contexts with
-   * screen information (including ScreenDensity and Direction).
+   * Creates an application context based on the specified display ID with screen information (including
+   * [ScreenDensity]{@link ./../@ohos.resourceManager:resourceManager.ScreenDensity} and
+   * [Direction]{@link ./../@ohos.resourceManager:resourceManager.Direction}).
    *
    * @param { long } displayId - Display ID.
-   * @returns { Context } 	Context with the specified screen information.
+   * @returns { Context } Context with the specified screen information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   createDisplayContext(displayId: long): Context;
+
+  /**
+   * Checks if the current instance is associated with the specified context type.
+   *
+   * @param { contextConstant.ContextType } contextType - Indicates the context type.
+   * @returns { boolean } Returns {@code true} if the contextType is matched; returns {@code false} otherwise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  isContextOf(contextType: contextConstant.ContextType): boolean;
 }
 
 export default Context;

@@ -22,84 +22,98 @@
  * Export post processing settings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
-/**
- * Export post processing settings
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
- */
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
 
 /**
  * Export scene types
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3, GeometryType, GeometryDefinition,
   PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
   RenderingPipelineType } from './graphics3d/SceneTypes';
+
 /**
  * Export scene types
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 23 dynamic&static
  */
-export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3, GeometryType, GeometryDefinition,
-  PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry, RenderingPipelineType } from './graphics3d/SceneTypes';
+export { Mat4x4, CylinderGeometry } from './graphics3d/SceneTypes';
 
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, ImageStream, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
 
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
  */
-export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+export { UnlitShadowAlphaMaterial } from './graphics3d/SceneResources';
 
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 23 dynamic&static
  */
-export { SceneResource, Shader, MaterialType, Material,
-  Animation,
-  EnvironmentBackgroundType, Environment, Image, CullMode, Blend, 
-  RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
-  Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
+export { PolygonMode, UnlitMaterial, OcclusionMaterial } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
   Camera } from './graphics3d/SceneNodes';
-/**
- * Export scene nodes
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
- */
-export { NodeType, Node, Geometry, LightType, Light, DirectionalLight, Camera } from './graphics3d/SceneNodes';
 
 /**
  * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
   RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters, EffectParameters } from './graphics3d/Scene';
+
 /**
  * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 23 dynamic&static
  */
-export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
-  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters } from './graphics3d/Scene';
+export { RenderConfiguration } from './graphics3d/Scene';
+
+/**
+ * Export BoidsSim
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26
+ */
+export {
+    BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
+    BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';
+
+/**
+ * Export scene types
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26.0.0 dynamic&static
+ */
+export { ShadowAlgorithmType } from './graphics3d/SceneTypes';
+
+/**
+ * Export scene
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26.0.0 dynamic&static
+ */
+export { SoftShadowConfig, PCFConfig } from './graphics3d/Scene';

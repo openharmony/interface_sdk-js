@@ -21,557 +21,515 @@
 import image from '../@ohos.multimedia.image';
 import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import notification from '../@ohos.notification';
 import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Describes icon type.
+ * Describes the icon types.
  *
- * @typedef { Resource | image.PixelMap } IconType
  * @syscap SystemCapability.Notification.Notification
+ * @unionmember { Resource } Image resource.
+ * @unionmember { image.PixelMap } Image.
  * @systemapi
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 23 static
  */
 type IconType = Resource | image.PixelMap;
 
 /**
- * Describes a normal text notification.
+ * Describes the normal text notification.
  *
- * @typedef NotificationBasicContent
+ * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
- * @since 7
- */
-/**
- * Describes a normal text notification.
- *
- * @typedef NotificationBasicContent
- * @syscap SystemCapability.Notification.Notification
- * @crossplatform
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationBasicContent {
   /**
-   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Notification title. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   title: string;
 
   /**
-   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
+   * Notification content. It cannot be empty or exceed 3,072 bytes. Excess content will be truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   text: string;
 
   /**
-   * Additional information of the notification. It cannot exceed 3072 bytes. Excess content will be truncated.
+   * Additional information of the notification. It cannot exceed 3,072 bytes. Excess content will be truncated. This 
+   * parameter is left empty by default.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   additionalText?: string;
 
   /**
-   * Picture of a notification displayed on the lock screen. Currently, only the live view notification is supported.
-   * The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber.
-   * The recommended icon size is 128 × 128 pixels.
-   * The display effect depends on the device capability and notification center UI style.
+   * Picture displayed on the lock screen. This parameter is left empty by default. Currently, only the live view 
+   * notification is supported. The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
+   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
    *
-   * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   lockscreenPicture?: image.PixelMap;
 
   /**
-   * Structured text of the notification. Its key or value cannot exceed 512 bytes. Excess content will be truncated.
+   * Structured notification. Currently, only service reminder messages can be displayed in structured format in the 
+   * notification center. This parameter is left empty by default. (The size of key or value cannot exceed 512 bytes; 
+   * otherwise, the excess part will be truncated. Only a maximum of three pairs of structured data are supported.)
    *
-   * @type { ?Map<string, string> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'21', '1.2':'21'}
-   * @arkts 1.1&1.2
+   * @systemapi
+   * @since 21 dynamic
+   * @since 23 static
    */
   structuredText?: Map<string, string>;
 }
 
 /**
- * Describes the long text notification. This API is inherited from NotificationBasicContent.
+ * Describes the long text notification. This API is inherited from 
+ * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 
+ * > **NOTE**
+ * >
+ * > The display effect depends on the device capability and notification center UI style.
  *
- * @typedef NotificationLongTextContent
+ * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
- * @since 7
- */
-/**
- * Describes the long text notification. This API is inherited from NotificationBasicContent.
- *
- * @extends NotificationBasicContent
- * @typedef NotificationLongTextContent
- * @syscap SystemCapability.Notification.Notification
- * @crossplatform
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
-   * Long text of the notification. It cannot be an empty string and exceed 3072 bytes. Excess content will be truncated.
+   * Long text of the notification. It cannot be empty or exceed 3,072 bytes. Excess content will be truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Long text of the notification. It cannot be an empty string and exceed 3072 bytes. Excess content will be truncated.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   longText: string;
 
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
+   * truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   expandedTitle: string;
 }
 
 /**
-   * Enum for live view notification option type.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Security.AccessToken
-   * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
+ * Enumerates the statuses of the common live view.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @systemapi
+ * @since 11 dynamic
+ * @since 23 static
+ */
 export enum LiveViewStatus {
   /**
-   * Create the live view notification.
+   * The live view is created.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   LIVE_VIEW_CREATE = 0,
   /**
-   * Batch update the live view notification.
+   * The live view is updated in incremental mode.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   LIVE_VIEW_INCREMENTAL_UPDATE = 1,
   /**
-   * Complete the live view notification.
+   * The live view is ended.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   LIVE_VIEW_END = 2,
   /**
-   * Full update the live view notification.
+   * The live view is updated in full mode.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  LIVE_VIEW_FULL_UPDATE = 3
+  LIVE_VIEW_FULL_UPDATE = 3,
+  /**
+   * The live view is created by condition.
+   * 
+   * This API can be used only in the stage model.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_CREATE = 4,
+  /**
+   * The live view is terminated by condition.
+   * 
+   * This API can be used only in the stage model.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_END = 6
 }
 
 /**
- * Enum for live view notification task type.
+ * Enumerates live view types.
  *
- * @enum { int }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 23 static
  */
 export enum LiveViewTypes {
   /**
-   * Real-time activity live view Notification.
+   * Real-time activity (progress).
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LIVE_VIEW_ACTIVITY = 0,
   /**
-   * Instant Task live view Notification.
+   * Instant task.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LIVE_VIEW_INSTANT = 1,
   /**
-   * Long-term status task live view Notification.
+   * Long-term task.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LIVE_VIEW_LONG_TERM = 2
 }
 
 /**
- * Describes a live view notification.
+ * Describes the common live view.
  *
- * @extends NotificationBasicContent
- * @typedef NotificationLiveViewContent
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface NotificationLiveViewContent extends NotificationBasicContent {
   /**
-   * Status of the live view (0: create, 1: batch update, 2: end, 3: full update).
+   * Notification status.
    *
-   * @type { LiveViewStatus }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   status: LiveViewStatus;
 
   /**
-   * Version of the live view with the same id. (If the version number stored in the database is 0xffffffff,
-   * the version number is not verified at the current operation of update or end. Otherwise, the
-   * version number must be greater than the version number stored in the database.)
+   * If the version number stored in the database is not **0xffffffff**, the version number needs to be verified when 
+   * the live view is updated or ended to ensure that the current version number is greater than the version number 
+   * stored in the database. The default value is **0xffffffff**.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   version?: int;
 
   /**
-   * Additional information of the live view notification.
+   * Extra information of the live view. This parameter is left empty by default.
    *
-   * @type { ?Record<string, Object>}
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   extraInfo?: Record<string, Object>;
 
   /**
-   * The picture information list of the live view notification.
+   * Extra information of the live view. This parameter is left empty by default.
    *
-   * @type { ?Record<string, Array<image.PixelMap>> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 static
+   */
+  extraInfo?: Record<string, RecordData>;
+
+  /**
+   * Extra image information of the live view. This parameter is left empty by default.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11 dynamic
+   * @since 23 static
    */
   pictureInfo?: Record<string, Array<image.PixelMap>>;
 
   /**
-   * Whether to update locally.
+   * Whether the live view is updated only locally. The default value is **false**.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   isLocalUpdateOnly?: boolean;
 
   /**
-   * The WantAgent instance of the clickAction field in the live view extension area.
+   * Redirection by tapping in the auxiliary area. This parameter is left empty by default.
    *
-   * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts{ '1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   extensionWantAgent?: WantAgent;
 }
 
 /**
- * Describes the multi-line text notification. This API is inherited from NotificationBasicContent.  
+ * Describes the multi-line text notification. This API is inherited from 
+ * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 
+ * > **NOTE**
+ * >
+ * > - When the multi-line text notification and another notification form a group notification, the group notification 
+ * > is displayed as a [normal text notification]{@link NotificationBasicContent} by default. After the group 
+ * > notification is expanded, the value of **longTitle** is used as the title, and the value of **lines** is used as 
+ * > the multi-line text content.
+ * 
+ * When the multi-line text notification is displayed independently, the value of **longTitle** is used as the title, 
+ * and the value of **lines** is used as the multi-line text content.
+ * 
+ * > - The display effect depends on the device capability and notification center UI style.
  *
- * @typedef NotificationMultiLineContent
+ * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
- * @since 7
- */
-/**
- * Describes the multi-line text notification. This API is inherited from NotificationBasicContent.
- *
- * @extends NotificationBasicContent
- * @typedef NotificationMultiLineContent
- * @syscap SystemCapability.Notification.Notification
- * @crossplatform
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
+   * truncated.
    *
-   * @type { string }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   longTitle: string;
 
   /**
-   * Multi-line text of the notification. It cannot exceed 1024 bytes. Excess content will be truncated.
+   * Multi-line text of a notification. A maximum of three lines are supported, and each line cannot exceed 1,024 bytes.
+   * Excess content will be truncated.
    *
-   * @type { Array<string> }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Multi-line text of the notification. It cannot exceed 1024 bytes. Excess content will be truncated.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   lines: Array<string>;
 
   /**
-   * Multi-line wantAgent of the multi-line text notification.
+   * **wantAgent**s triggered when a line of text in the multi-line text is tapped. The text in different lines 
+   * corresponds to different **wantAgent**s. The maximum number of lines configured for this field is equal to the 
+   * value of [lines]{@link ./notification/notificationContent:NotificationMultiLineContent}. This parameter is left 
+   * empty by default.
+   * 
+   * This is a system API.
+   * 
+   * ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   *
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @type { ?Array<WantAgent> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   lineWantAgents?: Array<WantAgent>;
 }
 
 /**
- * Describes the picture-attached notification. This API is inherited from NotificationBasicContent.
+ * Describes the picture-attached notification. This API is inherited from 
+ * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * 
+ * > **NOTE**
+ * >
+ * > The display effect depends on the device capability and notification center UI style.
  *
- * @extends NotificationBasicContent
- * @typedef NotificationPictureContent
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
+   * truncated.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   expandedTitle: string;
 
   /**
-   * Picture content of the notification. (The total number of bytes of image pixels cannot exceed 2 MB.)
+   * Picture content of the notification. The total pixel data size of the image cannot exceed 2 MB.
    *
-   * @type { image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   picture: image.PixelMap;
 }
 
 /**
- * Describes the system live view notification. A third-party application cannot directly create a notification of this type.
- * After the system proxy creates a system live view, the third-party application releases a notification with the same ID to update the specified content.
- * This API is inherited from NotificationBasicContent.
+ * Describes the system live view notification. A third-party application cannot directly create a notification of this 
+ * type. After the system proxy creates a system live view, the third-party application releases a notification with the
+ * same ID to update the specified content. This API is inherited from 
+ * [NotificationBasicContent]{@link NotificationBasicContent}.
  *
- * @extends NotificationBasicContent
- * @typedef NotificationSystemLiveViewContent
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
   /**
    * Type code, which identifies the type of the service that invokes the API.
    *
-   * @type { int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   typeCode: int;
 
   /**
-   * Capsule of the notification.
+   * Capsule of the notification. This parameter is left empty by default.
    *
-   * @type { ?NotificationCapsule }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   capsule?: NotificationCapsule;
 
   /**
-   * Button in the notification.
+   * Button in the notification. This parameter is left empty by default.
    *
-   * @type { ?NotificationButton }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   button?: NotificationButton;
 
   /**
-   * card button of a system live view notification.
+   * Live view buttons (a maximum of three buttons are supported). This parameter is left empty by default.
    *
-   * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   cardButtons?: Array<NotificationIconButton>;
 
   /**
-   * Time of the notification.
+   * Time of the notification. This parameter is left empty by default.
    *
-   * @type { ?NotificationTime }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   time?: NotificationTime;
 
   /**
-   * Progress of the notification.
+   * Progress of the notification. This parameter is left empty by default.
    *
-   * @type { ?NotificationProgress }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   progress?: NotificationProgress;
 
   /**
-   * task type of a system live view notification.
+   * Live view types. The default value is **LIVE_VIEW_ACTIVITY**.
    *
-   * @type { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   liveViewType?: LiveViewTypes;
 }
@@ -579,127 +537,120 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
 /**
  * Describe the notification capsule.
  *
- * @typedef NotificationCapsule
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface NotificationCapsule {
   /**
-   * Title of the capsule.
+   * Title of the capsule, with a maximum of 200 bytes. Excess part will be truncated.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   title?: string;
 
   /**
    * Icon of the capsule.
    *
-   * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   icon?: image.PixelMap;
 
   /**
    * Background color of the capsule.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   backgroundColor?: string;
 
   /**
-   * Extended text of this capsule.
+   * Extended text of the capsule. This parameter is left empty by default.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   content?: string;
 
   /**
-   * Display time of this capsule.
+   * Display duration of the notification capsule of an instant task, in seconds. The default value is **0**.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   time?: int;
 
   /**
-   * Extended button of this capsule.
+   * Buttons of the notification capsule of an instant task. A maximum of two buttons are supported. This parameter is 
+   * left empty by default.
    *
-   * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   capsuleButtons?: Array<NotificationIconButton>;
 }
 
 /**
- * Describes a system live view button with icon.
+ * Describes the information of a system notification button.
  *
- * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @systemapi
+ * @since 18 dynamic
+ * @since 23 static
  */
 export interface NotificationIconButton {
 
   /**
-   * button unique name.
+   * Button ID, which is used to distinguish multiple buttons of the same notification.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   name: string;
 
   /**
-   * button icon resource.
+   * Background image of a button.
    *
-   * @type { IconType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   iconResource: IconType;
 
   /**
-   * addition text of the icon buttion
+   * Text displayed on the button. This parameter is left empty by default.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   text?: string;
 
   /**
-   * hide the panel when click the icon button.
+   * Whether to hide the notification panel when the button is tapped. The default value is **false**.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   hidePanel?: boolean;
 }
@@ -707,39 +658,35 @@ export interface NotificationIconButton {
 /**
  * Describes the notification button.
  *
- * @typedef NotificationButton
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface NotificationButton {
   /**
    * Button names. A maximum of three names are supported.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   names?: Array<string>;
 
   /**
    * Button icons. A maximum of three icons are supported.
    *
-   * @type { ?Array<image.PixelMap> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   icons?: Array<image.PixelMap>;
 
   /**
    * Button icon resources. A maximum of three icon resources are supported.
    *
-   * @type { ?Array<Resource> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   iconsResource?: Array<Resource>;
 }
@@ -747,49 +694,53 @@ export interface NotificationButton {
 /**
  * Describes the notification timing information.
  *
- * @typedef NotificationTime
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface NotificationTime {
   /**
    * Start time, in milliseconds.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   initialTime?: int;
 
   /**
-   * Whether to count down.
+   * Whether to count down. The default value is **false**.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   isCountDown?: boolean;
 
   /**
-   * Whether to pause the progress.
+   * Whether to pause the progress. The default value is **false**.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   isPaused?: boolean;
 
   /**
-   * Whether the time is displayed in the title.
+   * Whether the time is displayed in the title. The default value is **false**.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   isInTitle?: boolean;
 }
@@ -797,39 +748,38 @@ export interface NotificationTime {
 /**
  * Describes the notification progress.
  *
- * @typedef NotificationProgress
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface NotificationProgress {
   /**
    * Maximum progress value.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   maxValue?: int;
 
   /**
    * Current progress value.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   currentValue?: int;
 
   /**
-   * Whether to show the progress in percentage.
+   * Whether to show the progress in percentage. The default value is **false**.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   isPercentage?: boolean;
 }
@@ -837,26 +787,20 @@ export interface NotificationProgress {
 /**
  * Describes the notification contents.
  *
- * @typedef NotificationContent
+ * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
- * @since 7
- */
-/**
- * Describes the notification contents.
- *
- * @typedef NotificationContent
- * @syscap SystemCapability.Notification.Notification
- * @crossplatform
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationContent {
   /**
    * Notification content type.
+   * 
+   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
+   * **notificationContentType** instead.
    *
-   * @type { ?notification.ContentType }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead NotificationContent#notificationContentType
    */
@@ -865,104 +809,72 @@ export interface NotificationContent {
   /**
    * Notification content type.
    *
-   * @type { ?notificationManager.ContentType }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
-   */
-  /**
-   * Notification content type.
-   *
-   * @type { ?notificationManager.ContentType }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   notificationContentType?: notificationManager.ContentType;
 
   /**
    * Normal text.
    *
-   * @type { ?NotificationBasicContent }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Normal text.
-   *
-   * @type { ?NotificationBasicContent }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   normal?: NotificationBasicContent;
 
   /**
    * Long text.
    *
-   * @type { ?NotificationLongTextContent }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Long text.
-   *
-   * @type { ?NotificationLongTextContent }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   longText?: NotificationLongTextContent;
 
   /**
    * Multi-line text.
    *
-   * @type { ?NotificationMultiLineContent }
+   * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
-   */
-  /**
-   * Multi-line text.
-   *
-   * @type { ?NotificationMultiLineContent }
-   * @syscap SystemCapability.Notification.Notification
-   * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   multiLine?: NotificationMultiLineContent;
 
   /**
    * Picture-attached.
    *
-   * @type { ?NotificationPictureContent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   picture?: NotificationPictureContent;
 
   /**
-   * System live view. A third-party application cannot directly create a notification of this type. After the system proxy creates a system live view,
-   * the third-party application releases a notification with the same ID to update the specified content.
+   * System live view. A third-party application cannot directly create a notification of this type. After the system 
+   * proxy creates a system live view, the third-party application releases a notification with the same ID to update 
+   * the specified content.
    *
-   * @type { ?NotificationSystemLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   systemLiveView?: NotificationSystemLiveViewContent;
 
   /**
-   * live-view notification.
+   * Common live view.
+   * 
+   * This is a system API.
    *
-   * @type { ?NotificationLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   liveView?: NotificationLiveViewContent;
 }

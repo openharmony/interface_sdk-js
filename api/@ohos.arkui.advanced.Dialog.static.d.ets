@@ -17,99 +17,120 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Theme, CustomTheme } from './@ohos.arkui.theme';
-import { Component, CustomDialog } from './arkui/component/customComponent';
-import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions } from './arkui/component/units';
-import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
-import { PixelMap, ThemeColorMode, CustomPopupOptions } from './arkui/component/common';
-import { PropRef, Prop, Link, Require } from './arkui/stateManagement/decorator';
+import { Component, CustomDialog } from '@ohos.arkui.component';
+import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions, TextAlign } from '@ohos.arkui.component';
+import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
+import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
+import { PropRef, Link, Require } from '@ohos.arkui.stateManagement';
 import { Callback } from './@ohos.base';
-import { CustomDialogController } from './arkui/component/customDialogController';
-import { BuilderParam, Builder } from './arkui/component/builder';
-import { SheetInfo } from './arkui/component/actionSheet';
+import { CustomDialogController } from '@ohos.arkui.component';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
+import { SheetInfo } from '@ohos.arkui.component';
 /**
  * Declare ButtonOptions
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare class ButtonOptions {
   /**
    * Sets the Display Content of a Button.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Sets the Button Callback.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * Sets the background color of a button.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  background?: ResourceColor;
+  public background?: ResourceColor;
   /**
    * Sets the Button Text Color.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  fontColor?: ResourceColor;
+  public fontColor?: ResourceColor;
   /**
    * Describes the Button style.
    *
    * @type { ?ButtonStyleMode }
    * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  buttonStyle?: ButtonStyleMode;
+  public buttonStyle?: ButtonStyleMode;
   /**
    * Describes the Button role.
    *
    * @type { ?ButtonRole }
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  role?: ButtonRole;
+  public role?: ButtonRole;
   /**
    * Set the default focus of a button.
    *
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  defaultFocus?: boolean;
+  public defaultFocus?: boolean;
+  /**
+   * Set the alignment mode for the button label.
+   *
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  public textAlign?: TextAlign;
 }
 /**
  * Declare CustomDialog TipsDialog
  * @struct { TipsDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @CustomDialog
 export declare struct TipsDialog {
   /**
    * Sets the TipsDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
@@ -117,71 +138,80 @@ export declare struct TipsDialog {
    *
    * @type { ResourceStr | PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    *
-   * @type { ?SizeOptions }.
+   * @type { ?SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   imageSize?: SizeOptions;
   /**
    * Sets the TipsDialog title.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   title?: ResourceStr;
   /**
    * Sets the TipsDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   content?: ResourceStr;
   /**
    * Sets the TipsDialog checkbox tips.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   checkTips?: ResourceStr;
   /**
    * Sets the TipsDialog checkbox check state.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @PropRef isChecked?: boolean;
   /**
    * Sets the TipsDialog CheckBox Callback.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   checkAction?: (isChecked: boolean) => void;
   /**
    * Sets the TipsDialog primary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   primaryButton?: ButtonOptions;
   /**
    * Sets the TipsDialog secondary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   secondaryButton?: ButtonOptions;
   /**
@@ -189,7 +219,8 @@ export declare struct TipsDialog {
    *
    * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: Theme | CustomTheme;
   /**
@@ -197,7 +228,8 @@ export declare struct TipsDialog {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   themeColorMode?: ThemeColorMode;
   /**
@@ -205,14 +237,15 @@ export declare struct TipsDialog {
    *
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   onCheckedChange?: Callback<boolean>;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -220,56 +253,64 @@ export declare struct TipsDialog {
  * Declare CustomDialog SelectDialog
  * @struct { SelectDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @CustomDialog
 export declare struct SelectDialog {
   /**
    * Sets the SelectDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
    * Sets the SelectDialog title.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   title: ResourceStr;
   /**
    * Sets the SelectDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   content?: ResourceStr;
   /**
    * Sets the SelectDialog selected index.
    *
-   * @type { ?number }.
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  selectedIndex?: number;
+  selectedIndex?: int;
   /**
    * Sets the SelectDialog confirm button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   confirm?: ButtonOptions;
   /**
    * Sets the SelectDialog sheets.
    *
-   * @type { Array<SheetInfo> }.
+   * @type { Array<SheetInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   radioContent: Array<SheetInfo>;
   /**
@@ -277,7 +318,8 @@ export declare struct SelectDialog {
    *
    * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: Theme | CustomTheme;
   /**
@@ -285,14 +327,15 @@ export declare struct SelectDialog {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -300,64 +343,73 @@ export declare struct SelectDialog {
  * Declare CustomDialog ConfirmDialog
  * @struct { ConfirmDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @CustomDialog
 export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
    * Sets the ConfirmDialog title.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   title: ResourceStr;
   /**
    * Sets the ConfirmDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   content?: ResourceStr;
   /**
    * Sets the ConfirmDialog checkbox tips.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   checkTips?: ResourceStr;
   /**
    * Sets the ConfirmDialog checkbox state.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @PropRef isChecked?: boolean;
   /**
    * Sets the ConfirmDialog primary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   primaryButton?: ButtonOptions;
   /**
    * Sets the ConfirmDialog secondary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   secondaryButton?: ButtonOptions;
   /**
@@ -365,7 +417,8 @@ export declare struct ConfirmDialog {
    *
    * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: Theme | CustomTheme;
   /**
@@ -373,7 +426,8 @@ export declare struct ConfirmDialog {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   themeColorMode?: ThemeColorMode;
   /**
@@ -381,14 +435,15 @@ export declare struct ConfirmDialog {
    *
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   onCheckedChange?: Callback<boolean>;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -396,16 +451,19 @@ export declare struct ConfirmDialog {
  * Declare CustomDialog AlertDialog
  * @struct { AlertDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @CustomDialog
 export declare struct AlertDialog {
   /**
    * Sets the AlertDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
@@ -413,7 +471,8 @@ export declare struct AlertDialog {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   primaryTitle?: ResourceStr;
   /**
@@ -421,31 +480,35 @@ export declare struct AlertDialog {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   secondaryTitle?: ResourceStr;
   /**
    * Sets the AlertDialog content.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   content: ResourceStr;
   /**
    * Sets the AlertDialog primary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   primaryButton?: ButtonOptions;
   /**
    * Sets the AlertDialog secondary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   secondaryButton?: ButtonOptions;
   /**
@@ -453,7 +516,8 @@ export declare struct AlertDialog {
    *
    * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: Theme | CustomTheme;
   /**
@@ -461,14 +525,15 @@ export declare struct AlertDialog {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -476,24 +541,28 @@ export declare struct AlertDialog {
  * Declare CustomDialog LoadingDialog
  * @struct { LoadingDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @CustomDialog
 export declare struct LoadingDialog {
   /**
    * Sets the LoadingDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   Controller: CustomDialogController;
   /**
    * Sets the LoadingDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   content?: ResourceStr;
   /**
@@ -501,7 +570,8 @@ export declare struct LoadingDialog {
    *
    * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: Theme | CustomTheme;
   /**
@@ -509,14 +579,15 @@ export declare struct LoadingDialog {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -524,16 +595,19 @@ export declare struct LoadingDialog {
  * Declare custom content dialog
  * @struct { CustomContentDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @CustomDialog
 export declare struct CustomContentDialog {
   /**
    * Sets the CustomContentDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
@@ -541,7 +615,8 @@ export declare struct CustomContentDialog {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   primaryTitle?: ResourceStr;
   /**
@@ -549,7 +624,8 @@ export declare struct CustomContentDialog {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   secondaryTitle?: ResourceStr;
   /**
@@ -557,15 +633,18 @@ export declare struct CustomContentDialog {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  @BuilderParam contentBuilder: () => void;
+  @BuilderParam
+  contentBuilder: () => void;
   /**
    * Sets the CustomContentDialog content area padding.
    *
    * @type { ?Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   contentAreaPadding?: Padding;
   /**
@@ -573,7 +652,8 @@ export declare struct CustomContentDialog {
    *
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   localizedContentAreaPadding?: LocalizedPadding;
   /**
@@ -581,7 +661,8 @@ export declare struct CustomContentDialog {
    *
    * @type { ?ButtonOptions[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   buttons?: ButtonOptions[];
   /**
@@ -589,7 +670,8 @@ export declare struct CustomContentDialog {
    *
    * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: Theme | CustomTheme;
   /**
@@ -597,14 +679,15 @@ export declare struct CustomContentDialog {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -612,7 +695,9 @@ export declare struct CustomContentDialog {
  * Declare struct PopoverDialog
  * @struct { PopoverDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @Component
 export declare struct PopoverDialog {
@@ -621,7 +706,8 @@ export declare struct PopoverDialog {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Link visible: boolean;
   /**
@@ -629,7 +715,8 @@ export declare struct PopoverDialog {
    *
    * @type { PopoverOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Require @PropRef
   popover: PopoverOptions;
@@ -638,15 +725,16 @@ export declare struct PopoverDialog {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Require @BuilderParam
   targetBuilder: () => void;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }
@@ -656,7 +744,9 @@ export declare struct PopoverDialog {
  * @extends CustomPopupOptions
  * @typedef PopoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare interface PopoverOptions extends CustomPopupOptions {
 }

@@ -17,19 +17,21 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
 import { VoidCallback } from "./units";
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { AttributeModifier } from "./common";
+
 /**
  * Defines the Counter component attributes.
  *
  * @extends CommonMethod
  * @interface CounterAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare interface CounterAttribute extends CommonMethod {
     /**
@@ -39,7 +41,8 @@ export declare interface CounterAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onInc(event: VoidCallback | undefined): this;
     /**
@@ -49,27 +52,30 @@ export declare interface CounterAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onDec(event: VoidCallback | undefined): this;
     /**
      * Indicates whether the decrease button of counter component is available or not.
      *
-     * @param { boolean } value - If true, the decrease button is available and can respond to
+     * @param { boolean | undefined } value - If true, the decrease button is available and can respond to
      *     operations such as clicking. If false, click operations are not responded.
      * @returns { CounterAttribute } The attribute of the counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableDec(value: boolean | undefined): this;
     /**
      * Indicates whether the increase button of counter component is available or not.
      *
-     * @param { boolean } value - If true, the increase button is available and can respond to
+     * @param { boolean | undefined } value - If true, the increase button is available and can respond to
      *     operations such as clicking. If false, click operations are not responded.
      * @returns { CounterAttribute } The attribute of the counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableInc(value: boolean | undefined): this;
     /**
@@ -78,21 +84,22 @@ export declare interface CounterAttribute extends CommonMethod {
      * @param { AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<CounterAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the Counter component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { CounterAttribute } The attribute of the Counter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Counter(
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): CounterAttribute;

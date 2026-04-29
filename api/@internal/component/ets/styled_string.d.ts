@@ -23,7 +23,8 @@
  * @typedef { UserDataSpan } StyledStringMarshallingValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 19
+ * @stagemodelonly
+ * @since 19 dynamic
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
 
@@ -36,7 +37,8 @@ declare type StyledStringMarshallingValue = UserDataSpan;
  * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 19
+ * @stagemodelonly
+ * @since 19 dynamic
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 
@@ -48,7 +50,8 @@ declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarsha
  * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 19
+ * @stagemodelonly
+ * @since 19 dynamic
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
 
@@ -56,9 +59,10 @@ declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledString
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class StyledString {
     /**
@@ -67,9 +71,10 @@ declare class StyledString {
      * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the StyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
 
@@ -79,9 +84,10 @@ declare class StyledString {
      * @type { number } - the length of the StyledString's characters.
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly length: number;
 
@@ -90,9 +96,10 @@ declare class StyledString {
     *
     * @returns { string } - the literal content of the StyledString
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamic
     */
     getString(): string;
 
@@ -108,9 +115,10 @@ declare class StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
 
@@ -120,9 +128,10 @@ declare class StyledString {
      * @param { StyledString } other - another StyledString.
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     equals(other: StyledString): boolean;
 
@@ -137,9 +146,10 @@ declare class StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     subStyledString(start: number, length?: number): StyledString;
 
@@ -154,8 +164,25 @@ declare class StyledString {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 170001 - Convert Error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Returns StyledString from the provided HTML string.
+     *
+     * @param { string } html - the html text will be converted to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
      */
     static fromHtml(html: string): Promise<StyledString>;
 
@@ -169,9 +196,10 @@ declare class StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     static toHtml(styledString: StyledString): string;
 
@@ -183,7 +211,8 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 19
+     * @stagemodelonly
+     * @since 19 dynamic
      */
     static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
 
@@ -200,7 +229,8 @@ declare class StyledString {
      * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 19
+     * @stagemodelonly
+     * @since 19 dynamic
      */
     static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
@@ -211,7 +241,8 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @stagemodelonly
+     * @since 13 dynamic
      */
     static marshalling(styledString: StyledString): ArrayBuffer;
 
@@ -227,7 +258,8 @@ declare class StyledString {
      * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @stagemodelonly
+     * @since 13 dynamic
      */
     static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
@@ -237,9 +269,10 @@ declare class StyledString {
  *
  * @interface StyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface StyleOptions {
     /**
@@ -247,9 +280,10 @@ declare interface StyleOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     start?: number;
 
@@ -258,9 +292,10 @@ declare interface StyleOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     length?: number;
 
@@ -269,9 +304,10 @@ declare interface StyleOptions {
      *
      * @type { StyledStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     styledKey: StyledStringKey;
 
@@ -280,9 +316,10 @@ declare interface StyleOptions {
      *
      * @type { StyledStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     styledValue: StyledStringValue;
 }
@@ -292,9 +329,10 @@ declare interface StyleOptions {
  *
  * @interface SpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface SpanStyle {
     /**
@@ -302,9 +340,10 @@ declare interface SpanStyle {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     start: number;
 
@@ -313,9 +352,10 @@ declare interface SpanStyle {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     length: number;
 
@@ -324,9 +364,10 @@ declare interface SpanStyle {
      *
      * @type { StyledStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     styledKey: StyledStringKey;
 
@@ -335,9 +376,10 @@ declare interface SpanStyle {
      *
      * @type { StyledStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     styledValue: StyledStringValue;
 }
@@ -346,9 +388,10 @@ declare interface SpanStyle {
  * Defines TextStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class TextStyle {
 
@@ -357,9 +400,10 @@ declare class TextStyle {
      *
      * @param { TextStyleInterface } [value] - font property object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value?: TextStyleInterface);
 
@@ -369,9 +413,10 @@ declare class TextStyle {
      * @type { ?ResourceColor } - the set fontColor of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly fontColor?: ResourceColor;
 
@@ -381,9 +426,10 @@ declare class TextStyle {
      * @type { ?string } - the fontFamily of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly fontFamily?: string;
 
@@ -394,9 +440,10 @@ declare class TextStyle {
      * @type { ?number } - the fontSize of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly fontSize?: number;
 
@@ -406,9 +453,10 @@ declare class TextStyle {
      * @type { ?number } - the fontWeight of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly fontWeight?: number;
 
@@ -418,9 +466,10 @@ declare class TextStyle {
      * @type { ?FontStyle  } - the fontStyle of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly fontStyle?: FontStyle;
 
@@ -430,9 +479,10 @@ declare class TextStyle {
      * @type { ?number } - the stroke width of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     readonly strokeWidth?: number;
 
@@ -442,9 +492,10 @@ declare class TextStyle {
      * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     readonly strokeColor?: ResourceColor;
 
@@ -454,11 +505,36 @@ declare class TextStyle {
      * @type { ?SuperscriptStyle } - the set superscriptStyle of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     readonly superscript?: SuperscriptStyle;
+
+    /**
+     * Get the fontConfigs of the StyledString.
+     *
+     * @type { ?FontConfigs } - the fontConfigs of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    readonly fontConfigs?: FontConfigs;
+
+    /**
+     * Get the font variation of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -466,9 +542,10 @@ declare class TextStyle {
  *
  * @interface TextStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface TextStyleInterface {
     /**
@@ -476,9 +553,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontColor?: ResourceColor;
 
@@ -487,9 +565,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontFamily?: ResourceStr;
 
@@ -498,9 +577,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontSize?: LengthMetrics;
 
@@ -509,9 +589,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?(number | FontWeight | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontWeight?: number | FontWeight | string;
 
@@ -520,9 +601,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?FontStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontStyle?: FontStyle;
 
@@ -531,9 +613,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     strokeWidth?: LengthMetrics;
 
@@ -542,9 +625,10 @@ declare interface TextStyleInterface {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     strokeColor?: ResourceColor;
 
@@ -553,11 +637,35 @@ declare interface TextStyleInterface {
      *
      * @type { ?SuperscriptStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     superscript?: SuperscriptStyle;
+
+    /**
+     * The fontConfigs value of the text.
+     *
+     * @type { ?FontConfigs }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    fontConfigs?: FontConfigs;
+
+    /**
+     * The font variation value of the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -565,9 +673,10 @@ declare interface TextStyleInterface {
  *
  * @interface DecorationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface DecorationOptions {
     /**
@@ -575,9 +684,10 @@ declare interface DecorationOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     enableMultiType?: boolean;
 }
@@ -586,9 +696,10 @@ declare interface DecorationOptions {
  * Defines DecorationStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class DecorationStyle {
 
@@ -597,9 +708,10 @@ declare class DecorationStyle {
      *
      * @param { DecorationStyleInterface } value - text decoration value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value: DecorationStyleInterface);
 
@@ -609,9 +721,10 @@ declare class DecorationStyle {
      * @param { DecorationStyleInterface } value - text decoration value.
      * @param { DecorationOptions } [options] - decoration options.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
@@ -621,9 +734,10 @@ declare class DecorationStyle {
      * @type { TextDecorationType } - the decoration type of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly type: TextDecorationType;
 
@@ -633,9 +747,10 @@ declare class DecorationStyle {
      * @type { ?ResourceColor } - the decorationColor of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly color?: ResourceColor;
 
@@ -645,9 +760,10 @@ declare class DecorationStyle {
      * @type { ?TextDecorationStyle } - the decorationStyle of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly style?: TextDecorationStyle;
 
@@ -657,9 +773,10 @@ declare class DecorationStyle {
      * @type { ?number } - the thickness scale of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     readonly thicknessScale?: number;
 
@@ -669,9 +786,10 @@ declare class DecorationStyle {
      * @type { ?DecorationOptions } - the decorationOptions of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     readonly options?: DecorationOptions;
 }
@@ -681,9 +799,10 @@ declare class DecorationStyle {
  *
  * @interface DecorationStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface DecorationStyleInterface {
     /**
@@ -691,9 +810,10 @@ declare interface DecorationStyleInterface {
      *
      * @type { TextDecorationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     type: TextDecorationType;
 
@@ -702,9 +822,10 @@ declare interface DecorationStyleInterface {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     color?: ResourceColor;
 
@@ -713,9 +834,10 @@ declare interface DecorationStyleInterface {
      *
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     style?: TextDecorationStyle;
 
@@ -724,9 +846,10 @@ declare interface DecorationStyleInterface {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     thicknessScale?: number;
 }
@@ -735,9 +858,10 @@ declare interface DecorationStyleInterface {
  * Defines BaselineOffsetStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class BaselineOffsetStyle {
     
@@ -746,9 +870,10 @@ declare class BaselineOffsetStyle {
      *
      * @param { LengthMetrics } value - baseline offset value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value: LengthMetrics);
 
@@ -759,9 +884,10 @@ declare class BaselineOffsetStyle {
      * @type { number } - the baselineOffset value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly baselineOffset: number;
 }
@@ -770,9 +896,10 @@ declare class BaselineOffsetStyle {
  * Defines LetterSpacingStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class LetterSpacingStyle {
    
@@ -781,9 +908,10 @@ declare class LetterSpacingStyle {
      *
      * @param { LengthMetrics } value - letter space value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value: LengthMetrics);
 
@@ -794,9 +922,10 @@ declare class LetterSpacingStyle {
      * @type { number } - the letterSpacing value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly letterSpacing: number;
 }
@@ -805,9 +934,10 @@ declare class LetterSpacingStyle {
  * Defines TextShadowStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class TextShadowStyle {
    
@@ -816,9 +946,10 @@ declare class TextShadowStyle {
      *
      * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value: ShadowOptions | Array<ShadowOptions>);
 
@@ -828,9 +959,10 @@ declare class TextShadowStyle {
      * @type { Array<ShadowOptions> } - the textShadow value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly textShadow: Array<ShadowOptions>;
 }
@@ -839,9 +971,10 @@ declare class TextShadowStyle {
  * Defines Sets the property string background color.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  */
 declare class BackgroundColorStyle {
 
@@ -850,9 +983,10 @@ declare class BackgroundColorStyle {
      *
      * @param { TextBackgroundStyle } textBackgroundStyle - textBackgroundStyle value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     constructor(textBackgroundStyle: TextBackgroundStyle);
 
@@ -862,9 +996,10 @@ declare class BackgroundColorStyle {
      * @type { TextBackgroundStyle } - the textBackgroundStyle value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     readonly textBackgroundStyle: TextBackgroundStyle;
 }
@@ -873,9 +1008,10 @@ declare class BackgroundColorStyle {
  * Defines GestureStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class GestureStyle {
 
@@ -884,9 +1020,10 @@ declare class GestureStyle {
      *
      * @param { GestureStyleInterface } [value] - gesture event object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value?: GestureStyleInterface);
 }
@@ -896,9 +1033,10 @@ declare class GestureStyle {
  *
  * @interface GestureStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface GestureStyleInterface {
     /**
@@ -906,9 +1044,10 @@ declare interface GestureStyleInterface {
      *
      * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onClick?: Callback<ClickEvent>;
 
@@ -917,9 +1056,10 @@ declare interface GestureStyleInterface {
      *
      * @type { ?Callback<GestureEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onLongPress?: Callback<GestureEvent>;
 
@@ -928,9 +1068,10 @@ declare interface GestureStyleInterface {
      *
      * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     onTouch?: Callback<TouchEvent>;
 }
@@ -939,9 +1080,10 @@ declare interface GestureStyleInterface {
  * Defines ParagraphStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class ParagraphStyle {
 
@@ -950,9 +1092,10 @@ declare class ParagraphStyle {
      *
      * @param { ParagraphStyleInterface } [value] - paragraph property object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value?: ParagraphStyleInterface);
 
@@ -962,9 +1105,10 @@ declare class ParagraphStyle {
      * @type { ?TextAlign } - the text alignment of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly textAlign?: TextAlign;
 
@@ -974,9 +1118,10 @@ declare class ParagraphStyle {
      * @type { ?TextVerticalAlign } - the text vertical alignment of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     readonly textVerticalAlign?: TextVerticalAlign;
 
@@ -987,9 +1132,10 @@ declare class ParagraphStyle {
      * @type { ?number } - the first line indentation of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly textIndent?: number;
 
@@ -999,9 +1145,10 @@ declare class ParagraphStyle {
      * @type { ?number } - the maximum number of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly maxLines?: number;
 
@@ -1011,9 +1158,10 @@ declare class ParagraphStyle {
      * @type { ?TextOverflow } - the overflow mode of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly overflow?: TextOverflow;
 
@@ -1023,9 +1171,10 @@ declare class ParagraphStyle {
      * @type { ?WordBreak } - the wordBreak mode of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly wordBreak?: WordBreak;
 
@@ -1035,9 +1184,10 @@ declare class ParagraphStyle {
      * @type { ?(number | LeadingMarginPlaceholder) } - the leading margin of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly leadingMargin?: number | LeadingMarginPlaceholder;
 
@@ -1048,9 +1198,10 @@ declare class ParagraphStyle {
      * @type { ?number }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     readonly paragraphSpacing?: number;
 
@@ -1060,11 +1211,25 @@ declare class ParagraphStyle {
      * @type { ?LeadingMarginSpan } - the leading margin span of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
      */
     readonly leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Get the text direction of the StyledString.
+     *
+     * @type { ?TextDirection } - the text direction of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    readonly textDirection?: TextDirection;
 }
 
 /**
@@ -1072,9 +1237,10 @@ declare class ParagraphStyle {
  *
  * @interface ParagraphStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ParagraphStyleInterface {
     /**
@@ -1082,9 +1248,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?TextAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     textAlign?: TextAlign;
 
@@ -1093,9 +1260,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?TextVerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     textVerticalAlign?: TextVerticalAlign;
 
@@ -1104,9 +1272,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     textIndent?: LengthMetrics;
 
@@ -1115,9 +1284,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     maxLines?: number;
 
@@ -1126,9 +1296,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     overflow?: TextOverflow;
 
@@ -1137,9 +1308,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?WordBreak }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     wordBreak?: WordBreak;
 
@@ -1148,9 +1320,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?(LengthMetrics | LeadingMarginPlaceholder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 
@@ -1159,9 +1332,10 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     paragraphSpacing?: LengthMetrics;
 
@@ -1170,20 +1344,34 @@ declare interface ParagraphStyleInterface {
      *
      * @type { ?LeadingMarginSpan }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
      */
     leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Set the text direction of the StyledString.
+     *
+     * @type { ?TextDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textDirection?: TextDirection;
 }
 
 /**
  * Defines LineHeightStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class LineHeightStyle {
    
@@ -1192,11 +1380,25 @@ declare class LineHeightStyle {
      *
      * @param { LengthMetrics } lineHeight - line height value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(lineHeight: LengthMetrics);
+
+    /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineHeight - line height value.
+     * @param { number } [lineHeightMultiple] - line height multiple value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(lineHeight: LengthMetrics, lineHeightMultiple?: number);
 
     /**
      * Get the lineHeight value of the StyledString.
@@ -1205,11 +1407,71 @@ declare class LineHeightStyle {
      * @type { number } - the lineHeight value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly lineHeight: number;
+
+    /**
+     * Get the line height multiple value of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly lineHeightMultiple?: number;
+}
+
+/**
+ * Defines LineSpacingStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class LineSpacingStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { LengthMetrics } lineSpacing - line spacing value.
+     * @param { LineSpacingOptions } [options] - line spacing options value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
+
+    /**
+     * Get the lineSpacing value of the StyledString.
+     * The unit is vp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly lineSpacing: number;
+
+    /**
+     * Get the lineSpacing options value of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly options?: LineSpacingOptions;
 }
 
 /**
@@ -1217,9 +1479,10 @@ declare class LineHeightStyle {
  * which the span is attached, the URLStyle will try to open the URL.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  */
 declare class UrlStyle {
 
@@ -1228,9 +1491,10 @@ declare class UrlStyle {
      *
      * @param { string } url - URL value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     constructor(url: string);
 
@@ -1240,9 +1504,10 @@ declare class UrlStyle {
      * @type { string } - the URL value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     readonly url: string;
 }
@@ -1254,9 +1519,10 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
  * UserDataSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 
 /**
@@ -1266,22 +1532,33 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
  * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
+ */
+/**
+ * Defines the StyledString style type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan | BackgroundColorStyle;
+UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
 
 /**
  * MutableStyledString
  *
  * @extends StyledString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class MutableStyledString extends StyledString {
     /**
@@ -1295,9 +1572,10 @@ declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     replaceString(start: number, length: number, other: string): void;
 
@@ -1311,9 +1589,10 @@ declare class MutableStyledString extends StyledString {
     * <br> 2. Incorrect parameters types.
     * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamic
     */
     insertString(start: number, other: string): void;
 
@@ -1327,9 +1606,10 @@ declare class MutableStyledString extends StyledString {
     * <br> 2. Incorrect parameters types.
     * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamic
     */
     removeString(start: number, length: number): void;
 
@@ -1342,9 +1622,10 @@ declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     replaceStyle(spanStyle: SpanStyle): void;
 
@@ -1354,9 +1635,10 @@ declare class MutableStyledString extends StyledString {
      * @param { SpanStyle } spanStyle - the SpanStyle Object.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     setStyle(spanStyle: SpanStyle): void;
 
@@ -1371,9 +1653,10 @@ declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
 
@@ -1387,9 +1670,10 @@ declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     removeStyles(start: number, length: number): void;
 
@@ -1397,9 +1681,10 @@ declare class MutableStyledString extends StyledString {
      * Delete all attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     clearStyles(): void;
 
@@ -1414,9 +1699,10 @@ declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     replaceStyledString(start: number, length: number, other: StyledString): void;
 
@@ -1430,9 +1716,10 @@ declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     insertStyledString(start: number, other: StyledString): void;
 
@@ -1441,9 +1728,10 @@ declare class MutableStyledString extends StyledString {
      *
      * @param { StyledString } other - new StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     appendStyledString(other: StyledString): void;
 }
@@ -1454,18 +1742,20 @@ declare class MutableStyledString extends StyledString {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum StyledStringKey {
     /**
      * The key of TextStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     FONT = 0,
 
@@ -1473,72 +1763,90 @@ declare enum StyledStringKey {
      * The key of DecorationStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     DECORATION = 1,
     /**
      * The key of BaselineOffsetStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     BASELINE_OFFSET = 2,
     /**
      * The key of LetterSpacingStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LETTER_SPACING = 3,
     /**
      * The key of TextShadowStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     TEXT_SHADOW = 4,
     /**
      * The key of LineHeightStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LINE_HEIGHT = 5,
     /**
      * The key of BackgroundColorStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     BACKGROUND_COLOR = 6,
     /**
      * The key of UrlStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     URL = 7,
+    /**
+     * The key of LineSpacingStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    LINE_SPACING = 8,
     /**
      * The key of GestureStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     GESTURE = 100,
 
@@ -1546,9 +1854,10 @@ declare enum StyledStringKey {
      * The key of ParagraphStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     PARAGRAPH_STYLE = 200,
 
@@ -1556,9 +1865,10 @@ declare enum StyledStringKey {
      * The key of ImageAttachment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     IMAGE = 300,
 
@@ -1566,9 +1876,10 @@ declare enum StyledStringKey {
      * The key of CustomSpan.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     CUSTOM_SPAN = 400,
 
@@ -1576,9 +1887,10 @@ declare enum StyledStringKey {
      * The key of UserDataSpan.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     USER_DATA = 500
 }
@@ -1587,9 +1899,10 @@ declare enum StyledStringKey {
  * Defines ImageAttachment.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class ImageAttachment {
 
@@ -1598,9 +1911,10 @@ declare class ImageAttachment {
      *
      * @param { ImageAttachmentInterface } value - image attachment object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(value: ImageAttachmentInterface);
 
@@ -1609,9 +1923,10 @@ declare class ImageAttachment {
      *
      * @param { Optional<AttachmentType> } attachment - image attachment object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     constructor(attachment: Optional<AttachmentType>);
     /**
@@ -1620,9 +1935,10 @@ declare class ImageAttachment {
      * @type { PixelMap } - the image content of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly value: PixelMap;
 
@@ -1632,9 +1948,10 @@ declare class ImageAttachment {
      * @type { ?SizeOptions } - the imageSize of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly size?: SizeOptions;
 
@@ -1644,9 +1961,10 @@ declare class ImageAttachment {
      * @type { ?SizeOptions } - the imageSize of the StyledString in vp unit or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
      */
     readonly sizeInVp?: SizeOptions;
 
@@ -1656,9 +1974,10 @@ declare class ImageAttachment {
      * @type { ?ImageSpanAlignment } - the ImageSpanAlignment of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly verticalAlign?: ImageSpanAlignment;
 
@@ -1668,9 +1987,10 @@ declare class ImageAttachment {
      * @type { ?ImageFit } - the imageFit of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly objectFit?: ImageFit;
 
@@ -1680,9 +2000,10 @@ declare class ImageAttachment {
      * @type { ?ImageAttachmentLayoutStyle } - the imageAttachmentLayoutStyle of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1692,9 +2013,10 @@ declare class ImageAttachment {
      * @type { ?ColorFilterType } - the imageAttachment colorFilter of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     readonly colorFilter?: ColorFilterType;
 
@@ -1704,9 +2026,10 @@ declare class ImageAttachment {
      * @type { ?boolean } - If color filter support svg.
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     readonly supportSvg2?: boolean;
 }
@@ -1716,9 +2039,10 @@ declare class ImageAttachment {
  *
  * @interface ResourceImageAttachmentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare interface ResourceImageAttachmentOptions {
     /**
@@ -1726,9 +2050,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { Optional<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     resourceValue: Optional<ResourceStr>;
 
@@ -1737,9 +2062,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     size?: SizeOptions;
 
@@ -1748,9 +2074,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ImageSpanAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     verticalAlign?: ImageSpanAlignment;
 
@@ -1759,9 +2086,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ImageFit }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     objectFit?: ImageFit;
 
@@ -1770,9 +2098,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ImageAttachmentLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1781,9 +2110,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ColorFilterType } filter ColorFilter object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     colorFilter?: ColorFilterType;
 
@@ -1793,9 +2123,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     syncLoad?: boolean;
 
@@ -1805,9 +2136,10 @@ declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     supportSvg2?: boolean;
 }
@@ -1817,9 +2149,10 @@ declare interface ResourceImageAttachmentOptions {
  *
  * @interface ImageAttachmentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ImageAttachmentInterface {
     /**
@@ -1827,9 +2160,10 @@ declare interface ImageAttachmentInterface {
      *
      * @type { PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     value: PixelMap;
 
@@ -1838,9 +2172,10 @@ declare interface ImageAttachmentInterface {
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     size?: SizeOptions;
 
@@ -1849,9 +2184,10 @@ declare interface ImageAttachmentInterface {
      *
      * @type { ?ImageSpanAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     verticalAlign?: ImageSpanAlignment;
 
@@ -1860,9 +2196,10 @@ declare interface ImageAttachmentInterface {
      *
      * @type { ?ImageFit }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     objectFit?: ImageFit;
 
@@ -1871,9 +2208,10 @@ declare interface ImageAttachmentInterface {
      *
      * @type { ?ImageAttachmentLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1882,9 +2220,10 @@ declare interface ImageAttachmentInterface {
      *
      * @type { ?ColorFilterType } filter ColorFilter object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     colorFilter?: ColorFilterType;
 }
@@ -1894,9 +2233,10 @@ declare interface ImageAttachmentInterface {
  *
  * @typedef { ImageAttachmentInterface | ResourceImageAttachmentOptions } AttachmentType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 
@@ -1905,9 +2245,10 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
  *
  * @typedef { ColorFilter | DrawingColorFilter } ColorFilterType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 
@@ -1916,9 +2257,10 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
  *
  * @interface ImageAttachmentLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ImageAttachmentLayoutStyle {
     /**
@@ -1926,9 +2268,10 @@ declare interface ImageAttachmentLayoutStyle {
      *
      * @type { ?(LengthMetrics | Margin) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     margin?: LengthMetrics | Margin;
 
@@ -1937,9 +2280,10 @@ declare interface ImageAttachmentLayoutStyle {
      *
      * @type { ?(LengthMetrics | Padding) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     padding?: LengthMetrics | Padding;
 
@@ -1948,9 +2292,10 @@ declare interface ImageAttachmentLayoutStyle {
      *
      * @type { ?(LengthMetrics | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     borderRadius?: LengthMetrics | BorderRadiuses;
 }
@@ -1960,9 +2305,10 @@ declare interface ImageAttachmentLayoutStyle {
  *
  * @interface CustomSpanMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface CustomSpanMetrics {
     /**
@@ -1972,9 +2318,10 @@ declare interface CustomSpanMetrics {
      * @type { number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     width: number;
 
@@ -1984,9 +2331,10 @@ declare interface CustomSpanMetrics {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     height?: number;
 }
@@ -1996,9 +2344,10 @@ declare interface CustomSpanMetrics {
  *
  * @interface CustomSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface CustomSpanDrawInfo {
     /**
@@ -2007,9 +2356,10 @@ declare interface CustomSpanDrawInfo {
      * 
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     x: number;
 
@@ -2019,9 +2369,10 @@ declare interface CustomSpanDrawInfo {
      * 
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     lineTop: number;
 
@@ -2031,9 +2382,10 @@ declare interface CustomSpanDrawInfo {
      * 
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     lineBottom: number;
 
@@ -2043,9 +2395,10 @@ declare interface CustomSpanDrawInfo {
      * 
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     baseline: number;
 }
@@ -2055,22 +2408,47 @@ declare interface CustomSpanDrawInfo {
  *
  * @interface CustomSpanMeasureInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface CustomSpanMeasureInfo {
     /**
      * Current component's fontSize value.
      * The unit is fp.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontSize: number;
+    /**
+     * The max width constraint of custom span.
+     * The unit is px.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    maxWidth?: number;
+    /**
+     * The layoutPolicy of custom span.
+     *
+     * @type { ?LayoutPolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    layoutPolicy?: LayoutPolicy;
 }
 
 /**
@@ -2078,6 +2456,7 @@ declare interface CustomSpanMeasureInfo {
  *
  * @interface LeadingMarginSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -2089,6 +2468,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2101,6 +2481,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2113,6 +2494,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2125,6 +2507,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2132,10 +2515,13 @@ declare interface LeadingMarginSpanDrawInfo {
     baseline: number;
 
     /**
-     * The direction of text.
+     * The direction of text. The default value is TextDirection.DEFAULT.
      *
      * @type { TextDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
      * @since 22 dynamic
      */
     direction: TextDirection;
@@ -2145,6 +2531,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2156,6 +2543,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2167,6 +2555,7 @@ declare interface LeadingMarginSpanDrawInfo {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2178,9 +2567,10 @@ declare interface LeadingMarginSpanDrawInfo {
  * Defines CustomSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare abstract class CustomSpan {
     /**
@@ -2189,9 +2579,10 @@ declare abstract class CustomSpan {
      * @param { CustomSpanMeasureInfo } measureInfo
      * @returns { CustomSpanMetrics } - CustomSpan Size
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
 
@@ -2201,9 +2592,10 @@ declare abstract class CustomSpan {
      * @param { DrawContext } context
      * @param { CustomSpanDrawInfo } drawInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
 
@@ -2211,9 +2603,10 @@ declare abstract class CustomSpan {
      * Invalidate all components that use the object, which will cause a re-render of all components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 13 dynamic
      */
     invalidate(): void;
 }
@@ -2222,9 +2615,10 @@ declare abstract class CustomSpan {
  * Defines UserDataSpan. Used to store and obtain user data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare abstract class UserDataSpan {}
 
@@ -2232,6 +2626,7 @@ declare abstract class UserDataSpan {}
  * Defines LeadingMarginSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -2243,6 +2638,7 @@ declare abstract class LeadingMarginSpan {
      * @param { DrawContext } context
      * @param { LeadingMarginSpanDrawInfo } drawInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -2253,6 +2649,7 @@ declare abstract class LeadingMarginSpan {
      *
      * @returns { LengthMetrics } - the literal content of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic

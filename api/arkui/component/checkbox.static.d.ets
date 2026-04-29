@@ -16,20 +16,20 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional, Bindable } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the options of Checkbox.
  *
  * @interface CheckboxOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CheckboxOptions {
     /**
@@ -37,7 +37,8 @@ export declare interface CheckboxOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     name?: string;
     /**
@@ -45,7 +46,8 @@ export declare interface CheckboxOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     group?: string;
     /**
@@ -53,7 +55,8 @@ export declare interface CheckboxOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     indicatorBuilder?: CustomBuilder;
 }
@@ -63,7 +66,8 @@ export declare interface CheckboxOptions {
  * @extends CommonConfiguration<CheckBoxConfiguration>
  * @interface CheckBoxConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
     /**
@@ -71,7 +75,8 @@ export declare interface CheckBoxConfiguration extends CommonConfiguration<Check
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     name: string;
     /**
@@ -79,7 +84,8 @@ export declare interface CheckBoxConfiguration extends CommonConfiguration<Check
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     selected: boolean;
     /**
@@ -87,7 +93,8 @@ export declare interface CheckBoxConfiguration extends CommonConfiguration<Check
      *
      * @type { Callback<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     triggerChange: Callback<boolean>;
 }
@@ -98,7 +105,8 @@ export declare interface CheckBoxConfiguration extends CommonConfiguration<Check
  * @typedef { function } OnCheckboxChangeCallback
  * @param { boolean } value - selected status
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnCheckboxChangeCallback = (value: boolean) => void;
 /**
@@ -107,7 +115,8 @@ export type OnCheckboxChangeCallback = (value: boolean) => void;
  * @extends CommonMethod
  * @interface CheckboxAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CheckboxAttribute extends CommonMethod {
     /**
@@ -116,7 +125,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { boolean | undefined | Bindable<boolean> } isSelected
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default select(isSelected: boolean | undefined | Bindable<boolean>): this;
     /**
@@ -125,7 +135,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectedColor(value: ResourceColor | undefined): this;
     /**
@@ -134,7 +145,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
     * @param { CheckBoxShape | undefined } value - The configuration of checkbox shape.
     * @returns { CheckboxAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     default shape(value: CheckBoxShape | undefined): this;
     /**
@@ -143,7 +155,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - The color of border when checkbox unselected.
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default unselectedColor(value: ResourceColor | undefined): this;
     /**
@@ -152,7 +165,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { MarkStyle | undefined } value - The style configuration of checkbox mark.
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default mark(value: MarkStyle | undefined): this;
     /**
@@ -162,7 +176,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { OnCheckboxChangeCallback | undefined } callback
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onChange(callback: OnCheckboxChangeCallback | undefined): this;
     /**
@@ -171,7 +186,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { ContentModifier<CheckBoxConfiguration> | undefined } modifier - The content modifier of checkbox.
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<CheckBoxConfiguration> | undefined): this;
     /**
@@ -181,7 +197,8 @@ export declare interface CheckboxAttribute extends CommonMethod {
      *     The attribute modifier of checkbox.
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(
         modifier: AttributeModifier<CheckboxAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -191,15 +208,14 @@ export declare interface CheckboxAttribute extends CommonMethod {
  * Defines Checkbox Component.
  *
  * @param { CheckboxOptions } [options] - the options of Checkbox.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function Checkbox(
-    options?: CheckboxOptions,
-    @memo
-    content_?: () => void,
+    options?: CheckboxOptions, 
+    content_?: CustomBuilder,
 ): CheckboxAttribute

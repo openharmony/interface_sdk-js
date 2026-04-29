@@ -46,7 +46,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface Callback<T> {
   /**
@@ -77,7 +77,7 @@ export interface Callback<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (data: T): void;
 }
@@ -101,7 +101,7 @@ export interface Callback<T> {
  * @syscap SystemCapability.Base
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
@@ -123,7 +123,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
    * @syscap SystemCapability.Base
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (err: T): void;
 }
@@ -156,7 +156,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface AsyncCallback<T, E = void> {
   /**
@@ -191,7 +191,7 @@ export interface AsyncCallback<T, E = void> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (err: BusinessError<E>, data: T): void;
 }
@@ -225,7 +225,7 @@ export interface AsyncCallback<T, E = void> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface BusinessError<T = void> extends Error {
   /**
@@ -256,7 +256,7 @@ export interface BusinessError<T = void> extends Error {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   code: number;
   /**
@@ -287,7 +287,7 @@ export interface BusinessError<T = void> extends Error {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   data?: T;
 }

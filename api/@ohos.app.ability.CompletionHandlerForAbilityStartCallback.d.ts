@@ -14,106 +14,111 @@
  */
 
 /**
+ * **CompletionHandlerForAbilityStartCallback** is an optional parameter of 
+ * [AbilityStartCallback]{@link ./application/AbilityStartCallback}. It provides callback results for launching ability 
+ * components of specific types through the vertical panel.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Defines a onRequestSuccess function.
+ * Defines the callback for successful ability launches.
  *
- * @typedef {function} OnRequestSuccessFn
- * @param { string } name - Indicates the full ability name or system operation name.
- *     If the result is a normal ability, the format is '[bundleName]#[moduleName]#[abilityName]'.
+ * @param { string } name - Name of the launched ability or system operation.
+ *
+ *     The ability component name is in the format of '[bundleName]#[moduleName]#[abilityName]'.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 23 static
  */
 export type OnRequestSuccessFn = (name: string) => void;
 
 /**
- * Defines a onRequestFailure function.
+ * Defines the callback for failed ability launches.
  *
- * @typedef {function} OnRequestFailureFn
- * @param { string } name - Indicates the full ability name or system operation name.
- *     If the result is a normal ability, the format is '[bundleName]#[moduleName]#[abilityName]'.
- *     For some failure scenarios, the name may be empty.
- * @param { AbilityStartFailureCode } failureCode - Indicates the failure code of startAbilityByType.
- * @param { string } failureMessage - Indicates the failure message of startAbilityByType.
+ * @param { string } name - Name of the launched ability or system operation.
+ *     The ability component name is in the format of '[bundleName]#[moduleName]#[abilityName]'. If the user cancels the
+ *     launch automatically, this parameter is empty.
+ * @param { AbilityStartFailureCode } failureCode - Error code of the failure cause.
+ * @param { string } failureMessage - Description of the failure cause.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 23 static
  */
 export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailureCode, failureMessage: string) => void;
 
 /**
- * A handler to handle the completion events of startAbilityByType.
+ * CompletionHandlerForAbilityStartCallback provides two callback functions, **onRequestSuccess** and
+ * **onRequestFailure**, which are invoked when launching the specified ability succeeds or fails, respectively.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 23 static
  */
 export class CompletionHandlerForAbilityStartCallback {
   /**
-   * Notify the success result of startAbilityByType.
+   * Callback invoked when the specified ability is successfully launched.
    *
-   * @type { ?OnRequestSuccessFn }
+   * This API can be used in atomic services since API version 21.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   onRequestSuccess?: OnRequestSuccessFn;
 
   /**
-   * Notify the failure result of startAbilityByType.
+   * Callback invoked when launching the specified ability fails.
    *
-   * @type { ?OnRequestFailureFn }
+   * This API can be used in atomic services since API version 21.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   onRequestFailure?: OnRequestFailureFn;
 }
 
 /**
- * Specific failure codes indicating failure of startAbilityByType.
+ * Enumerates the specific error codes for ability launch failures.
  *
- * @enum { int }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
-*/
+ * @since 21 dynamic
+ * @since 23 static
+ */
 export enum AbilityStartFailureCode {
   /**
-   * Indicates failed to startAbilityByType due to the system error, such as dialog crash, alloc memory failed.
+   * The ability cannot be launched due to a system error (for example, a crash in starting the picker).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
   /**
-   * Indicates the user cancelled the redirection.
+   * The user canceled the operation.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
-  FAILURE_CODE_USER_CANCEL = 1,
+  FAILURE_CODE_USER_CANCEL = 1
 }

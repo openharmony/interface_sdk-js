@@ -18,8 +18,11 @@
  * @kit MDMKit
  */
 
+/*** if arkts dynamic */
 import type Want from './@ohos.app.ability.Want';
+import type common from './@ohos.enterprise.common';
 import type image from './@ohos.multimedia.image';
+/*** endif */
 
 /**
  * This module provides the capability to manage the security of the enterprise devices.
@@ -27,8 +30,8 @@ import type image from './@ohos.multimedia.image';
  * @namespace securityManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace securityManager {
   /**
@@ -186,7 +189,65 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Gets device security policy of the specific type.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } item - item indicates the specified security policy that needs to be obtained,
+   *     including patch, encryption, fastboot.
+   *     patch means the device security patch tag, and encryption means the device encryption status.
+   * @returns { string } security policy of the specific type.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
   function getSecurityStatus(admin: Want, item: string): string;
+
+  /**
+   * Sets the screen lock disabled for current account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disable - true if disable the screen lock for account, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201021 - A lock screen password has been set for the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setScreenLockDisabledForAccount(admin: Want, disable: boolean): void;
+
+  /**
+   * Queries whether the screen lock is disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } Returns true if the screen lock for account is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function isScreenLockDisabledForAccount(admin: Want): boolean;
 
   /**
    * Install user certificate.
@@ -312,8 +373,8 @@ declare namespace securityManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function getPasswordPolicy(): PasswordPolicy;
 
@@ -388,23 +449,25 @@ declare namespace securityManager {
   function getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string;
 
   /**
-   * Sets the application's permission managed state of the device.
+   * Sets the permission managed state of an application instance.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_USER_GRANT_PERMISSION
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { ApplicationInstance } applicationInstance - Application instance data.
+   * @param { ApplicationInstance } applicationInstance - Application indicates an application instance.
    * @param { Array<string> } permissions - permissions indicates the list of permission names that need to manage.
-   * @param { PermissionManagedState } managedState - the managed state of application permission.
+   * @param { PermissionManagedState } managedState - managedState indicates the state of permission.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-    function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissions: Array<string>, managedState: PermissionManagedState): void;
+  function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance,
+      permissions: Array<string>, managedState: PermissionManagedState): void;
 
   /**
    * Gets the permission managed state of an application instance.
@@ -417,12 +480,13 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-    function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permission: string): PermissionManagedState;
+  function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permission: string): PermissionManagedState;
 
   /**
    * Sets the watermark image displayed during the application running.
@@ -462,13 +526,118 @@ declare namespace securityManager {
   function cancelWatermarkImage(admin: Want, bundleName: string, accountId: number): void;
 
   /**
+   * Sets the policy of the extensions from external sources.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { common.ManagedPolicy } policy - policy indicates the policy of extensions.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *  The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+    function setExternalSourceExtensionsPolicy(admin: Want, policy: common.ManagedPolicy): void;
+
+  /**
+   * Gets the policy of the extensions from external sources.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { common.ManagedPolicy } policy - policy indicates the policy of extensions.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+    function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
+
+  /**
+   * Installs an enterprise re-signature certificate.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } certificateAlias - certificateAlias indicates the alias of enterprise re-signature certificate.
+   * @param { int } fd - fd indicates the file descriptor of an enterprise re-signature certificate.
+   * @param { int } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201006 - The number of certificates has reached the limit.
+   * @throws { BusinessError } 9201007 - The certificate is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function installEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, fd: int, accountId: int): void;
+
+  /**
+   * Uninstalls the specific enterprise re-signature certificate.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } certificateAlias - certificateAlias indicates the alias of enterprise re-signature certificate.
+   * @param { int } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201008 - The certificate does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: int): void;
+
+  /**
+   * Sets the watermark image to be displayed on the screen.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { image.PixelMap } pixelMap - pixelMap indicates the PixelMap of watermark image
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setScreenWatermarkImage(admin: Want, pixelMap: image.PixelMap): void;
+
+  /**
+   * Cancels the watermark image displayed on the screen.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function cancelScreenWatermarkImage(admin: Want): void;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   export interface PasswordPolicy {
     /**
@@ -477,8 +646,8 @@ declare namespace securityManager {
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     complexityRegex?: string;
 
@@ -488,8 +657,8 @@ declare namespace securityManager {
      * @type { ?long }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     validityPeriod?: long;
 
@@ -499,8 +668,8 @@ declare namespace securityManager {
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     additionalDescription?: string;
   }

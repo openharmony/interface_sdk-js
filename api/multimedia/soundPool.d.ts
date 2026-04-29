@@ -25,22 +25,25 @@ import resourceManager from '../@ohos.resourceManager';
 
 /**
  * Enumerates the error type.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 20
+ * @since 20 dynamic
+ * @since 23 static
  */
 export enum ErrorType {
   /**
    * Load error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   LOAD_ERROR = 1,
 
   /**
    * Play error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   PLAY_ERROR = 2
 }
@@ -49,37 +52,42 @@ export enum ErrorType {
  * Interface for error info.
  * @typedef { ErrorInfo<T extends Error = BusinessError> }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 20
+ * @since 20 dynamic
+ * @since 23 static
  */
 export interface ErrorInfo<T extends Error = BusinessError> {
   /**
    * Error code.
    * @type { T }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   errorCode: T;
   /**
    * Error type.
    * @type { ?ErrorType }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   errorType?: ErrorType;
   /**
    * Sound id, returned from SoundPool.load function.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
-  soundId?: number;
+  soundId?: int;
   /**
    * Stream id, returned from SoundPool.play function.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
-  streamId?: number;
+  streamId?: int;
 }
 
 /**
@@ -89,8 +97,8 @@ export interface ErrorInfo<T extends Error = BusinessError> {
  *
  * @typedef PlayParameters
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 23 static
  */
 export interface PlayParameters {
   /**
@@ -105,8 +113,8 @@ export interface PlayParameters {
    *
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   loop?: int;
   /**
@@ -114,8 +122,8 @@ export interface PlayParameters {
    *
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   rate?: int;
   /**
@@ -123,8 +131,8 @@ export interface PlayParameters {
    *
    * @type { ?double }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   leftVolume?: double;
   /**
@@ -133,8 +141,8 @@ export interface PlayParameters {
    *
    * @type { ?double }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   rightVolume?: double;
   /**
@@ -143,8 +151,8 @@ export interface PlayParameters {
    *
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   priority?: int;
   /**
@@ -157,8 +165,8 @@ export interface PlayParameters {
    * @type { ?boolean }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   parallelPlayFlag?: boolean;
 }
@@ -180,16 +188,16 @@ export interface PlayParameters {
  *
  * @typedef SoundPool
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 23 static
  */
 export declare interface SoundPool {
   /**
    * Loads a sound. This API uses an asynchronous callback to obtain the sound ID.
    * The input parameter **uri** is a string starting with fd://, which is generated based on the file descriptor (FD)
    * obtained. This API cannot be used to load resources in the **rawfile** directory.
-   * Instead, use load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void or
-   * load(fd: number, offset: number, length: number): Promise<number>.
+   * Instead, use load(fd: int, offset: long, length: long, callback: AsyncCallback<int>): void or
+   * load(fd: int, offset: long, length: long): Promise<int>.
    *
    * **NOTE**
    *
@@ -205,16 +213,16 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   load(uri: string, callback: AsyncCallback<int>): void;
   /**
    * Loads a sound. This API uses a promise to obtain the sound ID. The input parameter **uri** is a starting with
    * fd://, which is generated based on the FD obtained. This API cannot be used to load resources in the **rawfile**
    * directory.
-   * Instead, use load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void or
-   * load(fd: number, offset: number, length: number): Promise<number>.
+   * Instead, use load(fd: int, offset: long, length: long, callback: AsyncCallback<int>): void or
+   * load(fd: int, offset: long, length: long): Promise<int>.
    *
    * **NOTE**
    *
@@ -230,8 +238,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   load(uri: string): Promise<int>;
   /**
@@ -257,8 +265,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   load(fd: int, offset: long, length: long, callback: AsyncCallback<int>): void;
   /**
@@ -283,8 +291,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   load(fd: int, offset: long, length: long): Promise<int>;
   /**
@@ -299,8 +307,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   play(soundID: int, params: PlayParameters, callback: AsyncCallback<int>): void;
   /**
@@ -314,8 +322,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   play(soundID: int, callback: AsyncCallback<int>): void;
   /**
@@ -329,8 +337,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   play(soundID: int, params?: PlayParameters): Promise<int>;
   /**
@@ -343,8 +351,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   stop(streamID: int, callback: AsyncCallback<void>): void;
   /**
@@ -357,8 +365,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   stop(streamID: int): Promise<void>;
   /**
@@ -377,8 +385,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setLoop(streamID: int, loop: int, callback: AsyncCallback<void>): void;
   /**
@@ -397,8 +405,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setLoop(streamID: int, loop: int): Promise<void>;
   /**
@@ -413,8 +421,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setPriority(streamID: int, priority: int, callback: AsyncCallback<void>): void;
   /**
@@ -429,8 +437,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setPriority(streamID: int, priority: int): Promise<void>;
   /**
@@ -444,8 +452,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setRate(streamID: int, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
   /**
@@ -459,8 +467,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setRate(streamID: int, rate: audio.AudioRendererRate): Promise<void>;
   /**
@@ -476,8 +484,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double, callback: AsyncCallback<void>): void;
   /**
@@ -493,10 +501,19 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
+  /**
+   * Sets the interrupt mode for sound parallel play. The default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
+   *
+   * @param { media.SoundInterruptMode } interruptMode - the interrupt mode.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  setInterruptMode(interruptMode: media.SoundInterruptMode): void;
   /**
    * Unloads a sound. This API uses an asynchronous callback to return the result.
    *
@@ -506,8 +523,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   unload(soundID: int, callback: AsyncCallback<void>): void;
   /**
@@ -519,8 +536,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   unload(soundID: int): Promise<void>;
   /**
@@ -529,8 +546,8 @@ export declare interface SoundPool {
    * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   release(callback: AsyncCallback<void>): void;
   /**
@@ -539,10 +556,11 @@ export declare interface SoundPool {
    * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   release(): Promise<void>;
+
   /**
    * Subscribes to events indicating that a sound finishes loading.
    *
@@ -550,19 +568,34 @@ export declare interface SoundPool {
    * This event is triggered when a sound is loaded.
    * @param {Callback<int>} callback - ID of the sound that has been loaded.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   on(type: 'loadComplete', callback: Callback<int>): void;
+  /**
+   * Subscribes to events indicating that a sound finishes loading.
+   * This event is triggered when a sound is loaded.
+   *
+   * @param {Callback<int>} callback - ID of the sound that has been loaded.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  onLoadComplete(callback: Callback<int>): void;
   /**
    * Unsubscribes from events indicating that a sound finishes loading.
    *
    * @param {'loadComplete'} type - Event type. The value is fixed at **'loadComplete'**.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   off(type: 'loadComplete'): void;
+  /**
+   * Unsubscribes from events indicating that a sound finishes loading.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  offLoadComplete(): void;
+
   /**
    * Subscribes to events indicating the completion of audio playback and returns the stream ID of the audio
    * that finishes playing.
@@ -579,19 +612,41 @@ export declare interface SoundPool {
    * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
    *     finishes playing.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<int>): void;
+  /**
+   * Subscribes to events indicating the completion of audio playback and returns the stream ID of the audio
+   * that finishes playing.
+   *
+   * When only on('playFinished') or on('playFinishedWithStreamId') is subscribed to, the registered
+   * callback is triggered when the audio playback is complete.
+   *
+   * When both on('playFinished') and on('playFinishedWithStreamId') are subscribed to,
+   * the 'playFinishedWithStreamId' callback is triggered, but the 'playFinished' callback is not triggered,
+   * when the audio playback is complete.
+   *
+   * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
+   *     finishes playing.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  onPlayFinishedWithStreamId(callback: Callback<int>): void;
    /**
     * Unsubscribes from events indicating that a sound finishes playing.
     *
     * @param {'playFinishedWithStreamId'} type - Event type. The value is fixed at **'playFinishedWithStreamId'**.
     * @syscap SystemCapability.Multimedia.Media.SoundPool
-    * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
     */
   off(type: 'playFinishedWithStreamId'): void;
+   /**
+    * Unsubscribes from events indicating that a sound finishes playing.
+    *
+    * @syscap SystemCapability.Multimedia.Media.SoundPool
+    * @since 23 static
+    */
+  offPlayFinishedWithStreamId(): void;
   /**
    * Subscribes to events indicating that a sound finishes playing.
    *
@@ -599,19 +654,33 @@ export declare interface SoundPool {
    * This event is triggered when a sound finishes playing.
    * @param {Callback<void>} callback - Callback used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   on(type: 'playFinished', callback: Callback<void>): void;
+  /**
+   * Subscribes to events indicating that a sound finishes playing.
+   * This event is triggered when a sound finishes playing.
+   *
+   * @param {Callback<void>} callback - Callback used to return the result.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  onPlayFinished(callback: Callback<void>): void;
   /**
    * Unsubscribes from events indicating that a sound finishes playing.
    *
    * @param {'playFinished'} type - Event type. The value is fixed at **'playFinished'**.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   off(type: 'playFinished'): void;
+  /**
+   * Unsubscribes from events indicating that a sound finishes playing.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  offPlayFinished(): void;
   /**
    * Subscribes to error events of this **SoundPool** instance. This event is used only for error prompt.
    *
@@ -619,37 +688,68 @@ export declare interface SoundPool {
    * This event can be triggered by both user operations and the system.
    * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   on(type: 'error', callback: ErrorCallback): void;
+  /**
+   * Subscribes to error events of this **SoundPool** instance. This event is used only for error prompt.
+   * This event can be triggered by both user operations and the system.
+   * 
+   * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  onError(callback: ErrorCallback): void;
   /**
    * Unsubscribes from error events of this **SoundPool** instance.
    *
    * @param {'error'} type - Event type, which is **'error'** in this case.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   off(type: 'error'): void;
+  /**
+   * Unsubscribes from error events of this **SoundPool** instance.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  offError(): void;
+
   /**
    * Subscribes to errorOccurred events of this **SoundPool** instance.
    *
    * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
    * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
    */
   on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
+  /**
+   * Subscribes to errorOccurred events of this **SoundPool** instance.
+   *
+   * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
 
+  onErrorOccurred(callback: Callback<ErrorInfo>): void;
   /**
    * Unsubscribes from errorOccurred events of this **SoundPool** instance.
    *
    * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
    * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
+   * @since 20 dynamic
    */
   off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
+  /**
+   * Unsubscribes from errorOccurred events of this **SoundPool** instance.
+   *
+   * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 static
+   */
+  offErrorOccurred(callback?: Callback<ErrorInfo>): void;
 }
 

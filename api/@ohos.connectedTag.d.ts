@@ -25,7 +25,7 @@ import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  *
  * @namespace connectedTag
  * @syscap SystemCapability.Communication.ConnectedTag
- * @since 8
+ * @since 8 dynamic
  */
 declare namespace connectedTag {
   /**
@@ -34,7 +34,7 @@ declare namespace connectedTag {
    * @permission ohos.permission.NFC_TAG
    * @returns { boolean } Returns true if init success, otherwise returns false.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.connectedTag/connectedTag#initialize
    */
@@ -48,7 +48,7 @@ declare namespace connectedTag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 9 dynamic
    */
   function initialize(): void;
 
@@ -58,7 +58,7 @@ declare namespace connectedTag {
    * @permission ohos.permission.NFC_TAG
    * @returns { boolean } Returns true if uninit success, otherwise returns false.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.connectedTag/connectedTag#uninitialize
    */
@@ -72,7 +72,7 @@ declare namespace connectedTag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 9 dynamic
    */
   function uninitialize(): void;
 
@@ -82,7 +82,7 @@ declare namespace connectedTag {
    * @permission ohos.permission.NFC_TAG
    * @returns { Promise<string> } Returns the NDEF Data.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.connectedTag/connectedTag#read
    */
@@ -94,7 +94,7 @@ declare namespace connectedTag {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.connectedTag/connectedTag#read
    */
@@ -109,7 +109,7 @@ declare namespace connectedTag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 9 dynamic
    */
   function read(): Promise<number[]>;
 
@@ -122,7 +122,7 @@ declare namespace connectedTag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 9 dynamic
    */
   function read(callback: AsyncCallback<number[]>): void;
 
@@ -133,7 +133,7 @@ declare namespace connectedTag {
    * @param { string } data The Data to write.
    * @returns { Promise<void> } The void.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.connectedTag/connectedTag#write
    */
@@ -146,7 +146,7 @@ declare namespace connectedTag {
    * @param { string } data The Data to write.
    * @param { AsyncCallback<void> } callback
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.connectedTag/connectedTag#write
    */
@@ -166,7 +166,7 @@ declare namespace connectedTag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 9 dynamic
    */
   function write(data: number[]): Promise<void>;
 
@@ -184,7 +184,7 @@ declare namespace connectedTag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 9
+   * @since 9 dynamic
    */
   function write(data: number[], callback: AsyncCallback<void>): void;
 
@@ -195,7 +195,7 @@ declare namespace connectedTag {
    * @param {'notify'} type The callback type. 
    * @param { Callback<number> } callback The callback function to be registered.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamic
    */
   function on(type: 'notify', callback: Callback<number>): void;
 
@@ -207,7 +207,7 @@ declare namespace connectedTag {
    * @param { 'notify' } type The callback type.
    * @param { Callback<number> } callback The callback function to be unregistered.
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamic
    */
   function off(type: 'notify', callback?: Callback<number>): void;
 
@@ -216,14 +216,14 @@ declare namespace connectedTag {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 8
+   * @since 8 dynamic
    */
   enum NfcRfType {
     /**
      * NFC RF LEAVE
      *
      * @syscap SystemCapability.Communication.ConnectedTag
-     * @since 8
+     * @since 8 dynamic
      */
     NFC_RF_LEAVE = 0,
 
@@ -231,7 +231,7 @@ declare namespace connectedTag {
      * NFC RF ENTER
      *
      * @syscap SystemCapability.Communication.ConnectedTag
-     * @since 8
+     * @since 8 dynamic
      */
     NFC_RF_ENTER = 1
   }

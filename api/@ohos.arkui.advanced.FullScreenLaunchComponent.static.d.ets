@@ -16,28 +16,18 @@
  /**
  * @file Defines the fullScreen launch component
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
-import { Callback, ErrorCallback } from '@ohos.base';
+import { Callback, ErrorCallback, RecordData } from '@ohos.base';
 import { Component, BuilderParam, TerminationInfo, Builder } from '@ohos.arkui.component'
 
-/**
- * Defines RecordData.
- * 
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @arkts 1.2
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 /**
  * Defines ContentBuilder.
  * 
  * @typedef { function } ContentBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 23 static
  */
 @Builder
 type ContentBuilder = () => void;
@@ -47,7 +37,7 @@ type ContentBuilder = () => void;
  * development paradigm.
  * @struct { FullScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 23 static
  */
 @Component
 export declare struct FullScreenLaunchComponent {
@@ -55,21 +45,21 @@ export declare struct FullScreenLaunchComponent {
    * Sets the component content.
    * @type { ContentBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 23 static
    */
   @BuilderParam content: ContentBuilder;
   /**
    * Indicates atomic service appId.
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 23 static
    */
   appId: string;
   /**
    * Indicates the atomic service start options.
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 23 static
    */
   options?: AtomicServiceOptions;
     /**
@@ -78,7 +68,7 @@ export declare struct FullScreenLaunchComponent {
     * with the parameter being of type BusinessError.
     * @type { ?ErrorCallback }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 23 static
     */
     onError?: ErrorCallback;
     /**
@@ -87,21 +77,21 @@ export declare struct FullScreenLaunchComponent {
     * with the parameter being of type TerminationInfo.
     * @type { ?Callback<TerminationInfo> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 23 static
     */
     onTerminated?: Callback<TerminationInfo>;
     /**
     * Indicates the callback of onReceive.
     * @type { ?Callback<Record<string, RecordData>> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 23 static
     */
     onReceive?: Callback<Record<string, RecordData>>;
 
     /**
     * The method to build component.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 23 static
     */
     @Builder build(): void;
 }

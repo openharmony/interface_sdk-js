@@ -25,7 +25,9 @@ import { Callback } from './@ohos.base';
  *
  * @namespace linkEnhance
  * @syscap SystemCapability.DistributedSched.AppCollaboration
- * @since 20
+ * @stagemodelonly
+ * @since 20 dynamic
+ * @since 23 static
  */
 declare namespace linkEnhance {
 
@@ -34,7 +36,9 @@ declare namespace linkEnhance {
    *
    * @typedef ConnectResult
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 20
+   * @stagemodelonly
+   * @since 20 dynamic
+   * @since 23 static
    */
   interface ConnectResult {
     /**
@@ -42,7 +46,9 @@ declare namespace linkEnhance {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     deviceId: string;
 
@@ -51,7 +57,9 @@ declare namespace linkEnhance {
      *
      * @type { boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     success: boolean;
 
@@ -62,11 +70,13 @@ declare namespace linkEnhance {
      * - 32390201 - Peer server is not started.
      * - 32390300 - Internal error.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
-    reason: number
+    reason: int
   }
 
 
@@ -76,7 +86,9 @@ declare namespace linkEnhance {
    *
    * @typedef Server
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 20
+   * @stagemodelonly
+   * @since 20 dynamic
+   * @since 23 static
    */
   interface Server {
     /**
@@ -87,7 +99,9 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 32390202 - The number of servers exceeds the limit.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     start(): void;
 
@@ -97,7 +111,9 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     stop(): void;
 
@@ -107,7 +123,9 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     close(): void;
 
@@ -120,7 +138,8 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     on(type: 'connectionAccepted', callback: Callback<Connection>): void;
 
@@ -133,9 +152,36 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 -  Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     off(type: 'connectionAccepted', callback?: Callback<Connection>): void;
+
+    /**
+     * Subscribe server is connected event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Parameter invalid.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onConnectionAccepted(callback: Callback<Connection>): void;
+
+    /**
+     * Unsubscribe server is connected event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<Connection> } [callback] - Callback used to listen for the server is connected event.
+     * @throws { BusinessError } 201 -  Permission denied.
+     * @throws { BusinessError } 32390206 - Parameter invalid.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offConnectionAccepted(callback?: Callback<Connection>): void;
 
     /**
      * Subscribe server stop event, it should always rebuild the server after being called.
@@ -146,7 +192,8 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     on(type: 'serverStopped', callback: Callback<number>): void;
 
@@ -159,34 +206,66 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     off(type: 'serverStopped', callback?: Callback<number>): void;
+
+    /**
+     * Subscribe server stop event, it should always rebuild the server after being called.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<int> } callback - Callback used to listen for the server stop event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Parameter invalid.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onServerStopped(callback: Callback<int>): void;
+
+    /**
+     * Unsubscribe server stop event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<int> } [callback] - Callback used to listen for the server state change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Parameter invalid.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offServerStopped(callback?: Callback<int>): void;
 
   }
 
   /**
-   * Create an server instance.
+   * Create a server instance.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { string } name - Name of the server.
    * @returns { Server } Returns a server instance {@code Server}.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported. [since 26]
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @throws { BusinessError } 32390203 - Duplicate server name.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 20
+   * @stagemodelonly
+   * @since 20 dynamic
+   * @since 23 static
    */
   function createServer(name: string): Server;
 
   /**
    * Manages connection.
-   * Before calling any connection methods, you must use {@link createServer} to create an instance,
+   * Before calling any connection methods, you must use {@link createConnection} to create an instance,
    * or get a connection from {@link acceptConnect} of server.
    *
    * @typedef Connection
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 20
+   * @stagemodelonly
+   * @since 20 dynamic
+   * @since 23 static
    */
   interface Connection {
     /**
@@ -198,7 +277,9 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 32390204 - The number of connection exceeds the limit.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     connect(): void;
 
@@ -208,7 +289,9 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     disconnect(): void;
 
@@ -219,7 +302,9 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly     
+     * @since 20 dynamic
+     * @since 23 static
      */
     close(): void;
 
@@ -230,7 +315,9 @@ declare namespace linkEnhance {
      * @returns { string } Returns the peer device id, return "" if operation failed.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
+     * @since 23 static
      */
     getPeerDeviceId(): string;
 
@@ -244,7 +331,9 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 32390205 - Connection is not ready.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly     
+     * @since 20 dynamic
+     * @since 23 static
      */
     sendData(data: ArrayBuffer): void;
 
@@ -253,11 +342,13 @@ declare namespace linkEnhance {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'connectResult' } type - Type of result event to listen for.
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result  event.
+     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
+     *     Default value: undefined.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     on(type: 'connectResult', callback: Callback<ConnectResult>): void;
 
@@ -266,13 +357,40 @@ declare namespace linkEnhance {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'connectResult' } type - Type of result event to listen for.
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result  event.
+     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     off(type: 'connectResult', callback?: Callback<ConnectResult>): void;
+
+    /**
+     * Subscribe connect result event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Invalid parameter.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onConnectResult(callback: Callback<ConnectResult>): void;
+
+    /**
+     * Unsubscribe connect result event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<ConnectResult> } [callback] - Callback used to listen for result event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Invalid parameter.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offConnectResult(callback?: Callback<ConnectResult>): void;
 
     /**
      * Subscribe connection disconnected event.
@@ -283,7 +401,8 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     on(type: 'disconnected', callback: Callback<number>): void;
 
@@ -296,9 +415,36 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     off(type: 'disconnected', callback?: Callback<number>): void;
+
+    /**
+     * Subscribe connection disconnected event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<int> } callback - Callback used to listen for the connection disconnected event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Invalid parameter.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly     
+     * @since 23 static
+     */
+    onDisconnected(callback: Callback<int>): void;
+
+    /**
+     * Unsubscribe connection disconnected event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<int> } [callback] - Callback used to listen for the connection disconnected event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Invalid parameter.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offDisconnected(callback?: Callback<int>): void;
 
     /**
      * Subscribe connection data received event.
@@ -309,7 +455,8 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     on(type: 'dataReceived', callback: Callback<ArrayBuffer>): void;
 
@@ -322,9 +469,36 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @stagemodelonly
+     * @since 20 dynamic
      */
     off(type: 'dataReceived', callback?: Callback<ArrayBuffer>): void;
+
+    /**
+     * Subscribe connection data received event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the connection data received event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Invalid parameter.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDataReceived(callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unsubscribe connection data received event.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Callback<ArrayBuffer> } [callback] - Callback used to listen for the connection data received event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 32390206 - Invalid parameter.
+     * @syscap SystemCapability.DistributedSched.AppCollaboration
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offDataReceived(callback?: Callback<ArrayBuffer>): void;
   }
 
   /**
@@ -335,9 +509,12 @@ declare namespace linkEnhance {
    * @param { string } name - Indicates server name to be connected.
    * @returns { Connection } Returns a connection instance {@code Connection}.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported. [since 26]
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 20
+   * @stagemodelonly
+   * @since 20 dynamic
+   * @since 23 static
    */
   function createConnection(deviceId: string, name: string): Connection;
 }

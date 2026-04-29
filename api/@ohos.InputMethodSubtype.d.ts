@@ -19,127 +19,109 @@
  */
 
 /**
- * Input method subtype
+ * The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes. The input 
+ * method subtype allows the input method to switch to a specific mode or language, for example, the Chinese or English 
+ * keyboard.
  *
- * @interface InputMethodSubtype
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 export default interface InputMethodSubtype {
   /**
-   * The label of input method subtype.
+   * Optional. Label of the input method subtype.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly label?: string;
 
   /**
-   * The label id of input method subtype.
+   * Optional. Label ID of the input method subtype.
    *
-   * @type { ?double }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly labelId?: double;
 
   /**
-   * The name of input method.
+   * Mandatory. Bundle name of the application to which the input method subtype belongs.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly name: string;
 
   /**
-   * The id of input method subtype.
+   * Mandatory. ID of the input method subtype.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly id: string;
 
   /**
-   * The mode of input method subtype.
+   * Optional. Mode of the input method subtype, including **upper** (uppercase) and **lower** (lowercase).
    *
-   * @type { ?('upper' | 'lower') }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly mode?: 'upper' | 'lower';
 
   /**
-   * The locale of input method subtype.
+   * Mandatory. Locale of the input method subtype.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly locale: string;
 
   /**
-   * The language of input method subtype.
+   * Mandatory. Language of the input method subtype.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly language: string;
 
   /**
-   * The icon of input method subtype.
+   * Optional. Icon of the input method subtype. It can be obtained by using **iconId**. This parameter is reserved.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly icon?: string;
 
   /**
-   * The icon id of input method subtype.
+   * Optional. Icon ID of the input method subtype.
    *
-   * @type { ?double }
-   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly iconId?: double;
 
   /**
-   * The extra info of input method subtype.
+   * Mandatory. Extra information of the input method subtype.
+   * 
+   * **NOTE**
+   * 
+   * - This parameter is optional since API version 10.
+   * - This parameter is reserved and currently has no specific meaning.
    *
-   * @type { object }
+   * @type { object } [since 9 - 9]
+   * @type { ?object } [since 10]
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
-   */
-  /**
-   * The extra info of input method subtype.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   extra?: object;
 }

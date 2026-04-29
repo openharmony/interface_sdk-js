@@ -25,6 +25,7 @@
  * @extends LineAttribute
  * @implements AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -34,9 +35,10 @@
  * @extends LineAttribute
  * @implements AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class LineModifier extends LineAttribute implements AttributeModifier<LineAttribute> {
 
@@ -45,9 +47,10 @@ export declare class LineModifier extends LineAttribute implements AttributeModi
    * 
    * @param { LineAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: LineAttribute): void;
 }

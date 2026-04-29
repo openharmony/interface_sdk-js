@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
- /**
+/**
  * @file
  * @kit DistributedServiceKit
  */
@@ -22,9 +22,11 @@ import type ExtensionContext from './application/ExtensionContext';
 /**
  * Class inherited for the distributed extension function.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
- * @since 20
+ * @since 20 dynamic
+ * @since 23 static
  */
-export default class DistributedExtensionContext extends ExtensionContext {}
+declare class DistributedExtensionContext extends ExtensionContext {}
+
+export default DistributedExtensionContext;

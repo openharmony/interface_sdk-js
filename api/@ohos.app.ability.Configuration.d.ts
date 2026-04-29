@@ -21,245 +21,200 @@
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 
 /**
- * configuration item.
+ * The module defines the environment variables for the application runtime, including language, dark/light color mode,
+ * screen orientation, and font size. You can subscribe to these environment variables to adapt to different user
+ * preferences and enhance the interaction experience.
  *
- * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
- * @since 9
- */
-/**
- * configuration item.
- *
- * @typedef Configuration
- * @syscap SystemCapability.Ability.AbilityBase
- * @crossplatform
- * @since 10
- */
-/**
- * configuration item.
- *
- * @typedef Configuration
- * @syscap SystemCapability.Ability.AbilityBase
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface Configuration {
   /**
-   * Indicates the current language of the application.
+   * Current language of the application, for example, **zh** (Chinese) or **en** (English).
    *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Indicates the current language of the application.
+   * You can
+   * [set the application language](../../application-models/subscribe-system-environment-variable-changes.md#setting-application-language)
+   * .
    *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the current language of the application.
+   * For details about the value range, see
+   * [getSystemLanguages](../apis-localization-kit/js-apis-i18n.md#getsystemlanguages9).
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   language?: string;
 
   /**
-   * Indicates the current colorMode of the application.
+   * Dark/Light color mode of the application. The light color mode is used by default.
    *
-   * @type { ?ConfigurationConstant.ColorMode }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Indicates the current colorMode of the application.
+   * You can
+   * [set the dark/light color mode for an application or a component](../../application-models/subscribe-system-environment-variable-changes.md#setting-darklight-color-mode)
+   * .
    *
-   * @type { ?ConfigurationConstant.ColorMode }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the current colorMode of the application.
+   * The options are as follows:
    *
-   * @type { ?ConfigurationConstant.ColorMode }
+   * - **COLOR_MODE_NOT_SET**: The color mode is not set.
+   * - **COLOR_MODE_LIGHT**: light mode.
+   * - **COLOR_MODE_DARK**: dark mode.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   colorMode?: ConfigurationConstant.ColorMode;
 
   /**
-   * Indicates the screen direction of the current device.
+   * Screen orientation of the application.
    *
-   * @type { ?ConfigurationConstant.Direction }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Indicates the screen direction of the current device.
+   * The options are as follows:
    *
-   * @type { ?ConfigurationConstant.Direction }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the screen direction of the current device.
+   * - **DIRECTION_NOT_SET**: The screen orientation is not set.
+   * - **DIRECTION_HORIZONTAL**: horizontal direction.
+   * - **DIRECTION_VERTICAL**: vertical direction.
    *
-   * @type { ?ConfigurationConstant.Direction }
+   * You can subscribe to changes to this environment variable in the [UIAbility](./js-apis-app-ability-uiAbility.md)
+   * and [UIExtensionAbility](./js-apis-app-ability-uiExtensionAbility.md), but not in the
+   * [ApplicationContext](./js-apis-inner-application-applicationContext.md) or
+   * [AbilityStage](./js-apis-app-ability-abilityStage.md).
+   *
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   direction?: ConfigurationConstant.Direction;
 
   /**
-   * Indicates the screen density of the current device.
+   * Screen density.
    *
-   * @type { ?ConfigurationConstant.ScreenDensity }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Indicates the screen density of the current device.
+   * The options are as follows:
    *
-   * @type { ?ConfigurationConstant.ScreenDensity }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the screen density of the current device.
+   * - **SCREEN_DENSITY_NOT_SET**: The pixel density is not set.
+   * - **SCREEN_DENSITY_SDPI**: 120.
+   * - **SCREEN_DENSITY_MDPI**: 160.
+   * - **SCREEN_DENSITY_LDPI**: 240.
+   * - **SCREEN_DENSITY_XLDPI**: 320.
+   * - **SCREEN_DENSITY_XXLDPI**: 480.
+   * - **SCREEN_DENSITY_XXXLDPI**: 640.
    *
-   * @type { ?ConfigurationConstant.ScreenDensity }
+   * The font size is positively correlated with the screen pixel density. By monitoring changes in the screen pixel
+   * density, you can detect adjustments in the font size. Typically, for the same physical size, the higher the screen
+   * pixel density, the larger the font display effect.
+   *
+   * You can subscribe to changes to this environment variable in the [UIAbility](./js-apis-app-ability-uiAbility.md)
+   * and [UIExtensionAbility](./js-apis-app-ability-uiExtensionAbility.md), but not in the
+   * [ApplicationContext](./js-apis-inner-application-applicationContext.md) or
+   * [AbilityStage](./js-apis-app-ability-abilityStage.md).
+   *
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
   /**
-   * Indicates the displayId of the current device.
+   * ID of the display where the application is located.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Indicates the displayId of the current device.
+   * You can subscribe to changes to this environment variable in the [UIAbility](./js-apis-app-ability-uiAbility.md)
+   * and [UIExtensionAbility](./js-apis-app-ability-uiExtensionAbility.md), but not in the
+   * [ApplicationContext](./js-apis-inner-application-applicationContext.md) or
+   * [AbilityStage](./js-apis-app-ability-abilityStage.md).
    *
-   * @type { ?long }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   displayId?: long;
 
   /**
-   * Indicates whether a pointer type device has connected.
+   * Whether a pointer device, such as a keyboard, mouse, or touchpad, is connected. **true** if connected, **false**
+   * otherwise.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Indicates whether a pointer type device has connected.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   hasPointerDevice?: boolean;
 
   /**
-   * Indicates the font id.
+   * Unique ID of the font.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 23 static
    */
   fontId?: string;
 
   /**
-   * Indicates the font size scale.
+   * Font size scale ratio. The value is a non-negative number. The default value is **1**.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Indicates the font size scale.
+   * You can
+   * [set the font size for an application](../../application-models/subscribe-system-environment-variable-changes.md#setting-font-size)
+   * .
    *
-   * @type { ?double }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   fontSizeScale?: double;
 
   /**
-   * Indicates the font weight scale.
+   * Font weight scale ratio. The value is a non-negative number. The default value is **1**.
    *
-   * @type { ?double }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   fontWeightScale?: double;
 
   /**
-   * Indicates the mobile country code.
+   * Mobile country code.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   mcc?: string;
 
   /**
-   * Indicates the mobile network code.
+   * Mobile network code.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   mnc?: string;
 
   /**
-   * Current locale.
+   * Locale.
    *
-   * @type { ?Intl.Locale }
+   * The application automatically adjusts its behavior based on the current locale to meet the localization
+   * requirements of users. This property can be set by configuring the system language, system region, and
+   * application preferred language.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
-    locale?: Intl.Locale;
+  locale?: Intl.Locale;
 }

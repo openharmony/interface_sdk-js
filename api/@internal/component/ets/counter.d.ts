@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface CounterInterface {
   /**
@@ -85,7 +85,7 @@ interface CounterInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): CounterAttribute;
 }
@@ -122,7 +122,7 @@ interface CounterInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
@@ -173,7 +173,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onInc(event: VoidCallback): CounterAttribute;
 
@@ -225,7 +225,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onDec(event: VoidCallback): CounterAttribute;
 
@@ -235,6 +235,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -244,9 +245,10 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableDec(value: boolean): CounterAttribute;
 
@@ -256,6 +258,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -265,9 +268,10 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableInc(value: boolean): CounterAttribute;
 }
@@ -300,7 +304,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const CounterInstance: CounterAttribute;
 
@@ -332,6 +336,6 @@ declare const CounterInstance: CounterAttribute;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Counter: CounterInterface;

@@ -21,35 +21,37 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * @typedef AbilityResult
- * @syscap SystemCapability.Ability.AbilityBase
- * @since 7
+ * # How to Use
+ *
+ * In the stage model, you can use
+ * [startAbilityForResult]{@link ./../application/UIAbilityContext:UIAbilityContext#startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>)}
+ * to obtain the AbilityResult object returned when the started UIAbility is terminated by calling
+ * [terminateSelfWithResult]{@link ./../application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+ * .
+ *
+ * In the FA model, you can use
+ * [startAbilityForResult]{@link ./../@ohos.ability.featureAbility:featureAbility.startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>)}
+ * to obtain the AbilityResult object returned after the started UIAbility is terminated by calling
+ * [terminateSelfWithResult]{@link ./../@ohos.ability.featureAbility:featureAbility.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+ * .
  */
 /**
- * @typedef AbilityResult
+ * The module defines the result code and data returned to the caller when a started UIAbility is terminated.
+ *
  * @syscap SystemCapability.Ability.AbilityBase
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface AbilityResult {
   /**
    * Indicates the result code returned after the ability is destroyed. You can define the result
    * code to identify an error.
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 7
-   */
-  /**
-   * Indicates the result code returned after the ability is destroyed. You can define the result
-   * code to identify an error.
-   *
-   * @type { int }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   resultCode: int;
 
@@ -57,19 +59,10 @@ export interface AbilityResult {
    * Indicates the data returned after the ability is destroyed. You can define the data returned.
    * This parameter can be null.
    *
-   * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 7
-   */
-  /**
-   * Indicates the data returned after the ability is destroyed. You can define the data returned.
-   * This parameter can be null.
-   *
-   * @type { ?Want }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   want?: Want;
 }

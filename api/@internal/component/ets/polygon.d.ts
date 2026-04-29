@@ -23,10 +23,11 @@
  *
  * @interface PolygonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PolygonOptions {
   /**
@@ -34,6 +35,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -41,6 +43,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -49,6 +52,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -58,6 +62,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -69,6 +74,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -79,10 +85,11 @@ declare interface PolygonOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -91,6 +98,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -98,6 +106,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -106,6 +115,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -115,6 +125,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -126,6 +137,7 @@ declare interface PolygonOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -136,10 +148,11 @@ declare interface PolygonOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -149,6 +162,7 @@ declare interface PolygonOptions {
  *
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -156,6 +170,7 @@ declare interface PolygonOptions {
  *
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -164,6 +179,7 @@ declare interface PolygonOptions {
  *
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -173,10 +189,11 @@ declare interface PolygonOptions {
  *
  * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PolygonInterface {
   /**
@@ -188,6 +205,7 @@ interface PolygonInterface {
    * Uses new to create Polygon.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -195,6 +213,7 @@ interface PolygonInterface {
    * Uses new to create Polygon.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -203,6 +222,7 @@ interface PolygonInterface {
    * Uses new to create Polygon.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -215,10 +235,11 @@ interface PolygonInterface {
    * @param { PolygonOptions } [options] - Polygon options
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: PolygonOptions): PolygonAttribute;
 
@@ -228,6 +249,7 @@ interface PolygonInterface {
    * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -236,6 +258,7 @@ interface PolygonInterface {
    * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -245,6 +268,7 @@ interface PolygonInterface {
    * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -255,6 +279,7 @@ interface PolygonInterface {
    * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -267,10 +292,11 @@ interface PolygonInterface {
    * @param { PolygonOptions } [options] - Polygon options
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: PolygonOptions): PolygonAttribute;
 }
@@ -280,6 +306,7 @@ interface PolygonInterface {
  *
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -287,6 +314,7 @@ interface PolygonInterface {
  *
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -295,6 +323,7 @@ interface PolygonInterface {
  *
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -304,10 +333,11 @@ interface PolygonInterface {
  *
  * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
@@ -316,6 +346,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @param { Array<any> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -324,6 +355,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @param { Array<any> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -333,6 +365,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @param { Array<any> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -343,10 +376,11 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @param { Array<any> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   points(value: Array<any>): PolygonAttribute;
 }
@@ -355,31 +389,35 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
- * Defines CheckboxGroup Component.
+ * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
- * Defines CheckboxGroup Component.
+ * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
  */
 /**
- * Defines CheckboxGroup Component.
+ * Defines Polygon Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Polygon: PolygonInterface;
 
@@ -387,12 +425,14 @@ declare const Polygon: PolygonInterface;
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -400,6 +440,7 @@ declare const Polygon: PolygonInterface;
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -408,9 +449,10 @@ declare const Polygon: PolygonInterface;
  * Defines Polygon Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PolygonInstance: PolygonAttribute;

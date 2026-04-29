@@ -34,7 +34,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace font {
   /**
@@ -53,7 +53,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface FontOptions {
 
@@ -86,7 +86,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     familyName: string | Resource;
 
@@ -119,7 +119,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     familySrc: string | Resource;
   }
@@ -127,20 +127,23 @@ declare namespace font {
   /**
    * @typedef FontInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * @typedef FontInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
   /**
    * @typedef FontInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface FontInfo {
 
@@ -149,6 +152,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -156,6 +160,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -164,9 +169,10 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     path: string;
 
@@ -175,6 +181,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -182,6 +189,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -190,9 +198,10 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     postScriptName: string;
 
@@ -201,6 +210,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -208,6 +218,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -216,9 +227,10 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fullName: string;
 
@@ -227,6 +239,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -234,6 +247,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -242,9 +256,10 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     family: string;
 
@@ -253,6 +268,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -260,6 +276,7 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -268,9 +285,10 @@ declare namespace font {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     subfamily: string;
 
@@ -279,6 +297,7 @@ declare namespace font {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -286,6 +305,7 @@ declare namespace font {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -294,9 +314,10 @@ declare namespace font {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     weight: number;
 
@@ -305,6 +326,7 @@ declare namespace font {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -312,6 +334,7 @@ declare namespace font {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -320,9 +343,10 @@ declare namespace font {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     width: number;
 
@@ -331,6 +355,7 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -338,6 +363,7 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -346,9 +372,10 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     italic: boolean;
 
@@ -357,6 +384,7 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -364,6 +392,7 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -372,9 +401,10 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     monoSpace: boolean;
 
@@ -383,6 +413,7 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
@@ -390,6 +421,7 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -398,9 +430,10 @@ declare namespace font {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     symbolic: boolean;
   }
@@ -408,57 +441,75 @@ declare namespace font {
   /**
    * @typedef UIFontConfig
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * @typedef UIFontConfig
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface UIFontConfig {
     /**
      * The paths of system font files.
+     *
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * The paths of system font files.
+     *
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontDir: Array<string>;
 
     /**
      * The generic font info.
+     *
      * @type { Array<UIFontGenericInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * The generic font info.
+     *
      * @type { Array<UIFontGenericInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     generic: Array<UIFontGenericInfo>;
 
     /**
      * The fallback font info.
+     *
      * @type { Array<UIFontFallbackGroupInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * The fallback font info.
+     *
      * @type { Array<UIFontFallbackGroupInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fallbackGroups: Array<UIFontFallbackGroupInfo>;
   }
@@ -466,57 +517,75 @@ declare namespace font {
   /**
    * @typedef UIFontGenericInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * @typedef UIFontGenericInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
-  interface UIFontGenericInfo {
+  interface UIFontGenericInfo { 
     /**
      * Name of the font set.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Name of the font set.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     family: string;
 
     /**
      * Alias info of the font set.
+     *
      * @type { Array<UIFontAliasInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Alias info of the font set.
+     *
      * @type { Array<UIFontAliasInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     alias: Array<UIFontAliasInfo>;
 
     /**
      * Adjust info of the font set.
+     *
      * @type { Array<UIFontAdjustInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Adjust info of the font set.
+     *
      * @type { Array<UIFontAdjustInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     adjust: Array<UIFontAdjustInfo>;
   }
@@ -524,27 +593,35 @@ declare namespace font {
   /**
    * @typedef UIFontAliasInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * @typedef UIFontAliasInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface UIFontAliasInfo {
     /**
      * Font set name.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Font set name.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     name: string;
 
@@ -553,6 +630,7 @@ declare namespace font {
      * this font set can contain fonts with any weight.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
@@ -560,8 +638,10 @@ declare namespace font {
      * this font set can contain fonts with any weight.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     weight: number;
   }
@@ -569,41 +649,54 @@ declare namespace font {
   /**
    * @typedef UIFontAdjustInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * @typedef UIFontAdjustInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface UIFontAdjustInfo {
     /**
      * Original weight of the font
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Original weight of the font
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     weight: number;
     /**
      * Font weight displayed in the app
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Font weight displayed in the app
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     to: number;
   }
@@ -611,44 +704,57 @@ declare namespace font {
   /**
    * @typedef UIFontFallbackGroupInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * @typedef UIFontFallbackGroupInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface UIFontFallbackGroupInfo {
     /**
      * Indicates which font set uses following list for fallback font
      * if the font set name is "", it means that the following list can be fallback font for all font sets.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Indicates which font set uses following list for fallback font
      * if the font set name is "", it means that the following list can be fallback font for all font sets.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontSetName: string;
 
     /**
      * Fallback font list related.
+     *
      * @type { Array<UIFontFallbackInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Fallback font list related.
+     *
      * @type { Array<UIFontFallbackInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fallback: Array<UIFontFallbackInfo>;
   }
@@ -656,42 +762,55 @@ declare namespace font {
   /**
    * @typedef UIFontFallbackInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * @typedef UIFontFallbackInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface UIFontFallbackInfo {
     /**
      * Language that font set support.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Language that font set support.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     language: string;
 
     /**
      * Font name related.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Font name related.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     family: string;
   }
@@ -718,7 +837,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#registerFont
    */
@@ -729,6 +848,7 @@ declare namespace font {
    *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -736,6 +856,7 @@ declare namespace font {
    *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -744,9 +865,10 @@ declare namespace font {
    *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getSystemFontList
    */
@@ -758,6 +880,7 @@ declare namespace font {
    * @param { string } fontName - font name
    * @returns { FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -766,6 +889,7 @@ declare namespace font {
    * @param { string } fontName - font name
    * @returns { FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -775,9 +899,10 @@ declare namespace font {
    * @param { string } fontName - font name
    * @returns { FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getFontByName
    */
@@ -788,6 +913,7 @@ declare namespace font {
    *
    * @returns { UIFontConfig } Returns the ui font config
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -795,8 +921,10 @@ declare namespace font {
    *
    * @returns { UIFontConfig } Returns the ui font config
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function getUIFontConfig(): UIFontConfig;
 }

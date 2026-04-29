@@ -19,68 +19,62 @@
  */
 
 import { NotificationUserInput } from './notificationUserInput';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The NotificationActionButton module provides APIs for describing the button displayed in the notification.
+ * The **NotificationActionButton** module provides APIs for describing the button displayed in the notification.
  *
- * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationActionButton {
   /**
-   * Button title.
+   * Button title. It cannot be an empty string or exceed 200 bytes. Excess content will be truncated.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   title: string;
 
   /**
-   * WantAgent of the button.
+   * **WantAgent** of the button.
    *
-   * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   wantAgent: WantAgent;
 
   /**
-   * Extra information of the button.
+   * **WantAgent** of the button.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since 7 dynamic
    */
   extras?: { [key: string]: any };
 
   /**
    * Extra information of the button.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  extras?: Record<string, Object>;
+  extras?: Record<string, RecordData>;
 
   /**
-   * User input object. ID entered by a subscriber.
+   * User input object. This parameter is left empty by default. ID entered by a subscriber.
    *
-   * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   userInput?: NotificationUserInput;
 }

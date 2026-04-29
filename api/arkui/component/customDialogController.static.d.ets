@@ -16,25 +16,25 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common'; 
+import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
-import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
+import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles, VoidCallback } from './units';
 import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
+import promptAction from '../../@ohos.promptAction';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
 import { CustomBuilder } from './builder';
 import { DismissDialogAction } from './actionSheet';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
 /**
  * Defines the options of CustomDialogController.
  *
  * @interface CustomDialogControllerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CustomDialogControllerOptions {
     /**
@@ -42,7 +42,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { CustomBuilder | ExtendableComponent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     builder: CustomBuilder | ExtendableComponent;
     /**
@@ -50,7 +51,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     cancel?: () => void;
     /**
@@ -58,7 +60,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     autoCancel?: boolean;
     /**
@@ -66,7 +69,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?DialogAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     alignment?: DialogAlignment;
     /**
@@ -74,7 +78,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?Offset }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     offset?: Offset;
     /**
@@ -82,23 +87,26 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     customStyle?: boolean;
     /**
      * Grid count of dialog.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    gridCount?: number;
+    gridCount?: int;
     /**
      * Mask color of dialog.
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     maskColor?: ResourceColor;
     /**
@@ -106,7 +114,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?Rectangle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     maskRect?: Rectangle;
     /**
@@ -114,7 +123,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?AnimateParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     openAnimation?: AnimateParam;
     /**
@@ -122,7 +132,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?AnimateParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     closeAnimation?: AnimateParam;
     /**
@@ -131,7 +142,8 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     showInSubWindow?: boolean;
     /**
@@ -139,7 +151,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundColor?: ResourceColor;
     /**
@@ -147,7 +160,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     cornerRadius?: Dimension | BorderRadiuses;
     /**
@@ -155,7 +169,8 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     isModal?: boolean;
     /**
@@ -163,7 +178,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?Callback<DismissDialogAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     onWillDismiss?: Callback<DismissDialogAction>;
     /**
@@ -171,7 +187,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     width?: Dimension;
     /**
@@ -179,7 +196,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     height?: Dimension;
     /**
@@ -187,7 +205,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?(Dimension | EdgeWidths) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     borderWidth?: Dimension | EdgeWidths;
     /**
@@ -195,7 +214,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?(ResourceColor | EdgeColors) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     borderColor?: ResourceColor | EdgeColors;
     /**
@@ -203,7 +223,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?(BorderStyle | EdgeStyles) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     borderStyle?: BorderStyle | EdgeStyles;
     /**
@@ -211,7 +232,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
@@ -220,7 +242,8 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?BlurStyle }
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundBlurStyle?: BlurStyle;
     /**
@@ -228,7 +251,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
     /**
@@ -236,7 +260,8 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundEffect?: BackgroundEffectOptions;
     /**
@@ -245,7 +270,8 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?KeyboardAvoidMode }
      * @default KeyboardAvoidMode.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
     /**
@@ -254,7 +280,8 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     enableHoverMode?: boolean;
     /**
@@ -263,47 +290,53 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     hoverModeArea?: HoverModeAreaType;
     /**
      * Callback function when the dialog appears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    onDidAppear?: Callback<void>;
+    onDidAppear?: VoidCallback;
     /**
      * Callback function when the dialog disappears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    onDidDisappear?: Callback<void>;
+    onDidDisappear?: VoidCallback;
     /**
      * Callback function before the dialog openAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    onWillAppear?: Callback<void>;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before the dialog closeAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    onWillDisappear?: Callback<void>;
+    onWillDisappear?: VoidCallback;
     /**
      * Defines the distance between the customDialog and system keyboard.
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     keyboardAvoidDistance?: LengthMetrics;
     /**
@@ -312,24 +345,27 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?LevelMode }
      * @default LevelMode.OVERLAY
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     levelMode?: LevelMode;
     /**
      * The uniqueId of any node in the router or navigation page.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    levelUniqueId?: number;
+    levelUniqueId?: int;
     /**
      * Determine the immersive mode of the dialog.
      *
      * @type { ?ImmersiveMode }
      * @default ImmersiveMode.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     immersiveMode?: ImmersiveMode;
     /**
@@ -338,7 +374,8 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?LevelOrder }
      * @default The value returns by LevelOrder.clamp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     levelOrder?: LevelOrder;
     /**
@@ -347,15 +384,58 @@ export declare interface CustomDialogControllerOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     focusable?: boolean;
+    /**
+     * Set system-styled materials for dialog. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of dialog.
+     * 
+     * Device Behavior Differences:The effect of same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
+/**
+ * Defines the external options of CustomDialogController.
+ *
+ * @interface CustomDialogControllerExternalOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface CustomDialogControllerExternalOptions {
+    /**
+     * Defines if use custom style.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    customStyle?: boolean;
+}
+/**
+ * Import the CommonState type from promptAction.
+ *
+ * @typedef { promptAction.CommonState } PromptActionCommonState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare type PromptActionCommonState = promptAction.CommonState;
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class CustomDialogController {
     /**
@@ -363,21 +443,42 @@ export declare class CustomDialogController {
      *
      * @param { CustomDialogControllerOptions } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     constructor(value: CustomDialogControllerOptions);
     /**
      * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     open(): void;
     /**
      * Closes the custom pop-up window. If the window is closed, the window does not take effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     close(): void;
+    /**
+     * Obtains the external options of CustomDialogController.
+     *
+     * @returns { CustomDialogControllerExternalOptions } return the external options of dialog.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    getExternalOptions(): CustomDialogControllerExternalOptions;
+    /**
+     * Get the state of the custom pop-up window.
+     *
+     * @returns { PromptActionCommonState } return the state of dialog.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    getState(): PromptActionCommonState;
 }

@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceColor } from '@ohos.arkui.component';
 /**
@@ -25,7 +24,8 @@ import { ResourceColor } from '@ohos.arkui.component';
  *
  * @interface Theme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface Theme {
     /**
@@ -33,7 +33,8 @@ export declare interface Theme {
     *
     * @type { Colors }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     colors: Colors;
 }
@@ -42,7 +43,8 @@ export declare interface Theme {
  *
  * @interface Colors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface Colors {
     /**
@@ -50,7 +52,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     brand: ResourceColor;
     /**
@@ -58,7 +61,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     warning: ResourceColor;
     /**
@@ -66,7 +70,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     alert: ResourceColor;
     /**
@@ -74,7 +79,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     confirm: ResourceColor;
     /**
@@ -82,7 +88,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontPrimary: ResourceColor;
     /**
@@ -90,7 +97,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontSecondary: ResourceColor;
     /**
@@ -98,7 +106,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontTertiary: ResourceColor;
     /**
@@ -106,7 +115,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontFourth: ResourceColor;
     /**
@@ -114,7 +124,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontEmphasize: ResourceColor;
     /**
@@ -122,7 +133,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontOnPrimary: ResourceColor;
     /**
@@ -130,7 +142,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontOnSecondary: ResourceColor;
     /**
@@ -138,7 +151,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontOnTertiary: ResourceColor;
     /**
@@ -146,7 +160,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     fontOnFourth: ResourceColor;
     /**
@@ -154,7 +169,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconPrimary: ResourceColor;
     /**
@@ -162,7 +178,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconSecondary: ResourceColor;
     /**
@@ -170,7 +187,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconTertiary: ResourceColor;
     /**
@@ -178,7 +196,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconFourth: ResourceColor;
     /**
@@ -186,7 +205,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconEmphasize: ResourceColor;
     /**
@@ -194,7 +214,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconSubEmphasize: ResourceColor;
     /**
@@ -202,7 +223,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconOnPrimary: ResourceColor;
     /**
@@ -210,7 +232,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconOnSecondary: ResourceColor;
     /**
@@ -218,7 +241,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconOnTertiary: ResourceColor;
     /**
@@ -226,7 +250,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     iconOnFourth: ResourceColor;
     /**
@@ -234,7 +259,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     backgroundPrimary: ResourceColor;
     /**
@@ -242,7 +268,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     backgroundSecondary: ResourceColor;
     /**
@@ -250,7 +277,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     backgroundTertiary: ResourceColor;
     /**
@@ -258,7 +286,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     backgroundFourth: ResourceColor;
     /**
@@ -266,7 +295,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     backgroundEmphasize: ResourceColor;
     /**
@@ -274,7 +304,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compForegroundPrimary: ResourceColor;
     /**
@@ -282,7 +313,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundPrimary: ResourceColor;
     /**
@@ -290,7 +322,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundPrimaryTran: ResourceColor;
     /**
@@ -298,7 +331,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundPrimaryContrary: ResourceColor;
     /**
@@ -306,7 +340,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundGray: ResourceColor;
     /**
@@ -314,7 +349,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundSecondary: ResourceColor;
     /**
@@ -322,7 +358,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundTertiary: ResourceColor;
     /**
@@ -330,7 +367,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundEmphasize: ResourceColor;
     /**
@@ -338,7 +376,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundNeutral: ResourceColor;
     /**
@@ -346,7 +385,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compEmphasizeSecondary: ResourceColor;
     /**
@@ -354,7 +394,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compEmphasizeTertiary: ResourceColor;
     /**
@@ -362,7 +403,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compDivider: ResourceColor;
     /**
@@ -370,7 +412,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compCommonContrary: ResourceColor;
     /**
@@ -378,7 +421,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compBackgroundFocus: ResourceColor;
     /**
@@ -386,7 +430,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compFocusedPrimary: ResourceColor;
     /**
@@ -394,7 +439,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compFocusedSecondary: ResourceColor;
     /**
@@ -402,7 +448,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     compFocusedTertiary: ResourceColor;
     /**
@@ -410,7 +457,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     interactiveHover: ResourceColor;
     /**
@@ -418,7 +466,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     interactivePressed: ResourceColor;
     /**
@@ -426,7 +475,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     interactiveFocus: ResourceColor;
     /**
@@ -434,7 +484,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     interactiveActive: ResourceColor;
     /**
@@ -442,7 +493,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     interactiveSelect: ResourceColor;
     /**
@@ -450,7 +502,8 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     interactiveClick: ResourceColor;
 }
@@ -459,7 +512,8 @@ export declare interface Colors {
  *
  * @interface CustomTheme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CustomTheme {
     /**
@@ -467,33 +521,58 @@ export declare interface CustomTheme {
     *
     * @type { ?CustomColors }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     colors?: CustomColors;
+
+    /**
+    * Define tokens associated with dark mode color resources.
+    *
+    * @type { ?CustomDarkColors }
+    * @default If not set darkColors, color value will same as colors under light mode and will not change with color
+    * mode, unless the color is setted by resource in dark directory.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    darkColors?: CustomDarkColors;
 }
 /**
  * Defines the struct of CustomColors.
  *
  * @typedef { Partial<Colors> } CustomColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export type CustomColors = Partial<Colors>;
+/**
+ * Defines the struct of CustomDarkColors.
+ *
+ * @typedef { Partial<Colors> } CustomDarkColors
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare type CustomDarkColors = Partial<Colors>;
 /**
  * Class ThemeControl provides the Theme management for whole Ability and pages.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ThemeControl {
     /**
     * Sets the default Theme:
     * - for whole Ability when invoked from the Ability level code.
     * - for the ArkUI page and for later opened pages when invoked at the ArkUI page level.
-    *
-    * @param { CustomTheme } theme
+    * @param { CustomTheme | undefined } theme
+    * @static
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
-    static setDefaultTheme(theme: CustomTheme): void;
+    static setDefaultTheme(theme: CustomTheme | undefined): void;
 }

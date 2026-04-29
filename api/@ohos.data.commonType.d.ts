@@ -21,19 +21,19 @@
 /**
  * Indicates the common data types.
  *
- * @namespace commonType
  * @syscap SystemCapability.DistributedDataManager.CommonType
  * @crossplatform
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace commonType {
   /**
    * Describes the status of asset.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   enum AssetStatus {
     /**
@@ -41,7 +41,8 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     ASSET_NORMAL,
 
@@ -50,7 +51,8 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     ASSET_INSERT,
 
@@ -59,7 +61,8 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     ASSET_UPDATE,
 
@@ -68,7 +71,8 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     ASSET_DELETE,
 
@@ -77,7 +81,8 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     ASSET_ABNORMAL,
 
@@ -86,7 +91,8 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static上
      */
     ASSET_DOWNLOADING
   }
@@ -94,78 +100,79 @@ declare namespace commonType {
   /**
    * Information of the asset.
    *
-   * @interface Asset
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface Asset {
     /**
      * The name of asset.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     name: string;
 
     /**
      * The uri of asset.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     uri: string;
 
     /**
      * The path of asset.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     path: string;
 
     /**
      * The created time of asset.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     createTime: string;
 
     /**
      * The modified time of asset. If this field changes, the asset is considered to have changed.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     modifyTime: string;
 
     /**
      * The size of asset. If this field changes, the asset is considered to have changed.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     size: string;
 
     /**
      * The status of asset.
      *
-     * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     status?: AssetStatus;
   }
@@ -173,30 +180,38 @@ declare namespace commonType {
   /**
    * Indicates several assets
    *
-   * @typedef { Array<Asset> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   type Assets = Array<Asset>;
 
   /**
    * Indicates possible value types.
    *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets }
+   * @unionmember { null } The value is null.
+   * @unionmember { long } The value is a 64-bit integer (int64_t).
+   * @unionmember { double } The value is a floating-point number (float).
+   * @unionmember { string } The value is a string.
+   * @unionmember { boolean } The value is true or false.
+   * @unionmember { Uint8Array } The value is an array of 8-bit unsigned integers.
+   * @unionmember { Asset } The value is an instance of the Asset type.
+   * @unionmember { Assets } The value is an instance of the Assets type.
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets;
 
   /**
    * Values in buckets are stored in key-value pairs.
    *
-   * @typedef { Record<string, ValueType> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   type ValuesBucket = Record<string, ValueType>;
 }

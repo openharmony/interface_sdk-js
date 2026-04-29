@@ -27,7 +27,7 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
  */
 export default class VpnExtensionAbility {
   /**
@@ -36,7 +36,7 @@ export default class VpnExtensionAbility {
    * @type { VpnExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   context: VpnExtensionContext;
 
@@ -46,7 +46,7 @@ export default class VpnExtensionAbility {
    * @param { Want } want - Indicates the want of created service extension.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   onCreate(want: Want): void;
 
@@ -55,7 +55,7 @@ export default class VpnExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   onDestroy(): void;
 }

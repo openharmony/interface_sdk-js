@@ -15,20 +15,20 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { XComponentType } from "./enums";
-import { VoidCallback } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { VoidCallback, DrawingCanvas } from "./units";
+import { ComponentBuilder } from './builder';
 
 /**
  * Surface Rectangle information.
  *
  * @interface SurfaceRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface SurfaceRect {
     /**
@@ -36,7 +36,8 @@ export declare interface SurfaceRect {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     offsetX?: double;
     /**
@@ -44,7 +45,8 @@ export declare interface SurfaceRect {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     offsetY?: double;
     /**
@@ -52,7 +54,8 @@ export declare interface SurfaceRect {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     surfaceWidth: double;
     /**
@@ -60,7 +63,8 @@ export declare interface SurfaceRect {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     surfaceHeight: double;
 }
@@ -70,7 +74,8 @@ export declare interface SurfaceRect {
  *
  * @typedef { long } NativeXComponentPointer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export type NativeXComponentPointer = long;
 
@@ -79,7 +84,8 @@ export type NativeXComponentPointer = long;
  *
  * @interface SurfaceRotationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface SurfaceRotationOptions {
     /**
@@ -87,23 +93,84 @@ export declare interface SurfaceRotationOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     lock?: boolean;
+}
+
+/**
+ * Surface config.
+ *
+ * @interface SurfaceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface SurfaceConfig {
+    /**
+    * Whether the surface held by XComponent needs to be considered opaque,
+    * even if the surface has translucent pixel.
+    * True means needing to be considered opaque, false otherwise.
+    *
+    * @type { ?boolean }
+    * @default false
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    isOpaque?: boolean;
+}
+
+/**
+ * Sets the HDR type of the XComponent.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare enum HdrType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DEFAULT = 0,
+  /**
+   * AIHDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  AIHDR = 1,
+  /**
+   * EDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  EDR = 2
 }
 
 /**
  * Defines XComponentController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class XComponentController {
     /**
      * Constructor.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     constructor();
     /**
@@ -111,7 +178,8 @@ export declare class XComponentController {
      *
      * @returns { string } The id of surface created by XComponent.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     getXComponentSurfaceId(): string;
     /**
@@ -119,7 +187,8 @@ export declare class XComponentController {
      *
      * @param { SurfaceRect } rect - The surface rectangle information.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     setXComponentSurfaceRect(rect: SurfaceRect): void;
     /**
@@ -127,7 +196,8 @@ export declare class XComponentController {
      *
      * @returns { SurfaceRect } The surface rectangle information.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     getXComponentSurfaceRect(): SurfaceRect;
     /**
@@ -135,7 +205,8 @@ export declare class XComponentController {
      *
      * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
     /**
@@ -143,7 +214,8 @@ export declare class XComponentController {
      *
      * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;
     /**
@@ -151,7 +223,8 @@ export declare class XComponentController {
      *
      * @param { string } surfaceId - The id of the surface created by XComponent.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     onSurfaceCreated(surfaceId: string): void;
     /**
@@ -160,7 +233,8 @@ export declare class XComponentController {
      * @param { string } surfaceId - The id of the surface created by XComponent.
      * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
     /**
@@ -168,7 +242,8 @@ export declare class XComponentController {
      *
      * @param { string } surfaceId - The id of the surface created by XComponent.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     onSurfaceDestroyed(surfaceId: string): void;
     /**
@@ -180,16 +255,49 @@ export declare class XComponentController {
      * @throws { BusinessError } 110002 - Image analysis is currently being executed.
      * @throws { BusinessError } 110003 - Image analysis is stopped.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
     /**
      * Stop image analyzer.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     stopImageAnalyzer(): void;
+
+    /**
+    * Get a Canvas for drawing into the surface created by XComponent.
+    *
+    * @returns { DrawingCanvas | null} Returns a Canvas for drawing into the surface created by XComponent.
+    *    Returns null if the surface is not available.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    lockCanvas(): DrawingCanvas | null;
+
+    /**
+    * Posts the new contents of the Canvas to the surface created by XComponent and releases the Canvas.
+    *
+    * @param { DrawingCanvas } canvas - The canvas previously obtained from lockCanvas.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    unlockCanvasAndPost(canvas: DrawingCanvas):void;
+
+    /**
+    * Set the config of the surface created by the XComponent.
+    *
+    * @param { SurfaceConfig } config - surface config
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    setXComponentSurfaceConfig(config: SurfaceConfig):void;
 }
 
 /**
@@ -197,7 +305,8 @@ export declare class XComponentController {
  *
  * @interface XComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface XComponentOptions {
     /**
@@ -205,7 +314,8 @@ export declare interface XComponentOptions {
      *
      * @type { XComponentType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     type: XComponentType;
     /**
@@ -213,7 +323,8 @@ export declare interface XComponentOptions {
      *
      * @type { XComponentController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     controller: XComponentController;
     /**
@@ -221,7 +332,8 @@ export declare interface XComponentOptions {
      *
      * @type { ?ImageAIOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     imageAIOptions?: ImageAIOptions;
     /**
@@ -230,7 +342,8 @@ export declare interface XComponentOptions {
     * @type { ?long }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
     screenId?: long;
 }
@@ -240,7 +353,8 @@ export declare interface XComponentOptions {
  *
  * @interface NativeXComponentParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface NativeXComponentParameters {
     /**
@@ -248,7 +362,8 @@ export declare interface NativeXComponentParameters {
      *
      * @type { XComponentType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     type: XComponentType;
     /**
@@ -256,7 +371,8 @@ export declare interface NativeXComponentParameters {
      *
      * @type { ?ImageAIOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     imageAIOptions?: ImageAIOptions;
 }
@@ -267,7 +383,8 @@ export declare interface NativeXComponentParameters {
  * @extends CommonMethod
  * @interface XComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface XComponentAttribute extends CommonMethod {
     /**
@@ -276,7 +393,8 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } callback - Called when judging whether the xcomponent surface is created.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onLoad(callback: VoidCallback | undefined): this;
     /**
@@ -285,7 +403,8 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event - Called when judging whether the xcomponent is destroyed.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onDestroy(event: VoidCallback | undefined): this;
     /**
@@ -294,7 +413,8 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @param { boolean | undefined } enable
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableAnalyzer(enable: boolean | undefined): this;
     /**
@@ -303,25 +423,50 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @param { boolean | undefined } isSecure
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableSecure(isSecure: boolean | undefined): this;
+    /**
+     * Enable transparent layer for XComponent.
+     *
+     * @param { boolean | undefined } enabled - whether to enable transparent layer for XComponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default enableTransparentLayer(enabled: boolean | undefined): this;
     /**
      * Set hdrBrightness for XComponent.
      *
      * @param { double | undefined } brightness - control the brightness of HDR video
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default hdrBrightness(brightness: double | undefined): this;
+    /**
+     * Set hdrBrightness for XComponent.
+     *
+     * @param { double | undefined } brightness - control the brightness of HDR video
+     * @param { HdrType } [type] - the HDR type of the XComponent
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default hdrBrightness(brightness: double | undefined, type?: HdrType): this;
     /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<XComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<XComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -331,7 +476,8 @@ export declare interface XComponentAttribute extends CommonMethod {
  *
  * @interface XComponentParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface XComponentParameters {
     /**
@@ -339,7 +485,8 @@ export declare interface XComponentParameters {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     id: string;
     /**
@@ -347,7 +494,8 @@ export declare interface XComponentParameters {
      *
      * @type { XComponentType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     type: XComponentType;
     /**
@@ -355,7 +503,8 @@ export declare interface XComponentParameters {
      *
      * @type { Callback<NativeXComponentPointer> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     nativeXComponentHandler: Callback<NativeXComponentPointer>;
     /**
@@ -363,7 +512,8 @@ export declare interface XComponentParameters {
      *
      * @type { ?XComponentController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     controller?: XComponentController;
 }
@@ -371,17 +521,15 @@ export declare interface XComponentParameters {
 /**
  * XComponent is returned when the parameter is transferred.
  *
- * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params -
- *     The options to create an XComponent
- * @param { function } [content_]
+ * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params - The 
+ *     options to create an XComponent
  * @returns { XComponentAttribute } The attribute of the XComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function XComponent(
-    params: XComponentParameters | XComponentOptions | NativeXComponentParameters, 
-    @memo
-    content_?: () => void,
+    params: XComponentParameters | XComponentOptions | NativeXComponentParameters,
 ): XComponentAttribute

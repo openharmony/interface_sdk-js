@@ -40,13 +40,13 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface HyperlinkInterface {
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
-   * content: Hyperlinks in the hyperlink component display text.
+   * address: Web page redirected by the hyperlink component.
+   * content: The text displayed in the hyperlink component.
    *
    * @param { string | Resource } address
    * @param { string | Resource } content
@@ -56,8 +56,8 @@ interface HyperlinkInterface {
    */
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
-   * content: Hyperlinks in the hyperlink component display text.
+   * address: Web page redirected by the hyperlink component.
+   * content: The text displayed in the hyperlink component.
    *
    * @param { string | Resource } address
    * @param { string | Resource } content
@@ -68,8 +68,8 @@ interface HyperlinkInterface {
    */
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
-   * content: Hyperlinks in the hyperlink component display text.
+   * address: Web page redirected by the hyperlink component.
+   * content: The text displayed in the hyperlink component.
    *
    * @param { string | Resource } address
    * @param { string | Resource } content
@@ -77,7 +77,7 @@ interface HyperlinkInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -104,7 +104,7 @@ interface HyperlinkInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
@@ -132,7 +132,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
@@ -156,7 +156,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const Hyperlink: HyperlinkInterface;
 
@@ -179,6 +179,6 @@ declare const Hyperlink: HyperlinkInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const HyperlinkInterface: HyperlinkAttribute;

@@ -37,15 +37,15 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @namespace formProvider
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace formProvider {
   /**
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update. Unit: Minute, The value must be an integer greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -63,7 +63,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -76,16 +76,16 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
+  function setFormNextRefreshTime(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
   /**
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update. Unit: Minute, The value must be an integer greater than or equal to 5.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -103,7 +103,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -116,10 +116,10 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
+  function setFormNextRefreshTime(formId: string, minute: int): Promise<void>;
 
   /**
    * Update a specified form.
@@ -156,7 +156,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function updateForm(
     formId: string,
@@ -199,7 +200,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 
@@ -230,7 +232,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -259,7 +262,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -290,7 +294,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
@@ -308,7 +313,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function requestPublishForm(
     want: Want,
@@ -329,7 +335,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
@@ -347,7 +354,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
 
@@ -362,7 +370,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
 
@@ -375,7 +384,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function isRequestPublishFormSupported(): Promise<boolean>;
 
@@ -390,7 +400,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfoById
    */
@@ -406,7 +416,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfos
    */
@@ -424,7 +434,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
    
@@ -437,7 +448,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
 
@@ -451,7 +463,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   function openFormManager(want: Want): void;
 
@@ -467,8 +480,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function openFormManagerCrossBundle(want: Want): void
 
@@ -486,9 +499,23 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @throws { BusinessError } 16501007 - Form is not trust.
    * @syscap SystemCapability.Ability.Form
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
+
+  /**
+   * Close the form edit ability.
+   *
+   * @param { boolean } [isMainPage] - Indicates close the main edit page, default is true.
+   * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501015 - Cannot close the widget editing page opened by other apps.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function closeFormEditAbility(isMainPage?: boolean): void;
 
   /**
    * Activate scene animation
@@ -507,8 +534,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function activateSceneAnimation(formId: string): Promise<void>;
 
@@ -529,8 +556,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function deactivateSceneAnimation(formId: string): Promise<void>;
 
@@ -551,8 +578,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>;
 
@@ -572,8 +599,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function cancelOverflow(formId: string): Promise<void>;
 
@@ -593,8 +620,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function getFormRect(formId: string): Promise<formInfo.Rect>;
 
@@ -610,7 +637,8 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, formName: string): Promise<int>;
 
@@ -623,8 +651,55 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function reloadAllForms(context: UIAbilityContext): Promise<int>;
+
+    /**
+   * Update the template form detail info.
+   * @param { Array<formInfo.TemplateFormDetailInfo> } templateFormInfo - Indicates the template form detail info.
+   * @returns { Promise<void> } Returns the result of updating template form detail info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501013 - The system does not support the current operation.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function updateTemplateFormDetailInfo(templateFormInfo: Array<formInfo.TemplateFormDetailInfo>): Promise<void>;
+
+  /**
+   * Register the callback of the cross-application form publishing control interface.
+   *
+   * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE_CONTROL
+   * @param { formInfo.PublishFormCrossBundleControlCallback } callback - Indicates the
+   *     callback of the cross-application form publishing control.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onPublishFormCrossBundleControl(callback: formInfo.PublishFormCrossBundleControlCallback): void;
+
+  /**
+   * Unregister the callback of the cross-application form publishing control interface.
+   *
+   * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE_CONTROL
+   * @param { formInfo.PublishFormCrossBundleControlCallback } [callback] - Indicates the
+   *     callback of the cross-application form publishing control.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offPublishFormCrossBundleControl(callback?: formInfo.PublishFormCrossBundleControlCallback): void;
 }
 export default formProvider;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,11 +18,11 @@
  * @kit CoreFileKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type wantConstant from './@ohos.ability.wantConstant';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AsyncCallback, Callback } from './@ohos.base';
 import type wantConstant from './@ohos.app.ability.wantConstant';
 /*** endif */
@@ -31,25 +31,25 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  *
  * @namespace fileShare
  * @syscap SystemCapability.FileManagement.AppFileService
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace fileShare {
   /**
    * Enumerates the uri operate mode types.
    *
-   * @enum { number } OperationMode
+   * @enum { int } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum OperationMode {
     /**
      * Indicates read permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     READ_MODE = 0b1,
 
@@ -57,8 +57,8 @@ declare namespace fileShare {
      * Indicates write permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     WRITE_MODE = 0b10,
 
@@ -66,7 +66,8 @@ declare namespace fileShare {
      * Indicates creating permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     CREATE_MODE = 0b100,
 
@@ -74,7 +75,8 @@ declare namespace fileShare {
      * Indicates deleting permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     DELETE_MODE = 0b1000,
 
@@ -82,7 +84,8 @@ declare namespace fileShare {
      * Indicates renaming permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     RENAME_MODE = 0b10000,
   }
@@ -90,16 +93,18 @@ declare namespace fileShare {
   /**
    * Enumerates the error code of the permission policy for the URI operation.
    *
-   * @enum { number } PolicyErrorCode
+   * @enum { int } PolicyErrorCode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum PolicyErrorCode {
     /**
      * Indicates that the policy is not allowed to be persisted.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     PERSISTENCE_FORBIDDEN = 1,
 
@@ -107,7 +112,8 @@ declare namespace fileShare {
      * Indicates that the mode of this policy is invalid.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     INVALID_MODE = 2,
 
@@ -115,7 +121,8 @@ declare namespace fileShare {
      * Indicates that the path of this policy is invalid.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     INVALID_PATH = 3,
 
@@ -123,7 +130,8 @@ declare namespace fileShare {
      * Indicates that the permission is not persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     PERMISSION_NOT_PERSISTED = 4,
   }
@@ -131,17 +139,19 @@ declare namespace fileShare {
   /**
    * Failed policy result on URI.
    *
-   * @typedef { object }
+   * @interface { object }
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  export type PolicyErrorResult = {
+  export interface PolicyErrorResult {
     /**
      * Indicates the failed uri of the policy information.
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     uri: string;
 
@@ -150,7 +160,8 @@ declare namespace fileShare {
      *
      * @type { PolicyErrorCode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     code: PolicyErrorCode;
 
@@ -159,18 +170,19 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     message: string;
-  };
+  }
 
   /**
    * Policy information to manager permissions on a URI.
    *
    * @interface PolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface PolicyInfo {
     /**
@@ -178,20 +190,61 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     uri: string;
 
     /**
      * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
-    operationMode: number;
+    operationMode: int;
+  }
+
+  /**
+   * The directory information shared with the system by the application.
+   *
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface SharedDirectoryInfo {
+    /**
+     * Indicates the bundle name of the application.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the path of the application's shared directory.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    path: string;
+
+    /**
+     * Indicates the permission for the application's shared directory, e.g., { OperationMode.READ_MODE }
+     * or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    permissionMode: int;
   }
 
   /**
@@ -199,7 +252,8 @@ declare namespace fileShare {
    *
    * @interface PathPolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 15
+   * @since 15 dynamic
+   * @since 23 static
    */
   export interface PathPolicyInfo {
     /**
@@ -207,7 +261,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since 15 dynamic
+     * @since 23 static
      */
     path: string;
  
@@ -216,7 +271,8 @@ declare namespace fileShare {
      *
      * @type { OperationMode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since 15 dynamic
+     * @since 23 static
      */
     operationMode: OperationMode;
   }
@@ -224,16 +280,18 @@ declare namespace fileShare {
   /**
    * Indicates the policy type of the path.
    *
-   * @enum { number } policyType
+   * @enum { int } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 15
+   * @since 15 dynamic
+   * @since 23 static
    */
   export enum PolicyType {
     /**
      * Indicates that the policy is temporary.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since 15 dynamic
+     * @since 23 static
      */
     TEMPORARY_TYPE = 0,
  
@@ -241,7 +299,8 @@ declare namespace fileShare {
      * Indicates that the policy is persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since 15 dynamic
+     * @since 23 static
      */
     PERSISTENT_TYPE = 1,
   }
@@ -261,8 +320,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function grantUriPermission(
     uri: string,
@@ -286,8 +345,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 
@@ -297,7 +356,7 @@ declare namespace fileShare {
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @param { Array<PolicyInfo> } policies - Policy information for the user to grant permissions on URIs.
    * @param { string } targetBundleName - Name of the target bundle to authorize.
-   * @param { number } appCloneIndex - Clone index of the target application.
+   * @param { int } appCloneIndex - Clone index of the target application.
    * @returns { Promise<void> } Returns void.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -306,9 +365,10 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900011 - Out of memory.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
-  function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
   /**
    * Set persistence permissions for the URI
@@ -323,7 +383,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function persistPermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -340,9 +401,69 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function revokePermission(policies: Array<PolicyInfo>): Promise<void>;
+
+  /**
+   * Revoke all persistence permissions for the application.
+   *
+   * @permission ohos.permission.REVOKE_FILE_ACCESS_PERSIST
+   * @param { int } tokenID - Token ID of the application.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900020 - Invalid tokenID
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function revokePermission(tokenID: int): Promise<void>;
+
+  /**
+   * Revoke persistence permissions for the URI.
+   *
+   * @permission ohos.permission.REVOKE_FILE_ACCESS_PERSIST
+   * @param { int } tokenID - Token ID of the application.
+   * @param { Array<PolicyInfo> } policies - Policy information to revoke permission on URIs.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types; 3.Invalid policy size.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900020 - Invalid tokenID
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function revokePermission(tokenID: int, policies: Array<PolicyInfo>): Promise<void>;
+
+  /**
+   * Get all persistence permissions for the application.
+   *
+   * @permission ohos.permission.GET_FILE_ACCESS_PERSIST
+   * @param { int } tokenID - Token ID of the application.
+   * @returns { Promise<Array<PolicyInfo>> } Returns all persistence policy information.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900020 - Invalid tokenID
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+    function getPersistentPolicy(tokenID: int): Promise<Array<PolicyInfo>>;
 
   /**
    * Enable the URI that have been permanently authorized
@@ -357,7 +478,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -374,7 +496,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -402,7 +525,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 17
+   * @since 17 dynamic
+   * @since 23 static
    */
   function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
 
@@ -410,7 +534,7 @@ declare namespace fileShare {
    * Check permissions for the path.
    * 
    * @permission ohos.permission.CHECK_SANDBOX_POLICY
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Array<PathPolicyInfo> } policies - Policy information to check on paths.
    * @param { PolicyType } policyType - Persistent or temporary type.
    * @returns { Promise<Array<boolean>> } Returns the permission state of paths.
@@ -419,11 +543,62 @@ declare namespace fileShare {
    * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Out of memory.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since 15
+   * @since 15 dynamic
+   * @since 23 static
    */
-  function checkPathPermission(tokenID: number, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
+  function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
+
+  /**
+   * Gets the shared sandbox directories of applications
+   *
+   * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<Array<SharedDirectoryInfo>> } Returns the shared sandbox directories on paths.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getSharedDirectoryInfo(): Promise<Array<SharedDirectoryInfo>>;
+
+  /**
+   * Provides a permission grant for application-shared directories
+   *
+   * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function grantSharedDirectoryPermission(): Promise<void>;
+
+  /**
+   * Revokes permission for application-shared directories
+   *
+   * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function revokeSharedDirectoryPermission(): Promise<void>;
 }
 
 export default fileShare;

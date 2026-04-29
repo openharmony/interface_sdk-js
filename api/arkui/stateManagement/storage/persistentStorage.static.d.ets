@@ -17,14 +17,14 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
  * Defines the PersistentStorage interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class PersistentStorage {
   /**
@@ -40,7 +40,8 @@ export declare class PersistentStorage {
    * @returns { boolean }
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   static persistProp<T>(key: string, defaultValue: T, toJson?: ToJSONType<T>, fromJson?: FromJSONType<T>): boolean;
 
@@ -50,7 +51,8 @@ export declare class PersistentStorage {
    * @param { string } key - no longer persist the property named key
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   static deleteProp(key: string): void;
 
@@ -60,7 +62,8 @@ export declare class PersistentStorage {
    * @returns { Array<string> } array of AppStorage keys
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   static keys(): Array<string>;
 
@@ -71,7 +74,8 @@ export declare class PersistentStorage {
    *
    * @param { PersistPropsOptions<Any>[] } props
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   static persistProps(props: PersistPropsOptions<Any>[]): void;
 }
@@ -83,7 +87,8 @@ export declare class PersistentStorage {
  * @param { T } value  toJson value
  * @returns { jsonx.JsonElement } Json stringify element object
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare type ToJSONType<T> = (value: T) => jsonx.JsonElement;
 
@@ -94,7 +99,8 @@ export declare type ToJSONType<T> = (value: T) => jsonx.JsonElement;
  * @param { jsonx.JsonElement } element  json element
  * @returns { T } deserialization result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare type FromJSONType<T> = (element: jsonx.JsonElement) => T;
 
@@ -103,7 +109,8 @@ export declare type FromJSONType<T> = (element: jsonx.JsonElement) => T;
  *
  * @interface PersistPropsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface PersistPropsOptions<T> {
   /**
@@ -111,7 +118,8 @@ export declare interface PersistPropsOptions<T> {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   key: string;
 
@@ -120,7 +128,8 @@ export declare interface PersistPropsOptions<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   defaultValue: T;
 
@@ -128,7 +137,8 @@ export declare interface PersistPropsOptions<T> {
    * Used to serialize Object data.
    * @type { ToJSONType<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   toJson?: ToJSONType<T>;
 
@@ -136,7 +146,8 @@ export declare interface PersistPropsOptions<T> {
    * Used to deserialize Object data.
    * @type { FromJSONType<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   fromJson?: FromJSONType<T>;
 }

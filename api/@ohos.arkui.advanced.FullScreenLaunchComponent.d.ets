@@ -27,7 +27,7 @@ import { Callback, ErrorCallback } from '@ohos.base';
  * development paradigm.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct FullScreenLaunchComponent {
@@ -36,7 +36,7 @@ export declare struct FullScreenLaunchComponent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @BuilderParam content: Callback<void>;
   /**
@@ -44,7 +44,7 @@ export declare struct FullScreenLaunchComponent {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   appId: string;
   /**
@@ -52,7 +52,7 @@ export declare struct FullScreenLaunchComponent {
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   options?: AtomicServiceOptions;
     /**
@@ -62,7 +62,7 @@ export declare struct FullScreenLaunchComponent {
     * @type { ?ErrorCallback }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     */
     onError?: ErrorCallback;
     /**
@@ -72,7 +72,7 @@ export declare struct FullScreenLaunchComponent {
     * @type { ?Callback<TerminationInfo> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     */
     onTerminated?: Callback<TerminationInfo>;
     /**
@@ -80,7 +80,7 @@ export declare struct FullScreenLaunchComponent {
     * @type { ?Callback<Record<string, Object>> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 20
+    * @since 20 dynamic
     */
     onReceive?: Callback<Record<string, Object>>;
 }

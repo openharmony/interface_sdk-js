@@ -27,8 +27,10 @@
  * @extends QRCodeAttribute
  * @implements AttributeModifier<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
 */
 export declare class QRCodeModifier extends QRCodeAttribute implements AttributeModifier<QRCodeAttribute> {
 
@@ -37,9 +39,10 @@ export declare class QRCodeModifier extends QRCodeAttribute implements Attribute
    * 
    * @param { QRCodeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: QRCodeAttribute): void;
 }

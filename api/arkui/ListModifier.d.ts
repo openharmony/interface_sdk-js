@@ -27,6 +27,7 @@
  * @extends ListAttribute
  * @implements AttributeModifier<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends ListAttribute
  * @implements AttributeModifier<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ListModifier extends ListAttribute implements AttributeModifier<ListAttribute> {
 
@@ -47,9 +49,10 @@ export declare class ListModifier extends ListAttribute implements AttributeModi
    * 
    * @param { ListAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ListAttribute): void;
 }

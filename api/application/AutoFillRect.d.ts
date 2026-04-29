@@ -19,61 +19,56 @@
  */
 
 /**
- * Auto fill rectangle.
+ * AutoFillRect describes the rectangle used for auto-fill.
  *
- * @interface AutoFillRect
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 export default interface AutoFillRect {
   /**
-   * The left of the rect.
+   * Distance between the AutoFill form or page node and the left boundary of the page.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   left: double;
 
   /**
-   * The top of the rect.
+   * Distance between the AutoFill form or page node and the upper boundary of the page.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   top: double;
 
   /**
-   * The width of the rect.
+   * Width of the AutoFill form or page node.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   width: double;
 
   /**
-   * The height of the rect.
+   * Height of the AutoFill form or page node.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   height: double;
 }

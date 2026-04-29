@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -16,11 +16,74 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { CustomBuilder } from '@ohos.arkui.component';
+
+/**
+ * Effect layer enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum EffectLayer {
+  /**
+   * No layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * Charge motion layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CHARGE_MOTION = 1,
+
+  /**
+   * Charge text layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CHARGE_TEXT = 2
+}
+
+/**
+ * Defines the Effect Component constructor options.
+ *
+ * @interface EffectComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface EffectComponentOptions {
+
+  /** Use this to determine the component layer 1evel. Default value is none.
+   *
+   * @type { ?EffectLayer }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  effectLayer?: EffectLayer;
+}
 
 /**
  * Define the EffectComponentAttribute.
@@ -28,20 +91,24 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
     /**
      * Use snapshot when Effect Component have no visual effect.
      *
-     * @param { boolean } enable
+     * @param { boolean | undefined } enable - <br>true indicates using the snapshot method,
+     *     false indicates not using the snapshot method.
+     *     undefined means the default value false.
      * @returns { EffectComponentAttribute }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    alwaysSnapshot(enable: boolean): this;
+    alwaysSnapshot(enable: boolean | undefined): this;
     /**
      * Set the attribute modifier for EffectComponent.
      *
@@ -49,25 +116,27 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
+    default attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines EffectComponent Component
  *
- * @param { function } [content_] - EffectComponent
+ * @param { EffectComponentOptions } [options] - The options to create an EffectComponent.
+ * @param { CustomBuilder } [content_] - Subcomponents of EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function EffectComponent(
-
-    @memo
-    content_?: () => void,
-): EffectComponentAttribute
+    options?: EffectComponentOptions,
+    content_?: CustomBuilder,
+): EffectComponentAttribute;

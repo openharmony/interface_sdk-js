@@ -27,6 +27,7 @@
  * @extends RichEditorAttribute
  * @implements AttributeModifier<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends RichEditorAttribute
  * @implements AttributeModifier<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class RichEditorModifier extends RichEditorAttribute implements AttributeModifier<RichEditorAttribute> {
 
@@ -47,9 +49,10 @@ export declare class RichEditorModifier extends RichEditorAttribute implements A
    * 
    * @param { RichEditorAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: RichEditorAttribute): void;
 }

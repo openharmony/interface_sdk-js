@@ -21,30 +21,29 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * Define startup Ability parameters, which can be used as input parameters.
+ * The module defines the parameters for starting an ability. The parameters can be used as input parameters in
+ * [startAbility]{@link ./../@ohos.ability.featureAbility:featureAbility.startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>)}
+ * to start the specified ability.
  *
- * @typedef StartAbilityParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 6
+ * @since 6 dynamiconly
  */
 export interface StartAbilityParameter {
   /**
    * Indicates the Want containing information about the target ability to start.
    *
-   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    */
   want: Want;
 
   /**
    * Indicates the special start setting used in starting ability.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    */
   abilityStartSetting?: { [key: string]: any };
 
@@ -52,10 +51,9 @@ export interface StartAbilityParameter {
    * Indicates the special start setting used in starting ability.
    * The ability of this property is same as abilityStartSetting. If both are set, this property will be used.
    *
-   * @type { ?Record<string, Object>}
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   * @since 11
+   * @famodelonly
+   * @since 11 dynamiconly
    */
   abilityStartSettings?: Record<string, Object>;
 }

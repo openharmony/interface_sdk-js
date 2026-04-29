@@ -19,89 +19,42 @@
  */
 
 /**
- * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
- * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
+ * The module provides the capability to listen for a specified
+ * [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage} object. You can use AbilityStageMonitor as an
+ * input parameter of
+ * [abilityDelegator.waitAbilityStageMonitor]{@link AbilityDelegator:AbilityDelegator.waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>)}
+ * to register a listener.
  *
- * @typedef AbilityStageMonitor
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
- * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
- *
- * @typedef AbilityStageMonitor
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
- * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
- *
- * @typedef AbilityStageMonitor
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface AbilityStageMonitor {
   /**
-   * The module name of the abilityStage to monitor.
+   * Module name of the AbilityStage object.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The module name of the abilityStage to monitor.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The module name of the abilityStage to monitor.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   moduleName: string;
 
   /**
-   * The source path of the abilityStage to monitor.
+   * Source path of the AbilityStage object.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The source path of the abilityStage to monitor.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The source path of the abilityStage to monitor.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   srcEntrance: string;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export default AbilityStageMonitor;
 /*** endif */

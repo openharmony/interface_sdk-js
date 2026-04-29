@@ -23,6 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -30,22 +31,27 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ColorMode {
   /**
    * Light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LIGHT = 0,
 
@@ -53,14 +59,17 @@ declare enum ColorMode {
    * Dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   DARK,
 }
@@ -70,6 +79,7 @@ declare enum ColorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -77,22 +87,27 @@ declare enum ColorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum LayoutDirection {
   /**
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LTR,
 
@@ -106,8 +121,10 @@ declare enum LayoutDirection {
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RTL,
 
@@ -115,14 +132,17 @@ declare enum LayoutDirection {
    * Elements are laid out from auto.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Elements are laid out from auto.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 }
@@ -132,7 +152,8 @@ declare enum LayoutDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 declare class Storage {
   /**
@@ -142,7 +163,8 @@ declare class Storage {
    * @param { string } file
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor(needCrossThread?: boolean, file?: string);
 
@@ -153,7 +175,8 @@ declare class Storage {
    * @returns { string | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   get(key: string): string | undefined;
 
@@ -164,7 +187,8 @@ declare class Storage {
    * @param { any } val
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   set(key: string, val: any): void;
 
@@ -173,7 +197,8 @@ declare class Storage {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   clear(): void;
 
@@ -183,7 +208,8 @@ declare class Storage {
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   delete(key: string): void;
 }

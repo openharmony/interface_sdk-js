@@ -17,39 +17,42 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { ComponentV2 } from './arkui/component/customComponent';
-import { Require, Param, Once, Trace, ObservedV2 } from './arkui/stateManagement/decorator';
-import { ResourceStr } from './arkui/component/units';
-import { Builder } from './arkui/component/builder';
+import { ComponentV2 } from '@ohos.arkui.component';
+import { Require, Param, Once, Trace, ObservedV2 } from '@ohos.arkui.stateManagement';
+import { ResourceStr } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
 /**
  * Declare Component ProgressButtonV2
  * @struct { ProgressButtonV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @ComponentV2
 export declare struct ProgressButtonV2 {
   /**
    * Sets the ProgressButtonV2 progress.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Require
   @Param
-  readonly progress: number;
+  readonly progress: double;
   /**
    * Sets the ProgressButtonV2 content.
    *
    * @type { ResourceStr }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Require
   @Param
@@ -59,7 +62,8 @@ export declare struct ProgressButtonV2 {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Param
   @Once
@@ -70,7 +74,8 @@ export declare struct ProgressButtonV2 {
    * @type { ClickCallback }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Param
   readonly onClicked: ClickCallback;
@@ -80,7 +85,8 @@ export declare struct ProgressButtonV2 {
    * @type { boolean }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Param
   readonly isEnabled: boolean;
@@ -89,7 +95,8 @@ export declare struct ProgressButtonV2 {
    *
    * @type { ?ProgressButtonV2Color }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Param
   colorOptions?: ProgressButtonV2Color;
@@ -98,15 +105,16 @@ export declare struct ProgressButtonV2 {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Param
   progressButtonRadius?: LengthMetrics;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder
   build(): void;
@@ -115,7 +123,9 @@ export declare struct ProgressButtonV2 {
  * Declare ProgressButtonV2 Color.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @ObservedV2
 export declare class ProgressButtonV2Color {
@@ -124,43 +134,48 @@ export declare class ProgressButtonV2Color {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Trace
-  progressColor?: ColorMetrics;
+  public progressColor?: ColorMetrics;
   /**
    * Set border color of the ProgressButtonV2.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Trace
-  borderColor?: ColorMetrics;
+  public borderColor?: ColorMetrics;
   /**
    * Set text color of the ProgressButtonV2.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Trace
-  textColor?: ColorMetrics;
+  public textColor?: ColorMetrics;
   /**
    * Set background color of the ProgressButtonV2.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Trace
-  backgroundColor?: ColorMetrics;
+  public backgroundColor?: ColorMetrics;
   /**
    * The constructor of ProgressButtonV2
    *
    * @param { ProgressButtonV2ColorOptions } options - the options of the ProgressButtonV2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   constructor(options: ProgressButtonV2ColorOptions);
 }
@@ -168,14 +183,18 @@ export declare class ProgressButtonV2Color {
  * Defines ClickCallback of the ProgressButtonV2.
  * @typedef { function } ClickCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export type ClickCallback = () => void;
 /**
  * Declare Color options interface of the ProgressButtonV2.
  * @typedef ProgressButtonV2ColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare interface ProgressButtonV2ColorOptions {
   /**
@@ -183,7 +202,8 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    progressColor?: ColorMetrics;
   /**
@@ -191,7 +211,8 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    borderColor?: ColorMetrics;
   /**
@@ -199,7 +220,8 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    textColor?: ColorMetrics;
   /**
@@ -207,7 +229,8 @@ export declare interface ProgressButtonV2ColorOptions {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
    backgroundColor?: ColorMetrics;
 }

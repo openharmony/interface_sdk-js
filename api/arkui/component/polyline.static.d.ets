@@ -15,36 +15,39 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length } from './units';
 
 /**
  * Define options used to construct a polyline.
  *
  * @interface PolylineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface PolylineOptions {
     /**
      * Polyline width.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Polyline height.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -52,7 +55,8 @@ export declare interface PolylineOptions {
  * @extends CommonShapeMethod
  * @interface PolylineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface PolylineAttribute extends CommonShapeMethod {
     /**
@@ -61,7 +65,8 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @param { Array<ShapePoint> | undefined } value
      * @returns { PolylineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default points(value: Array<ShapePoint> | undefined): this;
     /**
@@ -70,7 +75,8 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PolylineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -79,15 +85,13 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
  * Polyline is returned when the parameter is transferred.
  *
  * @param { PolylineOptions } [options] - The options to create a Polyline
- * @param { function } [content_]
  * @returns { PolylineAttribute } The attribute of the Polyline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Polyline(
-    options?: PolylineOptions, 
-    @memo
-    content_?: () => void,
+    options?: PolylineOptions
 ): PolylineAttribute

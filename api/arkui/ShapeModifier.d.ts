@@ -27,6 +27,7 @@
  * @extends ShapeAttribute
  * @implements AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends ShapeAttribute
  * @implements AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ShapeModifier extends ShapeAttribute implements AttributeModifier<ShapeAttribute> {
 
@@ -47,9 +49,10 @@ export declare class ShapeModifier extends ShapeAttribute implements AttributeMo
    * 
    * @param { ShapeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ShapeAttribute): void;
 }

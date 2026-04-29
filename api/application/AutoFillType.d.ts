@@ -19,387 +19,386 @@
  */
 
 /**
-  * Type of auto fill.
-  *
-  * @enum { number }
-  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-  * @systemapi
-  * @StageModelOnly
-  * @since arkts {'1.1':'11', '1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+ * AutoFillType enumerates the types of elements to be automatically filled in.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi
+ * @stagemodelonly
+ * @since 11 dynamic
+ * @since 23 static
+ */
 export enum AutoFillType {
   /**
-   * Indicates the type of unspecified.
+   * Undefined type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 11 dynamic
+   * @since 23 static
    */
   UNSPECIFIED = 0,
 
   /**
-   * Indicates the type of password.
+   * Password.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 11 dynamic
+   * @since 23 static
    */
   PASSWORD = 1,
 
   /**
-   * Indicates the type of user name.
+   * Username.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 11 dynamic
+   * @since 23 static
    */
   USER_NAME = 2,
 
   /**
-   * Indicates the type of new password.
+   * New password.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 11 dynamic
+   * @since 23 static
    */
   NEW_PASSWORD = 3,
 
   /**
-   * Indicates the type of full street address.
+   * Detailed address with street information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   FULL_STREET_ADDRESS = 4,
 
   /**
-   * Indicates the type of house number.
+   * House number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   HOUSE_NUMBER = 5,
 
   /**
-   * Indicates the type of district address.
+   * District.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   DISTRICT_ADDRESS = 6,
 
   /**
-   * Indicates the type of city address.
+   * City.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   CITY_ADDRESS = 7,
 
   /**
-   * Indicates the type of province address.
+   * Province.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   PROVINCE_ADDRESS = 8,
 
   /**
-   * Indicates the type of country address.
+   * Country/Region.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   COUNTRY_ADDRESS = 9,
 
   /**
-   * Indicates the type of person full name.
+   * Full name.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   PERSON_FULL_NAME = 10,
 
   /**
-   * Indicates the type of person last name.
+   * Last name.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   PERSON_LAST_NAME = 11,
 
   /**
-   * Indicates the type of person first name.
+   * First name.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   PERSON_FIRST_NAME = 12,
 
    /**
-   * Indicates the type of phone number.
+   * Mobile number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   PHONE_NUMBER = 13,
 
   /**
-   * Indicates the type of phone country code.
+   * Country/Region code.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   PHONE_COUNTRY_CODE = 14,
 
   /**
-   * Indicates the type of full phone number.
+   * Mobile number with the country/region code.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   FULL_PHONE_NUMBER = 15,
 
   /**
-   * Indicates the type of email address.
+   * Email address.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   EMAIL_ADDRESS = 16,
 
   /**
-   * Indicates the type of bank card number.
+   * Bank card number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   BANK_CARD_NUMBER = 17,
 
   /**
-   * Indicates the type of ID card number.
+   * ID card number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   ID_CARD_NUMBER = 18,
 
   /**
-   * Indicates the type of nickname.
+   * Nickname.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   NICKNAME = 24,
 
   /**
-   * Indicates the type of detail info without street.
+   * Detailed address without street information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   DETAIL_INFO_WITHOUT_STREET = 25,
 
   /**
-   * Indicates the type of format address.
+   * Standard address.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
+   * @since 23 static
    */
   FORMAT_ADDRESS = 26,
 
   /**
-   * Indicates the type of passport number.
+   * Passport number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   PASSPORT_NUMBER = 27,
 
   /**
-   * Indicates the type of passport validity.
+   * Validity period of the passport.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   VALIDITY = 28,
 
   /**
-   * Indicates the type of issue place.
+   * Location where the passport was issued.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   ISSUE_AT = 29,
 
   /**
-   * Indicates the type of invoice organization.
+   * Invoice title.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   ORGANIZATION = 30,
 
   /**
-   * Indicates the type of invoice tax id.
+   * Tax ID.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   TAX_ID = 31,
 
   /**
-   * Indicates the type of address city and state.
+   * Location (city and state).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   ADDRESS_CITY_AND_STATE = 32,
 
   /**
-   * Indicates the type of airline flight number.
+   * Flight number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   FLIGHT_NUMBER = 33,
 
   /**
-   * Indicates the type of license number for drivers.
+   * Driver's license number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LICENSE_NUMBER = 34,
 
   /**
-   * Indicates the type of license file number for drivers.
+   * Driver's license file number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LICENSE_FILE_NUMBER = 35,
 
   /**
-   * Indicates the type of license plate for vehicles.
+   * License plate.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LICENSE_PLATE = 36,
 
   /**
-   * Indicates the type of engine number for vehicles.
+   * Vehicle engine number.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   ENGINE_NUMBER = 37,
 
   /**
-   * Indicates the type of license chassis number for vehicles.
+   * Chassis number (VIN) of a vehicle.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   LICENSE_CHASSIS_NUMBER = 38
 }

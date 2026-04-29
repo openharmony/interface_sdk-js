@@ -22,39 +22,33 @@ import { ElementName } from '../bundleManager/ElementName';
 import image from '../@ohos.multimedia.image';
 
 /**
- * Mission snapshot corresponding to mission.
+ * The module defines the snapshot of a mission. The snapshot can be obtained through
+ * [missionManager.getMissionSnapShot]{@link @ohos.app.ability.missionManager:missionManager.getMissionSnapShot(deviceId: string, missionId: int, callback: AsyncCallback<MissionSnapshot>)}
+ * .
  *
- * @typedef MissionSnapshot
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since 8 dynamic
+ * @since 23 static
  */
 export interface MissionSnapshot {
   /**
-   * Indicates the ability elementName of the mission.
+   * Ability information of the mission.
    *
-   * @type { ElementName }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
-   */
-  /**
-   * Indicates the ability elementName of the mission. The elementName is an ohos.bundleManager.ElementName object.
-   *
-   * @type { ElementName }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
-   * @since 12
+   * @since 8 dynamic
+   * @since 23 static
    */
   ability: ElementName;
 
   /**
-   * Indicates mission snapshot.
+   * Snapshot of the mission.
    *
-   * @type { image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
   snapshot: image.PixelMap;
 }

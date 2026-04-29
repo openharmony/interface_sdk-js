@@ -16,13 +16,13 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
  * @namespace router
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 declare namespace router {
   /**
@@ -30,7 +30,8 @@ declare namespace router {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   export enum RouterMode {
     /**
@@ -38,7 +39,8 @@ declare namespace router {
      * The page will be added to the top of the page stack.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     Standard,
 
@@ -49,7 +51,8 @@ declare namespace router {
      * If the target page url does not exist in the page stack, route will use default route mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     Single
   }
@@ -57,7 +60,7 @@ declare namespace router {
   /**
    * @typedef RouterOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 20
+   * @since 23 static
    */
   interface RouterOptions {
     /**
@@ -70,7 +73,7 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20
+     * @since 23 static
      */
     url: string;
 
@@ -81,7 +84,8 @@ declare namespace router {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     params?: Object;
 
@@ -91,7 +95,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20
+     * @since 23 static
      */
     recoverable?: boolean;
   }
@@ -99,25 +103,28 @@ declare namespace router {
   /**
    * @typedef RouterState
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   interface RouterState {
     /**
      * Index of the current page in the stack.
      * NOTE: The index starts from 1 from the bottom to the top of the stack.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    index: number;
+    index: int;
 
     /**
      * Name of the current page, that is, the file name.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     name: string;
 
@@ -126,7 +133,8 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     path: string;
 
@@ -135,7 +143,8 @@ declare namespace router {
      *
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     params: Object;
   }
@@ -144,7 +153,8 @@ declare namespace router {
   /**
    * @typedef EnableAlertOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   interface EnableAlertOptions {
     /**
@@ -152,7 +162,8 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     message: string;
   }
@@ -160,7 +171,8 @@ declare namespace router {
   /**
    * @typedef NamedRouterOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   interface NamedRouterOptions {
     /**
@@ -168,7 +180,8 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     name: string;
 
@@ -177,7 +190,8 @@ declare namespace router {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     params?: Object;
 
@@ -187,7 +201,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20
+     * @since 23 static
      */
     recoverable?: boolean;
   }

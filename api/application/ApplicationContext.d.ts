@@ -23,206 +23,141 @@ import { AsyncCallback } from '../@ohos.base';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
+import window from '../@ohos.window';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
-/*** if arkts 1.1 */
+import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
+/*** if arkts dynamic */
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
+import systemConfiguration from '../@ohos.app.ability.systemConfiguration';
 
 /**
- * The context of an application. It allows access to application-specific resources.
+ * ApplicationContext inherits from [Context]{@link ./../app/context} and provides application-level management
+ * capabilities, such as application lifecycle listening, process management, and application environment setting.
  *
- * @extends Context
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 9
- */
-/**
- * The context of an application. It allows access to application-specific resources.
- *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * The ApplicationContext module, inherited from Context, provides application-level context capabilities, including
- * APIs for registering and unregistering the lifecycle of application components.
- *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare class ApplicationContext extends Context {
   /**
-   * Register ability lifecycle callback.
+   * Registers a listener for the lifecycle of a UIAbility within the application. This API uses an asynchronous
+   * callback to return the result. It can be called only on the main thread.
    *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
-   * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
-   * @returns { number } Returns the number code of the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Register ability lifecycle callback.
-   *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
-   * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
-   * @returns { number } Returns the number code of the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Registers a listener to monitor the ability lifecycle of the application.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
-   * @param { 'abilityLifecycle' } type - Event type.
-   * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
-   * @returns { number } Returns the number code of the callback.
+   * @param { 'abilityLifecycle' } type - Lifecycle of the UIAbility within the application. The value is fixed at
+   *     **'abilityLifecycle'**.
+   * @param { AbilityLifecycleCallback } callback - Callback triggered when the UIAbility lifecycle changes.
+   * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
+   *     [ApplicationContext.off('abilityLifecycle')]{@link ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)}
+   *     .
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
 
   /**
-   * Register ability lifecycle callback.
+   * Registers a listener to monitor the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   * It can be called only by the main thread.
    *
-   * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
+   * @param { AbilityLifecycleCallback } callback - Callback triggered when the UIAbility lifecycle changes.
    * @returns { int } Returns the number code of the callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 23 static
    */
   onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
 
   /**
-   * Unregister ability lifecycle callback.
+   * Registers a listener to monitor the ability lifecycle of the application for interoperability.
    *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
-   * @param { number } callbackId - Indicates the number code of the callback.
-   * @param { AsyncCallback<void> } callback - The callback of off.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Unregister ability lifecycle callback.
-   *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
-   * @param { number } callbackId - Indicates the number code of the callback.
-   * @param { AsyncCallback<void> } callback - The callback of off.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Unregisters the listener that monitors the ability lifecycle of the application.
-   * This API uses an asynchronous callback to return the result.
-   *    
    * <p>**NOTE**:
    * <br>It can be called only by the main thread.
    * </p>
    *
-   * @param { 'abilityLifecycle' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
-   * err is undefined. Otherwise, err is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @since 23 static
+   */
+  onInteropAbilityLifecycle(callback: InteropAbilityLifecycleCallback): void;
+
+  /**
+   * Unregisters a listener for the lifecycle of a UIAbility within the application. This API uses an asynchronous
+   * callback to return the result. It can be called only on the main thread.
+   *
+   * @param { 'abilityLifecycle' } type - Lifecycle of the UIAbility within the application. The value is fixed at
+   *     **'abilityLifecycle'**.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.on('abilityLifecycle')]{@link ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)}
+   *     API is called to register a listener for the lifecycle of a UIAbility within the application.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Unregisters ability lifecycle callback.
-   * 
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   * It can be called only by the main thread.
+   *
    * @param { int } callbackId - ID of the listener to unregister.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   * @param { AsyncCallback<void> } callback - ID returned when the 
+   *     [ApplicationContext.on('abilityLifecycle')]{@link ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)}
+   *     API is called to register a listener for the lifecycle of a UIAbility within the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 23 static
    */
   offAbilityLifecycle(callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Unregister ability lifecycle callback.
+   * Unregisters a listener for the lifecycle of a UIAbility within the application. This API uses a promise to return
+   * the result. It can be called only on the main thread.
    *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
-   * @param { number } callbackId - Indicates the number code of the callback.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Unregister ability lifecycle callback.
-   *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
-   * @param { number } callbackId - Indicates the number code of the callback.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unregisters the listener that monitors the ability lifecycle of the application.
-   * This API uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
-   * @param { 'abilityLifecycle' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
+   * @param { 'abilityLifecycle' } type - Lifecycle of the UIAbility within the application. The value is fixed at
+   *     **'abilityLifecycle'**.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.on('abilityLifecycle')]{@link ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)}
+   *     API is called to register a listener for the lifecycle of a UIAbility within the application.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
   /**
    * Unregisters the listener that monitors the ability lifecycle of the application.
    * This API uses a promise to return the result.
-   * 
+   *
    * <p>**NOTE**:
    * <br>It can be called only by the main thread.
    * </p>
@@ -231,496 +166,436 @@ declare class ApplicationContext extends Context {
    * @returns { Promise<void> } ThePromise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 23 static
    */
   offAbilityLifecycle(callbackId: int): Promise<void>;
 
   /**
-   * Register environment callback.
-   *
-   * @param { 'environment' } type - environment.
-   * @param { EnvironmentCallback } callback - The environment callback.
-   * @returns { number } Returns the number code of the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Register environment callback.
-   *
-   * @param { 'environment' } type - environment.
-   * @param { EnvironmentCallback } callback - The environment callback.
-   * @returns { int } Returns the number code of the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  on(type: 'environment', callback: EnvironmentCallback): int;
-
-  /**
-   * Unregister environment callback.
-   *
-   * @param { 'environment' } type - environment.
-   * @param { number } callbackId - Indicates the number code of the callback.
-   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Unregister environment callback.
-   *
-   * @param { 'environment' } type - environment.
-   * @param { int } callbackId - Indicates the number code of the callback.
-   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
-
-  /**
-   * Unregister environment callback.
-   *
-   * @param { 'environment' } type - environment.
-   * @param { number } callbackId - Indicates the number code of the callback.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Unregister environment callback.
-   *
-   * @param { 'environment' } type - environment.
-   * @param { int } callbackId - Indicates the number code of the callback.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  off(type: 'environment', callbackId: int): Promise<void>;
-
-  /**
-   * Register applicationStateChange callback.
-   *
-   * @param { 'applicationStateChange' } type - applicationStateChange.
-   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Register applicationStateChange callback.
-   *
-   * @param { 'applicationStateChange' } type - applicationStateChange.
-   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Registers a listener for application foreground/background state changes.
-   * This API uses an asynchronous callback to return the result.
+   * Unregisters the listener that monitors the ability lifecycle of the application for interoperability.
    *
    * <p>**NOTE**:
    * <br>It can be called only by the main thread.
    * </p>
-   * 
-   * @param { 'applicationStateChange' } type - Event type.
-   * @param { ApplicationStateChangeCallback } callback - Callback used to return the result. You can define a callback
-   * for switching from the background to the foreground and a callback for switching from the foreground to the
-   * background.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *
+   * @param { InteropAbilityLifecycleCallback } [callback] - Callback used to be unregistered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 static
+   */
+  offInteropAbilityLifecycle(callback?: InteropAbilityLifecycleCallback): void;
+
+  /**
+   * Registers a listener for system environment changes. This API uses an asynchronous callback to return the result.
+   * It can be called only on the main thread.
+   *
+   * > **NOTE**
+   * >
+   * > - You can also use [onConfigurationUpdate]{@link ./../@ohos.app.ability.Ability:Ability.onConfigurationUpdate} to
+   * > listen for system environment changes. Unlike
+   * > [onConfigurationUpdate]{@link ./../@ohos.app.ability.Ability:Ability.onConfigurationUpdate} of **Ability**, this
+   * > API offers greater flexibility. It can be used both within application components and pages. However, the
+   * > environment variables that can be subscribed to are different from those of
+   * > [onConfigurationUpdate]{@link ./../@ohos.app.ability.Ability:Ability.onConfigurationUpdate}. For example, this
+   * > API cannot be used to subscribe to direction, screen density, and display ID changes. For details, see the
+   * > description of each environment variable in
+   * > [Configuration]{@link ./../@ohos.app.ability.Configuration:Configuration}.
+   * >
+   * > - There are certain restrictions when this API is triggered. For example, if you set the application language by
+   * > calling [setLanguage]{@link ApplicationContext:ApplicationContext.setLanguage}, the system does not trigger the
+   * > callback for the current API even if the system language changes. For details, see
+   * > [When to Use](docroot://application-models/subscribe-system-environment-variable-changes.md#when-to-use).
+   *
+   * @param { 'environment' } type - System environment change, for example, system dark/light color mode change. The
+   *     value is fixed at **'environment'**.
+   * @param { EnvironmentCallback } callback - Callback triggered when the system environment changes.
+   * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
+   *     [ApplicationContext.off('environment')]{@link ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)}
+   *     .
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   */
+  on(type: 'environment', callback: EnvironmentCallback): number;
+
+  /**
+   * Register environment callback.
+   *
+   * @param { EnvironmentCallback } callback - The environment callback.
+   * @returns { int } Returns the number code of the callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onEnvironment(callback: EnvironmentCallback): int;
+
+  /**
+   * Unregisters the listener for system environment changes. This API uses an asynchronous callback to return the
+   * result. It can be called only on the main thread.
+   *
+   * @param { 'environment' } type - System environment change, for example, system dark/light color mode change. The
+   *     value is fixed at **'environment'**.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.on('environment')]{@link ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)}
+   *     API is called to register a listener for system environment changes.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   */
+  off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister environment callback.
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offEnvironment(callbackId: int, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters the listener for system environment changes. This API uses a promise to return the result. It can be
+   * called only on the main thread.
+   *
+   * @param { 'environment' } type - System environment change, for example, system dark/light color mode change. The
+   *     value is fixed at **'environment'**.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.on('environment')]{@link ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)}
+   *     API is called to register a listener for system environment changes.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   */
+  off(type: 'environment', callbackId: number): Promise<void>;
+
+  /**
+   * Unregister environment callback.
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offEnvironment(callbackId: int): Promise<void>;
+
+  /**
+   * Registers a listener for application process state changes. This API uses an asynchronous callback to return the
+   * result. It can be called only on the main thread.
+   *
+   * @param { 'applicationStateChange' } type - Application process state change. The value is fixed at
+   *     **'applicationStateChange'**.
+   * @param { ApplicationStateChangeCallback } callback - Callback triggered when the application process state is
+   *     changed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
   /**
-   * Unregister applicationStateChange callback.
+   * Register applicationStateChange callback.
    *
-   * @param { 'applicationStateChange' } type - applicationStateChange.
-   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since 23 static
    */
+  onApplicationStateChange(callback: ApplicationStateChangeCallback): void;
+
   /**
-   * Unregister applicationStateChange callback.
+   * Unregisters the listener for application process state changes. This API uses an asynchronous callback to return
+   * the result. It can be called only on the main thread.
    *
-   * @param { 'applicationStateChange' } type - applicationStateChange.
-   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unregisters the listener for application foreground/background state changes.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>A listener must have been registered by calling <code>ApplicationContext.on('applicationStateChange')</code>.
-   * </p>
-   *
-   * @param { 'applicationStateChange' } type - Event type.
-   * @param { ApplicationStateChangeCallback } [callback] - Callback used to return the result.The value can be a
-   * callback defined by <code>ApplicationContext.on('applicationStateChange')</code> or empty.
-   * - If a defined callback is passed in, the listener for that callback is unregistered.
-   * - If no value is passed in, all the listeners for the corresponding event are unregistered.
+   * @param { 'applicationStateChange' } type - Application process state change. The value is fixed at
+   *     **'applicationStateChange'**.
+   * @param { ApplicationStateChangeCallback } [callback] - Callback used to return the result. The value can be a
+   *     callback defined by
+   *     [ApplicationContext.on('applicationStateChange')]{@link ApplicationContext#on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback)}
+   *     or empty.<br>- If a defined callback is passed in, the listener for that callback is unregistered.<br>- If no
+   *     value is passed in, all the listeners for the corresponding event are unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
   /**
-   * Get information about running processes
+   * Unregister applicationStateChange callback.
    *
-   * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
+   * @since 23 static
    */
+  offApplicationStateChange(callback?: ApplicationStateChangeCallback): void;
+
   /**
-   * Get information about running processes
-   *
-   * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains information about the running processes.
-   * This API uses a promise to return the result.
+   * Obtains the information about running processes. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running
-   * information. You can perform error handling or custom processing in this callback.
+   *     information. You can perform error handling or custom processing in this callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
   /**
-   * Get information about running processes
-   *
-   * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Get information about running processes
-   *
-   * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains information about the running processes.
-   * This API uses an asynchronous callback to return the result.
+   * Obtains the information about running processes. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the information about the
-   * running processes.
+   *     running processes.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
-   * Kill all processes of the application
+   * Kills all processes of this application. The application will not execute the normal lifecycle when exiting. This
+   * API uses a promise to return the result. It can be called only on the main thread.
    *
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Kills all processes of this application.
-   * The application will not go through the normal lifecycle when exiting.
-   * This API uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API is used to forcibly exit an application in abnormal scenarios. To exit an application properly,
-   * call terminateSelf().
-   * </p>
+   * > **NOTE**
+   * >
+   * > This API is used to forcibly exit an application in abnormal scenarios. To exit an application properly, call
+   * > [terminateSelf()]{@link UIAbilityContext:UIAbilityContext#terminateSelf()}.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   killAllProcesses(): Promise<void>;
 
   /**
-   * Kills all processes of this application.
-   * The application will not go through the normal lifecycle when exiting.
-   * This API uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API is used to forcibly exit an application in abnormal scenarios. To exit an application properly,
-   * call terminateSelf().
-   * </p>
+   * Kills all processes of this application. The application will not execute the normal lifecycle when exiting. This
+   * API uses a promise to return the result. It can be called only on the main thread.
    *
-   * @param { boolean } clearPageStack - Whether to clear the page stack. The value <code>true</code> means to clear
-   * the page stack, and <code>false</code> means the opposite.
+   * > **NOTE**
+   * >
+   * > This API is used to forcibly exit an application in abnormal scenarios. To exit an application properly, call
+   * > [terminateSelf()]{@link UIAbilityContext:UIAbilityContext#terminateSelf()}.
+   *
+   * @param { boolean } clearPageStack - Whether to clear the page stack. **true** to clear, **false** otherwise.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
   /**
-   * Kill all processes of the application
+   * Kills all processes of this application. The application will not execute the normal lifecycle when exiting. This
+   * API uses an asynchronous callback to return the result. It can be called only on the main thread.
    *
-   * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Kills all processes of this application.
-   * The application will not go through the normal lifecycle when exiting.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API is used to forcibly exit an application in abnormal scenarios. To exit an application properly,
-   * call terminateSelf().
-   * </p>
+   * > **NOTE**
+   * >
+   * > This API is used to forcibly exit an application in abnormal scenarios. To exit an application properly, call
+   * > [terminateSelf()]{@link UIAbilityContext:UIAbilityContext#terminateSelf()}.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the processes are killed,
-   * <code>err</code> is <code>undefined</code>. Otherwise, <code>err</code> is an error object.
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   killAllProcesses(callback: AsyncCallback<void>): void;
 
   /**
-   * Set colorMode of the application
+   * Sets the dark/light color mode for the application. This API can be called only on the main thread.
    *
-   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the color mode for the application.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
+   * > **NOTE**
+   * >
+   * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
+   * > been loaded (using the
+   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
-   * @param { ConfigurationConstant.ColorMode } colorMode - Target color mode, including dark mode, light mode, and
-   * system theme mode (no setting).
+   * @param { ConfigurationConstant.ColorMode } colorMode - Dark/light color mode, which can be dark mode, light mode,
+   *     or follow-system mode (default).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
   /**
-   * Sets the language for the application.
+   * Sets the language for the application. This API can be called only on the main thread.
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   * 
-   * @param { string } language - Target language. The list of supported languages can be obtained by
-   * calling getSystemLanguages().
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
+   * > been loaded (using the
+   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
+   *
+   * @param { string } language - Target language. The list of supported languages can be obtained by calling
+   *     [getSystemLanguages()]{@link ./../@ohos.i18n:i18n.System.getSystemLanguages}.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 21]
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  /**
-   * Sets the language for the application.
-   *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   * 
-   * @param { string } language - Target language. The list of supported languages can be obtained by
-   * calling getSystemLanguages().
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   setLanguage(language: string): void;
 
   /**
-   * Clears up the application data and revokes the permissions that the application has requested from users.
-   * This API uses a promise to return the result.
+   * Clears up all data in the application file path and revokes the permissions that the application has requested from
+   * users. This API uses a promise to return the result. It can be called only on the main thread.
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API stops the application process. After the application process is stopped, all subsequent callbacks
-   * will not be triggered.
-   * </p>
-   * 
+   * > **NOTE**
+   * >
+   * > For details about the application file path, see
+   * > [Application File Directory and Application File Path](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+   * > . The figure shows only the application file paths in the EL1 and EL2 directories. For the application file paths
+   * > in other directories, refer to EL1.
+   * >
+   * > This API stops the application process. After the application process is stopped, all subsequent callbacks will
+   * > not be triggered.
+   *
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   clearUpApplicationData(): Promise<void>;
 
   /**
-   * Clears up the application data and revokes the permissions that the application has requested from users.
-   * This API uses an asynchronous callback to return the result.
+   * Clears up all data in the application file path and revokes the permissions that the application has requested from
+   * users. This API uses an asynchronous callback to return the result. It can be called only on the main thread.
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API stops the application process. After the application process is stopped, all subsequent callbacks
-   * will not be triggered.
-   * </p>
-   * 
+   * > **NOTE**
+   * >
+   * > For details about the application file path, see
+   * > [Application File Directory and Application File Path](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+   * > . The figure shows only the application file paths in the EL1 and EL2 directories. For the application file paths
+   * > in other directories, refer to EL1.
+   * >
+   * > This API stops the application process. After the application process is stopped, all subsequent callbacks will
+   * > not be triggered.
+   *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the application data is cleared
-   * up, <code>error</code> is <code>undefined</code>; otherwise, <code>error</code> is an error object.
+   *     up, <code>error</code> is <code>undefined</code>; otherwise, <code>error</code> is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
   /**
-   * Restarts the application and starts the specified UIAbility.
-   * The onDestroy callback is not triggered during the restart.
+   * Restarts the application and starts the specified UIAbility. This API can be called only by the main thread, and
+   * the application to restart must be active.
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread, and the application to restart must be active.
-   * </p>
-   * 
+   * > **NOTE**
+   * >
+   * > When this API is called to restart the application, the **onDestroy** lifecycle callback of the ability in the
+   * > application is not triggered.
+   * >
+   * > If an atomic service calls this API,
+   * > [restartSelfAtomicService()]{@link ./../@ohos.app.ability.abilityManager:abilityManager.restartSelfAtomicService}
+   * > , or [UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp} within 3 seconds after a
+   * > successful call to this API, the system returns error code 16000064.
+   * >
+   * > If an application calls this API or
+   * > [UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp} within 3 seconds after a
+   * > successful call to this API, the system returns error code 16000064.
+   *
    * @param { Want } want - Want information about the UIAbility to start. No verification is performed on the bundle
-   * name passed in.
+   *     name passed in.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000063 - The target to restart does not belong to the current application or is not a UIAbility.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the current application or is not a
+   *     UIAbility.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 3s later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   restartApp(want: Want): void;
 
   /**
-   * The preloaded <code>UIExtensionAbility</code> instance is sent to the <code>onCreate</code> lifecycle of the
-   * UIExtensionAbility and waits to be loaded by the current application.
-   * A <code>UIExtensionAbility</code> instance can be preloaded for multiple times. Each time a preloaded
-   * <code>UIExtensionAbility</code> instance is loaded, the next preloaded <code>UIExtensionAbility</code>
-   * instance is sent to the <code>onCreate</code> lifecycle of the UIExtensionAbility.
+   * Preloads a UIExtensionAbility instance. This API uses a promise to return the result.
+   *
+   * The preloaded UIExtensionAbility instance is sent to the **onCreate** lifecycle of the UIExtensionAbility and waits
+   * to be loaded by the current application.
+   *
+   * A UIExtensionAbility instance can be preloaded for multiple times. Each time a preloaded UIExtensionAbility
+   * instance is loaded, the next preloaded UIExtensionAbility instance is sent to the **onCreate** lifecycle of the
+   * UIExtensionAbility.
+   *
+   * | Name| Type| Mandatory| Description|
+   * | -------- | -------- | -------- | -------- |
+   * | want | [Want]{@link ./../@ohos.app.ability.Want:Want}  | Yes| Want information of the UIExtensionAbility.|
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
    * @param { Want } want - Want information of the UIExtensionAbility.
@@ -728,7 +603,7 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -737,155 +612,181 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Sets whether the application itself supports process cache, which enables quick startup after caching.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API only sets the application to be ready for quick startup after caching. It does not mean that quick
-   * startup will be triggered. Other conditions must be considered to determine whether to trigger quick startup.
-   * <br>The process cache support status takes effect for a single application process instance. The setting does not
-   * affect other process instances. After a process instance is destroyed, the status is not retained and can be
-   * reset.
-   * <br>To support process cache, you must call this API, with <code>true</code> passed in, in the <code>onCreate()</code>
-   * lifecycle of all AbilityStages in the same process.
-   * </p>
+   * Sets whether the current application's process supports resource caching, so that the cached process resources can
+   * be reused when the application is started again. This API can be called only on the main thread.
+   *
+   * This setting applies only to the current process instance and does not affect others. If the application process
+   * instance is terminated, the previously set state will not be preserved and must be reset.
+   *
+   * This API can be properly called only on phones and 2-in-1 devices. If it is called on other device types, error
+   * code 801 is returned.
+   *
+   * > **NOTE**
+   * >
+   * > - This API only sets the application to be ready for quick startup after caching. It does not mean that quick
+   * > startup will be triggered. Other conditions must be considered to determine whether to trigger quick startup.
+   * >
+   * > - To ensure that this API is effective before the process exits, it should be called as soon as possible. You are
+   * > advised to call this API within the **onCreate()** callback of the
+   * > [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage}.
+   * >
+   * > - If this API is called multiple times within the same process, the outcome of the final call is used. In cases
+   * > where there are multiple AbilityStage instances, to achieve the desired result, this API must be called and
+   * > configured with the same value in each AbilityStage.
    *
    * @param { boolean } isSupported - Whether process cache is supported. The value <code>true</code> means that
-   * process cache is supported, and <code>false</code> means the opposite.
+   *     process cache is supported, and <code>false</code> means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   setSupportedProcessCache(isSupported : boolean): void;
 
   /**
-   * Sets the font for this application.
-   * 
-   * <p>**NOTE**:
-   * <br>This API can be called only by the main thread.
-   * </P>
+   * Sets the font for this application. This API can be called only on the main thread.
    *
-   * @param { string } font - Font, which can be registered by calling UIContext.registerFont.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
+   * > been loaded (using the
+   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
+   *
+   * @param { string } font - Font, which can be registered by calling
+   *     [UIContext.registerFont](docroot://reference/apis-arkui/arkts-apis-uicontext-font.md#registerfont).
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  /**
-   * Sets the font for this application.
-   * 
-   * <p>**NOTE**:
-   * <br>This API can be called only by the main thread.
-   * </P>
-   *
-   * @param { string } font - Font, which can be registered by calling UIContext.registerFont.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 21
-   * @arkts 1.1&1.2
+   * @crossplatform [since 21]
+   * @since 12 dynamic
+   * @since 23 static
    */
   setFont(font: string): void;
 
   /**
-   * Get current app clone index.
+   * Obtains the index of the current application clone.
    *
-   * @returns { int } Returns the app clone index for current app.
+   * @returns { int } Index of the current application clone.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link App_CLONE}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   getCurrentAppCloneIndex(): int;
 
   /**
-   * Set font size scale.
-   * @param {double} fontSizeScale - Font size scale.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  /**
-   * Sets the scale ratio for the font size of this application.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   * 
+   * Sets the scale ratio for the font size of this application. This API can be called only on the main thread.
+   *
    * @param {double} fontSizeScale - Font scale ratio. The value is a non-negative number. When the application's
-   * {@link fontSizeScale} is set to <code>followSystem</code> and the value set here exceeds the value of
-   * fontSizeMaxScale, the value of fontSizeMaxScale takes effect.
+   *     [fontSizeScale](docroot://quick-start/app-configuration-file.md#configuration) is set to **followSystem** and
+   *     the value set here exceeds the value of
+   *     [fontSizeMaxScale](docroot://quick-start/app-configuration-file.md#configuration), the value of
+   *     [fontSizeMaxScale](docroot://quick-start/app-configuration-file.md#configuration) takes effect.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform
+   * @crossplatform [since 21]
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 23 static
    */
   setFontSizeScale(fontSizeScale: double): void;
 
   /**
-   * Obtains the unique instance ID of this application.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API is valid only for 2-in-1 devices.
-   * </p>
+   * Obtains the unique instance ID of this application. This API can be called only on the main thread.
+   *
+   * This API can be properly called only on 2-in-1 devices. If it is called on other device types, error code 16000078
+   * is returned.
    *
    * @returns { string } Unique instance ID of the application.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   getCurrentInstanceKey(): string;
 
   /**
-   * Obtains the unique instance IDs of all multi-instances of this application.
-   * This API uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * <br>This API is valid only for 2-in-1 devices.
-   * </p>
+   * Obtains the unique instance IDs of all multi-instances of this application. This API uses a promise to return the
+   * result. It can be called only on the main thread.
    *
    * @returns { Promise<Array<string>> } Promise used to return the unique instance IDs of all multi-instances of the
-   * application.
+   *     application.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
-    getAllRunningInstanceKeys(): Promise<Array<string>>;
+  getAllRunningInstanceKeys(): Promise<Array<string>>;
+
+  /**
+   * Obtains all WindowStage objects in the current application process. This API uses a promise to return the result.
+   * It can be called only on the main thread.
+   *
+   * This API is used to manage multiple windows in an application that contains several UIAbility components, for
+   * example, managing the states of different WindowStage objects, or synchronizing state or data between multiple
+   * windows within the same application.
+   *
+   * @returns { Promise<Array<window.WindowStage>> } Promise used to return all WindowStage objects in the current
+   *     application process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  getAllWindowStages(): Promise<Array<window.WindowStage>>;
+
+  /**
+   * Registers a listener for system configuration updated.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { systemConfiguration.UpdatedCallback } callback - The system configuration updated callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  onSystemConfigurationUpdated(callback: systemConfiguration.UpdatedCallback): void;
+
+  /**
+   * unregisters a listener for system configuration updated.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { systemConfiguration.UpdatedCallback } [callback] - The system configuration updated callback.
+   *     If a defined callback is passed in, the listener for that callback is unregistered.
+   *     If no value is passed in, all the listeners for the corresponding event are unregistered.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void;
 }
 
 export default ApplicationContext;

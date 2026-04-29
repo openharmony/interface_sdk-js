@@ -15,14 +15,15 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
 
 /**
- * configuration item.
+ * The module defines environment change information. Configuration is an interface definition and is used only for
+ * field declaration.
  *
- * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
@@ -30,9 +31,8 @@ import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
  */
 export interface Configuration {
   /**
-   * Indicates the current language of the application.
+   * Language of the application, for example, **zh**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -41,9 +41,8 @@ export interface Configuration {
   language?: string;
 
   /**
-   * Indicates the current colorMode of the application.
+   * Color mode, which can be **COLOR_MODE_LIGHT** or **COLOR_MODE_DARK**. The default value is **COLOR_MODE_LIGHT**.
    *
-   * @type { ?ConfigurationConstant.ColorMode }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9

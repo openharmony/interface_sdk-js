@@ -43,7 +43,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface GridRowSizeOption {
   /**
@@ -71,7 +71,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xs?: Length,
 
@@ -100,7 +100,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   sm?: Length,
 
@@ -129,7 +129,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   md?: Length,
 
@@ -158,7 +158,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lg?: Length,
 
@@ -187,7 +187,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xl?: Length,
 
@@ -216,7 +216,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xxl?: Length,
 }
@@ -246,7 +246,7 @@ declare interface GridRowSizeOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface GridRowColumnOption {
   /**
@@ -274,7 +274,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xs?: number,
 
@@ -303,7 +303,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   sm?: number,
 
@@ -332,7 +332,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   md?: number,
 
@@ -361,7 +361,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lg?: number,
 
@@ -390,7 +390,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xl?: number,
 
@@ -419,7 +419,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xxl?: number,
 }
@@ -449,7 +449,7 @@ declare interface GridRowColumnOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface GutterOption {
   /**
@@ -477,7 +477,7 @@ declare interface GutterOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   x?: Length | GridRowSizeOption,
 
@@ -506,7 +506,7 @@ declare interface GutterOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   y?: Length | GridRowSizeOption
 }
@@ -536,7 +536,7 @@ declare interface GutterOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum BreakpointsReference {
   /**
@@ -561,7 +561,7 @@ declare enum BreakpointsReference {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   WindowSize,
 
@@ -587,7 +587,7 @@ declare enum BreakpointsReference {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ComponentSize,
 }
@@ -617,7 +617,7 @@ declare enum BreakpointsReference {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum GridRowDirection {
   /**
@@ -642,7 +642,7 @@ declare enum GridRowDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Row,
 
@@ -668,7 +668,7 @@ declare enum GridRowDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RowReverse,
 }
@@ -698,7 +698,7 @@ declare enum GridRowDirection {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface BreakPoints {
   /**
@@ -726,7 +726,7 @@ declare interface BreakPoints {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   value?: Array<string>,
 
@@ -755,7 +755,7 @@ declare interface BreakPoints {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   reference?: BreakpointsReference,
 }
@@ -785,7 +785,7 @@ declare interface BreakPoints {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface GridRowOptions {
   /**
@@ -813,7 +813,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   gutter?: Length | GutterOption;
 
@@ -842,7 +842,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   columns?: number | GridRowColumnOption;
 
@@ -871,7 +871,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   breakpoints?: BreakPoints;
 
@@ -900,13 +900,13 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   direction?: GridRowDirection;
 }
 
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @interface GridRowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -914,7 +914,7 @@ declare interface GridRowOptions {
  * @since 9
  */
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @interface GridRowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -923,14 +923,14 @@ declare interface GridRowOptions {
  * @since 10
  */
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @interface GridRowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface GridRowInterface {
   /**
@@ -961,7 +961,7 @@ interface GridRowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (option?: GridRowOptions): GridRowAttribute;
 }
@@ -991,7 +991,7 @@ interface GridRowInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
@@ -1022,7 +1022,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 
@@ -1032,6 +1032,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @param { ItemAlign } value - element alignment
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -1042,10 +1043,11 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @param { ItemAlign } value - element alignment
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   alignItems(value: ItemAlign): GridRowAttribute;
 }
@@ -1072,7 +1074,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const GridRow: GridRowInterface;
 
@@ -1098,6 +1100,6 @@ declare const GridRow: GridRowInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const GridRowInstance: GridRowAttribute;

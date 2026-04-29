@@ -24,8 +24,8 @@
  * @typedef AppProvisionInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 23 static
  */
 export interface AppProvisionInfo {
   /**
@@ -35,8 +35,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly versionCode: long;
 
@@ -47,8 +47,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly versionName: string;
 
@@ -59,8 +59,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly uuid: string;
 
@@ -71,8 +71,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly type: string;
 
@@ -83,8 +83,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly appDistributionType: string;
 
@@ -95,8 +95,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly validity: Validity;
 
@@ -107,8 +107,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly developerId: string;
 
@@ -119,8 +119,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly certificate: string;
 
@@ -131,8 +131,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly apl: string;
 
@@ -143,8 +143,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly issuer: string;
 
@@ -157,8 +157,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   readonly appIdentifier: string;
 
@@ -169,10 +169,21 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   readonly organization: string;
+
+  /**
+   * Indicates the bundleName.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly bundleName?: string;
 }
 
 /**
@@ -181,31 +192,31 @@ export interface AppProvisionInfo {
  * @typedef Validity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 23 static
  */
 export interface Validity {
   /**
-   * Indicates the earliest validity of the profile file.
+   * Indicates the earliest validity of the profile file,the unit is seconds.
    *
    * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly notBefore: long;
 
   /**
-   * Indicates the latest validity of the profile file.
+   * Indicates the latest validity of the profile file,the unit is seconds.
    *
    * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly notAfter: long;
 }

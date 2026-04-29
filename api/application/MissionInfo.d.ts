@@ -21,122 +21,113 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * Mission information corresponding to ability.
+ * The module defines detailed information about a mission. The information can be obtained through
+ * [getMissionInfo]{@link @ohos.app.ability.missionManager:missionManager.getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>)}
+ * .
  *
- * @typedef MissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 23 static
  */
 export interface MissionInfo {
   /**
    * Indicates mission id.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   missionId: int;
 
   /**
    * Indicates running state.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   runningState: int;
 
   /**
    * Indicates locked state.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   lockedState: boolean;
 
   /**
    * Indicates the recent created or updated time of the mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   timestamp: string;
 
   /**
    * Indicates want of the mission.
    *
-   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   want: Want;
 
   /**
    * Indicates label of the mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   label: string;
 
   /**
    * Indicates icon path of the mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   iconPath: string;
 
   /**
    * Indicates whether the mission is continuable.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   continuable: boolean;
 
   /**
    * Indicates the ability state of this mission.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   abilityState: int;
 
   /**
    * Indicates whether the mission is unclearable.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   unclearable: boolean;
 }

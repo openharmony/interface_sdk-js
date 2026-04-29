@@ -39,9 +39,10 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum RefreshStatus {
   /**
@@ -61,9 +62,10 @@ declare enum RefreshStatus {
    * The refresh status of the drop-down refresh.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Inactive,
 
@@ -84,9 +86,10 @@ declare enum RefreshStatus {
    * Drop down, but the drop-down distance is less than the refresh distance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Drag,
 
@@ -107,9 +110,10 @@ declare enum RefreshStatus {
    * The pull-down exceeds the refresh distance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   OverDrag,
 
@@ -130,9 +134,10 @@ declare enum RefreshStatus {
    * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Refresh,
 
@@ -153,9 +158,10 @@ declare enum RefreshStatus {
    * After refresh, return to the initial state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Done,
 }
@@ -180,9 +186,10 @@ declare enum RefreshStatus {
  *
  * @interface RefreshOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface RefreshOptions {
   /**
@@ -208,9 +215,10 @@ interface RefreshOptions {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   refreshing: boolean;
 
@@ -228,8 +236,9 @@ interface RefreshOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @since 10
+   * @since 10 dynamiconly
    * @deprecated since 11
    */
   offset?: number | string;
@@ -254,9 +263,11 @@ interface RefreshOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @since 10
+   * @since 10 dynamiconly
    * @deprecated since 11
+   * @useinstead RefreshAttribute#pullDownRatio
    */
   friction?: number | string;
 
@@ -265,9 +276,10 @@ interface RefreshOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   promptText?: ResourceStr;
 
@@ -276,6 +288,7 @@ interface RefreshOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -284,9 +297,10 @@ interface RefreshOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   builder?: CustomBuilder;
 
@@ -295,9 +309,10 @@ interface RefreshOptions {
    *
    * @type { ?ComponentContent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   refreshingContent?: ComponentContent;
 }
@@ -322,9 +337,11 @@ interface RefreshOptions {
  *
  * @interface RefreshInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 interface RefreshInterface {
   /**
@@ -350,9 +367,10 @@ interface RefreshInterface {
    * @param { RefreshOptions } value - The options of refresh component.
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: RefreshOptions): RefreshAttribute;
 }
@@ -377,9 +395,11 @@ interface RefreshInterface {
  *
  * @extends CommonMethod<RefreshAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
@@ -405,9 +425,10 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { function } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
 
@@ -434,9 +455,10 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { function } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onRefreshing(callback: () => void): RefreshAttribute;
 
@@ -446,11 +468,25 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { number } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   refreshOffset(value: number): RefreshAttribute;
+
+  /**
+   * The pull-down offset to trigger refresh.
+   *
+   * @param { number | Resource } value - The pull-down offset to trigger refresh.
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  refreshOffset(value: number | Resource): RefreshAttribute;
 
   /**
    * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
@@ -458,12 +494,26 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { boolean } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   pullToRefresh(value: boolean): RefreshAttribute;
-  
+
+  /**
+   * Sets whether to cancel refresh when the pull-up.
+   *
+   * @param { boolean | undefined } enabled - enable pull up to cancel refresh. <br>Default value: true.
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  pullUpToCancelRefresh(enabled: boolean | undefined): RefreshAttribute;
+
   /**
    * Called when the refresh offset changed.
    * The unit is vp.
@@ -471,9 +521,10 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { Callback<number> } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onOffsetChange(callback: Callback<number>): RefreshAttribute;
 
@@ -483,9 +534,10 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { Optional<number> } ratio - Pull-down follow ratio for Refresh.
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   pullDownRatio(ratio: Optional<number>): RefreshAttribute;
 
@@ -496,11 +548,26 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * value range is [0, +∞), default value is { undefined }. 
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   maxPullDownDistance(distance: Optional<number>): RefreshAttribute;
+
+  /**
+   * The max pull down distance for Refresh.
+   *
+   * @param { number | Resource | undefined } distance - The max pull down distance for Refresh,
+   * value range is [0, +∞), default value is { undefined }. 
+   * @returns { RefreshAttribute } The attribute of the Refresh.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maxPullDownDistance(distance: number | Resource | undefined): RefreshAttribute;
 }
 
 /**
@@ -520,9 +587,11 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
  * Defines Refresh Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const Refresh: RefreshInterface;
 
@@ -543,8 +612,10 @@ declare const Refresh: RefreshInterface;
  * Defines Refresh Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const RefreshInstance: RefreshAttribute;

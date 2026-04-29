@@ -27,6 +27,7 @@
  * @extends CounterAttribute
  * @implements AttributeModifier<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends CounterAttribute
  * @implements AttributeModifier<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class CounterModifier extends CounterAttribute implements AttributeModifier<CounterAttribute> {
 
@@ -47,9 +49,10 @@ export declare class CounterModifier extends CounterAttribute implements Attribu
    * 
    * @param { CounterAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: CounterAttribute): void;
 }

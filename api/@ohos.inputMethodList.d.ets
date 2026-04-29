@@ -14,92 +14,117 @@
  */
 
 /**
- * @file
- * @kit IMEKit
- */
+  * The **inputMethodList** module is oriented to system applications and input method applications. It provides APIs 
+  * for implementing an input method list. This list displays the default input method subtypes and third-party input 
+  * methods. Users can use this list to switch from the default input method to another input method.
+  * 
+  * > **NOTE**
+  * >
+  * > This component is supported since API version 11. Updates will be marked with a superscript to indicate their 
+  * > earliest API version.
+  *
+  * @file
+  * @kit IMEKit
+  */
+
+ /*** if arkts static */
+ import { CustomDialogController, CustomDialog } from '@ohos.arkui.component';
+ import { Resource } from './global/resource';
+ /*** endif */
 
 /**
  * Define pattern options of keyboard.
  *
- * @interface PatternOptions
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface PatternOptions {
   /**
-   * The default selected pattern, The defaultSelected will default to 0 if left blank
+   * Optional. Default selected pattern.
    *
-   * @type { number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  defaultSelected?: number;
+  defaultSelected?: int;
   /**
-   * the patterns of input method.
+   * Mandatory. Resource of the pattern option.
    *
-   * @type { Array<Pattern> }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   patterns: Array<Pattern>;
   /**
-   * An action callback. When the pattern icon clicked, the callback will be invoked.
+   * Mandatory. Callback invoked when the pattern option changes.
    *
-   * @type { function }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  action: (index: number) => void;
+  action: (index: int) => void;
 }
 
 /**
  * Define pattern of keyboard. The caller must be the current inputmethod.
- * 
- * @interface Pattern
+ *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface Pattern {
   /**
-   * The icon resource of pattern.
+   * Mandatory. Default icon.
    *
-   * @type { Resource }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   icon: Resource;
   /**
-   * The selected icon resource of pattern.
+   * Mandatory. Icon for the selected option.
    *
-   * @type { Resource }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   selectedIcon: Resource;
 }
 
 /**
- * Declare input method list dialog. The caller must be the current inputmethod.
+ * InputMethodListDialog({controller: CustomDialogController, patternOptions?: PatternOptions})
+ * Implements a dialog box showing the input method list.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 @CustomDialog
 export declare struct InputMethodListDialog {
   /**
    * Sets the controller.
    *
-   * @type { CustomDialogController }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
    * Sets the pattern options. This parameter can be left blank when it is not default input method.
    *
-   * @type { PatternOptions }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   patternOptions?: PatternOptions;
+
+  /**
+   * The method to build component.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }

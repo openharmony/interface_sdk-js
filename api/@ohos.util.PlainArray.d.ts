@@ -14,275 +14,137 @@
  */
 
 /**
+ * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
+ * PlainArray is based on generics and uses a lightweight structure. Keys in the array are searched using binary search 
+ * and are mapped to values in other arrays.
+ * Both PlainArray and [LightWeightMap]{@link @ohos.util.LightWeightMap} are used to store KV pairs in the lightweight 
+ * structure. However, the keys of PlainArray can only be of the number type.
+ * **Recommended use case**: Use PlainArray when you need to store KV pairs whose keys are of the **number** type.
+ * This topic uses the following to identify the use of generics:
+ * 
+ * - T: Type
+ * 
+ * > **NOTE**
+ * >
+ * > Container classes, implemented in static languages, have restrictions on storage locations and properties, and do 
+ * > not support custom properties or methods.
+ *
  * @file
  * @kit ArkTS
  */
 
 /**
  * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
- * PlainArray is based on generics and uses a lightweight structure. 
+ * PlainArray is based on generics and uses a lightweight structure.
  *
  * @syscap SystemCapability.Utils.Lang
- * @since 8
- */
-/**
- * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
- * PlainArray is based on generics and uses a lightweight structure. 
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
- * PlainArray is based on generics and uses a lightweight structure. 
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 8 dynamic
+ * @since 23 static
  */
 declare class PlainArray<T> {
   /**
-   * A constructor used to create a PlainArray object.
+   * A constructor used to create a **PlainArray** instance.
    *
    * @throws { BusinessError } 10200012 - The PlainArray's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * A constructor used to create a PlainArray object.
-   *
-   * @throws { BusinessError } 10200012 - The PlainArray's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A constructor used to create a PlainArray object.
-   *
-   * @throws { BusinessError } 10200012 - The PlainArray's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   constructor();
   /**
-   * Gets the element number of the PlainArray.
+   * Number of elements in a PlainArray.
    *
-   * @type { number }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Gets the element number of the PlainArray.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the element number of the PlainArray.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the PlainArray.
    *
-   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   get length(): int;
 
   /**
-   * Appends a key-value pair to PlainArray
+   * Adds an element to this PlainArray.
    *
-   * @param { number } key - key key Added the key of key-value
-   * @param { T } value - value value Added the value of key-value
+   * @param { int } key - Key of the target element. The value must be less than or equal to int32_max, that is, 2147483
+   *     647.
+   * @param { T } value - Value of the target element.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Appends a key-value pair to PlainArray
-   *
-   * @param { number } key - key key Added the key of key-value
-   * @param { T } value - value value Added the value of key-value
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Appends a key-value pair to PlainArray
-   *
-   * @param { int } key - key key Added the key of key-value
-   * @param { T } value - value value Added the value of key-value
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   add(key: int, value: T): void;
   /**
-   * Clears the current PlainArray object
+   * Clears this PlainArray and sets its length to **0**.
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Clears the current PlainArray object
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Clears the current PlainArray object
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   clear(): void;
   /**
-   * Obtains a clone of the current PlainArray object
+   * Clones this PlainArray and returns a copy. The modification to the copy does not affect the original instance.
    *
-   * @returns { PlainArray<T> }
+   * @returns { PlainArray<T> } New **PlainArray** instance obtained.
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Obtains a clone of the current PlainArray object
-   *
-   * @returns { PlainArray<T> }
-   * @throws { BusinessError } 10200011 - The clone method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains a clone of the current PlainArray object
-   *
-   * @returns { PlainArray<T> }
-   * @throws { BusinessError } 10200011 - The clone method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   clone(): PlainArray<T>;
   /**
-   * Checks whether the current PlainArray object contains the specified key
+   * Checks whether PlainArray has the specified key.
    *
-   * @param { number } key - key key need to determine whether to include the key
-   * @returns { boolean } the boolean type
+   * @param { int } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
+   * @returns { boolean } Check result. The value **true** is returned if the specified key is contained; otherwise,
+   *     **false** is returned.
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Checks whether the current PlainArray object contains the specified key
-   *
-   * @param { number } key - key key need to determine whether to include the key
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Checks whether the current PlainArray object contains the specified key
-   *
-   * @param { int } key - key key need to determine whether to include the key
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   has(key: int): boolean;
   /**
-   * Queries the value associated with the specified key
+   * Obtains the value of the specified key in this PlainArray.
    *
-   * @param { number } key - key key Looking for goals
-   * @returns { T } the value of key-value pairs
+   * @param { number } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
+   * @returns { T } Value of the key.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Queries the value associated with the specified key
-   *
-   * @param { number } key - key key Looking for goals
-   * @returns { T } the value of key-value pairs
-   * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Queries the value associated with the specified key
-   *
-   * @param { number } key - key key Looking for goals
-   * @returns { T } the value of key-value pairs
-   * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   get(key: number): T;
 
@@ -290,197 +152,88 @@ declare class PlainArray<T> {
    * Queries the value associated with the specified key
    *
    * @param { int } key - looking for goals
+   *     The value should be an integer.
    * @returns { T | undefined } the value of key-value pairs
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   get(key: int): T | undefined;
 
   /**
-   * Queries the index for a specified key
+   * Obtains the index of the element with the specified key in this PlainArray.
    *
-   * @param { number } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @param { int } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
+   * @returns { int } Index of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Queries the index for a specified key
-   *
-   * @param { number } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
-   * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Queries the index for a specified key
-   *
-   * @param { int } key - key key Looking for goals
-   * @returns { int } Subscript corresponding to target
-   * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   getIndexOfKey(key: int): int;
   /**
-   * Queries the index for a specified value
+   * Obtains the index of the first occurrence of an element with the specified value in this PlainArray.
    *
-   * @param { T } value - value value Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @param { T } value - Value of the target element.
+   * @returns { int } Index of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Queries the index for a specified value
-   *
-   * @param { T } value - value value Looking for goals
-   * @returns { number } Subscript corresponding to target
-   * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Queries the index for a specified value
-   *
-   * @param { T } value - value value Looking for goals
-   * @returns { int } Subscript corresponding to target
-   * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   getIndexOfValue(value: T): int;
   /**
-   * Checks whether the current PlainArray object is empty
+   * Checks whether this PlainArray is empty.
    *
-   * @returns { boolean } the boolean type
+   * @returns { boolean } Check result. The value **true** is returned if the PlainArray is empty; otherwise, **false**
+   *     is returned.
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Checks whether the current PlainArray object is empty
-   *
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Checks whether the current PlainArray object is empty
-   *
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
-   * Queries the key at a specified index
+   * Obtains the key of the element at the specified position in this PlainArray.
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { number } the key of key-value pairs
+   * @param { int } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @returns { int } Key of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
+  getKeyAt(index: int): int;
   /**
-   * Queries the key at a specified index
+   * Removes a key-value pair with the specified key.
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { number } the key of key-value pairs
-   * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Queries the key at a specified index
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { number } the key of key-value pairs
-   * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  getKeyAt(index: number): number;
-  /**
-   * Remove the key-value pair based on a specified key if it exists and return the value
-   *
-   * @param { number } key - key key Target to be deleted
-   * @returns { T } Target mapped value
+   * @param { number } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
+   * @returns { T } Value in the key-value pair removed.
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Remove the key-value pair based on a specified key if it exists and return the value
-   *
-   * @param { number } key - key key Target to be deleted
-   * @returns { T } Target mapped value
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove the key-value pair based on a specified key if it exists and return the value
-   *
-   * @param { number } key - key key Target to be deleted
-   * @returns { T } Target mapped value
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   remove(key: number): T;
 
@@ -488,54 +241,30 @@ declare class PlainArray<T> {
    * Remove the key-value pair based on a specified key if it exists and return the value
    *
    * @param { int } key - target to be deleted
+   *     The value should be an integer.
    * @returns { T | undefined } target mapped value, or undefined if key is not exist
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   remove(key: int): T | undefined;
 
   /**
-   * Remove the key-value pair at a specified index if it exists and return the value
+   * Removes an element at the specified position from this PlainArray.
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the T type
+   * @param { number } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Remove the key-value pair at a specified index if it exists and return the value
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove the key-value pair at a specified index if it exists and return the value
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   removeAt(index: number): T;
 
@@ -543,230 +272,98 @@ declare class PlainArray<T> {
    * Remove the key-value pair at a specified index if it exists and return the value
    *
    * @param { int } index - target subscript for search
+   *     The value should be an integer.
    * @returns { T | undefined } the T type, or undefined if container is empty
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   removeAt(index: int): T | undefined;
 
   /**
-   * Remove a group of key-value pairs from a specified index
+   * Removes elements within the specified range.
    *
-   * @param { number } index - index index remove start index
-   * @param { number } size - size size Expected deletion quantity
-   * @returns { number } Actual deleted quantity
+   * @param { int } index - Start position of the elements to remove. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @param { int } size - Number of elements to remove. The value must be less than or equal to int32_max, that is, 214
+   *     7483647.
+   * @returns { int } Number of elements removed.
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Remove a group of key-value pairs from a specified index
-   *
-   * @param { number } index - index index remove start index
-   * @param { number } size - size size Expected deletion quantity
-   * @returns { number } Actual deleted quantity
-   * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Remove a group of key-value pairs from a specified index
-   *
-   * @param { int } index - index index remove start index
-   * @param { int } size - size size Expected deletion quantity
-   * @returns { int } Actual deleted quantity
-   * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   removeRangeFrom(index: int, size: int): int;
   /**
-   * Update value on specified index
+   * Sets a value for an element at the specified position in this PlainArray.
    *
-   * @param { number } index - index index Target subscript for search
-   * @param { T } value - value value Updated the target mapped value
+   * @param { int } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @param { T } value - Value of the target element.
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Update value on specified index
-   *
-   * @param { number } index - index index Target subscript for search
-   * @param { T } value - value value Updated the target mapped value
-   * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Update value on specified index
-   *
-   * @param { int } index - index index Target subscript for search
-   * @param { T } value - value value Updated the target mapped value
-   * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   setValueAt(index: int, value: T): void;
   /**
-   * Obtains the string representation of the PlainArray object
+   * Obtains a string that contains all elements in this PlainArray.
    *
-   * @returns { String }
+   * @returns { String } String obtained.
    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Obtains the string representation of the PlainArray object
-   *
-   * @returns { String }
-   * @throws { BusinessError } 10200011 - The toString method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the string representation of the PlainArray object
-   *
-   * @returns { String }
-   * @throws { BusinessError } 10200011 - The toString method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   toString(): String;
   /**
-   * Queries the value at a specified index
+   * Obtains the value of an element at the specified position in this PlainArray.
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the value of key-value pairs
+   * @param { int } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @returns { T } Value of the element. If no match is found, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Queries the value at a specified index
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { T } the value of key-value pairs
-   * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Queries the value at a specified index
-   *
-   * @param { int } index - index index Target subscript for search
-   * @returns { T } the value of key-value pairs
-   * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
+   * @since 23 static
    */
   getValueAt(index: int): T;
   /**
-   * Executes a provided function once for each value in the PlainArray object.
+   * Uses a callback to traverse each element in the **PlainArray** instance.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
+   * @param { function } callbackFn - Callback invoked to traverse the elements in the PlainArray.
+   * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Executes a provided function once for each value in the PlainArray object.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Executes a provided function once for each value in the PlainArray object.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void, thisArg?: Object): void;
 
@@ -777,8 +374,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   forEach(callbackFn: PlainArrayForEachCb<T>): void;
 
@@ -788,26 +384,9 @@ declare class PlainArray<T> {
    * @returns { IterableIterator<[number, T]> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<[number, T]> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<[number, T]> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   [Symbol.iterator](): IterableIterator<[number, T]>;
 
@@ -818,8 +397,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<[int, T]>;
 
@@ -828,16 +406,16 @@ declare class PlainArray<T> {
 /**
  * The type of PlainArray callback function.
  *
- * @typedef { function } PlainArrayForEachCb
  * @param { T } value - The value of current element
  * @param { int } key - The key of current element
+ *     The value should be an integer.
  * @param { PlainArray<T> } PlainArray - The PlainArray instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-export type PlainArrayForEachCb<T> = (value: T, key: int, PlainArray: PlainArray<T>) => void
+export type PlainArrayForEachCb<T> = (value: T, key: int, PlainArray: PlainArray<T>) => void;
 
 export default PlainArray;

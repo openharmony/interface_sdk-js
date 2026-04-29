@@ -25,32 +25,37 @@
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class SelectTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -58,9 +63,10 @@ export declare class SelectTitleBarMenuItem {
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   value: ResourceStr;
 
@@ -68,6 +74,7 @@ export declare class SelectTitleBarMenuItem {
    * Symbol resource for this menu item.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -75,9 +82,10 @@ export declare class SelectTitleBarMenuItem {
    * Symbol resource for this menu item.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -85,6 +93,7 @@ export declare class SelectTitleBarMenuItem {
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 13
    */
@@ -92,9 +101,10 @@ export declare class SelectTitleBarMenuItem {
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   label?: ResourceStr;
 
@@ -102,12 +112,14 @@ export declare class SelectTitleBarMenuItem {
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -115,9 +127,10 @@ export declare class SelectTitleBarMenuItem {
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isEnabled?: boolean;
 
@@ -125,12 +138,14 @@ export declare class SelectTitleBarMenuItem {
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -138,9 +153,10 @@ export declare class SelectTitleBarMenuItem {
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   action?: () => void;
 
@@ -148,6 +164,7 @@ export declare class SelectTitleBarMenuItem {
    * The accessibilityText of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -155,9 +172,10 @@ export declare class SelectTitleBarMenuItem {
    * The accessibilityText of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -165,6 +183,7 @@ export declare class SelectTitleBarMenuItem {
    * The accessibilityDescription of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -172,9 +191,10 @@ export declare class SelectTitleBarMenuItem {
    * The accessibilityDescription of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -183,6 +203,7 @@ export declare class SelectTitleBarMenuItem {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -191,9 +212,10 @@ export declare class SelectTitleBarMenuItem {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -201,20 +223,23 @@ export declare class SelectTitleBarMenuItem {
 /**
  * Declaration of the selectable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the selectable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
 /**
  * Declaration of the selectable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 @Component
 export declare struct SelectTitleBar {
@@ -223,6 +248,7 @@ export declare struct SelectTitleBar {
    * If this attribute is not set, the default value is -1. Which means, no menu item is selected.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -230,6 +256,7 @@ export declare struct SelectTitleBar {
    * If this attribute is not set, the default value is -1. Which means, no menu item is selected.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -238,9 +265,10 @@ export declare struct SelectTitleBar {
    * If this attribute is not set, the default value is -1. Which means, no menu item is selected.
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop selected: number;
 
@@ -248,12 +276,14 @@ export declare struct SelectTitleBar {
    * Options inside the drop-down list.
    * @type { Array<SelectOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Options inside the drop-down list.
    * @type { Array<SelectOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -261,9 +291,10 @@ export declare struct SelectTitleBar {
    * Options inside the drop-down list.
    * @type { Array<SelectOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   options: Array<SelectOption>;
 
@@ -271,12 +302,14 @@ export declare struct SelectTitleBar {
    * Menu items on the right side.
    * @type { ?Array<SelectTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Menu items on the right side.
    * @type { ?Array<SelectTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -284,9 +317,10 @@ export declare struct SelectTitleBar {
    * Menu items on the right side.
    * @type { ?Array<SelectTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   menuItems?: Array<SelectTitleBarMenuItem>;
 
@@ -294,12 +328,14 @@ export declare struct SelectTitleBar {
    * Sub-title of this title bar.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Sub-title of this title bar.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -307,9 +343,10 @@ export declare struct SelectTitleBar {
    * Sub-title of this title bar.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   subtitle?: ResourceStr;
 
@@ -317,12 +354,14 @@ export declare struct SelectTitleBar {
    * The number displayed in a badge.
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * The number displayed in a badge.
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -330,9 +369,10 @@ export declare struct SelectTitleBar {
    * The number displayed in a badge.
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   badgeValue?: number;
 
@@ -340,12 +380,14 @@ export declare struct SelectTitleBar {
    * Whether to hide the back arrow at the left side.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Whether to hide the back arrow at the left side.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -353,9 +395,10 @@ export declare struct SelectTitleBar {
    * Whether to hide the back arrow at the left side.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   hidesBackButton?: boolean;
 
@@ -363,12 +406,14 @@ export declare struct SelectTitleBar {
    * Callback function when an option is selected
    * @type { ?(index: number) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Callback function when an option is selected
    * @type { ?(index: number) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -376,9 +421,10 @@ export declare struct SelectTitleBar {
    * Callback function when an option is selected
    * @type { ?(index: number) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onSelected?: ((index: number) => void);
 }

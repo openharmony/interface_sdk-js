@@ -15,34 +15,59 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Builder } from './builder';
+import { ComponentBuilder } from './builder';
+import { DynamicNode } from './common'
 
 /**
- * Define item generator function.
+ * Defines item generator function.
  *
  * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
+ * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 @Builder
-declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
+declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
- * Define key generator function.
+ * Defines key generator function.
  *
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
- * @returns {string} Character string generated based on item and index
+ * @param { int } index - index corresponding to an array item.
+ * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 staticonly
  */
-declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
+declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
+
+/**
+ * Declare ForEachAttribute.
+ *
+ * @interface ForEachAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
+export interface ForEachAttribute extends DynamicNode {
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    debugLine(sourceLine: string, moduleName?: string): this;
+}
 
 /**
  * Defines ForEach Component.
@@ -51,10 +76,23 @@ declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
  * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
  * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 23 static
+ * @noninterop
  */
-@Builder
-export declare function ForEach<T>(arr: Array<T>,
+/**
+ * Defines ForEach Component.
+ *
+ * @param { Array<T> } arr - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @returns { ForEachAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function ForEach<T = Any>(arr: Array<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
-): void;
+): ForEachAttribute;

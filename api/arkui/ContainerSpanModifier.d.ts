@@ -24,9 +24,10 @@
  * @extends ContainerSpanAttribute
  * @implements AttributeModifier<ContainerSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
 */
 export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
 
@@ -35,9 +36,10 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * 
    * @param { ContainerSpanAttribute } containerSpanAttribute - The instance of ContainerSpanAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void;
 }

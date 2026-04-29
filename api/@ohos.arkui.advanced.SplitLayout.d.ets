@@ -25,20 +25,25 @@
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
@@ -46,22 +51,25 @@ export declare struct SplitLayout {
    * Container in the user-defined splitlayout display area.
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Container in the user-defined splitlayout display area.
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Container in the user-defined splitlayout display area.
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @BuilderParam container: () => void;
 
@@ -69,22 +77,25 @@ export declare struct SplitLayout {
    * Image in the layout.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Image in the layout.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Image in the layout.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @State mainImage: ResourceStr;
 
@@ -92,22 +103,25 @@ export declare struct SplitLayout {
    * Title text in the layout.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Title text in the layout.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Title text in the layout.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @Prop primaryText: ResourceStr;
 
@@ -115,22 +129,25 @@ export declare struct SplitLayout {
    * Description text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Description text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Description text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @Prop secondaryText?: ResourceStr;
 
@@ -138,22 +155,25 @@ export declare struct SplitLayout {
    * Auxiliary text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Auxiliary text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Auxiliary text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @Prop tertiaryText?: ResourceStr;
 }

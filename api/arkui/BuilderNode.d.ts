@@ -23,16 +23,17 @@ import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 
 /**
- * Render type of the node using for indicating that
+ * Render type of the node used for indicating that
  * if the node will be shown on the display or rendered to a texture
  *
  * @enum { number } Render type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
 /**
- * Render type of the node using for indicating that
+ * Render type of the node used for indicating that
  * if the node will be shown on the display or rendered to a texture
  * 
  * <p><strong>NOTE</strong>:
@@ -49,45 +50,49 @@ import { Size } from './Graphics';
  * <br>LazyForEach, List, Scroll, Swiper, TimePicker, @Component decorated custom components, NodeContainer,
  * <br>and FrameNode and RenderNode mounted to a NodeContainer.
  * </p>
-
-For details, see Rendering and Drawing Video and Button Components at the Same Layer.
+ * For details, see Rendering and Drawing Video and Button Components at the Same Layer.
  *
  * @enum { number } Render type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
-declare enum NodeRenderType {
+export declare enum NodeRenderType {
   /**
-   * Display type.The node will be shown on the display.
+   * Display type. The node will be shown on the display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
   /**
-   * Display type.The node will be shown on the display.
+   * Display type. The node will be shown on the display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   RENDER_TYPE_DISPLAY = 0,
 
   /**
-   * Exporting texture type.The node will be render to a  texture.
+   * Exporting texture type. The node will be rendered to a texture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
-   * Exporting texture type.The node will be render to a  texture.
+   * Exporting texture type. The node will be rendered to a texture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   RENDER_TYPE_TEXTURE = 1,
 }
@@ -97,6 +102,7 @@ declare enum NodeRenderType {
  *
  * @interface RenderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -105,15 +111,17 @@ declare enum NodeRenderType {
  *
  * @interface RenderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface RenderOptions {
   /**
    * The ideal size of the node.
    * @type { ?Size } selfIdealSize - The ideal size of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -121,9 +129,10 @@ export interface RenderOptions {
    * The ideal size of the node.
    * @type { ?Size } selfIdealSize - The ideal size of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   selfIdealSize?: Size;
 
@@ -131,14 +140,16 @@ export interface RenderOptions {
    * Render type of the node.
    * @type { ?NodeRenderType } type - Render type of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * Render type of the node.
    * @type { ?NodeRenderType } type - Render type of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   type?: NodeRenderType;
 
@@ -146,6 +157,7 @@ export interface RenderOptions {
    * The surfaceId of a texture consumer
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -153,8 +165,9 @@ export interface RenderOptions {
    * Generally, the texture receiver is an OH_NativeImage instance.
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   surfaceId?: string;
 }
@@ -165,22 +178,25 @@ export interface RenderOptions {
  *
  * @interface BuildOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface BuildOptions {
 
   /**
    * Build type of the Builder.
+   * 
    * @type { ?boolean } nestingBuilderSupported - Build type of the Builder.
    * Indicates whether support the type that WrappedBuilder contains builder used different params.
    * The value false means that the input arguments for @Builder are consistent, and true means the opposite.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   nestingBuilderSupported?: boolean;
 
@@ -189,9 +205,10 @@ export interface BuildOptions {
    * @type { ?LocalStorage } localStorage - The LocalStorage of the Builder.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   localStorage?: LocalStorage;
 
@@ -201,9 +218,10 @@ export interface BuildOptions {
    *     enableProvideConsumeCrossing - Indicates whether support the inner Consume
    *     connect to the outside Provide.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   enableProvideConsumeCrossing?: boolean;
 }
@@ -213,9 +231,10 @@ export interface BuildOptions {
  *
  * @typedef { TouchEvent | MouseEvent | AxisEvent } InputEventType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;
 
@@ -229,6 +248,7 @@ declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;
  * FrameNode, avoid setting the attributes or operating the subnodes through APIs of the RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -242,9 +262,10 @@ declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;
  * FrameNode, avoid setting the attributes or operating the subnodes through APIs of the RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class BuilderNode<Args extends Object[]> {
   /**
@@ -263,6 +284,7 @@ export class BuilderNode<Args extends Object[]> {
    * @param { UIContext } uiContext - uiContext used to create the BuilderNode
    * @param { RenderOptions } options - Render options of the Builder Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -282,9 +304,10 @@ export class BuilderNode<Args extends Object[]> {
    * @param { UIContext } uiContext - uiContext used to create the BuilderNode
    * @param { RenderOptions } options - Render options of the Builder Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
 
@@ -305,9 +328,10 @@ export class BuilderNode<Args extends Object[]> {
    * <br>no longer correspond to any actual node if the BuilderNode is garbage collected.
    * </p>
    *
-   * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
-   * @param { Object } arg - Defined the args will be used in the builder.
+   * @param { WrappedBuilder<Args> } builder - Defines the builder that will be called to build the node.
+   * @param { Object } arg - Defines the args that will be used in the builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -328,19 +352,20 @@ export class BuilderNode<Args extends Object[]> {
    * <br>no longer correspond to any actual node if the BuilderNode is garbage collected.
    * </p>
    *
-   * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
-   * @param { Object } arg - Defined the args will be used in the builder.
+   * @param { WrappedBuilder<Args> } builder - Defines the builder that will be called to build the node.
+   * @param { Object } arg - Defines the args that will be used in the builder.
    * Only one input argument is supported, and the type of the input argument must be consistent with the type defined
    * by @Builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
 
   /**
-   * Build the BuilderNode with the builder.Support the type that WrappedBuilder contains builder used different params.
+   * Build the BuilderNode with the builder. Support the type that WrappedBuilder contains builder used different params.
    * Creates a component tree based on the passed object and holds the root node of the component tree. The stateless UI
    * method @Builder has at most one root node. Custom components are allowed. Yet, the custom components cannot use
    * decorators, such as @Reusable, @Link, @Provide, and @Consume, for state synchronization with the current page.
@@ -352,15 +377,16 @@ export class BuilderNode<Args extends Object[]> {
    * <br>The outermost @Builder supports only one input argument.
    * </p>
    *
-   * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
-   * @param { Object } arg - Defined the args will be used in the builder.
+   * @param { WrappedBuilder<Args> } builder - Defines the builder that will be called to build the node.
+   * @param { Object } arg - Defines the args that will be used in the builder.
    * Only one input argument is supported, and the type of the input argument must be consistent with the type defined
    * by @Builder.
-   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @param { BuildOptions } options - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   build(builder: WrappedBuilder<Args>, arg: Object, options: BuildOptions): void;
 
@@ -372,6 +398,7 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @param { Object } arg - Parameters used to update the BuilderNode, which must match the types required by the builder bound to the BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -383,9 +410,10 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @param { Object } arg - Parameters used to update the BuilderNode, which must match the types required by the builder bound to the BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   update(arg: Object): void;
 
@@ -395,6 +423,7 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -404,9 +433,10 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getFrameNode(): FrameNode | null;
 
@@ -436,6 +466,7 @@ export class BuilderNode<Args extends Object[]> {
    * 2. The component is in an interactive state.
    * 3. The event has been bound to the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -465,9 +496,10 @@ export class BuilderNode<Args extends Object[]> {
    * 2. The component is in an interactive state.
    * 3. The event has been bound to the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -485,21 +517,26 @@ export class BuilderNode<Args extends Object[]> {
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dispose(): void;
 
-  /**
+   /**
    * Reuse the BuilderNode based on the provided parameters.
-   *
-   * @param { Object } [param] - Parameters for reusing BuilderNode.
-   * It is of the same type as the parameter passed to the build API.
+   * @param { Object } [param] - Parameters for reusing BuilderNode. These parameters will be directly applied to
+   *     the reuse of all top-level custom components in the BuilderNode. They should include the content required
+   *     for the constructor parameters of each custom component; otherwise, undefined behavior may occur. Calling
+   *     this method will synchronously trigger the aboutToReuse lifecycle callback of the internal custom
+   *     components, with these parameters passed as the callback's input. The default value is undefined, in which
+   *     case the custom components in the BuilderNode will directly use the data source from the construction phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reuse(param?: Object): void;
 
@@ -507,9 +544,10 @@ export class BuilderNode<Args extends Object[]> {
    * Recycle the BuilderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   recycle(): void;
 
@@ -522,32 +560,50 @@ export class BuilderNode<Args extends Object[]> {
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
    updateConfiguration(): void;
 
   /**
    * Dispatch event to targetNode.
    *
-   * @param { InputEventType  } event - The event which will be sent to the targetNode.
-   * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
+   * @param { InputEventType } event - The event which will be sent to the targetNode.
+   * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
    *    false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   postInputEvent(event: InputEventType): boolean;
+
+  /**
+   * Dispatch event to targetNode with competition strategy.
+   *
+   * @param { InputEventType } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy } competitionStrategy - The competition strategy.
+   * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 
   /**
    * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
    *
    * @param { boolean } enabled - If the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   inheritFreezeOptions(enabled: boolean): void;
 
@@ -556,9 +612,10 @@ export class BuilderNode<Args extends Object[]> {
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isDisposed(): boolean;
 }
@@ -574,9 +631,10 @@ export class BuilderNode<Args extends Object[]> {
  * subnodes through APIs of the RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export class ReactiveBuilderNode<Args extends Object[]> {
 /**
@@ -595,13 +653,14 @@ export class ReactiveBuilderNode<Args extends Object[]> {
  * @param { UIContext } uiContext - uiContext used to create the ReactiveBuilderNode
  * @param { RenderOptions } [options] - Render options of the Builder Node
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
   constructor(uiContext: UIContext, options?: RenderOptions);
 /**
- * Build the ReactiveBuilderNode with the builder.Support the type that WrappedBuilder contains builder used different
+ * Build the ReactiveBuilderNode with the builder. Support the type that WrappedBuilder contains builder used different
  * params. Creates a component tree based on the passed object and holds the root node of the component tree. The
  * stateless UI method @Builder has at most one root node. Custom components are allowed. Yet, the custom components
  * cannot use decorators, such as @Reusable, @Link, @Provide, and @Consume, for state synchronization with the current
@@ -613,14 +672,15 @@ export class ReactiveBuilderNode<Args extends Object[]> {
  * <br>The outermost @Builder supports only one input argument.
  * </p>
  *
- * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
- * @param { BuildOptions } config - Defined the options will be used when build.
- * @param { Args } args - Defined the args will be used in the builder. The type of the input argument
+ * @param { WrappedBuilder<Args> } builder - Defines the builder that will be called to build the node.
+ * @param { BuildOptions } config - Defines the options that will be used when building.
+ * @param { Args } args - Defines the args that will be used in the builder. The type of the input argument
  *     must be consistent with the type defined by @Builder.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
   build(builder: WrappedBuilder<Args>, config: BuildOptions, ...args: Args): void;
    /**
@@ -629,9 +689,10 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     *
     * @returns { FrameNode | null } - Returns a FrameNode inside the ReactiveBuilderNode, or null if not contained.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    getFrameNode(): FrameNode | null;
   
@@ -661,9 +722,10 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     *     2. The component is in an interactive state.
     *     3. The event has been bound to the component.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    postTouchEvent(event: TouchEvent): boolean;
   
@@ -681,21 +743,27 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     * </p>
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    dispose(): void;
   
-   /**
+    /**
     * Reuse the ReactiveBuilderNode based on the provided parameters.
-    *
-    * @param { Object } [param] - Parameters for reusing ReactiveBuilderNode.
-    *     It is of the same type as the parameter passed to the build API.
+    * @param { Object } [param] - Parameters for reusing ReactiveBuilderNode. These parameters will be directly
+    *     applied to the reuse of all top-level custom components in the ReactiveBuilderNode. They should include
+    *     the content required for the constructor parameters of each custom component; otherwise, undefined
+    *     behavior may occur. Calling this method will synchronously trigger the aboutToReuse lifecycle callback of
+    *     the internal custom components, with these parameters passed as the callback's input. The default value
+    *     is undefined, in which case the custom components in the ReactiveBuilderNode will directly use the data
+    *     source from the construction phase.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    reuse(param?: Object): void;
   
@@ -703,38 +771,68 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     * Recycle the ReactiveBuilderNode.
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    recycle(): void;
   
    /**
     * Notify ReactiveBuilderNode to update the configuration to trigger a reload of the ReactiveBuilderNode.
-    * 
+    *
     * <p><strong>Note:</strong>
     * <br>The updateConfiguration API is used to instruct an object to update, with the system environment used for the
     * <br>update being determined by the changes in the application's current system environment.
     * </p>
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    updateConfiguration(): void;
+
+   /**
+    * Flushes the current state changes to update the ReactiveBuilderNode immediately.
+    * This forces a synchronous update of the ReactiveBuilderNode with the latest state values.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    */
+   flushState(): void;
   
    /**
     * Dispatch mouse event to targetNode.
     *
-    * @param { InputEventType  } event - The event which will be sent to the targetNode.
+    * @param { InputEventType } event - The event which will be sent to the targetNode.
     * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
     *     false otherwise.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    postInputEvent(event: InputEventType): boolean;
+  
+   /**
+    * Dispatch event to targetNode with competition strategy.
+    *
+    * @param { InputEventType } event - The event which will be sent to the targetNode.
+    * @param { CompetitionStrategy } competitionStrategy - The competition strategy.
+    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+    *    false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 24 dynamic
+    */
+   postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
   
    /**
     * Set if the ReactiveBuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,
@@ -743,9 +841,10 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     * @param { boolean } enabled - If the ReactiveBuilderNode inherits the freezing policy of the parent
     *     CustomComponent, ComponentContent, ReactiveComponentContent, BuilderNode or ReactiveBuilderNode.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    inheritFreezeOptions(enabled: boolean): void;
   
@@ -754,9 +853,10 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     * 
     * @returns { boolean } - Returns true if the node is disposed, false otherwise.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    isDisposed(): boolean;
 }

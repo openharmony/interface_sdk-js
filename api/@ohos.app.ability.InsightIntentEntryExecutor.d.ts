@@ -30,9 +30,10 @@ import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSes
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
+ * @since 26.0.0 static
  */
-export default class InsightIntentEntryExecutor<T> {
+declare class InsightIntentEntryExecutor<T> {
   /**
    * The insight intent execute mode.
    *
@@ -40,7 +41,8 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   executeMode: insightIntent.ExecuteMode;
 
@@ -51,7 +53,8 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   context: InsightIntentContext;
 
@@ -62,7 +65,8 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   windowStage?: window.WindowStage;
 
@@ -73,7 +77,8 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   uiExtensionSession?: UIExtensionContentSession;
 
@@ -84,7 +89,10 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   onExecute(): Promise<insightIntent.IntentResult<T>>;
 }
+
+export default InsightIntentEntryExecutor;

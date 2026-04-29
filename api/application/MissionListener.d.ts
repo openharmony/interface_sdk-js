@@ -21,82 +21,90 @@
 import image from '../@ohos.multimedia.image';
 
 /**
- * MissionListener registered by app.
+ * The module defines the listeners used to observe the mission status. The listeners can be registered by using
+ * [on]{@link @ohos.app.ability.missionManager:missionManager.on_mission}.
  *
- * @interface MissionListener
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since 8 dynamic
+ * @since 23 static
  */
 export interface MissionListener {
   /**
-   * Called by system when mission created.
+   * Called when the system creates a mission.
    *
-   * @param { number } mission - Indicates the id of created mission.
+   * @param { int } mission - Mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  onMissionCreated(mission: number): void;
+  onMissionCreated(mission: int): void;
 
   /**
-   * Called by system when mission destroyed.
+   * Called when the system destroys a mission.
    *
-   * @param { number } mission - Indicates the id of destroyed mission.
+   * @param { int } mission - Mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  onMissionDestroyed(mission: number): void;
+  onMissionDestroyed(mission: int): void;
 
   /**
-   * Called by system when mission snapshot changed.
+   * Called when the system updates the snapshot of a mission.
    *
-   * @param { number } mission - Indicates the id of the mission which the snapshot changes
+   * @param { int } mission - Mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  onMissionSnapshotChanged(mission: number): void;
+  onMissionSnapshotChanged(mission: int): void;
 
   /**
-   * Called by system when mission moved to front.
+   * Called when the system moves a mission to the foreground.
    *
-   * @param { number } mission - Indicates the id of the mission being moved to the foreground.
+   * @param { int } mission - Mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  onMissionMovedToFront(mission: number): void;
+  onMissionMovedToFront(mission: int): void;
 
   /**
-   * Called by system when mission label has changed.
+   * Called when the system updates the label of a mission.
    *
-   * @param { number } mission - Indicates the id of the mission whose label has changed.
+   * @param { int } mission - Mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  onMissionLabelUpdated(mission: number): void;
+  onMissionLabelUpdated(mission: int): void;
 
   /**
-   * Called by system when mission icon has changed.
+   * Called when the system updates the icon of a mission.
    *
-   * @param { number } mission - Indicates the id of the mission whose icon has changed.
-   * @param { image.PixelMap } icon - Indicates the icon of the mission whose icon has changed.
+   * @param { int } mission - Mission ID.
+   * @param { image.PixelMap } icon - New mission icon.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
+  onMissionIconUpdated(mission: int, icon: image.PixelMap): void;
 
   /**
-   * Called by system when target mission is closed.
+   * Called when the system closes a mission.
    *
-   * @param { number } mission - Indicates the id of the mission whose ability instance is destroyed.
+   * @param { int } mission - Mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  onMissionClosed(mission: number): void;
+  onMissionClosed(mission: int): void;
 }

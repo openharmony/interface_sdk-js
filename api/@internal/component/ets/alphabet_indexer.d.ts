@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum IndexerAlign {
   /**
@@ -62,7 +62,7 @@ declare enum IndexerAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Left,
 
@@ -85,7 +85,7 @@ declare enum IndexerAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Right,
 
@@ -93,9 +93,10 @@ declare enum IndexerAlign {
    * A dialog box is displayed on the start of the index bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   START,
 
@@ -103,9 +104,10 @@ declare enum IndexerAlign {
    * A dialog box is displayed on the end of the index bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   END,
 }
@@ -115,9 +117,10 @@ declare enum IndexerAlign {
  *
  * @interface AlphabetIndexerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface AlphabetIndexerOptions {
   /**
@@ -152,7 +155,7 @@ interface AlphabetIndexerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   arrayValue: Array<string>;
   /**
@@ -187,7 +190,7 @@ interface AlphabetIndexerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selected: number;
 }
@@ -214,7 +217,7 @@ interface AlphabetIndexerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface AlphabetIndexerInterface {
   /**
@@ -257,7 +260,7 @@ interface AlphabetIndexerInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options: AlphabetIndexerOptions): AlphabetIndexerAttribute;
 }
@@ -268,9 +271,10 @@ interface AlphabetIndexerInterface {
  * @typedef { function } OnAlphabetIndexerSelectCallback
  * @param { number } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type OnAlphabetIndexerSelectCallback = (index: number) => void;
 
@@ -280,9 +284,10 @@ declare type OnAlphabetIndexerSelectCallback = (index: number) => void;
  * @typedef { function } OnAlphabetIndexerPopupSelectCallback
  * @param { number } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
 
@@ -293,9 +298,10 @@ declare type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
  * @param { number } index - selected index
  * @returns { Array<string> } string array corresponding to the index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>;
 
@@ -321,7 +327,7 @@ declare type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Arra
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
@@ -330,7 +336,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead onSelect
    */
@@ -361,7 +367,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -390,7 +396,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -419,7 +425,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupColor(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -448,7 +454,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selectedBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -477,7 +483,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -487,6 +493,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the selected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -496,9 +503,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the selected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupSelectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -508,6 +516,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the unselected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -517,9 +526,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the unselected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupUnselectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -529,6 +539,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of background.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -538,9 +549,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of background.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupItemBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -569,7 +581,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   usingPopup(value: boolean): AlphabetIndexerAttribute;
 
@@ -598,7 +610,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selectedFont(value: Font): AlphabetIndexerAttribute;
 
@@ -627,7 +639,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupFont(value: Font): AlphabetIndexerAttribute;
 
@@ -638,6 +650,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { Font } value - indicates the style of the font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -648,9 +661,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { Font } value - indicates the style of the font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupItemFont(value: Font): AlphabetIndexerAttribute;
 
@@ -679,7 +693,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   itemSize(value: string | number): AlphabetIndexerAttribute;
 
@@ -708,7 +722,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   font(value: Font): AlphabetIndexerAttribute;
 
@@ -742,7 +756,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   alignStyle(value: IndexerAlign, offset?: Length): AlphabetIndexerAttribute;
 
@@ -782,7 +796,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onSelect(callback: OnAlphabetIndexerSelectCallback): AlphabetIndexerAttribute;
 
@@ -822,7 +836,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback): AlphabetIndexerAttribute;
 
@@ -862,7 +876,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback): AlphabetIndexerAttribute;
 
@@ -891,7 +905,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selected(index: number): AlphabetIndexerAttribute;
 
@@ -920,7 +934,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   popupPosition(value: Position): AlphabetIndexerAttribute;
 
@@ -930,6 +944,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -939,9 +954,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   autoCollapse(value: boolean): AlphabetIndexerAttribute;
 
@@ -951,9 +967,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { number } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   popupItemBorderRadius(value: number): AlphabetIndexerAttribute;
 
@@ -963,9 +980,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { number } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   itemBorderRadius(value: number): AlphabetIndexerAttribute;
 
@@ -975,9 +993,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { BlurStyle } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   popupBackgroundBlurStyle(value: BlurStyle): AlphabetIndexerAttribute;
 
@@ -987,9 +1006,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   popupTitleBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
@@ -999,8 +1019,9 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { boolean } value - Default value is true, set false to disable haptic feedback.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   enableHapticFeedback(value: boolean): AlphabetIndexerAttribute;
 }
@@ -1024,7 +1045,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const AlphabetIndexer: AlphabetIndexerInterface;
 
@@ -1047,6 +1068,6 @@ declare const AlphabetIndexer: AlphabetIndexerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;

@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface QRCodeInterface {
   /**
@@ -100,7 +100,7 @@ interface QRCodeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (value: ResourceStr): QRCodeAttribute;
 }
@@ -137,7 +137,7 @@ interface QRCodeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
@@ -176,7 +176,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color(value: ResourceColor): QRCodeAttribute;
 
@@ -216,7 +216,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 
@@ -225,6 +225,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -233,9 +234,10 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentOpacity(value: number | Resource): QRCodeAttribute;
 }
@@ -268,7 +270,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const QRCode: QRCodeInterface;
 
@@ -300,6 +302,6 @@ declare const QRCode: QRCodeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const QRCodeInstance: QRCodeAttribute;

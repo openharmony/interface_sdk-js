@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -37,18 +37,18 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamiconly
  */
 export default class ErrorObserver {
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -56,25 +56,25 @@ export default class ErrorObserver {
    * @since 11
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamiconly
    */
   onUnhandledException(errMsg: string): void;
 
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -82,13 +82,13 @@ export default class ErrorObserver {
    * @since 11
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamiconly
    */
   onException?(errObject: Error): void;
 }

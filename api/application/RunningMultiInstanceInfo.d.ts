@@ -19,45 +19,43 @@
  */
 
 /**
- * The class of app running instance information.
+ * The module defines the information of a multi-instance application in the running state. The information can be
+ * obtained through [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo}
+ * of appManager.
  *
- * @typedef RunningMultiInstanceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 23 static
  */
 export interface RunningMultiInstanceInfo {
-    /**
-     * The index of current instance.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-     instanceKey: string;
-  
-    /**
-     * The uid of current app instance.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    uid: int;
-  
-    /**
-     * All pids of current app instance.
-     *
-     * @type { Array<int> }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    pids: Array<int>;
-  }
+  /**
+   * Unique instance ID of a multi-instance application.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14 dynamic
+   * @since 23 static
+   */
+  instanceKey: string;
+
+  /**
+   * UID of the application.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14 dynamic
+   * @since 23 static
+   */
+  uid: int;
+
+  /**
+   * Process ID set of the application.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14 dynamic
+   * @since 23 static
+   */
+  pids: Array<int>;
+}
