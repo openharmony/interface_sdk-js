@@ -130,7 +130,7 @@ function adjustApiAnnotation(utFiles) {
           newAnnotation.push(annotationTemp);
         });
         if (isNeedChange) {
-          content = content.replace(annotation, newAnnotation.filter((item) => item).join("\n"));
+          content = content.replace(annotation, newAnnotation.filter((item) => item).join('\n'));
         }
       }
     });
@@ -139,7 +139,9 @@ function adjustApiAnnotation(utFiles) {
 }
 function deleteAnnotations(annotationTemp, newAnnotation = []) {
   const match = annotationTemp.match(ANNOTATION_KEYWORD);
-  if (match) return;
+  if (match) {
+    return;
+  };
   for (let item of newAnnotation.slice().reverse()) {
     newAnnotation.splice(-1, 1);
     if (item.match(ANNOTATION_KEYWORD)) {
@@ -147,15 +149,15 @@ function deleteAnnotations(annotationTemp, newAnnotation = []) {
     }
   }
 }
-function removeAnnotations(annotationTemp = "", match) {
-  const result = annotationTemp.replace(match, "").trimEnd();
+function removeAnnotations(annotationTemp = '', match) {
+  const result = annotationTemp.replace(match, '').trimEnd();
   // 移除注解后只剩*，则删除该行
-  if (result.trim() === "*") {
+  if (result.trim() === '*') {
     return null;
   }
   return result;
 }
-function getFileAnnotations(content = "") {
+function getFileAnnotations(content = '') {
   return content.match(ANNOTATION_REGEX);
 }
 
