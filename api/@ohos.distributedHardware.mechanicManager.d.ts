@@ -1157,7 +1157,7 @@ declare namespace mechanicManager {
     DESKTOP_GIMBAL_DEVICE = 1,
 
     /**
-     * Wheeled?mounted base device.
+     * Wheeled‑mounted base device.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
