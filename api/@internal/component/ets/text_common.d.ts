@@ -2606,11 +2606,10 @@ declare enum TextContentAlign {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-enum StrokeJoinStyle {
+declare enum StrokeJoinStyle {
  
   /**
-   * The corner type is an acute angle. If the angle of the polyline is relatively small,
-   * the acute angle will be very long and needs to be restricted using a limiting value (miter limit).
+   * The corner type is an acute angle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
