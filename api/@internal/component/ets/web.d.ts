@@ -9591,35 +9591,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
   /**
-   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
-   *
-   * @param { function } callback The triggered callback when the host application that web content from the specified origin is
-   *     attempting to access the resources.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
-   *
-   * @param { function } callback The triggered callback when the host application that web content from the specified origin is
-   *     attempting to access the resources.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Triggered when a permission request is received. To call this API, you need to declare the **ohos.permission.CAMERA**
    * and **ohos.permission.MICROPHONE** permissions.
    *
    * @param { Callback<OnPermissionRequestEvent> } callback Callback invoked when a permission request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   onPermissionRequest(callback: Callback<OnPermissionRequestEvent>): WebAttribute;
 
