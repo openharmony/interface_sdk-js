@@ -70,22 +70,6 @@ declare namespace contact {
    * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
    * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
-   * @since 10
-   */
-  /**
-   * Creates a contact.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
-   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
-   * creation fails.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
-   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
-   * 4.Internal error. Failed to save contact portrait.
-   * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 12
    */
@@ -105,21 +89,6 @@ declare namespace contact {
    */
   function addContact(contact: Contact): Promise<number>;
 
-  /**
-   * Creates a contact.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
-   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
-   * 4.Internal error. Failed to save contact portrait.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 10
-   */
   /**
    * Creates a contact.
    *
@@ -1270,7 +1239,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
    * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
-   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawid.
+   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1303,7 +1272,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
    * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
-   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawid.
+   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1336,7 +1305,7 @@ declare namespace contact {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
    * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
-   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawid.
+   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
