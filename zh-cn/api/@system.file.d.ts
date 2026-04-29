@@ -102,7 +102,8 @@ export interface FileMoveOption {
 
   /**
    * 文件要移动到的位置的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -179,7 +180,8 @@ export interface FileListResponse {
 export interface FileListOption {
   /**
    * 目录URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -230,7 +232,8 @@ export interface FileListOption {
 export interface FileCopyOption {
   /**
    * 要拷贝的文件的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -240,8 +243,9 @@ export interface FileCopyOption {
   srcUri: string;
 
   /**
-   * 文件要移动到的位置的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 文件要拷贝到的位置的URI。不支持用应用资源路径或tmp类型的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -292,7 +296,8 @@ export interface FileCopyOption {
 export interface FileGetOption {
   /**
    * 文件的URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -353,7 +358,8 @@ export interface FileGetOption {
 export interface FileDeleteOption {
   /**
    * 删除文件的URI，不能是应用资源路径。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -404,7 +410,8 @@ export interface FileDeleteOption {
 export interface FileWriteTextOption {
   /**
    * 本地文件URI，如果文件不存在会创建文件。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -484,13 +491,7 @@ export interface FileWriteTextOption {
  */
 export interface FileReadTextResponse {
   /**
-   * 获取的文件列表，其中每个文件的信息的格式为：
-   * {
-   * uri:'file1',
-   * lastModifiedTime:1589965924479,
-   * length:10240,
-   * type:?'file'
-   * }
+   * 读取到的文本内容。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -511,8 +512,8 @@ export interface FileReadTextResponse {
 export interface FileReadTextOption {
   /**
    * 本地文件URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
-   *
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
@@ -592,7 +593,8 @@ export interface FileReadTextOption {
 export interface FileWriteArrayBufferOption {
   /**
    * 本地文件URI，如果文件不存在会创建文件。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -699,7 +701,8 @@ export interface FileReadArrayBufferResponse {
 export interface FileReadArrayBufferOption {
   /**
    * 本地文件URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -709,7 +712,7 @@ export interface FileReadArrayBufferOption {
   uri: string;
 
   /**
-   * 读取的起始位置，单位为Byte，默认为文件的起始位置。
+   * 读取的起始位置，单位为Byte，缺省为文件的起始位置。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -719,7 +722,7 @@ export interface FileReadArrayBufferOption {
   position?: number;
 
   /**
-   * 读取的长度，单位为Byte，默认值为4096。
+   * 需要读取的长度，单位为Byte，缺省则读取到文件结尾。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -770,7 +773,8 @@ export interface FileReadArrayBufferOption {
 export interface FileAccessOption {
   /**
    * 目录或文件URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -821,7 +825,8 @@ export interface FileAccessOption {
 export interface FileMkdirOption {
   /**
    * 目录URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -882,7 +887,8 @@ export interface FileMkdirOption {
 export interface FileRmdirOption {
   /**
    * 目录URI。由于轻量级穿戴设备底层文件系统的限制，该值必须满足以下要求：
-   * 1、URI 中不得包含以下特殊字符：\"*+,:;<=>?[]\
+   * 1. URI 中不得包含以下特殊字符：\"*+,:;<=>?[]|\x7F等。
+   * 2. 最大允许字符长度为128个字符。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
