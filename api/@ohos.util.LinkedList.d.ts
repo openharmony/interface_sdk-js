@@ -390,13 +390,14 @@ declare class LinkedList<T> {
   /**
    * Replaces each element of this linkedList with the result of applying the operator to that element.
    *
-   * @param { LinkedListForEachCb } callbackFn - callbackFn
+   * @param { LinkedListForEachCb<T> } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
    */
-  forEach(callbackfn: LinkedListForEachCb<T>): void;
+  forEach(callbackFn: LinkedListForEachCb<T>): void;
 
   /**
    * Clears this LinkedList and sets its length to **0**.
