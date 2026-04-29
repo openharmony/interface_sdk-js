@@ -19,6 +19,7 @@ const ANNOTATION_REGEX = /\/\*\*[\s\S]*?\*\//g;
 const SINCE_REGEX = /@since\s+(.*)/;
 const PUBLIC_API_REGEX = /@publicapi\s+(.*)/;
 const ANNOTATION_SINCE_REGEX = /\[since (.*?)\]/;
+const ANNOTATION_KEYWORD = /@(\w+)/;
 
 const OPERATE = {
   DELETE: "delete",
@@ -113,12 +114,13 @@ function adjustApiAnnotation(utFiles) {
               const result = handleApiAnnotationCompare(apiStartVersion, apiVersionRange);
               isNeedChange = true;
               if (result === OPERATE.DELETE) {
+                deleteAnnotations(annotationTemp, newAnnotation);
                 return;
               } else if (result === OPERATE.CHANGE) {
                 const updateText = apiStartVersion + " - " + apiVersionRange[1];
                 annotationTemp = annotationTemp.replace(matchText, updateText);
               } else if (result === OPERATE.REMOVE) {
-                annotationTemp = annotationTemp.replace(match[0], '').trimEnd();
+                annotationTemp = removeAnnotations(annotationTemp, match[0]);
               }
             } catch (error) {
               console.error("compare api version error, url is", url);
@@ -128,14 +130,34 @@ function adjustApiAnnotation(utFiles) {
           newAnnotation.push(annotationTemp);
         });
         if (isNeedChange) {
-          content = content.replace(annotation, newAnnotation.join("\n"));
+          content = content.replace(annotation, newAnnotation.filter((item) => item).join('\n'));
         }
       }
     });
     writeFile(url, content);
   });
 }
-function getFileAnnotations(content = "") {
+function deleteAnnotations(annotationTemp, newAnnotation = []) {
+  const match = annotationTemp.match(ANNOTATION_KEYWORD);
+  if (match) {
+    return;
+  };
+  for (let item of newAnnotation.slice().reverse()) {
+    newAnnotation.splice(-1, 1);
+    if (item.match(ANNOTATION_KEYWORD)) {
+      break;
+    }
+  }
+}
+function removeAnnotations(annotationTemp = '', match) {
+  const result = annotationTemp.replace(match, '').trimEnd();
+  // 移除注解后只剩*，则删除该行
+  if (result.trim() === '*') {
+    return null;
+  }
+  return result;
+}
+function getFileAnnotations(content = '') {
   return content.match(ANNOTATION_REGEX);
 }
 
