@@ -929,7 +929,7 @@ declare namespace worker {
     constructor(scriptURL: string, options?: WorkerOptions);
     /**
      * Called when the Worker thread exits. The event handler is executed in the host thread. In the callback function,
-     * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.
+     * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.The default value is undefined.
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
@@ -1282,8 +1282,8 @@ declare namespace worker {
     constructor(scriptURL: string, options?: WorkerOptions);
 
     /**
-     * The onexit attribute of the worker specifies the event handler to be called
-     * when the worker exits. The handler is executed in the host thread.
+     * Called when the Worker thread exits. The event handler is executed in the host thread. In the callback function,
+     * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.The default value is undefined.
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
