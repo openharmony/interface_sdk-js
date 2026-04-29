@@ -21,370 +21,532 @@
 import { NotificationRequest } from './notificationRequest';
 import { NotificationSortingMap } from './notificationSortingMap';
 import type notificationManager from '../@ohos.notificationManager';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import notification from '../@ohos.notification';
 /*** endif */
 
 /**
- * Provides methods that will be called back when the subscriber receives a new notification or
- * a notification is canceled.
+ * Provides callback methods for subscribers to receive and cancel notifications.
  *
- * @interface NotificationSubscriber
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface NotificationSubscriber {
   /**
-   * The callback function that receives a new notification.
+   * Information about the notification received.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
-  onConsume?: (data: SubscribeCallbackData) => void;
+  onConsume?:(data: SubscribeCallbackData) => void;
 
   /**
-   * The callback function that cancels the notification.
+   * Information about the notification to cancel.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
-  onCancel?: (data: SubscribeCallbackData) => void;
+  onCancel?:(data: SubscribeCallbackData) => void;
 
   /**
-   * The callback function that updates the sort of notifications.
+   * Latest notification sorting list.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
-  onUpdate?: (data: NotificationSortingMap) => void;
+  onUpdate?:(data: NotificationSortingMap) => void;
 
   /**
-   * The callback function of the completed subscription.
+   * Callback invoked when subscription is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
-  onConnect?: () => void;
+  onConnect?:() => void;
 
   /**
-   * The callback function to unsubscribe.
+   * Callback invoked when unsubscription is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
-  onDisconnect?: () => void;
+  onDisconnect?:() => void;
 
   /**
-   * The callback function that service disconnected.
+   * Callback to be invoked when the service is disconnected.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
-  onDestroy?: () => void;
+  onDestroy?:() => void;
 
   /**
-   * Callback when the Do Not Disturb setting changed.
+   * Callback used to return DND time setting updates.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 11
    * @useinstead NotificationSubscriber#onDoNotDisturbChanged
    */
   onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
 
   /**
-   * Callback when the Do Not Disturb setting changed.
+   * Callback used to return DND time setting updates.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
   /**
-   * Callback when the notification permission is changed.
+   * Callback used to return the listened application information.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
-  onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
+  onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
 
   /**
-   * Callback when badge number changed.
+   * Returns the changes of the enabling state of the application's silent reminder.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
-  onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
+  onEnabledSilentReminderChanged?: EnabledSilentReminderChangedCallback;
 
   /**
-   * Callback when badge enabled state changed.
+   * Callback used to return the result.
    *
-   * @type { ?BadgeEnabledChangedCallback }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 dynamic&static
+   */
+  onEnabledPriorityChanged?: (callbackData: EnabledPriorityNotificationCallbackData) => void;
+ 
+  /**
+   * Callback used to return the result.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  onEnabledPriorityByBundleChanged?: (callbackData: EnabledPriorityNotificationByBundleCallbackData) => void;
+
+  /**
+   * Callback used to return the listened application information.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10 dynamic
+   * @since 23 static
+   */
+  onBadgeChanged?:(data: BadgeNumberCallbackData) => void;
+
+  /**
+   * Returns the changes of the enabling state of the application's badge.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12 dynamic
+   * @since 23 static
    */
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
   /**
-   * Callback when badge cancel notifications.
+   * Notification information of batch deletion.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
+
+  /**
+   * Returns notification information containing the system property value.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  onSystemUpdate?: SystemUpdateCallback;
 }
 
 /**
- * Provides methods that will be called back when the subscriber receives a new notification or
- * a notification is canceled.
- *
- * @typedef SubscribeCallbackData
+ * Defines the SystemUpdateCallback callback.
+ * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface SubscribeCallbackData {
   /**
-   * Content of the notice.
+   * Notification content.
    *
-   * @type { NotificationRequest }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   readonly request: NotificationRequest;
 
   /**
-   * Notify sorting information.
+   * Notification sorting information.
    *
-   * @type { ?NotificationSortingMap }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   readonly sortingMap?: NotificationSortingMap;
 
   /**
-   * The reason for the deletion.(1:CLICK_REASON_REMOVE,2:CANCEL_REASON_REMOVE)
+   * Reason for deletion. The options are as follows:
+   * **1**: The notification is deleted after being clicked.
+   * **2**: The notification is deleted by the user.
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   readonly reason?: int;
 
   /**
-   * Notification sound.
+   * Sound used for notification.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   readonly sound?: string;
 
   /**
-   * Notice the vibration.
+   * Vibration used for notification.
    *
-   * @type { ?Array<long> }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   readonly vibrationValues?: Array<long>;
+
+  /**
+   * Generated voice content for audio playback.
+   * Only present when voiceContentoptions.enabled is true in NotificationSubscribeInfo.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  voiceContent?: VoiceContent;
 }
 
 /**
- * Describes the properties of the application that the permission to send notifications 
- * or the badge enabled state has changed.
- *
- * @typedef EnabledNotificationCallbackData
+ * Defines a callback function to listen for the enabling state changes of the application badge.
+ * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 23 static
  */
 export interface EnabledNotificationCallbackData {
   /**
-   * The bundle name of the application.
+   * Bundle name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   readonly bundle: string;
 
   /**
-   * The uid of the application.
+   * UID of the application.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   readonly uid: int;
 
   /**
-   * Apply notification enable status.
+   * Whether the application notification is enabled.
+   * - **true**: enabled.
+   * - **false**: disabled.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 23 static
    */
   readonly enable: boolean;
 }
 
 /**
- * Describes the badge number of the application has changed.
+ * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
  *
- * @typedef BadgeNumberCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @stagemodelonly
+ * @since 24 dynamic&static
  */
-export interface BadgeNumberCallbackData {
+export interface EnabledSilentReminderCallbackData {
   /**
-   * bundle name
+   * Bundle name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   readonly bundle: string;
 
   /**
-   * The uid of the application.
+   * UID of the application.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   readonly uid: int;
 
   /**
-   * badge number
+   * Enabling state of the application's silent reminder.
+   * - **USER_MODIFIED_OFF**: disabled state set by the user.
+   * - **USER_MODIFIED_ON**: enabled state set by the user.
+   * - **SYSTEM_DEFAULT_OFF**: initial disabled state before user setting.
+   * - **SYSTEM_DEFAULT_ON**: initial enabled state before user setting.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly enableStatus: notificationManager.SwitchState;
+}
+
+/**
+ * Callback used to return the result.
+ * 
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface EnabledPriorityNotificationCallbackData {
+  /**
+   * Whether the priority notification is enabled.
+   * - **true**: The priority notification is enabled.
+   * - **false**: The priority notification is disabled.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly enable: boolean;
+}
+
+/**
+ * Describes the switch state to Restrict notification capability.
+ * 
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface EnabledPriorityNotificationByBundleCallbackData {
+  /**
+   * Bundle name of the application.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly bundle: string;
+
+  /**
+   * UID of the application.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly uid: int;
+
+  /**
+   * Whether the priority notification for an application is enabled.
+   * - **DISABLE**: The priority notification is disabled.
+   * - **ENABLE_BY_INTELLIGENT**: The priority notification can be enabled through intelligent recognition,
+   * user keyword matching, or application rule matching.
+   * - **ENABLE**: The priority notification is enabled for all applications.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly enableStatus: notificationManager.PriorityEnableStatus;
+}
+
+/**
+ * Describes the badge number of the application has changed.
+ * 
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 10 dynamic
+ * @since 23 static
+ */
+export interface BadgeNumberCallbackData {
+  /**
+   * Bundle name of the application.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10 dynamic
+   * @since 23 static
+   */
+  readonly bundle: string;
+
+  /**
+   * UID of the application.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10 dynamic
+   * @since 23 static
+   */
+  readonly uid: int;
+
+  /**
+   * Number of notifications displayed on the application icon.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly badgeNumber: int;
 
   /**
-   * Application instance key.
+   * Key value of an application instance. This parameter is supported since API version 12 and
+   * deprecated since API version 15.You are advised to use **appInstanceKey** instead.
    *
-   * @type { ?number }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 15
    * @useinstead BadgeNumberCallbackData#appInstanceKey
    */
   readonly instanceKey?: number;
 
   /**
-   * Application instance key.
+   * Key value of an application instance.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   readonly appInstanceKey?: string;
 }
 
 /**
- * Defines the callback of BadgeEnabledChanged.
- * @typedef BadgeEnabledChangedCallback
+ * Defines a callback function to listen for the enabling state changes of the application badge.
+ * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
+ *
  * @syscap SystemCapability.Notification.Notification
- * @since 12
+ * @since 12 dynamic
  */
 export interface BadgeEnabledChangedCallback {
   /**
-   * Defines the BadgeEnabledChanged callback.
+   * Callback used to return the listened badge enabling state.
+   *
    * @param { EnabledNotificationCallbackData } data
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   (data: EnabledNotificationCallbackData): void;
 }
 
 /**
- * Defines the BadgeEnabledChanged callback.
- * @param { EnabledNotificationCallbackData } data
+ * Describes the generated voice content for notification.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 20
- * @arkts 1.2
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContent {
+  /**
+   * The voice content text for audio playback.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  textContent?: string;
+}
+
+/**
+ * Defines a callback function to listen for the enabling state changes of the application badge.
+ * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
+ *
+ * @param { EnabledNotificationCallbackData } data - Callback used to return the listened badge enabling state.
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
  */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;
+
+/**
+ * Defines the SystemUpdateCallback callback.
+ * type SystemUpdateCallback = (data: SubscribeCallbackData) => void
+ *
+ * @param { SubscribeCallbackData } data -Notification information that carries the system property value.
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
+
+/**
+ * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
+ * type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void
+ *
+ * @param { EnabledSilentReminderCallbackData } callbackData -
+ *     Callback used to return the listened silent reminder enabling state.
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
+export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;

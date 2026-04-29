@@ -27,6 +27,7 @@
  * @extends ProgressAttribute
  * @implements AttributeModifier<ProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends ProgressAttribute
  * @implements AttributeModifier<ProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ProgressModifier extends ProgressAttribute implements AttributeModifier<ProgressAttribute> {
 
@@ -47,9 +49,10 @@ export declare class ProgressModifier extends ProgressAttribute implements Attri
    * 
    * @param { ProgressAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ProgressAttribute): void;
 }

@@ -16,40 +16,26 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 /**
- * Provides cust config APIS.
+ * This module provides APIs for applications to obtain custom configurations, such as channel IDs.
  *
- * @namespace customConfig
  * @syscap SystemCapability.Customization.CustomConfig
- * @since 12
- */
-/**
- * Provides cust config APIS.
- *
- * @namespace customConfig
- * @syscap SystemCapability.Customization.CustomConfig
- * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
+ * @atomicservice [since 13]
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace customConfig {
   
   /**
-   * Gets the channelId of the app.
+   * Obtains a pre-installed channel ID of this application.
    *
-   * @returns { string } the channelId or empty if not exist.
+   * @returns { string } Channel ID obtained.
    * @syscap SystemCapability.Customization.CustomConfig
-   * @since 12
-   */
-  /**
-   * Gets the channelId of the app.
-   *
-   * @returns { string } the channelId or empty if not exist.
-   * @syscap SystemCapability.Customization.CustomConfig
-   * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
+   * @atomicservice [since 13]
+   * @since 12 dynamic
+   * @since 23 static
    */
   function getChannelId(): string;
 

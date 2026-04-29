@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,8 +35,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Security.CryptoFramework
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace cryptoFramework {
   /**
@@ -53,8 +53,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   enum Result {
     /**
@@ -69,8 +69,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     INVALID_PARAMS = 401,
 
@@ -93,8 +93,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     NOT_SUPPORT = 801,
 
@@ -110,8 +110,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     ERR_OUT_OF_MEMORY = 17620001,
 
@@ -134,8 +134,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ERR_RUNTIME_ERROR = 17620002,
 
@@ -145,10 +145,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     ERR_PARAMETER_CHECK_FAILED = 17620003,
+
+    /**
+     * Indicates that invalid function call.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_INVALID_CALL = 17620004,
 
     /**
      * Indicates that crypto operation error.
@@ -162,8 +172,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     ERR_CRYPTO_OPERATION = 17630001
   }
@@ -182,8 +192,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface DataBlob {
     /**
@@ -200,8 +210,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     data: Uint8Array;
   }
@@ -229,8 +239,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ParamsSpec {
     /**
@@ -255,8 +265,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     algName: string;
   }
@@ -287,8 +297,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface IvParamsSpec extends ParamsSpec {
     /**
@@ -317,8 +327,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     iv: DataBlob;
   }
@@ -348,8 +358,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface GcmParamsSpec extends ParamsSpec {
     /**
@@ -374,8 +384,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     iv: DataBlob;
 
@@ -401,8 +411,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     aad: DataBlob;
 
@@ -428,8 +438,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     authTag: DataBlob;
   }
@@ -459,8 +469,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface CcmParamsSpec extends ParamsSpec {
     /**
@@ -485,8 +495,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     iv: DataBlob;
 
@@ -512,8 +522,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     aad: DataBlob;
 
@@ -539,8 +549,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     authTag: DataBlob;
   }
@@ -553,7 +563,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface Poly1305ParamsSpec extends ParamsSpec {
     /**
@@ -563,7 +574,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
+     * @since 23 static
      */
     iv: DataBlob;
 
@@ -577,7 +589,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
+     * @since 23 static
      */
     aad: DataBlob;
 
@@ -591,9 +604,62 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
+     * @since 23 static
      */
     authTag: DataBlob;
+  }
+
+  /**
+   * The aead algorithm parameters.
+   *
+   * Currently, it only supports the AES-CCM algorithm.
+   *
+   * @extends ParamsSpec
+   * @typedef AeadParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface AeadParamsSpec extends ParamsSpec {
+    /**
+     * The cryptographic nonce.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    nonce: Uint8Array;
+
+    /**
+     * The Additional Authenticated Data.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    authenticatedData?: Uint8Array;
+
+    /**
+     * The length of the authentication tag.
+     *
+     * For encryption, the tag will be added to the end of the ciphertext.
+     * For decryption, the tag should be at the end of the ciphertext.
+     *
+     * For AES-CCM, the default value is 12.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tagLen?: int;
   }
 
   /**
@@ -618,8 +684,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum CryptoMode {
     /**
@@ -641,8 +707,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ENCRYPT_MODE = 0,
 
@@ -665,8 +731,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DECRYPT_MODE = 1
   }
@@ -678,8 +744,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   interface KeyEncodingConfig {
     /**
@@ -689,8 +755,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     password: string;
 
@@ -701,8 +767,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     cipherName: string;
   }
@@ -731,8 +797,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Key {
     /**
@@ -769,10 +835,24 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     getEncoded(): DataBlob;
+
+    /**
+     * Get the key size, in bits.
+     *
+     * @returns { int } the key size in bits.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeySize(): int;
 
     /**
      * Indicates the format of the key object.
@@ -799,8 +879,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly format: string;
 
@@ -829,8 +909,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -861,8 +941,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface SymKey extends Key {
     /**
@@ -885,8 +965,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     clearMem(): void;
   }
@@ -916,8 +996,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface PriKey extends Key {
     /**
@@ -939,8 +1019,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     clearMem(): void;
 
@@ -949,8 +1029,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
      * @returns { bigint | string | int } the specified parameters value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -962,8 +1044,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
      * @returns { bigint | string | int } the specified parameters value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -976,16 +1060,36 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
      * @returns { bigint | string | int } the specified parameters value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Get the specified parameter of the private key.
+     *
+     * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
+     * @returns { bigint | string | int } the specified parameters value.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
@@ -994,33 +1098,73 @@ declare namespace cryptoFramework {
      *
      * @param { string } format - indicates the encoding format.
      * @returns { DataBlob } the binary data of the key object in DER format.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Encode the private key object to binary data in DER format.
+     * The format can be set to "PKCS8".
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { DataBlob } the binary data of the key object in DER format.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getEncodedDer(format: string): DataBlob;
 
     /**
      * Encode the private key object to string in PEM format.
-     * The key can be an RSA public or private key. The private key must comply with PKCS8 or PKCS1 specifications and PEM encoding format.
+     * The format can be set to "PKCS8". For RSA keys, the format can also be set to "PKCS1".
      *
      * @param { string } format - indicates the encoding format.
      * @returns { string } the string of the key object in PEM format.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Encode the private key object to string in PEM format.
+     * The format can be set to "PKCS8". For RSA keys, the format can also be set to "PKCS1".
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { string } the string of the key object in PEM format.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getEncodedPem(format: string): string;
 
@@ -1039,10 +1183,82 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
+
+    /**
+     * Get the public key object of the private key.
+     *
+     * @returns { Promise<PubKey> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPubKey(): Promise<PubKey>;
+
+    /**
+     * Get the public key object of the private key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link getPubKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @returns { PubKey } the public key object of the private key.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPubKeySync(): PubKey;
+
+    /**
+     * Get the key data from the private key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumerated value
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
+
+    /**
+     * Get the key data from the private key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Uint8Array } the key data.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array;
   }
 
   /**
@@ -1070,8 +1286,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface PubKey extends Key {
     /**
@@ -1079,8 +1295,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
      * @returns { bigint | string | int } the specified parameters value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1091,8 +1309,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
      * @returns { bigint | string | int } the specified parameters value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1104,16 +1324,36 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
      * @returns { bigint | string | int } the specified parameters value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Get the specified parameter of the public key.
+     *
+     * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
+     * @returns { bigint | string | int } the specified parameters value.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
@@ -1130,8 +1370,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     getEncodedDer(format: string): DataBlob;
 
@@ -1141,17 +1381,76 @@ declare namespace cryptoFramework {
      *
      * @param { string } format - indicates the encoding format.
      * @returns { string } the string of the key object in PEM format.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Encode the public key object to string in PEM format.
+     * The format can be set to "X509". For RSA key, the format can also be set to "PKCS1".
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { string } the string of the key object in PEM format.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getEncodedPem(format: string): string;
+
+    /**
+     * Get the key data from the public key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
+
+    /**
+     * Get the key data from the public key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Uint8Array } the key data.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array;
   }
 
   /**
@@ -1176,8 +1475,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface KeyPair {
     /**
@@ -1205,8 +1504,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly priKey: PriKey;
 
@@ -1235,8 +1534,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly pubKey: PubKey;
   }
@@ -1264,8 +1563,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Rand
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Random {
     /**
@@ -1306,8 +1605,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateRandom(len: int, callback: AsyncCallback<DataBlob>): void;
 
@@ -1349,8 +1648,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateRandom(len: int): Promise<DataBlob>;
 
@@ -1383,6 +1682,11 @@ declare namespace cryptoFramework {
     /**
      * Generate random DataBlob by given length synchronously.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateRandom}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { int } len - indicates the length of random DataBlob.
      * @returns { DataBlob } return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1392,8 +1696,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateRandomSync(len: int): DataBlob;
 
@@ -1424,8 +1728,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     setSeed(seed: DataBlob): void;
 
@@ -1438,7 +1742,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     enableHardwareEntropy(): void;
 
@@ -1468,8 +1773,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -1500,8 +1805,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Rand
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createRandom(): Random;
 
@@ -1527,8 +1832,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface AsyKeyGenerator {
     /**
@@ -1562,8 +1867,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
@@ -1601,13 +1906,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateKeyPair(): Promise<KeyPair>;
 
     /**
      * Used to generate asymmetric keypair.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateKeyPair}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1617,8 +1927,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateKeyPairSync(): KeyPair;
 
@@ -1628,8 +1938,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1641,8 +1953,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1655,14 +1969,34 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob } pubKey - the public key data blob.
+     * @param { DataBlob } priKey - the private key data blob.
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
 
@@ -1672,8 +2006,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1685,8 +2021,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1699,15 +2037,35 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob | null } pubKey - the public key data blob.
+     * @param { DataBlob | null } priKey - the private key data blob.
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null, callback: AsyncCallback<KeyPair>): void;
 
@@ -1717,8 +2075,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1730,8 +2090,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1744,14 +2106,34 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob } pubKey - the public key data blob.
+     * @param { DataBlob } priKey - the private key data blob.
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
 
@@ -1761,8 +2143,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1774,8 +2158,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1788,15 +2174,35 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob | null } pubKey - the public key data blob.
+     * @param { DataBlob | null } priKey - the private key data blob.
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
 
@@ -1806,15 +2212,40 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } pubKey - the public key data blob.
      * @param { DataBlob | null } priKey - the private key data blob.
      * @returns { KeyPair } return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob | null } pubKey - the public key data blob.
+     * @param { DataBlob | null } priKey - the private key data blob.
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair;
 
@@ -1824,15 +2255,35 @@ declare namespace cryptoFramework {
      * @param { string | null } pubKey - the public key string in PEM format.
      * @param { string | null } priKey - the private key string in PEM format.
      * @returns { Promise<KeyPair> } return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * @param { string | null } pubKey - the public key string in PEM format.
+     * @param { string | null } priKey - the private key string in PEM format.
+     * @returns { Promise<KeyPair> } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
 
@@ -1850,8 +2301,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
@@ -1861,20 +2312,50 @@ declare namespace cryptoFramework {
      * @param { string | null } pubKey - the public key string in PEM format.
      * @param { string | null } priKey - the private key string in PEM format.
      * @returns { KeyPair } return keypair.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertPemKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { string | null } pubKey - the public key string in PEM format.
+     * @param { string | null } priKey - the private key string in PEM format.
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
 
     /**
      * Used to convert asymmetric key in PEM format to keypair object.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertPemKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { string | null } pubKey - the public key string in PEM format.
      * @param { string | null } priKey - the private key string in PEM format.
@@ -1887,8 +2368,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
@@ -1917,8 +2398,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -1945,8 +2426,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface SymKeyGenerator {
     /**
@@ -1974,8 +2455,19 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Generates a symmetric key object randomly.
+     *
+     * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     generateSymKey(callback: AsyncCallback<SymKey>): void;
 
@@ -2004,8 +2496,19 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Generates a symmetric key object randomly.
+     *
+     * @returns { Promise<SymKey> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     generateSymKey(): Promise<SymKey>;
 
@@ -2017,8 +2520,24 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Generates a symmetric key object randomly.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSymKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @returns { SymKey } returns a SymKey.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     generateSymKeySync(): SymKey;
 
@@ -2027,8 +2546,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2038,8 +2559,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2050,14 +2573,32 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
+     *
+     * @param { DataBlob } key - the key data blob.
+     * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
@@ -2066,8 +2607,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @returns { Promise<SymKey> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2077,8 +2620,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @returns { Promise<SymKey> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2089,14 +2634,32 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @returns { Promise<SymKey> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
+     *
+     * @param { DataBlob } key - the key data blob.
+     * @returns { Promise<SymKey> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertKey(key: DataBlob): Promise<SymKey>;
 
@@ -2105,14 +2668,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - the key data blob.
      * @returns { SymKey } return SymKey.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob } key - the key data blob.
+     * @returns { SymKey } returns a SymKey.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     convertKeySync(key: DataBlob): SymKey;
 
@@ -2141,8 +2727,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -2184,8 +2770,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
@@ -2223,8 +2809,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
@@ -2236,8 +2822,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   interface MacSpec {
     /**
@@ -2247,8 +2833,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     algName: string;
   }
@@ -2261,8 +2847,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   interface HmacSpec extends MacSpec {
     /**
@@ -2272,8 +2858,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     mdName: string;
   }
@@ -2286,8 +2872,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   interface CmacSpec extends MacSpec {
     /**
@@ -2297,8 +2883,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     cipherName: string;
   }
@@ -2326,8 +2912,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Mac {
     /**
@@ -2369,8 +2955,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     init(key: SymKey, callback: AsyncCallback<void>): void;
 
@@ -2413,8 +2999,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     init(key: SymKey): Promise<void>;
 
@@ -2422,6 +3008,11 @@ declare namespace cryptoFramework {
      * Init mac with given SymKey.
      * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
      * init and doFinal are mandatory, and update is optional.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2431,8 +3022,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     initSync(key: SymKey): void;
 
@@ -2473,8 +3064,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -2515,13 +3106,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     update(input: DataBlob): Promise<void>;
 
     /**
      * Update mac with DataBlob.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2531,8 +3127,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     updateSync(input: DataBlob): void;
 
@@ -2564,8 +3160,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
@@ -2597,13 +3193,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     doFinal(): Promise<DataBlob>;
 
     /**
      * Output the result of mac calculation.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2614,8 +3215,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     doFinalSync(): DataBlob;
 
@@ -2644,8 +3245,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     getMacLength(): int;
 
@@ -2674,8 +3275,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -2714,8 +3315,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createMac(algName: string): Mac;
 
@@ -2732,8 +3333,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   function createMac(macSpec: MacSpec): Mac;
 
@@ -2760,8 +3361,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Md {
     /**
@@ -2801,8 +3402,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -2843,13 +3444,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     update(input: DataBlob): Promise<void>;
 
     /**
      * Update md with DataBlob.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2859,8 +3465,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     updateSync(input: DataBlob): void;
 
@@ -2892,8 +3498,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     digest(callback: AsyncCallback<DataBlob>): void;
 
@@ -2925,13 +3531,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     digest(): Promise<DataBlob>;
 
     /**
      * Output the result of md calculation.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link digest}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2942,8 +3553,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     digestSync(): DataBlob;
 
@@ -2972,8 +3583,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     getMdLength(): int;
 
@@ -3002,8 +3613,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -3042,8 +3653,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createMd(algName: string): Md;
 
@@ -3070,8 +3681,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum CipherSpecItem {
     /**
@@ -3093,8 +3704,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     OAEP_MD_NAME_STR = 100,
 
@@ -3117,8 +3728,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     OAEP_MGF_NAME_STR = 101,
 
@@ -3141,8 +3752,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     OAEP_MGF1_MD_STR = 102,
 
@@ -3165,8 +3776,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     OAEP_MGF1_PSRC_UINT8ARR = 103,
 
@@ -3183,8 +3794,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     SM2_MD_NAME_STR = 104
   }
@@ -3212,8 +3823,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum SignSpecItem {
     /**
@@ -3235,8 +3846,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PSS_MD_NAME_STR = 100,
 
@@ -3259,8 +3870,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PSS_MGF_NAME_STR = 101,
 
@@ -3286,8 +3897,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PSS_MGF1_MD_STR = 102,
 
@@ -3310,8 +3921,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PSS_SALT_LEN_NUM = 103,
 
@@ -3334,8 +3945,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PSS_TRAILER_FIELD_NUM = 104,
 
@@ -3352,10 +3963,10 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
-    SM2_USER_ID_UINT8ARR = 105
+    SM2_USER_ID_UINT8ARR = 105,
   }
 
   /**
@@ -3380,8 +3991,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Cipher {
     /**
@@ -3391,8 +4002,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3406,8 +4019,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3423,15 +4038,41 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     *
+     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
+     * @param { Key } key - indicates the symmetric key or the asymmetric key.
+     * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
+     * @param { AsyncCallback<void> } callback - the callback of the init function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec, callback: AsyncCallback<void>): void;
 
@@ -3442,8 +4083,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3457,8 +4100,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3474,16 +4119,42 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     *
+     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
+     * @param { Key } key - indicates the symmetric key or the asymmetric key.
+     * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
+     * @param { AsyncCallback<void> } callback - the callback of the init function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback<void>): void;
 
@@ -3494,8 +4165,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3509,8 +4182,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3526,15 +4201,41 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     *
+     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
+     * @param { Key } key - indicates the symmetric key or the asymmetric key.
+     * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec): Promise<void>;
 
@@ -3545,8 +4246,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3560,8 +4263,10 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3577,16 +4282,42 @@ declare namespace cryptoFramework {
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     *
+     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
+     * @param { Key } key - indicates the symmetric key or the asymmetric key.
+     * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
@@ -3597,16 +4328,46 @@ declare namespace cryptoFramework {
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
+     * @param { Key } key - indicates the symmetric key or the asymmetric key.
+     * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     initSync(opMode: CryptoMode, key: Key, params: ParamsSpec | null): void;
 
@@ -3616,8 +4377,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3630,8 +4393,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3645,15 +4410,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     update(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
@@ -3663,16 +4450,19 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @param { AsyncCallback<DataBlob | null> } callback - the callback of the update function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     update(data: DataBlob, callback: AsyncCallback<DataBlob | null>): void;
 
@@ -3682,8 +4472,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3696,8 +4488,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3711,15 +4505,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @returns { Promise<DataBlob> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     update(data: DataBlob): Promise<DataBlob>;
 
@@ -3729,16 +4545,19 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { Promise<DataBlob | null> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     update(data: DataBlob): Promise<DataBlob | null>;
 
@@ -3748,15 +4567,42 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     updateSync(data: DataBlob): DataBlob;
 
@@ -3764,18 +4610,26 @@ declare namespace cryptoFramework {
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
      * this time. RSA is not supported in this function.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     updateSync(data: DataBlob): DataBlob | null;
 
@@ -3785,8 +4639,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3799,8 +4655,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3814,15 +4672,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
+     * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     doFinal(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
@@ -3832,8 +4712,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3846,8 +4728,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3861,15 +4745,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
@@ -3879,16 +4785,19 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @param { AsyncCallback<DataBlob | null> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob | null>): void;
 
@@ -3898,8 +4807,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3912,8 +4823,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3927,15 +4840,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
+     * @returns { Promise<DataBlob> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     doFinal(data: DataBlob): Promise<DataBlob>;
 
@@ -3945,8 +4880,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3959,8 +4896,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -3974,15 +4913,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @returns { Promise<DataBlob> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     doFinal(data: DataBlob | null): Promise<DataBlob>;
 
@@ -3992,16 +4953,19 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob | null> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     doFinal(data: DataBlob | null): Promise<DataBlob | null>;
 
@@ -4011,15 +4975,42 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     doFinalSync(data: DataBlob | null): DataBlob;
 
@@ -4027,18 +5018,26 @@ declare namespace cryptoFramework {
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
      * Data cannot be updated after the crypto operation is finished.
      *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
      * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
      * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     doFinalSync(data: DataBlob | null): DataBlob | null;
 
@@ -4048,8 +5047,10 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @param { Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4062,8 +5063,10 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @param { Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4077,16 +5080,38 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @param { Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Set the specified parameter to the cipher object.
+     * Currently, only the OAEP_MGF1_PSRC_UINT8ARR parameter in RSA is supported.
+     *
+     * @param { CipherSpecItem } itemType - indicates the specified parameter type.
+     * @param { Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Unsupported itemType.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void;
 
@@ -4096,8 +5121,10 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | Uint8Array } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4110,8 +5137,10 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | Uint8Array } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4125,16 +5154,38 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | Uint8Array } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Get the specified parameter from the cipher object.
+     * Currently, only OAEP parameters in RSA is supported.
+     *
+     * @param { CipherSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | Uint8Array } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Unsupported itemType.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
 
@@ -4163,8 +5214,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -4213,8 +5264,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createCipher(transformation: string): Cipher;
 
@@ -4241,8 +5292,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Sign {
     /**
@@ -4250,8 +5301,10 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - the private key.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4263,8 +5316,10 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - the private key.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4278,16 +5333,38 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - the private key.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Initializes the Sign instance with a private key.
+     * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { AsyncCallback<void> } callback - the callback function returns nothing.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     init(priKey: PriKey, callback: AsyncCallback<void>): void;
 
@@ -4296,8 +5373,10 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - the private key.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4309,8 +5388,10 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - the private key.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4324,16 +5405,38 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - the private key.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Initializes the Sign instance with a private key.
+     * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     init(priKey: PriKey): Promise<void>;
 
@@ -4342,16 +5445,42 @@ declare namespace cryptoFramework {
      * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
      *
      * @param { PriKey } priKey - the private key.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Initializes the Sign instance with a private key.
+     * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     initSync(priKey: PriKey): void;
 
@@ -4360,8 +5489,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4373,8 +5504,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4388,16 +5521,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * @param { DataBlob } data - the data that needs to be signed.
+     * @param { AsyncCallback<void> } callback - the callback of update.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -4406,8 +5560,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4419,8 +5575,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4434,16 +5592,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * @param { DataBlob } data - the data that needs to be signed.
+     * @returns { Promise<void> } returns nothing.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     update(data: DataBlob): Promise<void>;
 
@@ -4452,16 +5631,41 @@ declare namespace cryptoFramework {
      * This API can be called only after the Sign instance is initialized by using init.
      *
      * @param { DataBlob } data - the data need to be signed.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob } data - the data that needs to be signed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     updateSync(data: DataBlob): void;
 
@@ -4470,8 +5674,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4483,8 +5689,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4497,15 +5705,35 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Used to sign message, include the update data.
+     *
+     * @param { DataBlob } data - the data need to be signed.
+     * @param { AsyncCallback<DataBlob> } callback - return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
@@ -4514,8 +5742,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the data need to be signed.
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4527,8 +5757,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the data need to be signed.
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4541,16 +5773,36 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the data need to be signed.
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to sign message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be signed.
+     * @param { AsyncCallback<DataBlob> } callback - return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
@@ -4559,8 +5811,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the private key.
      * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4572,8 +5826,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the private key.
      * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4586,15 +5842,35 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the private key.
      * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob } data - the private key.
+     * @returns { Promise<DataBlob> } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     sign(data: DataBlob): Promise<DataBlob>;
 
@@ -4603,8 +5879,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the private key.
      * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4616,8 +5894,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the private key.
      * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4630,16 +5910,36 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the private key.
      * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob | null } data - the private key.
+     * @returns { Promise<DataBlob> } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
 
@@ -4648,16 +5948,41 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - the private key.
      * @returns { DataBlob } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link sign}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob | null } data - the private key.
+     * @returns { DataBlob } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     signSync(data: DataBlob | null): DataBlob;
 
@@ -4667,8 +5992,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4681,8 +6008,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4696,15 +6025,36 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Set the specified parameter to the sign object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { int } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     setSignSpec(itemType: SignSpecItem, itemValue: int): void;
 
@@ -4714,8 +6064,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4729,16 +6081,18 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
@@ -4748,8 +6102,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | int } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4762,8 +6118,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | int } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4777,16 +6135,37 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | int } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Get the specified parameter from the sign object.
+     * Currently, only PSS parameters in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | int } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getSignSpec(itemType: SignSpecItem): string | int;
 
@@ -4815,8 +6194,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -4845,8 +6224,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Verify {
     /**
@@ -4854,8 +6233,10 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - the public key.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4867,8 +6248,10 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - the public key.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4881,16 +6264,37 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - the public key.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Initializes the Verify instance with a public key.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @param { AsyncCallback<void> } callback - return nothing.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     init(pubKey: PubKey, callback: AsyncCallback<void>): void;
 
@@ -4899,8 +6303,10 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - the public key.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4912,8 +6318,10 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - the public key.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4926,16 +6334,37 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - the public key.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Initializes the Verify instance with a public key.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     init(pubKey: PubKey): Promise<void>;
 
@@ -4943,16 +6372,41 @@ declare namespace cryptoFramework {
      * Initializes the Verify instance with a public key.
      *
      * @param { PubKey } pubKey - the public key.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Initializes the Verify instance with a public key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     initSync(pubKey: PubKey): void;
 
@@ -4961,8 +6415,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4974,8 +6430,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4988,16 +6446,36 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be verified.
+     *
+     * @param { DataBlob } data - the data that needs to be verified.
+     * @param { AsyncCallback<void> } callback - the callback of update.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -5006,8 +6484,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5019,8 +6499,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5033,16 +6515,36 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be verified.
+     *
+     * @param { DataBlob } data - the data that needs to be verified.
+     * @returns { Promise<void> } returns nothing.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     update(data: DataBlob): Promise<void>;
 
@@ -5050,16 +6552,40 @@ declare namespace cryptoFramework {
      * Used to append the message need to be verified.
      *
      * @param { DataBlob } data - the data need to be verified.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be verified.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob } data - the data that needs to be verified.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     updateSync(data: DataBlob): void;
 
@@ -5069,8 +6595,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5083,8 +6611,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5098,15 +6628,36 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @param { AsyncCallback<boolean> } callback - return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     verify(data: DataBlob, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
@@ -5116,8 +6667,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5130,8 +6683,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5145,16 +6700,37 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @param { AsyncCallback<boolean> } callback - return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
@@ -5164,8 +6740,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5178,8 +6756,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5193,15 +6773,36 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<boolean> } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
 
@@ -5211,8 +6812,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5225,8 +6828,10 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5240,16 +6845,37 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<boolean> } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
 
@@ -5259,16 +6885,42 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { boolean } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link verify}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { boolean } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     verifySync(data: DataBlob | null, signatureData: DataBlob): boolean;
 
@@ -5278,16 +6930,37 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
@@ -5296,17 +6969,43 @@ declare namespace cryptoFramework {
      * Currently, only RSA is supported.
      *
      * @param { DataBlob } signatureData - the signature data.
-     * @returns { DataBlob | null } return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link recover}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
 
@@ -5316,8 +7015,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5330,8 +7031,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5345,15 +7048,36 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { int } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: int): void;
 
@@ -5363,8 +7087,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5378,16 +7104,18 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
@@ -5397,8 +7125,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | int } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5411,8 +7141,10 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | int } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5426,16 +7158,37 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | int } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    /**
+     * Get the specified parameter from the verify object.
+     * Currently, only PSS parameters in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | int } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getVerifySpec(itemType: SignSpecItem): string | int;
 
@@ -5464,8 +7217,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -5507,8 +7260,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createSign(algName: string): Sign;
 
@@ -5549,8 +7302,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createVerify(algName: string): Verify;
 
@@ -5577,8 +7330,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface KeyAgreement {
     /**
@@ -5624,8 +7377,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback<DataBlob>): void;
 
@@ -5672,13 +7425,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
 
     /**
      * Generates a shared secret based on the given private key and public key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSecret}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { PriKey } priKey - the private key.
      * @param { PubKey } pubKey - the public key.
@@ -5691,8 +7449,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob;
 
@@ -5721,8 +7479,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -5764,8 +7522,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createKeyAgreement(algName: string): KeyAgreement;
 
@@ -5791,8 +7549,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum AsyKeySpecItem {
     /**
@@ -5814,8 +7572,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DSA_P_BN = 101,
 
@@ -5838,8 +7596,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DSA_Q_BN = 102,
 
@@ -5862,8 +7620,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DSA_G_BN = 103,
 
@@ -5886,8 +7644,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DSA_SK_BN = 104,
 
@@ -5910,8 +7668,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DSA_PK_BN = 105,
 
@@ -5934,8 +7692,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_FP_P_BN = 201,
 
@@ -5958,8 +7716,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_A_BN = 202,
 
@@ -5982,8 +7740,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_B_BN = 203,
 
@@ -6006,8 +7764,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_G_X_BN = 204,
 
@@ -6030,8 +7788,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_G_Y_BN = 205,
 
@@ -6054,8 +7812,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_N_BN = 206,
 
@@ -6078,8 +7836,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_H_NUM = 207,
 
@@ -6102,8 +7860,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_SK_BN = 208,
 
@@ -6126,8 +7884,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_PK_X_BN = 209,
 
@@ -6150,8 +7908,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_PK_Y_BN = 210,
 
@@ -6174,8 +7932,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_FIELD_TYPE_STR = 211,
 
@@ -6201,8 +7959,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_FIELD_SIZE_NUM = 212,
 
@@ -6225,8 +7983,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ECC_CURVE_NAME_STR = 213,
 
@@ -6249,8 +8007,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     RSA_N_BN = 301,
 
@@ -6273,8 +8031,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     RSA_SK_BN = 302,
 
@@ -6297,8 +8055,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     RSA_PK_BN = 303,
 
@@ -6315,8 +8073,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DH_P_BN = 401,
 
@@ -6333,8 +8091,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DH_G_BN = 402,
 
@@ -6351,8 +8109,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DH_L_NUM = 403,
 
@@ -6369,8 +8127,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DH_SK_BN = 404,
 
@@ -6387,8 +8145,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     DH_PK_BN = 405,
 
@@ -6405,8 +8163,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ED25519_SK_BN = 501,
 
@@ -6423,8 +8181,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     ED25519_PK_BN = 502,
 
@@ -6441,8 +8199,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     X25519_SK_BN = 601,
 
@@ -6459,10 +8217,71 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     X25519_PK_BN = 602
+  }
+
+  /**
+   * Enum for asymmetric key data item type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum AsyKeyDataItem {
+    /**
+     * Indicates the K of the EC private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PRIVATE_K = 6,
+
+    /**
+     * Indicates the 04||X||Y||K of the EC private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PRIVATE_04_X_Y_K = 7,
+
+    /**
+     * Indicates the X||Y of the EC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PUBLIC_X_Y = 8,
+
+    /**
+     * Indicates the 04||X||Y of the EC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PUBLIC_04_X_Y = 9,
+
+    /**
+     * Indicates the 02||X or 03||X of the EC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PUBLIC_COMPRESS_X = 10
   }
 
   /**
@@ -6487,8 +8306,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum AsyKeySpecType {
     /**
@@ -6510,8 +8329,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     COMMON_PARAMS_SPEC = 0,
 
@@ -6534,8 +8353,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PRIVATE_KEY_SPEC = 1,
 
@@ -6558,8 +8377,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PUBLIC_KEY_SPEC = 2,
 
@@ -6582,8 +8401,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     KEY_PAIR_SPEC = 3
   }
@@ -6610,8 +8429,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface AsyKeySpec {
     /**
@@ -6636,8 +8455,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     algName: string;
 
@@ -6663,8 +8482,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     specType: AsyKeySpecType;
   }
@@ -6695,8 +8514,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DSACommonParamsSpec extends AsyKeySpec {
     /**
@@ -6721,8 +8540,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     p: bigint;
 
@@ -6748,8 +8567,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     q: bigint;
 
@@ -6775,8 +8594,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     g: bigint;
   }
@@ -6807,8 +8626,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DSAPubKeySpec extends AsyKeySpec {
     /**
@@ -6833,8 +8652,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: DSACommonParamsSpec;
 
@@ -6860,8 +8679,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -6892,8 +8711,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DSAKeyPairSpec extends AsyKeySpec {
     /**
@@ -6918,8 +8737,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: DSACommonParamsSpec;
 
@@ -6945,8 +8764,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
 
@@ -6972,8 +8791,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -7000,8 +8819,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ECField {
     /**
@@ -7029,8 +8848,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     fieldType: string;
   }
@@ -7060,8 +8879,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ECFieldFp extends ECField {
     /**
@@ -7086,8 +8905,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     p: bigint;
   }
@@ -7114,8 +8933,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Point {
     /**
@@ -7140,8 +8959,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     x: bigint;
 
@@ -7167,8 +8986,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     y: bigint;
   }
@@ -7198,8 +9017,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ECCCommonParamsSpec extends AsyKeySpec {
     /**
@@ -7224,8 +9043,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     field: ECField;
 
@@ -7251,8 +9070,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     a: bigint;
 
@@ -7278,8 +9097,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     b: bigint;
 
@@ -7305,8 +9124,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     g: Point;
 
@@ -7332,8 +9151,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     n: bigint;
 
@@ -7359,8 +9178,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     h: int;
   }
@@ -7391,8 +9210,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ECCPriKeySpec extends AsyKeySpec {
     /**
@@ -7417,8 +9236,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: ECCCommonParamsSpec;
 
@@ -7444,8 +9263,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -7476,8 +9295,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ECCPubKeySpec extends AsyKeySpec {
     /**
@@ -7502,8 +9321,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: ECCCommonParamsSpec;
 
@@ -7529,8 +9348,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: Point;
   }
@@ -7561,8 +9380,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ECCKeyPairSpec extends AsyKeySpec {
     /**
@@ -7587,8 +9406,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: ECCCommonParamsSpec;
 
@@ -7614,8 +9433,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
 
@@ -7641,8 +9460,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: Point;
   }
@@ -7660,8 +9479,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   class ECCKeyUtil {
     /**
@@ -7691,8 +9510,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
 
@@ -7710,8 +9529,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
 
@@ -7730,8 +9549,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Array;
   }
@@ -7754,8 +9573,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DHCommonParamsSpec extends AsyKeySpec {
     /**
@@ -7773,8 +9592,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     p: bigint;
 
@@ -7793,8 +9612,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     g: bigint;
 
@@ -7813,8 +9632,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     l: int;
   }
@@ -7837,8 +9656,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DHPriKeySpec extends AsyKeySpec {
     /**
@@ -7856,8 +9675,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: DHCommonParamsSpec;
 
@@ -7876,8 +9695,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -7900,8 +9719,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DHPubKeySpec extends AsyKeySpec {
     /**
@@ -7919,8 +9738,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: DHCommonParamsSpec;
 
@@ -7939,8 +9758,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -7963,8 +9782,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface DHKeyPairSpec extends AsyKeySpec {
     /**
@@ -7982,8 +9801,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: DHCommonParamsSpec;
 
@@ -8002,8 +9821,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8022,8 +9841,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8041,8 +9860,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   class DHKeyUtil {
     /**
@@ -8076,8 +9895,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     static genDHCommonParamsSpec(pLen: int, skLen?: int): DHCommonParamsSpec;
   }
@@ -8100,8 +9919,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ED25519PriKeySpec extends AsyKeySpec {
     /**
@@ -8119,8 +9938,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -8143,8 +9962,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ED25519PubKeySpec extends AsyKeySpec {
     /**
@@ -8162,8 +9981,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8186,8 +10005,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface ED25519KeyPairSpec extends AsyKeySpec {
     /**
@@ -8205,8 +10024,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8225,8 +10044,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8249,8 +10068,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface X25519PriKeySpec extends AsyKeySpec {
     /**
@@ -8268,8 +10087,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -8292,8 +10111,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface X25519PubKeySpec extends AsyKeySpec {
     /**
@@ -8311,8 +10130,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8335,8 +10154,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface X25519KeyPairSpec extends AsyKeySpec {
     /**
@@ -8354,8 +10173,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8374,8 +10193,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8406,8 +10225,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface RSACommonParamsSpec extends AsyKeySpec {
     /**
@@ -8432,8 +10251,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     n: bigint;
   }
@@ -8464,8 +10283,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface RSAPubKeySpec extends AsyKeySpec {
     /**
@@ -8490,8 +10309,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: RSACommonParamsSpec;
 
@@ -8517,8 +10336,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8549,8 +10368,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface RSAKeyPairSpec extends AsyKeySpec {
     /**
@@ -8575,8 +10394,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     params: RSACommonParamsSpec;
 
@@ -8602,8 +10421,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8629,8 +10448,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8658,8 +10477,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface AsyKeyGeneratorBySpec {
     /**
@@ -8693,8 +10512,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
@@ -8732,13 +10551,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateKeyPair(): Promise<KeyPair>;
 
     /**
      * Generate an asymmetric keypair.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateKeyPair}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -8748,8 +10572,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateKeyPairSync(): KeyPair;
 
@@ -8784,8 +10608,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generatePriKey(callback: AsyncCallback<PriKey>): void;
 
@@ -8823,13 +10647,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generatePriKey(): Promise<PriKey>;
 
     /**
      * Generate a private key instance.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generatePriKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { PriKey } return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -8839,8 +10668,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generatePriKeySync(): PriKey;
 
@@ -8875,8 +10704,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generatePubKey(callback: AsyncCallback<PubKey>): void;
 
@@ -8914,13 +10743,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generatePubKey(): Promise<PubKey>;
 
     /**
      * Generate a public key instance.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generatePubKey}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @returns { PubKey } return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -8930,8 +10764,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generatePubKeySync(): PubKey;
 
@@ -8960,8 +10794,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -9003,8 +10837,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
 
@@ -9024,8 +10858,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface KdfSpec {
     /**
@@ -9043,8 +10877,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     algName: string;
   }
@@ -9066,8 +10900,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface PBKDF2Spec extends KdfSpec {
     /**
@@ -9085,8 +10919,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     password: string | Uint8Array;
 
@@ -9105,8 +10939,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     salt: Uint8Array;
 
@@ -9125,8 +10959,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     iterations: int;
 
@@ -9145,8 +10979,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9159,8 +10993,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface HKDFSpec extends KdfSpec {
     /**
@@ -9170,8 +11004,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     key: string | Uint8Array;
 
@@ -9182,8 +11016,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     salt: Uint8Array;
 
@@ -9194,8 +11028,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     info: Uint8Array;
 
@@ -9206,53 +11040,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    keySize: int;
-  }
-
-  /**
-   * Specifies the X963KDF parameters.
-   *
-   * @extends KdfSpec
-   * @typedef X963KdfSpec
-   * @syscap SystemCapability.Security.CryptoFramework.Kdf
-   * @crossplatform
-   * @atomicservice
-   * @since 22
-   */
-  interface X963KdfSpec extends KdfSpec {
-    /**
-     * Indicates the key parameter of X963KDF.
-     *
-     * @type { string | Uint8Array }
-     * @syscap SystemCapability.Security.CryptoFramework.Kdf
-     * @crossplatform
-     * @atomicservice
-     * @since 22
-     */
-    key: string | Uint8Array;
-
-    /**
-     * Indicates the info parameter of X963KDF.
-     *
-     * @type { Uint8Array }
-     * @syscap SystemCapability.Security.CryptoFramework.Kdf
-     * @crossplatform
-     * @atomicservice
-     * @since 22
-     */
-    info: Uint8Array;
-
-    /**
-     * Indicates the byte length of output key of X963KDF.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Security.CryptoFramework.Kdf
-     * @crossplatform
-     * @atomicservice
-     * @since 22
+     * @since 12 dynamic
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9265,8 +11054,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   interface ScryptSpec extends KdfSpec {
     /**
@@ -9276,8 +11065,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     passphrase: string | Uint8Array;
 
@@ -9288,8 +11077,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     salt: Uint8Array;
 
@@ -9300,8 +11089,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     n: long;
 
@@ -9312,8 +11101,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     r: long;
 
@@ -9324,8 +11113,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     p: long;
 
@@ -9336,8 +11125,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     maxMemory: long;
 
@@ -9348,8 +11137,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9362,7 +11151,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface X963KdfSpec extends KdfSpec {
     /**
@@ -9372,7 +11162,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
+     * @since 23 static
      */
     key: string | Uint8Array;
 
@@ -9383,7 +11174,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
+     * @since 23 static
      */
     info: Uint8Array;
 
@@ -9394,7 +11186,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9415,8 +11208,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface Kdf {
     /**
@@ -9424,8 +11217,10 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -9437,15 +11232,37 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid key length in the params;
+     *     <br>2. Invalid info length in the params;
+     *     <br>3. Invalid keySize in the params.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
 
@@ -9454,8 +11271,10 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @returns { Promise<DataBlob> } the promise used to return dataBlob.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -9467,15 +11286,37 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @returns { Promise<DataBlob> } the promise used to return dataBlob.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { Promise<DataBlob> } the promise used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid key length in the params;
+     *     <br>2. Invalid info length in the params;
+     *     <br>3. Invalid keySize in the params.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
 
@@ -9484,16 +11325,44 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @returns { DataBlob } the sync used to return dataBlob.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSecret}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { DataBlob } the sync used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     *     <br>1. Invalid key length in the params;
+     *     <br>2. Invalid info length in the params;
+     *     <br>3. Invalid keySize in the params.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
      */
     generateSecretSync(params: KdfSpec): DataBlob;
 
@@ -9514,8 +11383,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -9545,8 +11414,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function createKdf(algName: string): Kdf;
 
@@ -9557,8 +11426,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface SM2CipherTextSpec {
     /**
@@ -9568,8 +11437,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     xCoordinate: bigint;
 
@@ -9580,8 +11449,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     yCoordinate: bigint;
 
@@ -9592,8 +11461,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     cipherTextData: Uint8Array;
 
@@ -9604,8 +11473,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     hashData: Uint8Array;
   }
@@ -9616,8 +11485,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   class SM2CryptoUtil {
     /**
@@ -9634,8 +11503,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
 
@@ -9653,8 +11522,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
   }
@@ -9666,8 +11535,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   interface EccSignatureSpec {
     /**
@@ -9677,8 +11546,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     r: bigint;
 
@@ -9689,8 +11558,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     s: bigint;
   }
@@ -9701,8 +11570,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   class SignatureUtils {
     /**
@@ -9719,8 +11588,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     static genEccSignatureSpec(data: Uint8Array): EccSignatureSpec;
 
@@ -9738,8 +11607,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     static genEccSignature(spec: EccSignatureSpec): Uint8Array;
   }

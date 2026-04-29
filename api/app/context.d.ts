@@ -14,6 +14,13 @@
  */
 
 /**
+ * The Context module provides context for ability components or applications. It allows access to application-specific 
+ * resources, as well as permission requests and verification.
+ * 
+ * > **NOTE**
+ * 
+ * > The APIs of this module can be used only in the FA model.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -33,11 +40,9 @@ import bundle from '../@ohos.bundle';
  * application-specific resources, request and verification permissions.
  * Can only be obtained through the ability.
  *
- * @extends BaseContext
- * @interface Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @FAModelOnly
- * @since 6
+ * @famodelonly
+ * @since 6 dynamiconly
  */
 export interface Context extends BaseContext {
   /**
@@ -49,8 +54,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } the root dir
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getOrCreateLocalDir(): Promise<string>;
 
@@ -63,8 +68,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the local root directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getOrCreateLocalDir(callback: AsyncCallback<string>): void;
 
@@ -77,10 +82,10 @@ export interface Context extends BaseContext {
    * @param { string } permission - The name of the specified permission.
    * @param { PermissionOptions } [options] - Permission Options.
    * @returns { Promise<number> } asynchronous callback with {@code 0} if the PID
-   *                              and UID have the permission; callback with {@code -1} otherwise.
+   *     and UID have the permission; callback with {@code -1} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   verifyPermission(permission: string, options?: PermissionOptions): Promise<number>;
 
@@ -93,10 +98,10 @@ export interface Context extends BaseContext {
    * @param { string } permission - The name of the specified permission
    * @param { PermissionOptions } options - Permission Options
    * @param { AsyncCallback<number> } callback - Return permission verification result, 0 has permission,
-   *                                           -1 has no permission.
+   *     -1 has no permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback<number>): void;
 
@@ -108,10 +113,10 @@ export interface Context extends BaseContext {
    *
    * @param { string } permission - The name of the specified permission
    * @param { AsyncCallback<number> } callback - Return permission verification result, 0 has permission,
-   *                                           -1 has no permission.
+   *     -1 has no permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   verifyPermission(permission: string, callback: AsyncCallback<number>): void;
 
@@ -122,8 +127,8 @@ export interface Context extends BaseContext {
    * @param { number } requestCode - Indicates the request code to be passed to the PermissionRequestResult
    * @param { AsyncCallback<PermissionRequestResult> } resultCallback - Return authorization result information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   requestPermissionsFromUser(
     permissions: Array<string>,
@@ -138,8 +143,8 @@ export interface Context extends BaseContext {
    * @param { number } requestCode - Indicates the request code to be passed to the PermissionRequestResult
    * @returns { Promise<PermissionRequestResult> } Indicates the request code to be passed to PermissionRequestResult.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   requestPermissionsFromUser(permissions: Array<string>, requestCode: number): Promise<PermissionRequestResult>;
 
@@ -148,8 +153,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<ApplicationInfo> } callback - Returns information about the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getApplicationInfo(callback: AsyncCallback<ApplicationInfo>): void;
 
@@ -158,8 +163,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<ApplicationInfo> } Information about the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getApplicationInfo(): Promise<ApplicationInfo>;
 
@@ -168,8 +173,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the Bundle name of the current capability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getBundleName(callback: AsyncCallback<string>): void;
 
@@ -178,8 +183,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } The Bundle name of the current capability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getBundleName(): Promise<string>;
 
@@ -188,8 +193,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<bundle.DisplayOrientation> } callback - Indicates the realistic direction of the screen.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void;
 
@@ -198,8 +203,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<bundle.DisplayOrientation> } Indicates the screen display direction.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
 
@@ -208,8 +213,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the absolute path of the application's cache directory.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    * @deprecated since 7
    */
   getExternalCacheDir(callback: AsyncCallback<string>): void;
@@ -219,8 +224,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Return the cache directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    * @deprecated since 7
    */
   getExternalCacheDir(): Promise<string>;
@@ -231,8 +236,8 @@ export interface Context extends BaseContext {
    * @param { bundle.DisplayOrientation } orientation - Indicates the new orientation for the current ability.
    * @param { AsyncCallback<void> } callback - Indicates the realistic direction of the screen.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void;
 
@@ -242,8 +247,8 @@ export interface Context extends BaseContext {
    * @param { bundle.DisplayOrientation } orientation - Indicates the new orientation for the current ability.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise<void>;
 
@@ -253,13 +258,13 @@ export interface Context extends BaseContext {
    * The interface can only take effect in API8 and below versions.
    *
    * @param { boolean } show - Specifies whether to show this ability on top of the lock screen. The value true means
-   *                           to show it on the lock screen, and the value false means not.
+   *     to show it on the lock screen, and the value false means not.
    * @param { AsyncCallback<void> } callback - Returns the callback result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
+   * @useinstead @ohos.window:window.WindowStage.setShowOnLockScreen
    */
   setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void;
 
@@ -269,13 +274,13 @@ export interface Context extends BaseContext {
    * The interface can only take effect in API8 and below versions.
    *
    * @param { boolean } show - Specifies whether to show this ability on top of the lock screen. The value true means to
-   *                           show it on the lock screen, and the value false means not.
+   *     show it on the lock screen, and the value false means not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
+   * @useinstead @ohos.window:window.WindowStage.setShowOnLockScreen
    */
   setShowOnLockScreen(show: boolean): Promise<void>;
 
@@ -283,13 +288,13 @@ export interface Context extends BaseContext {
    * Sets whether to wake up the screen when this ability is restored.
    *
    * @param { boolean } wakeUp - Specifies whether to wake up the screen. The value true means to wake it up,
-   *                             and the value false means not.
+   *     and the value false means not.
    * @param { AsyncCallback<void> } callback - Returns the callback result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.window.Window#setWakeUpScreen
+   * @useinstead @ohos.window:window.setWakeUpScreen
    */
   setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void;
 
@@ -297,13 +302,13 @@ export interface Context extends BaseContext {
    * Sets whether to wake up the screen when this ability is restored.
    *
    * @param { boolean } wakeUp - Specifies whether to wake up the screen. The value true means to wake it up, and the
-   *                             value false means not.
+   *     value false means not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.window.Window#setWakeUpScreen
+   * @useinstead @ohos.window:window.setWakeUpScreen
    */
   setWakeUpScreen(wakeUp: boolean): Promise<void>;
 
@@ -312,8 +317,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<ProcessInfo> } callback - Return current process information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getProcessInfo(callback: AsyncCallback<ProcessInfo>): void;
 
@@ -322,8 +327,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<ProcessInfo> } Information about the current process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getProcessInfo(): Promise<ProcessInfo>;
 
@@ -332,8 +337,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<ElementName> } callback - Returns the ohos.bundle.ElementName of the current capability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getElementName(callback: AsyncCallback<ElementName>): void;
 
@@ -342,8 +347,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<ElementName> } The ohos.bundle.ElementName object of the current capability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getElementName(): Promise<ElementName>;
 
@@ -352,8 +357,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Return current process name.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getProcessName(callback: AsyncCallback<string>): void;
 
@@ -362,8 +367,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Returns the name of the current process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getProcessName(): Promise<string>;
 
@@ -372,8 +377,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the Bundle name of the ability caller.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getCallingBundle(callback: AsyncCallback<string>): void;
 
@@ -382,8 +387,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Returns the Bundle name of the ability caller.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getCallingBundle(): Promise<string>;
 
@@ -392,8 +397,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Return the file directory of this application on internal storage.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    */
   getFilesDir(callback: AsyncCallback<string>): void;
 
@@ -402,8 +407,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Return the file directory of this application on internal storage.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    */
   getFilesDir(): Promise<string>;
 
@@ -412,8 +417,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the internal storage directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    */
   getCacheDir(callback: AsyncCallback<string>): void;
 
@@ -422,8 +427,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Returns the internal storage directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 6
+   * @famodelonly
+   * @since 6 dynamiconly
    */
   getCacheDir(): Promise<string>;
 
@@ -432,10 +437,10 @@ export interface Context extends BaseContext {
    * If the distributed file path does not exist, the system will create a path and return the created path.
    *
    * @returns { Promise<string> } Returns the distributed file path of the Ability or application. If it is the first
-   *                              call, a directory will be created.
+   *     call, a directory will be created.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getOrCreateDistributedDir(): Promise<string>;
 
@@ -444,10 +449,10 @@ export interface Context extends BaseContext {
    * If the distributed file path does not exist, the system will create a path and return the created path.
    *
    * @param { AsyncCallback<string> } callback - Returns the distributed file path of Ability or application.
-   *                                  If the path does not exist,the system will create a path and return the created path.
+   *     If the path does not exist,the system will create a path and return the created path.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getOrCreateDistributedDir(callback: AsyncCallback<string>): void;
 
@@ -456,8 +461,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the type of the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getAppType(callback: AsyncCallback<string>): void;
 
@@ -466,8 +471,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Returns the type of this app.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getAppType(): Promise<string>;
 
@@ -476,8 +481,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<HapModuleInfo> } callback - Returns the ModuleInfo object of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getHapModuleInfo(callback: AsyncCallback<HapModuleInfo>): void;
 
@@ -486,8 +491,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<HapModuleInfo> } Return to the ModuleInfo of the application and enjoy it.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getHapModuleInfo(): Promise<HapModuleInfo>;
 
@@ -496,8 +501,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<AppVersionInfo> } callback - Return application version information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getAppVersionInfo(callback: AsyncCallback<AppVersionInfo>): void;
 
@@ -506,8 +511,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<AppVersionInfo> } Return application version information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getAppVersionInfo(): Promise<AppVersionInfo>;
 
@@ -516,8 +521,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Context } Return application context information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getApplicationContext(): Context;
 
@@ -526,8 +531,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<AbilityInfo> } callback - Return the detailed information of the current belonging Ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void;
 
@@ -536,18 +541,19 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<AbilityInfo> } Return the detailed information of the current belonging Ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   getAbilityInfo(): Promise<AbilityInfo>;
 
   /**
    * Checks whether the configuration of this ability is changing.
    *
-   * @param { AsyncCallback<boolean> } callback - True if the configuration of the capability is being changed, otherwise false.
+   * @param { AsyncCallback<boolean> } callback - True if the configuration of the capability is being changed,
+   *     otherwise false.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   isUpdatingConfigurations(callback: AsyncCallback<boolean>): void;
 
@@ -556,8 +562,8 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<boolean> } true if the configuration of this ability is changing and false otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   isUpdatingConfigurations(): Promise<boolean>;
 
@@ -566,8 +572,8 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<void> } callback - Represents the specified callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   printDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -576,68 +582,74 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<void> } The promise form returns the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   printDrawnCompleted(): Promise<void>;
 }
+
 /**
- * @typedef PermissionRequestResult
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @FAModelOnly
- * @since 7
+ * @famodelonly
+ * @since 7 dynamiconly
  */
 interface PermissionRequestResult {
   /**
-   * @type { number }
+   * Request code passed.
+   *
    * @default The request code passed in by the user
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   requestCode: number;
 
   /**
-   * @type { Array<string> }
+   * Permissions requested.
+   *
    * @default The permissions passed in by the user
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   permissions: Array<string>;
 
   /**
-   * @type { Array<number> }
+   * Permission request result.
+   *
    * @default The results for the corresponding request permissions
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   authResults: Array<number>;
 }
 
 /**
- * @typedef PermissionOptions
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @FAModelOnly
- * @since 7
+ * @famodelonly
+ * @since 7 dynamiconly
  */
 interface PermissionOptions {
   /**
-   * @type { ?number }
+   * Process ID.
+   *
    * @default The process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   pid?: number;
 
   /**
-   * @type { ?number }
+   * User ID.
+   *
    * @default The user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
-   * @since 7
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   uid?: number;
 }

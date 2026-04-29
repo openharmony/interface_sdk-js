@@ -15,18 +15,18 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { LengthMetrics } from '../Graphics';
 import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Describes the layout and alignment of child components within the Flex component.
  *
  * @interface FlexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface FlexOptions {
     /**
@@ -35,7 +35,8 @@ export declare interface FlexOptions {
      * @type { ?FlexDirection }
      * @default FlexDirection.Row
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     direction?: FlexDirection;
     /**
@@ -44,7 +45,8 @@ export declare interface FlexOptions {
      * @type { ?FlexWrap }
      * @default FlexWrap.NoWrap
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     wrap?: FlexWrap;
     /**
@@ -53,7 +55,8 @@ export declare interface FlexOptions {
      * @type { ?FlexAlign }
      * @default FlexAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     justifyContent?: FlexAlign;
     /**
@@ -62,7 +65,8 @@ export declare interface FlexOptions {
      * @type { ?ItemAlign }
      * @default ItemAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     alignItems?: ItemAlign;
     /**
@@ -72,7 +76,8 @@ export declare interface FlexOptions {
      * @type { ?FlexAlign }
      * @default FlexAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     alignContent?: FlexAlign;
     /**
@@ -81,7 +86,8 @@ export declare interface FlexOptions {
      * @type { ?FlexSpaceOptions }
      * @default {main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     space?: FlexSpaceOptions;
 }
@@ -90,7 +96,8 @@ export declare interface FlexOptions {
  *
  * @interface FlexSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface FlexSpaceOptions {
     /**
@@ -98,7 +105,8 @@ export declare interface FlexSpaceOptions {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     main?: LengthMetrics;
     /**
@@ -106,37 +114,60 @@ export declare interface FlexSpaceOptions {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     cross?: LengthMetrics;
 }
+
+/**
+ * The FlexAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface FlexAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 export declare interface FlexAttribute extends CommonMethod {
     /**
     * Defines the PointLight
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { FlexAttribute } The attribute of the flex.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
-    default pointLight(value: PointLightStyle): FlexAttribute;
+    default pointLight(value: PointLightStyle | undefined): FlexAttribute;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { FlexAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
 }
 
-@memo
+/**
+ * Defines Flex Component.
+ *
+ * @param { FlexOptions } [value] - Flex options.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { FlexAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 @ComponentBuilder
 export declare function Flex(
     value?: FlexOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): FlexAttribute

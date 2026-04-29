@@ -19,22 +19,22 @@
  */
 
 import ExtensionContext from './ExtensionContext';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type CustomData from './CustomData';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import CustomData from './CustomData';
 /*** endif */
 
 /**
- * The context of auto fill extension. It allows access to AutoFillExtension-specific resources.
+ * The AutoFillExtensionContext module provides the context environment for the AutoFillExtensionAbility. It inherits 
+ * from [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare class AutoFillExtensionContext extends ExtensionContext {
   /**
@@ -50,8 +50,8 @@ declare class AutoFillExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 23 static
    */
   reloadInModal(customData: CustomData): Promise<void>;
 }

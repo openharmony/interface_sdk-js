@@ -17,17 +17,13 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { CommonMethod, } from './common';
-import { Curve,AnimationStatus, FillMode,PlayMode} from './enums'
-/*** endif */
+
 /**
  * Customize spring properties.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamiconly
  * @deprecated since 22
  */
 declare class SpringProp {
@@ -39,8 +35,7 @@ declare class SpringProp {
    * @param { number } damping
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   constructor(mass: number, stiffness: number, damping: number);
@@ -51,8 +46,7 @@ declare class SpringProp {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamiconly
  * @deprecated since 22
  */
 declare class SpringMotion {
@@ -65,8 +59,7 @@ declare class SpringMotion {
    * @param { SpringProp } prop
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   constructor(start: number, end: number, velocity: number, prop: SpringProp);
@@ -77,8 +70,7 @@ declare class SpringMotion {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamiconly
  * @deprecated since 22
  */
 declare class FrictionMotion {
@@ -90,8 +82,7 @@ declare class FrictionMotion {
    * @param { number } velocity
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   constructor(friction: number, position: number, velocity: number);
@@ -102,8 +93,7 @@ declare class FrictionMotion {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamiconly
  * @deprecated since 22
  */
 declare class ScrollMotion {
@@ -117,8 +107,7 @@ declare class ScrollMotion {
    * @param { SpringProp } prop
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
@@ -130,10 +119,10 @@ declare class ScrollMotion {
  * @interface AnimatorInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamiconly
  * @deprecated since 22
  * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
+ * @noninterop
  */
 interface AnimatorInterface {
   /**
@@ -143,8 +132,7 @@ interface AnimatorInterface {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   (value: string): AnimatorAttribute;
@@ -156,10 +144,10 @@ interface AnimatorInterface {
  * @extends CommonMethod<AnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamiconly
  * @deprecated since 22
  * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
+ * @noninterop
  */
 declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
@@ -169,8 +157,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   state(value: AnimationStatus): AnimatorAttribute;
@@ -182,8 +169,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   duration(value: number): AnimatorAttribute;
@@ -195,8 +181,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   curve(value: Curve): AnimatorAttribute;
@@ -208,8 +193,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   delay(value: number): AnimatorAttribute;
@@ -221,8 +205,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   fillMode(value: FillMode): AnimatorAttribute;
@@ -234,8 +217,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   iterations(value: number): AnimatorAttribute;
@@ -247,8 +229,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   playMode(value: PlayMode): AnimatorAttribute;
@@ -260,8 +241,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   motion(value: SpringMotion | FrictionMotion | ScrollMotion): AnimatorAttribute;
@@ -273,8 +253,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   onStart(event: () => void): AnimatorAttribute;
@@ -286,8 +265,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   onPause(event: () => void): AnimatorAttribute;
@@ -299,8 +277,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   onRepeat(event: () => void): AnimatorAttribute;
@@ -312,8 +289,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   onCancel(event: () => void): AnimatorAttribute;
@@ -325,8 +301,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   onFinish(event: () => void): AnimatorAttribute;
@@ -338,8 +313,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamiconly
    * @deprecated since 22
    */
   onFrame(event: (value: number) => void): AnimatorAttribute;
@@ -350,9 +324,10 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 22
  * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
+ * @noninterop
  */
 declare const Animator: AnimatorInterface;
 
@@ -361,8 +336,9 @@ declare const Animator: AnimatorInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamiconly
  * @deprecated since 22
  * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
+ * @noninterop
  */
 declare const AnimatorInstance: AnimatorAttribute;

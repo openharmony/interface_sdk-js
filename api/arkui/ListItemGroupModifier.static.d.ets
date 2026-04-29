@@ -17,7 +17,6 @@
 /**
  * @file ListItemGroup modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -29,7 +28,8 @@ import { ListItemGroupAttribute } from '@ohos.arkui.component';
  *
  * @implements { ListItemGroupAttribute, AttributeModifier<ListItemGroupAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ListItemGroupModifier
     implements

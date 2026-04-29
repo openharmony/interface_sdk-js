@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,42 +21,44 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Declares the APIs for dragging management.
+ * The **dragInteraction** module provides the APIs to enable and disable listening for dragging status changes.
  *
- * @namespace dragInteraction
+ * > **NOTE**
+ * >
+ * > - The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.Msdp.DeviceStatus.Drag
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 23 static
  */
 declare namespace dragInteraction {
   /**
-   * Enumerates the dragging states.
+   * Enumerates dragging states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   enum DragState {
     /**
-     * Dragging starts.
+     * Dragging is started.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     MSG_DRAG_STATE_START = 1,
 
     /**
-     * Dragging ends.
+     * Dragging is ended.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     MSG_DRAG_STATE_STOP = 2,
 
@@ -65,135 +67,107 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
-    MSG_DRAG_STATE_CANCEL = 3,
+    MSG_DRAG_STATE_CANCEL = 3
   }
 
   /**
-   * Abstract of the dragged data.
+   * Defines the data summary of the dragged object.
    *
-   * @interface Summary
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface Summary {
     /**
      * Type of the dragged object.
      *
-     * @type { string }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     dataType: string;
 
     /**
      * Data length of the dragged object.
      *
-     * @type { int }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     dataSize: int;
   }
 
   /**
-   * Listens for dragging state change events.
+   * Enables listening for dragging status changes.
    *
-   * @param { 'drag' } type Indicates the event type.
-   * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
+   * @param { 'drag' } type - Event type. This field has a fixed value of **drag**.
+   * @param { Callback<DragState> } callback - Callback used to return the dragging status.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Listens for dragging state change events.
-   *
-   * @param { 'drag' } type Indicates the event type.
-   * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
+   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   *     [since 12]
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
 
   /**
-   * Disables listening for dragging state change events.
+   * Listens for dragging state change events.
    *
-   * @param { 'drag' } type Indicates the event type.
-   * @param { Callback<DragState> }callback Indicates the callback for which listening is disabled. If this parameter
-   * is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Disables listening for dragging state change events.
-   *
-   * @param { 'drag' } type Indicates the event type.
-   * @param { Callback<DragState> }callback Indicates the callback for which listening is disabled. If this parameter
-   * is not specified, listening will be disabled for all registered callbacks.
+   * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 static
+   */
+  function onDragStateChange(callback: Callback<DragState>): void;
+
+  /**
+   * Disables listening for dragging status changes.
+   *
+   * @param { 'drag' } type - Event type. This field has a fixed value of **drag**.
+   * @param { Callback<DragState> }callback - Callback to be unregistered. If this parameter is not specified, all
+   *     callbacks registered by the current application will be unregistered.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12]
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 10 dynamic
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
   /**
-   * Obtains the abstract of a dragged object.
+   * Disables listening for dragging state change events.
    *
-   * @returns { Array<Summary> } Data abstract of the dragged object.
+   * @param { Callback<DragState> } [callback] - Indicates the callback for which listening is disabled. If this
+   *     <br> parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 static
+   */
+  function offDragStateChange(callback?: Callback<DragState>): void;
+
+  /**
+   * Obtains the data summary of all dragged objects.
+   *
+   * @returns { Array<Summary> } Data summary of all dragged objects, including their type and data length.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getDataSummary(): Array<Summary>;
-
-  /**
-   * Sets the master switch for enhancing the drag capability.
-   *
-   * @param { boolean } enabled Switch state.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @systemapi Hide this for inner system use.
-   * @since 18
-   */
-  function setDragSwitchState(enabled: boolean): void;
-
-  /**
-   * Sets the app switch for enhancing the drag capability.
-   *
-   * @param { boolean } enabled Switch state.
-   * @param { string } bundleName App bundle name.
-   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @systemapi Hide this for inner system use.
-   * @since 18
-   */
-  function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }
 
 export default dragInteraction;

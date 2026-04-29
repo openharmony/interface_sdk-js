@@ -23,9 +23,10 @@
  *
  * @interface FocusBoxStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface FocusBoxStyle {
   /**
@@ -33,9 +34,10 @@ declare interface FocusBoxStyle {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   margin?: LengthMetrics;
   /**
@@ -43,9 +45,10 @@ declare interface FocusBoxStyle {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   strokeColor?: ColorMetrics;
   /**
@@ -53,9 +56,10 @@ declare interface FocusBoxStyle {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   strokeWidth?: LengthMetrics;
 }
@@ -65,18 +69,20 @@ declare interface FocusBoxStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum FocusPriority {
   /**
    * Default priority.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   AUTO = 0,
 
@@ -84,9 +90,10 @@ declare enum FocusPriority {
    * Prior priority.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   PRIOR = 2000,
 
@@ -94,9 +101,10 @@ declare enum FocusPriority {
    * Previous focus priority.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   PREVIOUS = 3000,
 }
@@ -107,18 +115,20 @@ declare enum FocusPriority {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare enum KeyProcessingMode {
   /**
    * Key events are used to move focus.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   FOCUS_NAVIGATION = 0,
 
@@ -126,9 +136,10 @@ declare enum KeyProcessingMode {
    * Key events bubble up to ancestors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ANCESTOR_EVENT = 1,
 }

@@ -19,29 +19,28 @@
  */
 
 /**
- * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+ * Enumerates the error codes that may be returned when an ability is started.
  *
- * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'6', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6 dynamic
+ * @since 23 static
  */
 export enum ErrorCode {
   /**
    * Permission denied.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'6', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 23 static
    */
   PERMISSION_DENY = -3,
 
   /**
-   * Ability not found.
+   * The ability is not found.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'6', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 23 static
    */
   ABILITY_NOT_FOUND = -2,
 
@@ -49,8 +48,8 @@ export enum ErrorCode {
    * Invalid parameter.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'6', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 23 static
    */
   INVALID_PARAMETER = -1,
 
@@ -58,8 +57,8 @@ export enum ErrorCode {
    * No error.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'6', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 23 static
    */
   NO_ERROR = 0
 }

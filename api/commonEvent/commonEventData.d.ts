@@ -18,139 +18,93 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
- * Common event data.
+ * Describes the data of a common event.
  *
- * @typedef CommonEventData
  * @syscap SystemCapability.Notification.CommonEvent
- * @since 7
- */
-/**
- * Common event data.
- *
- * @typedef CommonEventData
- * @syscap SystemCapability.Notification.CommonEvent
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface CommonEventData {
   /**
    * Name of the common event that is being received.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Name of the common event that is being received.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   event: string;
 
   /**
-   * Bundle name. This parameter is left empty by default.
+   * Bundle name. The default value is an empty string.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Bundle name. This parameter is left empty by default.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   bundleName?: string;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the code field in
-   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
+   * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in
+   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * to publish a common event. The default value is **0**.
    *
-   * @type { ?number }
+   * @type { ?number } [since 7 - 10]
+   * @type { ?int } [since 11]
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the code field in
-   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
-   *
-   * @type { ?int }
-   * @default 0
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   code?: int;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
-   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the **data** field in
+   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * to publish a common event.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
-   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
-   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   data?: string;
 
   /**
    * Additional information about the common event received by the subscriber. The value of this field is the same as
-   * that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
+   * when the publisher uses
+   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * to publish a common event.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as
-   * that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   parameters?: { [key: string]: any };
 
   /**
-   * The description of the parameters in a common event.
+   * Additional information about the common event received by the subscriber. The value of this field is the same as
+   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
+   * when the publisher uses
+   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * to publish a common event.
    *
-   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  parameters?: Record<string, Object>;
+  parameters?: Record<string, RecordData>;
 }

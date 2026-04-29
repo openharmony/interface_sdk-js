@@ -38,7 +38,7 @@
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 declare namespace hidebug {
   /**
@@ -48,7 +48,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the total number of bytes occupied by the total space.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getNativeHeapSize(): bigint;
 
@@ -58,7 +58,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the total number of bytes occupied by the total allocated space.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getNativeHeapAllocatedSize(): bigint;
 
@@ -69,7 +69,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the memory occupied by the free normal blocks held by the process, in bytes.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getNativeHeapFreeSize(): bigint;
 
@@ -80,7 +80,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the virtual set size used by the application process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 11 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getVss(): bigint;
 
@@ -91,7 +91,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the physical memory actually used by the application process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getPss(): bigint;
 
@@ -102,7 +102,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the shared dirty memory of the process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getSharedDirty(): bigint;
 
@@ -113,7 +113,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the private dirty memory of the process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getPrivateDirty(): bigint;
 
@@ -123,7 +123,7 @@ declare namespace hidebug {
    * @returns { double } Returns the CPU usage of the process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getCpuUsage(): double;
 
@@ -163,7 +163,7 @@ declare namespace hidebug {
    *
    * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hidebug/hidebug.dumpJsHeapData
    */
@@ -179,7 +179,7 @@ declare namespace hidebug {
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -190,7 +190,7 @@ declare namespace hidebug {
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function stopJsCpuProfiling(): void;
 
@@ -203,9 +203,25 @@ declare namespace hidebug {
    * in the files directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since 9 dynamic
    */
   function dumpJsHeapData(filename: string): void;
+
+  /**
+   * Exports the heap data.
+   * The input parameter is a user-defined file name, excluding the file suffix.
+   * The generated file is in the files folder under the application directory.
+   *
+   * @param { string } filename - User-defined file name of the sampling data. The .heapsnapshot file is generated
+   * in the files directory of the application based on the specified file name.
+   * @param { boolean } [needClean] - Whether to release the snapshot cache before dumping the heap snapshot.
+   * The default value is false.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function dumpJsHeapData(filename: string, needClean: boolean): void;
 
   /**
    * Obtains system service information.
@@ -222,7 +238,7 @@ declare namespace hidebug {
    * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getServiceDump(serviceid: int, fd: int, args: Array<string>): void;
 
@@ -233,7 +249,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - The status of the system CPU usage is abnormal.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getSystemCpuUsage(): double;
 
@@ -243,7 +259,7 @@ declare namespace hidebug {
    * @interface ThreadCpuUsage
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   interface ThreadCpuUsage {
     /**
@@ -252,7 +268,7 @@ declare namespace hidebug {
      * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     threadId: long;
     /**
@@ -261,7 +277,7 @@ declare namespace hidebug {
      * @type { double }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     cpuUsage: double;
   }
@@ -272,7 +288,7 @@ declare namespace hidebug {
    * @returns { ThreadCpuUsage[] } Returns the CPU usage of all threads of the current application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getAppThreadCpuUsage(): ThreadCpuUsage[];
 
@@ -282,7 +298,7 @@ declare namespace hidebug {
    * @interface SystemMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   interface SystemMemInfo {
     /**
@@ -292,7 +308,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     totalMem: bigint;
     /**
@@ -302,7 +318,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     freeMem: bigint;
     /**
@@ -312,7 +328,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     availableMem: bigint;
   }
@@ -323,7 +339,7 @@ declare namespace hidebug {
    * @returns { SystemMemInfo } Returns the system memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getSystemMemInfo(): SystemMemInfo;
 
@@ -333,7 +349,7 @@ declare namespace hidebug {
    * @interface NativeMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   interface NativeMemInfo {
     /**
@@ -344,7 +360,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     pss: bigint;
     /**
@@ -355,7 +371,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     vss: bigint;
     /**
@@ -365,7 +381,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     rss: bigint;
     /**
@@ -375,7 +391,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     sharedDirty: bigint;
     /**
@@ -385,7 +401,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     privateDirty: bigint;
     /**
@@ -395,7 +411,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     sharedClean: bigint;
     /**
@@ -405,7 +421,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     privateClean: bigint;
   }
@@ -417,7 +433,7 @@ declare namespace hidebug {
    * @returns { NativeMemInfo } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getAppNativeMemInfo(): NativeMemInfo;
 
@@ -427,7 +443,7 @@ declare namespace hidebug {
    * @interface MemoryLimit
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   interface MemoryLimit {
     /**
@@ -436,7 +452,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     rssLimit: bigint;
     /**
@@ -445,7 +461,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     vssLimit: bigint;
     /**
@@ -454,7 +470,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     vmHeapLimit: bigint;
     /**
@@ -463,7 +479,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     vmTotalHeapSize: bigint;
   }
@@ -474,7 +490,7 @@ declare namespace hidebug {
    * @returns { MemoryLimit } Returns the memory limit of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getAppMemoryLimit(): MemoryLimit;
 
@@ -485,7 +501,7 @@ declare namespace hidebug {
    * @returns { Promise<NativeMemInfo> } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppNativeMemInfoAsync(): Promise<NativeMemInfo>;
 
@@ -499,7 +515,7 @@ declare namespace hidebug {
    * @returns { NativeMemInfo } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppNativeMemInfoWithCache(forceRefresh?: boolean): NativeMemInfo;
 
@@ -509,7 +525,7 @@ declare namespace hidebug {
    * @interface VMMemoryInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   interface VMMemoryInfo {
     /**
@@ -518,7 +534,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     totalHeap: bigint;
     /**
@@ -527,7 +543,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     heapUsed: bigint;
     /**
@@ -536,7 +552,7 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     allArraySize: bigint;
   }
@@ -547,7 +563,7 @@ declare namespace hidebug {
    * @returns { VMMemoryInfo } Returns the VM memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getAppVMMemoryInfo(): VMMemoryInfo;
 
@@ -557,7 +573,7 @@ declare namespace hidebug {
    * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   enum TraceFlag {
     /**
@@ -565,7 +581,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     MAIN_THREAD = 1,
     /**
@@ -573,7 +589,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     ALL_THREADS = 2
   }
@@ -584,7 +600,7 @@ declare namespace hidebug {
    * @namespace tags
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   namespace tags {
     /**
@@ -592,7 +608,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const ABILITY_MANAGER: long;
     /**
@@ -600,7 +616,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const ARKUI: long;
     /**
@@ -608,7 +624,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const ARK: long;
     /**
@@ -616,7 +632,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const BLUETOOTH: long;
     /**
@@ -624,7 +640,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const COMMON_LIBRARY: long;
     /**
@@ -632,7 +648,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_HARDWARE_DEVICE_MANAGER: long;
     /**
@@ -640,7 +656,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_AUDIO: long;
     /**
@@ -648,7 +664,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_CAMERA: long;
     /**
@@ -656,7 +672,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_DATA: long;
     /**
@@ -664,7 +680,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_HARDWARE_FRAMEWORK: long;
     /**
@@ -672,7 +688,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_INPUT: long;
     /**
@@ -680,7 +696,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_SCREEN: long;
     /**
@@ -688,7 +704,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const DISTRIBUTED_SCHEDULER: long;
     /**
@@ -696,7 +712,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const FFRT: long;
     /**
@@ -704,7 +720,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const FILE_MANAGEMENT: long;
     /**
@@ -712,7 +728,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const GLOBAL_RESOURCE_MANAGER: long;
     /**
@@ -720,7 +736,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const GRAPHICS: long;
     /**
@@ -728,7 +744,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const HDF: long;
     /**
@@ -736,7 +752,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const MISC: long;
     /**
@@ -744,7 +760,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const MULTIMODAL_INPUT: long;
     /**
@@ -752,7 +768,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const NET: long;
     /**
@@ -760,7 +776,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const NOTIFICATION: long;
     /**
@@ -768,7 +784,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const NWEB: long;
     /**
@@ -776,7 +792,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const OHOS: long;
     /**
@@ -784,7 +800,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const POWER_MANAGER: long;
     /**
@@ -792,7 +808,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const RPC: long;
     /**
@@ -800,7 +816,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const SAMGR: long;
     /**
@@ -808,7 +824,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const WINDOW_MANAGER: long;
     /**
@@ -816,7 +832,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const AUDIO: long;
     /**
@@ -824,7 +840,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const CAMERA: long;
     /**
@@ -832,7 +848,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const IMAGE: long;
     /**
@@ -840,7 +856,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-     * @since 20 static
+     * @since 23 static
      */
     const MEDIA: long;
   }
@@ -864,7 +880,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Abnormal trace status.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function startAppTraceCapture(tags: long[], flag: TraceFlag, limitSize: int): string;
 
@@ -876,9 +892,71 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400105 - No capture trace running.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function stopAppTraceCapture(): void;
+
+  /**
+   * Describes the trace request configuration.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface RequestTraceConfig {
+    /**
+     * Identifier used as the prefix of the output trace file name.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    identifier: string;
+    /**
+     * Buffer size of the trace file, in KB.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    bufferSizeKb: int;
+    /**
+     * Duration of the trace, in ms.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    durationMs: int;
+    /**
+     * Reserved field for future use. Set to 0.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    reserved: int;
+  }
+
+  /**
+   * Requests trace collection with the specified configuration.
+   *
+   * @param { RequestTraceConfig } config - Trace request configuration.
+   * @returns { Promise<string> } Returns the path of the trace file.
+   * @throws { BusinessError } 11400104 - Remote service exception.
+   * @throws { BusinessError } 11400120 - Trace storage limit reached.
+   * @throws { BusinessError } 11400302 - Resource unavailable.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function requestTrace(config: RequestTraceConfig): Promise<string>;
 
   /**
    * Describes the key-value pair used to store GC statistics. This type does not support multi-thread operations.
@@ -887,7 +965,7 @@ declare namespace hidebug {
    * @typedef { Record<string, long> } GcStats
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   type GcStats = Record<string, long>;
 
@@ -897,7 +975,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the memory usage of ArkTS objects, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppVMObjectUsedSize(): bigint;
 
@@ -907,7 +985,7 @@ declare namespace hidebug {
    * @returns { GcStats } Returns the system GC statistics.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getVMRuntimeStats(): GcStats;
 
@@ -921,7 +999,7 @@ declare namespace hidebug {
    *                           2. Invalid parameter, unknown property.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getVMRuntimeStat(item: string): long;
 
@@ -945,7 +1023,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Set limit failed due to remote exception
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function setAppResourceLimit(type: string, value: int, enableDebugLog: boolean): void;
 
@@ -956,7 +1034,7 @@ declare namespace hidebug {
    * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function isDebugState(): boolean;
 
@@ -968,7 +1046,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getGraphicsMemory(): Promise<int>;
 
@@ -980,7 +1058,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   function getGraphicsMemorySync(): int;
 
@@ -991,7 +1069,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GraphicsMemorySummary {
     /**
@@ -1001,7 +1079,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     gl: int;
 
@@ -1012,7 +1090,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     graph: int;
   }
@@ -1028,7 +1106,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getGraphicsMemorySummary(interval?: int): Promise<GraphicsMemorySummary>;
 
@@ -1054,9 +1132,68 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400113 - Failed to create dump file.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
+
+  /**
+   * Dumps the original heap snapshot of the VM for the current thread. The API uses a promise to return the path of the
+   * .rawheap file. You can use rawheap-translator to convert the generated file into a .heapsnapshot file for parsing.
+   * The generated file will be stored in a folder within the application directory. However, since this file is usually
+   * large, the system imposes restrictions on the frequency and number of calls to this function. Consequently, you
+   * might fail to obtain the dump file due to quota limitations. These failures will persist until the quota is
+   * regularly refreshed by the system. Therefore, it is advisable to delete the file immediately after you have
+   * finished processing it. Moreover, it is recommended that you use this function in the gray - release version.
+   *
+   * @param { boolean } needGC - Whether GC is required when a heap snapshot is dumped. The default value is true.
+   * If this parameter is not specified, GC is triggered before dumping.
+   * @param { boolean } [needClean] - Whether to release the snapshot cache before dumping the heap snapshot.
+   * The default value is false.
+   * @returns { Promise<string> } Returns the path of the generated snapshot file.
+   * @throws { BusinessError } 11400106 - Quota exceeded.
+   * @throws { BusinessError } 11400107 - Fork operation failed.
+   * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
+   * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
+   * @throws { BusinessError } 11400110 - Disk remaining space too low.
+   * @throws { BusinessError } 11400111 - Napi interface call exception.
+   * @throws { BusinessError } 11400112 - Repeated data dump.
+   * @throws { BusinessError } 11400113 - Failed to create dump file.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
+
+  /**
+   * Dump the raw heap snapshot of the JavaScript Virtual Machine for the current thread.
+   *
+   * The generated file will be stored in a folder within the application directory. However, since this file is usually
+   * large, the system imposes restrictions on the frequency and number of calls to this function. Consequently, you
+   * might fail to obtain the dump file due to quota limitations. These failures will persist until the quota is
+   * regularly refreshed by the system. Therefore, it is advisable to delete the file immediately after you have
+   * finished processing it. Moreover, it is recommended that you use this function in the gray - release version.
+   *
+   * @param { boolean } needGC - Whether do GC before dump, default is true.
+   * @param { boolean } needClean - Whether to release the snapshot cache before dumping the heap snapshot.
+   * The default value is false.
+   * @param { boolean } processDump - Whether to dump the heap of whole process.
+   * The default value is false.
+   * @returns { Promise<Array<string>> } Returns a list of the full path of raw heap snapshot file.
+   * @throws { BusinessError } 11400106 - Quota exceeded.
+   * @throws { BusinessError } 11400107 - Fork operation failed.
+   * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
+   * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
+   * @throws { BusinessError } 11400110 - Disk remaining space too low.
+   * @throws { BusinessError } 11400111 - Napi interface call exception.
+   * @throws { BusinessError } 11400112 - Repeated data dump.
+   * @throws { BusinessError } 11400113 - Failed to create dump file.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array<string>>
 
   /**
    * GwpAsan Options.
@@ -1064,7 +1201,7 @@ declare namespace hidebug {
    * @interface GwpAsanOptions
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GwpAsanOptions {
     /**
@@ -1073,7 +1210,7 @@ declare namespace hidebug {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alwaysEnabled?: boolean;
     /**
@@ -1082,7 +1219,7 @@ declare namespace hidebug {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sampleRate?: int;
     /**
@@ -1091,9 +1228,17 @@ declare namespace hidebug {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     maxSimutaneousAllocations?: int;
+    /**
+     * the Recoverable mode of GWP-ASAN.
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isRecover?: boolean;
   }
 
   /**
@@ -1103,7 +1248,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: int): void;
 
@@ -1112,7 +1257,7 @@ declare namespace hidebug {
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableGwpAsanGrayscale(): void;
 
@@ -1122,7 +1267,7 @@ declare namespace hidebug {
    * @returns { int } The remaining days of GWP-ASan grayscale.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getGwpAsanGrayscaleState(): int;
 
@@ -1131,14 +1276,14 @@ declare namespace hidebug {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
    */
   enum JsRawHeapTrimLevel {
     /**
      * Basic heap snapshot trimming(e.g. reducing content of string object).
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
      */
     TRIM_LEVEL_1 = 0,
     /**
@@ -1150,7 +1295,7 @@ declare namespace hidebug {
      * Ensure that this duration falls below the app freeze threshold.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
      */
     TRIM_LEVEL_2 = 1,
   }
@@ -1159,8 +1304,64 @@ declare namespace hidebug {
    * Sets the raw heap snapshot trimming level for the current process.
    * @param { JsRawHeapTrimLevel } level - The trimming level of raw heap snapshot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
    */
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
+
+  /**
+   * Transform the raw heap snapshot from thread-level to process-level when shared-memory OOM occurs.
+   *
+   * @param { boolean } enable - Whether dump processlevel raw heap snapshot.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamiconly
+   */
+  function setProcDumpInSharedOOM(enable: boolean): void;
+
+  /**
+   * Describes the physical memory information of the application process.
+   *
+   * @interface RssInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface RssInfo {
+    /**
+     * Size of the occupied physical memory (including the memory occupied by the shared library), in KB.
+     * The value of this parameter is obtained by reading the value of VmRSS in the /proc/{pid}/status node.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    rss: bigint;
+    
+    /**
+     * Size of the memory occupied by the process in swap space, in KB.
+     * The value of this parameter is obtained by reading the value of VmSwap in the /proc/{pid}/status node.
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    swapRss: bigint;
+    }
+  /**
+   * Obtains the physical memory information of application process. This API is implemented by reading data from the
+   * /proc/{pid}/status node.
+   *
+   * @returns { RssInfo } Returns the Rss information.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function getRssInfo(): RssInfo;
 }
 export default hidebug;

@@ -29,8 +29,10 @@ import { FrameNode } from './FrameNode';
  *
  * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
+ * @stagemodelonly
+ * @since 11 dynamiconly
  * @deprecated since 12
+ * @useinstead ohos.arkui.node/typeNode#XComponent
  */
 export declare class XComponentNode extends FrameNode {
   /**
@@ -42,8 +44,10 @@ export declare class XComponentNode extends FrameNode {
    * @param { XComponentType } type - XComponent type
    * @param { string } libraryName - The name of the library to be loaded by XComponent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamiconly
    * @deprecated since 12
+   * @useinstead ohos.arkui.node/typeNode#createNode
    */
   constructor(uiContext: UIContext, options: RenderOptions,
     id: string, type: XComponentType, libraryName?: string);
@@ -53,8 +57,10 @@ export declare class XComponentNode extends FrameNode {
    *
    * @param { Object } event - event from native when the library loaded
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamiconly
    * @deprecated since 12
+   * @useinstead XComponent/XComponentAttribute#onLoad
    */
   onCreate(event?: Object): void;
 
@@ -62,8 +68,10 @@ export declare class XComponentNode extends FrameNode {
    * Called when the XComponent surface has been destroyed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamiconly
    * @deprecated since 12
+   * @useinstead XComponent/XComponentAttribute#onDestroy
    */
   onDestroy(): void;
 
@@ -73,8 +81,10 @@ export declare class XComponentNode extends FrameNode {
    * @param { NodeRenderType } type - render type
    * @returns { boolean } - Returns if change the render type successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamiconly
    * @deprecated since 12
+   * @useinstead ohos.arkui.node/FrameNode#appendChild
    */
   changeRenderType(type: NodeRenderType): boolean;
 }

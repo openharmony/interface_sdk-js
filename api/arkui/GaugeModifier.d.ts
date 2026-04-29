@@ -26,6 +26,7 @@
  * @extends GaugeAttribute
  * @implements AttributeModifier<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -35,9 +36,10 @@
  * @extends GaugeAttribute
  * @implements AttributeModifier<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class GaugeModifier extends GaugeAttribute implements AttributeModifier<GaugeAttribute> {
 
@@ -46,9 +48,10 @@ export declare class GaugeModifier extends GaugeAttribute implements AttributeMo
    * 
    * @param { GaugeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: GaugeAttribute): void;
 }

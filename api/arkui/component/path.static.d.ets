@@ -15,40 +15,44 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length, ResourceStr } from './units';
 
 /**
  * Define options used to construct a path.
  *
  * @interface PathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface PathOptions {
     /**
      * Width option.
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    width?: double | string;
+    width?: Length;
     /**
      * Height option.
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    height?: double | string;
+    height?: Length;
     /**
      * Commands option.
-     * @type { ?string }
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    commands?: string;
+    commands?: ResourceStr;
 }
 
 /**
@@ -57,25 +61,28 @@ export declare interface PathOptions {
  * @extends CommonShapeMethod
  * @interface PathAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface PathAttribute extends CommonShapeMethod {
     /**
-     * Called when the command string drawn by the path is set.
+     * Set a series of path commands that define the path to be drawn
      *
-     * @param { string | undefined } value
+     * @param { ResourceStr | undefined } value
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default commands(value: string | undefined): this;
+    default commands(value: ResourceStr | undefined): this;
     /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -84,15 +91,13 @@ export declare interface PathAttribute extends CommonShapeMethod {
  * Path is returned when the parameter is transferred.
  *
  * @param { PathOptions } [options] - The options to create a Path
- * @param { function } [content_]
  * @returns { PathAttribute } The attribute of the Path.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Path(
-    options?: PathOptions, 
-    @memo
-    content_?: () => void,
-): PathAttribute
+    options?: PathOptions
+): PathAttribute;

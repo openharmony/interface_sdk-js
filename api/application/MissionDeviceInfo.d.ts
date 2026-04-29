@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,22 +19,25 @@
  */
 
 /**
- * Parameters corresponding to mission.
+ * The module defines the parameters required for registering a listener. It can be used as an input parameter in
+ * [registerMissionListener]{@link @ohos.distributedMissionManager:distributedMissionManager.registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback)}
  *
- * @typedef MissionDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @stagemodelonly
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface MissionDeviceInfo {
   /**
    * Indicates the deviceId to start sync.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @stagemodelonly
+   * @since 9 dynamic
+   * @since 23 static
    */
   deviceId: string;
 }

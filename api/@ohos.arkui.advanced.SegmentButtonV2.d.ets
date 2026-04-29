@@ -21,15 +21,17 @@
 import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
 import { ImageModifier, SymbolGlyphModifier, TextModifier } from '@ohos.arkui.modifier';
 import { SizeT } from '@ohos.arkui.node';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines the options of the segmented button item.
  * 
  * @interface SegmentButtonV2ItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export interface SegmentButtonV2ItemOptions {
     /**
@@ -37,21 +39,23 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     text?: ResourceStr;
 
     /**
      * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * This field will be useless if the symbol field is set.
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     icon?: ResourceStr;
 
@@ -60,9 +64,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     symbol?: Resource;
 
@@ -71,9 +76,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     enabled?: boolean;
 
@@ -82,9 +88,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     textModifier?: TextModifier;
 
@@ -93,9 +100,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ImageModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     iconModifier?: ImageModifier;
 
@@ -104,9 +112,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     symbolModifier?: SymbolGlyphModifier;
 
@@ -115,9 +124,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     accessibilityText?: ResourceStr;
 
@@ -126,9 +136,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     accessibilityDescription?: ResourceStr;
 
@@ -137,9 +148,10 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     accessibilityLevel?: string;
 }
@@ -150,9 +162,10 @@ export interface SegmentButtonV2ItemOptions {
  * @typedef { function } OnSelectedIndexChange
  * @param { number } selectedIndex - the index of selected item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export type OnSelectedIndexChange = (selectedIndex: number) => void;
 
@@ -162,9 +175,10 @@ export type OnSelectedIndexChange = (selectedIndex: number) => void;
  * @typedef { function } OnSelectedIndexesChange
  * @param { number[] } selectedIndexes - the index of selected items
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
 
@@ -173,9 +187,10 @@ export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
  * 
  * @interface SegmentButtonV2Item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ObservedV2
 export declare class SegmentButtonV2Item {
@@ -184,21 +199,23 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace text?: ResourceStr;
 
     /**
      * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * This field will be useless if the symbol field is set.
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace icon?: ResourceStr;
 
@@ -207,9 +224,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace symbol?: Resource;
 
@@ -218,9 +236,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace enabled: boolean;
 
@@ -229,9 +248,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace textModifier?: TextModifier;
 
@@ -240,9 +260,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ImageModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace iconModifier?: ImageModifier;
 
@@ -251,9 +272,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace symbolModifier?: SymbolGlyphModifier;
 
@@ -262,9 +284,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace accessibilityText?: ResourceStr;
 
@@ -273,9 +296,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace accessibilityDescription?: ResourceStr;
 
@@ -284,20 +308,22 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Trace accessibilityLevel?: string;
 
     /**
-     * The constructor of SegmentedButtonItem
+     * The constructor of SegmentButtonV2Item
      * 
      * @param { SegmentedButtonItemOptions } options - the options of the segmented button item
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     constructor(options: SegmentButtonV2ItemOptions);
 
@@ -306,9 +332,10 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     get isHybrid(): boolean;
 }
@@ -318,20 +345,22 @@ export declare class SegmentButtonV2Item {
  * 
  * @extends Array<SegmentButtonV2Item>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ObservedV2
 export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
     /**
-     * The constructor of SegmentedButtonItems
+     * The constructor of SegmentButtonV2Item
      * 
      * @param { SegmentButtonV2ItemOptions[] } items - the options array of the segmented button items
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     constructor(items: SegmentButtonV2ItemOptions[]);
 
@@ -340,9 +369,10 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
      * 
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     get hasHybrid(): boolean;
 }
@@ -352,9 +382,10 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
  * 
  * @struct TabSegmentedButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ComponentV2
 export declare struct TabSegmentButtonV2 {
@@ -364,9 +395,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { SegmentButtonV2Items }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Require
     @Param
@@ -378,9 +410,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Require
     @Param
@@ -392,9 +425,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?OnSelectedIndexChange }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Event
     $selectedIndex?: OnSelectedIndexChange;
@@ -405,9 +439,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?Callback<number> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Event
     onItemClicked?: Callback<number>;
@@ -418,9 +453,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?(number | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMinFontScale?: number | Resource;
@@ -431,9 +467,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?(number | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMaxFontScale?: number | Resource;
@@ -444,9 +481,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSpace?: LengthMetrics;
@@ -457,9 +495,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontSize?: LengthMetrics;
@@ -470,9 +509,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontSize?: LengthMetrics;
@@ -483,9 +523,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontColor?: ColorMetrics;
@@ -496,9 +537,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontColor?: ColorMetrics;
@@ -509,9 +551,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontWeight?: FontWeight;
@@ -522,9 +565,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontWeight?: FontWeight;
@@ -535,9 +579,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBorderRadius?: LengthMetrics;
@@ -548,9 +593,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedBackgroundColor?: ColorMetrics;
@@ -561,9 +607,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?SizeT<LengthMetrics> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemIconSize?: SizeT<LengthMetrics>;
@@ -574,9 +621,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemIconFillColor?: ColorMetrics;
@@ -587,9 +635,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedIconFillColor?: ColorMetrics;
@@ -600,9 +649,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSymbolFontSize?: LengthMetrics;
@@ -613,9 +663,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSymbolFontColor?: ColorMetrics;
@@ -626,9 +677,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedSymbolFontColor?: ColorMetrics;
@@ -639,9 +691,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMinHeight?: LengthMetrics;
@@ -652,9 +705,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LocalizedPadding }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemPadding?: LocalizedPadding;
@@ -665,9 +719,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemShadow?: ShadowOptions | ShadowStyle;
@@ -678,9 +733,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundColor?: ColorMetrics;
@@ -691,9 +747,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?BlurStyle }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundBlurStyle?: BlurStyle;
@@ -704,9 +761,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?BackgroundBlurStyleOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -717,9 +775,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?BackgroundEffectOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundEffect?: BackgroundEffectOptions;
@@ -730,9 +789,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBorderRadius?: LengthMetrics;
@@ -743,9 +803,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonMinHeight?: LengthMetrics;
@@ -756,9 +817,10 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonPadding?: LengthMetrics;
@@ -769,20 +831,64 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?Direction }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly languageDirection?: Direction;
 
     /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?uiMaterial.Material } material - System-styled material.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    @Param
+    readonly backgroundSystemMaterial?: uiMaterial.Material;
+
+    /**
+     * Enable animation when selectedIndexes change.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    @Param
+    readonly enableStateAnimation?: boolean;
+
+    /**
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     build(): void;
 }
@@ -792,9 +898,10 @@ export declare struct TabSegmentButtonV2 {
  * 
  * @struct CapsuleSegmentButtonV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ComponentV2
 export declare struct CapsuleSegmentButtonV2 {
@@ -804,9 +911,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { SegmentButtonV2Items }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Require
     @Param
@@ -818,9 +926,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Require
     @Param
@@ -832,9 +941,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?OnSelectedIndexChange }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Event
     $selectedIndex?: OnSelectedIndexChange;
@@ -845,9 +955,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?Callback<number> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Event
     onItemClicked?: Callback<number>;
@@ -858,9 +969,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?(number | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMinFontScale?: number | Resource;
@@ -871,9 +983,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?(number | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMaxFontScale?: number | Resource;
@@ -884,9 +997,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSpace?: LengthMetrics;
@@ -897,9 +1011,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontColor?: ColorMetrics;
@@ -910,9 +1025,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontColor?: ColorMetrics;
@@ -923,9 +1039,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontSize?: LengthMetrics;
@@ -936,9 +1053,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontSize?: LengthMetrics;
@@ -949,9 +1067,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontWeight?: FontWeight;
@@ -962,9 +1081,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontWeight?: FontWeight;
@@ -975,9 +1095,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBorderRadius?: LengthMetrics;
@@ -988,9 +1109,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedBackgroundColor?: ColorMetrics;
@@ -1001,9 +1123,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?SizeT<LengthMetrics> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemIconSize?: SizeT<LengthMetrics>;
@@ -1014,9 +1137,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemIconFillColor?: ColorMetrics;
@@ -1027,9 +1151,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedIconFillColor?: ColorMetrics;
@@ -1040,9 +1165,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSymbolFontSize?: LengthMetrics;
@@ -1053,9 +1179,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSymbolFontColor?: ColorMetrics;
@@ -1066,9 +1193,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedSymbolFontColor?: ColorMetrics;
@@ -1079,9 +1207,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMinHeight?: LengthMetrics;
@@ -1092,9 +1221,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LocalizedPadding }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemPadding?: LocalizedPadding;
@@ -1105,9 +1235,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemShadow?: ShadowOptions | ShadowStyle;
@@ -1118,9 +1249,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundColor?: ColorMetrics;
@@ -1131,9 +1263,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?BlurStyle }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundBlurStyle?: BlurStyle;
@@ -1144,9 +1277,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?BackgroundBlurStyleOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1157,9 +1291,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?BackgroundEffectOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBackgroundEffect?: BackgroundEffectOptions;
@@ -1170,9 +1305,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonBorderRadius?: LengthMetrics;
@@ -1183,9 +1319,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonMinHeight?: LengthMetrics;
@@ -1196,9 +1333,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly buttonPadding?: LengthMetrics;
@@ -1209,20 +1347,64 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?Direction }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly languageDirection?: Direction;
 
     /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?uiMaterial.Material } material - System-styled material.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    @Param
+    readonly backgroundSystemMaterial?: uiMaterial.Material;
+
+    /**
+     * Enable animation when selectedIndexes change.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    @Param
+    readonly enableStateAnimation?: boolean;
+
+    /**
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     build(): void;
 }
@@ -1230,11 +1412,12 @@ export declare struct CapsuleSegmentButtonV2 {
 /**
  * Defines the segmented button with capsule style.
  * 
- * @struct CapsuleSegmentButtonV2
+ * @struct MultiCapsuleSegmentButtonV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ComponentV2
 export declare struct MultiCapsuleSegmentButtonV2 {
@@ -1244,9 +1427,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { SegmentButtonV2Items }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Require
     @Param
@@ -1258,23 +1442,25 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { number[] }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Require
     @Param
     readonly selectedIndexes: number[];
 
     /**
-     * Sets the callback function will be invoked when the selectedInexes field of the segmented button is changed.
+     * Sets the callback function will be invoked when the selectedIndexes field of the segmented button is changed.
      * 
      * @type { ?OnSelectedIndexesChange } OnSelectedIndexesChange
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Event
     $selectedIndexes: OnSelectedIndexesChange;
@@ -1285,9 +1471,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?Callback<number> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Event
     onItemClicked?: Callback<number>;
@@ -1298,9 +1485,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?(number | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMinFontScale?: number | Resource;
@@ -1311,9 +1499,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?(number | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMaxFontScale?: number | Resource;
@@ -1324,9 +1513,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSpace?: LengthMetrics;
@@ -1337,9 +1527,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontColor?: ColorMetrics;
@@ -1350,9 +1541,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontColor?: ColorMetrics;
@@ -1363,9 +1555,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontSize?: LengthMetrics;
@@ -1376,9 +1569,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontSize?: LengthMetrics;
@@ -1389,9 +1583,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemFontWeight?: FontWeight;
@@ -1402,9 +1597,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedFontWeight?: FontWeight;
@@ -1415,9 +1611,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBorderRadius?: LengthMetrics;
@@ -1428,9 +1625,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBackgroundColor?: ColorMetrics;
@@ -1441,9 +1639,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?BackgroundEffectOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBackgroundEffect?: BackgroundEffectOptions;
@@ -1454,9 +1653,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?BlurStyle }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBackgroundBlurStyle?: BlurStyle;
@@ -1467,9 +1667,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?BackgroundBlurStyleOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1480,9 +1681,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedBackgroundColor?: ColorMetrics;
@@ -1493,9 +1695,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?SizeT<LengthMetrics> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemIconSize?: SizeT<LengthMetrics>;
@@ -1506,9 +1709,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemIconFillColor?: ColorMetrics;
@@ -1519,9 +1723,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedIconFillColor?: ColorMetrics;
@@ -1532,9 +1737,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSymbolFontSize?: LengthMetrics;
@@ -1545,9 +1751,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSymbolFontColor?: ColorMetrics;
@@ -1558,9 +1765,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemSelectedSymbolFontColor?: ColorMetrics;
@@ -1571,9 +1779,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemMinHeight?: LengthMetrics;
@@ -1584,9 +1793,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LocalizedPadding }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly itemPadding?: LocalizedPadding;
@@ -1597,9 +1807,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?Direction }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     @Param
     readonly languageDirection?: Direction;
@@ -1608,9 +1819,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     build(): void;
 }

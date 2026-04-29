@@ -22,232 +22,154 @@ import type Context from './application/Context';
 import type camera from './@ohos.multimedia.camera';
 
 /**
- * @namespace cameraPicker
+ * The module provides APIs for an application to use the system camera to take photos or record videos, depending on 
+ * the media type specified by the application. The application must call these APIs within a UIAbility. Otherwise, the 
+ * camera picker cannot be started.
+ *
  * @syscap SystemCapability.Multimedia.Camera.Core
- * @since 11
- */
-/**
- * @namespace cameraPicker
- * @syscap SystemCapability.Multimedia.Camera.Core
- * @atomicservice
- * @since 12 dynamic
- * @since 20 static
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace cameraPicker {
 
   /**
-   * Picker profile settings for take photo and record video.
+   * Defines the configuration information about the camera picker.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
-   */
-  /**
-   * Picker profile settings for take photo and record video.
-   *
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   class PickerProfile {
     /**
-     * The camera position to be used.
+     * Camera position.
      *
-     * @type { camera.CameraPosition }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * The camera position to be used.
-     *
-     * @type { camera.CameraPosition }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     cameraPosition: camera.CameraPosition;
 
     /**
-     * The uri of the result to be saved.
+     * URI for saving the configuration information. For details about the default value, see 
+     * [File URI]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}. The **saveUri** parameter is optional. If it is
+     * not specified, images and videos are automatically saved to the media library. To prevent them from being saved 
+     * to the media library, specify a valid file path within your application's sandbox. When you use your own resource
+     * path, ensure that the file exists and is writable; otherwise, the save operation fails.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * The uri of the result to be saved.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     saveUri?: string;
 
     /**
-     * The max duration of the video.
+     * Maximum video duration, in seconds. The default value is **0**, indicating that the maximum video duration is not
+     * set.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * The max duration of the video.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     videoDuration?: int;
   }
 
   /**
-   * Enum for camera picker media type.
+   * Enumerates the media types displayed in the camera picker.
    *
-   * @enum { string }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
-   */
-  /**
-   * Enum for camera picker media type.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   enum PickerMediaType {
     /**
-     * Type image, picker provide an ability to take photo.
+     * Photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * Type image, picker provide an ability to take photo.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     PHOTO = 'photo',
 
     /**
-     * Type video, picker provide an ability to record video.
+     * Video mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * Type video, picker provide an ability to record video.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     VIDEO = 'video'
   }
 
   /**
-   * The picker result info for pick function.
+   * Defines the processing result of the camera picker.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
-   */
-  /**
-   * The picker result info for pick function.
-   *
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   class PickerResult {
     /**
-     * The result code.
+     * Result code. The value **0** means that the processing is successful, and **-1** means that the processing fails.
      *
-     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * The result code.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     resultCode: int;
 
     /**
-     * The result saved uri.
+     * URI of the result. If **saveUri** is empty, **resultUri** is a public media path. If **saveUri** is not empty and
+     * the application has the write permission on the URI, the value of **resultUri** is the same as that of 
+     * **saveUri**. If **saveUri** is not empty and the application does not have the write permission on the URI, 
+     * **resultUri** cannot be obtained.
      *
-     * @type { string }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * The result saved uri.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     resultUri: string;
 
     /**
-     * The result resource type.
+     * Media type.
      *
-     * @type { PickerMediaType }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * The result resource type.
-     *
-     * @type { PickerMediaType }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     mediaType: PickerMediaType;
   }
 
   /**
-   * Launch the camera picker and configure it to photo or video mode base on the incoming media type.
-   * The photo or video result will be returned via a Promise upon completion of the operation.
+   * Starts the camera picker and enters the corresponding mode based on the media type. This API uses a promise to 
+   * return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > When an application is running on a widescreen foldable device and the camera picker is launched while the device
+   * > is unfolded, switching the device from unfolded to folded will automatically move the camera picker to the 
+   * > background.
    *
-   * @param { Context } context - From UIExtensionAbility.
-   * @param { Array<PickerMediaType> } mediaTypes - Pick media type.
-   * @param { PickerProfile } pickerProfile - Picker input Profile.
-   * @returns { Promise<PickerResult> } pick result.
+   * @param { Context } context - Application context.
+   * @param { Array<PickerMediaType> } mediaTypes - Media type.
+   * @param { PickerProfile } pickerProfile - Profile of the camera picker.
+   * @returns { Promise<PickerResult> } Promise used to return the processing result (
+   *     [PickerResult]{@link cameraPicker.PickerResult}) of the camera picker.
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
-   */
-  /**
-   * Pick function to get a photo or video result.
-   *
-   * @param { Context } context - From UIExtensionAbility.
-   * @param { Array<PickerMediaType> } mediaTypes - Pick media type.
-   * @param { PickerProfile } pickerProfile - Picker input Profile.
-   * @returns { Promise<PickerResult> } Get the processed result of the camera picker using the Promise
-   * method. The return value is PickerResult.
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   function pick(context: Context, mediaTypes: Array<PickerMediaType>, pickerProfile: PickerProfile): Promise<PickerResult>;
 }

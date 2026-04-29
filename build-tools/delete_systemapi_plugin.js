@@ -16,6 +16,7 @@ const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
 const commander = require('commander');
+const { execSync } = require('child_process');
 
 let sourceFile = null;
 let etsType = 'ets';
@@ -30,6 +31,10 @@ const COMPILER_OPTIONS = {
   target: ts.ScriptTarget.ES2017,
   etsAnnotationsEnable: true
 };
+let needParseWithStatic = false;
+let currentApiFileContent = '';
+let buildSdkPath = '';
+let isClosedSource = '';
 /**
  * @enum {string} references地址的切换类型
  */
@@ -61,10 +66,14 @@ function start() {
     .option('--input <string>', 'path name')
     .option('--output <string>', 'output path')
     .option('--type <string>', 'ets type')
+    .option('--build-sdk-path <string>', 'build sdk path')
+    .option('--isClosedSource <string>', 'is closed source', 'false')
     .action((opts) => {
       outputPath = opts.output;
       inputDir = opts.input;
       etsType = opts.type;
+      buildSdkPath = opts.build_sdk_path;
+      isClosedSource = opts.isClosedSource;
       collectDeclaration(opts.input);
     });
   program.parse(process.argv);
@@ -121,17 +130,17 @@ function tsTransformKitFile(kitPath) {
   kitFiles.forEach((kitFile) => {
     const kitName = processFileNameWithoutExt(kitFile).replace('@kit.', '');
     const content = fs.readFileSync(kitFile, 'utf-8');
+    const fileAndKitComment = getFileAndKitComment(content);
+    const copyrightMessage = getCopyrightComment(content);
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
-    const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
-    if (isEmptyFile(sourceInfo.sourceFile)) {
+    const newSourceFile = getKitNewSourceFile(sourceFile, kitName);
+    if (isEmptyFile(newSourceFile)) {
       return;
     }
     const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-    let result = printer.printNode(ts.EmitHint.Unspecified, sourceInfo.sourceFile, sourceFile);
-    if (sourceInfo.copyrightMessage !== '') {
-      result = sourceInfo.copyrightMessage + result;
-    }
+    let result = printer.printNode(ts.EmitHint.Unspecified, newSourceFile, sourceFile);
+    result = collectCopyrightMessage(result, copyrightMessage, fileAndKitComment);
     writeFile(kitFile, result);
   });
 }
@@ -153,18 +162,18 @@ function getKitNewSourceFile(sourceFile, kitName) {
       const newStatement = processKitImportDeclaration(statement, needDeleteExportName);
       if (newStatement) {
         newStatements.push(newStatement);
-      } else if (index === 0) {
-        copyrightMessage = sourceFile.getFullText().replace(sourceFile.getText(), '');
       }
     } else if (ts.isExportDeclaration(statement)) {
       const newStatement = processKitExportDeclaration(statement, needDeleteExportName);
       if (newStatement) {
         newStatements.push(newStatement);
       }
+    } else {
+      newStatements.push(statement);
     }
   });
   sourceFile = factory.updateSourceFile(sourceFile, newStatements);
-  return { sourceFile, copyrightMessage };
+  return sourceFile;
 }
 
 function addImportToNeedDeleteExportName(importClause, needDeleteExportName) {
@@ -392,7 +401,7 @@ function tsTransform(utFiles, callback) {
       isTransformer = false;
     }
     if (etsType === 'ets2') {
-      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.d.ets') {
+      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.static.d.ets') {
         isTransformer = false;
       }
     }
@@ -400,6 +409,18 @@ function tsTransform(utFiles, callback) {
     if (!isTransformer) {
       writeFile(url, content);
       return;
+    }
+    const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
+    // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
+    if (/\@memo/.test(content) && !url.includes(uiFileDir) && etsType === 'ets2') {
+      const nodePath = process.argv[0];
+      // 执行ets2panda解析
+      currentApiFileContent =
+        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url} --build_sdk_path ${buildSdkPath}`).toString('utf-8');
+      needParseWithStatic = true;
+    } else {
+      currentApiFileContent = '';
+      needParseWithStatic = false;
     }
     // dts文件处理
     const fileName = processFileName(url);
@@ -512,7 +533,7 @@ function readFile(dir, utFiles) {
  */
 function sortApiList(apiFiles) {
   const newApiFiles = [];
-  const specFileName = '@ohos.arkui.component.d.ets';
+  const specFileName = '@ohos.arkui.component.static.d.ets';
   let specApiFilePath = '';
   apiFiles.forEach(filePath => {
     if (filePath.endsWith(specFileName)) {
@@ -612,7 +633,7 @@ function visitEachChild(context, node) {
  * @param {boolean} firstNodeIsStatic 第一个节点是否为use static
  * @returns {Function}
  */
-function formatImportDeclaration(url, copyrightMessage = '', fileAndKitComment = '', firstNodeIsStatic = false) {
+function formatImportDeclaration(url, copyrightMessage = '', fileAndKitComment = '') {
   const allIdentifierSet = new Set([]);
   return (context) => {
     return (node) => {
@@ -626,13 +647,15 @@ function formatImportDeclaration(url, copyrightMessage = '', fileAndKitComment =
       }
       const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
       let result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-      result = collectCopyrightMessage(result, copyrightMessage, fileAndKitComment, firstNodeIsStatic);
+      result = collectCopyrightMessage(result, copyrightMessage, fileAndKitComment);
       copyrightMessage = node.getFullText().replace(node.getText(), '');
       if (referencesMessage) { // 将references写入文件
         result = result.substring(0, copyrightMessage.length) + '\n' + referencesMessage +
           result.substring(copyrightMessage.length);
       }
       result = removeSystemapiDoc(result);
+      // 裁剪解析结果比对，保证解析结果的准确性
+      result = needParseWithStatic && currentApiFileContent === result ? currentApiFileContent : result;
       writeFile(url, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
@@ -673,18 +696,15 @@ function collectillegalNodes(decorator, allIdentifierSet) {
  * @param {string} result 文件内容
  * @param {string} copyrightMessage 版权头注释
  * @param {string} fileAndKitComment 文件kit注释
- * @param {boolean} firstNodeIsStatic 第一个节点是否为use static
  * @returns 
  */
-function collectCopyrightMessage(result, copyrightMessage, fileAndKitComment, firstNodeIsStatic) {
+function collectCopyrightMessage(result, copyrightMessage, fileAndKitComment) {
   const newFileAndKitComment = getFileAndKitComment(result);
   const newCopyrightMessage = getCopyrightComment(result);
   let commentIndex = 0;
-  if (firstNodeIsStatic) {
-    const indexStatic = result.match(/use static.*\n/);
-    if (indexStatic) {
-      commentIndex = indexStatic.index + indexStatic[0].length;
-    }
+  const indexStatic = result.match(/use static.*\n/);
+  if (indexStatic) {
+    commentIndex = indexStatic.index + indexStatic[0].length;
   }
   if (newFileAndKitComment === '') {
     result =
@@ -792,7 +812,7 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
   const clauseSet = collectClauseSet(statement);
   const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
   const fileDir = path.dirname(url);
-  let hasImportSpecifierFile = hasFileByImportPath(fileDir, importSpecifier);
+  let hasImportSpecifierFile = isClosedSource === 'true' || hasFileByImportPath(fileDir, importSpecifier);
   let hasImportSpecifierInModules = globalModules.has(importSpecifier);
   if (!hasImportSpecifierFile && !hasImportSpecifierInModules) {
     //路径不存在 或者 无reference使用
@@ -951,7 +971,12 @@ function getCopyrightComment(fileFullText) {
 function removeSystemapiDoc(result) {
   result.split;
   return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
-    return /@systemapi/g.test(substring) ? '' : substring;
+    // 如果systemapi转为publicapi，则需要进行版本变更，否则保持原样处理不变
+    if(!/@systemapi/g.test(substring)){
+      return substring
+    }else{
+      return isAbsoluteSystemApi(substring) ? '' : convertSystemApiVersion(substring)
+    }
   });
 }
 
@@ -985,7 +1010,7 @@ function deleteSystemApi(url) {
         ts.transpileModule(result, {
           compilerOptions: COMPILER_OPTIONS,
           fileName: fileName,
-          transformers: { before: [formatImportDeclaration(url, copyrightMessage, fileAndKitComment, deleteNode.firstNodeIsStatic)] },
+          transformers: { before: [formatImportDeclaration(url, copyrightMessage, fileAndKitComment)] },
         });
       }
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
@@ -1102,7 +1127,8 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
       ts.isEnumDeclaration(statement) ||
       ts.isStructDeclaration(statement) ||
       ts.isTypeAliasDeclaration(statement) ||
-      ts.isAnnotationDeclaration(statement)
+      ts.isAnnotationDeclaration(statement) ||
+      ts.isFunctionDeclaration(statement)
     ) {
       if (statement && statement.name && statement.name.escapedText) {
         deleteSystemApiSet.add(statement.name.escapedText.toString());
@@ -1420,7 +1446,7 @@ function isSystemapi(node) {
   const notesArr = notesContent.split(/\/\*\*/);
   const notesStr = notesArr[notesArr.length - 1];
   if (notesStr.length !== 0) {
-    return /@systemapi/g.test(notesStr);
+    return isAbsoluteSystemApi(notesStr)
   }
   return false;
 }
@@ -1459,6 +1485,103 @@ function isEmptyFile(node) {
     etsDeleteFiles.push(fileName);
   }
   return isEmpty;
+}
+
+/**
+ * 判断systemapi后面是否带区间版本
+ * @param {string} notesStr 
+ */
+function isAbsoluteSystemApi(notesStr){
+  if(!/@systemapi/g.test(notesStr)){
+    return false
+  }else{
+    return getPublicApiVersion(notesStr) === ''
+  }
+}
+
+/**
+ * 变更systemapi为publicapi
+ * @param {string} substring 
+ */
+function convertSystemApiVersion(substring){
+  let sourceString = substring
+  let finalVersion
+  let publicApiVersion = getPublicApiVersion(substring)
+
+  let sinceVersionRes = substring.match(/@since\s*([\d\.\(\)]*)/i)
+  if(sinceVersionRes && sinceVersionRes.length > 1){
+    finalVersion = getFinalVersion(sinceVersionRes[1], publicApiVersion)
+  }
+
+  deletedSourceString = sourceString.replace(/[^\S\n]*\*\s*(@publicapi\s*).*\n/gi, '')
+  deletedSourceString = deletedSourceString.replace(/@since\s*[^\n]*/i, `@since ${finalVersion}`)
+  finalResult = deletedSourceString.replace(/[^\S\n]*\*\s*@systemapi.*(\n)/g, '')
+  return finalResult
+}
+
+/**
+ * 比较原始版本和public版本，得到最终版本
+ * @param {string} originalVersion 
+ * @param {string} publicVersion 
+ */
+function getFinalVersion(originalVersion, publicVersion){
+  return compareVersions(originalVersion, publicVersion) > -1 ? originalVersion : publicVersion
+}
+
+/**
+ * 版本比较
+ * @param {*} version1 
+ * @param {*} version2 
+ */
+function compareVersions(version1, version2){
+  // 处理闭源格式：提取x.y.z并计算权重值
+  const extractClosedVersion = (str) => {
+    const match = str.match(/^(\d+)\.(\d+)\.(\d+)\((\d+)\)$/)
+    if(match){
+      const x = parseInt(match[1])
+      const y = parseInt(match[2])
+      const z = parseInt(match[3])
+      return x * 10000 + y * 100 + z;
+    }
+    return null
+  }
+
+  // 处理开源格式：提取数字或x.y.z格式
+  const extractOpenVersion = (str) => {
+    // 先尝试提取数字
+    const num = parseFloat(str);
+    if(!isNaN(num)) return num * 10000;
+
+    // 尝试提取x.y.z格式
+    const parts = str.split('.').map(Number);
+    if(parts.length === 3){
+      return parts[0] * 10000 + parts[1] * 100 + parts[2]
+    }
+    return null;
+  };
+
+  // 提取版本号
+  const v1 = extractClosedVersion(version1) || extractOpenVersion(version1)
+  const v2 = extractClosedVersion(version2) || extractOpenVersion(version2)
+
+  // 比较版本号
+  if(v1 === v2){
+    return 0;
+  }
+  return v1 > v2 ? 1 : -1
+}
+
+/**
+ * 通过@publicapi获取public版本
+ * @param {string} substring 
+ */
+function getPublicApiVersion(substring){
+  let result = substring.match(/@publicapi\s*\[\s*since\s*([^\s]+)\s*\]/)
+  if(result && result[1]){
+    return result[1]
+  }
+
+  return ''
 }
 
 let outputPath = '';

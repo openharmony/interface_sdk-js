@@ -21,258 +21,238 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * Interface of quickFixManager.
+ * The quickFixManager module provides APIs for quick fix. With quick fix, you can fix bugs in your application by
+ * applying patches, which is more efficient than by updating the entire application.
  *
- * @namespace quickFixManager
  * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace quickFixManager {
   /**
-   * Quick fix info of hap module.
+   * Defines the quick fix information at the HAP file level.
    *
-   * @typedef HapModuleQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   export interface HapModuleQuickFixInfo {
     /**
-     * Indicates hap module name.
+     * Name of the HAP file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly moduleName: string;
 
     /**
-     * Indicates hash value of a hap.
+     * Hash value of the HAP file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly originHapHash: string;
 
     /**
-     * Indicates installed path of quick fix file.
+     * Installation path of the quick fix patch file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly quickFixFilePath: string;
   }
 
   /**
-   * Quick fix info of application.
+   * Defines the quick fix information at the application level.
    *
-   * @typedef ApplicationQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   export interface ApplicationQuickFixInfo {
     /**
      * Bundle name.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly bundleName: string;
 
     /**
-     * The version number of the bundle.
+     * Internal version number of the application.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly bundleVersionCode: long;
 
     /**
-     * The version name of the bundle.
+     * Version number of the application that is shown to users.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly bundleVersionName: string;
 
     /**
-     * The version number of the quick fix.
+     * Version code of the quick fix patch package.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly quickFixVersionCode: long;
 
     /**
-     * The version name of the quick fix.
+     * Text description of the version number of the quick fix patch package.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly quickFixVersionName: string;
 
     /**
-     * Hap module quick fix info.
+     * Quick fix information at the HAP file level.
      *
-     * @type { Array<HapModuleQuickFixInfo> }
-     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     readonly hapModuleQuickFixInfo: Array<HapModuleQuickFixInfo>;
   }
 
   /**
-   * Apply quick fix files.
+   * Applies a quick fix patch. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
-   *                                                   path and file name.
-   * @param { AsyncCallback<void> } callback - The callback of applyQuickFix.
+   * @param { Array<string> } hapModuleQuickFixFiles - Quick fix patch files, each of which must contain a valid file path.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the quick fix patch is installed,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 18500002 - Invalid patch package.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Apply quick fix files.
+   * Applies a quick fix patch. This API uses a promise to return the result.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
-   *                                                   path and file name.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } hapModuleQuickFixFiles - Quick fix patch files, each of which must contain a valid file path.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 18500002 - Invalid patch package.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
 
   /**
-   * Revoke quick fix by bundle name.
+   * Revokes quick fix. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
-   * @param { string } bundleName - Bundle name wish to revoke quick fix.
-   * @param { AsyncCallback<void> } callback - The callback of revokeQuickFix.
+   * @param { string } bundleName - Name of the bundle for which the patch needs to be revoked.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If quick fix is revoked, **err** is
+   *     **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function revokeQuickFix(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Revoke quick fix by bundle name.
+   * Revokes quick fix. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
-   * @param { string } bundleName - Bundle name wish to revoke quick fix.
-   * @returns { Promise<void> }
+   * @param { string } bundleName - Name of the bundle for which the patch needs to be revoked.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function revokeQuickFix(bundleName: string): Promise<void>;
 
   /**
-   * Get application quick fix info by bundle name.
+   * Obtains the quick fix information of the application. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name wish to query.
-   * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - The callback is used to return the ApplicationQuickFixInfo.
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - Callback used to return the quick fix information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getApplicationQuickFixInfo(bundleName: string, callback: AsyncCallback<ApplicationQuickFixInfo>): void;
 
   /**
-   * Get application quick fix info by bundle name.
+   * Obtains the quick fix information of the application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name wish to query.
-   * @returns { Promise<ApplicationQuickFixInfo> } Returns the ApplicationQuickFixInfo.
+   * @param { string } bundleName - Bundle name.
+   * @returns { Promise<ApplicationQuickFixInfo> } Promise used to return the quick fix information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getApplicationQuickFixInfo(bundleName: string): Promise<ApplicationQuickFixInfo>;
 }

@@ -17,12 +17,11 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from "../../global/resource";
 import { CommonMethod, PixelMap } from './common';
 import { AnimationStatus, FillMode } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -30,7 +29,8 @@ import { AttributeModifier } from "./common";
  *
  * @interface ImageFrameInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface ImageFrameInfo {
     /**
@@ -38,49 +38,55 @@ export interface ImageFrameInfo {
      *
      * @type { string | Resource | PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     src: string | Resource | PixelMap;
     /**
      * Image width
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    width?: number | string;
+    width?: double | string;
     /**
      * Image height
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    height?: number | string;
+    height?: double | string;
     /**
      * Vertical coordinate of the image relative to the upper left corner of the component
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    top?: number | string;
+    top?: double | string;
     /**
      * Horizontal coordinate of the image relative to the upper left corner of the component
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    left?: number | string;
+    left?: double | string;
     /**
      * Playback duration of this image frame, in milliseconds.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    duration?: number;
+    duration?: int;
 }
 /**
  * Defines the ImageAnimator component attributes.
@@ -88,7 +94,9 @@ export interface ImageFrameInfo {
  * @extends CommonMethod
  * @interface ImageAnimatorAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
@@ -101,7 +109,8 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { Array<ImageFrameInfo> | undefined } value - Image frame informatio, Default value is [].
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default images(value: Array<ImageFrameInfo> | undefined): this;
     /**
@@ -111,7 +120,8 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      *     Default value is AnimationStatus.Initial.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default state(value: AnimationStatus | undefined): this;
     /**
@@ -122,19 +132,21 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * <br>This attribute does not take effect when a separate duration is set for any of the image frames.
      * </p>
      *
-     * @param { number | undefined } value - Playback duration, Default value is 1000.
+     * @param { int | undefined } value - Playback duration, Default value is 1000.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default duration(value: number | undefined): this;
+    default duration(value: int | undefined): this;
     /**
      * Sets the playback direction.
      *
      * @param { boolean | undefined } value - Playback direction, Default value is false.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default reverse(value: boolean | undefined): this;
     /**
@@ -144,7 +156,8 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      *     component size, Default value is true.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default fixedSize(value: boolean | undefined): this;
     /**
@@ -155,19 +168,21 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * Default value is FillMode.Forwards.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default fillMode(value: FillMode | undefined): this;
     /**
      * Sets the number of times that the animation is played.
      * Played once by default
      *
-     * @param { number | undefined } value - Number of times that the animation is played, Default value is 1.
+     * @param { int | undefined } value - Number of times that the animation is played, Default value is 1.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default iterations(value: number | undefined): this;
+    default iterations(value: int | undefined): this;
     /**
      * Sets whether the component should automatically pause or resume based on its visibility, using the system's
      * onVisibleAreaChange event.
@@ -178,52 +193,58 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @returns { ImageAnimatorAttribute }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default monitorInvisibleArea(monitorInvisibleArea: boolean | undefined): this;
     /**
      * Status callback, which is triggered when the animation starts to play.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onStart(event: (() => void) | undefined): this;
     /**
      * Status callback, which is triggered when the animation pauses.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onPause(event: (() => void) | undefined): this;
     /**
      * Status callback, triggered when the animation is replayed
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onRepeat(event: (() => void) | undefined): this;
     /**
      * Status callback, which is triggered when the animation playback returns to the initial state.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onCancel(event: (() => void) | undefined): this;
     /**
      * Status callback, which is triggered when the animation playback is complete or stopped.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default onFinish(event: (() => void) | undefined): this;
     /**
@@ -232,21 +253,19 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the ImageAnimator component.
  *
- * @param { function } [content_]
  * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
-export declare function ImageAnimator(
-    @memo
-    content_?: () => void
-): ImageAnimatorAttribute;
+export declare function ImageAnimator(): ImageAnimatorAttribute;

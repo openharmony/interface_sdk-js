@@ -18,32 +18,34 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import AbilityFirstFrameStateData from './AbilityFirstFrameStateData';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
 /*** endif */
 
 /**
- * The ability first frame state observer.
- * 
- * @interface AbilityFirstFrameStateObserver
+ * The module defines the observer used to listen for the first frame rendering completion event of a given ability. It
+ * is used as an input parameter of
+ * [on]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string)}
+ * to listen for the completion event.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 export interface AbilityFirstFrameStateObserver {
 
-    /**
-     * Will be called when an ability first frame drawing completed.
-     * 
-     * @param { AbilityFirstFrameStateData } data - The ability first frame state data.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    onAbilityFirstFrameDrawn(data: AbilityFirstFrameStateData): void;
+  /**
+   * Called when the first frame of the ability is rendered.
+   *
+   * @param { AbilityFirstFrameStateData } data - Data returned after the first frame is rendered.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12 dynamic
+   * @since 23 static
+   */
+  onAbilityFirstFrameDrawn(data: AbilityFirstFrameStateData): void;
 }

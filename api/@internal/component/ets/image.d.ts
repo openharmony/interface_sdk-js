@@ -22,6 +22,7 @@
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -29,8 +30,19 @@
  *
  * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Use the DrawableDescriptor class to get drawable image.
+ *
+ * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
@@ -39,9 +51,10 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  *
  * @typedef { import('../api/@ohos.graphics.drawing').default.ColorFilter } DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
 
@@ -51,7 +64,8 @@ declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').defaul
  * @typedef {import('../api/@ohos.multimedia.image').default.ResolutionQuality} ResolutionQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @stagemodelonly
+ * @since 12 dynamic
  */
 declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
 
@@ -60,9 +74,10 @@ declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default
  *
  * @typedef { import('../api/@ohos.graphics.drawing').default.Lattice } Lattice
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice;
 
@@ -71,9 +86,10 @@ declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.La
  *
  * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
 
@@ -82,27 +98,44 @@ declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transi
   *
   * @typedef { import('../api/@ohos.base').BusinessError<T> } BusinessError<T>
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @form
   * @atomicservice
-  * @since 20
+  * @since 20 dynamic
   */
-declare type BusinessError<T> = import('../api/@ohos.base').BusinessError<T>;
+declare type BusinessError<T = void> = import('../api/@ohos.base').BusinessError<T>;
+
+/**
+ * Download information of network images.
+ * 
+ * @typedef { import('../api/@ohos.request.cacheDownload').default.DownloadInfo } DownloadInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type RequestDownloadInfo = import('../api/@ohos.request.cacheDownload').default.DownloadInfo;
 
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -110,22 +143,25 @@ declare type BusinessError<T> = import('../api/@ohos.base').BusinessError<T>;
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ImageRenderMode {
   /**
    * Render according to the original image, including colors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Render according to the original image, including colors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -133,6 +169,7 @@ declare enum ImageRenderMode {
    * Render according to the original image, including colors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -141,10 +178,11 @@ declare enum ImageRenderMode {
    * Render according to the original image, including colors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Original,
 
@@ -152,12 +190,14 @@ declare enum ImageRenderMode {
    * Render the image as a template image, ignoring the color information of the image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Render the image as a template image, ignoring the color information of the image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -165,6 +205,7 @@ declare enum ImageRenderMode {
    * Render the image as a template image, ignoring the color information of the image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -173,10 +214,11 @@ declare enum ImageRenderMode {
    * Render the image as a template image, ignoring the color information of the image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Template,
 }
@@ -186,20 +228,22 @@ declare enum ImageRenderMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum ImageContent {
   /**
    * Make image empty.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   EMPTY = 0,
 }
@@ -207,16 +251,18 @@ declare enum ImageContent {
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum DynamicRangeMode {
   /**
    * Allow image content to use an unrestricted extended range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HIGH = 0,
 
@@ -224,8 +270,9 @@ declare enum DynamicRangeMode {
    * Allow image content to use some extended range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CONSTRAINT = 1,
 
@@ -233,8 +280,9 @@ declare enum DynamicRangeMode {
    * Restrict the image content dynamic range to the standard range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   STANDARD = 2,
 }
@@ -242,17 +290,20 @@ declare enum DynamicRangeMode {
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -260,22 +311,25 @@ declare enum DynamicRangeMode {
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ImageInterpolation {
   /**
    * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -283,6 +337,7 @@ declare enum ImageInterpolation {
    * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -291,10 +346,11 @@ declare enum ImageInterpolation {
    * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 
@@ -302,12 +358,14 @@ declare enum ImageInterpolation {
    * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -315,6 +373,7 @@ declare enum ImageInterpolation {
    * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -323,10 +382,11 @@ declare enum ImageInterpolation {
    * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Low,
 
@@ -334,12 +394,14 @@ declare enum ImageInterpolation {
    * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -347,6 +409,7 @@ declare enum ImageInterpolation {
    * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -355,10 +418,11 @@ declare enum ImageInterpolation {
    * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Medium,
 
@@ -366,12 +430,14 @@ declare enum ImageInterpolation {
    * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -379,6 +445,7 @@ declare enum ImageInterpolation {
    * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -387,10 +454,11 @@ declare enum ImageInterpolation {
    * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   High,
 }
@@ -398,18 +466,39 @@ declare enum ImageInterpolation {
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
+ */
+/**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare enum ImageRotateOrientation {
   /**
    * Rotate according to the image rotation
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+  /**
+   * Rotate according to the image rotation
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   AUTO = 0,
 
@@ -417,9 +506,20 @@ declare enum ImageRotateOrientation {
    * Ignore the rotation of the image
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+  /**
+   * Ignore the rotation of the image
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   UP = 1,
 
@@ -427,9 +527,20 @@ declare enum ImageRotateOrientation {
    * Based on image rotation, rotate clockwise 90 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+  /**
+   * Based on image rotation, rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   RIGHT = 2,
 
@@ -437,9 +548,20 @@ declare enum ImageRotateOrientation {
    * Based on image rotation, rotate clockwise 180 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+  /**
+   * Based on image rotation, rotate clockwise 180 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   DOWN = 3,
 
@@ -447,49 +569,104 @@ declare enum ImageRotateOrientation {
    * Based on image rotation, rotate clockwise 270 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+  /**
+   * Based on image rotation, rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   LEFT = 4,
 
   /**
-   * Flip the orignial image horizontally
+   * Flip the original image horizontally
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   */
+  /**
+   * Flip the original image horizontally
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   UP_MIRRORED = 5,
 
   /**
-   * Flip the orignial image horizontally and rotate clockwise 90 degrees
+   * Flip the original image horizontally and rotate clockwise 90 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   */
+  /**
+   * Flip the original image horizontally and rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   RIGHT_MIRRORED = 6,
 
   /**
-   * Flip the orignial image vertically
+   * Flip the original image vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   */
+  /**
+   * Flip the original image vertically
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   DOWN_MIRRORED = 7,
 
   /**
-   * Flip the orignial image horizontally and rotate clockwise 270 degrees
+   * Flip the original image horizontally and rotate clockwise 270 degrees
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   */
+  /**
+   * Flip the original image horizontally and rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   LEFT_MIRRORED = 8,
 }
@@ -497,17 +674,20 @@ declare enum ImageRotateOrientation {
 /**
  * @interface ImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @interface ImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @interface ImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -515,10 +695,11 @@ declare enum ImageRotateOrientation {
 /**
  * @interface ImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ImageInterface {
   /**
@@ -527,6 +708,7 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -535,6 +717,7 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -544,6 +727,7 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -554,10 +738,11 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
 
@@ -567,12 +752,28 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
+
+  /**
+   * Set src to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
+   * @param { string } [reloadKey]
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent, reloadKey?: string): ImageAttribute;
 
   /**
    * Set src and ai options to obtain images
@@ -581,10 +782,26 @@ interface ImageInterface {
    * @param { ImageAIOptions } imageAIOptions
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
+
+  /**
+   * Set src and ai options to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor } src
+   * @param { ImageAIOptions } [imageAIOptions]
+   * @param { string } [reloadKey]
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor,
+    imageAIOptions?: ImageAIOptions, reloadKey?: string): ImageAttribute;
 }
 
 /**
@@ -592,10 +809,11 @@ interface ImageInterface {
  *
  * @interface ImageSourceSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 
 interface ImageSourceSize {
@@ -604,6 +822,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -611,6 +830,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -619,6 +839,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -628,6 +849,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -639,10 +861,11 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   width: number;
 
@@ -651,6 +874,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -658,6 +882,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -666,6 +891,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -675,6 +901,7 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -686,10 +913,11 @@ interface ImageSourceSize {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   height: number;
 }
@@ -698,9 +926,10 @@ interface ImageSourceSize {
  * Defines the ColorContent.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare class ColorContent {
   /**
@@ -710,9 +939,10 @@ declare class ColorContent {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   static readonly ORIGIN: ColorContent;
 }
@@ -720,17 +950,20 @@ declare class ColorContent {
 /**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -738,10 +971,11 @@ declare class ColorContent {
 /**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
@@ -750,6 +984,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { string | Resource } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -758,6 +993,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { string | Resource } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -767,6 +1003,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { string | Resource } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -777,6 +1014,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { string | Resource } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -792,10 +1030,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { string | Resource | PixelMap } value - Placeholder image displayed during loading, Default value is null.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   alt(value: string | Resource | PixelMap): ImageAttribute;
 
@@ -809,10 +1048,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceStr | PixelMap | ImageAlt } src - Placeholder image displayed during loading.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
 
   alt(src: ResourceStr | PixelMap | ImageAlt): ImageAttribute;
@@ -822,6 +1062,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -830,6 +1071,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -839,6 +1081,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -853,10 +1096,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - Whether to display the image in the system language direction, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   matchTextDirection(value: boolean): ImageAttribute;
 
@@ -866,6 +1110,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -874,6 +1119,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -883,6 +1129,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -897,10 +1144,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - Whether to fit the image to the size of the image source, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fitOriginalSize(value: boolean): ImageAttribute;
 
@@ -910,6 +1158,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceColor } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -918,6 +1167,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceColor } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -927,6 +1177,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceColor } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -944,10 +1195,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceColor } value - Fill color to be superimposed on the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fillColor(value: ResourceColor): ImageAttribute;
 
@@ -964,9 +1216,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceColor | ColorContent } color - Fill color to be superimposed on the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
@@ -983,9 +1236,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResourceColor | ColorContent | ColorMetrics } color
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fillColor(color: ResourceColor | ColorContent | ColorMetrics): ImageAttribute;
 
@@ -995,6 +1249,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageFit } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1003,6 +1258,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageFit } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1012,6 +1268,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageFit } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1022,10 +1279,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageFit } value - How the image is resized to fit its container, Default value is ImageFit.Cover.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   objectFit(value: ImageFit): ImageAttribute;
 
@@ -1035,9 +1293,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageMatrix } matrix - Transformation matrix of the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   imageMatrix(matrix: ImageMatrix): ImageAttribute;
 
@@ -1047,6 +1306,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRepeat } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1055,6 +1315,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRepeat } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1064,6 +1325,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRepeat } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1079,10 +1341,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRepeat } value - How the image is repeated, Default value is ImageRepeat.NoRepeat.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   objectRepeat(value: ImageRepeat): ImageAttribute;
 
@@ -1092,6 +1355,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1100,6 +1364,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1109,6 +1374,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1125,10 +1391,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * during image decoding, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   autoResize(value: boolean): ImageAttribute;
 
@@ -1138,6 +1405,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRenderMode } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1146,6 +1414,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRenderMode } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1155,6 +1424,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRenderMode } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1171,10 +1441,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageRenderMode } value - Rendering mode of the image, Default value is ImageRenderMode.Original.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   renderMode(value: ImageRenderMode): ImageAttribute;
 
@@ -1185,11 +1456,12 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute is not applicable to SVG images.
    * </p>
    *
-   * @param { DynamicRangeMode } value - Dynamic range of the image, Default value is DynamicRangeMode.Standard.
+   * @param { DynamicRangeMode } value - Dynamic range of the image, Default value is DynamicRangeMode.STANDARD.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
 
@@ -1199,8 +1471,9 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   * @param { number } brightness - Control the brightness of HDR Image, Default value is 1.0.
   * @returns { ImageAttribute }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @atomicservice
-  * @since 19
+  * @since 19 dynamic
   */
  hdrBrightness(brightness: number): ImageAttribute;
 
@@ -1210,6 +1483,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageInterpolation } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1218,6 +1492,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageInterpolation } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1227,6 +1502,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageInterpolation } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1242,10 +1518,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageInterpolation } value - Interpolation effect of the image, Default value is ImageInterpolation.Low.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interpolation(value: ImageInterpolation): ImageAttribute;
 
@@ -1256,6 +1533,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1265,6 +1543,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1275,6 +1554,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1286,6 +1566,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1305,10 +1586,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageSourceSize } value - Decoding size of the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   sourceSize(value: ImageSourceSize): ImageAttribute;
 
@@ -1319,6 +1601,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1328,6 +1611,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1338,6 +1622,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1352,10 +1637,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - Whether to load the image synchronously, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   syncLoad(value: boolean): ImageAttribute;
 
@@ -1365,6 +1651,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ColorFilter } value ColorFilter object.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1374,6 +1661,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ColorFilter } value ColorFilter object.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1384,6 +1672,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ColorFilter } value ColorFilter object.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1402,9 +1691,28 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
+
+  /**
+   * Sets the color filter for the image.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>When this attirbute is set, renderMode is not effective.
+   * <br>When value is ResourceColor type, it will be converted to ColorFilter with blend mode.
+   * </p>
+   *
+   * @param { ColorFilter | DrawingColorFilter | ResourceColor } value - Color filter of image.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorFilter(value: ColorFilter | DrawingColorFilter | ResourceColor): ImageAttribute;
 
   /**
    * Allow replication.
@@ -1412,6 +1720,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { CopyOptions } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1421,6 +1730,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { CopyOptions } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1436,10 +1746,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { CopyOptions } value - Specifies whether the image can be copied, Default value is CopyOptions.None.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   copyOption(value: CopyOptions): ImageAttribute;
 
@@ -1450,6 +1761,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - Whether the image is draggable, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 9
    */
   /**
@@ -1459,6 +1771,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - Whether the image is draggable, Default value is true.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11
    */
@@ -1468,9 +1781,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - Whether the image is draggable, Default value is true.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   draggable(value: boolean): ImageAttribute;
 
@@ -1481,7 +1795,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute } The attribute of the image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): ImageAttribute;
 
@@ -1494,7 +1809,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute } The attribute of the image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamic
    */
   edgeAntialiasing(value: number): ImageAttribute;
 
@@ -1505,6 +1821,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1514,6 +1831,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1524,6 +1842,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1539,10 +1858,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onComplete(
     callback: (event?: {
@@ -1734,6 +2054,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @since 10
        * @form
@@ -1743,6 +2064,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @atomicservice
        * @since 11
@@ -1754,6 +2076,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @since 10
        * @form
@@ -1763,6 +2086,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @atomicservice
        * @since 11
@@ -1774,6 +2098,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @since 10
        * @form
@@ -1783,6 +2108,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @atomicservice
        * @since 11
@@ -1794,6 +2120,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @since 10
        * @form
@@ -1803,6 +2130,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
        * @crossplatform
        * @atomicservice
        * @since 11
@@ -1819,6 +2147,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1829,6 +2158,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1844,10 +2174,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageErrorCallback } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onError(callback: ImageErrorCallback): ImageAttribute;
 
@@ -1858,6 +2189,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1867,6 +2199,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1877,6 +2210,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1893,10 +2227,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onFinish(event: () => void): ImageAttribute;
 
@@ -1906,6 +2241,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean} enable
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -1929,8 +2265,9 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean} enable - Whether to enable the AI analyzer, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   enableAnalyzer(enable: boolean): ImageAttribute;
 
@@ -1941,7 +2278,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @stagemodelonly
+   * @since 11 dynamic
    */
   analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
 
@@ -1951,6 +2289,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResizableOptions } value - Indicates the resizable options.
    * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1970,9 +2309,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ResizableOptions } value - 	Resizable image options.
    * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   resizable(value: ResizableOptions): ImageAttribute;
 
@@ -1983,7 +2323,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 
@@ -1997,9 +2338,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } supported - Whether to secure sensitive information on widgets, Default value is false.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   privacySensitive(supported: boolean): ImageAttribute;
 
@@ -2010,9 +2352,23 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * is ImageRotateOrientation.UP.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   */
+   /**
+   * Sets the display orientation of the image content.
+   *
+   * @param { ImageRotateOrientation } orientation - Display orientation of the image content, Default value
+   * is ImageRotateOrientation.UP.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   orientation(orientation: ImageRotateOrientation) : ImageAttribute;
 
@@ -2022,10 +2378,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } enable - switch
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   supportSvg2(enable: boolean) : ImageAttribute;
 
@@ -2035,23 +2392,39 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ContentTransitionEffect } transition - Animation effect type
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   contentTransition(transition: ContentTransitionEffect): ImageAttribute;
+
+  /**
+   * Anti-aliasing of image edges.
+   *
+   * @param { Optional<boolean> } isAntialiased
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
 }
 
 /**
  * Defines Image Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Image Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2059,6 +2432,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * Defines Image Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2077,10 +2451,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-texture-compression-improve-performance}</p>
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Image: ImageInterface;
 
@@ -2088,12 +2463,14 @@ declare const Image: ImageInterface;
  * Defines Image Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Image Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2101,6 +2478,7 @@ declare const Image: ImageInterface;
  * Defines Image Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2109,22 +2487,25 @@ declare const Image: ImageInterface;
  * Defines Image Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ImageInstance: ImageAttribute;
 
 /**
  * @type ImageErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @type ImageErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2133,22 +2514,25 @@ declare const ImageInstance: ImageAttribute;
  * @typedef { function } ImageErrorCallback
  * @param { ImageError } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 type ImageErrorCallback = (error: ImageError) => void;
 
 /**
  * @interface ImageError
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @interface ImageError
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2156,10 +2540,11 @@ type ImageErrorCallback = (error: ImageError) => void;
 /**
  * @interface ImageError
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ImageError {
   /**
@@ -2167,6 +2552,7 @@ declare interface ImageError {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2175,6 +2561,7 @@ declare interface ImageError {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2184,10 +2571,11 @@ declare interface ImageError {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   componentWidth: number;
 
@@ -2196,6 +2584,7 @@ declare interface ImageError {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2204,6 +2593,7 @@ declare interface ImageError {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2213,10 +2603,11 @@ declare interface ImageError {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   componentHeight: number;
 
@@ -2225,6 +2616,7 @@ declare interface ImageError {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -2234,10 +2626,11 @@ declare interface ImageError {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   message: string;
 
@@ -2246,12 +2639,26 @@ declare interface ImageError {
    *
    * @type { ?BusinessError<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   error?: BusinessError<void>;
+
+  /**
+   * Download information of network images.
+   *
+   * @type { ?RequestDownloadInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  downloadInfo?: RequestDownloadInfo; 
 }
 
 /**
@@ -2259,6 +2666,7 @@ declare interface ImageError {
  *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -2267,9 +2675,10 @@ declare interface ImageError {
  *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ResizableOptions {
   /**
@@ -2277,6 +2686,7 @@ declare interface ResizableOptions {
    *
    * @type { ?EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2285,9 +2695,10 @@ declare interface ResizableOptions {
    *
    * @type { ?EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   slice?: EdgeWidths;
 
@@ -2296,9 +2707,10 @@ declare interface ResizableOptions {
    *
    * @type { ?DrawingLattice }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   lattice?: DrawingLattice;
 }
@@ -2307,10 +2719,11 @@ declare interface ResizableOptions {
  *
  * @interface ImageAlt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 declare interface ImageAlt {
   /**
@@ -2318,10 +2731,11 @@ declare interface ImageAlt {
    *
    * @type { ?(ResourceStr | PixelMap) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   placeholder?: ResourceStr | PixelMap;
 
@@ -2330,10 +2744,11 @@ declare interface ImageAlt {
    *
    * @type { ?(ResourceStr | PixelMap) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   error?: ResourceStr | PixelMap;
 }

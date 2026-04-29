@@ -1,4 +1,4 @@
-'use static'
+
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -26,7 +25,8 @@
  * @param { string } propertyName - property name
  * @param { T } newValue - the new value of state variable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
 
@@ -40,24 +40,27 @@ export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
  *
  * @interface AbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
-export interface AbstractProperty<T> {
+export declare interface AbstractProperty<T> {
   /**
    * Returns the name of the referenced property
    *
    * @returns { string } name of the referenced property
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  info(): string { return ""; };
+  default info(): string;
 
   /**
    * Reads value of the referenced AppStorage/LocalStorage property.
    *
    * @returns { T } value of the referenced AppStorage/LocalStorage property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   get(): T;
 
@@ -66,18 +69,20 @@ export interface AbstractProperty<T> {
    *
    * @param {T} newValue - a new value of the referenced property
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  set(newValue: T): void {};
+  default set(newValue: T): void;
   /**
    * Register callback function to be called on value change of the referenced property
    * calling with value undefined clear the callback.
    *
    * @param {OnChangeType<T> | undefined} onChangeFunc - register callback function
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  onChange(onChangeFunc: OnChangeType<T> | undefined): void {};
+  default onChange(onChangeFunc: OnChangeType<T> | undefined): void;
 }
 
 /**
@@ -95,9 +100,10 @@ export interface AbstractProperty<T> {
  * @extends AbstractProperty<T>
  * @interface SubscribedAbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
-export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
+export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
   /**
    * An app needs to call this function before the instance of SubscribedAbstractProperty
    * goes out of scope / is subject to garbage collection. Its purpose is to unregister the
@@ -105,9 +111,10 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
    * and related functions create.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  aboutToBeDeleted(): void {};
+  default aboutToBeDeleted(): void;
 }
 
 /**
@@ -115,14 +122,16 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum ColorMode {
   /**
    * Light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   LIGHT = 0,
 
@@ -130,7 +139,8 @@ export declare enum ColorMode {
    * Dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   DARK = 1
 }
@@ -140,30 +150,34 @@ export declare enum ColorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum LayoutDirection {
-  /**
-   * Elements are laid out from left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  LTR = 0,
-
   /**
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  RTL = 1,
+  RTL = 0,
+
+  /**
+   * Elements are laid out from left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LTR = 1,
 
   /**
    * Elements are laid out from auto.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  Auto = 2
+  Auto = 2,
 }

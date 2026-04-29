@@ -34,7 +34,7 @@ import Want from './@ohos.app.ability.Want';
  * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface PluginComponentTemplate {
   /**
@@ -50,7 +50,7 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   source: string;
 
@@ -67,7 +67,7 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ability: string;
 }
@@ -85,7 +85,7 @@ interface PluginComponentTemplate {
  * @namespace pluginComponentManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace pluginComponentManager {
   /**
@@ -101,7 +101,7 @@ declare namespace pluginComponentManager {
    * @typedef { object } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
@@ -118,7 +118,7 @@ declare namespace pluginComponentManager {
    * @interface PushParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface PushParameters {
     /**
@@ -134,7 +134,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */    
     want: Want;
 
@@ -151,7 +151,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     name: string;
 
@@ -168,7 +168,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     data: KVObject;
 
@@ -185,7 +185,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     extraData: KVObject;
 
@@ -202,7 +202,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     jsonPath?: string;
   }
@@ -213,7 +213,7 @@ declare namespace pluginComponentManager {
    * @interface PushParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface PushParameterForStage {
     /**
@@ -222,7 +222,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     owner: Want;
 
@@ -232,7 +232,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     target: Want;
 
@@ -242,7 +242,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     name: string;
 
@@ -252,7 +252,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     data: KVObject;
 
@@ -262,7 +262,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     extraData: KVObject;
 
@@ -272,7 +272,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     jsonPath?: string;
   }
@@ -290,7 +290,7 @@ declare namespace pluginComponentManager {
    * @interface RequestParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface RequestParameters {
     /**
@@ -306,7 +306,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */  
     want: Want;
 
@@ -323,7 +323,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */  
     name: string;
   
@@ -340,7 +340,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */  
     data: KVObject;
 
@@ -357,7 +357,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     jsonPath?: string;
   }
@@ -368,7 +368,7 @@ declare namespace pluginComponentManager {
    * @interface RequestParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface RequestParameterForStage {
     /**
@@ -377,7 +377,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */    
     owner: Want;
 
@@ -387,7 +387,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     target: Want;
     /**
@@ -396,7 +396,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     name: string;
 
@@ -406,7 +406,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     data: KVObject;
 
@@ -416,7 +416,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */  
     jsonPath?: string;
   }
@@ -434,7 +434,7 @@ declare namespace pluginComponentManager {
    * @interface RequestCallbackParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface RequestCallbackParameters {
 
@@ -451,7 +451,7 @@ declare namespace pluginComponentManager {
      * @type { PluginComponentTemplate }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     componentTemplate: PluginComponentTemplate;
   
@@ -468,7 +468,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     data: KVObject;
 
@@ -485,7 +485,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     extraData: KVObject;
   }
@@ -503,7 +503,7 @@ declare namespace pluginComponentManager {
    * @interface RequestEventResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface RequestEventResult {
     /**
@@ -519,7 +519,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     template?: string;
 
@@ -536,7 +536,7 @@ declare namespace pluginComponentManager {
      * @type { ?KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     data?: KVObject;
 
@@ -553,7 +553,7 @@ declare namespace pluginComponentManager {
      * @type { ?KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */ 
     extraData?: KVObject;
   }
@@ -571,7 +571,7 @@ declare namespace pluginComponentManager {
    * @typedef { function } OnPushEventCallback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject,
     extraData: KVObject) => void;
@@ -590,7 +590,7 @@ declare namespace pluginComponentManager {
    * @returns { RequestEventResult } Returns the request event result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
 
@@ -609,7 +609,7 @@ declare namespace pluginComponentManager {
    * @param { AsyncCallback<void> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
@@ -628,7 +628,7 @@ declare namespace pluginComponentManager {
    * @param { AsyncCallback<RequestCallbackParameters> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
@@ -640,7 +640,7 @@ declare namespace pluginComponentManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
 
@@ -652,7 +652,7 @@ declare namespace pluginComponentManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   function request(param: RequestParameterForStage, callback: AsyncCallback<RequestCallbackParameters>): void;
 
@@ -671,7 +671,7 @@ declare namespace pluginComponentManager {
    * @param { OnPushEventCallback | OnRequestEventCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
 }

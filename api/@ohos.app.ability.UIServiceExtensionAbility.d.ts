@@ -19,139 +19,190 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type Want from './@ohos.app.ability.Want';
 import type UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import type UIServiceHostProxy from './application/UIServiceHostProxy';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import Want from './@ohos.app.ability.Want';
 import UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import UIServiceHostProxy from './application/UIServiceHostProxy';
+import { RecordData } from './@ohos.base';
 /*** endif */
 import window from './@ohos.window';
 
 /**
- * The class of UI service extension ability.
+ * UIServiceExtensionAbility provides extended capabilities related to the floating window component. It inherits from 
+ * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}. It is mainly used to provide services 
+ * with UIs for third-party applications.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
  *
- * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 23 static
  */
 declare class UIServiceExtensionAbility extends ExtensionAbility {
   /**
-   * Indicates configuration information about an UI service extension ability context.
+   * Context environment for a 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. This 
+   * context inherits from [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
    *
-   * @type { UIServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   context: UIServiceExtensionContext;
 
   /**
-   * Called back when an UI service extension is started for initialization.
+   * Called to initialize the service logic.
    *
-   * @param { Want } want - Indicates the want of created UI service extension.
+   * @param { Want } want - [Want]{@link @ohos.app.ability.Want:Want} information about the 
+   *     [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}, including 
+   *     the ability name and bundle name.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onCreate(want: Want): void;
 
   /**
-   * Called back when a UI service extension is started.
+   * Called to request to start a 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. If the 
+   * UIServiceExtensionAbility is started by calling 
+   * [startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, callback: AsyncCallback<void>)}
+   *  or 
+   * [startUIServiceExtensionAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startUIServiceExtensionAbility}
+   * , this callback will be invoked after [onCreate]{@link UIServiceExtensionAbility#onCreate}. The value of 
+   * **startId** is incremented for each UIServiceExtensionAbility that is started.
    *
-   * @param { Want } want - Indicates the want of UI service extension to start.
-   * @param { int } startId - Indicates the number of times the UI service extension has been started.
-   *                             The {@code startId} is incremented by 1 every time the UI service extension is started.
-   *                             For example, if the UI service extension has been started for six times.
+   * @param { Want } want - [Want]{@link @ohos.app.ability.Want:Want} information about the 
+   *     [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}, including 
+   *     the ability name and bundle name.
+   * @param { int } startId - Number of times the instance has been started. The initial value is **1** for the first start, 
+   *     and it increments automatically for subsequent starts.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onRequest(want: Want, startId: int): void;
 
   /**
-   * Called back when a UI service extension is connected to an ability.
+   * Called when the connection to a 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} is 
+   * established. If the UIServiceExtensionAbility is started by calling 
+   * [connectUIServiceExtensionAbility()]{@link ./application/UIExtensionContext:UIExtensionContext.connectUIServiceExtensionAbility}
+   * , this callback will be invoked after [onCreate()]{@link UIServiceExtensionAbility.onCreate}. This callback 
+   * receives a [UIServiceHostProxy]{@link ./application/UIServiceHostProxy:UIServiceHostProxy} object for communication 
+   * between the client and server.
    *
-   * @param { Want } want - Indicates connection information about the UI service ability.
-   * @param { UIServiceHostProxy } proxy - Indicates the UI service host proxy.
+   * @param { Want } want - [Want]{@link @ohos.app.ability.Want:Want} information about the 
+   *     [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}, including 
+   *     the ability name and bundle name.
+   * @param { UIServiceHostProxy } proxy - [UIServiceHostProxy]{@link ./application/UIServiceHostProxy:UIServiceHostProxy} 
+   *     object, used for communication between the client and server.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onConnect(want: Want, proxy: UIServiceHostProxy): void;
 
   /**
-   * Called back when ability connected to a UI service extension is disconnected.
+   * Called when the connection to a 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} is 
+   * interrupted.
    *
-   * @param { Want } want - Indicates disconnection information about the UI service extension.
-   * @param { UIServiceHostProxy } proxy - Indicates the UI service host proxy.
+   * @param { Want } want - [Want]{@link @ohos.app.ability.Want:Want} information about the 
+   *     [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}, including 
+   *     the ability name and bundle name.
+   * @param { UIServiceHostProxy } proxy - Proxy that sends data to the sender.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onDisconnect(want: Want, proxy: UIServiceHostProxy): void;
 
   /**
-   * Called back when a window will create.
+   * Called when a window will be created for the 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. Through 
+   * **window.ExtensionWindowConfig** in the callback, the foreground application sends the parameters for creating the 
+   * window to the 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}.
    *
-   * @param { window.ExtensionWindowConfig } config - Indicates the extension window config.
+   * @param { window.ExtensionWindowConfig } config - Window configuration information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onWindowWillCreate(config: window.ExtensionWindowConfig): void;
 
   /**
-   * Called back when a window  is created.
+   * Called when a window is created for the 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. Through 
+   * this callback, the 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} passes the
+   *  created window object to the foreground application.
    *
-   * @param { window.Window } window - Indicates the created Window.
+   * @param { window.Window } window - Window object created.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onWindowDidCreate(window: window.Window): void;
+
+  /**
+   * Callback invoked when data is received.
+   *
+   * @param { UIServiceHostProxy } proxy - Proxy that sends data to the client.
+   * @param { Record<string, Object> } data - Data received.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 14 dynamic
+   */
+  onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
 
   /**
    * Called back when data is sent.
    *
    * @param { UIServiceHostProxy } proxy - Indicates the UI service host proxy.
-   * @param { Record<string, Object> } data - Indicates the received data.
+   * @param { Record<string, RecordData> } data - Indicates the received data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 static
    */
-  onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
+  onData(proxy: UIServiceHostProxy, data: Record<string, RecordData>): void;
 
   /**
-   * Called back before a UI service extension is destroyed.
+   * Called to clear resources when this 
+   * [UIServiceExtensionAbility]{@link @ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} is 
+   * destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   onDestroy(): void;
 }

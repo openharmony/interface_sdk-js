@@ -19,10 +19,10 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { ElementName } from './bundleManager/ElementName';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { ElementName } from './bundleManager/ElementName';
 /*** endif */
 import Want from './@ohos.app.ability.Want';
@@ -33,8 +33,8 @@ import Want from './@ohos.app.ability.Want';
  * @namespace appControl
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace appControl {
   /**
@@ -43,8 +43,8 @@ declare namespace appControl {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum ComponentType {
     /**
@@ -52,8 +52,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UI_ABILITY = 1,
 
@@ -62,8 +62,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UI_EXTENSION = 2
   }
@@ -74,8 +74,8 @@ declare namespace appControl {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   export enum UninstallComponentType {
     /**
@@ -83,10 +83,19 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 23 static
      */
     EXTENSION = 1,
+    /**
+     * Indicates the UI extension ability type.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    UI_EXTENSION = 2
   }
 
   /**
@@ -95,8 +104,8 @@ declare namespace appControl {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum DisposedType {
     /**
@@ -104,8 +113,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     BLOCK_APPLICATION = 1,
     /**
@@ -113,8 +122,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     BLOCK_ABILITY = 2,
     /**
@@ -122,8 +131,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     NON_BLOCK = 3
   }
@@ -134,8 +143,8 @@ declare namespace appControl {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum ControlType {
     /**
@@ -143,8 +152,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     ALLOWED_LIST = 1,
     /**
@@ -152,8 +161,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     DISALLOWED_LIST = 2
   }
@@ -164,8 +173,8 @@ declare namespace appControl {
    * @typedef DisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface DisposedRule {
     /**
@@ -174,8 +183,8 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     want: Want;
 
@@ -185,8 +194,8 @@ declare namespace appControl {
      * @type { ComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     componentType: ComponentType;
 
@@ -196,8 +205,8 @@ declare namespace appControl {
      * @type { DisposedType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     disposedType: DisposedType;
 
@@ -207,8 +216,8 @@ declare namespace appControl {
      * @type { ControlType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     controlType: ControlType;
 
@@ -218,8 +227,8 @@ declare namespace appControl {
      * @type { Array<ElementName> }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     elementList: Array<ElementName>;
 
@@ -229,8 +238,8 @@ declare namespace appControl {
      * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     priority: int;
   }
@@ -241,8 +250,8 @@ declare namespace appControl {
    * @typedef UninstallDisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   export interface UninstallDisposedRule {
     /**
@@ -251,8 +260,8 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 23 static
      */
     want: Want;
 
@@ -262,8 +271,8 @@ declare namespace appControl {
      * @type { UninstallComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 23 static
      */
     uninstallComponentType: UninstallComponentType;
 
@@ -273,8 +282,8 @@ declare namespace appControl {
      * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 23 static
      */
     priority: int;
   }
@@ -285,8 +294,8 @@ declare namespace appControl {
    * @typedef DisposedRuleConfiguration
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface DisposedRuleConfiguration {
     /**
@@ -295,8 +304,8 @@ declare namespace appControl {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     appId: string;
 
@@ -306,8 +315,8 @@ declare namespace appControl {
      * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     appIndex: int;
 
@@ -317,8 +326,8 @@ declare namespace appControl {
      * @type { DisposedRule }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     disposedRule: DisposedRule;
   }
@@ -337,8 +346,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function setDisposedStatus(appId: string, disposedWant: Want, callback: AsyncCallback<void>): void;
 
@@ -356,8 +365,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
@@ -374,15 +383,15 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function setDisposedStatusSync(appId: string, disposedWant: Want): void;
 
   /**
    * Obtains the disposed status of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -392,15 +401,15 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getDisposedStatus(appId: string, callback: AsyncCallback<Want>): void;
 
   /**
    * Obtains the disposed status of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
@@ -410,15 +419,15 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getDisposedStatus(appId: string): Promise<Want>;
 
   /**
    * Obtains the disposed status of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Want } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
@@ -428,8 +437,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getDisposedStatusSync(appId: string): Want;
 
@@ -446,8 +455,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
 
@@ -464,8 +473,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function deleteDisposedStatus(appId: string): Promise<void>;
 
@@ -497,15 +506,15 @@ declare namespace appControl {
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function deleteDisposedStatusSync(appId: string, appIndex?: int): void;
 
   /**
    * Obtains the disposed rule of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
@@ -520,7 +529,7 @@ declare namespace appControl {
   /**
    * Obtains the disposed rule of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { int } [appIndex] Indicates the index of clone app.
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
@@ -532,8 +541,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function getDisposedRule(appId: string, appIndex?: int): DisposedRule;
 
@@ -567,8 +576,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: int): void;
 
@@ -588,8 +597,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700075 - The specified bundleName of want is not the same with caller.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: int): void;
   
@@ -608,8 +617,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function getUninstallDisposedRule(appIdentifier: string, appIndex?: int): UninstallDisposedRule;
 
@@ -627,8 +636,8 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: int): void;
 
@@ -644,10 +653,41 @@ declare namespace appControl {
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function setDisposedRules(disposedRuleConfigurations: Array<DisposedRuleConfiguration>): void;
+
+  /**
+   * Query all disposed rules under the current user.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
+   * @returns { Array<DisposedRuleConfiguration> } Returns all disposed rules.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getAllDisposedRules(): Array<DisposedRuleConfiguration>;
+
+  /**
+   * Query all disposed rules under the current user for the specified setter bundle name.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
+   * @param { string } bundleName - Indicates the bundle name of the setter that sets the disposed rules.
+   * @returns { Array<DisposedRuleConfiguration> } Returns disposed rules.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   * @since 24 static
+   */
+  function getDisposedRulesByBundle(bundleName: string): Array<DisposedRuleConfiguration>;
 }
 
 export default appControl;

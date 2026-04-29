@@ -27,6 +27,7 @@
  * @extends MenuAttribute
  * @implements AttributeModifier<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends MenuAttribute
  * @implements AttributeModifier<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class MenuModifier extends MenuAttribute implements AttributeModifier<MenuAttribute> {
 
@@ -47,9 +49,10 @@ export declare class MenuModifier extends MenuAttribute implements AttributeModi
    * 
    * @param { MenuAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: MenuAttribute): void;
 }

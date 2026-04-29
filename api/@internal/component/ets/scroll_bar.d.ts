@@ -40,9 +40,10 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ScrollBarDirection {
   /**
@@ -62,9 +63,10 @@ declare enum ScrollBarDirection {
    * Vertical scrolling is supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Vertical,
 
@@ -85,9 +87,10 @@ declare enum ScrollBarDirection {
    * Horizontal scrolling is supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Horizontal,
 }
@@ -112,9 +115,10 @@ declare enum ScrollBarDirection {
  *
  * @interface ScrollBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ScrollBarOptions {
   /**
@@ -137,9 +141,10 @@ declare interface ScrollBarOptions {
    *
    * @type { Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scroller: Scroller;
 
@@ -163,9 +168,10 @@ declare interface ScrollBarOptions {
    *
    * @type { ?ScrollBarDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   direction?: ScrollBarDirection;
 
@@ -189,9 +195,10 @@ declare interface ScrollBarOptions {
    *
    * @type { ?BarState }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   state?: BarState;
 }
@@ -216,9 +223,11 @@ declare interface ScrollBarOptions {
  *
  * @interface ScrollBarInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 interface ScrollBarInterface {
   /**
@@ -244,9 +253,10 @@ interface ScrollBarInterface {
    * @param { ScrollBarOptions } value
    * @returns { ScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: ScrollBarOptions): ScrollBarAttribute;
 }
@@ -271,9 +281,11 @@ interface ScrollBarInterface {
  *
  * @extends CommonMethod<ScrollBarAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
     /**
@@ -281,9 +293,10 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @param { Optional<boolean> } enabled - Whether to enable nested scroll.
      * @returns { ScrollBarAttribute } The attribute of the scroll bar
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
 
@@ -293,9 +306,10 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @param { Optional<ColorMetrics> } color - Color of the scrollbar.
      * @returns { ScrollBarAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     scrollBarColor(color: Optional<ColorMetrics>): ScrollBarAttribute;
 }
@@ -317,9 +331,11 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * Defines ScrollBar Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const ScrollBar: ScrollBarInterface;
 
@@ -340,8 +356,10 @@ declare const ScrollBar: ScrollBarInterface;
  * Defines ScrollBar Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const ScrollBarInstance: ScrollBarAttribute;

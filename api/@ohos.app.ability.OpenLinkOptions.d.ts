@@ -18,67 +18,91 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * Define the available options for openLink API.
+ * **OpenLinkOptions** can be used as an input parameter of
+ * [openLink()]{@link ./application/UIAbilityContext:UIAbilityContext.openLink} to indicate whether to enable only App
+ * Linking and pass in optional parameters in the form of key-value pairs.
  *
- * @interface OpenLinkOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 export default interface OpenLinkOptions {
   /**
-   * Open the URL only if the URL is a valid app linking and
-   * there is an installed app capable of opening that URL.
+   * Whether the UIAbility must be started using <!--RP1-->
+   * [App Linking](docroot://application-models/app-linking-startup.md)<!--RP1End-->.
    *
-   * @type { ?boolean }
+   * - If this parameter is set to **true** and no UIAbility matches the URL in App Linking, the result is returned
+   * directly.
+   * - If this parameter is set to **false** and no UIAbility matches the URL in App Linking, App Linking falls back to
+   * [Deep Linking](docroot://application-models/deep-linking-startup.md). The default value is **false**.
+   *
+   * When the aa command is used to implicitly start an ability, you can set **--pb appLinkingOnly true** or
+   * **--pb appLinkingOnly false** to start the ability in App Linking mode.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   appLinkingOnly?: boolean;
 
   /**
-   * OpenLinkOptions parameters in the form of custom key-value pairs.
+   * List of parameters in Want.
    *
-   * @type { ?Record<string, Object> }
+   * Note: For details about the usage rules, see **parameters** in [want]{@link @ohos.app.ability.Want:Want}.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   parameters?: Record<string, Object>;
 
   /**
-   * The completion handler of openLink.
+   * OpenLinkOptions parameters in the form of custom key-value pairs.
    *
-   * @type { ?CompletionHandler }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  parameters?: Record<string, RecordData>;
+
+  /**
+   * Operation class used to handle the result of an application launch request.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   completionHandler?: CompletionHandler;
 
   /**
-   * Determines whether to hide a dialog when deep linking fails to match an application.
+   * Whether to display a "No app available" dialog box when a suitable application is not found using
+   * [Deep Linking](docroot://application-models/deep-linking-startup.md).
    *
-   * @type { ?boolean }
+   * - **true**: The "No app available" dialog box is not displayed.
+   * - **false**: The "No app available" dialog box is displayed. The default value is **false**.
+   *
+   * Note: If **appLinkingOnly** is set to **true**, the Deep Linking process is not triggered, and this field does not
+   * take effect.
+   *
    * @default { false }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   hideFailureTipDialog?: boolean;
 }

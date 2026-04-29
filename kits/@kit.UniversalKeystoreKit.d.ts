@@ -19,5 +19,10 @@
  */
 
 import huks from '@ohos.security.huks';
+import huksExternalCrypto from '@ohos.security.huksExternalCrypto';
+import CryptoExtensionAbility, {
+  HuksCryptoExtensionCertInfo, HuksCryptoExtensionResult, HuksCryptoExtensionResultCode
+} from '@ohos.security.CryptoExtensionAbility';
 
-export { huks };
+export { huks, huksExternalCrypto, CryptoExtensionAbility, HuksCryptoExtensionCertInfo,
+    HuksCryptoExtensionResult, HuksCryptoExtensionResultCode };

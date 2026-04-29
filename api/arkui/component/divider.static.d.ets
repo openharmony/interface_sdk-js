@@ -15,48 +15,62 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+
+/**
+ * The DividerAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface DividerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 export declare interface DividerAttribute extends CommonMethod {
     /**
      * Indicates whether to use a horizontal splitter or a vertical splitter.
      * The options are as follows: false: horizontal splitter; true: vertical splitter.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default vertical(value: boolean | undefined): this;
     /**
      * Sets the color of the divider line.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
      * Sets the width of the dividing line.
      *
-     * @param { number | string } value
+     * @param { double | string | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default strokeWidth(value: number | string | undefined): this;
+    default strokeWidth(value: double | string | undefined): this;
     /**
      * Sets the end style of the split line. The default value is Butt.
      *
-     * @param { LineCapStyle } value
+     * @param { LineCapStyle | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default lineCap(value: LineCapStyle | undefined): this;
     /**
@@ -65,16 +79,21 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DividerAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
-@memo
+/**
+ * Defines Divider Component.
+ *
+ * @returns { DividerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ * @noninterop
+ */
 @ComponentBuilder
-export declare function Divider(
-
-    @memo
-    content_?: () => void,
-): DividerAttribute
+export declare function Divider(): DividerAttribute;

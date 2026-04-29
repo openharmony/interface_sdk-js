@@ -24,6 +24,7 @@
  * @extends TextAttribute
  * @implements AttributeModifier<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -33,9 +34,10 @@
  * @extends TextAttribute
  * @implements AttributeModifier<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
 
@@ -44,9 +46,10 @@ export declare class TextModifier extends TextAttribute implements AttributeModi
    * 
    * @param { TextAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: TextAttribute): void;
 }

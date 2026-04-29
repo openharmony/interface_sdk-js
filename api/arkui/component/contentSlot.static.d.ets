@@ -15,10 +15,9 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Content } from '../../@ohos.arkui.node';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -26,24 +25,33 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface ContentSlotAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ContentSlotAttribute {
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 
 /**
  * ContentSlot is returned when the parameter is transferred.
  *
  * @param { Content } content - Indicates the class object of NodeContent.
- * @param { function } [content_]
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ContentSlot(
-    content: Content, 
-    @memo
-    content_?: () => void,
+    content: Content
 ): ContentSlotAttribute

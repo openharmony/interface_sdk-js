@@ -27,6 +27,7 @@
  * @extends TextAreaAttribute
  * @implements AttributeModifier<TextAreaAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends TextAreaAttribute
  * @implements AttributeModifier<TextAreaAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class TextAreaModifier extends TextAreaAttribute implements AttributeModifier<TextAreaAttribute> {
 
@@ -47,9 +49,10 @@ export declare class TextAreaModifier extends TextAreaAttribute implements Attri
    * 
    * @param { TextAreaAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: TextAreaAttribute): void;
 }

@@ -18,43 +18,21 @@
  * @kit ArkWeb
  */
 
-/*** if arkts 1.2 */
-import { Resource } from './global/resource';
-import { SizeOptions } from '@ohos.arkui.component';
-/*** endif */
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import type cert from './@ohos.security.cert';
 import type image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
-/*** if arkts 1.1 */
 import { WebNetErrorList } from './@ohos.web.netErrorList';
-/*** endif */
 
 /**
  * This module provides the capability to manage web modules.
  *
  * @namespace webview
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * This module provides the capability to manage web modules.
- *
- * @namespace webview
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * This module provides the capability to manage web modules.
- *
- * @namespace webview
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare namespace webview {
   /**
@@ -88,8 +66,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface WebHeader {
     /**
@@ -109,8 +86,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     headerKey: string;
 
@@ -131,8 +107,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     headerValue: string;
   }
@@ -148,8 +123,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   enum WebHitTestType {
     /**
@@ -161,8 +135,7 @@ declare namespace webview {
      * The edit text.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     EditText,
 
@@ -175,8 +148,7 @@ declare namespace webview {
      * The email address.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     Email,
 
@@ -189,8 +161,7 @@ declare namespace webview {
      * The HTML::a tag with src=http.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     HttpAnchor,
 
@@ -203,8 +174,7 @@ declare namespace webview {
      * The HTML::a tag with src=http + HTML::img.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     HttpAnchorImg,
 
@@ -217,8 +187,7 @@ declare namespace webview {
      * The HTML::img tag.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     Img,
 
@@ -231,8 +200,7 @@ declare namespace webview {
      * The map address.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     Map,
 
@@ -245,8 +213,7 @@ declare namespace webview {
      * The phone number.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     Phone,
 
@@ -259,8 +226,7 @@ declare namespace webview {
      * Other unknown HitTest.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     Unknown
   }
@@ -276,7 +242,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enum SecureDnsMode {
     /**
@@ -288,7 +254,7 @@ declare namespace webview {
      * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     OFF = 0,
     /**
@@ -302,7 +268,7 @@ declare namespace webview {
      * the system dns is used for resolution.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     AUTO = 1,
     /**
@@ -316,7 +282,7 @@ declare namespace webview {
      * fall back to the system dns, which will directly cause the page to fail to load.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SECURE_ONLY = 2,
   }
@@ -328,34 +294,42 @@ declare namespace webview {
    * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic
    */
   enum ArkWebEngineVersion {
     /**
      * Use the system default ArkWeb engine.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     SYSTEM_DEFAULT = 0,
 
     /**
      * ArkWeb M114 version.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     M114 = 1,
 
     /**
      * ArkWeb M132 version.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     M132 = 2,
 
     /**
+     * ArkWeb M144 version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    M144 = 3,
+
+    /**
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
+     * @since 23 dynamic
      */
     ARKWEB_EVERGREEN = 99999
   }
@@ -366,7 +340,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enum SecurityLevel {
     /**
@@ -374,7 +348,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NONE = 0,
 
@@ -383,7 +357,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SECURE = 1,
 
@@ -393,7 +367,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     WARNING = 2,
 
@@ -402,7 +376,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     DANGEROUS = 3,
   }
@@ -412,16 +386,14 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum MediaPlaybackState {
     /**
      * No audio or video currently.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     NONE = 0,
 
@@ -429,8 +401,7 @@ declare namespace webview {
      * The audio and video on the page are being played.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     PLAYING = 1,
 
@@ -438,8 +409,7 @@ declare namespace webview {
      * The audio and video on the page are paused.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     PAUSED = 2,
 
@@ -447,8 +417,7 @@ declare namespace webview {
      * The audio and video on the page are stopped.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     STOPPED = 3
   }
@@ -458,16 +427,14 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   enum PressureLevel {
     /**
      * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     MEMORY_PRESSURE_LEVEL_MODERATE = 1,
 
@@ -475,8 +442,7 @@ declare namespace webview {
      * At this level, modules are advised to free all possible memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     MEMORY_PRESSURE_LEVEL_CRITICAL = 2
   }
@@ -502,8 +468,7 @@ declare namespace webview {
    * @typedef HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface HitTestValue {
 
@@ -519,8 +484,7 @@ declare namespace webview {
      * @type { WebHitTestType }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     type: WebHitTestType;
 
@@ -537,8 +501,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     extra: string;
   }
@@ -564,7 +527,7 @@ declare namespace webview {
    * @typedef WebCustomScheme
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface WebCustomScheme {
 
@@ -580,7 +543,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     schemeName: string;
 
@@ -596,7 +559,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     isSupportCORS: boolean;
 
@@ -612,7 +575,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     isSupportFetch: boolean;
 
@@ -624,7 +587,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isStandard?: boolean;
 
@@ -635,7 +598,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isLocal?: boolean;
 
@@ -646,7 +609,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isDisplayIsolated?: boolean;
 
@@ -657,7 +620,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isSecure?: boolean;
 
@@ -668,7 +631,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isCspBypassing?: boolean;
 
@@ -677,127 +640,151 @@ declare namespace webview {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     isCodeCacheSupported?: boolean;
   }
 
   /**
-   * Defines the callback of createPdf, related to {@link createPDF} method.
+   * Implements the output data stream class of **createPdf()**.
+   * 
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   * >
+   * > - When a PDF file is generated on a web page, a data stream is returned, which is encapsulated by the **PdfData**
+   * > class.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   class PdfData {
     /**
-     * Return the data stream generated by the webpage.
+     * Obtains the data stream generated by a web page. For details about the sample code, see 
+     * [createPdf]{@link @ohos.web.webview:webview.WebviewController#createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>)}.
      *
-     * @returns { Uint8Array } return pdf data.
+     * @returns { Uint8Array } Data stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     pdfArrayBuffer(): Uint8Array;
   }
 
   /**
-   * Defines the configuration of creating pdf, related to {@Link createPdf} method.
+   * Specifies the input parameters of **createPdf()**.
+   * 
+   * > **NOTE**
+   * >
+   * > The number of pixels is calculated as follows: Number of pixels = 96 x Number of inches.
    *
-   * @typedef PdfConfiguration
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   interface PdfConfiguration {
     /**
-     * Number of the width.
+     * Page width,
+     * 
+     * in inches.
+     * 
+     * Recommended value: 8.27 inches of A4 paper width.
      *
-     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    width: double;
+    width: number;
 
     /**
-     * Number of the height.
+     * Page height,
+     * 
+     * in inches.
+     * 
+     * Recommended value: 11.69 inches of A4 paper height.
      *
-     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    height: double;
+    height: number;
 
     /**
-     * Number of the marginTop.
+     * Top margin.
+     * 
+     * The value range is [0.0, half of the page height). If the value is not within the value range, set it to **0.0**.
+     * 
+     * Unit: inch.
      *
-     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    marginTop: double;
+    marginTop: number;
 
     /**
-     * Number of the marginBottom.
+     * Bottom margin.
+     * 
+     * The value range is [0.0, half of the page height). If the value is not within the value range, set it to **0.0**.
+     * 
+     * Unit: inch.
      *
-     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    marginBottom: double;
+    marginBottom: number;
 
     /**
-     * Number of the marginRight.
+     * Right margin.
+     * 
+     * The value range is [0.0, half of the page width). If the value is not within the value range, set it to **0.0**.
+     * 
+     * Unit: inch.
      *
-     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    marginRight: double;
+    marginRight: number;
 
     /**
-     * Number of the marginLeft.
+     * Left margin.
+     * 
+     * The value range is [0.0, half of the page width). If the value is not within the value range, set it to **0.0**.
+     * 
+     * Unit: inch.
      *
-     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    marginLeft: double;
+    marginLeft: number;
 
     /**
-     * Number of the scaling.
+     * Scale multiple.
+     * 
+     * The value range is [0.0, 2.0]. If the value is less than 0.0, set it to **0.0**. If the value is greater
+     * than 2.0, set it to **2.0**.
+     * 
+     * Default value: **1.0**
      *
-     * @type { ?double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    scale?: double;
+    scale?: number;
 
     /**
-     * Whether background should be printed when creating pdf.
+     * Whether to print the background color. The value **true** means to print the background color, and **false** 
+     * means the opposite.
+     * 
+     * Default value: **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     shouldPrintBackground?: boolean;
   }
@@ -832,8 +819,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   interface WebStorageOrigin {
     /**
@@ -857,8 +843,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     origin: string;
     /**
@@ -868,24 +853,23 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Specify the amount of storage for the source.
+     * Specify the amount of storage for the source. Unit: byte.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
 	/**
-     * Specify the amount of storage for the source.
+     * Specify the amount of storage for the source. Unit: byte.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    usage: double;
+    usage: number;
     /**
      * the callback of getOriginUsage.
      *
@@ -893,63 +877,57 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * the callback of getOriginUsage.
+     * the callback of getOriginUsage. Unit: byte.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
 	/**
-     * the callback of getOriginUsage.
+     * the callback of getOriginUsage. Unit: byte.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    quota: double;
+    quota: number;
   }
 
   /**
-   * Defines the Web's request info.
+   * Describes the information about the resource request sent by the **Web** component.
    *
-   * @typedef RequestInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface RequestInfo {
     /**
-     * Gets the url of the request.
-     * @type { string }
+     * URL of the request.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     url: string;
 
     /**
-     * Gets the method of the request.
-     * @type { string }
+     * Method of the request.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     method: string;
 
     /**
-     * Gets the form data of the request.
-     * @type { string }
+     * Form data in the request body.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     formData: string;
   }
@@ -961,66 +939,56 @@ declare namespace webview {
    * @typedef ScrollOffset
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   interface ScrollOffset {
     /**
      * The horizontal scroll offset of the web page. The value is the difference between
      * the x-coordinate of the left border of the web page and the x-coordinate of the
      * left border of the Web component. When the web page scrolls to the right,
-     * the value range is negative. 
+     * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the left,
      * the value is 0 or a positive value. Unit: vp.
-     * 
-     * @type { double }
+     *
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
-    x: double;
+    x: number;
 
     /**
-     * The vertical scroll offset of the web page. The value is the difference between 
-     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
+     * The vertical scroll offset of the web page. The value is the difference between
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the
      * upper boundary of the Web component. When the web page is scrolled down,
-     * the value range is negative. 
+     * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the up,
      * the value is 0 or a positive value. Unit: vp.
-     * 
-     * @type { double }
+     *
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
-    y: double;
+    y: number;
   }
 
   /**
-   * Subscribe to a callback of a specified type of web event once.
+   * Registers a one-time callback for web events of the specified type. Currently, only **webInited** is supported.
+   * This callback is triggered when the Web engine initialization is complete.
+   * When the first **Web** component is loaded in an application, the web engine is initialized. When other **Web**
+   * components are loaded in the same application, **once()** is not triggered. When the first **Web** component is
+   * loaded after the last **Web** component is destroyed in the application, the web engine will be initialized again.
    *
-   * @param {string} type Types of web event.
+   * @param {string} type Web event type. The value can be **"webInited"**, indicating completion of web
+   *     initialization.
    * @param {Callback<void>} callback Indicate callback used to receive the web event.
    *
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Subscribe to a callback of a specified type of web event once.
-   *
-   * @param {string} type Types of web event.
-   * @param {Callback<void>} callback Indicate callback used to receive the web event.
-   *
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function once(type: string, callback: Callback<void>): void;
 
@@ -1048,8 +1016,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   class WebStorage {
     /**
@@ -1076,8 +1043,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     static deleteAllData(incognito?: boolean): void;
 
@@ -1112,8 +1078,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     static deleteOrigin(origin: string): void;
 
@@ -1138,7 +1103,7 @@ declare namespace webview {
     /**
      * Obtains information about all origins that are currently using the Web SQL Database.
      * This API uses a promise to return the result.
-     * 
+     *
      * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
      *                                                 For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1147,8 +1112,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
@@ -1173,7 +1137,7 @@ declare namespace webview {
     /**
      * Obtains information about all origins that are currently using the Web SQL Database.
      * This API uses an asynchronous callback to return the result.
-     * 
+     *
      * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
      *                                                              origins. For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1182,15 +1146,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<double> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1199,7 +1162,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<double> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1210,7 +1173,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<double> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1218,15 +1181,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    static getOriginQuota(origin: string): Promise<double>;
+    static getOriginQuota(origin: string): Promise<number>;
 
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1236,7 +1198,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1247,7 +1209,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1255,15 +1217,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    static getOriginQuota(origin: string, callback: AsyncCallback<double>): void;
+    static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<double> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1273,7 +1234,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<double> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1284,7 +1245,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<double> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1292,15 +1253,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    static getOriginUsage(origin: string): Promise<double>;
+    static getOriginUsage(origin: string): Promise<number>;
 
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1310,7 +1270,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1321,7 +1281,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1329,10 +1289,9 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    static getOriginUsage(origin: string, callback: AsyncCallback<double>): void;
+    static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
 
   /**
@@ -1350,8 +1309,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   class WebDataBase {
     /**
@@ -1366,8 +1324,7 @@ declare namespace webview {
     * @syscap SystemCapability.Web.Webview.Core
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'11', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 11 dynamic
     */
     static existHttpAuthCredentials(): boolean;
 
@@ -1383,8 +1340,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static deleteHttpAuthCredentials(): void;
 
@@ -1407,8 +1363,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
@@ -1433,316 +1388,160 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
   }
 
   /**
-   * Provides a method for managing web geographic location permissions.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides a method for managing web geographic location permissions.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Implements a GeolocationPermissions object.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in GeolocationPermissions.
-   * </p>
+   * Implements a **GeolocationPermissions** object.
    * 
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   * >
+   * > - You must load the **Web** component before calling the APIs in **GeolocationPermissions**.
+   * >
+   * > - Required Permissions
+   * > **ohos.permission.LOCATION**, **ohos.permission.APPROXIMATELY_LOCATION**, and
+   * > **ohos.permission.LOCATION_IN_BACKGROUND**, which are required for accessing the location information. For details
+   * > about the permissions, see
+   * > [@ohos.geolocation (Geolocation)](docroot://reference/apis-location-kit/js-apis-geolocation.md).
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class GeolocationPermissions {
     /**
-     * Allow geolocation permissions for specifies source.
-     * @param { string } origin - Url source.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Allow geolocation permissions for specifies source.
-     * @param { string } origin - Url source.
-     * @param { boolean } incognito - {@code true} Allow geolocation permissions for specifies source
-     *                                in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Allows the specified origin to use the geolocation information.
+     *
      * @param { string } origin - Index of the origin.
-     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information 
-     *                                in incognito mode. {@code true} means to allow the specified origin to use the
-     *                                geolocation information in incognito mode; {@code false} means to allow the
-     *                                specified origin to use the geolocation information in normal non-incognito mode.
+     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information in
+     *     incognito mode. The value **true** means to allow the specified origin to use the geolocation information in
+     *     incognito mode, and **false** means the opposite.<br>Default value: **false**.<br>If **null** or
+     *     **undefined** is passed in, the value is **false**. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static allowGeolocation(origin: string, incognito?: boolean): void;
 
     /**
-     * Delete geolocation permissions for specifies source.
-     * @param { string } origin - Url source.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete geolocation permissions for specifies source.
-     * @param { string } origin - Url source.
-     * @param { boolean } incognito - {@code true} delete geolocation permissions for specifies source
-     *                                in incognito mode; {@code false} otherwise.
+     * Clears the geolocation permission status of a specified origin.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { boolean } incognito - Whether to clear the geolocation permission status of a specified origin in
+     *     incognito mode. The value **true** means to clear the geolocation permission status of a specified origin in
+     *     incognito mode, and **false** means the opposite.<br>Default value: **false**.<br>If **null** or
+     *     **undefined** is passed in, the value is **false**. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Delete geolocation permissions for specifies source.
-     * @param { string } origin - Url source.
-     * @param { boolean } incognito - {@code true} delete geolocation permissions for specifies source
-     *                                in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteGeolocation(origin: string, incognito?: boolean): void;
 
     /**
-     * Delete all geolocation permissions.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete all geolocation permissions.
-     *
-     * @param { boolean } incognito - {@code true} delete all geolocation in incognito mode;
-     *                                {@code false} otherwise.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Clears the geolocation permission status of all sources.
      *
      * @param { boolean } incognito - Whether to clear the geolocation permission status of all sources in incognito
-     *                                mode. {@code true} means to clear the geolocation permission status of
-     *                                all sources in incognito mode; {@code false} means to clear the geolocation
-     *                                permission status of all sources in normal non-incognito mode.
+     *     mode. The value **true** means to clear the geolocation permission status of all sources in incognito mode,
+     *     and **false** means the opposite.<br>Default value: **false**.<br>If **null** or **undefined** is passed in,
+     *     the value is **false**. [since 11]
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteAllGeolocation(incognito?: boolean): void;
 
     /**
-     * Gets the geolocation permission status of the specified source.
-     * @param { string } origin - Url source.
-     * @returns { Promise<boolean> } A Promise instance that obtains the permission
-     *                               status of the specified source and obtains successfully,
-     *                               true for authorization, false for access denial. Failed
-     *                               to get, indicating that the permission status of the
-     *                               specified source does not exist.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Gets the geolocation permission status of the specified source.
-     * @param { string } origin - Url source.
-     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
-     *                                specified source in incognito mode; {@code false} otherwise.
-     * @returns { Promise<boolean> } A Promise instance that obtains the permission
-     *                               status of the specified source and obtains successfully,
-     *                               true for authorization, false for access denial. Failed
-     *                               to get, indicating that the permission status of the
-     *                               specified source does not exist.
+     * Obtains the geolocation permission status of the specified origin. This API uses a promise to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { boolean } incognito - Whether to obtain the geolocation permission status of the specified origin in
+     *     incognito mode. The value **true** means to obtain the geolocation permission status of the specified origin
+     *     in incognito mode, and **false** means the opposite.<br>Default value: **false**.<br>If **null** or
+     *     **undefined** is passed, error code **401** is thrown. [since 11]
+     * @returns { Promise<boolean> } Promise used to return the geolocation permission status of the specified origin.
+     *     <br>If the operation is successful, the value **true** means that the geolocation permission is granted, and
+     *     **false** means the opposite.
+     *     <br>If the operation fails, the geolocation permission status of the specified origin is not found.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Gets the geolocation permission status of the specified source.
-     * @param { string } origin - Url source.
-     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
-     *                                specified source in incognito mode; {@code false} otherwise.
-     * @returns { Promise<boolean> } A Promise instance that obtains the permission
-     *                               status of the specified source and obtains successfully,
-     *                               true for authorization, false for access denial. Failed
-     *                               to get, indicating that the permission status of the
-     *                               specified source does not exist.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise<boolean>;
 
-    /**
-     * Gets the geolocation permission status of the specified source.
-     * @param { string } origin - Url source.
-     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
-     *                                              the specified source. Successful acquisition,
-     *                                              true means authorized, false means access is
-     *                                              denied. Failed to get, indicating that the
-     *                                              permission status of the specified source does
-     *                                              not exist.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Gets the geolocation permission status of the specified source.
-     * @param { string } origin - Url source.
-     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
-     *                                              the specified source. Successful acquisition,
-     *                                              true means authorized, false means access is
-     *                                              denied. Failed to get, indicating that the
-     *                                              permission status of the specified source does
-     *                                              not exist.
-     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
-     *                                specified source in incognito mode; {@code false} otherwise.
+   /**
+     * Obtains the geolocation permission status of the specified origin. This API uses an asynchronous callback to 
+     * return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the geolocation permission status of the
+     *     specified origin.<br>If the operation is successful, the value **true** means that the geolocation permission
+     *     is granted, and **false** means the opposite.<br>If the operation fails, the geolocation permission status of
+     *     the specified origin is not found.
+     * @param { boolean } incognito - Whether to obtain the geolocation permission status of the specified origin in
+     *     incognito mode. The value **true** means to obtain the geolocation permission status of the specified origin
+     *     in incognito mode, and **false** means the opposite.<br>Default value: **false**.<br>If **null** or
+     *     **undefined** is passed, error code **401** is thrown. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Gets the geolocation permission status of the specified source.
-     * @param { string } origin - Url source.
-     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
-     *                                              the specified source. Successful acquisition,
-     *                                              true means authorized, false means access is
-     *                                              denied. Failed to get, indicating that the
-     *                                              permission status of the specified source does
-     *                                              not exist.
-     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
-     *                                specified source in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>, incognito?: boolean): void;
 
-    /**
-     * Get all stored geolocation permission url source.
+   /**
+     * Obtains the geolocation permission status of all origins. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
-     *                                     the stored geolocation permission state.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get all stored geolocation permission url source.
-     * @param { boolean } incognito - {@code true} get all stored geolocation permission url source
-     *                                in incognito mode; {@code false} otherwise.
-     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
-     *                                     the stored geolocation permission state.
+     * @param { boolean } incognito - Whether to obtain the geolocation permission status of all origins in incognito
+     *     mode. The value **true** means to obtain the geolocation permission status of all origins in incognito mode,
+     *     and **false** means the opposite.<br>Default value: **false**.<br>If **null** or **undefined** is passed,
+     *     error code **401** is thrown. [since 11]
+     * @returns { Promise<Array<string>> } Promise used to return the geolocation permission status of all origins.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get all stored geolocation permission url source.
-     * @param { boolean } incognito - {@code true} get all stored geolocation permission url source
-     *                                in incognito mode; {@code false} otherwise.
-     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
-     *                                     the stored geolocation permission state.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getStoredGeolocation(incognito?: boolean): Promise<Array<string>>;
 
-    /**
-     * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
-     *                                                    stored geolocation permission states.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
-     *                                                    stored geolocation permission states.
-     * @param { boolean } incognito - {@code true} gets all stored geolocation permission url
-     *                                source in incognito mode; {@code false} otherwise.
+   /**
+     * Obtains the geolocation permission status of all origins. This API uses an asynchronous callback to return the 
+     * result.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the geolocation permission status of
+     *     all origins.
+     * @param { boolean } incognito - Whether to obtain the geolocation permission status of all origins in incognito
+     *     mode. The value **true** means to obtain the geolocation permission status of all origins in incognito mode,
+     *     and **false** means the opposite.<br>Default value: **false**.<br>If **null** or **undefined** is passed,
+     *     error code **401** is thrown. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
-     *                                                    stored geolocation permission states.
-     * @param { boolean } incognito - {@code true} gets all stored geolocation permission url
-     *                                source in incognito mode; {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getStoredGeolocation(callback: AsyncCallback<Array<string>>, incognito?: boolean): void;
   }
@@ -1759,8 +1558,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   class WebCookieManager {
     /**
@@ -1772,7 +1570,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.web.webview.WebCookieManager#fetchCookieSync
      */
@@ -1790,8 +1588,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static fetchCookieSync(url: string, incognito?: boolean): string;
 
@@ -1806,7 +1603,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static fetchCookie(url: string): Promise<string>;
 
@@ -1821,7 +1618,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 14
+     * @since 14 dynamic
      */
     static fetchCookie(url: string, incognito: boolean): Promise<string>;
 
@@ -1836,7 +1633,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static fetchCookie(url: string, callback: AsyncCallback<string>): void;
 
@@ -1848,10 +1645,10 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
-     * <br>in RFC 6265. 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.web.webview.WebCookieManager#configCookieSync
      */
@@ -1867,12 +1664,11 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static configCookieSync(url: string, value: string, incognito?: boolean): void;
 
@@ -1888,11 +1684,10 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void;
 
@@ -1905,12 +1700,12 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static configCookie(url: string, value: string): Promise<void>;
 
@@ -1927,10 +1722,10 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 14
+     * @since 14 dynamic
      */
     static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
 
@@ -1943,19 +1738,19 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Save the cookies synchronously.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 15
+     * @since 15 dynamic
      */
     static saveCookieSync(): void;
 
@@ -1974,8 +1769,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static saveCookieAsync(): Promise<void>;
 
@@ -1994,8 +1788,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static saveCookieAsync(callback: AsyncCallback<void>): void;
 
@@ -2012,7 +1805,7 @@ declare namespace webview {
      * @returns { boolean } True if the instance can send and accept cookies else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static isCookieAllowed(): boolean;
 
@@ -2034,7 +1827,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static putAcceptCookieEnabled(accept: boolean): void;
 
@@ -2051,7 +1844,7 @@ declare namespace webview {
      * @returns { boolean } True if the instance can send and accept thirdparty cookies else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static isThirdPartyCookieAllowed(): boolean;
 
@@ -2074,7 +1867,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
 
@@ -2104,14 +1897,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static existCookie(incognito?: boolean): boolean;
 
     /**
      * Remove all cookies.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.web.webview.WebCookieManager#clearAllCookiesSync
      */
@@ -2124,8 +1917,7 @@ declare namespace webview {
      *                                {@code false} otherwise.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static clearAllCookiesSync(incognito?: boolean): void;
 
@@ -2136,8 +1928,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static clearAllCookies(): Promise<void>;
 
@@ -2149,15 +1940,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     static clearAllCookies(callback: AsyncCallback<void>): void;
 
     /**
      * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.web.webview.WebCookieManager#clearSessionCookieSync
      */
@@ -2167,7 +1957,7 @@ declare namespace webview {
      * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static clearSessionCookieSync(): void;
 
@@ -2177,7 +1967,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static clearSessionCookie(): Promise<void>;
 
@@ -2190,6 +1980,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+
     /**
      * Delete the session cookies Asynchronously.
      * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
@@ -2198,9 +1989,33 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static clearSessionCookie(callback: AsyncCallback<void>): void;
+
+    /**
+     * Delays the initialization of the web engine. By default, the web engine is initialized when the CookieManager
+     * interface is called. By setting the 'lazy' parameter to true, the web engine will not be initialized when the
+     * CookieManager interface is called. Instead, the web engine will be initialized either when the web component is
+     * created or when initializeWebEngine is called.
+     *
+     * @param { boolean } lazy - Controls whether to delay the initialization of the web engine.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic
+     */
+    static setLazyInitializeWebEngine(lazy: boolean): void;
+
+    /**
+     * Fetches all stored cookies asynchronously.
+     *
+     * @param { boolean } incognito - {@code true} Gets all cookies in incognito context; {@code false} otherwise.
+     * @returns { Promise<Array<WebHttpCookie>> } - A promise resolved after the cookies gotten.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
   }
 
   /**
@@ -2225,7 +2040,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   enum WebMessageType {
     /**
@@ -2239,7 +2054,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NOT_SUPPORT,
 
@@ -2262,7 +2077,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     STRING,
 
@@ -2285,7 +2100,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     NUMBER,
 
@@ -2308,7 +2123,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     BOOLEAN,
 
@@ -2323,7 +2138,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     ARRAY_BUFFER,
 
@@ -2346,7 +2161,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     ARRAY,
 
@@ -2369,7 +2184,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     ERROR
   }
@@ -2393,7 +2208,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   class WebMessageExt {
     /**
@@ -2415,7 +2230,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getType(): WebMessageType;
 
@@ -2444,7 +2259,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getString(): string;
 
@@ -2473,7 +2288,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getNumber(): number;
 
@@ -2502,7 +2317,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getBoolean(): boolean;
 
@@ -2521,7 +2336,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getArrayBuffer(): ArrayBuffer;
 
@@ -2550,7 +2365,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getArray(): Array<string | number | boolean>;
 
@@ -2579,7 +2394,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getError(): Error;
 
@@ -2613,7 +2428,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setType(type: WebMessageType): void;
 
@@ -2647,7 +2462,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setString(message: string): void;
 
@@ -2681,7 +2496,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setNumber(message: number): void;
 
@@ -2715,7 +2530,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setBoolean(message: boolean): void;
 
@@ -2737,7 +2552,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     setArrayBuffer(message: ArrayBuffer): void;
 
@@ -2768,7 +2583,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setArray(message: Array<string | number | boolean>): void;
 
@@ -2803,7 +2618,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setError(message: Error): void;
   }
@@ -2820,8 +2635,7 @@ declare namespace webview {
    * @typedef { ArrayBuffer | string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   type WebMessage = ArrayBuffer | string;
   /**
@@ -2844,8 +2658,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface WebMessagePort {
     /**
@@ -2860,8 +2673,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     isExtentionType?: boolean;
 
@@ -2875,8 +2687,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     close(): void;
 
@@ -2897,8 +2708,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     postMessageEvent(message: WebMessage): void;
 
@@ -2919,8 +2729,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     onMessageEvent(callback: (result: WebMessage) => void): void;
 
@@ -2951,7 +2760,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     postMessageEventExt(message: WebMessageExt): void;
 
@@ -2982,7 +2791,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     onMessageEventExt(callback: (result: WebMessageExt) => void): void;
   }
@@ -3007,8 +2816,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface HistoryItem {
     /**
@@ -3021,8 +2829,7 @@ declare namespace webview {
      * @type { image.PixelMap }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     icon: image.PixelMap;
 
@@ -3037,8 +2844,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     historyUrl: string;
 
@@ -3053,8 +2859,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     historyRawUrl: string;
 
@@ -3069,8 +2874,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     title: string;
   }
@@ -3095,8 +2899,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface BackForwardList {
     /**
@@ -3106,14 +2909,13 @@ declare namespace webview {
      */
     /**
      * Current index in BackForwardList.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
-    currentIndex: int;
+    currentIndex: number;
 
     /**
      * Size of in BackForwardList.
@@ -3122,19 +2924,18 @@ declare namespace webview {
      */
     /**
      * Size of in BackForwardList.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
-    size: int;
+    size: number;
 
     /**
      * Get history entry at given index.
      *
-     * @param { int } index Index of back forward list entry.
+     * @param { number } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
@@ -3143,110 +2944,92 @@ declare namespace webview {
     /**
      * Get history entry at given index.
      *
-     * @param { int } index Index of back forward list entry.
+     * @param { number } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
-    getItemAtIndex(index: int): HistoryItem;
+    getItemAtIndex(index: number): HistoryItem;
   }
 
   /**
-   * Defines the snapshot info.
+   * Provides information used to obtain a full drawing result.
    *
-   * @typedef SnapshotInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface SnapshotInfo {
     /**
-     * Id of the snapshot.
+     * Snapshot ID.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     id?: string;
 
     /**
-     * Size for web rendering.
-     * The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %.
-     * The length unit must be the consistent across parameters. The default unit is vp.
-     * If the size exceeds the specifications, the maximum size is returned.
-     * (Example: width: '100px', height: '200px' or width: '20%', height'30%'. If only digits are written, the unit is vp.)
+     * Size for web rendering. The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %. The length
+     * unit must be the consistent across parameters. The default unit is vp. If the size exceeds the specifications,
+     * the maximum size is returned. Example: **width: '100px', height: '200px'** or **width: '20%', height'30%'**. If
+     * only digits are written, the unit is vp.
      *
-     * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     size?: SizeOptions;
   }
 
-  /**
+   /**
    * Represents a full drawing result.
    *
-   * @typedef SnapshotResult
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface SnapshotResult {
     /**
-     * Id of the snapshot.
+     * Snapshot ID.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     id?: string;
 
     /**
      * The status of the snapshot.
-     * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
-     * the width and height of the returned size are both 0, and the map is empty.
-     * 
-     * @type { ?boolean }
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     status?: boolean;
 
     /**
-     * Actual size drawn on the web page.
-     * The value is of the number type, and the unit is vp.
+     * Size for web rendering. The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %. The length
+     * unit must be the consistent across parameters. The default unit is vp. If the size exceeds the specifications,
+     * the maximum size is returned. Example: **width: '100px', height: '200px'** or **width: '20%', height'30%'**. If
+     * only digits are written, the unit is vp.
      *
-     * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     size?: SizeOptions;
 
     /**
-     * Full drawing result in image.PixelMap format.
+     * The image in PixelMap format.
      *
-     * @type { ?image.PixelMap }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     imagePixelMap?: image.PixelMap;
   }
@@ -3269,8 +3052,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   enum JsMessageType {
     /**
@@ -3282,8 +3064,7 @@ declare namespace webview {
      * Unsupported data type.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     NOT_SUPPORT,
 
@@ -3303,8 +3084,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     STRING,
 
@@ -3324,8 +3104,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     NUMBER,
 
@@ -3345,8 +3124,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     BOOLEAN,
 
@@ -3359,8 +3137,7 @@ declare namespace webview {
      * The arraybuffer data type.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     ARRAY_BUFFER,
 
@@ -3380,8 +3157,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     ARRAY
   }
@@ -3402,8 +3178,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   class JsMessageExt {
     /**
@@ -3425,8 +3200,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     getType(): JsMessageType;
 
@@ -3452,21 +3226,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     getString(): string;
 
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { double | long } - Returns data of number type
+     * @returns { number } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { double | long } - Returns data of number type
+     * @returns { number } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3474,15 +3247,14 @@ declare namespace webview {
      */
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { double | long } - Returns data of number type
+     * @returns { number } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    getNumber(): double | long;
+    getNumber(): number;
 
     /**
      * Get the boolean value of the JavaScript code execution result.
@@ -3506,8 +3278,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     getBoolean(): boolean;
 
@@ -3524,21 +3295,20 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getArrayBuffer(): ArrayBuffer;
 
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
+     * @returns { Array<string | number | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
+     * @returns { Array<string | number | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3546,92 +3316,87 @@ declare namespace webview {
      */
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
+     * @returns { Array<string | number | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    getArray(): Array<string | double | long | boolean>;
+    getArray(): Array<string | number | boolean>;
     /**
      * Get the exception or object of the the JavaScript code execution result and serialize it into a string.
      * @returns { string | null } - if an exception occurs, or the returned type is object, return the
      *     serialized string in the format of "Not support type: <{exception|object}>", Parts exceeding a length of
      *     2048 will be truncated; otherwise, return null.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic
      */
     getErrorDescription(): string | null;
   }
 
   /**
-   * Defines the render process mode.
+   * Enumerates the ArkWeb render subprocess modes.
    *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum RenderProcessMode {
     /**
-     * ArkWeb single rendering subprocess mode. In this mode, multiple Web pages reuse a rendering subprocess.
+     * ArkWeb single render subprocess mode. In this mode, multiple **Web** components share one
+     * render subprocess.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     SINGLE = 0,
 
     /**
-     * ArkWeb multi-rendering subprocess mode. In this mode, there is one rendering subprocess per Web.
+     * ArkWeb multi-render subprocess mode. In this mode, each **Web** component has a rendering
+     * subprocess.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    MULTIPLE,
+    MULTIPLE = 1
   }
 
   /**
-   * Options of generating code cache
-   * @typedef CacheOptions
+   * Represents a configuration object for precompiling JavaScript in the **Web** component to generate bytecode cache,
+   * which is designed to control the updating of the bytecode cache.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface CacheOptions {
     /**
-     * Response headers used to configure the validation key of code cache.
-     * Currently only support E-Tag and Last-Modified.
+     * Array of response headers from the server when a JavaScript file is requested. They include information such as E
+     * -Tag or Last-Modified to identify the file version and determine whether the bytecode cache needs to be
+     * refreshed.
      *
-     * @type { Array<WebHeader> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     responseHeaders: Array<WebHeader>;
   }
 
   /**
-   * Enum type supplied to {@link OfflineResourceMap} for indicating the type of resource.
-   * @enum {number}
+   * Enumerates the offline resource types corresponding to the
+   * [OfflineResourceMap]{@link @ohos.web.webview:webview.OfflineResourceMap} object.
+   * 
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum OfflineResourceType {
     /**
      * Resource of the image type.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     IMAGE,
 
@@ -3639,8 +3404,7 @@ declare namespace webview {
      * Resource of the CSS type.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     CSS,
 
@@ -3648,8 +3412,7 @@ declare namespace webview {
      * Javascript resource loaded through the <script src="" /> tag.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     CLASSIC_JS,
 
@@ -3657,57 +3420,60 @@ declare namespace webview {
      * Javascript resource loaded through the <script src="" type="module" /> tag.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     MODULE_JS
   }
 
   /**
-   * Define offline resource's content and info.
-   * @typedef OfflineResourceMap
+   * Implements an **OfflineResourceMap** object, which is used to set information related to local offline resources
+   * that will be injected into memory cache through the
+   * [injectOfflineResources]{@link @ohos.web.webview:webview.WebviewController#injectOfflineResources} API. The ArkWeb
+   * engine will generate resource caches based on this information and control the validity period of the cache
+   * accordingly.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface OfflineResourceMap {
     /**
-     * Url list of resource. Url of urlList must be HTTP/HTTPS protocol and no longer than 2048.
+     * List of network addresses of the local offline resources. The first item in the list is used as the resources'
+     * origin. If only one network address is provided, this single address is used for the resources' origin. The URL
+     * supports only the HTTP and HTTPS protocols and contains a maximum of 2048 characters.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     urlList: Array<string>,
 
     /**
-     * Arraybuffer of resource. Size must less than 10Mb and cannot be empty.
+     * Content of a local offline resource.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     resource: Uint8Array,
 
     /**
-     * Response headers of resource.
+     * HTTP response headers corresponding to the resources. The **Cache-Control** or **Expires** response header is
+     * used to control the validity period of the resource in the memory cache. If neither of the headers is provided, a
+     * default validity time of 86400 seconds (1 day) will be applied. The **Content-Type** response header is used to
+     * define the MIME type of the resource. For resources of type MODULE_JS, a valid MIME type must be provided. For
+     * other types, the MIME type is optional, with no default value. A non-standard MIME type can lead to the resource
+     * being invalidated in the memory cache. If a **script** tag on the web page uses the **crossorigin** attribute,
+     * the **Cross-Origin** response header must be set in the **responseHeaders** parameter of the API. The value for
+     * this header should be **anonymous** or **use-credentials**.
      *
-     * @type { Array<WebHeader> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     responseHeaders: Array<WebHeader>,
 
     /**
-     * Resource type
+     * Resource type. Currently, only the JavaScript, image, and CSS types are supported.
      *
-     * @type { OfflineResourceType }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     type: OfflineResourceType
   }
@@ -3717,33 +3483,31 @@ declare namespace webview {
    *
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum ScrollType {
     /**
      * Indicates scrolling the web page through scroll event, include touch screen, touch pad, and mouse wheel.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     EVENT
   }
 
   /**
-   * Enum type supplied to {@link getAttachState} for indicating the attach state of controller.
+   * Describes the attach status of WebViewController and the **Web** component.
    *
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   enum ControllerAttachState {
     /**
      * Indicates webviewController is not attached a web component.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     UNATTACHED = 0,
 
@@ -3751,36 +3515,31 @@ declare namespace webview {
      * Indicates webviewController is attached a web component.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     ATTACHED = 1
   }
 
   /**
-   * Enumerates the error codes of blankless. For details, see {@link setBlanklessLoadingWithKey} or {@link
-   * BlanklessInfo}.
+   * Enumerates the error codes of the blankless loading.
    *
-   * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   enum WebBlanklessErrorCode {
     /**
-     * The operation is successful.
+     * Operation successful.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     SUCCESS = 0,
 
     /**
-     * Unknown error.
+     * Unknown error or internal status error.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     ERR_UNKNOWN = -1,
 
@@ -3788,156 +3547,429 @@ declare namespace webview {
      * Invalid parameter.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     ERR_INVALID_PARAM = -2,
 
     /**
-     * The web controller is not bound to any component.
+     * **WebViewController** is not bound to any component.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     ERR_CONTROLLER_NOT_INITED = -3,
 
     /**
-     * The key value is not matched. This error code is returned when the key values of
-     * setBlanklessLodingWithKey and getBlanklessInfoWithKey are not matched.
+     * No key value is matched.
+     * [setBlanklessLoadingWithKey]{@link @ohos.web.webview:webview.WebviewController#setBlanklessLoadingWithKey} must
+     * be used with [getBlanklessInfoWithKey]{@link @ohos.web.webview:webview.WebviewController#getBlanklessInfoWithKey}
+     * and their key values must be the same. Otherwise, this error code is returned.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     ERR_KEY_NOT_MATCH = -4,
 
     /**
-     * The system determines that the change is too large when the similarity is less than 0.33. As a result,
-     * the setBlanklessLodingWithKey API fails to enable frame interpolation.
+     * The similarity is low, and the system determines that the scene change is too
+     * large. As a result, the
+     * [setBlanklessLoadingWithKey]{@link @ohos.web.webview:webview.WebviewController#setBlanklessLoadingWithKey} API
+     * does not enable frame interpolation.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
-    ERR_SIGNIFICANT_CHANGE = -5
+    ERR_SIGNIFICANT_CHANGE = -5,
+
+    /**
+     * The frame interpolation duration set in
+     * [BlanklessLoadingParam]{@link @ohos.web.webview:webview.BlanklessLoadingParam} is out of range.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    ERR_DURATION_OUT_OF_RANGE = -6,
+
+    /**
+     * The historical frame expiration time set in
+     * [BlanklessLoadingParam]{@link @ohos.web.webview:webview.BlanklessLoadingParam} is out of range.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    ERR_EXPIRATION_TIME_OUT_OF_RANGE = -7
   }
 
   /**
-  * Indicates the keyboard behavior mode of the web component, default value is DEFAULT.
-  * @enum {int}
-  * @syscap SystemCapability.Web.Webview.Core
-  * @since 22 dynamic&static
-  */
-   enum WebSoftKeyboardBehaviorMode {
+   * Enumerates the current frame interpolation states.
+   *
+   * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  enum BlanklessFrameInterpolationState {
     /**
-     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue or blur/focus state.
+     * Frame interpolation succeeded.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22  dynamic&static
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    FRAME_INTERPOLATION_SUCCEEDED = 0,
+
+    /**
+     * Frame interpolation failed.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    FRAME_INTERPOLATION_FAILED = 1,
+
+    /**
+     * The frame interpolation is removed.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    FRAME_INTERPOLATION_REMOVED = 2
+  }
+
+  /**
+   * Enumerates the behavior modes of the web soft keyboard.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  enum WebSoftKeyboardBehaviorMode {
+    /**
+     * When the **Web** component is focused or unfocused, or its status changes to inactive or active,
+     * the system attempts to hide or display the soft keyboard. This value is used by default.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic
      */
     DEFAULT = 0,
- 
+
     /**
-     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
+     * When the **Web** component's status changes between inactive and active,
+     * the system does not hide or start the soft keyboard.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     DISABLE_AUTO_KEYBOARD_ON_ACTIVE = 1
   }
 
   /**
-   * Defines the blankless information.
+   * Describes the prediction information about blankless loading, including the first screen similarity, first screen
+   * loading duration, and error code. The application determines whether to enable the blankless loading solution based
+   * on the prediction information.
    *
-   * @typedef BlanklessInfo
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   interface BlanklessInfo {
     /**
-     * Defines the error codes of blankless.
-     * @type { WebBlanklessErrorCode }
+     * Error code of blankless loading. For details, see
+     * [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     errCode: WebBlanklessErrorCode;
 
     /**
-     * Obtains the similarity of snapshots generated by the blankless loading solution based on the last
-     * several snapshots. The value ranges from 0 to 1.0. The value 1.0 indicates that the snapshots are the same. A
-     * value closer to 1 indicates higher similarity. This value has a certain lag, meaning that the similarity of
-     * the current loading will only be reflected in the next loading. It is recommended that the frame interpolation
-     * functionality be disabled when the similarity is 0.
-     * @type { double }
+     * First screen similarity, which is calculated based on the historical first screen content. The value ranges from
+     * 0 to 1.0. 1.0 indicates that the content is the same. A value closer to 1 indicates a higher similarity. This
+     * value is lagging, and the similarity of local loading is displayed in the next loading. You are advised not to
+     * enable the blankless loading solution when the similarity is low.
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
-    similarity: double;
+    similarity: number;
 
     /**
-     * Obtains the loading time based on the historical loading time. The unit is ms and the value is greater
-     * than 0.
+     * Loading duration estimated based on the historical first screen loading durations, in milliseconds. The value
+     * must be greater than 0.
      *
-     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
-    loadingTime: int;
+    loadingTime: number;
   }
 
   /**
-   * Provides methods for controlling the web controller.
+   * Defines the frame interpolation state information in the scenario where the ArkWeb blankless loading
+   * optimization is enabled.
+   *
+   *
+   * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+   *
+   * @typedef BlanklessFrameInterpolationInfo
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
+   * @stagemodelonly
+   * @since 23 dynamic
    */
+  interface BlanklessFrameInterpolationInfo {
+    /**
+     * Key value that uniquely identifies the page.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    key: string;
+
+    /**
+     * Current frame interpolation state.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @type { BlanklessFrameInterpolationState }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    state: BlanklessFrameInterpolationState;
+
+    /**
+     * Time when a frame is interpolated or removed.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The value must be an integer.
+     * <br>Unit: ms.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    timestamp: number;
+
+    /**
+     * Reason for the frame interpolation failure.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    reason: string;
+  }
+
   /**
-   * Provides methods for controlling the web controller.
+   * Defines the blankless loading parameter.
+   *
+   * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+   *
+   * @typedef BlanklessLoadingParam
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
+   * @stagemodelonly
+   * @since 23 dynamic
    */
+  interface BlanklessLoadingParam {
+    /**
+     * Whether to enable frame interpolation. The value true indicates to enable frame interpolation, and false
+     * indicates the opposite.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    enable: boolean;
+
+    /**
+     * Duration of the frame interpolation.
+     * The valid range is the union of {0} and [200, 2000].
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The value must be an integer.
+     * <br>Unit: ms.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    duration?: number;
+
+    /**
+     * Expiration time of the historical frame, in ms (UTC time). T indicates the current UTC time. If the
+     * expiration time is 30 days, the value is 2592000000 ms. The value range is the union of (T, T + 2592000000] and
+     * {0}. 0 indicates that the expiration time is not specified and the default expiration time (7 days) is used.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    expirationTime?: number;
+
+    /**
+     * Callback for the blankless frame interpolation, which is used to return the blankless frame interpolation
+     * information.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @type { ?Callback<BlanklessFrameInterpolationInfo> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    callback?: Callback<BlanklessFrameInterpolationInfo>;
+  }
+
   /**
-   * WebviewController can control various behaviors of Web components
-   * (including page navigation, declaring cycle state, JavaScript interaction and so on).
-   * A WebviewController object can only control one Web component,
-   * and methods on the Webviewcontroller (except static methods) can only be called
-   * after the web component is bound to the WebviewController.
+   * Security feature option configuration.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  interface SecurityParams {  
+    /**
+     * Whether to disable JIT compilation. true means disabled, and false means the opposite. Default value: false.
+     * To optimize performance, the V8 engine compiles hot code into machine code. Most browser vulnerabilities
+     * (such as Type Confusion) are exploited by manipulating the JIT optimization process. Disabling it does not affect
+     * web page functions, but the performance of complex JavaScript code decreases by about 17%. It is recommended that
+     * this feature be disabled if possible. For pure display and non-computing-intensive pages (such as news and
+     * documents), it is recommended that this feature not be disabled.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableJITCompilation?: boolean;
+    /**
+     * Whether to disable WebAssembly. true means disabled, and false means the opposite. Default value: false.
+     * The compiled machine code is executed in WASM, which is prone to memory security vulnerabilities. It is
+     * recommended that this feature be disabled if possible. For pure display and non-computing-intensive pages
+     * (such as news and documents), it is recommended that this feature be disabled. Disabling it may affect web
+     * page functions that depend on video encoding and decoding and complex encryption.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableWebAssembly?: boolean;
+    /**
+     * Whether to disable WebGL. true means disabled, and false means the opposite. Default value: false.
+     * WebGL allows JavaScript to directly invoke the GPU driver for rendering. Attackers may exploit underlying
+     * driver vulnerabilities to implement sandbox escape or remote code execution. In addition, WebGL may be used
+     * for user fingerprint identification attacks. Disabling it prevents 3D rendering and causes some 2D canvases
+     * to fall back to CPU rendering, which may result in a lower frame rate. It is recommended that this feature be
+     * disabled for sensitive services such as financial payment, instant messaging, and government systems.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableWebGL?: boolean;
+    /**
+     * Whether to disable the PDF viewer. true means disabled, and false means the opposite. Default value: false.
+     * The built-in PDF parsing engine is prone to vulnerabilities when parsing complex binary formats and embedded
+     * scripts. Attackers can construct special PDF files to exploit font parsing or memory corruption vulnerabilities
+     * to control the main process of the app. Disabling it prevents PDF loading in ArkWeb. It is recommended that
+     * this feature be disabled for non-document office apps and users be guided to use external
+     * apps to open PDF files.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disablePDFViewer?: boolean;
+    /**
+     * Whether to disable MathML. true means disabled, and false means the opposite. Default value: false.
+     * MathML is an outdated rendering module in the kernel and often lacks sufficient automated auditing
+     * and fuzzing. It is prone to becoming a stepping stone for side-channel attacks or attribute injection XSS.
+     * Disabling it prevents proper parsing and rendering of <math> tag content, which may affect formula layout
+     * on a small number of science websites that have not been adapted for JavaScript. Disabling it is recommended.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableMathML?: boolean;
+    /**
+     * Whether to disable Service Worker. true means disabled, and false means the opposite. Default value: false.
+     * Service Worker has persistent control and can reside in the background of web pages and intercept network
+     * requests. If a web page has an XSS vulnerability, attackers can exploit it to install malicious Service
+     * Worker and launch man-in-the-middle (MITM) attacks. Disabling it disables offline access, prevents Web
+     * push notifications from working, and removes preloading capabilities. It is recommended that this feature
+     * be disabled in industries that have high requirements on session freshness, such as banking and securities.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableServiceWorker?: boolean;
+    /**
+     * Whether to disable non-proxy UDP for WebRTC. true means disabled, and false means the opposite. Default
+     * value: false. When WebRTC is enabled, it may allow malicious traffic to bypass the proxy tunnel, exposing
+     * the user's real physical IP address and resulting in privacy leakage. Disabling it forces all traffic
+     * through the TCP proxy, increasing latency and potentially preventing connection establishment for features
+     * such as video calls and real-time intercom. It is recommended that this feature be disabled in scenarios
+     * such as anonymous social networking, global services, and forcible proxy.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableNonProxyUDP?: boolean;
+  }
+
+  /**
+   * Represents a **WebviewController** object used to control various behaviors of **Web** components, including page
+   * navigation, lifecycle status, and JavaScript interaction. A **WebviewController** object can control only one
+   * **Web** component, and the APIs (except static APIs) in the **WebviewController** can be invoked only after it has
+   * been bound to the target **Web** component.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebviewController {
     /**
-     * A constructor used to create a WebviewController object.
+     * Constructs a WebviewController object.
      *
      * @param { string } [webTag] - specified the name of the web component, Empty by default.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     constructor(webTag?: string);
 
     /**
-     * Initialize the web engine before loading the Web components.
-     * This is a global static API that must be called on the UI thread, and it will have no effect if any
-     * Web components are loaded.
+     * Loads the dynamic link library (DLL) file of the web engine. This API can be called before
+     * the Web component is initialized to improve the startup performance. The frequently visited
+     * websites are automatically pre-connected. initializeWebEngine cannot be called in an asynchronous
+     * thread. Otherwise, the system breaks down. initializeWebEngine takes effect globally and needs to
+     * be called only once in an application lifecycle.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Initialize the web engine before loading the Web components.
-     * This is a global static API that must be called on the UI thread, and it will have no effect if any
-     * Web components are loaded.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static initializeWebEngine(): void;
 
@@ -3955,7 +3987,7 @@ declare namespace webview {
      * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
 
@@ -3964,7 +3996,7 @@ declare namespace webview {
      * @returns {ArkWebEngineVersion} Active ArkWeb Engine version as defined by ArkWebEngineVersion
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     static getActiveWebEngineVersion(): ArkWebEngineVersion;
 
@@ -3973,7 +4005,7 @@ declare namespace webview {
      * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
+     * @since 23 dynamic
      */
     static isActiveWebEngineEvergreen(): boolean;
 
@@ -3995,7 +4027,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
 
@@ -4019,7 +4051,7 @@ declare namespace webview {
     /**
      * Sets whether to enable web debugging. By default, web debugging is disabled.
      * For details, see Debugging Frontend Pages by Using DevTools.
-     * 
+     *
      * <p><strong>API Note</strong>:<br>
      * Enabling web debugging allows users to check and modify the internal status of the web page,
      * which poses security risks. Therefore, you are advised not to enable this function
@@ -4033,7 +4065,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
@@ -4045,7 +4077,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     enableSafeBrowsing(enable: boolean): void;
 
@@ -4054,7 +4086,7 @@ declare namespace webview {
      * @returns { boolean } True if enable the ability to check website security risks else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     isSafeBrowsingEnabled(): boolean;
 
@@ -4074,8 +4106,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     accessForward(): boolean;
 
@@ -4095,8 +4126,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     accessBackward(): boolean;
 
@@ -4123,7 +4153,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     accessStep(step: number): boolean;
 
@@ -4143,8 +4173,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     forward(): void;
 
@@ -4164,8 +4193,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     backward(): void;
 
@@ -4185,56 +4213,36 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     clearHistory(): void;
 
     /**
-     * Let the Web active.
+     * Called when the Web component enters the active state. The application can interact with
+     * the user while in the active foreground state, and it remains in this state until the
+     * focus is moved away from it due to some event (for example, an incoming call is received
+     * or the device screen is turned off).
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Call this interface to notify the Web component to enter the foreground activation state.
-     * The activation state is the state in which the application interacts with the user.
-     * The application will remain in this state until something happens,
-     * such as receiving an incoming call or closing the screen of the device,
-     * to shift the focus away from the application.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     onActive(): void;
 
     /**
-     * Let the Web inactive.
+     * Called when the Web component enters the inactive state. You can implement the behavior to perform
+     * after the application loses focus. When this API is called, any content that can be safely paused,
+     * such as animations and geographical locations, is paused as much as possible. However, the JavaScript
+     * is not paused. To pause the JavaScript globally, use pauseAllTimers. To reactivate the Web component,
+     * use onActive.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Call this interface to notify the Web component to enter the inactive state.
-     * In this callback, the developer can realize the appropriate behavior when the application loses focus.
-     * In this state, any content that can be safely paused will be paused as much as possible,
-     * such as animation and geographical location. However, JavaScript will not be paused.
-     * To pause JavaScript globally, please use {@link pauseAllTimers}.To reactivate the Web component, call onActive.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     onInactive(): void;
 
@@ -4254,10 +4262,21 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     refresh(): void;
+
+    /**
+     * Refreshes the current URL.
+     *
+     * @param { boolean } ignoreCache - If set to true, it indicates an end-to-end request with "pragma: no-cache";
+     *     otherwise, it performs a normal refresh.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    refresh(ignoreCache: boolean): void;
 
     /**
      * Loads the data or URL.
@@ -4296,8 +4315,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     loadData(data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string): void;
 
@@ -4309,8 +4327,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -4323,8 +4340,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -4339,14 +4355,12 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
@@ -4365,7 +4379,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
@@ -4407,7 +4421,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
 
@@ -4447,14 +4461,14 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
     /**
      * Zooms in or out of this web page. This API is effective only when zoomAccess is true.
      *
-     * @param { double } factor - Relative zoom ratio. The value must be greater than 0.
+     * @param { number } factor - Relative zoom ratio. The value must be greater than 0.
      *                            The value 1 indicates that the page is not zoomed.
      *                            A value smaller than 1 indicates zoom-out, and a value greater than 1 indicates zoom-in.
      *                            Value range: (0, 100].
@@ -4468,7 +4482,7 @@ declare namespace webview {
     /**
      * Zooms in or out of this web page. This API is effective only when zoomAccess is true.
      *
-     * @param { double } factor - Relative zoom ratio. The value must be greater than 0.
+     * @param { number } factor - Relative zoom ratio. The value must be greater than 0.
      *                            The value 1 indicates that the page is not zoomed.
      *                            A value smaller than 1 indicates zoom-out, and a value greater than 1 indicates zoom-in.
      *                            Value range: (0, 100].
@@ -4480,10 +4494,9 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
-    zoom(factor: double): void;
+    zoom(factor: number): void;
 
     /**
      * Zooms in on this web page by 25%.
@@ -4513,8 +4526,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     zoomIn(): void;
 
@@ -4546,8 +4558,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     zoomOut(): void;
 
@@ -4566,41 +4577,23 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTestValue(): HitTestValue;
 
     /**
-     * Gets the id for the current Web.
-     * @returns { int } Returns the index value of the current Web component.
+     * Obtains the index value of this Web component, which can be used for **Web** component management.
+     * @returns { number } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
-    /**
-     * Gets the id for the current Web.
-     * @returns { int } Returns the index value of the current Web component.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Gets the index value of the current Web component for the management of multiple Web components.
-     * @returns { int } Returns the index value of the current Web component.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    getWebId(): int;
+    getWebId(): number;
 
     /**
      * Gets the default user agent.
@@ -4617,7 +4610,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Gets the default user agent.
@@ -4627,7 +4620,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
     getUserAgent(): string;
 
@@ -4647,31 +4640,23 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getTitle(): string;
 
     /**
-     * Gets the content height of current Web page.
-     * @returns { int } Returns the page height of the current page.
+     * Obtains the height of this web page. For details, see
+     * [Obtaining the Web Page Content Height](docroot://web/web-getpage-height.md).
+     *
+     * @returns { number } Height of the current web page. Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
-    /**
-     * Obtains the height of this web page.
-     * @returns { int } Height of the current web page. Unit: vp.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    getPageHeight(): int;
+    getPageHeight(): number;
 
     /**
      * Goes forward or back backOrForward in the history of the web page.
@@ -4695,7 +4680,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     backOrForward(step: number): void;
 
@@ -4714,8 +4699,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     requestFocus(): void;
 
@@ -4751,8 +4735,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     createWebMessagePorts(isExtentionType?: boolean): Array<WebMessagePort>;
 
@@ -4781,7 +4764,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     postMessage(name: string, ports: Array<WebMessagePort>, uri: string): void;
 
@@ -4801,8 +4784,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     stop(): void;
 
@@ -4894,8 +4876,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     registerJavaScriptProxy(jsObject: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
@@ -4936,8 +4917,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     deleteJavaScriptRegister(name: string): void;
 
@@ -4964,7 +4944,7 @@ declare namespace webview {
      *                         The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     searchAllAsync(searchString: string): void;
 
@@ -4983,7 +4963,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     clearMatches(): void;
 
@@ -5007,7 +4987,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     searchNext(forward: boolean): void;
 
@@ -5026,7 +5006,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     clearSslCache(): void;
 
@@ -5045,7 +5025,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     clearClientAuthenticationCache(): void;
 
@@ -5060,6 +5040,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -5071,7 +5052,7 @@ declare namespace webview {
      * The state of JavaScript is no longer persisted across navigations like loadUrl.
      * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.<br>
      * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.<br>
-     * If you cannot obtain the return value by executing the asynchronous method, 
+     * If you cannot obtain the return value by executing the asynchronous method,
      * you need to determine whether to use synchronous or asynchronous mode based on the specific situation.
      * <p>
      *
@@ -5084,11 +5065,11 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     runJavaScript(script: string): Promise<string>;
 
@@ -5100,6 +5081,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -5119,11 +5101,11 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
@@ -5187,8 +5169,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     runJavaScriptExt(script: string | ArrayBuffer): Promise<JsMessageExt>;
 
@@ -5240,48 +5221,35 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
     /**
-     * Rendering current Web page into Pdf data, return the result in async mode.
+     * Obtains the data stream of a specified web page using an asynchronous callback.
      *
-     * @param { PdfConfiguration } configuration - configuration for createPdf,
-     *                                             including page width and height, etc.
-     *                                             {@Link PdfConfiguration}
-     * @param { AsyncCallback<PdfData> } callback - Callbacks execute createPdf results.
-     *                                              PdfData is pdf data stream of current web page in Uint8Array
-     *                                              {@Link PdfData}.
+     * @param { PdfConfiguration } configuration - Parameters required for creating a PDF file.
+     * @param { AsyncCallback<PdfData> } callback - Callback used to return the data stream of an online PDF file.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>): void;
 
     /**
-     * Rendering current Web page into Pdf data, return the result in promise mode.
+     * Obtains the data stream of a specified web page using a promise.
      *
-     * @param { PdfConfiguration } configuration - configuration for createPdf,
-     *                                             including page width and height, etc.
-     *                                             {@Link PdfConfiguration}
-     * @returns { Promise<PdfData> } The promise returned by the function.
-     *                               PdfData is pdf data stream of current web page in Uint8Array
-     *                               {@Link PdfData}.
-     *                               If createPdf fails or no return value,
-     *                               a none type value will be returned.
+     * @param { PdfConfiguration } configuration - Parameters required for creating a PDF file.
+     * @returns { Promise<PdfData> } Promise used to return the data stream of a web page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     createPdf(configuration: PdfConfiguration): Promise<PdfData>;
 
@@ -5301,8 +5269,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getUrl(): string;
 
@@ -5345,8 +5312,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     pageUp(top: boolean): void;
 
@@ -5389,8 +5355,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     pageDown(bottom: boolean): void;
 
@@ -5419,8 +5384,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     getOriginalUrl(): string;
 
@@ -5439,7 +5403,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getFavicon(): image.PixelMap;
 
@@ -5463,7 +5427,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     setNetworkAvailable(enable: boolean): void;
 
@@ -5486,8 +5450,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     hasImage(): Promise<boolean>;
 
@@ -5511,8 +5474,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     hasImage(callback: AsyncCallback<boolean>): void;
 
@@ -5532,8 +5494,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getBackForwardEntries(): BackForwardList;
 
@@ -5566,7 +5527,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     removeCache(clearRom: boolean): void;
 
@@ -5579,15 +5540,15 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 18
+     * @since 18 dynamic
      */
     static removeAllCache(clearRom: boolean): void;
 
     /**
      * Scroll to the position.
      *
-     * @param { double } x - the x of the position.
-     * @param { double } y - the y of the position.
+     * @param { number } x - the x of the position.
+     * @param { number } y - the y of the position.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5597,8 +5558,8 @@ declare namespace webview {
     /**
      * Scroll to the position.
      *
-     * @param { double } x - the x of the position.
-     * @param { double } y - the y of the position.
+     * @param { number } x - the x of the position.
+     * @param { number } y - the y of the position.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5611,9 +5572,9 @@ declare namespace webview {
     /**
      * Scroll to the position within specified time.
      *
-     * @param { double } x - the x of the position.Unit: vp.
-     * @param { double } y - the y of the position.Unit: vp.
-     * @param { int } duration - the scroll animation duration. Unit: millisecond.
+     * @param { number } x - the x of the position.Unit: vp.
+     * @param { number } y - the y of the position.Unit: vp.
+     * @param { number } duration - the scroll animation duration. Unit: millisecond.
      *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -5622,16 +5583,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    scrollTo(x: double, y: double, duration?: int): void;
+    scrollTo(x: number, y: number, duration?: number): void;
 
     /**
      * Scroll by the delta position.
      *
-     * @param { double } deltaX - the delta x of the position.
-     * @param { double } deltaY - the delta y of the position.
+     * @param { number } deltaX - the delta x of the position.
+     * @param { number } deltaY - the delta y of the position.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5641,8 +5601,8 @@ declare namespace webview {
     /**
      * Scroll by the delta position.
      *
-     * @param { double } deltaX - the delta x of the position.
-     * @param { double } deltaY - the delta y of the position.
+     * @param { number } deltaX - the delta x of the position.
+     * @param { number } deltaY - the delta y of the position.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5659,9 +5619,9 @@ declare namespace webview {
      * In nested scroll scenarios, calling scrollBy does not trigger nested scrolling in the parent component.
      * </p>
      *
-     * @param { double } deltaX - the delta x of the position.Unit: vp.
-     * @param { double } deltaY - the delta y of the position.Unit: vp.
-     * @param { int } duration - the scroll animation duration. Unit: millisecond.
+     * @param { number } deltaX - the delta x of the position.Unit: vp.
+     * @param { number } deltaY - the delta y of the position.Unit: vp.
+     * @param { number } duration - the scroll animation duration. Unit: millisecond.
      *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -5670,16 +5630,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
-    scrollBy(deltaX: double, deltaY: double, duration?: int): void;
+    scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
     /**
      * Slide by the speed.
      *
-     * @param { double } vx - the x speed of the speed.
-     * @param { double } vy - the y speed of the speed.
+     * @param { number } vx - the x speed of the speed.
+     * @param { number } vy - the y speed of the speed.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5689,18 +5648,17 @@ declare namespace webview {
     /**
      * Slide by the speed.
      *
-     * @param { double } vx - the x speed of the speed.
-     * @param { double } vy - the y speed of the speed.
+     * @param { number } vx - the x speed of the speed. The unit is vp/s.
+     * @param { number } vy - the y speed of the speed. The unit is vp/s.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
-    slideScroll(vx: double, vy: double): void;
+    slideScroll(vx: number, vy: number): void;
 
     /**
      * Serialize the access stack of the web, that is, the history of access.
@@ -5708,41 +5666,25 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Serialize the access stack of the web, that is, the history of access.
-     * @returns { Uint8Array } Web access stack after serialization.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     serializeWebState(): Uint8Array;
 
     /**
-     * Restoring the web access stack, that is, the history of access.
-     * @param { Uint8Array } state - Web access stack after serialization.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Restoring the web access stack, that is, the history of access.
+     * Restores the page status history from the serialized data of the current WebView. If the
+     * value of state is too large, exceptions may occur. It is recommended that the page status
+     * history be not restored when the state value is greater than 512 KB.
      * @param { Uint8Array } state - Web access stack after serialization.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
-    restoreWebState(state: Uint8Array): void;
+    restoreWebState(state: Uint8Array) : void;
 
     /**
      * Set whether the Web custom scheme supports cross domain and fetch requests.
@@ -5767,12 +5709,12 @@ declare namespace webview {
      * @throws { BusinessError } 17100020 - Failed to register custom schemes.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
     /**
      * Register Web custom schemes.
-     * 
+     *
      * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
      * @param { boolean } lazyInitWebEngine - When true: The interface internally skips initializing WebEngine and
      *     temporarily stores the registered schemes, which will be passed to WebEngine when it actually
@@ -5805,8 +5747,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
 
@@ -5829,8 +5770,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
@@ -5852,8 +5792,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     setAudioMuted(mute: boolean): void;
 
@@ -5862,9 +5801,9 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5873,12 +5812,12 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Prefetch the resources required by the page, but will not execute js or render the page.
@@ -5890,27 +5829,45 @@ declare namespace webview {
      *     length exceeds 2*1024*1024.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
 
     /**
      * Prefetch the resources required by the page, but will not execute js or render the page.
      * <p><strong>API Note</strong>:<br>
-     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch within
-     * 500ms.
-     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and adjusting
-     * the throttling interval.
-     * 
+     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch
+     * within 500ms.
+     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and
+     * adjusting the throttling interval.
+     *
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
-     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌, including
-     *     ignoring Cache-Control: no-store and adjusting the throttling interval.
+     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
+     *     including ignoring Cache-Control: no-store and adjusting the throttling interval.
      * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
+     */
+    /**
+     * Prefetch the resources required by the page, but will not execute js or render the page.
+     * <p><strong>API Note</strong>:<br>
+     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch
+     * within 500ms.
+     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and
+     * adjusting the throttling interval.
+     *
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
+     *     including ignoring Cache-Control: no-store and adjusting the throttling interval.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic
      */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>, prefetchOptions?: PrefetchOptions): void;
 
@@ -5918,9 +5875,10 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -5929,13 +5887,14 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
@@ -5949,7 +5908,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
 
@@ -5972,7 +5931,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     setCustomUserAgent(userAgent: string): void;
 
@@ -5992,19 +5951,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     getCustomUserAgent(): string;
 
     /**
-     * Set web engine socket connection timeout.
+     * Set web engine socket connection timeout. Unit: seconds.
      * @param { number } timeout - Socket connection timeout.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static setConnectionTimeout(timeout: number): void;
 
@@ -6027,8 +5985,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -6053,8 +6010,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     /**
      * Start a download.
@@ -6066,8 +6022,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic
      */
     startDownload(url: string): void;
 
@@ -6080,8 +6035,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -6095,27 +6049,25 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
     /**
-     * Creates a PrintDocumentAdapter instance to provide content for printing.
+     * Creates a **PrintDocumentAdapter** instance to provide content for printing.
+     *
      * @param { string } jobName - Name of the file to print.
-     * @returns { print.PrintDocumentAdapter } Return PrintDocumentAdapter instance created.
+     * @returns { print.PrintDocumentAdapter } **PrintDocumentAdapter** instance created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
 
@@ -6127,7 +6079,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getSecurityLevel(): SecurityLevel;
 
@@ -6139,7 +6091,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     isIncognitoMode(): boolean;
 
@@ -6160,8 +6112,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     setScrollable(enable: boolean, type?: ScrollType): void;
 
@@ -6172,35 +6123,37 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getScrollable(): boolean;
 
     /**
-     * Set whether print web page background.
+     * Sets whether to print the background of a web page. If the setting of this API is inconsistent with that of 
+     * [PrintAttributes](docroot://reference/apis-basic-services-kit/js-apis-print.md#printattributes11), the setting of
+     * this API takes precedence.
      *
-     * @param { boolean } enable - Set whether print web page background
+     * @param { boolean } enable - Whether to print the web page background.<br>The value **true** means to print the
+     *     web page background, and **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     setPrintBackground(enable: boolean): void;
 
     /**
-     * Get whether print web page background.
-     * @returns { boolean } Get whether print web page background.
+     * Obtains whether the web page background is printed.
+     *
+     * @returns { boolean } Whether the web page background is printed.
+     *     <br>The value **true** indicates that the web page background is printed, and **false** indicates the opposite.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getPrintBackground(): boolean;
 
@@ -6213,8 +6166,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getLastJavascriptProxyCallingFrameUrl(): string;
 
@@ -6225,8 +6177,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     startCamera(): void;
 
@@ -6237,8 +6188,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     stopCamera(): void;
 
@@ -6249,20 +6199,34 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     closeCamera(): void;
 
     /**
-     * Pause all WebView timers.
+     * Gets URL of frame that sent the latest postMessage to native application.
+     *
+     * @returns { string } The URL of frame that last sent a postMessage.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getLastPostMessageURL(): string;
+
+    /**
+     * Called when the Web component enters the inactive state. You can implement the behavior to
+     * perform after the application loses focus. When this API is called, any content that can
+     * be safely paused, such as animations and geographical locations, is paused as much as
+     * possible. However, the JavaScript is not paused. To pause the JavaScript globally,
+     * use pauseAllTimers. To reactivate the Web component, use onActive.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     static pauseAllTimers(): void;
 
@@ -6273,8 +6237,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     static resumeAllTimers(): void;
 
@@ -6285,8 +6248,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     stopAllMedia(): void;
 
@@ -6297,8 +6259,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     resumeAllMedia(): void;
 
@@ -6309,8 +6270,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     pauseAllMedia(): void;
 
@@ -6321,8 +6281,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     closeAllMediaPresentations(): void;
 
@@ -6334,8 +6293,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getMediaPlaybackState(): MediaPlaybackState;
 
@@ -6346,10 +6304,10 @@ declare namespace webview {
      * @param { WebSchemeHandler } handler - Web scheme handler.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set web scheme handler for specific scheme. This is only used for related web component.
@@ -6358,11 +6316,11 @@ declare namespace webview {
      * @param { WebSchemeHandler } handler - Web scheme handler.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
@@ -6372,7 +6330,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Clear all web scheme handlers for related web component.
@@ -6381,7 +6339,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
     clearWebSchemeHandler(): void;
 
@@ -6392,7 +6350,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     static setServiceWorkerWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
@@ -6400,7 +6358,7 @@ declare namespace webview {
      * Clear all web service worker scheme handlers.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     static clearServiceWorkerWebSchemeHandler(): void;
 
@@ -6427,7 +6385,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     enableIntelligentTrackingPrevention(enable: boolean): void;
 
@@ -6450,7 +6408,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     isIntelligentTrackingPreventionEnabled(): boolean;
 
@@ -6473,7 +6431,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
@@ -6496,7 +6454,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
@@ -6513,7 +6471,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
 
@@ -6522,7 +6480,7 @@ declare namespace webview {
      *
      * @returns {string} The default user agent string.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 14
+     * @since 14 dynamic
      */
     static getDefaultUserAgent(): string;
 
@@ -6532,104 +6490,86 @@ declare namespace webview {
      * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
-     * Enables the full drawing capability for the web page. 
-     * This API works only during Web component initialization.
+     * Enables the full drawing capability for the web page. This API works only during **Web** component
+     * initialization.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     static enableWholeWebPageDrawing(): void;
 
     /**
-     * Web page snapshot.
+     * Obtains the full drawing result of the web page.
      *
-     * <p><strong>API Note</strong>:<br>
-     * Only screenshots of assets on the rendering process are supported: still images and text.
-     * If there is a video on the page, the placeholder image of the video will be displayed when you take a screenshot,
-     * and blank if there is no placeholder.
-     * </p>
+     * > **NOTE**
+     * >
+     * > Only static images and texts in the rendering process can be captured.
+     * >
+     * > If there is a video on the page, the placeholder image of the video is displayed when you take a snapshot. If
+     * > there is no placeholder image, the page is blank.
      *
-     * @param { SnapshotInfo } info - The snapshot info.
-     * @param { AsyncCallback<SnapshotResult> } callback - the callback of snapshot.
+     * @param { SnapshotInfo } info - Information for obtaining the full drawing result.
+     * @param { AsyncCallback<SnapshotResult> } callback - Callback used to return the result.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
 
     /**
-     * Prefetches resource requests based on specified request information and additional HTTP request headers,
-     * saves the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
-     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported.
-     * A maximum of six POST requests can be pre-obtained. To prefetch the seventh post request,
-     * call API{@link clearPrefetchedResource} to clear the cache of unnecessary post requests.
-     * Otherwise, the cache of the earliest prefetched POST request will be automatically cleared.
-     * To use the prefetched resource cache, you need to add the key value ArkWebPostCacheKey to the header of the POST request.
-     * The content of the key value is the cacheKey of the corresponding cache.
-     * @param { RequestInfo } request - The information of the request.
-     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
-     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
-     *    Only support number and letters.
-     * @param { int } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
-     *    The unit is second. Default value is 300s.
-     *    The value of cacheValidTime must between 1 and 2147483647.
-     * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameter types. 3. Parameter verification failed.
+     * Prefetches resource requests based on specified request information and additional HTTP request headers, saves
+     * the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
+     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported. A maximum of
+     * six POST requests can be pre-obtained. To prefetch the seventh post request, call
+     * [clearPrefetchedResource]{@link webview.WebviewController#clearPrefetchedResource} to clear the cache of
+     * unnecessary post requests. Otherwise, the cache of the earliest prefetched POST request will be automatically
+     * cleared. To use the prefetched resource cache, you need to add the key value **ArkWebPostCacheKey** to the header
+     * of the POST request. The content of the key value is the cacheKey of the corresponding cache.
+     *
+     * @param { RequestInfo } request - Information about the prefetched request.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the prefetched request.<br>If
+     *     **undefined** or **null** is passed, error code **401** will be thrown.
+     * @param { string } [cacheKey] - Key used to query the cache of prefetched resources. The value can contain only
+     *     letters and digits. If this parameter is not passed or is left empty, **url** is used by default.<br>If
+     *     **undefined** or **null** is passed, error code **401** will be thrown.
+     * @param { number } [cacheValidTime] - Validity period for caching prefetched resources.<br>Value range: (0, 214748
+     *     3647]<br>Default value: **300s**<br>Unit: second.<br>If **undefined** or **null** is passed, error code
+     *     **401** will be thrown.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048. [since 12 - 21]
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2\*1024\*1024. [since 22]
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
-     */
-    /**
-     * Prefetches resource requests based on specified request information and additional HTTP request headers,
-     * saves the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
-     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported.
-     * A maximum of six POST requests can be pre-obtained. To prefetch the seventh post request,
-     * call API{@link clearPrefetchedResource} to clear the cache of unnecessary post requests.
-     * Otherwise, the cache of the earliest prefetched POST request will be automatically cleared.
-     * To use the prefetched resource cache, you need to add the key value ArkWebPostCacheKey to the header of the
-     * POST request. The content of the key value is the cacheKey of the corresponding cache.
-     * @param { RequestInfo } request - The information of the request.
-     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
-     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
-     *     Only support number and letters.
-     * @param { int } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
-     *     The unit is second. Default value is 300s.
-     *     The value of cacheValidTime must between 1 and 2147483647.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *     length exceeds 2*1024*1024.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since arkts {'1.1':'22', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
-      cacheValidTime?: int): void;
+      cacheValidTime?: number): void;
 
     /**
-    * Clears the cache of prefetched resources based on the specified cache key list.
-    * The cache key in the input parameter must be the prefetched resource cache key specified by API{@link prefetchResource}.
-    * @param { Array<string> } cacheKeyList - The keys for memory cache.
-    *    The key in cacheKeyList only support number and letters.
+    * Clears the cache of prefetched resources based on the specified cache key list. The cache key in the input
+    * parameter must be the prefetched resource cache key specified by
+    * [prefetchResource]{@link webview.WebviewController.prefetchResource}.
+    * 
+    * @param { Array<string> } cacheKeyList - Key used to query the cache of prefetched resources. The value can
+    *     contain only letters and digits. If this parameter is not passed or is left empty, **url** is used by
+    *     default.
     * @syscap SystemCapability.Web.Webview.Core
     * @atomicservice
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12 dynamic
     */
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
 
     /**
-     * Set render process mode of the ArkWeb.
+     * Sets the ArkWeb render subprocess mode.
      *
      * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
      *        Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device.
@@ -6639,15 +6579,15 @@ declare namespace webview {
      *        the multi-render subprocess mode is used by default.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     static setRenderProcessMode(mode: RenderProcessMode): void;
 
     /**
-     * Get render process mode of the ArkWeb.
+     * Obtains the ArkWeb render subprocess mode.
      *
      * @returns { RenderProcessMode } mode - The render process mode of the ArkWeb.
      *          Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device,
@@ -6656,45 +6596,49 @@ declare namespace webview {
      *          it defaults to the multi-rendering subprocess mode.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     static getRenderProcessMode(): RenderProcessMode;
 
     /**
-     * Destroy the rendering process.
-     * Calling this interface will actively destroy the associated rendering process.
-     * If the rendering process has not been started or destroyed, it has no effect.
-     * In addition, destroying the rendering process will also affect all other instances associated with
-     * the rendering process.
+     * Terminates this render process.
+     * Calling this API will destroy the associated render process. If the render process has not
+     * been started or has been destroyed, there is no impact. In addition, destroying the render process affects
+     * all other instances associated with the render process.
      *
      * @returns { boolean } true if it was possible to terminate the render process, otherwise false.
      *         Calling this on a not yet started, or an already terminated render will have no effect.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     terminateRenderProcess(): boolean;
 
     /**
-     * Compile javascript and generate code cache.
-     * @param { string } url - Url of the javascript. Only support HTTP/HTTPS protocol and length no longer than 2048.
-     * @param { string | Uint8Array } script - Javascript source code. script must not be empty.
-     * @param { CacheOptions } cacheOptions - Generate code cache option.
-     * @returns { Promise<int> } - The promise returned by the function.
-     *    0 means generate code cache successfully, -1 means internal error.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     *    Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameter types. 3. Parameter verification failed.
+     * Precompiles JavaScript to generate the bytecode cache or update the existing bytecode cache based on the provided
+     * parameters.
+     *
+     * The API determines whether to update the existing bytecode cache based on the provided file information, E-Tag
+     * response header, and Last-Modified response header.
+     * 
+     * @param { string } url - Network address corresponding to the local JavaScript file, that is, the network address
+     *     used when the service web page requests the server version of the file. The network address supports only the
+     *     HTTP and HTTPS protocols and contains a maximum of 2048 characters. If the cache corresponding to the network
+     *     address is invalid, the service web page requests the corresponding resource through the network.
+     * @param { string | Uint8Array } script - Text content of the local JavaScript. The content cannot be empty.
+     * @param { CacheOptions } cacheOptions - Whether to update the bytecode cache.
+     * @returns { Promise<number> } - Promise used to return the error code for generating the bytecode cache. The value
+     *     **0** indicates no error, and the value **-1** indicates an internal error.
+     * @throws { BusinessError } 401 -Invalid input parameter.
+     *     Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.3. Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *    The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<int>;
+    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
 
     /**
      * Set IP address for host name.
@@ -6706,7 +6650,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     static setHostIP(hostName: string, address: string, aliveTime: number): void;
 
@@ -6718,7 +6662,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     static clearHostIP(hostName: string): void;
 
@@ -6729,7 +6673,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Warmup the registered service worker associated the url.
@@ -6739,37 +6683,44 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     static warmupServiceWorker(url: string): void;
 
     /**
-     * Inject offline resources into cache.
+     * Injects local offline resources to the memory cache to improve the initial page startup speed.
      *
-     * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
-     *    The count of array must between 1 and 30.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     *    Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 17100001 - Init error.
-     *    The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    /**
-     * Inject offline resources into cache.
+     * Resources in the memory cache are automatically managed by the ArkWeb engine. When the injected resources are
+     * excessive and cause significant memory pressure, the engine will automatically release unused resources. It is
+     * advisable to avoid injecting a large number of resources into the memory cache.
      *
-     * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
-     *     The count of array must between 1 and 30.
+     * Under normal circumstances, the validity period of the resources is controlled by the provided Cache-Control or
+     * Expires response header, with a default validity period of 86,400 seconds, which is one day.
+     *
+     * The MIME type of the resources is configured through the provided Content-Type response header. The Content-Type
+     * must comply with standards; otherwise, the resources cannot be used correctly. For resources of type MODULE_JS, a
+     * valid MIME type must be provided. For other types, the MIME type is optional.
+     *
+     * Resources injected in this mode can be loaded only through HTML tags. If a **script** tag on the web page uses
+     * the **crossorigin** attribute, the **Cross-Origin** response header must be set in the **responseHeaders**
+     * parameter of the API. The value for this header should be **anonymous** or **use-credentials**.
+     *
+     * After **webview.WebviewController.SetRenderProcessMode(webview.RenderProcessMode.MULTIPLE)** is called, the
+     * application starts the multi-rendering process mode. This API does not take effect in this scenario.
+     * 
+     * @param { Array<OfflineResourceMap> } resourceMaps - Configuration object for local offline resources. A maximum
+     *     of 30 resources can be injected in a single call, with a maximum size of 10 MB per individual resource.
+     * @throws { BusinessError } 401 - Parameter error.
+     *     Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *     length exceeds 2*1024*1024.
+     *     length exceeds 2048. [since 12 - 21]
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2\*1024\*1024. [since 22]
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22
+     * @since 12 dynamic
      */
     injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
 
@@ -6796,7 +6747,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     enableAdsBlock(enable: boolean): void;
 
@@ -6815,7 +6766,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     isAdsBlockEnabled(): boolean;
 
@@ -6834,18 +6785,23 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     isAdsBlockEnabledForCurPage(): boolean;
 
     /**
-     * Get the ID of the surface created by ArkWeb. This ID can be used for web page screenshots.
+     * Obtains the ID of the surface corresponding to ArkWeb. The ID can be used to capture a screenshot of the web
+     * page.
      *
-     * @returns { string } The ID of the surface created by ArkWeb.
+     * > **NOTE**
+     * >
+     * > This API is valid only when the **Web** component rendering mode is **ASYNC_RENDER**. The value of
+     * > **getSurfaceId** can be obtained only after the **Web** component is initialized.
+     *
+     * @returns { string } ID of the surface held by ArkWeb.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getSurfaceId(): string;
 
@@ -6861,15 +6817,64 @@ declare namespace webview {
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     setUrlTrustList(urlTrustList: string): void;
 
     /**
+     * Sets the URL trust list for the ArkWeb.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * When the URL trust list is set, only the URLs in the list can be accessed.
+     *
+     * Example of the urlTrustList:
+     *
+     * {
+     *   "UrlPermissionList": [
+     *     {
+     *       "scheme": "https",
+     *       "host": "www.example1.com",
+     *       "port": 443,
+     *       "path": "pathA/pathB"
+     *     },
+     *     {
+     *       "scheme": "http",
+     *       "host": "*.example2.com",
+     *       "port": 80,
+     *       "path": "test1/test2/test3"
+     *     }
+     *   ]
+     * }
+     * </p>
+     *
+     * @param { string } urlTrustList - The URL trust list in JSON format.
+     *     An empty string means all URLs are allowed.
+     * @param { boolean } allowOpaqueOrigin - If true, loading of opaque origin URLs (e.g., javascript, data) is
+     *     allowed. If false, it is not allowed.
+     * @param { boolean } supportWildcard - If true, wildcard matching is supported (e.g., *.example.com matches all
+     *     subdomains). If false, wildcard matching is not supported.
+     * @throws { BusinessError } 401 Parameter error, possible causes:
+     *     1. Mandatory parameters are left unspecified
+     *     2. JSON string exceeds 10MB limit
+     *     3. JSON parsing failed (syntax errors, etc.)
+     *     4. UrlPermissionList field is missing
+     *     5. URL rule validation failed:
+     *        - scheme must be http or https
+     *        - host cannot be empty
+     *        - port must be between 0-65535
+     *        - path length cannot exceed 65536 characters
+     * @throws { BusinessError } 17100001 - Initialization error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
+
+    /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
      * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
-     * The behavior of {@link fileAccess} will be overwritten by that of this API. 
-     * 
+     * The behavior of {@link fileAccess} will be overwritten by that of this API.
+     *
      * The paths in the list must be any of the following(sub path and module name must be provided):
      *
      * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
@@ -6882,15 +6887,14 @@ declare namespace webview {
      * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
      * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
      * the behavior of the {@link fileAccess}.
-     * 
+     *
      * @param { Array<string> } pathList - The path list allow universal access.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     setPathAllowingUniversalAccess(pathList: Array<string>): void;
 
@@ -6902,8 +6906,7 @@ declare namespace webview {
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     static trimMemoryByPressureLevel(level: PressureLevel): void;
 
@@ -6913,21 +6916,9 @@ declare namespace webview {
      *
      * @param { BackForwardCacheSupportedFeatures } features - The features that supports BackForwardCache.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void;
-
-    /**
-     * Enable the BackForwardCache and indicate features that are allowed to enter BackForwardCache.
-     * Default is disabled.
-     *
-     * @param { BackForwardCacheSupportedFeatures } [features] - The features that supports BackForwardCache.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
-     */
-    static enableBackForwardCache(features?: BackForwardCacheSupportedFeatures): void;
 
     /**
      * Configure the BackForwardCache.
@@ -6936,37 +6927,25 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
 
-    /**
-     * Configure the BackForwardCache.
-     *
-     * @param { BackForwardCacheOptions } [options] - The configuration of BackForwardCache.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
-     */
-    setBackForwardCacheOptions(options?: BackForwardCacheOptions): void;
     /**
      * The current scroll offset of the web page (including the over-scroll offset).
      *
      * @returns { ScrollOffset } The current scroll offset of the web page (including the over-scroll offset).
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
     getScrollOffset(): ScrollOffset;
 
     /**
      * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
      *
-     * @param { double } deltaX - the delta x of the position.
-     * @param { double } deltaY - the delta y of the position.
+     * @param { number } deltaX - the delta x of the position. The unit is vp.
+     * @param { number } deltaY - the delta y of the position. The unit is vp.
      * @returns { boolean } true if the scroll operation is successful, otherwise false.
      * Return value scenario: when the Web page is in the touch state, return false, otherwise return true.
      * In the same layer rendering scene, when the same layer rendering area of ​​the Web is in the touching state, the return value is true.
@@ -6977,10 +6956,9 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    scrollByWithResult(deltaX: double, deltaY: double): boolean;
+    scrollByWithResult(deltaX: number, deltaY: number): boolean;
 
     /**
      * Gets the last hit test value of HitTest.
@@ -6988,8 +6966,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     getLastHitTest(): HitTestValue;
 
@@ -6999,7 +6976,7 @@ declare namespace webview {
      * @returns { ScrollOffset } The current scroll offset of the web page (excluding over-scroll offset).
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     getPageOffset(): ScrollOffset;
 
@@ -7021,8 +6998,7 @@ declare namespace webview {
      * @param { string } userAgent - The User-Agent string.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -7038,16 +7014,70 @@ declare namespace webview {
      * @param { Array<string> } hosts - The hosts to which the User-Agent apply.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
-  
+
+    /**
+     * Enable the UserAgent Client Hints.
+     *
+     * @param { boolean } enabled - UserAgent Client Hints will enabled when set true.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    static setUserAgentClientHintsEnabled(enabled: boolean): void;
+
+
+    /**
+     * Get if the UserAgent Client Hints enabled.
+     *
+     * @returns { boolean } If UserAgent Client Hints was enabled.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    static getUserAgentClientHintsEnabled(): boolean;
+
+    /**
+     * Sets the User-Agent metadata corresponding to the User-Agent.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * This User-Agent metadata will be used to populate the User-Agent client hints, They can provide the client's
+     * branding and version information, the underlying  operating system's branding and major version, as well as
+     * details about the underlying device.
+     *
+     * The User-Agent can be set with setCustomUserAgent or setAppCustomUserAgent or setUserAgentForHosts.
+     *
+     * If the UserAgentMetadata is not found according to the overridden User-Agent and the overridden User-Agent
+     * contains the system default User-Agent, the system default value will be used.
+     *
+     * If the UserAgentMetadata is not found according to the overridden User-Agent but the overridden User-Agent
+     * does not contain the system default User-Agent, only the low-entry User-Agent client hints will be generated.
+     * </p>
+     *
+     * @param { string } userAgent - The User-Agent string.
+     * @param { UserAgentMetadata } metaData - The UserAgentMetadata for the userAgent.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    setUserAgentMetadata(userAgent: string, metaData: UserAgentMetadata): void;
+
+    /**
+     * Get the User-Agent metadata corresponding to the User-Agent.
+     *
+     * @param { string } userAgent - The UserAgent string.
+     * @returns { UserAgentMetadata } The UserAgentMetadata for the userAgent.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    getUserAgentMetadata(userAgent: string): UserAgentMetadata;
+
     /**
      * Get whether webviewController is attached to a web component.
      * @returns { ControllerAttachState } the attach state of controller
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     getAttachState(): ControllerAttachState;
 
@@ -7057,7 +7087,7 @@ declare namespace webview {
      * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
      * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'controllerAttachStateChange', callback: Callback<ControllerAttachState>): void;
 
@@ -7067,37 +7097,20 @@ declare namespace webview {
      * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
      * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'controllerAttachStateChange', callback?: Callback<ControllerAttachState>): void;
 
     /**
-     * Register the callback for controller attach state change.
+     * Asynchronously waits for the WebViewController to be attached to the Web component. If the attachment is complete or times out,
+     * a callback is triggered to return the current ControllerAttachState through a promise.
      *
-     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
-     */
-    onControllerAttachStateChange(callback: Callback<ControllerAttachState>): void;
-
-    /**
-     * Unregister the callback for controller attach state change.
-     *
-     * @param { Callback<ControllerAttachState> } [callback] Callback used to return the controller attach state.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
-     */
-    offControllerAttachStateChange(callback?: Callback<ControllerAttachState>): void;
-
-    /**
-     * Wait for the controller to attach a web component until timeout.
-     *
-     * @param { int } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
+     * @param { number } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
      * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
-    waitForAttached(timeout: int): Promise<ControllerAttachState>;
+    waitForAttached(timeout: number): Promise<ControllerAttachState>;
 
     /**
      * Enables debugging of web contents.
@@ -7112,118 +7125,188 @@ declare namespace webview {
      * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
 
     /**
      * Gets the loading progress for the current page.
      *
-     * @returns { int } The loading progress for the current page.
+     * @returns { number } The loading progress for the current page.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
-    getProgress() : int;
+    getProgress() : number;
 
     /**
-     * Sets the bottom avoidance height of the web visible viewport.
-     * When setting non-zero height, the position and size of the web component remain unchanged,
-     * <br>and the visible viewport upward avoids avoidHeight, as manifested by the web page content raising avoidHeight.
-     * <br>This interface is generally used for customizing the bottom avoidance area, and it is not recommended for
-     * <br>simultaneous use with clicking the editable area of the web page showing the keyboard.
-     * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
-     * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
+     * Sets the bottom avoidance height of the visible viewport on the web page.
      *
-     * @param { int } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
-     * <br>The valid interval of avoidHeight is [0, the height of web component].
-     * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * > **NOTE**
+     * >
+     * > - The valid value range of **avoidHeight** is [0, height of the **Web** component]. Values outside this range
+     * > are adjusted to the nearest boundary.
+     * >
+     * > - When a non-zero value is specified for **avoidHeight**, the position and size of the **Web** component remain
+     * > unchanged, but the visible viewport shift upwards by the specified height, lifting the web page content by the
+     * > **avoidHeight**. This API is used to customize the avoidance area at the bottom of a web page. It is not
+     * > recommended that this API be used when the editable area of the web page is tapped to pull up the keyboard. If
+     * > this API is used in this scenario, the keyboard avoidance mode is set to **OVERLAYS_CONTENT**.
+     * >
+     * > - When the height of this API is set to **0**, the web page content can be restored, and the keyboard avoidance
+     * > mode is specified by
+     * > [keyboardAvoidMode()](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#keyboardavoidmode12)
+     * > .
+     *
+     * @param { number } avoidHeight - Bottom avoidance height of the visible viewport on the web page.<br>Unit: vp.<br>
+     *     Value range: [0, height of the **Web** component]<br>If the value is less than 0, the value **0** is used. If
+     *     the value is greater than the height of the **Web** component, the height of the **Web** component is used.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
-    avoidVisibleViewportBottom(avoidHeight: int): void;
+    avoidVisibleViewportBottom(avoidHeight: number): void;
 
     /**
-     * Obtains the prediction information about the blankless loading solution and enables the generation of
-     * the transition frame for the current loading. The application determines whether to enable the blankless
-     * loading solution based on the information.
-     *
-     * @param { string } key  The key value that uniquely identifies the page.
-     * Default value: N/A.
-     * The value cannot be empty or exceed 2048 characters.
-     * When an invalid value is set, this API does not take effect.
-     * @returns { BlanklessInfo } The prediction information about the blankless loading solution.
-     * @throws { BusinessError } 801 Capability not supported.
+     * Obtains the prediction information about blankless loading (for details, see
+     * [BlanklessInfo]{@link @ohos.web.webview:webview.BlanklessInfo}) and starts to generate the loading transition
+     * frame. The application determines whether to enable blankless loading based on the information. This API must be
+     * used together with the [setBlanklessLoadingWithKey]{@link webview.WebviewController#setBlanklessLoadingWithKey}
+     * API before the page loading API is triggered or in **onLoadIntercept**, and after the **WebViewController** is
+     * bound to the **Web** component.
+     * 
+     * > **NOTE**
+     * >
+     * > - The default size of the persistent cache capacity is 30 MB (about 30 pages). You can set the cache capacity
+     * > by calling [setBlanklessLoadingCacheCapacity]{@link webview.WebviewController#setBlanklessLoadingCacheCapacity}
+     * > . For details, see the description of this API. When the maximum capacity is exceeded, the cache is updated
+     * > based on the Least Recently Used (LRU) mechanism. The persistent cache data that has been stored for more than
+     * > seven days is automatically cleared. After the cache is cleared, the optimization effect appears when the page
+     * > is loaded for the third time.
+     * >
+     * > - If the snapshot similarity (**similarity** in [BlanklessInfo]{@link @ohos.web.webview:webview.BlanklessInfo})
+     * > is extremely low, check whether the **key** value is correct.
+     * >
+     * > - After this API is called, page loading snapshot detection and transition frame generation calculation are
+     * > enabled, which generates certain resource overhead.
+     * >
+     * > - Blankless loading consumes certain resources, which depends on the resolution of the **Web** component. When
+     * > the width and height of the resolution are respectively **w** and **h**, the peak memory usage increases by
+     * > about **12 × w × h** B in the page-opening phase. After the page is opened, the memory is reclaimed, which does
+     * > not affect the stable memory usage. When the size of the solid-state application cache is increased, the
+     * > increased cache of each page is about **w × h/10** B and the cache is located in the application cache.
+     * >
+     * > - Add the **ohos.permission.INTERNET** and **ohos.permission.GET_NETWORK_INFO** permissions to **module.json5**
+     * > . For details, see
+     * > [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md#declaring-permissions-in-the-configuration-file).
+     * 
+     * @param { string } key  Key value that uniquely identifies the page.<br>The value cannot be empty and can contain
+     *     a maximum of 2048 characters.<br>Invalid values do not take effect.
+     * @returns { BlanklessInfo } Prediction information about blankless loading, including the first screen similarity
+     *     and first screen loading duration. The application determines whether to enable blankless loading based on
+     *     the prediction information.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     getBlanklessInfoWithKey(key: string) : BlanklessInfo;
 
     /**
-     * Sets whether to enable blankless page loading. This API must be used in pair with the
-     * getBlanklessInfoWithKey API.
+     * Sets whether to enable blankless loading. This API must be used together with
+     * [getBlanklessInfoWithKey]{@link webview.WebviewController#getBlanklessInfoWithKey}.
      *
-     * @param { string } key  The key value that uniquely identifies the current page. It must be the same as
-     * the key value of the getBlanklessInfoWithKey API.
-     * Default value: N/A.
-     * The value cannot be empty or exceed 2048 characters.
-     * When an invalid value is set, the error code WebBlanklessErrorCode is returned, and the API does not
-     * take effect.
-     * @param { boolean } is_start  Whether to enable frame interpolation. The value true indicates to enable
-     * frame interpolation, and the value false indicates the opposite.
-     * The default value is false.
-     * The value can be true or false.
-     * Action for setting an invalid value: N/A.
-     * @returns { WebBlanklessErrorCode } WebBlanklessErrorCode.
-     * @throws { BusinessError } 801 Capability not supported.
+     * > **NOTE**
+     * >
+     * > - This API must be called after the page loading API is triggered. Other restrictions are the same as those of
+     * > [getBlanklessInfoWithKey]{@link webview.WebviewController#getBlanklessInfoWithKey}.
+     * >
+     * > - The page must be loaded in the component that calls this API.
+     * >
+     * > - When the similarity is low, the system will deem the scene change too abrupt and frame insertion will fail.
+     * >
+     * > - Add the **ohos.permission.INTERNET** and **ohos.permission.GET_NETWORK_INFO** permissions to **module.json5**
+     * > . For details, see
+     * > [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md#declaring-permissions-in-the-configuration-file).
+     *
+     * @param { string } key  Key value that uniquely identifies the page. This value must be the same as the **key**
+     *     value of the **getBlanklessInfoWithKey** API.<br>The value cannot be empty and can contain a maximum of 2048
+     *     characters.<br>When an invalid value is set, the error code **WebBlanklessErrorCode** is returned, and the
+     *     API does not take effect.
+     * @param { boolean } is_start  Whether to enable frame interpolation. The value **true** means to enable frame
+     *     interpolation, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the value is
+     *     **false**.
+     * @returns { WebBlanklessErrorCode } Whether the API is successfully called. For details, see
+     *     [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
+     * @throws { BusinessError } 801 The functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     setBlanklessLoadingWithKey(key: string, is_start: boolean) : WebBlanklessErrorCode;
 
     /**
+     * Triggers frame interpolation and sets frame interpolation parameters. This API must be used in pair with the
+     * getBlanklessInfoWithKey API.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @param { string } key - Key value that uniquely identifies the current page.
+     *     <br>Value range: (0, 2048]
+     *     <br>The key value must be the same as that of getBlanklessInfoWithKey.
+     * @param { BlanklessLoadingParam } param - The blankless loading parameter.
+     *     <br>None
+     * @returns { WebBlanklessErrorCode } WebBlanklessErrorCode.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    setBlanklessLoadingWithParams(key: string,
+      param: BlanklessLoadingParam) : WebBlanklessErrorCode;
+
+    /**
      * Clears the blankless loading cache of the page with a specified key value.
      *
-     * @param { Array<string> } [keys]  The list of key values of pages cached in the blankless loading
-     * solution. These key values are specified in getBlanklessInfoKey.
-     * The default value is the list of key values of all pages cached in the blankless loading solution.
-     * The key length cannot exceed 2048 characters, and the number of keys must be less than or equal to 100.
-     * The URL is the same as that input to the Web component during page loading.
-     * When the key length exceeds 2048 characters, the key does not take effect. When the number of keys
-     * exceeds 100, the first 100 keys are used. If these parameters are left empty, the default values are used.
-     * @throws { BusinessError } 801 Capability not supported.
-     * @static
+     * In an applet or web application, when the content changes significantly during page loading, an obvious scene
+     * change may occur. If you are concerned about this change, you can use this API to clear the page cache.
+     *
+     * > **NOTE**
+     * >
+     * > - After the page is cleared, the optimization effect appears when the page is loaded for the third time.
+     *
+     * @param { Array<string> } [keys] Key value list on the pages using the blankless optimization solution. The 
+     *     **key** value has been specified in
+     *     [getBlanklessInfoWithKey]{@link webview.WebviewController#getBlanklessInfoWithKey}.<br>Default value: key
+     *     list of all pages cached by the blankless optimization solution.<br>Valid value range: The key length cannot
+     *     exceed 2048 characters, and the number of keys must be less than or equal to 100. The key value is the same
+     *     as that input to the **Web** component during page loading.<br>Invalid value setting behavior: If
+     *     **undefined** or **null** is passed, error code **401** is thrown. If the key length exceeds 2048, the key
+     *     does not take effect. If the key length exceeds 100, the first 100 values are used. If the key is empty, the
+     *     default value is used.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     static clearBlanklessLoadingCache(keys?: Array<string>) : void;
 
     /**
-     * Sets the cache capacity of the blankless loading solution and returns the value that takes effect. If
-     * this API is not called, the default capacity 30 MB is used. The maximum capacity cannot exceed 100 MB.
+     * Sets the persistent cache capacity of the blankless loading solution and returns the value that takes effect. If
+     * the API is not explicitly called, the default cache capacity is 30 MB. When this limit is exceeded, transition
+     * frames that are not frequently used are eliminated.
      *
-     * @param { int } capacity  Cache capacity, in MB. The maximum value is 100 MB.
-     * The default value is 30 MB.
-     * The value ranges from 0 to 100. If this parameter is set to 0, no cache capacity is available and the
-     * functionality is disabled globally.
-     * When the value is set to a number smaller than 0, the value 0 takes effect. When the value is set to a
-     * number greater than 100, the value 100 takes effect.
-     * @returns { int } The effective value that ranges from 0 MB to 100 MB.
+     * @param { number } capacity Persistent cache capacity, in MB. The maximum value is 100 MB.<br>The value ranges
+     *     from 0 to 100. If this parameter is set to **0**, no cache capacity is available and the functionality is
+     *     disabled globally.<br>When a value less than 0 is set, the value **0** takes effect. When a value greater
+     *     than 100 is set, the value **100** takes effect.
+     * @returns { number } Effective value that ranges from 0 MB to 100 MB.
+     *     <br>When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value
+     *     **100** takes effect.
      * @throws { BusinessError } 801 Capability not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
-    static setBlanklessLoadingCacheCapacity(capacity: int) : int;
+    static setBlanklessLoadingCacheCapacity(capacity: number) : number;
 
     /**
       * Get whether default error page feature is enabled.
@@ -7232,11 +7315,10 @@ declare namespace webview {
       * @throws { BusinessError } 17100001 - Init error.
       *                           The WebviewController must be associated with a Web component.
       * @syscap SystemCapability.Web.Webview.Core
-      * @since 20
-      * @arkts 1.1&1.2
+      * @since 20 dynamic
       */
     getErrorPageEnabled(): boolean;
-  
+
     /**
       * Set whether enable the error page. onOverrideErrorPage will be triggered when the page error.
       *
@@ -7244,8 +7326,7 @@ declare namespace webview {
       * @throws { BusinessError } 17100001 - Init error.
       *                           The WebviewController must be associated with a Web component.
       * @syscap SystemCapability.Web.Webview.Core
-      * @since 20
-      * @arkts 1.1&1.2
+      * @since 20 dynamic
       */
     setErrorPageEnabled(enable: boolean): void;
 
@@ -7254,32 +7335,35 @@ declare namespace webview {
      * sub-resource private network requests to request explicit permission from the target server.
      * After disable PrivateNetworkAccess, ArkWeb will no longer check whether the private network request
      * is legitimate.
-     * 
+     *
      * @param {boolean} enable - {@code true} enable the private network access check; {@code false} otherwise.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     static enablePrivateNetworkAccess(enable: boolean): void;
 
     /**
      * Get whether PrivateNetworkAccess is enabled.
-     * 
+     *
      * @returns {boolean} True is enable the ability to check private network access else false.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
      */
     static isPrivateNetworkAccessEnabled(): boolean;
 
     /**
-     * Set web destroy mode.
+     * Sets the destroy mode of the Web component. The destroy mode of the Web component
+     * affects the time when web kernel resources, such as the JavaScript running context
+     * and rendering context, are released. The default value is WebDestroyMode.NORMAL_MODE
+     * (normal mode), indicating that the system determines the destroy time. You can set
+     * WebDestroyMode.FAST_MODE (fast mode) to destroy resources immediately, improving
+     * performance in specific scenarios.
      * @param { WebDestroyMode } mode web destroy mode, default NORMAL_MODE.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     static setWebDestroyMode(mode: WebDestroyMode): void;
 
@@ -7289,72 +7373,116 @@ declare namespace webview {
      * @param { boolean } enabled - Enable if true, disable if false.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     static setAutoPreconnect(enabled: boolean): void;
 
     /**
      * ‌Retrieve whether the automatic pre-connection feature is enabled‌.
-     * 
+     *
      * @returns { boolean } Return true if enabled, false if disabled.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     static isAutoPreconnectEnabled(): boolean;
 
     /**
      * Set the site isolation mode.
      *
-     * @param { SiteIsolationMode } mode The site isolation mode of the application, 
-     *      default value depends on different devices type.
+     * @param { SiteIsolationMode } mode The site isolation mode of the application,
+     *     default value depends on different devices type.
      * @throws { BusinessError } 17100001 - Init error. Possible causes:
      *     1. Site Isolation mode is already set by the developer.
      *     2. Site Isolation mode cannot be strict in single-render-process mode.
      *     3. Site Isolation mode cannot be changed while Secure Shield mode is active.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
     /**
-     * Get the site isolation mode. 
+     * Queries the currently effective site isolation mode.
      *
      * @returns { SiteIsolationMode } The site isolation mode of the application.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     static getSiteIsolationMode(): SiteIsolationMode;
-  
+
     /**
      * Set web engine socket idle timeout.
      * <p><strong>API Note</strong>:<br>
      * Unit: seconds, minimum 30s, maximum 5 minutes. If not set, the default is five minutes.
      * </p>
      *
-     * @param { int } timeout - Socket idle timeout.
+     * @param { number } timeout - Socket idle timeout.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
-    static setSocketIdleTimeout(timeout: int): void;
-    
+    static setSocketIdleTimeout(timeout: number): void;
+
     /**
-     * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
-     * in particular situation, for example, when web is inactive or active.
-     * 
+     * Set the behavior mode of the soft keyboard. If this API is not explicitly called, the system automatically
+     * hides or shows the soft keyboard when the Web component loses or gains focus, or when its status becomes
+     * inactive or active.
+     *
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
+
+    /**
+     * Sets whether to switch web scrollbar mode.
+     *
+     * @param { ScrollbarMode } scrollbarMode - web scrollbar mode, default OVERLAY_LAYOUT_SCROLLBAR.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+    /**
+     * Enable the application disable some features such as PDFViewer to enhance the security level of web application
+     *
+     * @param { SecurityParams } securityParams - The parameters means which supported option or item will be disabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
+
+    /**
+     * Resume current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    resumeMicrophone(): void;
+
+    /**
+     * Pause current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    pauseMicrophone(): void;
+
+    /**
+     * Stop current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    stopMicrophone(): void;
   }
 
   /**
@@ -7370,7 +7498,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   enum WebDownloadState {
     /**
@@ -7384,7 +7512,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     IN_PROGRESS = 0,
 
@@ -7399,7 +7527,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     COMPLETED,
 
@@ -7414,7 +7542,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     CANCELED,
 
@@ -7429,7 +7557,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     INTERRUPTED,
 
@@ -7444,7 +7572,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     PENDING,
 
@@ -7459,7 +7587,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     PAUSED,
 
@@ -7474,7 +7602,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     UNKNOWN,
   }
@@ -7492,14 +7620,14 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   enum WebDownloadErrorCode {
     /**
      * Unknown error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     ERROR_UNKNOWN = 0,
 
@@ -7507,7 +7635,7 @@ declare namespace webview {
      * Generic file operation failure.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_FAILED = 1,
 
@@ -7515,7 +7643,7 @@ declare namespace webview {
      * The file cannot be accessed due to certain restrictions.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_ACCESS_DENIED = 2,
 
@@ -7523,7 +7651,7 @@ declare namespace webview {
      * There is not enough disk space.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_NO_SPACE = 3,
 
@@ -7531,7 +7659,7 @@ declare namespace webview {
      * The file name is too long.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_NAME_TOO_LONG = 5,
 
@@ -7539,7 +7667,7 @@ declare namespace webview {
      * The file is too large.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_TOO_LARGE = 6,
 
@@ -7547,7 +7675,7 @@ declare namespace webview {
      * Some temporary problems occurred, such as not enough memory, files in use, and too many files open at the same time.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_TRANSIENT_ERROR = 10,
 
@@ -7555,7 +7683,7 @@ declare namespace webview {
      * The file is blocked from accessing because of some local policy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_BLOCKED = 11,
 
@@ -7563,7 +7691,7 @@ declare namespace webview {
      * When trying to resume the download, Found that the file is not long enough, maybe the file no longer exists.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_TOO_SHORT = 13,
 
@@ -7571,7 +7699,7 @@ declare namespace webview {
      * Hash mismatch.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_HASH_MISMATCH = 14,
 
@@ -7579,7 +7707,7 @@ declare namespace webview {
      * The file already exists.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FILE_SAME_AS_SOURCE = 15,
 
@@ -7587,7 +7715,7 @@ declare namespace webview {
      * Generic network error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NETWORK_FAILED = 20,
 
@@ -7595,7 +7723,7 @@ declare namespace webview {
      * The network operation timed out.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NETWORK_TIMEOUT = 21,
 
@@ -7603,7 +7731,7 @@ declare namespace webview {
      * The network was disconnected.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NETWORK_DISCONNECTED = 22,
 
@@ -7611,7 +7739,7 @@ declare namespace webview {
      * Server down.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NETWORK_SERVER_DOWN = 23,
 
@@ -7619,7 +7747,7 @@ declare namespace webview {
      * Invalid network requests，may redirect to unsupported scheme or an invalid URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NETWORK_INVALID_REQUEST = 24,
 
@@ -7627,7 +7755,7 @@ declare namespace webview {
      * The server returned a generic error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_FAILED = 30,
 
@@ -7635,7 +7763,7 @@ declare namespace webview {
      * The server does not support range requests.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_NO_RANGE = 31,
 
@@ -7643,7 +7771,7 @@ declare namespace webview {
      * The server does not have the requested data.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_BAD_CONTENT = 33,
 
@@ -7651,7 +7779,7 @@ declare namespace webview {
      * The server does not allow the file to be downloaded.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_UNAUTHORIZED = 34,
 
@@ -7659,7 +7787,7 @@ declare namespace webview {
      * Server certificate error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_CERT_PROBLEM = 35,
 
@@ -7667,7 +7795,7 @@ declare namespace webview {
      * Server access forbidden.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_FORBIDDEN = 36,
 
@@ -7675,7 +7803,7 @@ declare namespace webview {
      * Server unreachable.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_UNREACHABLE = 37,
 
@@ -7683,7 +7811,7 @@ declare namespace webview {
      * The received data does not match content-length.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_CONTENT_LENGTH_MISMATCH = 38,
 
@@ -7691,7 +7819,7 @@ declare namespace webview {
      * An unexpected cross-origin redirect happened.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SERVER_CROSS_ORIGIN_REDIRECT = 39,
 
@@ -7706,7 +7834,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     USER_CANCELED = 40,
 
@@ -7714,7 +7842,7 @@ declare namespace webview {
      * User shut down the application.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     USER_SHUTDOWN = 41,
 
@@ -7722,7 +7850,7 @@ declare namespace webview {
      * Application crash.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     CRASH = 50,
   }
@@ -7738,8 +7866,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   class WebDownloadItem {
     /**
@@ -7755,7 +7882,7 @@ declare namespace webview {
     * @syscap SystemCapability.Web.Webview.Core
     * @crossplatform
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     */
     getGuid(): string;
 
@@ -7772,7 +7899,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getCurrentSpeed(): number;
 
@@ -7789,7 +7916,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getPercentComplete(): number;
 
@@ -7806,7 +7933,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getTotalBytes(): number;
 
@@ -7823,7 +7950,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getState(): WebDownloadState;
 
@@ -7840,7 +7967,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getLastErrorCode(): WebDownloadErrorCode;
 
@@ -7857,7 +7984,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getMethod(): string;
 
@@ -7874,7 +8001,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getMimeType(): string;
 
@@ -7891,8 +8018,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     getUrl(): string;
 
@@ -7909,7 +8035,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getSuggestedFileName(): string;
 
@@ -7932,7 +8058,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     start(downloadPath: string): void;
 
@@ -7947,7 +8073,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     cancel(): void;
 
@@ -7964,7 +8090,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     pause(): void;
 
@@ -7985,7 +8111,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     resume(): void;
 
@@ -8002,7 +8128,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getReceivedBytes(): number;
 
@@ -8019,16 +8145,36 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getFullPath(): string;
+
+    /**
+     * Get the original url of the web download.
+     *
+     * @returns { string } - Returns the original url of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getOriginalUrl(): string;
+
+    /**
+     * Get the referrer url of the web download.
+     *
+     * @returns { string } - Returns the referrer url of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getReferrerUrl(): string;
 
     /**
      * Serialize web download to typed array.
      * @returns { Uint8Array } - Returns the serialized data.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     serialize(): Uint8Array;
 
@@ -8040,7 +8186,7 @@ declare namespace webview {
      * <br>2. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static deserialize(serializedData: Uint8Array): WebDownloadItem;
   }
@@ -8056,8 +8202,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   class WebDownloadDelegate {
     /**
@@ -8073,8 +8218,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     onBeforeDownload(callback: Callback<WebDownloadItem>): void;
 
@@ -8091,7 +8235,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
 
@@ -8108,7 +8252,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     onDownloadFinish(callback: Callback<WebDownloadItem>): void;
 
@@ -8125,7 +8269,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     onDownloadFailed(callback: Callback<WebDownloadItem>): void;
   }
@@ -8141,7 +8285,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   class WebDownloadManager {
     /**
@@ -8157,7 +8301,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -8167,7 +8311,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100018 - No WebDownloadDelegate has been set yet.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static resumeDownload(webDownloadItem: WebDownloadItem): void;
   }
@@ -8177,7 +8321,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class WebHttpBodyStream {
     /**
@@ -8187,11 +8331,11 @@ declare namespace webview {
      * @throws { BusinessError } 17100022 - Failed to initialize the HTTP body stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     initialize(): Promise<void>;
     /**
-     * Read the data stream to the buffer.
+     * Read the data stream to the buffer. Unit: bytes.
      *
      * @param { number } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
@@ -8199,25 +8343,25 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     read(size: number): Promise<ArrayBuffer>;
     /**
-     * Get the total size of the data stream. When data is chunked, always return zero.
+     * Get the total size of the data stream. When data is chunked, always return zero. Unit: bytes.
      *
      * @returns { number } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     getSize(): number;
     /**
-     * Get the current position of the data stream.
+     * Get the current position of the data stream. Unit: bytes.
      *
      * @returns { number } Return position in post data stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     getPosition(): number;
     /**
@@ -8226,7 +8370,7 @@ declare namespace webview {
      * @returns { boolean } Whether data stream is chunked.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isChunked(): boolean;
     /**
@@ -8236,7 +8380,7 @@ declare namespace webview {
      * @returns { boolean } Whether data stream has been consumed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isEof(): boolean;
     /**
@@ -8246,7 +8390,7 @@ declare namespace webview {
      * @returns { boolean } Whether the data stream is in memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isInMemory(): boolean;
   }
@@ -8255,14 +8399,14 @@ declare namespace webview {
    * Defines the resource type of request.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 12
+   * @since 12 dynamic
    */
   enum WebResourceType {
     /**
      * Top level page.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     MAIN_FRAME = 0,
 
@@ -8270,7 +8414,7 @@ declare namespace webview {
      * Frame or Iframe.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     SUB_FRAME = 1,
 
@@ -8278,7 +8422,7 @@ declare namespace webview {
      * CSS stylesheet.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     STYLE_SHEET = 2,
 
@@ -8286,7 +8430,7 @@ declare namespace webview {
      * External script.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     SCRIPT = 3,
 
@@ -8294,7 +8438,7 @@ declare namespace webview {
      * Image (jpg/gif/png/etc).
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     IMAGE = 4,
 
@@ -8302,7 +8446,7 @@ declare namespace webview {
      * Font.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     FONT_RESOURCE = 5,
 
@@ -8310,7 +8454,7 @@ declare namespace webview {
      * Some other subresource. This is the default type if the actual type is unknown.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     SUB_RESOURCE = 6,
 
@@ -8318,7 +8462,7 @@ declare namespace webview {
      * Object (or embed) tag for a plugin, or a resource that a plugin requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     OBJECT = 7,
 
@@ -8326,7 +8470,7 @@ declare namespace webview {
      * Media resource.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     MEDIA = 8,
 
@@ -8334,7 +8478,7 @@ declare namespace webview {
      * Main resource of a dedicated worker.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     WORKER = 9,
 
@@ -8342,7 +8486,7 @@ declare namespace webview {
      * Main resource of a shared worker.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     SHARED_WORKER = 10,
 
@@ -8350,7 +8494,7 @@ declare namespace webview {
      * Explicitly requested prefetch.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     PREFETCH = 11,
 
@@ -8358,7 +8502,7 @@ declare namespace webview {
      * Favicon.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     FAVICON = 12,
 
@@ -8366,7 +8510,7 @@ declare namespace webview {
      * XMLHttpRequest.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     XHR = 13,
 
@@ -8374,7 +8518,7 @@ declare namespace webview {
      * Ping request for <a ping>/sendBeacon.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     PING = 14,
 
@@ -8382,7 +8526,7 @@ declare namespace webview {
      * The main resource of a service worker.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     SERVICE_WORKER = 15,
 
@@ -8390,7 +8534,7 @@ declare namespace webview {
      * Report of Content Security Policy violations.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     CSP_REPORT = 16,
 
@@ -8398,7 +8542,7 @@ declare namespace webview {
      * Resource that a plugin requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     PLUGIN_RESOURCE = 17,
 
@@ -8406,7 +8550,7 @@ declare namespace webview {
      * A main-frame service worker navigation preload request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     NAVIGATION_PRELOAD_MAIN_FRAME = 19,
 
@@ -8414,7 +8558,7 @@ declare namespace webview {
      * A sub-frame service worker navigation preload request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     NAVIGATION_PRELOAD_SUB_FRAME = 20,
   }
@@ -8424,7 +8568,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Defines the Web resource request used for scheme handler.
@@ -8432,7 +8576,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebSchemeHandlerRequest {
     /**
@@ -8441,7 +8585,7 @@ declare namespace webview {
      * @returns { Array<WebHeader> } Return the request headers.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Gets request headers.
@@ -8450,7 +8594,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getHeader(): Array<WebHeader>;
     /**
@@ -8459,7 +8603,7 @@ declare namespace webview {
      * @returns { string } Return the request URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Gets the request URL.
@@ -8468,7 +8612,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getRequestUrl(): string;
     /**
@@ -8477,7 +8621,7 @@ declare namespace webview {
      * @returns { string } Return the request method.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get request method.
@@ -8486,7 +8630,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getRequestMethod(): string;
     /**
@@ -8495,7 +8639,7 @@ declare namespace webview {
      * @returns { string } Return referrer of request.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     getReferrer(): string;
     /**
@@ -8504,7 +8648,7 @@ declare namespace webview {
      * @returns { boolean } Whether request is main frame.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Check whether the request is for getting the main frame.
@@ -8513,7 +8657,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     isMainFrame(): boolean;
     /**
@@ -8522,7 +8666,7 @@ declare namespace webview {
      * @returns { boolean } Whether request has user gesture.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Check whether the request is associated with gesture.
@@ -8531,7 +8675,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     hasGesture(): boolean;
     /**
@@ -8540,7 +8684,7 @@ declare namespace webview {
      * @returns { WebHttpBodyStream | null } Return http body stream. If request has no http body stream, return null.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     getHttpBodyStream(): WebHttpBodyStream | null;
     /**
@@ -8548,7 +8692,7 @@ declare namespace webview {
      *
      * @returns { WebResourceType } Return the request's resource type.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     getRequestResourceType(): WebResourceType;
     /**
@@ -8556,7 +8700,7 @@ declare namespace webview {
      *
      * @returns { string } Return the URL of frame which trigger this request.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     getFrameUrl(): string;
   }
@@ -8566,7 +8710,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Defines the Web resource response used for scheme handler.
@@ -8574,7 +8718,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 dynamic
    */
   class WebSchemeHandlerResponse {
     /**
@@ -8582,7 +8726,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Constructor.
@@ -8590,7 +8734,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
     constructor();
     /**
@@ -8600,7 +8744,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set the resolved URL after redirects or changed as a result of HSTS.
@@ -8610,7 +8754,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
     setUrl(url: string): void;
     /**
@@ -8619,7 +8763,7 @@ declare namespace webview {
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get the resolved URL after redirects or changed as a result of HSTS.
@@ -8628,27 +8772,27 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic
      */
     getUrl(): string;
     /**
      * Set net error code.
      * @param { WebNetErrorList } code - Set net error code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set net error code.
      * @param { WebNetErrorList } code - Set net error code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setNetErrorCode(code: WebNetErrorList): void;
     /**
@@ -8657,7 +8801,7 @@ declare namespace webview {
      * @returns { WebNetErrorList } Return response error code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get net error code.
@@ -8666,7 +8810,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getNetErrorCode(): WebNetErrorList;
     /**
@@ -8676,7 +8820,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set http status code.
@@ -8686,7 +8830,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setStatus(code: number): void;
     /**
@@ -8695,7 +8839,7 @@ declare namespace webview {
      * @returns { number } Return http status code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get http status code.
@@ -8704,7 +8848,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getStatus(): number;
     /**
@@ -8714,7 +8858,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set status text.
@@ -8724,7 +8868,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setStatusText(text: string): void;
     /**
@@ -8733,7 +8877,7 @@ declare namespace webview {
      * @returns { string } Return http status text.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get status text.
@@ -8742,7 +8886,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getStatusText(): string;
     /**
@@ -8752,7 +8896,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set mime type.
@@ -8762,7 +8906,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setMimeType(type: string): void;
     /**
@@ -8771,7 +8915,7 @@ declare namespace webview {
      * @returns { string } Return mime type of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get mime type.
@@ -8780,7 +8924,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getMimeType(): string;
     /**
@@ -8790,7 +8934,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set the response encoding.
@@ -8800,7 +8944,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setEncoding(encoding: string): void;
     /**
@@ -8809,7 +8953,7 @@ declare namespace webview {
      * @returns { string } Return encoding of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get the response encoding.
@@ -8818,7 +8962,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getEncoding(): string;
     /**
@@ -8828,10 +8972,10 @@ declare namespace webview {
      * @param { string } value - Header value.
      * @param { boolean } overwrite - Whether to overwrite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set response hander value by name.
@@ -8840,11 +8984,11 @@ declare namespace webview {
      * @param { string } value - Header value.
      * @param { boolean } overwrite - Whether to overwrite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setHeaderByName(name: string, value: string, overwrite: boolean): void;
     /**
@@ -8854,7 +8998,7 @@ declare namespace webview {
      * @returns { string } Return header value by name.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get the header value by name from the response.
@@ -8864,7 +9008,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getHeaderByName(name: string): string
   }
@@ -8875,7 +9019,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Used to intercept url requests. Response headers and body can be sent through
@@ -8884,7 +9028,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebResourceHandler {
     /**
@@ -8895,7 +9039,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Pass response headers to intercepted requests.
@@ -8906,7 +9050,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didReceiveResponse(response: WebSchemeHandlerResponse): void;
     /**
@@ -8917,7 +9061,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Pass response body data to intercepted requests.
@@ -8928,7 +9072,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didReceiveResponseBody(data: ArrayBuffer): void;
     /**
@@ -8937,7 +9081,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Notify that this request should be finished and there is no more data available.
@@ -8946,7 +9090,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didFinish(): void;
     /**
@@ -8957,7 +9101,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Notify that this request should be failed.
@@ -8968,7 +9112,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didFail(code: WebNetErrorList): void;
     /**
@@ -8976,27 +9120,27 @@ declare namespace webview {
      *
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @param { boolean } completeIfNoResponse - If completeIfNoResponse is true, when DidFailWithError is called, if
-     *                                           DidReceiveResponse has not been called, a response is automatically
-     *                                           constructed and the current request is terminated.
+     *     DidReceiveResponse has not been called, a response is automatically
+     *     constructed and the current request is terminated.
      * @throws { BusinessError } 17100101 - The errorCode is either ARKWEB_NET_OK or outside the range of error codes
-     *                                      in WebNetErrorList.
+     *     in WebNetErrorList.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     /**
      * Notify that this request should be failed.
      *
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @param { boolean } completeIfNoResponse - If completeIfNoResponse is true, when DidFailWithError is called, if
-     *                                           DidReceiveResponse has not been called, a response is automatically
-     *                                           constructed and the current request is terminated.
+     *     DidReceiveResponse has not been called, a response is automatically
+     *     constructed and the current request is terminated.
      * @throws { BusinessError } 17100101 - The errorCode is either ARKWEB_NET_OK or outside the range of error codes
-     *                                      in WebNetErrorList.
+     *     in WebNetErrorList.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
   }
@@ -9006,7 +9150,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * This class is used to intercept requests for a specified scheme.
@@ -9014,31 +9158,31 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebSchemeHandler {
     /**
      * Callback for handling the request.
      *
      * @param { function } callback - Callback of handling the request. If callback return false,
-     *                                it means no interception.
+     *     it means no interception.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Callback for handling the request.
      *
      * @param { function } callback - Callback of handling the request. If callback return false,
-     *                                it means no interception.
+     *     it means no interception.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     onRequestStart(
       callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
@@ -9050,7 +9194,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Callback when the request is completed.
@@ -9060,7 +9204,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
   }
@@ -9070,24 +9214,21 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum PlaybackStatus {
     /**
      * Player status is paused.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     PAUSED = 0,
     /**
      * Player status is playing.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     PLAYING,
   }
@@ -9097,40 +9238,35 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum NetworkState {
     /**
      * Player does not do any download tasks.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     EMPTY = 0,
     /**
      * Player downloads finished, waiting for next task.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     IDLE,
     /**
      * Player is downloading contents.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     LOADING,
     /**
      * Player downloads failed, due to network error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     NETWORK_ERROR
   }
@@ -9140,48 +9276,42 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum ReadyState {
     /**
      * Player hasn't downloaded anything.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     HAVE_NOTHING = 0,
     /**
      * Player has downloaded metadata.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     HAVE_METADATA,
     /**
      * Player has played all downloaded media data.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     HAVE_CURRENT_DATA,
     /**
      * The buffered media data is not enough, and will cause jank.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     HAVE_FUTURE_DATA,
     /**
      * The buffered media data is enough.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     HAVE_ENOUGH_DATA,
   }
@@ -9191,32 +9321,28 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum MediaError {
     /**
      * Network error
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     NETWORK_ERROR = 1,
     /**
      * Media format error, such as not a valid file.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     FORMAT_ERROR,
     /**
      * Decode error, such as decoder doesn't support this format.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     DECODE_ERROR
   }
@@ -9228,8 +9354,7 @@ declare namespace webview {
    * @typedef NativeMediaPlayerHandler
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface NativeMediaPlayerHandler {
 
@@ -9239,8 +9364,7 @@ declare namespace webview {
      * @param { PlaybackStatus } status - Playback status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleStatusChanged(status: PlaybackStatus): void;
 
@@ -9249,13 +9373,12 @@ declare namespace webview {
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { double } volume - Current volume of native media player.
+     * @param { number } volume - Current volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    handleVolumeChanged(volume: double): void;
+    handleVolumeChanged(volume: number): void;
 
     /**
      * Handle native media player muted status.
@@ -9263,8 +9386,7 @@ declare namespace webview {
      * @param { boolean } muted - Current mute status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleMutedChanged(muted: boolean): void;
 
@@ -9273,60 +9395,55 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - infinity]
      *
-     * @param { double } playbackRate - Current playback rate of native media player.
+     * @param { number } playbackRate - Current playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    handlePlaybackRateChanged(playbackRate: double): void;
+    handlePlaybackRateChanged(playbackRate: number): void;
 
     /**
      * Handle duration time of media.
      *  duration: float
      *   value range: [0 - infinity]
      *
-     * @param { double } duration - Duration time (in seconds) of media.
+     * @param { number } duration - Duration time of media, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    handleDurationChanged(duration: double): void;
+    handleDurationChanged(duration: number): void;
 
     /**
      * Handle current playing time of media.
      *  currentPlayTime: float
      *   value range: [0 - duration]
      *
-     * @param { double } currentPlayTime - Current playing time (in seconds) of media.
+     * @param { number } currentPlayTime - Current playing time of media, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    handleTimeUpdate(currentPlayTime: double): void;
+    handleTimeUpdate(currentPlayTime: number): void;
 
     /**
      * Handle buffered end time of media.
      *  bufferedEndTime: float
      *   value range: [0 - duration]
      *
-     * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
+     * @param { number } bufferedEndTime - Buffered end time of media, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    handleBufferedEndTimeChanged(bufferedEndTime: double): void;
+    handleBufferedEndTimeChanged(bufferedEndTime: number): void;
 
     /**
      * Handle native player ended event.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleEnded(): void;
 
@@ -9336,8 +9453,7 @@ declare namespace webview {
      * @param { NetworkState } state - Network state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleNetworkStateChanged(state: NetworkState): void;
 
@@ -9347,8 +9463,7 @@ declare namespace webview {
      * @param { ReadyState } state - Ready state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleReadyStateChanged(state: ReadyState): void;
 
@@ -9358,8 +9473,7 @@ declare namespace webview {
      * @param { boolean } fullscreen - Fullscreen state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleFullscreenChanged(fullscreen: boolean): void;
 
@@ -9368,8 +9482,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleSeeking(): void;
 
@@ -9378,8 +9491,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleSeekFinished(): void;
 
@@ -9390,77 +9502,50 @@ declare namespace webview {
      * @param { string } errorMessage - Description of current error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     handleError(error: MediaError, errorMessage: string): void;
 
     /**
      * Handle size of video.
      *
-     * @param { double } width - Width of video.
-     * @param { double } height - Height of video.
+     * @param { number } width - Width of video, Unit: px.
+     * @param { number } height - Height of video, Unit: px.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    handleVideoSizeChanged(width: double, height: double): void;
+    handleVideoSizeChanged(width: number, height: number): void;
   }
 
   /**
    * The scenarios for suspending the media player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum SuspendType {
     /**
      * Page enters the BackForwardCache.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     ENTER_BACK_FORWARD_CACHE = 0,
 
     /**
      * Page enters background.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     ENTER_BACKGROUND,
 
     /**
      * Cleanup when the number of paused media player over limit.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     AUTO_CLEANUP
   }
-
-  /**
-   * The function of reusme media play.
-   *
-   * @typedef { function } ResumePlayerFn
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type ResumePlayerFn = () => void;
-
-  /**
-   * The function of suspend media play.
-   *
-   * @typedef { function } SuspendPlayerFn
-   * @param { SuspendType } type - The scenario for suspending the media player.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type SuspendPlayerFn = (type: SuspendType) => void;
 
   /**
    * The bridge between web core and native media player.
@@ -9470,31 +9555,28 @@ declare namespace webview {
    * @typedef NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface NativeMediaPlayerBridge {
     /**
      * Notify native media player that the rect of video tag has changed.
      *
-     * @param { double } x - The x position of video tag in web component.
-     * @param { double } y - The y position of video tag in web component.
-     * @param { double } width - The width of video tag.
-     * @param { double } height - The height of video tag.
+     * @param { number } x - The x position of video tag in web component, Unit: px.
+     * @param { number } y - The y position of video tag in web component, Unit: px.
+     * @param { number } width - The width of video tag, Unit: px.
+     * @param { number } height - The height of video tag, Unit: px.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    updateRect(x: double, y: double, width: double, height: double): void
+    updateRect(x: number, y: number, width: number, height: number): void
 
     /**
      * Request to play.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     play(): void
 
@@ -9503,8 +9585,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     pause(): void
 
@@ -9513,26 +9594,24 @@ declare namespace webview {
      *  targetTime: float
      *   value range: [0 - duration]
      *
-     * @param { double } targetTime - The target time (in seconds) to FF/BF to.
+     * @param { number } targetTime - The target time to FF/BF to, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    seek(targetTime: double): void
+    seek(targetTime: number): void
 
     /**
      * Request to change volume of native media player.
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { double } volume - The volume of native media player.
+     * @param { number } volume - The volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    setVolume(volume: double): void
+    setVolume(volume: number): void
 
     /**
      * Request to mute native media player.
@@ -9540,8 +9619,7 @@ declare namespace webview {
      * @param { boolean } muted - Should mute native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     setMuted(muted: boolean): void
 
@@ -9550,21 +9628,19 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - 10.0]
      *
-     * @param { double } playbackRate - The playback rate of native media player.
+     * @param { number } playbackRate - The playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    setPlaybackRate(playbackRate: double): void
+    setPlaybackRate(playbackRate: number): void
 
     /**
      * Request to release native media player.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     release(): void
 
@@ -9573,8 +9649,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     enterFullscreen(): void
 
@@ -9583,8 +9658,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     exitFullscreen(): void
 
@@ -9592,19 +9666,9 @@ declare namespace webview {
      * Resume the native media player.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     resumePlayer?(): void
-
-    /**
-     * Resume the native media player.
-     *
-     * @type { ?ResumePlayerFn }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
-     */
-    resumePlayer?: ResumePlayerFn;
 
     /**
      * Suspend to release native media player, not the NativeMediaPlayerBridge. The
@@ -9613,21 +9677,9 @@ declare namespace webview {
      *
      * @param { SuspendType } type - The scenario for suspending the media player.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     suspendPlayer?(type: SuspendType): void
-
-    /**
-     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
-     * embedder should save the status of player when release the native media player
-     * through NativeMediaPlayerBridge.
-     *
-     * @type { ?SuspendPlayerFn }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
-     */
-    suspendPlayer?: SuspendPlayerFn;
   }
 
   /**
@@ -9635,24 +9687,21 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum MediaType {
     /**
      * Media type is video.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     VIDEO = 0,
     /**
      * Media type is audio.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     AUDIO
   }
@@ -9662,24 +9711,21 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum SourceType {
     /**
      * The type of media source is URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     URL = 0,
     /**
      * The type of media source is blob.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     MSE
   }
@@ -9689,16 +9735,14 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   class MediaSourceInfo {
     /**
      * Source type, most time is URL.
      * @type { SourceType }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     type: SourceType;
 
@@ -9707,8 +9751,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     source: string;
 
@@ -9717,8 +9760,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     format: string;
   }
@@ -9728,46 +9770,41 @@ declare namespace webview {
    *
    * @typedef RectEvent
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface RectEvent {
     /**
-     * X coordinator of top left point.
+     * X coordinator of top left point, Unit: px.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    x: double;
+    x: number;
     /**
-     * Y coordinator of top left point.
+     * Y coordinator of top left point, Unit: px.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    y: double;
+    y: number;
     /**
-     * Width of this rectangle.
+     * Width of this rectangle, Unit: px.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    width: double;
+    width: number;
     /**
-     * Height of this rectangle.
+     * Height of this rectangle, Unit: px.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    height: double;
+    height: number;
   }
 
   /**
@@ -9775,8 +9812,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   class NativeMediaPlayerSurfaceInfo {
     /**
@@ -9784,8 +9820,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     id: string;
 
@@ -9793,8 +9828,7 @@ declare namespace webview {
      * Surface rect info.
      * @type { RectEvent }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     rect: RectEvent;
   }
@@ -9804,32 +9838,28 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enum Preload {
     /**
      * Doesn't do preload.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     NONE = 0,
     /**
      * Only preload metadata.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     METADATA,
     /**
      * Preload enough data to ensure playing is smooth.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     AUTO
   }
@@ -9840,16 +9870,14 @@ declare namespace webview {
    * @typedef MediaInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface MediaInfo {
     /**
      * Id of media element.
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     embedID: string,
     /**
@@ -9857,8 +9885,7 @@ declare namespace webview {
      * @type { MediaType }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     mediaType: MediaType,
     /**
@@ -9866,8 +9893,7 @@ declare namespace webview {
      * @type { MediaSourceInfo[] }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     mediaSrcList: MediaSourceInfo[],
     /**
@@ -9875,8 +9901,7 @@ declare namespace webview {
      * @type { NativeMediaPlayerSurfaceInfo }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     surfaceInfo: NativeMediaPlayerSurfaceInfo,
     /**
@@ -9884,8 +9909,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     controlsShown: boolean,
     /**
@@ -9894,8 +9918,7 @@ declare namespace webview {
      * @type { string[] }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     controlList: string[],
     /**
@@ -9903,8 +9926,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     muted: boolean,
     /**
@@ -9912,8 +9934,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     posterUrl: string,
     /**
@@ -9921,24 +9942,21 @@ declare namespace webview {
      * @type { Preload }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     preload: Preload,
     /**
      * Header information of a media network request.
      * @type { Record<string, string> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     headers: Record<string, string>,
     /**
      * The information list of attributes of media tag.
      * @type { Record<string, string> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     attributes: Record<string, string>,
   }
@@ -9952,8 +9970,7 @@ declare namespace webview {
    * @returns { NativeMediaPlayerBridge } Returns whether the app takes over the media.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   type CreateNativeMediaPlayerCallback =
       (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge;
@@ -9962,7 +9979,7 @@ declare namespace webview {
    * This class is used to set adblock config.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class AdsBlockManager {
     /**
@@ -9984,7 +10001,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static setAdsBlockRules(rulesFile: string, replace: boolean): void;
 
@@ -10007,7 +10024,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -10036,7 +10053,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static addAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
@@ -10057,7 +10074,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -10078,7 +10095,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
@@ -10093,7 +10110,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static clearAdsBlockDisallowedList(): void;
 
@@ -10108,7 +10125,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     static clearAdsBlockAllowedList(): void;
   }
@@ -10117,8 +10134,7 @@ declare namespace webview {
    * This class is used to enable back forward cache supported features.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   class BackForwardCacheSupportedFeatures {
     /**
@@ -10127,8 +10143,7 @@ declare namespace webview {
      *
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     nativeEmbed: boolean;
 
@@ -10138,15 +10153,13 @@ declare namespace webview {
      *
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     mediaTakeOver: boolean;
 
     /**
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     constructor();
   }
@@ -10155,36 +10168,32 @@ declare namespace webview {
    * This class is used to set back forward cache options.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   class BackForwardCacheOptions {
     /**
      * Set the maximum size of pages that can cache.
      * Default is 1, max is 50.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    size: int;
+    size: number;
 
     /**
      * Set the lifetime in seconds in the BackForwardCache.
-     * Default is 600.
+     * Unit: seconds. Default is 600.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    timeToLive: int;
+    timeToLive: number;
 
     /**
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     constructor();
   }
@@ -10193,21 +10202,19 @@ declare namespace webview {
    * Defines the PrefetchOptions class.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
    */
   class PrefetchOptions {
 
     /**
      * ‌Set prefetch page interval limit.
      * <p><strong>API Note</strong>:<br>
-     * Default 500ms (ensures only one successful prefetch within 500ms).
+     * The value should be an integer.Unit: ms. Default 500ms (ensures only one successful prefetch within 500ms).
      * The interval throttles prefetch frequency to balance performance and resource usage.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     minTimeBetweenPrefetchesMs: number;
 
@@ -10220,16 +10227,14 @@ declare namespace webview {
      *
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
-     */ 
+     * @since 21 dynamic
+     */
     ignoreCacheControlNoStore: boolean;
 
     /**
      * Constructor for PrefetchOptions.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     constructor();
   }
@@ -10245,8 +10250,7 @@ declare namespace webview {
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   enum ProxySchemeFilter {
     /**
@@ -10258,8 +10262,7 @@ declare namespace webview {
      * This indicates all the schemes will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     MATCH_ALL_SCHEMES = 0,
     /**
@@ -10271,8 +10274,7 @@ declare namespace webview {
      * This indicates only the HTTP requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     MATCH_HTTP = 1,
     /**
@@ -10284,8 +10286,7 @@ declare namespace webview {
      * This indicates only the HTTPS requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     MATCH_HTTPS = 2,
   }
@@ -10301,8 +10302,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   class ProxyConfig {
     /**
@@ -10326,7 +10326,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     insertBypassRule(bypassRule: string): void;
 
@@ -10347,7 +10347,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
 
@@ -10396,8 +10396,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
 
@@ -10414,7 +10413,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     bypassHostnamesWithoutPeriod(): void;
 
@@ -10433,7 +10432,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     clearImplicitRules(): void;
 
@@ -10460,7 +10459,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     enableReverseBypass(reverse: boolean): void;
 
@@ -10477,7 +10476,7 @@ declare namespace webview {
      * @returns { Array<string> } The bypass rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     getBypassRules(): Array<string>;
 
@@ -10494,8 +10493,7 @@ declare namespace webview {
      * @returns { Array<ProxyRule> } The proxy rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     getProxyRules(): Array<ProxyRule>;
 
@@ -10512,7 +10510,7 @@ declare namespace webview {
      * @returns { boolean } If reverse bypass enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     isReverseBypassEnabled(): boolean;
   }
@@ -10528,8 +10526,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   class ProxyRule {
     /**
@@ -10545,8 +10542,7 @@ declare namespace webview {
      * @returns { ProxySchemeFilter } The scheme filter used for this rule.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     getSchemeFilter(): ProxySchemeFilter;
 
@@ -10563,8 +10559,7 @@ declare namespace webview {
      * @returns { string } The proxy URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     getUrl(): string;
   }
@@ -10582,7 +10577,7 @@ declare namespace webview {
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   type OnProxyConfigChangeCallback = () => void;
 
@@ -10597,7 +10592,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   class ProxyController {
     /**
@@ -10625,7 +10620,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
 
@@ -10648,56 +10643,601 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
   }
 
   /**
-   * Enum type supplied to {@link SetWebDestroyMode} for indicating the web component destroy mode.
+   * Enumerates the destroy modes of the **Web** component. When the Web component is destroyed, the destroy mode
+   * affects the resource release time of the Web kernel, such as the JavaScript running context and rendering context.
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   enum WebDestroyMode {
     /**
-     * The normal destroy mode, when the web component triggers destroy,
-     * the resources will be released at the appropriate time.
+     * Normal mode. The system determines the destroy time of **Web** component resources.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     NORMAL_MODE = 0,
 
     /**
-     * The fast destroy mode, when the web component triggers destroy, the resources will be immediately released.
+     * Quick mode. When the **Web** component is destroyed, the related internal resources are
+     * destroyed immediately.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     FAST_MODE = 1
   }
 
   /**
-   * Indicates the site isolation mode of the application, default value depends on different devices type.
+   * Enumerates the site isolation modes. The site isolation mechanism isolates websites from different sources in
+   * different render processes to reduce the cross-domain attack surface. For example, on a PC, each tab corresponds to
+   * a render process. After site isolation is enabled, Iframes from different sources run in independent render
+   * processes.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic&static
+   * @since 21 dynamic
    */
   enum SiteIsolationMode {
     /**
-     * The partial site isolation mode
+     * Partial site isolation. New sites are loaded in the same render process.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     PARTIAL = 0,
 
     /**
-     * The strict site isolation mode
+     * Strict site isolation. Iframes from different sites are switched to new render processes.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     STRICT = 1
   }
 
+  /**
+   * Enum type supplied to {@link setScrollbarMode} for indicating the web component scrollbar mode.
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enum ScrollbarMode {
+    /**
+     * The normal scrollbar mode, A scrollbar suspended above the content,
+     * appearing when scrolling and automatically hiding when stationary.
+     * Draw using layout viewport, which can be dragged and dropped.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    OVERLAY_LAYOUT_SCROLLBAR = 0,
+
+    /**
+     * The Resident scrollbar mode, Always display a fixed position scrollbar in the content area.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    FORCE_DISPLAY_SCROLLBAR = 1,
+
+    /**
+     * Overlay VisualViewport scrollbars: appear on scroll, hide when idle. Rendered via Visual Viewport, non-draggable.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    OVERLAY_VISUAL_SCROLLBAR = 2
+  }
+
+  /**
+   * Indicates whether to restrict cookies so that only requests sent back to the same site that
+   * created them can carry them.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enum WebHttpCookieSameSitePolicy {
+    /**
+     * Cookies marked as Secure are allowed to be carried in cross-site requests.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    NONE = 0,
+
+    /**
+     * Allow specific cross-site requests to carry cookies.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    LAX = 1,
+
+    /**
+     * Prohibit cross-site requests from carrying cookies.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    STRICT = 2
+  }
+
+  /**
+   * The form factors for User-Agent metadata.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  enum UserAgentFormFactor {
+    /**
+     * Form factor option: Automotive.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    AUTOMOTIVE = 'Automotive',
+    /**
+     * Form factor option: Desktop.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    DESKTOP = 'Desktop',
+    /**
+     * Form factor option: Mobile.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    MOBILE = 'Mobile',
+    /**
+     * Form factor option: EInk.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    EINK = 'EInk',
+    /**
+     * Form factor option: Tablet.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    TABLET = 'Tablet',
+    /**
+     * Form factor option: Watch.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    WATCH = 'Watch',
+    /**
+     * Form factor option: XR.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    XR = 'XR'
+  }
+
+  /**
+   * Class that holds brand name, major version and full version. Brand name and major version used to generated
+   * User-Agent client hints sec-cu-ua. Brand name and full version used to generated user-agent client hint
+   * sec-ch-ua-full-version-list.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  class UserAgentBrandVersion {
+    /**
+     * Sets the brand. Should not be blank.
+     *
+     * @param { string } brand - The brand.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setBrand(brand: string): void;
+
+    /**
+     * Get the brand info.
+     *
+     * @returns { string } - Returns brand info of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getBrand(): string;
+
+    /**
+     * Sets the major version. Should not be blank.
+     *
+     * @param { string } majorVersion - The major version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setMajorVersion(majorVersion: string): void;
+
+    /**
+     * Get the major version.
+     *
+     * @returns { string } - Returns major version of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getMajorVersion(): string;
+
+    /**
+     * Sets the full version. Should not be blank.
+     *
+     * @param { string } fullVersion - The full version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setFullVersion(fullVersion: string): void;
+
+    /**
+     * Get the full version.
+     *
+     * @returns { string } - Returns full version of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getFullVersion(): string;
+  }
+
+  /**
+   * Holds User-Agent metadata information and uses to generate User-Agent client hints.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  class UserAgentMetadata {
+    /**
+     * Sets User-Agent metadata brands and their versions.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is an empty list which means the system default User-Agent metadata brands and versions will be
+     * used to generate the User-Agent client hints.
+     * </p>
+     *
+     * @param { Array<UserAgentBrandVersion> } brandVersionList - The brandVersionList is used to generate User-Agent
+     *     client hints sec-ch-ua-full-version-list.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setBrandVersionList(brandVersionList: Array<UserAgentBrandVersion>): void;
+
+    /**
+     * Returns the current list of UserAgentBrandVersion which are used to generate the User-Agent client hints
+     * sec-ch-ua and sec-ch-ua-full-version-list.
+     *
+     * @returns { Array<UserAgentBrandVersion> } - Returns the current list of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getBrandVersionList(): Array<UserAgentBrandVersion>;
+
+    /**
+     * Sets User-Agent metadata architecture.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } arch - The arch is used to generate User-Agent client hints sec-ch-ua-architecture.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setArchitecture(arch: string): void;
+
+    /**
+     * Gets the value for sec-ch-ua-architecture.
+     *
+     * @returns { string } - Returns the value for sec-ch-ua-architecture.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getArchitecture(): string;
+
+    /**
+     * Sets User-Agent metadata bitness default is "".
+     *
+     * @param { string } bitness - The bitness is used to generate User-Agent client hints sec-ch-ua-bitness.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setBitness(bitness: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-bitness.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-bitness.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getBitness(): string;
+
+    /**
+     * Sets User-Agent metadata form factors.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty list which means the system default value will be used.
+     * Form factor value should be one or more of DESKTOP, AUTOMOTIVE, MOBILE, TABLET, XR, EINK, WATCH.
+     * </p>
+     *
+     * @param { Array<UserAgentFormFactor> } formFactors - The formFactors is used to generate User-Agent client hints
+     *     sec-ch-ua-form-factors.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setFormFactors(formFactors: Array<UserAgentFormFactor>): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-form-factors.
+     *
+     * @returns { Array<UserAgentFormFactor> } - Returns the form factors.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getFormFactors(): Array<UserAgentFormFactor>;
+
+    /**
+     * Sets User-Agent metadata full version.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } fullVersion - The fullVersion is used to generate User-Agent client hints
+     *     sec-ch-ua-full-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setFullVersion(fullVersion: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-full-version.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-full-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getFullVersion(): string;
+
+    /**
+     * Sets User-Agent metadata mobile, default is true.
+     *
+     * @param { boolean } isMobile - The isMobile is used to generate User-Agent client hints sec-ch-ua-mobile.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setMobile(isMobile: boolean): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-mobile.
+     *
+     * @returns { boolean } - Returns the value for the sec-ch-ua-mobile.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getMobile(): boolean;
+
+    /**
+     * Sets User-Agent metadata model.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } model - The model is used to generate User-Agent client hints sec-ch-ua-model.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setModel(model: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-model.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-model.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getModel(): string;
+
+    /**
+     * Sets User-Agent metadata platform.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } platform - The platform is used to generate User-Agent client hints sec-ch-ua-platform.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setPlatform(platform: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-platform.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-platform.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getPlatform(): string;
+
+    /**
+     * Sets User-Agent metadata platform version.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } platformVersion - The platformVersion is used to generate User-Agent client hints
+     *     sec-ch-ua-platform-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setPlatformVersion(platformVersion: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-platform-version.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-platform-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getPlatformVersion(): string;
+
+    /**
+     * Sets User-Agent metadata wow64, default is false.
+     *
+     * @param { boolean } isWow64 - The wow64 is used to generate User-Agent client hints sec-ch-ua-wow64.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setWow64(isWow64: boolean): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-wow64.
+     *
+     * @returns { boolean } - Returns the value for the sec-ch-ua-wow64.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getWow64(): boolean;
+  }
+
+  /**
+   * Defines the Web's HTTPCookie.
+   * <p><strong>API Note</strong>:<br>
+   * The maximum length allowed for each attribute value in a cookie string is 1024.
+   * </p>
+   *
+   * @typedef WebHttpCookie
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  interface WebHttpCookie {
+    /**
+     * Gets the cookie's samesite policy.
+     *
+     * @type { WebHttpCookieSameSitePolicy } The samesite policy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    samesitePolicy: WebHttpCookieSameSitePolicy;
+
+    /**
+     * Gets the cookie's expiration date.
+     *
+     * @type { string } The cookie's expiration date.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    expiresDate: string;
+
+    /**
+     * Gets the cookie's name.
+     *
+     * @type { string } The cookie's name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    name: string;
+
+    /**
+     * Gets if the cookie is session cookie.
+     *
+     * @type { boolean } True if the cookie is session cookie.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    isSessionCookie: boolean;
+
+    /**
+     * Gets the cookie's value.
+     *
+     * @type { string } The cookie's value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    value: string;
+
+    /**
+     * Gets the cookie's path.
+     *
+     * @type { string } The cookie's path.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    path: string;
+
+    /**
+     * Gets whether the current cookie is marked as HttpOnly.
+     *
+     * @type { boolean } True if the cookie is marked as HttpOnly.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    isHttpOnly: boolean;
+
+    /**
+     * Gets whether the current cookie is marked as Secure.
+     *
+     * @type { boolean } True if the cookie is secure.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    isSecure: boolean;
+
+    /**
+     * Gets the domain of the cookie.
+     *
+     * @type { string } The cookie's domain.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    domain: string;
+  }
 }
 
 export default webview;

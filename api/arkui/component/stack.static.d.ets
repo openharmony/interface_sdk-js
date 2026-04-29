@@ -15,17 +15,17 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Alignment } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Options used to construct the stack.
  *
  * @interface StackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface StackOptions {
     /**
@@ -35,46 +35,81 @@ export declare interface StackOptions {
      * @type { ?Alignment }
      * @default Alignment.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     alignContent?: Alignment;
 }
+
+/**
+ * The StackAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface StackAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 export declare interface StackAttribute extends CommonMethod {
     /**
      * Called when the alignment of items in the container is set.
      *
-     * @param { Alignment } value
+     * @param { Alignment | undefined } value
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default alignContent(value: Alignment | undefined): this;
     /**
     * Sets the point light style.
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { StackAttribute } The attribute of the stack.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20
+    * @stagemodelonly
+    * @since 23 static
     */
-    default pointLight(value: PointLightStyle): StackAttribute;
+    default pointLight(value: PointLightStyle | undefined): StackAttribute;
+    /**
+     * Set whether to synchronously load child nodes within one frame.
+     *
+     * @param { boolean } enable - Indicates whether to load subnodes in a frame synchronously.
+     *     <br>Default value: <em>true</em>
+     * @returns { StackAttribute } The attribute of the Stack.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default syncLoad(enable: boolean): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
 }
 
-@memo
+/**
+ * Defines Stack Component.
+ *
+ * @param { StackOptions } [options] - Stack options.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { StackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 @ComponentBuilder
 export declare function Stack(
     options?: StackOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): StackAttribute

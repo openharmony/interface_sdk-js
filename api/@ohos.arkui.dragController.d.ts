@@ -27,12 +27,14 @@ import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * This module allows developers to trigger a drag event.
  * @namespace dragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * This module allows developers to trigger a drag event.
  * @namespace dragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
  */
@@ -40,9 +42,10 @@ import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * This module allows developers to trigger a drag event.
  * @namespace dragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare namespace dragController {
   /**
@@ -50,6 +53,7 @@ declare namespace dragController {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -57,6 +61,7 @@ declare namespace dragController {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -65,47 +70,54 @@ declare namespace dragController {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   const enum DragStatus {
     /**
      * Drag has started.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Drag has started.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
     /**
      * Drag has started.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     STARTED = 0,
     /**
      * Drag has ended.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Drag has ended.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
     /**
      * Drag has ended.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     ENDED = 1,
   }
@@ -115,6 +127,7 @@ declare namespace dragController {
    *
    * @interface DragAndDropInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -122,6 +135,7 @@ declare namespace dragController {
    *
    * @interface DragAndDropInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -130,21 +144,24 @@ declare namespace dragController {
    *
    * @interface DragAndDropInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   interface DragAndDropInfo {
     /**
      * The drag status.
      * @type { DragStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * The drag status.
      * @type { DragStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -152,21 +169,24 @@ declare namespace dragController {
      * The drag status.
      * @type { DragStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     status: DragStatus;
     /**
      * The information containing the drag event.
      * @type { DragEvent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * The information containing the drag event.
      * @type { DragEvent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -174,21 +194,24 @@ declare namespace dragController {
      * The information containing the drag event.
      * @type { DragEvent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     event: DragEvent;
     /**
      * Additional information about the drag info.
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Additional information about the drag info.
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -196,9 +219,10 @@ declare namespace dragController {
      * Additional information about the drag info.
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     extraParams?: string;
   }
@@ -208,6 +232,7 @@ declare namespace dragController {
    *
    * @interface DragAction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -215,6 +240,7 @@ declare namespace dragController {
    *
    * @interface DragAction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -223,9 +249,10 @@ declare namespace dragController {
    *
    * @interface DragAction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   interface DragAction {
     /**
@@ -234,6 +261,7 @@ declare namespace dragController {
      * @returns { Promise<void> } A Promise can indicate the start result.
      * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
@@ -242,6 +270,7 @@ declare namespace dragController {
      * @returns { Promise<void> } A Promise can indicate the start result.
      * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -251,9 +280,10 @@ declare namespace dragController {
      * @returns { Promise<void> } A Promise can indicate the start result.
      * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     startDrag(): Promise<void>;
     /**
@@ -263,6 +293,7 @@ declare namespace dragController {
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
@@ -272,6 +303,7 @@ declare namespace dragController {
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -282,9 +314,10 @@ declare namespace dragController {
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     on(type: 'statusChange', callback: Callback<DragAndDropInfo>): void;
 
@@ -295,6 +328,7 @@ declare namespace dragController {
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
@@ -304,6 +338,7 @@ declare namespace dragController {
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -314,9 +349,10 @@ declare namespace dragController {
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     off(type: 'statusChange', callback?: Callback<DragAndDropInfo>): void;
   }
@@ -326,6 +362,7 @@ declare namespace dragController {
    * 
    * @interface DragInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -333,6 +370,7 @@ declare namespace dragController {
    * 
    * @interface DragInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -341,21 +379,24 @@ declare namespace dragController {
    * 
    * @interface DragInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   interface DragInfo {
     /**
      * A unique identifier to identify which touch point.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * A unique identifier to identify which touch point.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -363,9 +404,10 @@ declare namespace dragController {
      * A unique identifier to identify which touch point.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     pointerId: number;
 
@@ -373,12 +415,14 @@ declare namespace dragController {
     * Drag data.
     * @type { ?unifiedDataChannel.UnifiedData }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Drag data.
     * @type { ?unifiedDataChannel.UnifiedData }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 12
     */
@@ -386,9 +430,10 @@ declare namespace dragController {
     * Drag data.
     * @type { ?unifiedDataChannel.UnifiedData }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     */
     data?: unifiedDataChannel.UnifiedData;
 
@@ -396,12 +441,14 @@ declare namespace dragController {
     * Additional information about the drag info.
     * @type { ?string }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 10
     */
     /**
     * Additional information about the drag info.
     * @type { ?string }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 12
     */
@@ -409,9 +456,10 @@ declare namespace dragController {
     * Additional information about the drag info.
     * @type { ?string }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     */
     extraParams?: string;
 
@@ -419,12 +467,14 @@ declare namespace dragController {
      * Touch point coordinates.
      * @type { ?TouchPoint }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Touch point coordinates.
      * @type { ?TouchPoint }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -432,9 +482,10 @@ declare namespace dragController {
      * Touch point coordinates.
      * @type { ?TouchPoint }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     touchPoint?: TouchPoint;
 
@@ -442,12 +493,14 @@ declare namespace dragController {
      * Drag preview options.
      * @type { ?DragPreviewOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Drag preview options.
      * @type { ?DragPreviewOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -455,11 +508,25 @@ declare namespace dragController {
      * Drag preview options.
      * @type { ?DragPreviewOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     previewOptions?: DragPreviewOptions;
+
+    /**
+     * Components to be automatically hidden during drag by uniqueId.
+     * You can pass a single uniqueId or an array. If the drag source itself also needs to be hidden,
+     * pass its uniqueId as well.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    autoHideComponentUniqueIds?: int | int[];
     
     /**
      * Provide a data representation to the system instead of providing a complete data
@@ -470,8 +537,9 @@ declare namespace dragController {
      *
      * @type { ?unifiedDataChannel.DataLoadParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     dataLoadParams?: unifiedDataChannel.DataLoadParams;
   }
@@ -481,6 +549,7 @@ declare namespace dragController {
    * 
    * @interface AnimationOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -488,6 +557,7 @@ declare namespace dragController {
    * 
    * @interface AnimationOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -496,21 +566,24 @@ declare namespace dragController {
    * 
    * @interface AnimationOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   interface AnimationOptions {
     /**
      * Animation duration, in ms.
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * Animation duration, in ms.
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -518,21 +591,24 @@ declare namespace dragController {
      * Animation duration, in ms.
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     duration?: number;
     /**
     * Animation curve.
     * @type { ?(Curve | ICurve) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 11
     */
    /**
     * Animation curve.
     * @type { ?(Curve | ICurve) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 12
     */
@@ -540,9 +616,10 @@ declare namespace dragController {
     * Animation curve.
     * @type { ?(Curve | ICurve) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     */
     curve?: Curve | ICurve;
   }
@@ -550,32 +627,37 @@ declare namespace dragController {
   /**
    * Provides the functions of setting color or updating animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * Provides the functions of setting color or updating animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
   /**
    * Provides the functions of setting color or updating animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export class DragPreview {
     /**
      * change foreground color of preview
      * @param { ResourceColor } color - color value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
      * change foreground color of preview
      * @param { ResourceColor } color - color value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -583,9 +665,10 @@ declare namespace dragController {
      * change foreground color of preview
      * @param { ResourceColor } color - color value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     setForegroundColor(color: ResourceColor): void;
     /**
@@ -593,6 +676,7 @@ declare namespace dragController {
      * @param { AnimationOptions } options - animation options
      * @param { function } handler - change style functions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 11
      */
     /**
@@ -600,6 +684,7 @@ declare namespace dragController {
      * @param { AnimationOptions } options - animation options
      * @param { function } handler - change style functions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -608,29 +693,32 @@ declare namespace dragController {
      * @param { AnimationOptions } options - animation options
      * @param { function } handler - change style functions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     animate(options: AnimationOptions, handler: () =>void): void;
   }
 
   /**
-   * Define the drag event paramters
+   * Define the drag event parameters
    * 
    * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
   /**
-   * Define the drag event paramters
+   * Define the drag event parameters
    * 
    * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   interface DragEventParam {
 
@@ -638,12 +726,14 @@ declare namespace dragController {
      * The information containing the drag event.
      * @type { DragEvent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * The information containing the drag event.
      * @type { DragEvent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -651,9 +741,10 @@ declare namespace dragController {
      * The information containing the drag event.
      * @type { DragEvent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     event: DragEvent;
 
@@ -661,12 +752,14 @@ declare namespace dragController {
      * Additional information about the drag info.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Additional information about the drag info.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12
      */
@@ -674,9 +767,10 @@ declare namespace dragController {
      * Additional information about the drag info.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     extraParams: string;
   }
@@ -722,7 +816,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    */
@@ -740,6 +834,7 @@ declare namespace dragController {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -753,6 +848,7 @@ declare namespace dragController {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -767,9 +863,10 @@ declare namespace dragController {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    */
@@ -788,6 +885,7 @@ declare namespace dragController {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -803,6 +901,7 @@ declare namespace dragController {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -819,9 +918,10 @@ declare namespace dragController {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#createDragAction
    */
@@ -829,24 +929,27 @@ declare namespace dragController {
 
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#getDragPreview
    */
@@ -857,8 +960,9 @@ declare namespace dragController {
    * 
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   const enum DragStartRequestStatus {
     /**
@@ -866,8 +970,9 @@ declare namespace dragController {
      * the start of drag, only effective in onDragStart calls.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     WAITING = 0,
 
@@ -876,8 +981,9 @@ declare namespace dragController {
      * of drag, and will not take effect when the drag is started.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     READY = 1,
   }
@@ -889,8 +995,10 @@ declare namespace dragController {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   const enum DragSpringLoadingState {
     /**
@@ -898,8 +1006,10 @@ declare namespace dragController {
      * This state allows for some preparatory operations during spring loading.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     BEGIN,
     /**
@@ -908,8 +1018,10 @@ declare namespace dragController {
      * This state allows for UI effect refreshes to emphasize the hover state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     UPDATE,
     /**
@@ -917,8 +1029,10 @@ declare namespace dragController {
      * and execute navigation or view switching actions when this state occurs.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     END,
     /**
@@ -927,8 +1041,10 @@ declare namespace dragController {
      * The application should restore the UI style and cancel any pending navigation or view switching actions.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     CANCEL
    }
@@ -940,8 +1056,10 @@ declare namespace dragController {
    *
    * @typedef { DragSpringLoadingConfiguration }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   interface DragSpringLoadingConfiguration {
     /**
@@ -949,8 +1067,10 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     stillTimeLimit?: number;
 
@@ -959,8 +1079,10 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     updateInterval?: number;
 
@@ -969,8 +1091,10 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     updateNotifyCount?: number;
 
@@ -979,8 +1103,10 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     updateToFinishInterval?: number;
   }
@@ -992,8 +1118,10 @@ declare namespace dragController {
    *
    * @typedef { SpringLoadingDragInfos }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
    interface SpringLoadingDragInfos {
     /**
@@ -1001,8 +1129,10 @@ declare namespace dragController {
      *
      * @type { ?unifiedDataChannel.Summary }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     dataSummary?: unifiedDataChannel.Summary;
     
@@ -1012,8 +1142,10 @@ declare namespace dragController {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     extraInfos?: string;
    }
@@ -1024,8 +1156,9 @@ declare namespace dragController {
    * and access drag data to determine whether to handle the drag operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   class SpringLoadingContext {
     /**
@@ -1033,8 +1166,10 @@ declare namespace dragController {
      *
      * @type { DragSpringLoadingState }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     state: DragSpringLoadingState;
     /**
@@ -1043,8 +1178,10 @@ declare namespace dragController {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     currentNotifySequence: number;
     /**
@@ -1052,8 +1189,10 @@ declare namespace dragController {
      *
      * @type { ?SpringLoadingDragInfos }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     dragInfos?: SpringLoadingDragInfos;
     /**
@@ -1061,8 +1200,10 @@ declare namespace dragController {
      *
      * @type { ?DragSpringLoadingConfiguration }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     currentConfig?: DragSpringLoadingConfiguration;
     /**
@@ -1070,8 +1211,10 @@ declare namespace dragController {
      * Note: Aborting does not trigger a CANCEL notification, the application must handle state cleanup when aborting.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     abort(): void;
     /**
@@ -1083,8 +1226,10 @@ declare namespace dragController {
      *
      * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 20
+     * @crossplatform
+     * @since 20 dynamic
      */
     updateConfiguration(config: DragSpringLoadingConfiguration): void;
   }

@@ -24,9 +24,11 @@
  * @extends NavigatorAttribute
  * @implements AttributeModifier<NavigatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  * @deprecated since 20
+ * @useinstead NavigationModifier
  */
 export declare class NavigatorModifier extends NavigatorAttribute implements AttributeModifier<NavigatorAttribute> {
 
@@ -35,10 +37,12 @@ export declare class NavigatorModifier extends NavigatorAttribute implements Att
    * 
    * @param { NavigatorAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead NavigationAttribute#applyNormalAttribute
    */
   applyNormalAttribute?(instance: NavigatorAttribute): void;
 }

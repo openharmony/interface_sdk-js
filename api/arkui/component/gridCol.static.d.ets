@@ -15,144 +15,178 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
- * Defines the option in number unit of grid-container child component.
+ * Defines the option in int unit of grid-container child component.
  *
  * @interface GridColColumnOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface GridColColumnOption {
     /**
      * Grid Col Column Option xs
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    xs?: number;
+    xs?: int;
     /**
      * Grid Col Column Option sm
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    sm?: number;
+    sm?: int;
     /**
      * Grid Col Column Option md
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    md?: number;
+    md?: int;
     /**
      * Grid Col Column Option lg
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    lg?: number;
+    lg?: int;
     /**
      * Grid Col Column Option xl
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    xl?: number;
+    xl?: int;
     /**
      * Grid Col Column Option xxl
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    xxl?: number;
+    xxl?: int;
 }
 /**
  * Defines the options of grid-container child component.
  *
  * @interface GridColOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface GridColOptions {
     /**
      * Sets the span of current gird-container item.
      *
-     * @type { ?(number | GridColColumnOption) }
+     * @type { ?(int | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    span?: number | GridColColumnOption;
+    span?: int | GridColColumnOption;
     /**
      * Sets the offset of current gird-container item.
      *
-     * @type { ?(number | GridColColumnOption) }
+     * @type { ?(int | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    offset?: number | GridColColumnOption;
+    offset?: int | GridColColumnOption;
     /**
      * Sets the order of current gird-container item.
      *
-     * @type { ?(number | GridColColumnOption) }
+     * @type { ?(int | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    order?: number | GridColColumnOption;
+    order?: int | GridColColumnOption;
 }
+
+/**
+ * The GridColAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface GridColAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 export declare interface GridColAttribute extends CommonMethod {
     /**
      * Sets the span of current gird-container item.
      *
-     * @param { number | GridColColumnOption } value
+     * @param { int | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default span(value: number | GridColColumnOption | undefined): this;
+    default span(value: int | GridColColumnOption | undefined): this;
     /**
      * Sets the offset of current gird-container item.
      *
-     * @param { number | GridColColumnOption } value
+     * @param { int | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default gridColOffset(value: number | GridColColumnOption | undefined): this;
+    default gridColOffset(value: int | GridColColumnOption | undefined): this;
     /**
      * Sets the order of current gird-container item.
      *
-     * @param { number | GridColColumnOption } value
+     * @param { int | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    default order(value: number | GridColColumnOption | undefined): this;
+    default order(value: int | GridColColumnOption | undefined): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
 }
 
-@memo
+/**
+ * Defines GridCol Component.
+ *
+ * @param { GridColOptions } [option] - GridCol options.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { GridColAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 @ComponentBuilder
 export declare function GridCol(
-    option?: GridColOptions,
-    @memo
-    content_?: () => void,
+    option?: GridColOptions, 
+    content_?: CustomBuilder,
 ): GridColAttribute

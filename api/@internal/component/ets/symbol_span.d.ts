@@ -23,6 +23,7 @@
  *
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 11
  */
 /**
@@ -30,6 +31,7 @@
  *
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @form
  * @atomicservice
  * @since 12
@@ -39,10 +41,11 @@
  *
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SymbolSpanInterface {
   /**
@@ -51,6 +54,7 @@ interface SymbolSpanInterface {
    * @param { Resource } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -59,6 +63,7 @@ interface SymbolSpanInterface {
    * @param { Resource } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12
@@ -69,10 +74,11 @@ interface SymbolSpanInterface {
    * @param { Resource } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (value: Resource): SymbolSpanAttribute;
 }
@@ -82,6 +88,7 @@ interface SymbolSpanInterface {
  * 
  * @extends CommonMethod<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 11
  */
 /**
@@ -89,6 +96,7 @@ interface SymbolSpanInterface {
  * 
  * @extends CommonMethod<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @form
  * @atomicservice
  * @since 12
@@ -98,10 +106,11 @@ interface SymbolSpanInterface {
  * 
  * @extends CommonMethod<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
@@ -110,6 +119,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { number | string | Resource } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -118,6 +128,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { number | string | Resource } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12
@@ -128,10 +139,11 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { number | string | Resource } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
@@ -141,6 +153,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { Array<ResourceColor> } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -149,6 +162,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { Array<ResourceColor> } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12
@@ -159,10 +173,11 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { Array<ResourceColor> } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
@@ -172,6 +187,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { number | FontWeight | string } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -180,6 +196,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { number | FontWeight | string } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12
@@ -190,12 +207,28 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { number | FontWeight | string } value
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
+
+  /**
+   * Used to set the font weight of SymbolSpan.
+   *
+   * @param { number | FontWeight | ResourceStr } value - the SymbolSpan font weight.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @returns { SymbolSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolSpanAttribute;
 
   /**
    * Called when the SymbolSpan effect is set.
@@ -203,6 +236,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { SymbolEffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -211,6 +245,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { SymbolEffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12
@@ -221,10 +256,11 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { SymbolEffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
@@ -234,6 +270,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { SymbolRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -242,6 +279,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { SymbolRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12
@@ -252,10 +290,11 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { SymbolRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 
@@ -265,6 +304,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
    * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -274,9 +314,10 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
    * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;
 }
@@ -285,12 +326,14 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * Defines SymbolSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 11
  */
 /**
  * Defines SymbolSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @form
  * @atomicservice
  * @since 12
@@ -299,10 +342,11 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * Defines SymbolSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -310,12 +354,14 @@ declare const SymbolSpan: SymbolSpanInterface;
  * Defines SymbolSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 11
  */
 /**
  * Defines SymbolSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @form
  * @atomicservice
  * @since 12
@@ -324,9 +370,10 @@ declare const SymbolSpan: SymbolSpanInterface;
  * Defines SymbolSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;

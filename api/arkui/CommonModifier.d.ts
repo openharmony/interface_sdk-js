@@ -26,6 +26,7 @@
  * @extends CommonAttribute
  * @implements AttributeModifier<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -35,9 +36,10 @@
  * @extends CommonAttribute
  * @implements AttributeModifier<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
 */
 export declare class CommonModifier extends CommonAttribute implements AttributeModifier<CommonAttribute> {
 
@@ -46,9 +48,10 @@ export declare class CommonModifier extends CommonAttribute implements Attribute
    * 
    * @param { CommonAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: CommonAttribute): void;
 }

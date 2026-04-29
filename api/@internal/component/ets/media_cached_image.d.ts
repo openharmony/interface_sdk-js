@@ -17,20 +17,15 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { ImageAttribute } from './image';
-import image from '../../@ohos.multimedia.image';
-import { ResourceStr } from './units'
-import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
-/*** endif */
+
 /**
  * Defines the resource which can use ASTC.
  *
  * @interface ASTCResource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @stagemodelonly
+ * @since 12 dynamic
  */
 interface ASTCResource {
   /**
@@ -38,8 +33,8 @@ interface ASTCResource {
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   sources: Array<string>;
   /**
@@ -47,8 +42,8 @@ interface ASTCResource {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   column: number;
 }
@@ -57,8 +52,9 @@ interface ASTCResource {
  * @interface MediaCachedImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @stagemodelonly
+ * @since 12 dynamic
+ * @noninterop
  */
 interface MediaCachedImageInterface {
   /**
@@ -68,20 +64,10 @@ interface MediaCachedImageInterface {
    * @returns { MediaCachedImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): MediaCachedImageAttribute;
-  /**
-   * Image resource to be obtained.
-   *
-   * @param { PixelMap | ResourceStr | DrawableDescriptor | ASTCResource } src
-   * @returns { MediaCachedImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  (src: image.PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): MediaCachedImageAttribute;
 }
 
 /**
@@ -90,8 +76,9 @@ interface MediaCachedImageInterface {
  * @extends ImageAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @stagemodelonly
+ * @since 12 dynamic
+ * @noninterop
  */
 declare class MediaCachedImageAttribute extends ImageAttribute {}
 
@@ -100,7 +87,9 @@ declare class MediaCachedImageAttribute extends ImageAttribute {}
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @stagemodelonly
+ * @since 12 dynamic
+ * @noninterop
  */
 declare const MediaCachedImage: MediaCachedImageInterface;
 
@@ -109,6 +98,8 @@ declare const MediaCachedImage: MediaCachedImageInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @stagemodelonly
+ * @since 12 dynamic
+ * @noninterop
  */
 declare const MediaCachedImageInstance: MediaCachedImageAttribute;

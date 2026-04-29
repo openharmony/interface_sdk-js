@@ -681,6 +681,17 @@ declare namespace dlpPermission {
      * @since 10
      */
     tokenID: number;
+    
+    /**
+     * Index of the DLP sandbox application that has been installed and needs to be started.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24
+     */
+    bindAppIndex?: number;
   }
 
   /**
@@ -1175,6 +1186,31 @@ declare namespace dlpPermission {
      * @since 21
      */
     allowedOpenCount?: number;
+
+    /**
+     * Defines whether watermarking is required.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 23
+     */
+    waterMarkConfig?: boolean;
+
+    /**
+     * Defines the countdown for the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 23
+     */
+    countdown?: number;
+
+    /**
+     * Defines the extended fields of the DLP file.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 24
+     */
+    extensionFields?: Record<string, Object>;
   }
 
   /**
@@ -1699,6 +1735,15 @@ declare namespace dlpPermission {
      * @since 21
      */
     enterprise: string;
+    /**
+     * Represents query options for DLP files.
+     *
+     * @type { ?DlpFileQueryOptions }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    options?: DlpFileQueryOptions;
   }
 
   /**
@@ -1876,7 +1921,8 @@ declare namespace dlpPermission {
     /**
      * Connect server.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @param { string } requestId Id request.
      * @param { string } requestData Context in request.
      * @param { Callback<string> } callback Callback fun.
@@ -1898,7 +1944,8 @@ declare namespace dlpPermission {
     /**
      * constructor.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
@@ -1908,7 +1955,8 @@ declare namespace dlpPermission {
     /**
      * register plugin.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @param { DlpConnPlugin } plugin Plugin.
      * @returns { number } Id for plugin.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1925,7 +1973,8 @@ declare namespace dlpPermission {
     /**
      * unregister plugin.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
@@ -1936,6 +1985,58 @@ declare namespace dlpPermission {
      * @since 21
      */
     static unregisterPlugin(): void;
+  }
+
+  /**
+   * Queries the list of URIs of DLP files that have been opened and matched the specified options.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
+   * @returns { Promise<Array<string>> } Returns list of URIs of the target DLP files that have been opened.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<Array<string>>;
+
+  /**
+   * Closes all currently open DLP files that match the specified options.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function closeOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<void>;
+
+  /**
+   * Represents query options for DLP files.
+   *
+   * @interface DlpFileQueryOptions
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export interface DlpFileQueryOptions {  
+    /**
+     * User-defined classification label for an enterprise DLP file.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    classificationLabel?: string;
   }
 }
 export default dlpPermission;

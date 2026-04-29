@@ -20,51 +20,61 @@
 
 import CompletionHandlerForAtomicService from './@ohos.app.ability.CompletionHandlerForAtomicService';
 import StartOptions from './@ohos.app.ability.StartOptions';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
- * AtomicServiceOptions is the basic communication component of the system.
+ * **AtomicServiceOptions** is used as an input parameter of
+ * [openAtomicService()]{@link ./application/UIAbilityContext:UIAbilityContext.openAtomicService} to carry arguments. It
+ * inherits from [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}.
  *
- * @extends StartOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 export default class AtomicServiceOptions extends StartOptions {
   /**
-   * The options of the flags in this AtomicServiceOptions.
+   * Mode in which the system processes the startup. For example, **wantConstant.Flags.FLAG_INSTALL_ON_DEMAND**
+   * indicates that the installation-free capability is used.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   flags?: int;
 
   /**
-   * The description of the WantParams object in an AtomicServiceOptions
+   * Additional parameters. For details, see the **parameters** field in [Want]{@link @ohos.app.ability.Want:Want}.
    *
-   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   parameters?: Record<string, Object>;
 
   /**
-   * The completion handler of openAtomicService.
+   * Additional parameters. For details, see the **parameters** field in [Want]{@link @ohos.app.ability.Want:Want}.
    *
-   * @type { ?CompletionHandlerForAtomicService }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  parameters?: Record<string, RecordData>;
+
+  /**
+   * Operation class for receiving the result of opening an atomic service.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   completionHandlerForAtomicService?: CompletionHandlerForAtomicService;
 }

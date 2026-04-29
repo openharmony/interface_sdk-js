@@ -27,6 +27,7 @@
  * @extends PathAttribute
  * @implements AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends PathAttribute
  * @implements AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class PathModifier extends PathAttribute implements AttributeModifier<PathAttribute> {
 
@@ -47,9 +49,10 @@ export declare class PathModifier extends PathAttribute implements AttributeModi
    * 
    * @param { PathAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: PathAttribute): void;
 }

@@ -24,296 +24,422 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import BaseContext from './application/BaseContext';
 
 /**
- * Provider interfaces to create a {@link KVManager} instance.
+ * The **distributedKVStore** module implements collaboration between databases for different devices that form a Super
+ * Device. You can use the APIs provided by this module to save application data to a distributed key-value (KV) store
+ * and perform operations, such as adding, deleting, modifying, and querying data, and synchronizing data across
+ * devices.
+ * The **distributedKVStore** module provides the following functionalities:
  *
- * @namespace distributedKVStore
+ * - [KVManager]{@link distributedKVStore.KVManagerConfig}: provides a **KVManager** instance to obtain KV store
+ * information.
+ * - [KVStoreResultSet]{@link distributedKVStore.KVStoreResultSet}: provides APIs for accessing the results obtained
+ * from a KV store.
+ * - [Query]{@link distributedKVStore.Query}: provides APIs for setting predicates for data query.
+ * - [SingleKVStore]{@link distributedKVStore.SingleKVStore}: provides APIs for querying data in single KV stores and
+ * synchronizing data across devices. The single KV stores manage data without distinguishing devices.
+ * - [DeviceKVStore]{@link distributedKVStore.DeviceKVStore}: provides APIs for querying data in device KV stores and
+ * synchronizing data across devices. This class inherits from [SingleKVStore]{@link distributedKVStore.SingleKVStore}.
+ * The device KV stores manage data by device.
+ *
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @stagemodelonly [staticonly]
+ * @crossplatform [since 24]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace distributedKVStore {
   /**
-   * Provides configuration information to create a {@link KVManager} instance,
-   * which includes the caller's package name and ability or hap context.
+   * Provides the **KVManager** instance configuration, including the bundle name of the invoker and the application
+   * context.
    *
-   * @interface KVManagerConfig
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface KVManagerConfig {
     /**
-     * Indicates the bundleName
+     * Bundle name.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
     /**
-     * Indicates the ability or hap context
+     * Application context.
+     *
+     * For details about the application context of the FA model, see
+     * [Context](../apis-ability-kit/js-apis-inner-app-context.md).
+     *
+     * For details about the application context of the stage model, see
+     * [Context](../apis-ability-kit/js-apis-inner-application-uiAbilityContext.md).
+     *
+     * Since API version 10, the parameter type of context is
+     * [BaseContext](../apis-ability-kit/js-apis-inner-application-baseContext.md).
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * if swap the area, you should close all the KV store and use the new Context to create the KVManager
-     * @since 9
-     */
-    /**
-     * Indicates the ability or hap context
-     *
-     * @type { BaseContext }
+     *     if swap the area, you should close all the KV store and use the new Context to create the KVManager [since 9 - 23]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     *     if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager [since 10]
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     context: BaseContext;
   }
 
   /**
-   * KVStore constants
+   * Provides constants of the distributed KV store.
    *
-   * @interface Constants
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @crossplatform [since 24]
+   * @since 9 dynamic
    */
   interface Constants {
     /**
-     * Max key length is 1024.
+     * Maximum length of a key in the database, which is 1024 bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     readonly MAX_KEY_LENGTH: number;
 
     /**
-     * Max value length is 4194303.
+     * Maximum length of a value in the database, which is 4194303 bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     readonly MAX_VALUE_LENGTH: number;
 
     /**
-     * Max device coordinate key length is 896.
+     * Maximum length of a key in a device KV store, which is 896 bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     readonly MAX_KEY_LENGTH_DEVICE: number;
 
     /**
-     * Max store id length is 128.
+     * Maximum length of a KV store ID, which is 128 bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     readonly MAX_STORE_ID_LENGTH: number;
 
     /**
-     * Max query length is 512000.
+     * Maximum query length, which is 512000 bytes.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     readonly MAX_QUERY_LENGTH: number;
 
     /**
-     * Max batch operation size is 128.
+     * Maximum number of batch operations allowed, which is 128.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     readonly MAX_BATCH_SIZE: number;
   }
 
   /**
+   * KVStore constants
+   *
+   * @enum { int }
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  enum Constants {
+    /**
+     * Max batch operation size is 128.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_BATCH_SIZE = 128,
+
+    /**
+     * Max store id length is 128 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_STORE_ID_LENGTH = 128,
+
+    /**
+     * Max device coordinate key length is 896 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_KEY_LENGTH_DEVICE = 896,
+
+    /**
+     * Max key length is 1024 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_KEY_LENGTH = 1024,
+
+    /**
+     * Max query length is 512000 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_QUERY_LENGTH = 512000,
+
+    /**
+     * Max value length is 4194303 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_VALUE_LENGTH = 4194303,
+  }
+
+  /**
    * Indicates the {@code ValueType}.
+   *
    * <p>{@code ValueType} is obtained based on the value.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum ValueType {
     /**
      * Indicates that the value type is string.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    STRING,
+    STRING = 0,
 
     /**
      * Indicates that the value type is int.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
-    INTEGER,
+    INTEGER = 1,
 
     /**
      * Indicates that the value type is float.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
-    FLOAT,
+    FLOAT = 2,
 
     /**
      * Indicates that the value type is byte array.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    BYTE_ARRAY,
+    BYTE_ARRAY = 3,
 
     /**
      * Indicates that the value type is boolean.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    BOOLEAN,
+    BOOLEAN = 4,
 
     /**
      * Indicates that the value type is double.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    DOUBLE
+    DOUBLE = 5,
+
+    /**
+     * Indicates that the value type is long.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    LONG = 6
   }
 
   /**
-   * Obtains {@code Value} objects stored in a {@link SingleKVStore} or {@link DeviceKVStore} database.
+   * Defines the **value** object in a KV store.
    *
-   * @interface Value
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface Value {
     /**
-     * Indicates the value type
+     * Type of the value.
      *
-     * @type { ValueType }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      * @see ValueType
      */
     type: ValueType;
 
     /**
-     * Indicates the value
+     * Value of the KV pair.
      *
-     * @type { Uint8Array | string | number | boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    value: Uint8Array | string | number | boolean;
+    value: Uint8Array | string | long | double | boolean;
   }
 
   /**
    * Provides key-value pairs stored in the distributedKVStore.
    *
-   * @interface Entry
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface Entry {
     /**
      * Indicates the key
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     key: string;
 
     /**
      * Indicates the value
      *
-     * @type { Value }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     value: Value;
   }
 
+
   /**
-   * Receive notifications of all data changes, including data insertion, update, and deletion.
-   * <p>If you have subscribed to {@code SingleKVStore} or {@code DeviceKVStore}, you will receive
-   * data change notifications and obtain the changed data from the parameters in callback methods
-   * upon data insertion, update or deletion.
+   * Defines the content of a data change notification, including inserted data, updated data, deleted data, and device
+   * ID.
    *
-   * @interface ChangeNotification
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface ChangeNotification {
     /**
-     * Indicates data insertion records.
+     * Data inserted.
      *
-     * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     insertEntries: Entry[];
 
     /**
-     * Indicates data update records.
+     * Data updated.
      *
-     * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     updateEntries: Entry[];
 
     /**
-     * Indicates data deletion records.
+     * Data deleted.
      *
-     * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteEntries: Entry[];
 
     /**
-     * Indicates the device id which brings the data change.
+     * UUID of the device.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     deviceId: string;
   }
 
   /**
-   * Indicates the database synchronization mode.
+   * Enumerates the sync modes.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum SyncMode {
     /**
      * Indicates that data is only pulled from the remote end.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     PULL_ONLY,
 
@@ -321,7 +447,9 @@ declare namespace distributedKVStore {
      * Indicates that data is only pushed from the local end.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     PUSH_ONLY,
 
@@ -329,24 +457,29 @@ declare namespace distributedKVStore {
      * Indicates that data is pushed from the local end, and then pulled from the remote end.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     PUSH_PULL
   }
 
   /**
-   * Describes the subscription type.
+   * Enumerates the subscription types.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum SubscribeType {
     /**
      * Subscription to local data changes
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_LOCAL,
 
@@ -354,7 +487,9 @@ declare namespace distributedKVStore {
      * Subscription to remote data changes
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_REMOTE,
 
@@ -362,26 +497,38 @@ declare namespace distributedKVStore {
      * Subscription to both local and remote data changes
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_ALL
   }
 
   /**
-   * Describes the KVStore type.
+   * Enumerates the distributed KV store types.
+   * | Name                | Value| Description                                                        |
+   * | -------------------- | - | ------------------------------------------------------------ |
+   * | DEVICE_COLLABORATION | 0 | Device KV store.<br>The device KV store manages data by device, which eliminates
+   * conflicts. Data can be queried by device.<br>**System capability**:
+   * SystemCapability.DistributedDataManager.KVStore.DistributedKVStore|
+   * | SINGLE_VERSION       | 1 | Single KV store.<br>The single KV store does not differentiate data by device. If
+   * entries with the same key are modified on different devices, the value will be overwritten.<br>**System
+   * capability**: SystemCapability.DistributedDataManager.KVStore.Core|
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum KVStoreType {
     /**
      * Device-collaboration database, as specified by {@code DeviceKVStore}
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     DEVICE_COLLABORATION,
 
@@ -389,19 +536,37 @@ declare namespace distributedKVStore {
      * Single-version database, as specified by {@code SingleKVStore}
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     SINGLE_VERSION
   }
 
   /**
-   * Describes the KVStore security level.
+   * Enumerates the KV store security levels.
    *
-   * @enum { number }
+   * > **NOTE**
+   * >
+   * > For the scenarios involving a single device, you can upgrade the security level of a KV store by modifying the
+   * > **securityLevel** parameter. When upgrading the database security level, observe the following:
+   * >
+   * > * This operation does not apply to the databases that require cross-device sync. Data cannot be synced between
+   * > databases of different security levels. If you want to upgrade the security level of a database, you are advised
+   * > to create a database of a higher security level.
+   * >
+   * > * You need to close the database before modifying the **securityLevel** parameter, and open it after the security
+   * >  level is upgraded.
+   * >
+   * > * You cannot downgrade the database security level. For example, you can change the database security level from
+   * > S2 to S3, but cannot change it from S3 to S2.
+   *
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum SecurityLevel {
     /**
@@ -409,8 +574,9 @@ declare namespace distributedKVStore {
      * There are some low impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     S1,
 
@@ -419,8 +585,9 @@ declare namespace distributedKVStore {
      * There are some major impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     S2,
 
@@ -429,8 +596,10 @@ declare namespace distributedKVStore {
      * There are some severity impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     S3,
 
@@ -439,862 +608,1256 @@ declare namespace distributedKVStore {
      * There are some critical impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     S4
   }
 
   /**
-   * Provides configuration options to create a {@code SingleKVStore} or {@code DeviceKVStore}.
+   * Provides KV store configuration.
    *
-   * @interface Options
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface Options {
     /**
-     * Indicates whether to create a database when the database file does not exist
+     * Whether to create a database when database files do not exist. The value **true** means to create a database, and
+     *  the value **false** means the opposite. The default value is **true**.
      *
-     * @type { ?boolean }
+     * SystemCapability.DistributedDataManager.KVStore.Core
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     createIfMissing?: boolean;
 
     /**
-     * Indicates whether database files to be encrypted
+     * Whether to encrypt the database files. The value **true** means to encrypt the database files, and the value
+     * **false** means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
+     * SystemCapability.DistributedDataManager.KVStore.Core
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     encrypt?: boolean;
 
     /**
-     * Indicates whether to back up database files
+     * Whether to back up the database files. The value **true** means to back up the database files, and the value
+     * **false** means the opposite. The default value is **true**.
      *
-     * @type { ?boolean }
+     * SystemCapability.DistributedDataManager.KVStore.Core
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     backup?: boolean;
 
     /**
-     * Indicates whether database files are automatically synchronized
+     * Whether to enable auto sync across devices. The default value is **false**, indicating that only manual sync is
+     * supported. If this parameter is set to **true**, <!--RP1-->it takes effect only in
+     * [device collaboration using cross-device calls](docroot://application-models/hop-multi-device-collaboration.md#using-cross-device-call)
+     * .<!--RP1End-->
+     *
+     * SystemCapability.DistributedDataManager.KVStore.Core
+     *
+     * ohos.permission.DISTRIBUTED_DATASYNC
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     autoSync?: boolean;
 
     /**
-     * Indicates the database type
+     * Type of the KV store to create. The default value is **DEVICE_COLLABORATION**, which indicates a device KV store.
      *
-     * @type { ?KVStoreType }
+     * SystemCapability.DistributedDataManager.KVStore.Core
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     kvStoreType?: KVStoreType;
 
     /**
-     * Indicates the database security level
+     * Security level of the KV store.
      *
-     * @type { SecurityLevel }
+     * SystemCapability.DistributedDataManager.KVStore.Core
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     securityLevel: SecurityLevel;
 
     /**
-     * Indicates the database schema
+     * Schema that defines the values stored in the KV store. The default value is **undefined**, which means no schema
+     * is used.
      *
-     * @type { ?Schema }
+     * SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     schema?: Schema;
+
+    /**
+     * Specifies the root directory relative to the database
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @since 24 dynamic&static
+     */
+    rootDir?: string;
   }
 
   /**
-   * Represents the database schema.
-   * You can set the schema object in options when create or open the database.
+   * Provides backup config to backup or restore KVStore.
+   *
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @stagemodelonly [staticonly]
+   * @since 24 dynamic&static
+   */
+  interface BackupConfig {
+    /**
+     * Specifies the file name to the backup database
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @since 24 dynamic&static
+     */
+    fileName: string;
+
+    /**
+     * Specifies the root directory relative to the backup database
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @since 24 dynamic&static
+     */
+    filePath: string;
+  }
+
+  /**
+   * Defines the schema of a KV store. You can create a **Schema** object and pass it in
+   * [Options]{@link distributedKVStore.Options} when creating or opening a KV store.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   class Schema {
     /**
-     * A constructor used to create a Schema instance.
+     * Defines a constructor used to create a **Schema** instance.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     constructor();
 
     /**
-     * Indicates the root json object.
+     * Get the root json object.
      *
-     * @type { FieldNode }
+     * @returns { FieldNode } returns the root json object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    root: FieldNode;
+    get root(): FieldNode;
 
     /**
-     * Indicates the string array of json.
+     * Set the root json object.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    indexes: Array<string>;
+    set root(root: FieldNode);
 
     /**
-     * Indicates the mode of schema.
+     * Get the string array of json.
      *
-     * @type { number }
+     * @returns { Array<string> } returns the string array of json.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    mode: number;
+    get indexes(): Array<string>;
 
     /**
-     * Indicates the skip size of schema.
+     * Set the string array of json.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    skip: number;
+    set indexes(indexes: Array<string>);
+
+    /**
+     * Get the mode of schema.
+     *
+     * @returns { int } returns the mode of schema.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get mode(): int;
+
+    /**
+     * Set the mode of schema.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set mode(mode: int);
+
+    /**
+     * Get the skip size of schema.
+     *
+     * @returns { int } returns the skip size of schema.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get skip(): int;
+
+    /**
+     * Set the skip size of schema.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set skip(skip: int);
   }
 
   /**
-   * Represents a node of a {@link Schema} instance.
-   * <p>With a {@link Schema} instance, you can define the value fields which stored in the database.
-   * <p>A FieldNode of the {@link Schema} instance is either a leaf or a non-leaf node.
-   * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
+   * Represents a **Schema** instance, which provides the methods for defining the values stored in a KV store.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   class FieldNode {
     /**
-     * A constructor used to create a FieldNode instance with the specified field.
-     * name Indicates the field node name.
+     * Defines a constructor used to create a **FieldNode** instance with a string field.
      *
-     * @param { string } name - It can not be empty.
+     * @param { string } name - Value of **FieldNode**, with a maximum of 64 characters. This parameter cannot be left blank.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     constructor(name: string);
 
     /**
-     * Adds a child node to this {@code FieldNode}.
-     * <p>Add a child node to makes this node a non-leaf node and field value will be ignored if it has a child node.
+     * Appends a child node to this **FieldNode**.
      *
-     * @param { FieldNode } child - The field node to append.
-     * @returns { boolean } Returns true if the child node is successfully added to this {@code FieldNode}
-     * and false otherwise.
+     * @param { FieldNode } child - Child node to append.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     appendChild(child: FieldNode): boolean;
 
     /**
      * Indicates the default value of field node.
-     * @type { string }
+     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @crossplatform [since 24]
+     * @since 9 dynamic
      */
     default: string;
 
     /**
-     * Indicates the nullable of database field.
+     * Get the default value of field node.
      *
-     * @type { boolean }
+     * @returns { string } returns the default value of field node.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly
+     * @since 23 static
      */
-    nullable: boolean;
+    get defaultValue(): string;
 
     /**
-     * Indicates the type of value.
+     * Set the default value of field node.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly
+     * @since 23 static
      */
-    type: number;
+    set defaultValue(defaultValue: string);
+
+    /**
+     * Get the nullable of database field.
+     *
+     * @returns { boolean } returns the nullable of database field.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get nullable(): boolean;
+
+    /**
+     * Set the nullable of database field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set nullable(isnullable: boolean);
+
+    /**
+     * Get the type of value.
+     *
+     * @returns { int } returns the type of value.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get type(): int;
+
+    /**
+     * Set the type of value.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set type(type: int);
   }
 
   /**
-   * Provides methods to operate the result set of the {@code SingleKVStore} or {@code DeviceKVStore} database.
-   * <p>The result set is created by using the {@code getResultSet} method in the {@code SingleKVStore} or
-   * {@code DeviceKVStore} class. This interface also provides methods to move the data read
-   * position in the result set.
+   * Provides APIs for obtaining the distributed KV store result sets. A maximum of eight result sets can be opened at a
+   *  time.
+   * The **KVStoreResultSet** instance is not refreshed in real time. After using the result set, if the data in the
+   * database is changed (by being added, deleted, or modified), you need to query the result set again to obtain the
+   * latest data.
+   * Before calling any API in **KVStoreResultSet**, you must use **
+   * [getKVStore]{@link distributedKVStore.KVManager.getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>)}
+   * ** to construct a **SingleKVStore** or **DeviceKVStore** instance.
    *
-   * @interface KVStoreResultSet
+   * > **NOTE**
+   * >
+   * > The cursor start position of **KVStoreResultSet** is **-1**.
+   *
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface KVStoreResultSet {
     /**
-     * Obtains the number of lines in a result set.
+     * Obtains the total number of rows in the result set.
      *
-     * @returns { number } Returns the number of lines.
+     * @returns { int } Total number of rows obtained.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getCount(): number;
+    getCount(): int;
 
     /**
-     * Obtains the current read position in a result set.
+     * Obtains the current data read position (position from which data is read) in the result set. The read position
+     * changes with the operations, such as [moveToFirst]{@link distributedKVStore.KVStoreResultSet.moveToFirst} and
+     * [moveToLast]{@link distributedKVStore.KVStoreResultSet.moveToLast}.
      *
-     * @returns { number } Returns the current read position. The read position starts with 0.
+     * @returns { int } Current data read position obtained. The value must be greater than or equal to **-1**. The value **-1
+     *     ** means no data is read; the value **0** indicates the first row.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getPosition(): number;
+    getPosition(): int;
 
     /**
-     * Moves the read position to the first line.
-     * <p>If the result set is empty, false is returned.
+     * Moves the data read position to the first row. If the result set is empty, **false** will be returned.
      *
-     * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     moveToFirst(): boolean;
 
     /**
-     * Moves the read position to the last line.
-     * <p>If the result set is empty, false is returned.
+     * Moves the data read position to the last row. If the result set is empty, **false** will be returned.
      *
-     * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     moveToLast(): boolean;
 
     /**
-     * Moves the read position to the next line.
-     * <p>If the result set is empty or the data in the last line is being read, false is returned.
+     * Moves the data read position to the next row. If the result set is empty, **false** will be returned. This API
+     * applies when the whole result set is obtained.
      *
-     * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     moveToNext(): boolean;
 
     /**
-     * Moves the read position to the previous line.
-     * <p>If the result set is empty or the data in the first line is being read, false is returned.
+     * Moves the data read position to the previous row. If the result set is empty, **false** will be returned. This
+     * API applies when the whole result set is obtained.
      *
-     * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     moveToPrevious(): boolean;
 
     /**
-     * Moves the read position by a relative offset to the current position.
+     * Moves the data read position with the specified offset from the current position. That is, moves the number of
+     * rows specified by **offset** from the current position.
      *
-     * @param { number } offset - Indicates the relative offset to the current position. A negative offset indicates
-     * moving backwards, and a positive offset indicates moving forwards. For example, if the current position is entry
-     * 1 and this offset is 2, the destination position will be entry 3; if the current position is entry 3 and this
-     * offset is -2, the destination position will be entry 1. The valid final position after moving forwards starts
-     * with 0. If the final position is invalid, false will be returned.
-     * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
+     * @param { int } offset - Offset to move the data read position. A positive value means to move forward; a negative value
+     *     means to move backward. If the cursor is beyond the start or end position of the result set, **false** is returned.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    move(offset: number): boolean;
+    move(offset: int): boolean;
 
     /**
-     * Moves the read position from 0 to an absolute position.
+     * Moves the data read position from 0 to an absolute position.
      *
-     * @param { number } position - Indicates the absolute position.
-     * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
+     * @param { int } position - Absolute position to move to. If the absolute position exceeds the start or end position of
+     *     the result set, **false** is returned.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    moveToPosition(position: number): boolean;
+    moveToPosition(position: int): boolean;
 
     /**
-     * Checks whether the read position is the first line.
+     * Checks whether the data read position is the first row.
      *
-     * @returns { boolean } Returns true if the read position is the first line; returns false otherwise.
+     * @returns { boolean } Returns **true** if the first row is being read; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     isFirst(): boolean;
 
     /**
-     * Checks whether the read position is the last line.
+     * Checks whether the data read position is the last row.
      *
-     * @returns { boolean } Returns true if the read position is the last line; returns false otherwise.
+     * @returns { boolean } Returns **true** if the last row is being read; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     isLast(): boolean;
 
     /**
-     * Checks whether the read position is before the last line.
+     * Checks whether the data read position is before the first row.
      *
-     * @returns { boolean } Returns true if the read position is before the first line; returns false otherwise.
+     * @returns { boolean } Returns **true** if the data read position is before the first row; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     isBeforeFirst(): boolean;
 
     /**
-     * Checks whether the read position is after the last line.
+     * Checks whether the data read position is after the last row.
      *
-     * @returns { boolean } Returns true if the read position is after the last line; returns false otherwise.
+     * @returns { boolean } Returns **true** if the data read position is after the last row; returns **false** otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     isAfterLast(): boolean;
 
     /**
-     * Obtains a key-value pair.
+     * Obtains the KV pair from the current position.
      *
-     * @returns { Entry } Returns a key-value pair.
+     * @returns { Entry } KV pair obtained.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntry(): Entry;
   }
 
   /**
-   * Represents a database query using predicates.
-   * <p>This class provides a constructor used to create a {@code Query} instance, which is used to query data
-   * matching specified conditions in the database.
-   * <p>This class also provides methods to add predicates to the {@code Query} instance.
+   * Provides methods to create a **Query** object, which defines different data query criteria. A **Query** object
+   * supports a maximum of 256 predicates.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   class Query {
     /**
-     * A constructor used to create a Query instance.
+     * Defines a constructor used to create a **Query** instance.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     constructor();
 
     /**
-     * Resets this {@code Query} object.
+     * Resets the **Query** object.
      *
-     * @returns { Query } Returns the reset {@code Query} object.
+     * @returns { Query } **Query** object reset.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     reset(): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the
-     * specified long value.
+     * Creates a **Query** object to match the specified field whose value is equal to the given value.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string | boolean } value - Indicates the value to be compared.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long | double | string | boolean } value - Value specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    equalTo(field: string, value: number | string | boolean): Query;
+    equalTo(field: string, value: long | double | string | boolean): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the
-     * specified int value.
+     * Creates a **Query** object to match the specified field whose value is not equal to the specified value.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string | boolean } value - Indicates the value to be compared.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long | double | string | boolean } value - Value specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    notEqualTo(field: string, value: number | string | boolean): Query;
+    notEqualTo(field: string, value: long | double | string | boolean): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
-     * equal to the specified int value.
+     * Creates a **Query** object to match the specified field whose value is greater than the specified value.
+     *
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string | boolean } value - Indicates the value to be compared.
-     * @returns { Query } Returns the {@coed Query} object.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    greaterThan(field: string, value: number | string | boolean): Query;
+    greaterThan(field: string, value: long | double | string | boolean): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is less than the
-     * specified int value.
+     * Creates a **Query** object to match the specified field whose value is less than the specified value.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string } value - Indicates the value to be compared.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long | double | string } value - Value specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    lessThan(field: string, value: number | string): Query;
+    lessThan(field: string, value: long | double | string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
-     * equal to the specified int value.
+     * Creates a **Query** object to match the specified field whose value is greater than or equal to the specified
+     * value.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string } value - Indicates the value to be compared.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long | double | string } value - Value specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    greaterThanOrEqualTo(field: string, value: number | string): Query;
+    greaterThanOrEqualTo(field: string, value: long | double | string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is less than or
-     * equal to the specified int value.
+     * Creates a **Query** object to match the specified field whose value is less than or equal to the specified value.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string } value - Indicates the value to be compared.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long | double | string } value - Value specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    lessThanOrEqualTo(field: string, value: number | string): Query;
+    lessThanOrEqualTo(field: string, value: long | double | string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is null.
+     * Creates a **Query** object to match the specified field whose value is **null**.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     isNull(field: string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified
-     * int value list.
+     * Creates a **Query** object to match the specified field whose value is within the specified list of numbers.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number[] } valueList - Indicates the int value list.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long[] | double[] } valueList - List of numbers.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    inNumber(field: string, valueList: number[]): Query;
+    inNumber(field: string, valueList: long[] | double[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified
-     * string value list.
+     * Creates a **Query** object to match the specified field whose value is within the specified list of strings.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { string[] } valueList - Indicates the string value list.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { string[] } valueList - List of strings.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     inString(field: string, valueList: string[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not within the
-     * specified int value list.
+     * Creates a **Query** object to match the specified field whose value is not within the specified list of numbers.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number[] } valueList - Indicates the int value list.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { long[] | double[] } valueList - List of numbers.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    notInNumber(field: string, valueList: number[]): Query;
+    notInNumber(field: string, valueList: long[] | double[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not within the
-     * specified string value list.
+     * Creates a **Query** object to match the specified field whose value is not within the specified list of strings.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { string[] } valueList - Indicates the string value list.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { string[] } valueList - List of strings.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     notInString(field: string, valueList: string[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the
-     * specified string value.
+     * Creates a **Query** object to match the specified field whose value is similar to the specified string.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { string } value - Indicates the string value.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { string } value - String specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     like(field: string, value: string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the
-     * specified string value.
+     * Creates a **Query** object to match the specified field whose value is not similar to the specified string.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { string } value - Indicates the string value.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @param { string } value - String specified.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     unlike(field: string, value: string): Query;
 
     /**
-     * Constructs a {@code Query} object with the and condition.
-     * <p>Multiple predicates should be connected using the and or or condition.
+     * Creates a **Query** object with the AND condition.
      *
-     * @returns { Query } Returns the {@coed Query} object.
+     * @returns { Query } **Query** object created.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     and(): Query;
 
     /**
-     * Constructs a {@code Query} object with the or condition.
-     * <p>Multiple predicates should be connected using the and or or condition.
+     * Creates a **Query** object with the OR condition.
      *
-     * @returns { Query } Returns the {@coed Query} object.
+     * @returns { Query } **Query** object created.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     or(): Query;
 
     /**
-     * Constructs a {@code Query} object to sort the query results in ascending order.
+     * Creates a **Query** object to sort the query results in ascending order.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     orderByAsc(field: string): Query;
 
     /**
-     * Constructs a {@code Query} object to sort the query results in descending order.
+     * Creates a **Query** object to sort the query results in descending order.
      *
-     * @param { string } field - Indicates the field, which cannot contain ^.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     orderByDesc(field: string): Query;
 
     /**
-     * Constructs a {@code Query} object to specify the number of results and the start position.
+     * Creates a **Query** object to specify the number of records of the query result and where to start. This API must
+     *  be called after the invocation of the **orderByAsc()**, **orderByDesc()**, and the query APIs of the **Query**
+     * object.
      *
-     * @param { number } total - Maximum number of results to query. The value must be a non-negative integer.
-     * If the input value is less than 0, the number of results is not limited.
-     * @param { number } offset - Start position of the query result. By default,
-     * the start position is the beginning of the result set. If **offset** is a negative number,
-     * the start position is the beginning of the result set. If **offset** exceeds the end of the result set,
-     * the query result is empty.
-     * @returns { Query } Returns the {@coed Query} object.
+     * @param { int } total - Maximum number of results to query. The value must be a non-negative integer.<br>If the value is
+     *     a negative number, the entire result set is queried.
+     * @param { int } offset - Start position of the query result. The value must be a non-negative integer.<br>If the value is
+     *     a negative number, the entire result set is queried.<br>If **offset** exceeds the end of the result set, the query
+     *     result is empty.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    limit(total: number, offset: number): Query;
+    limit(total: int, offset: int): Query;
 
     /**
-     * Creates a {@code Query} condition with a specified field that is not null.
+     * Creates a **Query** object to match the specified field whose value is not **null**.
      *
-     * @param { string } field - Indicates the specified field.
-     * @returns { Query } Returns the {@coed Query} object.
+     * > **NOTE**
+     * >
+     * > This API should be used together with [Schema]{@link distributedKVStore.Schema}.
+     * >
+     * > For details about how to use **Schema** to create a database, see the example of creating and obtaining a KV
+     * > store using the **getKVStore()** method in
+     * > [Persisting KV Store Data](docroot://database/data-persistence-by-kv-store.md#how-to-develop).
+     *
+     * @param { string } field - Field to match. It cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     isNotNull(field: string): Query;
 
     /**
-     * Creates a query condition group with a left bracket.
-     * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can
-     * beused as a whole to combine with other query conditions.
+     * Creates a **Query** object for a query condition group with a left parenthesis.
      *
-     * @returns { Query } Returns the {@coed Query} object.
+     * @returns { Query } **Query** object created.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     beginGroup(): Query;
 
     /**
-     * Creates a query condition group with a right bracket.
-     * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can
-     * be used as a whole to combine with other query conditions.
+     * Creates a **Query** object for a query condition group with a right parenthesis.
      *
-     * @returns { Query } Returns the {@coed Query} object.
+     * @returns { Query } **Query** object created.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     endGroup(): Query;
 
     /**
-     * Creates a query condition with a specified key prefix.
+     * Creates a **Query** object with a specified key prefix.
      *
-     * @param { string } prefix - Indicates the specified key prefix.
-     * @returns { Query } Returns the {@coed Query} object.
+     * @param { string } prefix - Key prefix, which cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     prefixKey(prefix: string): Query;
 
     /**
-     * Sets a specified index that will be preferentially used for query.
+     * Creates a **Query** object with an index preferentially used for query.
      *
-     * @param { string } index - Indicates the index to set.
-     * @returns { Query } Returns the {@coed Query} object.
+     * @param { string } index - Index to set, which cannot contain '^'. If the value contains '^', the predicate becomes
+     *     invalid and all data in the KV store will be returned.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     setSuggestIndex(index: string): Query;
 
     /**
-     * Add device ID key prefix.Used by {@code DeviceKVStore}.
+     * Creates a **Query** object with the device ID as the key prefix.
      *
-     * @param { string } deviceId - Specify device id to query from, It can not be empty.
-     * @returns { Query } Returns the {@code Query} object with device ID prefix added.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the device to be queried. This parameter cannot be left empty.
+     * @returns { Query } **Query** object created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     deviceId(deviceId: string): Query;
 
     /**
-     * Get a String that represents this {@code Query}.
-     * <p>The String would be parsed to DB query format.
-     * The String length should be no longer than 500kb.
+     * Obtains the query statement of the **Query** object.
      *
-     * @returns { string } String representing this {@code Query}.
+     * @returns { string } Returns the query statement obtained.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getSqlLike(): string;
   }
 
   /**
-   * Provides methods related to single-version distributed databases.
-   * <p>To create a {@code SingleKVStore} database,
-   * you can use the {@link data.distributed.common.KVManager#getKVStore​(Options, String)} method
-   * with {@code KVStoreType} set to {@code SINGLE_VERSION} for the input parameter {@code Options}.
-   * This database synchronizes data to other databases in time sequence.
-   * The {@code SingleKVStore} database does not support
-   * synchronous transactions, or data search using snapshots.
+   * Provides APIs for data management in a single KV store, such as adding data, deleting data, and subscribing to data
+   *  changes or across-device data sync completion events.
+   * Before calling any method in **SingleKVStore**, you must use
+   * [getKVStore]{@link distributedKVStore.KVManager.getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>)}
+   *  to obtain a **SingleKVStore** instance.
    *
-   * @interface SingleKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface SingleKVStore {
     /**
-     * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
+     * Adds a KV pair of the specified type to this KV store. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
-     * @param { AsyncCallback<void> } callback - the callback of put.
+     * @param { string } key - Key of the KV pair to add. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { Uint8Array | string | long | double | boolean } value - Value of the KV pair to add. The value type can be Uint
+     *     8Array, long , double, string, or boolean. A value of the Uint8Array or string type cannot exceed
+     *     [MAX_VALUE_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    /**
-     * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
-     *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
-     * @param { AsyncCallback<void> } callback - the callback of put.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
+    put(key: string, value: Uint8Array | string | long | double | boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
+     * Adds a KV pair of the specified type to this KV store. This API uses a promise to return the result.
      *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } key - Key of the KV pair to add. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { Uint8Array | string | long | double | boolean } value - Value of the KV pair to add. The value type can be Uint
+     *     8Array, long , double, string, or boolean. A value of the Uint8Array or string type cannot exceed
+     *     [MAX_VALUE_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    /**
-     * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
-     *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
+    put(key: string, value: Uint8Array | string | long | double | boolean): Promise<void>;
 
     /**
-     * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
+     * Batch inserts KV pairs to this single KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
-     * @param { AsyncCallback<void> } callback - the callback of putBatch.
+     * @param { Entry[] } entries - KV pairs to insert, which cannot exceed 512 MB.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
-     *
-     * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
-     * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
 
     /**
-     * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
+     * Batch inserts KV pairs to this single KV store. This API uses a promise to return the result.
      *
-     * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { Entry[] } entries - KV pairs to insert, which cannot exceed 512 MB.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
-     *
-     * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     putBatch(entries: Entry[]): Promise<void>;
 
@@ -1305,31 +1868,14 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
-     *
-     * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
-     * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
      */
     putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
 
@@ -1340,93 +1886,89 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
+    putBatch(value: Array<ValuesBucket>): Promise<void>;
+
+    /**
+     * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
+     *
+     * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
+     * @param { AsyncCallback<void> } callback - the callback of putBatch.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    putValuesBuckets(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
+
     /**
      * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     *     uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @stagemodelonly
+     * @since 23 static
      */
-    putBatch(value: Array<ValuesBucket>): Promise<void>;
+    putValuesBuckets(value: Array<ValuesBucket>): Promise<void>;
 
     /**
-     * Deletes the key-value pair based on a specified key.
+     * Deletes a KV pair from this KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { AsyncCallback<void> } callback - the callback of delete.
+     * @param { string } key - Key of the KV pair to delete. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Deletes the key-value pair based on a specified key.
-     *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(key: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes the key-value pair based on a specified key.
+     * Deletes a KV pair from this KV store. This API uses a promise to return the result.
      *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } key - Key of the KV pair to delete. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Deletes the key-value pair based on a specified key.
-     *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(key: string): Promise<void>;
 
@@ -1437,31 +1979,15 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of delete.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Deletes the key-value pairs based on the dataSharePredicates.
-     *
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
-     * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): void;
 
@@ -1472,353 +1998,295 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Deletes the key-value pairs based on the dataSharePredicates.
-     *
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
 
     /**
-     * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
+     * Batch deletes KV pairs from this single KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
-     * @param { AsyncCallback<void> } callback - the callback of deleteBatch.
+     * @param { string[] } keys - KV pairs to delete. This parameter cannot be empty.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
-     *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
-     * @param { AsyncCallback<void> } callback - the callback of deleteBatch.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
+     * Batch deletes KV pairs from this single KV store. This API uses a promise to return the result.
      *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string[] } keys - KV pairs to delete. This parameter cannot be empty.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
-     *
-     * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches, It can not be empty.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteBatch(keys: string[]): Promise<void>;
 
     /**
-     * Removes data of the specified device from current database. This method is used to remove only the data
-     * synchronized from remote devices. This operation does not synchronize data to other databases or affect
-     * subsequent data synchronization.
+     * Deletes data of a device. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the
-     * current device ID.
-     * @param { AsyncCallback<void> } callback - the callback of removeDeviceData.
+     * > **NOTE**
+     * >
+     * > **deviceId** is **networkId** in
+     * > [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}, which can be
+     * > obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - Network ID of the target device.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Removes data of the specified device from current database. This method is used to remove only the data
-     * synchronized from remote devices. This operation does not synchronize data to other databases or affect
-     * subsequent data synchronization.
+     * Deletes data of a device. This API uses a promise to return the result.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the
-     * current device ID.
-     * @returns { Promise<void> } the promise returned by the function.
+     * > **NOTE**
+     * >
+     * > **deviceId** is **networkId** in
+     * > [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}, which can be
+     * > obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - Network ID of the target device.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     removeDeviceData(deviceId: string): Promise<void>;
 
     /**
-     * Obtains the value of a specified key.
+     * Obtains the value of the specified key. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
-     * {Uint8Array|string|boolean|number}: the returned value specified by the key.
+     * @param { string } key - Key of the value to obtain. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback - Callback used to return the value
+     *     obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+    get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
-     * Obtains the value of a specified key.
+     * Obtains the value of the specified key. This API uses a promise to return the result.
      *
-     * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | number | Uint8Array> }
-     * {Uint8Array|string|boolean|number}: the returned value specified by the key.
+     * @param { string } key - Key of the value to obtain. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<boolean | string | long | double | Uint8Array> } Promise used to return the value obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    get(key: string): Promise<boolean | string | number | Uint8Array>;
+    get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
-     * Obtains all key-value pairs that match a specified key prefix.
+     * Obtains all KV pairs that match the specified key prefix. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
-     * that match the specified key prefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
     /**
-     * Obtains all key-value pairs that match a specified key prefix.
+     * Obtains all KV pairs that match the specified key prefix. This API uses a promise to return the result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
-     * specified key prefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string): Promise<Entry[]>;
 
     /**
-     * Obtains the list of key-value pairs matching the specified {@code Query} object.
+     * Obtains the KV pairs that match the specified **Query** object. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
-     * matching the specified {@code Query} object.
+     * @param { Query } query - Key prefix to match.
+     * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified **Query**
+     *     object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
 
     /**
-     * Obtains the list of key-value pairs matching the specified {@code Query} object.
+     * Obtains the KV pairs that match the specified **Query** object. This API uses a promise to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the
-     * specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified **Query** object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query): Promise<Entry[]>;
 
     /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
-     * The {@code KVStoreResultSet}
-     * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
-     * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
-     * method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
+     * Obtains a result set with the specified prefix from this single KV store. This API uses an asynchronous callback
+     * to return the result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified keyPrefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @param { AsyncCallback<KVStoreResultSet> } callback - Callback used to return the result set with the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
-     * The {@code KVStoreResultSet}
-     * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
-     * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
-     * method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
-     *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified keyPrefix.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
-     * The {@code KVStoreResultSet}
-     * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
-     * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
-     * method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
+     * Obtains a result set with the specified prefix from this single KV store. This API uses a promise to return the
+     * result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified keyPrefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @returns { Promise<KVStoreResultSet> } Promise used to return the result set with the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
-     * The {@code KVStoreResultSet}
-     * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
-     * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
-     * method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
-     *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified keyPrefix.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified {@code Query} object.
+     * Obtains a **KVStoreResultSet** object that matches the specified **Query** object. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<KVStoreResultSet> } callback - Callback used to return the **KVStoreResultSet** object obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified {@code Query} object.
-     *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified {@code Query} object.
+     * Obtains a **KVStoreResultSet** object that matches the specified **Query** object. This API uses a promise to
+     * return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<KVStoreResultSet> } Promise used to return the **KVStoreResultSet** object obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified {@code Query} object.
-     *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query): Promise<KVStoreResultSet>;
 
@@ -1830,32 +2298,15 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Obtains the KVStoreResultSet object matching the specified predicate object.
-     *
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1867,982 +2318,1110 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Obtains the KVStoreResultSet object matching the specified predicate object.
-     *
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
     /**
-     * Closes a {@code KVStoreResultSet} object returned by getResultSet method.
+     * Closes the **KVStoreResultSet** object returned by
+     * [SingleKvStore.getResultSet]{@link distributedKVStore.SingleKVStore.getResultSet(keyPrefix: string)}. This API
+     * uses an asynchronous callback to return the result.
      *
-     * @param { KVStoreResultSet } resultSet - Indicates the {@code KVStoreResultSet} object to close.
-     * @param { AsyncCallback<void> } callback - the callback of closeResultSet.
+     * @param { KVStoreResultSet } resultSet - **KVStoreResultSet** object to close.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     closeResultSet(resultSet: KVStoreResultSet, callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a {@code KVStoreResultSet} object returned by getResultSet method.
+     * Closes the **KVStoreResultSet** object returned by
+     * [SingleKvStore.getResultSet]{@link distributedKVStore.SingleKVStore.getResultSet(keyPrefix: string)}. This API
+     * uses a promise to return the result.
      *
-     * @param { KVStoreResultSet } resultSet - Indicates the {@code KVStoreResultSet} object to close.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { KVStoreResultSet } resultSet - **KVStoreResultSet** object to close.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     closeResultSet(resultSet: KVStoreResultSet): Promise<void>;
 
     /**
-     * Obtains the number of results matching the specified {@code Query} object.
+     * Obtains the number of results that match the specified **Query** object. This API uses an asynchronous callback
+     * to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
-     * specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<int> } callback - Callback used to return the number of results obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query, callback: AsyncCallback<number>): void;
+    getResultSize(query: Query, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the number of results matching the specified {@code Query} object.
+     * Obtains the number of results that match the specified **Query** object. This API uses a promise to return the
+     * result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<number> } {number}: the number of results matching the specified
-     * {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<int> } Promise used to return the number of results obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query): Promise<number>;
+    getResultSize(query: Query): Promise<int>;
 
     /**
-     * Backs up a database in the specified filename.
+     * Backs up a distributed KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty and
-     * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<void> } callback - the callback of backup.
+     * @param { string } file - Name of the KV store. The value cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     backup(file: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Backs up a database in the specified filename.
+     * Backs up an RDB store. This API uses a promise to return the result.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty and
-     * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } file - Name of the KV store. The value cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     backup(file: string): Promise<void>;
 
     /**
-     * Restores a database from a specified database file.
+     * Backs up a database by specifying {@code BackupConfig}.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty and
-     * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<void> } callback - the callback of restore.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for backup database.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     *     ranges, length limits, or incorrect formats.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 24 dynamic&static
+     */
+    backupEx(backupConfig: BackupConfig): Promise<void>;
+
+    /**
+     * Restores a distributed KV store from a database file. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { string } file - Name of the database file. The value cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *     <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     restore(file: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Restores a database from a specified database file.
+     * Restores a distributed KV store from a database file. This API uses a promise to return the result.
      *
-     * @param { string } file - Indicates the database backup filename, It can not be empty and
-     * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } file - Name of the database file. The value cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     restore(file: string): Promise<void>;
 
     /**
-     * Delete database backup files based on the specified filenames.
+     * Restores a database by specifying {@code BackupConfig}.
      *
-     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty and
-     * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}:
-     * the list of backup file and it's corresponding delete result which 0 means delete success
-     * and otherwise failed.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    deleteBackup(files: Array<string>, callback: AsyncCallback<Array<[string, number]>>): void;
-
-    /**
-     * Delete database backup files based on the specified filenames.
-     *
-     * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty and
-     * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: the list of backup
-     * file and it's corresponding delete result which 0 means delete success and otherwise failed.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    deleteBackup(files: Array<string>): Promise<Array<[string, number]>>;
-
-    /**
-     * Starts a transaction operation in the {@code SingleKVStore} database.
-     * <p>After the database transaction is started, you can submit or roll back the operation.
-     *
-     * @param { AsyncCallback<void> } callback - the callback of startTransaction.
+     * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for restore database.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     *     ranges, length limits, or incorrect formats.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 24 dynamic&static
      */
+    restoreEx(backupConfig: BackupConfig): Promise<void>;
+
     /**
-     * Starts a transaction operation in the {@code SingleKVStore} database.
-     * <p>After the database transaction is started, you can submit or roll back the operation.
+     * Deletes a backup file. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<void> } callback - the callback of startTransaction.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @param { Array<string> } files - Name of the backup file to delete. The value cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<Array<[string, int]>> } callback - Callback used to return the name of the backup file deleted
+     *     and the operation result.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    deleteBackup(files: Array<string>, callback: AsyncCallback<Array<[string, int]>>): void;
+
+    /**
+     * Deletes a backup file. This API uses a promise to return the result.
+     *
+     * @param { Array<string> } files - Name of the backup file to delete. The value cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<Array<[string, int]>> } Promise used to return the name of the backup file deleted and the operation
+     *     result.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *     <br>2.Parameter verification failed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    deleteBackup(files: Array<string>): Promise<Array<[string, int]>>;
+
+    /**
+     * Delete database backup file by specifying {@code BackupConfig}.
+     *
+     * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for delete backup file.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     *     ranges, length limits, or incorrect formats.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly [staticonly]
+     * @since 24 dynamic&static
+     */
+    deleteBackupEx(backupConfig: BackupConfig): Promise<void>;
+
+    /**
+     * Starts the transaction in this single KV store. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     startTransaction(callback: AsyncCallback<void>): void;
 
     /**
-     * Starts a transaction operation in the {@code SingleKVStore} database.
-     * <p>After the database transaction is started, you can submit or roll back the operation.
+     * Starts the transaction in this single KV store. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Starts a transaction operation in the {@code SingleKVStore} database.
-     * <p>After the database transaction is started, you can submit or roll back the operation.
-     *
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     startTransaction(): Promise<void>;
 
     /**
-     * Submits a transaction operation in the {@code SingleKVStore} database.
+     * Commits the transaction in this single KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<void> } callback - the callback of commit.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     commit(callback: AsyncCallback<void>): void;
 
     /**
-     * Submits a transaction operation in the {@code SingleKVStore} database.
+     * Commits the transaction in this single KV store. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     commit(): Promise<void>;
 
     /**
-     * Rolls back a transaction operation in the {@code SingleKVStore} database.
+     * Rolls back the transaction in this single KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<void> } callback - the callback of rollback.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     rollback(callback: AsyncCallback<void>): void;
 
     /**
-     * Rolls back a transaction operation in the {@code SingleKVStore} database.
+     * Rolls back the transaction in this single KV store. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     rollback(): Promise<void>;
 
     /**
-     * Sets whether to enable synchronization.
+     * Sets cross-device data sync, which can be enabled or disabled. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { boolean } enabled - Specifies whether to enable synchronization. The value true
-     * means to enable synchronization, and false means the opposite.
-     * @param { AsyncCallback<void> } callback - the callback of enableSync.
+     * @param { boolean } enabled - Whether to enable data sync across devices. The value **true** means to enable data sync
+     *     across devices, and the value **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets whether to enable synchronization.
+     * Sets cross-device data sync, which can be enabled or disabled. This API uses a promise to return the result.
      *
-     * @param { boolean } enabled - Specifies whether to enable synchronization. The value true
-     * means to enable synchronization, and false means the opposite.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { boolean } enabled - Whether to enable data sync across devices. The value **true** means to enable data sync
+     *     across devices, and the value **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     enableSync(enabled: boolean): Promise<void>;
 
     /**
-     * Sets synchronization range labels.
-     * <p>The labels determine the devices with which data will be synchronized.
+     * Sets the data sync range. This API uses an asynchronous callback to return the result.
      *
-     * @param { string[] } localLabels - Indicates the synchronization labels of the local device.
-     * @param { string[] } remoteSupportLabels - Indicates the labels of the devices with which
-     * data will be synchronized.
-     * @param { AsyncCallback<void> } callback - the callback of setSyncRange.
+     * @param { string[] } localLabels - Sync labels set for the local device.
+     * @param { string[] } remoteSupportLabels - Sync labels set for remote devices.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
 
     /**
-     * Sets synchronization range labels.
-     * <p>The labels determine the devices with which data will be synchronized.
+     * Sets the data sync range. This API uses a promise to return the result.
      *
-     * @param { string[] } localLabels - Indicates the synchronization labels of the local device.
-     * @param { string[] } remoteSupportLabels - Indicates the labels of the devices with which
-     * data will be synchronized.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string[] } localLabels - Sync labels set for the local device.
+     * @param { string[] } remoteSupportLabels - Sync labels set for remote devices.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
 
     /**
-     * Sets the default delay allowed for database synchronization
+     * Sets the default delay for cross-device data sync. This API uses an asynchronous callback to return the result.
      *
-     * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the
-     * database synchronization, in milliseconds.
-     * @param { AsyncCallback<void> } callback - the callback of setSyncParam.
+     * > **NOTE**
+     * >
+     * > After the default delay is set, calling [sync]{@link distributedKVStore.SyncMode} will not trigger the cross-
+     * > device data sync immediately. Instead, the data sync will be executed only after the specified delay duration.
+     *
+     * @param { int } defaultAllowedDelayMs - Delay time to set, in ms. The value can be **0** or ranges from 100 to 86400000.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
+    setSyncParam(defaultAllowedDelayMs: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the default delay allowed for database synchronization
+     * Sets the default delay for cross-device data sync. This API uses a promise to return the result.
      *
-     * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the
-     * database synchronization, in milliseconds.
-     * @returns { Promise<void> } the promise returned by the function.
+     * > **NOTE**
+     * >
+     * > After the default delay is set, calling [sync]{@link distributedKVStore.SyncMode} will not trigger the cross-
+     * > device data sync immediately. Instead, the data sync will be executed only after the specified delay duration.
+     *
+     * @param { int } defaultAllowedDelayMs - Delay time to set, in ms. The value can be **0** or ranges from 100 to 86400000.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
+    setSyncParam(defaultAllowedDelayMs: int): Promise<void>;
 
     /**
-     * Synchronize the database to the specified devices with the specified delay allowed.
+     * Starts cross-device data sync manually. For details about the sync modes of KV stores, see
+     * [Cross-Device Synchronization of KV Stores](docroot://database/data-sync-of-kv-store.md).
+     *
+     * > **NOTE**
+     * >
+     * > **deviceIds** is **networkId** in
+     * > [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}, which can be
+     * > obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string[] } deviceIds - Indicates the list of devices to which to synchronize the database.
-     * @param { SyncMode } mode - Indicates the synchronization mode. The value can be {@code PUSH},
-     * {@code PULL}, or {@code PUSH_PULL}.
-     * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
+     * @param { string[] } deviceIds - List of **networkId**s of the devices in the same networking environment to be
+     *     synchronized.
+     * @param { SyncMode } mode - Sync mode.
+     * @param { int } delayMs - Delay time allowed, in ms. The default value is **0**. If **delayMs** is set, data sync will be
+     *     executed **delayMs** after **sync()** is called. If **delayMs** is not set, the delay set in
+     *     [setSyncParam]{@link distributedKVStore.SingleKVStore.setSyncParam(defaultAllowedDelayMs: int, callback: AsyncCallback<void>)}
+     *     is used.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+    sync(deviceIds: string[], mode: SyncMode, delayMs?: int): void;
 
     /**
-     * Synchronize the database to the specified devices with the specified delay allowed.
+     * Starts cross-device data sync manually. This API returns the result synchronously. For details about the sync
+     * modes of KV stores, see [Cross-Device Synchronization of KV Stores](docroot://database/data-sync-of-kv-store.md).
+     *
+     * > **NOTE**
+     * >
+     * > **deviceIds** is **networkId** in
+     * > [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}, which can be
+     * > obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string[] } deviceIds - Indicates the list of devices to which to synchronize the database.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { SyncMode } mode - Indicates the synchronization mode. The value can be {@code PUSH},
-     * {@code PULL}, or {@code PUSH_PULL}.
-     * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
+     * @param { string[] } deviceIds - List of **networkId**s of the devices in the same networking environment to be
+     *     synchronized.
+     * @param { Query } query - **Query** object to match.
+     * @param { SyncMode } mode - Sync mode.
+     * @param { int } delayMs - Delay time allowed, in ms. The default value is **0**. If **delayMs** is set, data sync will be
+     *     executed **delayMs** after **sync()** is called. If **delayMs** is not set, the delay set in
+     *     [setSyncParam]{@link distributedKVStore.SingleKVStore.setSyncParam(defaultAllowedDelayMs: int, callback: AsyncCallback<void>)}
+     *     is used.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
+    sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: int): void;
 
     /**
-     * Register a callback to the database and when data in the distributed database has changed,
-     * the callback will be invoked.
+     * Subscribes to data changes of the specified type.
      *
-     * @param { 'dataChange' } event - Subscribed event name, fixed as 'dataChange', indicates the data change event.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
-     * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
-     * object indicates the data change events in the distributed database.
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates a data change event.
+     * @param { SubscribeType } type - Type of data change.
+     * @param { Callback<ChangeNotification> } listener - Callback used to return the object to be notified when the data
+     *     changes.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Register a callback to the database and when data in the distributed database has changed,
-     * the callback will be invoked.
-     *
-     * @param { 'dataChange' } event - Subscribed event name, fixed as 'dataChange', indicates the data change event.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
-     * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
-     * object indicates the data change events in the distributed database.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @since 9 dynamic
      */
     on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+    /**
+     * Register a callback to the database and when data in the distributed database has changed,
+     * the callback will be invoked.
+     *
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
+     * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
+     *     object indicates the data change events in the distributed database.
+     * @throws { BusinessError } 15100001 - Over max limits.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDataChange(type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+    /**
+     * Subscribes to the cross-device data sync completion events.
+     *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the sync completion event.
+     * @param { Callback<Array<[string, number]>> } syncCallback - Callback used to return the sync completion event.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *     <br>2.Incorrect parameters types.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 9 dynamic
+     */
+    on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
 
     /**
      * Register a databases synchronization callback to the database.
      * <p> Sync result is returned through asynchronous callback.
      *
-     * @param { 'syncComplete' } event - Subscribed event name, fixed as 'syncComplete', indicates the synchronization
-     * completion event.
-     * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
-     * deviceId and it's corresponding synchronization result which 0 means synchronization success
-     * and otherwise failed.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     * @param { Callback<Array<[string, int]>> } syncCallback - {Array<[string, int]>}: the
+     *     deviceId and it's corresponding synchronization result which 0 means synchronization success
+     *     and otherwise failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly
+     * @since 23 static
      */
-    on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+    onSyncComplete(syncCallback: Callback<Array<[string, int]>>): void;
 
     /**
-     * Unsubscribe from the SingleKVStore database based on the specified subscribeType and listener.
+     * Unsubscribes from data changes.
      *
-     * @param { 'dataChange' } event - The unsubscribe event name, fixed as 'dataChange', indicates the data change
-     * event.
-     * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
-     * object indicates the data change events in the distributed database.
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates a data change event.
+     * @param { Callback<ChangeNotification> } listener - Callback to unregister. If this parameter is not specified, this API
+     *     unregisters all callbacks for data changes.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     off(event: 'dataChange', listener?: Callback<ChangeNotification>): void;
 
     /**
-     * Unregister the database synchronization callback.
+     * Unsubscribe from the SingleKVStore database based on the specified subscribeType and listener.
      *
-     * @param { 'syncComplete' } event - The unsubscribe event name, fixed as 'syncComplete', indicates the
-     * synchronization completion event.
-     * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
-     * deviceId and it's corresponding synchronization result which 0 means synchronization success
-     * and otherwise failed.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     * @param { Callback<ChangeNotification> } [listener] - {ChangeNotification}: the {@code ChangeNotification}
+     *     object indicates the data change events in the distributed database.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offDataChange(listener?: Callback<ChangeNotification>): void;
+
+    /**
+     * Unsubscribes from the cross-device data sync completion events.
+     *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates a sync completion event.
+     * @param { Callback<Array<[string, number]>> } syncCallback - Callback to unregister. If this parameter is not set, all
+     *     callbacks used to listen for the data sync completion event are unregistered. When multiple ArkTS instances (
+     *     obtained through the
+     *     [getKVStore]{@link distributedKVStore.KVManager.getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>)}
+     *     API) of the same database all register the callback used to listen for the sync completion event, if all these
+     *     callbacks are unregistered by one of the ArkTS instances, then the callbacks of the others are also unregistered.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *     <br>2.Incorrect parameters types.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 9 dynamic
      */
     off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
 
     /**
-     * Get the security level of the database.
+     * Unregister the database synchronization callback.
      *
-     * @param { AsyncCallback<SecurityLevel> } callback - {SecurityLevel}: the {@code SecurityLevel}
-     * object indicates the security level of the database.
+     * @param { Callback<Array<[string, int]>> } [syncCallback] - {Array<[string, int]>}: the
+     *     deviceId and it's corresponding synchronization result which 0 means synchronization success
+     *     and otherwise failed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offSyncComplete(syncCallback?: Callback<Array<[string, int]>>): void;
+
+    /**
+     * Obtains the security level of this KV store. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<SecurityLevel> } callback - Callback used to return the security level of the KV store.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
 
     /**
-     * Get the security level of the database.
+     * Obtains the security level of this KV store. This API uses a promise to return the result.
      *
-     * @returns { Promise<SecurityLevel> } {SecurityLevel}: the {@code SecurityLevel} object indicates
-     * the security level of the database.
+     * @returns { Promise<SecurityLevel> } Promise used to return the security level of the KV store.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getSecurityLevel(): Promise<SecurityLevel>;
+
+    /**
+     * Update the key used to encrypt the database.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100006 - Failed to update the key.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    rekey(): Promise<void>;
   }
 
   /**
-   * Provides methods related to device-collaboration distributed databases.
-   * <p>To create a {@code DeviceKVStore} database, you can use the
-   * {@link data.distributed.common.KVManager.getKVStore(Options, String)}
-   * method with {@code KVStoreType} set to {@code DEVICE_COLLABORATION} for the input parameter Options.
-   * This database manages distributed
-   * data by device, and cannot modify data synchronized from remote devices. When an application writes a
-   * key-value pair entry
-   * into the database, the system automatically adds the ID of the device running the application to the key.
+   * Provides APIs for querying data in a device KV store and performing cross-device data sync. This class inherits
+   * from **SingleKVStore**. The **SingleKVStore** APIs such as **put** and **putBatch** can be used.
+   * Data is distinguished by device in a device KV store. Each device can only write and modify its own data. Data of
+   * other devices is read-only and cannot be modified.
+   * For example, a device KV store can be used to implement image sharing between devices. The images of other devices
+   * can be viewed, but not be modified or deleted.
+   * Before calling any method in **DeviceKVStore**, you must use
+   * [getKVStore]{@link distributedKVStore.KVManager.getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>)}
+   *  to obtain a **DeviceKVStore** object.
    *
-   * @extends SingleKVStore
-   * @typedef DeviceKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface DeviceKVStore extends SingleKVStore {
     /**
-     * Obtains the value matching the local device ID and specified key.
+     * Obtains the value of the specified key for this device. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
-     * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
+     * @param { string } key - Key of the value to obtain. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback - Callback used to return the value
+     *     obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+    get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
-     * Obtains the value matching the local device ID and specified key.
+     * Obtains the value of the specified key for this device. This API uses a promise to return the result.
      *
-     * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | number | Uint8Array> }
-     * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
+     * @param { string } key - Key of the value to obtain. It cannot be empty, and the length cannot exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<boolean | string | long | double | Uint8Array> } Promise used to return the value obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    get(key: string): Promise<boolean | string | number | Uint8Array>;
+    get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
-     * Obtains the value matching a specified device ID and key.
+     * Obtains a string value that matches the specified device ID and key. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { string } deviceId - Indicates the device to be queried.
-     * @param { string } key - Indicates the key of the value to be queried. The length must be less than
-     * {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
-     * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { string } key - Key of the value to obtain. It cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback - Callback used to return the value
+     *     obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+    get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
-     * Obtains the value matching a specified device ID and key.
+     * Obtains a string value that matches the specified device ID and key. This API uses a promise to return the
+     * result.
      *
-     * @param { string } deviceId - Indicates the device to be queried.
-     * @param { string } key - Indicates the key of the value to be queried. The length must be less than
-     * {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | number | Uint8Array> }
-     * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { string } key - Key of the value to obtain. It cannot be empty or exceed
+     *     [MAX_KEY_LENGTH]{@link distributedKVStore.Constants}.
+     * @returns { Promise<boolean | string | long | double | Uint8Array> } Promise used to return the string value that matches
+     *     the given condition.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Array>;
+    get(deviceId: string, key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
-     * Obtains all key-value pairs that match the local device ID and specified key prefix.
+     * Obtains all KV pairs that match the specified key prefix for this device. This API uses an asynchronous callback
+     * to return the result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
-     * that match the local device ID and specified key prefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
     /**
-     * Obtains all key-value pairs that match the local device ID and specified key prefix.
+     * Obtains all KV pairs that match the specified key prefix for this device. This API uses a promise to return the
+     * result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
-     * local device ID and specified key prefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string): Promise<Entry[]>;
 
     /**
-     * Obtains all key-value pairs matching a specified device ID and key prefix.
+     * Obtains all KV pairs that match the specified device ID and key prefix. This API uses an asynchronous callback to
+     *  return the result.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be queried.
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
-     * that match the specified deviceId and key prefix.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
     /**
-     * Obtains all key-value pairs matching a specified device ID and key prefix.
+     * Obtains all KV pairs that match the specified device ID and key prefix. This API uses a promise to return the
+     * result.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be queried.
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
-     * specified deviceId and key prefix.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @returns { Promise<Entry[]> } Promise used to return all the KV pairs that match the given condition.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, keyPrefix: string): Promise<Entry[]>;
 
     /**
-     * Obtains the list of key-value pairs matching the local device ID and specified {@code Query} object.
+     * Obtains all KV pairs that match the specified **Query** object for this device. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
-     * matching the local device ID and specified {@code Query} object.
+     * @param { Query } query - Key prefix to match.
+     * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified **Query**
+     *     object on the local device.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
 
     /**
-     * Obtains the list of key-value pairs matching the local device ID and specified {@code Query} object.
+     * Obtains all KV pairs that match the specified **Query** object for this device. This API uses a promise to return
+     *  the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the local device ID and
-     * specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified **Query** object on the local
+     *     device.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query): Promise<Entry[]>;
 
     /**
-     * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
+     * Obtains the KV pairs that match the specified device ID and **Query** object. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the key-value pairs belong.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
-     * matching the specified deviceId and {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified device ID and
+     *     **Query** object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
 
     /**
-     * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
+     * Obtains the KV pairs that match the specified device ID and **Query** object. This API uses a promise to return
+     * the result.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the key-value pairs belong.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the
-     * specified deviceId and {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified device ID and **Query**
+     *     object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, query: Query): Promise<Entry[]>;
 
     /**
-     * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
-     * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
-     * same time.
-     * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
-     * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
+     * Obtains a result set with the specified prefix for this device. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified keyPrefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @param { AsyncCallback<KVStoreResultSet> } callback - Callback used to return the result set with the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
-     * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
-     * same time.
-     * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
-     * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
-     *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified keyPrefix.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
-     * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
-     * same time.
-     * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
-     * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
+     * Obtains a result set with the specified prefix for this device. This API uses a promise to return the result.
      *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified keyPrefix.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @returns { Promise<KVStoreResultSet> } Promise used to return the result set with the specified prefix.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
-     * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
-     * same time.
-     * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
-     * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
-     *
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified keyPrefix.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
-     * objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
-     * unnecessary
-     * {@code KVStoreResultSet} objects in a timely manner.
+     * Obtains a **KVStoreResultSet** object that matches the specified device ID and key prefix. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be queried.
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and keyPrefix.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @param { AsyncCallback<KVStoreResultSet> } callback - Callback used to return the **KVStoreResultSet** object obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
-     * objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
-     * unnecessary
-     * {@code KVStoreResultSet} objects in a timely manner.
-     *
-     * @param { string } deviceId - Identifies the device whose data is to be queried.
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and keyPrefix.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
-     * objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
-     * unnecessary
-     * {@code KVStoreResultSet} objects in a timely manner.
+     * Obtains a **KVStoreResultSet** object that matches the specified device ID and key prefix. This API uses a
+     * promise to return the result.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be queried.
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and keyPrefix.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the target device.
+     * @param { string } keyPrefix - Key prefix to match. It cannot contain '^'; otherwise, the predicate becomes invalid and
+     *     all data in the RDB store will be returned.
+     * @returns { Promise<KVStoreResultSet> } Promise used to return the **KVStoreResultSet** object obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
-     * objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
-     * unnecessary
-     * {@code KVStoreResultSet} objects in a timely manner.
-     *
-     * @param { string } deviceId - Identifies the device whose data is to be queried.
-     * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and keyPrefix.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, keyPrefix: string): Promise<KVStoreResultSet>;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching the local device ID and specified {@code Query} object.
+     * Obtains a **KVStoreResultSet** object that matches the specified **Query** object for this device. This API uses
+     * an asynchronous callback to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<KVStoreResultSet> } callback - Callback used to return the **KVStoreResultSet** object obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching the local device ID and specified {@code Query} object.
-     *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching the local device ID and specified {@code Query} object.
+     * Obtains a **KVStoreResultSet** object that matches the specified **Query** object for this device. This API uses
+     * a promise to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<KVStoreResultSet> } Promise used to return the **KVStoreResultSet** object obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching the local device ID and specified {@code Query} object.
-     *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query): Promise<KVStoreResultSet>;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
+     * Obtains a **KVStoreResultSet** object that matches the specified device ID and **Query** object. This API uses an
+     *  asynchronous callback to return the result.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
-     * belongs.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the device to which the **KVStoreResultSet** object belongs.
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<KVStoreResultSet> } callback - Callback used to return the **KVStoreResultSet** object that
+     *     matches the specified device ID and **Query** object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
-     *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
-     * belongs.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
+     * Obtains a **KVStoreResultSet** object that matches the specified device ID and **Query** object. This API uses a
+     * promise to return the result.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
-     * belongs.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the device to which the **KVStoreResultSet** object belongs.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<KVStoreResultSet> } Promise used to return the **KVStoreResultSet** object that matches the specified
+     *     device ID and **Query** object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
-     */
-    /**
-     * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
-     *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
-     * belongs.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 10
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, query: Query): Promise<KVStoreResultSet>;
 
@@ -2854,32 +3433,15 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Obtains the KVStoreResultSet object matching the local device ID and specified predicate object.
-     *
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2891,32 +3453,15 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Obtains the KVStoreResultSet object matching the local device ID and specified predicate object.
-     *
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -2929,39 +3474,17 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    /**
-     * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
-     *
-     * @param { string } deviceId Indicates the ID of the device to which the results belong.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
-     * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
-     */
-    getResultSet(
-      deviceId: string,
-      predicates: dataSharePredicates.DataSharePredicates,
-      callback: AsyncCallback<KVStoreResultSet>
-    ): void;
+    getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
      * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
@@ -2972,307 +3495,363 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
-     *
-     * @param { string } deviceId Indicates the ID of the device to which the results belong.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
-     * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
-     * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     * uses system API.
-     * @throws { BusinessError } 15100001 - Over max limits.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
     /**
-     * Obtains the number of results matching the local device ID and specified {@code Query} object.
+     * Obtains the number of results that match the specified **Query** object for this device. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
-     * local device ID and specified {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<int> } callback - Callback used to return the number of results obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query, callback: AsyncCallback<number>): void;
+    getResultSize(query: Query, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the number of results matching the local device ID and specified {@code Query} object.
+     * Obtains the number of results that match the specified **Query** object for this device. This API uses a promise
+     * to return the result.
      *
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<number> } {number}: the number of results matching the local device ID and specified
-     * {@code Query} object.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<int> } Promise used to return the number of results obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query): Promise<number>;
+    getResultSize(query: Query): Promise<int>;
 
     /**
-     * Obtains the number of results matching a specified device ID and {@code Query} object.
+     * Obtains the number of results that match the specified device ID and **Query** object. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the results belong.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
-     * specified deviceId and {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the device to which the **KVStoreResultSet** object belongs.
+     * @param { Query } query - **Query** object to match.
+     * @param { AsyncCallback<int> } callback - Callback used to return the number of results obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
+    getResultSize(deviceId: string, query: Query, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the number of results matching a specified device ID and {@code Query} object.
+     * Obtains the number of results that match the specified device ID and **Query** object. This API uses a promise to
+     *  return the result.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the results belong.
-     * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<number> } {number}: the number of results matching the specified
-     * deviceId and {@code Query} object.
+     * > **NOTE**
+     * >
+     * > **deviceId** can be obtained by
+     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+     * > .
+     * > > For details about how to obtain **deviceId**, see [sync()]{@link distributedKVStore.SyncMode}.
+     *
+     * @param { string } deviceId - ID of the device to which the **KVStoreResultSet** object belongs.
+     * @param { Query } query - **Query** object to match.
+     * @returns { Promise<int> } Promise used to return the number of results obtained.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(deviceId: string, query: Query): Promise<number>;
+    getResultSize(deviceId: string, query: Query): Promise<int>;
   }
 
   /**
-   * Creates a {@link KVManager} instance based on the configuration information.
-   * <p>You must pass {@link KVManagerConfig} to provide configuration information
-   * to create a {@link KVManager} instance.
+   * Creates a **KVManager** instance for KV store management.
    *
-   * @param { KVManagerConfig } config - Indicates the KVStore configuration information,
-   * including the package name and context, and package name can not be empty.
-   * @returns { KVManager } : the {@code KVManager} instance.
+   * @param { KVManagerConfig } config - Configuration of the **KVManager** instance, including the bundle name (cannot be
+   *     empty) of the caller and user information.
+   * @returns { KVManager } **KVManager** instance created.
    * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types;
-   * <br>3.Parameter verification failed.
+   *     <br>2.Incorrect parameters types;
+   *     <br>3.Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function createKVManager(config: KVManagerConfig): KVManager;
 
   /**
-   * Provides interfaces to manage a {@code SingleKVStore} database, including obtaining, closing, and deleting the
-   * {@code SingleKVStore}.
+   * Provides an instance to obtain information about a distributed KV store. Before calling any API in **KVManager**,
+   * you must use [createKVManager]{@link distributedKVStore.createKVManager} to create a **KVManager** instance.
    *
-   * @interface KVManager
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @stagemodelonly [staticonly]
+   * @crossplatform [since 24]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface KVManager {
     /**
-     * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
+     * Creates and obtains a distributed KV store based on the specified **options** and **storeId**. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value. The storeId can consist
-     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } options - Indicates the {@code Options} object used for creating and
-     * obtaining the KVStore database.
-     * @param { AsyncCallback<T> } callback - {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
+     * > **NOTE**
+     * >
+     * > If the database file cannot be opened (for example, the file header is damaged) when an existing distributed KV
+     * >  store is obtained, the automatic rebuild logic will be triggered to return a newly created distributed KV
+     * > store instance. For important data that cannot be regenerated, you are advised to use the backup and restore
+     * > feature to prevent data loss. For details, see
+     * > [Database Backup and Restoration](docroot://database/data-backup-and-restore.md).
+     *
+     * @param { string } storeId - Unique identifier of the KV store. The KV store ID allows only letters, digits, and
+     *     underscores (_), and cannot exceed [MAX_STORE_ID_LENGTH]{@link distributedKVStore.Constants} in length.
+     * @param { Options } options - Configuration of the KV store to create.
+     * @param { AsyncCallback<T> } callback - Callback used to return the **SingleKVStore** or **DeviceKVStore** instance
+     *     created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100002 - Open existed database with changed options.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
     /**
-     * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
+     * Creates and obtains a distributed KV store based on the specified **options** and **storeId**. This API uses a
+     * promise to return the result.
      *
-     * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value. The storeId can consist
-     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } options - Indicates the {@code Options} object used for creating and
-     * obtaining the KVStore database.
-     * @returns { Promise<T> } {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
+     * > **NOTE**
+     * >
+     * > If the database file cannot be opened (for example, the file header is damaged) when an existing distributed KV
+     * >  store is obtained, the automatic rebuild logic will be triggered to return a newly created distributed KV
+     * > store instance. For important data that cannot be regenerated, you are advised to use the backup and restore
+     * > feature to prevent data loss. For details, see
+     * > [Database Backup and Restoration](docroot://database/data-backup-and-restore.md).
+     *
+     * @param { string } storeId - Unique identifier of the KV store. The KV store ID allows only letters, digits, and
+     *     underscores (_), and cannot exceed [MAX_STORE_ID_LENGTH]{@link distributedKVStore.Constants} in length.
+     * @param { Options } options - Configuration of the KV store to create.
+     * @returns { Promise<T> } Promise used to return the **SingleKVStore** or **DeviceKVStore** instance created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 15100002 - Open existed database with changed options.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getKVStore<T>(storeId: string, options: Options): Promise<T>;
 
     /**
-     * Closes the KVStore database.
-     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running,
-     * your thread may crash.
-     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using
-     * this method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore,
-     * otherwise closing the database will fail.
+     * Closes a distributed KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     * characters.
-     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters,
-     * digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { AsyncCallback<void> } callback - the callback of closeKVStore.
+     * @param { string } appId - Bundle name of the application. The value cannot be empty or exceed 256 bytes.
+     * @param { string } storeId - Unique identifier of the KV store to close. The KV store ID allows only letters, digits, and
+     *     underscores (_), and cannot exceed [MAX_STORE_ID_LENGTH]{@link distributedKVStore.Constants} in length.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     closeKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Closes the KVStore database.
-     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running,
-     * your thread may crash.
-     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using
-     * this method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore,
-     * otherwise closing the database will fail.
+     * Closes a distributed KV store. This API uses a promise to return the result.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     * characters.
-     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters,
-     * digits, and underscores (_), and cannot exceed 128 characters.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } appId - Bundle name of the application. The value cannot be empty or exceed 256 bytes.
+     * @param { string } storeId - Unique identifier of the KV store to close. The KV store ID allows only letters, digits, and
+     *     underscores (_), and cannot exceed [MAX_STORE_ID_LENGTH]{@link distributedKVStore.Constants} in length.
+     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for close the KVStore database. [since 24]
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    closeKVStore(appId: string, storeId: string): Promise<void>;
+    closeKVStore(appId: string, storeId: string, kvConfig?: Options): Promise<void>;
 
     /**
-     * Deletes the KVStore database identified by storeId.
-     * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
-     * will be lost.
+     * Deletes a distributed KV store. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     * characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
-     * digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { AsyncCallback<void> } callback - the callback of deleteKVStore.
+     * @param { string } appId - Bundle name of the application. The value cannot be empty or exceed 256 bytes.
+     * @param { string } storeId - Unique identifier of the KV store to delete. The KV store ID allows only letters, digits,
+     *     and underscores (_), and cannot exceed [MAX_STORE_ID_LENGTH]{@link distributedKVStore.Constants} in length.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+     *     **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes the KVStore database identified by storeId.
-     * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
-     * will be lost.
+     * Deletes a distributed KV store. This API uses a promise to return the result.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     * characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
-     * digits, and underscores (_), and cannot exceed 128 characters.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } appId - Bundle name of the application. The value cannot be empty or exceed 256 bytes.
+     * @param { string } storeId - Unique identifier of the KV store to delete. The KV store ID allows only letters, digits,
+     *     and underscores (_), and cannot exceed [MAX_STORE_ID_LENGTH]{@link distributedKVStore.Constants} in length.
+     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for delete the KVStore database. [since 24]
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @crossplatform [since 24]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    deleteKVStore(appId: string, storeId: string): Promise<void>;
+    deleteKVStore(appId: string, storeId: string, kvConfig?: Options): Promise<void>;
 
     /**
-     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not
-     * deleted by calling the {@code deleteKVStore} method.
+     * Obtains the IDs of all distributed KV stores that are created by
+     * [getKVStore]{@link distributedKVStore.KVManager.getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>)}
+     *  and have not been deleted by
+     * [deleteKVStore]{@link distributedKVStore.KVManager.deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>)}
+     * . This API uses an asynchronous callback to return the result.
      *
-     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256
-     * characters.
-     * @param { AsyncCallback<string[]> } callback - {string[]}: the storeId of all created KVStore databases.
+     * @param { string } appId - Bundle name of the application. The value cannot be empty or exceed 256 bytes.
+     * @param { AsyncCallback<string[]> } callback - Callback used to return the IDs of all the distributed KV stores created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
 
     /**
-     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not
-     * deleted by calling the {@code deleteKVStore} method.
+     * Obtains the IDs of all distributed KV stores that are created by
+     * [getKVStore]{@link distributedKVStore.KVManager.getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>)}
+     *  and have not been deleted by
+     * [deleteKVStore]{@link distributedKVStore.KVManager.deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>)}
+     * . This API uses a promise to return the result.
      *
-     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256
-     * characters.
-     * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
+     * @param { string } appId - Bundle name of the application. The value cannot be empty or exceed 256 bytes.
+     * @returns { Promise<string[]> } Promise used to return the IDs of all the distributed KV stores created.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Parameter verification failed.
+     *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @stagemodelonly [staticonly]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getAllKVStoreId(appId: string): Promise<string[]>;
 
     /**
-     * Register a death callback to get notification when the data manager service is terminated.
-     * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and
-     * synchronization completion notifications, and calling the sync method will return a failure.
+     * Subscribes to the termination (death) of the distributed data service. If the service is terminated, you need to
+     * register the callbacks for data change notifications and cross-device sync completion notifications again. In
+     * addition, an error will be returned for a sync operation.
      *
-     * @param { 'distributedDataServiceDie' } event - Subscribed event name, fixed as 'distributedDataServiceDie',
-     * as a service status change events.
-     * @param { Callback<void> } deathCallback - callback to be invoked when the data manager service is terminated.
+     * @param { 'distributedDataServiceDie' } event - Event type. The value is **distributedDataServiceDie**, which indicates
+     *     the termination of the distributed data service.
+     * @param { Callback<void> } deathCallback - Callback used to return the result. If the subscription is successful, **err**
+     *     is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @since 9 dynamic
      */
     on(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
 
     /**
-     * Unregister the death callback. Not notification will be received when the data manager service is terminated.
-     * <p>The unregistered death callback must be a registered death callback of the database. If no death callback
-     * parameter is passed, all database death callbacks will be unregistered.
+     * Register a death callback to get notification when the data manager service is terminated.
+     * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and synchronization
+     * completion notifications, and calling the sync method will return a failure.
      *
-     * @param { 'distributedDataServiceDie' } event - Unsubscribe event name, fixed as 'distributedDataServiceDie',
-     * as a service status change events.
-     * @param { Callback<void> } deathCallback - the data manager service is terminated callback which has been
-     * registered.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
+     * @param { Callback<void> } deathCallback - callback to be invoked when the data manager service is terminated.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDistributedDataServiceDie(deathCallback: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the termination (death) of the distributed data service. The **deathCallback** parameter must
+     * be a callback registered for subscribing to the termination of the distributed data service. Otherwise, the
+     * unsubscription will fail.
+     *
+     * @param { 'distributedDataServiceDie' } event - Event type. The value is **distributedDataServiceDie**, which indicates
+     *     the termination of the distributed data service.
+     * @param { Callback<void> } deathCallback - Callback to unregister. If this parameter is not specified, this API
+     *     unregisters all callbacks for the **distributedDataServiceDie** event.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     *     <br>2.Incorrect parameters types;
+     *     <br>3.Parameter verification failed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 9 dynamic
      */
     off(event: 'distributedDataServiceDie', deathCallback?: Callback<void>): void;
+
+    /**
+     * Unregister the death callback. Not notification will be received when the data manager service is terminated.
+     * <p>The unregistered death callback must be a registered death callback of the database. If no death callback parameter
+     * is passed, all database death callbacks will be unregistered.
+     *
+     * @param { Callback<void> } [deathCallback] - the data manager service is terminated callback which has been registered.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offDistributedDataServiceDie(deathCallback?: Callback<void>): void;
   }
 }
 
 export default distributedKVStore;
+

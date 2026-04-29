@@ -19,60 +19,80 @@
  */
 
 /**
- * The application state data.
+ * The module defines the application state information. Once an application state change listener is registered using
+ * [on]{@link @ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)},
+ *  the system triggers the
+ * [onForegroundApplicationChanged](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronforegroundapplicationchanged)
+ *  callback of [ApplicationStateObserver]{@link ./application/ApplicationStateObserver} to deliver notifications whenever
+ *  the state of an application, process, or ability changes.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 23 static
  */
 declare class AppStateData {
   /**
-   * The bundle name.
+   * Bundle name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
   /**
-   * The uid.
+   * UID of the application.
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
-  uid: number;
+  uid: int;
 
   /**
-   * The application state.
+   * Application state.
    *
-   * @type { number }
+   * **0**: The application is being initialized.
+   *
+   * **1**: The application has been initialized and is ready.
+   *
+   * **2**: The application is running in the foreground.
+   *
+   * **3**: The application is having the focus. (This state is reserved.)
+   *
+   * **4**: The application is running in the background.
+   *
+   * **5**: The application has exited.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
-  state: number;
+  state: int;
 
   /**
-   * Indicates whether the application has splitted screens.
+   * Whether the application is in split-screen mode.
    *
-   * @type { boolean }
+   * **true**: The application is in split-screen mode.
+   *
+   * **false**: The application is not in split-screen mode.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   isSplitScreenMode: boolean;
 
   /**
-   * Indicates whether the application has floating windows.
+   * Whether the application is in floating window mode.
    *
-   * @type { boolean }
+   * **true**: The application is in floating window mode.
+   *
+   * **false**: The application is not in floating window mode.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   isFloatingWindowMode: boolean;
 }

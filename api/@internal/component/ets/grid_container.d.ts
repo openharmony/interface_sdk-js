@@ -23,7 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
  */
@@ -32,17 +32,19 @@ declare enum SizeType {
    * Select a value based on the device type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   Auto,
 
   /**
-   * Select a value based on the device type.
+   * Extra Small width type device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   XS,
 
@@ -50,8 +52,9 @@ declare enum SizeType {
    * Small width type device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   SM,
 
@@ -59,8 +62,9 @@ declare enum SizeType {
    * Medium width type device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   MD,
 
@@ -68,8 +72,9 @@ declare enum SizeType {
    * Large width type device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   LG,
 }
@@ -79,7 +84,7 @@ declare enum SizeType {
  *
  * @interface GridContainerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
  */
@@ -89,8 +94,9 @@ declare interface GridContainerOptions {
    *
    * @type { ?(number | "auto") }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
    */
   columns?: number | "auto";
 
@@ -99,8 +105,9 @@ declare interface GridContainerOptions {
    *
    * @type { ?SizeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
    */
   sizeType?: SizeType;
 
@@ -109,8 +116,9 @@ declare interface GridContainerOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
    */
   gutter?: number | string;
 
@@ -119,8 +127,9 @@ declare interface GridContainerOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
    */
   margin?: number | string;
 }
@@ -130,7 +139,7 @@ declare interface GridContainerOptions {
  *
  * @interface GridContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
  */
@@ -141,8 +150,9 @@ interface GridContainerInterface {
    * @param { GridContainerOptions } value
    * @returns { GridContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
   (value?: GridContainerOptions): GridContainerAttribute;
 }
@@ -152,7 +162,7 @@ interface GridContainerInterface {
  *
  * @extends ColumnAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead grid_col/GridColAttribute and grid_row/GridRowAttribute
  */
@@ -162,7 +172,7 @@ declare class GridContainerAttribute extends ColumnAttribute {}
  * Defines GridContainer Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
  */
@@ -172,7 +182,7 @@ declare const GridContainer: GridContainerInterface
  * Defines GridContainer Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead grid_col/GridColAttribute and grid_row/GridRowAttribute
  */

@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +17,10 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import Want from '../../@ohos.app.ability.Want'
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
@@ -31,7 +31,9 @@ import { EmbeddedType } from './enums'
  * @extends CommonMethod
  * @typedef EmbeddedComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @noninterop
+ * @since 23 static
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
   /**
@@ -40,9 +42,10 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { Callback<TerminationInfo> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  onTerminated(callback: Callback<TerminationInfo> | undefined ): this;
+  onTerminated(callback: Callback<TerminationInfo> | undefined): this;
   
   /**
    * Called when some error occurred.
@@ -50,9 +53,10 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { ErrorCallback<BusinessError> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
-  onError(callback: ErrorCallback<BusinessError> | undefined ): this;
+  onError(callback: ErrorCallback<BusinessError> | undefined): this;
 
   /**
    * Set attributeModifier.
@@ -60,7 +64,8 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
@@ -71,16 +76,13 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  *
  * @param { Want } loader - indicates initialization parameter.
  * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
- * @param { function } [content_] - container
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function EmbeddedComponent(
-    loader: Want, type?: EmbeddedType,
-    @memo
-    content_?: () => void,
+    loader: Want, type?: EmbeddedType
 ): EmbeddedComponentAttribute

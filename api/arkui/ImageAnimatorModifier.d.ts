@@ -27,6 +27,7 @@
  * @extends ImageAnimatorAttribute
  * @implements AttributeModifier<ImageAnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends ImageAnimatorAttribute
  * @implements AttributeModifier<ImageAnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implements AttributeModifier<ImageAnimatorAttribute> {
 
@@ -47,9 +49,10 @@ export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implem
    * 
    * @param { ImageAnimatorAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ImageAnimatorAttribute): void;
 }

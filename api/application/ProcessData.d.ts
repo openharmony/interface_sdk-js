@@ -19,70 +19,79 @@
  */
 
 /**
- * The process data.
+ * The module defines process data. If a lifecycle change listener is registered by calling
+ * [appManager.on('applicationState')]{@link @ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
+ * , the
+ * [onProcessCreated](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocesscreated)
+ *  callback in [ApplicationStateObserver]{@link ./application/ApplicationStateObserver} is invoked when the lifecycle of
+ * an application or ability changes.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 23 static
  */
 declare class ProcessData {
   /**
-   * The bundle name.
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
   /**
-   * The pid.
+   * Process ID.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   pid: int;
 
   /**
-   * The uid.
+   * UID of the application.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   uid: int;
 
   /**
-   * The process state.
+   * Application state. The options are as follows:
    *
-   * @type { int }
+   * **0**: The application process is being initialized.
+   *
+   * **1**: The application process has been initialized and is ready.
+   *
+   * **2**: The application is running in the foreground.
+   *
+   * **4**: The application is running in the background.
+   *
+   * **5**: The application process is terminated.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   state: int;
 
   /**
-   * Whether the process is continuous task.
+   * Whether the task is a continuous task. **true** if yes, **false** otherwise.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   isContinuousTask: boolean;
 
   /**
-   * Whether the process is keep alive.
+   * Whether the process is a resident task. **true** if yes, **false** otherwise.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   isKeepAlive: boolean;
 }

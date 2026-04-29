@@ -19,66 +19,67 @@
  */
 
 /**
- * Utility class used for handling objects that use the DataAbilityHelper scheme.
+ * The DataUriUtils module provides APIs to process URI objects. You can use the APIs to attach an ID to the end of a
+ * given URI and obtain, delete, or update the ID attached to the end of a given URI.
  *
- * @namespace dataUriUtils
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace dataUriUtils {
   /**
-   * Obtains the ID attached to the end of the path component of the given uri.
+   * Obtains the ID attached to the end of a given URI.
    *
-   * @param { string } uri - Indicates the uri object from which the ID is to be obtained.
-   * @returns { number } Returns the ID attached to the end of the path component;
+   * @param { string } uri - Target URI object.
+   * @returns { double } ID obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function getId(uri: string): number;
+  function getId(uri: string): double;
 
   /**
-   * Attaches the given ID to the end of the path component of the given uri.
+   * Attaches an ID to the end of a given URI.
    *
-   * @param { string } uri - Indicates the uri string from which the ID is to be obtained.
-   * @param { number } id - Indicates the ID to attach.
-   * @returns { string } Returns the uri object with the given ID attached.
+   * @param { string } uri - Target URI object.
+   * @param { double } id - ID to be attached.
+   * @returns { string } URI object with the ID attached.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function attachId(uri: string, id: number): string;
+  function attachId(uri: string, id: double): string;
 
   /**
-   * Deletes the ID from the end of the path component of the given uri.
+   * Deletes the ID from the end of a given URI.
    *
-   * @param { string } uri - Indicates the uri object from which the ID is to be deleted.
-   * @returns { string } Returns the uri object with the ID deleted.
+   * @param { string } uri - URI object from which the ID is to be deleted.
+   * @returns { string } URI object with the ID deleted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function deleteId(uri: string): string;
 
   /**
-   * Updates the ID in the specified uri
+   * Updates the ID in a given URI.
    *
-   * @param { string } uri - Indicates the uri object to be updated.
-   * @param { number } id - Indicates the new ID.
-   * @returns { string } Returns the updated uri object.
+   * @param { string } uri - Target URI object.
+   * @param { double } id - New ID.
+   * @returns { string } URI object with the new ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function updateId(uri: string, id: number): string;
+  function updateId(uri: string, id: double): string;
 }
+
 export default dataUriUtils;

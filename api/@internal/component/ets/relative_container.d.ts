@@ -43,7 +43,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface RelativeContainerInterface {
   /**
@@ -71,7 +71,7 @@ interface RelativeContainerInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): RelativeContainerAttribute;
 }
@@ -81,9 +81,10 @@ interface RelativeContainerInterface {
  *
  * @interface GuideLinePosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface GuideLinePosition {
   /**
@@ -91,9 +92,10 @@ declare interface GuideLinePosition {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   start? : Dimension;
 
@@ -102,9 +104,10 @@ declare interface GuideLinePosition {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   end? : Dimension;
 }
@@ -114,9 +117,10 @@ declare interface GuideLinePosition {
  *
  * @interface GuideLineStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface GuideLineStyle {
   /**
@@ -124,9 +128,10 @@ declare interface GuideLineStyle {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   id : string;
 
@@ -135,9 +140,10 @@ declare interface GuideLineStyle {
    *
    * @type { Axis }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   direction : Axis;
 
@@ -146,9 +152,10 @@ declare interface GuideLineStyle {
    *
    * @type { GuideLinePosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   position : GuideLinePosition;
 }
@@ -160,16 +167,17 @@ declare interface GuideLineStyle {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum BarrierDirection {
   /**
    * Barrier will be positioned to the far left of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   LEFT,
 
@@ -177,9 +185,10 @@ declare enum BarrierDirection {
    * Barrier will be positioned to the far right of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   RIGHT,
 
@@ -187,9 +196,10 @@ declare enum BarrierDirection {
    * Barrier will be positioned to the top of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TOP,
 
@@ -197,9 +207,10 @@ declare enum BarrierDirection {
    * Barrier will be positioned to the bottom of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BOTTOM,
 }
@@ -209,18 +220,20 @@ declare enum BarrierDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum LocalizedBarrierDirection {
   /**
    * Localized barrier will be positioned to the far start of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   START = 0,
 
@@ -228,9 +241,10 @@ declare enum LocalizedBarrierDirection {
    * Localized barrier will be positioned to the far end of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   END = 1,
 
@@ -238,9 +252,10 @@ declare enum LocalizedBarrierDirection {
    * Localized barrier will be positioned to the top of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TOP = 2,
 
@@ -248,9 +263,10 @@ declare enum LocalizedBarrierDirection {
    * Localized barrier will be positioned to the bottom of all referenced components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BOTTOM = 3,
 }
@@ -260,9 +276,10 @@ declare enum LocalizedBarrierDirection {
  *
  * @interface BarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface BarrierStyle {
   /**
@@ -270,9 +287,10 @@ declare interface BarrierStyle {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   id : string;
 
@@ -281,9 +299,10 @@ declare interface BarrierStyle {
    *
    * @type { BarrierDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   direction : BarrierDirection;
 
@@ -292,9 +311,10 @@ declare interface BarrierStyle {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   referencedId : Array<string>;
 }
@@ -304,9 +324,10 @@ declare interface BarrierStyle {
  *
  * @interface LocalizedBarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface LocalizedBarrierStyle {
   /**
@@ -314,9 +335,10 @@ declare interface LocalizedBarrierStyle {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   id : string;
 
@@ -325,9 +347,10 @@ declare interface LocalizedBarrierStyle {
    *
    * @type { LocalizedBarrierDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   localizedDirection : LocalizedBarrierDirection;
 
@@ -336,9 +359,10 @@ declare interface LocalizedBarrierStyle {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   referencedId : Array<string>;
 }
@@ -362,7 +386,7 @@ declare interface LocalizedBarrierStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
   /**
@@ -371,9 +395,10 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @param { Array<GuideLineStyle> } value
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   guideLine(value: Array<GuideLineStyle>): RelativeContainerAttribute;
 
@@ -383,9 +408,10 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @param { Array<BarrierStyle> } value
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   barrier(value: Array<BarrierStyle>): RelativeContainerAttribute;
 
@@ -395,9 +421,10 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @param { Array<LocalizedBarrierStyle> } barrierStyle
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   barrier(barrierStyle: Array<LocalizedBarrierStyle>): RelativeContainerAttribute;
 }
@@ -424,7 +451,7 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RelativeContainer: RelativeContainerInterface;
 
@@ -450,6 +477,6 @@ declare const RelativeContainer: RelativeContainerInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

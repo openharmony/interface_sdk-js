@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Callback } from './@ohos.base';
@@ -26,7 +25,8 @@ import { Callback } from './@ohos.base';
  *
  * @namespace mediaquery
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */ 
 declare namespace mediaquery {
 
@@ -35,7 +35,8 @@ declare namespace mediaquery {
    *
    * @interface MediaQueryResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   export interface MediaQueryResult {
 
@@ -45,7 +46,8 @@ declare namespace mediaquery {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     readonly matches: boolean;
 
@@ -55,7 +57,8 @@ declare namespace mediaquery {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     readonly media: string;
   }
@@ -66,7 +69,8 @@ declare namespace mediaquery {
    * @interface MediaQueryListener
    * @extends MediaQueryResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   export interface MediaQueryListener extends MediaQueryResult {
 
@@ -74,34 +78,24 @@ declare namespace mediaquery {
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when the media attributes change.
      *
-     * @param { 'change' } type
-     * @param { Callback<MediaQueryResult> } callback
+     * @param { Callback } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    on(type: 'change', callback: Callback<MediaQueryResult>): void;
+    onChange(callback: Callback<MediaQueryResult>): void
 
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is not triggered when the media attributes chang.
      *
-     * @param { 'change' } type
-     * @param { Callback<MediaQueryResult> } callback
+     * @param { Callback } [callback]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
-    off(type: 'change', callback?: Callback<MediaQueryResult>): void;
+    offChange(callback?: Callback<MediaQueryResult>): void
   }
-
-  /**
-   * Sets the media query criteria and returns the corresponding listening handle
-   *
-   * @param { string } condition
-   * @returns { MediaQueryListener }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  export function matchMediaSync(condition: string): MediaQueryListener;
 }
 
 export default mediaquery;

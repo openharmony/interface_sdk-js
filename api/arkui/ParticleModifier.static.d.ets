@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -30,6 +29,7 @@ import { ParticleAttribute } from '@ohos.arkui.component';
  *
  * @implements { ParticleAttribute, AttributeModifier<ParticleAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ParticleModifier implements ParticleAttribute, AttributeModifier<ParticleAttribute> {}

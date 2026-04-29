@@ -15,14 +15,14 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
  * Defines the base class for ComponentContent and NodeContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export abstract class Content {
 }

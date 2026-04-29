@@ -25,7 +25,7 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  *
  * @namespace pan
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 10
+ * @since 10 dynamic
  */
 declare namespace pan {
   /**
@@ -33,7 +33,7 @@ declare namespace pan {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -45,7 +45,7 @@ declare namespace pan {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function createPanProfile(): PanProfile;
 
@@ -55,7 +55,7 @@ declare namespace pan {
    * @extends BaseProfile
    * @typedef PanProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   interface PanProfile extends BaseProfile {
     /**
@@ -74,7 +74,7 @@ declare namespace pan {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     disconnect(deviceId: string): void;
 
@@ -94,7 +94,7 @@ declare namespace pan {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     setTethering(enable: boolean): void;
 
@@ -108,7 +108,7 @@ declare namespace pan {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     isTetheringOn(): boolean;
   }

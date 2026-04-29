@@ -24,7 +24,7 @@
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export interface Vec2 {
   /**
@@ -33,7 +33,7 @@ export interface Vec2 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   x: double;
 
@@ -43,7 +43,7 @@ export interface Vec2 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   y: double;
 }
@@ -54,7 +54,7 @@ export interface Vec2 {
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export interface Vec3 {
   /**
@@ -63,7 +63,7 @@ export interface Vec3 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   x: double;
 
@@ -73,7 +73,7 @@ export interface Vec3 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   y: double;
 
@@ -83,7 +83,7 @@ export interface Vec3 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   z: double;
 }
@@ -94,7 +94,7 @@ export interface Vec3 {
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export interface Vec4 {
   /**
@@ -103,7 +103,7 @@ export interface Vec4 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   x: double;
 
@@ -113,7 +113,7 @@ export interface Vec4 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   y: double;
 
@@ -123,7 +123,7 @@ export interface Vec4 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   z: double;
 
@@ -133,7 +133,7 @@ export interface Vec4 {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   w: double;
 }
@@ -144,7 +144,7 @@ export interface Vec4 {
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export interface Quaternion {
   /**
@@ -153,7 +153,7 @@ export interface Quaternion {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   x: double;
 
@@ -163,7 +163,7 @@ export interface Quaternion {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   y: double;
 
@@ -173,7 +173,7 @@ export interface Quaternion {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   z: double;
 
@@ -183,7 +183,7 @@ export interface Quaternion {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   w: double;
 }
@@ -194,23 +194,26 @@ export interface Quaternion {
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export interface Aabb {
   /**
-   * Coordinates of the AABB minimum corner.
+   * Coordinates of the AABB minimum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 23 static
    */
   aabbMin: Vec3;
 
   /**
-   * Coordinates of the AABB maximum corner.
+   * Coordinates of the AABB maximum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 23 static
    */
   aabbMax: Vec3;
 }
@@ -221,7 +224,7 @@ export interface Aabb {
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export interface Color {
   /**
@@ -230,7 +233,7 @@ export interface Color {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   r: double;
 
@@ -240,7 +243,7 @@ export interface Color {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   g: double;
 
@@ -250,7 +253,7 @@ export interface Color {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   b: double;
 
@@ -260,7 +263,7 @@ export interface Color {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   a: double;
 }
@@ -271,81 +274,83 @@ export interface Color {
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export interface Rect {
   /**
-   * Left up x coordinate.
+   * Left up x coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   x: double;
 
   /**
-   * Left up y coordinate.
+   * Left up y coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   y: double;
 
   /**
-   * The width of the rectangle.
+   * The width of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 23 static
    */
   width: double;
 
   /**
-   * The height of the rectangle.
+   * The height of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 23 static
    */
   height: double;
 }
 
 /**
  * Types of geometric shapes.
- * 
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export enum GeometryType {
   /**
    * A custom geometric shape.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   CUSTOM = 0,
 
   /**
    * A cube.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   CUBE = 1,
 
   /**
    * A plane.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   PLANE = 2,
 
@@ -354,9 +359,17 @@ export enum GeometryType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
-  SPHERE = 3
+  SPHERE = 3,
+
+  /**
+   * A cylinder.
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  CYLINDER = 4
 }
 
 /**
@@ -365,7 +378,7 @@ export enum GeometryType {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum RenderingPipelineType {
   /**
@@ -375,7 +388,7 @@ export enum RenderingPipelineType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FORWARD_LIGHTWEIGHT = 0,
   
@@ -385,66 +398,125 @@ export enum RenderingPipelineType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FORWARD = 1
 }
 
 /**
  * Define a geometric shape for mesh creation.
- * 
+ *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
-   * 
-   * @type { GeometryType }
+   *
+   * @returns { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
-  readonly geometryType: GeometryType;
+  get geometryType(): GeometryType;
+}
+
+/**
+ * Defines Mat4x4
+ *
+ * @typedef Mat4x4
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export interface Mat4x4 {
+  /**
+   * the first column of the matrix
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  x: Vec4;
+
+  /**
+   * the second column of the matrix
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  y: Vec4;
+
+  /**
+   * the third column of the matrix
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  z: Vec4;
+
+  /**
+   * the fourth column of the matrix
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  w: Vec4;
 }
 
 /**
  * How vertices in a sequence form triangles.
- * 
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export enum PrimitiveTopology {
   /**
    * The vertices form a set of independent triangle. Vertices (0, 1, 2), (3, 4, 5), ... define separate triangles.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   TRIANGLE_LIST = 0,
 
   /**
    * The vertices form a triangle strip. Starting from the 3rd, each vertex defines a triangle with the previous two.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   TRIANGLE_STRIP = 1
 }
 
 /**
+ * the type of shadow algorithm
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum ShadowAlgorithmType {
+  /**
+   * PCF algorithm
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PCF = 0
+}
+
+/**
  * An array of vertices and their data defining a custom geometric shape.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
@@ -463,7 +535,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @return { PrimitiveTopology | undefined }
    * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   get topology(): PrimitiveTopology | undefined;
 
@@ -473,7 +545,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @param { PrimitiveTopology | undefined } value
    * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   set topology(value: PrimitiveTopology | undefined);
 
@@ -483,7 +555,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @return { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   get vertices(): Vec3[];
 
@@ -493,7 +565,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @param { Vec3[] } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   set vertices(value: Vec3[]);
 
@@ -531,7 +603,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @return { int[] | undefined }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   get indices(): int[] | undefined;
 
@@ -550,7 +622,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @param { int[] | undefined } value
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   set indices(value: int[] | undefined);
 
@@ -568,7 +640,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    *
    * @return { Vec3[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   get normals(): Vec3[] | undefined;
 
@@ -577,7 +649,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    *
    * @param { Vec3[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   set normals(value: Vec3[] | undefined);
 
@@ -595,7 +667,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    *
    * @return { Vec2[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   get uvs(): Vec2[] | undefined;
 
@@ -604,7 +676,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    *
    * @param { Vec2[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   set uvs(value: Vec2[] | undefined);
 
@@ -622,7 +694,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    *
    * @return { Color[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   get colors(): Color[] | undefined;
 
@@ -631,97 +703,97 @@ export declare class CustomGeometry extends GeometryDefinition {
    *
    * @param { Color[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 23 static
    */
   set colors(value: Color[] | undefined);
 }
 
 /**
  * Define a rectangular cuboid.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
-   * The width, height and depth of the cube.
+   * The width, height and depth of the cube, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   get size(): Vec3;
 
   /**
-   * The width, height and depth of the cube.
+   * The width, height and depth of the cube, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   set size(value: Vec3);
 }
 
 /**
  * Define a plane.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
-   * The width and length of the plane.
+   * The width and length of the plane, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   get size(): Vec2;
 
   /**
-   * The width and length of the plane.
+   * The width and length of the plane, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   set size(value: Vec2);
 }
 
 /**
  * Define a sphere.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
-   * The radius of the sphere.
+   * The radius of the sphere, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   get radius(): double;
 
   /**
-   * The radius of the sphere.
+   * The radius of the sphere, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   set radius(value: double);
 
@@ -731,7 +803,7 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   get segmentCount(): int;
 
@@ -741,27 +813,93 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 23 static
    */
   set segmentCount(value: int);
 }
 
 /**
- * 3D position information.
+ * Define a cylinder.
+ *
+ * @extends GeometryDefinition
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export declare class CylinderGeometry extends GeometryDefinition {
+  /**
+   * The radius of the base of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   *
+   * @return { double }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get radius(): double;
+
+  /**
+   * The radius of the base of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   *
+   * @param { double } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  set radius(value: double);
+
+  /**
+   * The height of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   *
+   * @return { double }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get height(): double;
+
+  /**
+   * The height of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   *
+   * @param { double } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  set height(value: double);
+
+  /**
+   * Use regular polygons to approximate the circular base of the cylinder,
+   * where segmentCount is the number of sides of the regular polygon used.
+   *
+   * @return { int }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get segmentCount(): int;
+
+  /**
+   * Use regular polygons to approximate the circular base of the cylinder,
+   * where segmentCount is the number of sides of the regular polygon used.
+   *
+   * @param { int } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  set segmentCount(value: int);
+}
+
+/**
+ * 3D position information, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export type Position3 = Vec3;
 
 /**
- * 3D rotation info as euler angles.
+ * 3D rotation info as euler angles, the unit is radian.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 23 static
  */
 export type Rotation3 = Vec3;
 
@@ -771,6 +909,6 @@ export type Rotation3 = Vec3;
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 23 static
  */
 export type Scale3 = Vec3;

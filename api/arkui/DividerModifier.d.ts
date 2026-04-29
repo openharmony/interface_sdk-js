@@ -27,6 +27,7 @@
  * @extends DividerAttribute
  * @implements AttributeModifier<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends DividerAttribute
  * @implements AttributeModifier<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class DividerModifier extends DividerAttribute implements AttributeModifier<DividerAttribute> {
 
@@ -47,9 +49,10 @@ export declare class DividerModifier extends DividerAttribute implements Attribu
    * 
    * @param { DividerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: DividerAttribute): void;
 }

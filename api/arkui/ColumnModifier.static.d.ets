@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -27,6 +26,7 @@ import { ColumnAttribute } from '@ohos.arkui.component';
  *
  * @implements ColumnAttribute, AttributeModifier<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
 */
 export declare class ColumnModifier implements ColumnAttribute, AttributeModifier<ColumnAttribute> {}

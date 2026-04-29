@@ -32,15 +32,15 @@ import type connection from './@ohos.net.connection';
  * @namespace statistics
  * @syscap SystemCapability.Communication.NetManager.Core
  * @atomicservice
- * @since arkts{'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15 dynamic
+ * @since 23 static
  */
 declare namespace statistics {
   /**
    * @typedef {connection.NetBearType}
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   type NetBearType = connection.NetBearType;
 
@@ -55,8 +55,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getIfaceRxBytes(nic: string, callback: AsyncCallback<long>): void;
 
@@ -71,8 +71,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getIfaceRxBytes(nic: string): Promise<long>;
 
@@ -87,8 +87,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getIfaceTxBytes(nic: string, callback: AsyncCallback<long>): void;
 
@@ -103,8 +103,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getIfaceTxBytes(nic: string): Promise<long>;
 
@@ -117,7 +117,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getCellularRxBytes(callback: AsyncCallback<long>): void;
 
@@ -130,7 +131,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getCellularRxBytes(): Promise<long>;
 
@@ -143,7 +145,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getCellularTxBytes(callback: AsyncCallback<long>): void;
 
@@ -156,7 +159,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getCellularTxBytes(): Promise<long>;
 
@@ -179,8 +183,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function getAllRxBytes(callback: AsyncCallback<long>): void;
 
@@ -203,8 +207,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function getAllRxBytes(): Promise<long>;
 
@@ -227,8 +231,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function getAllTxBytes(callback: AsyncCallback<long>): void;
 
@@ -251,8 +255,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function getAllTxBytes(): Promise<long>;
 
@@ -266,7 +270,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
@@ -280,7 +285,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getUidRxBytes(uid: int): Promise<long>;
 
@@ -294,7 +300,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
@@ -308,7 +315,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getUidTxBytes(uid: int): Promise<long>;
 
@@ -324,7 +332,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register notifications of network traffic updates.
@@ -338,9 +346,23 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'netStatsChange', callback: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Register notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } callback - The callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function onNetStatsChange(callback: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Unregister notifications of network traffic updates.
@@ -354,7 +376,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister notifications of network traffic updates.
@@ -368,9 +390,23 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'netStatsChange', callback?: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Unregister notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } [callback] - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function offNetStatsChange(callback?: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Get the traffic usage details of the network interface in the specified time period.
@@ -386,8 +422,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
@@ -405,8 +441,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo): Promise<NetStatsInfo>;
 
@@ -424,8 +460,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getTrafficStatsByUid(uidInfo: UidInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
@@ -443,8 +479,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
 
@@ -457,7 +493,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getSockfdRxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -470,7 +507,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getSockfdRxBytes(sockfd: int): Promise<long>;
 
@@ -483,7 +521,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getSockfdTxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -496,17 +535,76 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getSockfdTxBytes(sockfd: int): Promise<long>;
+
+  /**
+   * Set calibration traffic data.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The ID of the specified sim card.
+   * @param { long } remainTraffic - The remaining traffic data.
+   * @param { long } [totalTraffic] - The total traffic data.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2100001 - Invalid parameter value, such as simId error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error, such as nullptr.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hidethisfor inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setCalibrationTraffic(simId: int, remainTraffic: long, totalTraffic?: long): Promise<void>;
+
+  /**
+   * Updates network statistics data.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateStatsData(): Promise<void>;
+
+  /**
+   * Updates network interface statistics data.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { string } iface - Network interface name.
+   * @param { int } start - Start timestamp for the statistics data to update.
+   * @param { int } end - End timestamp for the statistics data to update.
+   * @param { NetStatsInfo } stats - Network statistics information.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateIfacesStats(iface: string, start: int, end: int, stats: NetStatsInfo): Promise<void>;
 
   /**
    * Parameters for obtaining detailed information on network interface traffic usage.
    * @interface IfaceInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   export interface IfaceInfo {
     /**
@@ -514,8 +612,8 @@ declare namespace statistics {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     iface: string;
 
@@ -524,8 +622,8 @@ declare namespace statistics {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     startTime: int;
 
@@ -534,8 +632,8 @@ declare namespace statistics {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     endTime: int;
   }
@@ -545,8 +643,8 @@ declare namespace statistics {
    * @interface UidInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   export interface UidInfo {
     /**
@@ -554,8 +652,8 @@ declare namespace statistics {
      * @type {IfaceInfo}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     ifaceInfo: IfaceInfo;
 
@@ -564,8 +662,8 @@ declare namespace statistics {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 23 static
      */
     uid: int;
   }
@@ -575,8 +673,14 @@ declare namespace statistics {
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   */
+  /**
+   * Detailed information of statistics.
+   * @interface NetStatsInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface NetStatsInfo {
     /**
@@ -584,8 +688,14 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     */
+    /**
+     * Bytes of received.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
      */
     rxBytes: long;
 
@@ -594,8 +704,14 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     */
+    /**
+     * Bytes of send.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
      */
     txBytes: long;
 
@@ -604,8 +720,14 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     */
+    /**
+     * Packets of received.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
      */
     rxPackets: long;
 
@@ -614,8 +736,14 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     */
+    /**
+     * Packets of send.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
      */
     txPackets: long;
   }
@@ -625,8 +753,8 @@ declare namespace statistics {
    * @interface NetStatsChangeInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface NetStatsChangeInfo {
     /**
@@ -634,8 +762,8 @@ declare namespace statistics {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     iface: string;
     /**
@@ -643,8 +771,8 @@ declare namespace statistics {
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     uid?: int;
   }
@@ -653,7 +781,7 @@ declare namespace statistics {
    * An {@link NetStatsInfo} array with start time and end time.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
    */
   export type NetStatsInfoSequence = {
     /**
@@ -661,8 +789,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     startTime: int;
     /**
@@ -670,8 +797,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     endTime: int;
     /**
@@ -679,47 +805,33 @@ declare namespace statistics {
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     info: NetStatsInfo;
   }[];
 
   /**
-   * {@link NetStatsInfo} for every UID. Key is UID.
+   * Array of {@link NetStatsInfoSequenceItem}.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 23 static
    */
-  export type UidNetStatsInfo = {
-    [uid: int]: NetStatsInfo;
-  };
+  export type NetStatsInfoSequence = Array<NetStatsInfoSequenceItem>;
 
   /**
-   * Parameters for obtaining detailed information on specified network traffic usage.
-   * @interface NetworkInfo
+   * Parameters for an {@link NetStatsInfo} with start time and end time.
+   * @interface NetStatsInfoSequenceItem
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 23 static
    */
-  export interface NetworkInfo {
-    /**
-     * Network type for querying traffic.
-     * @type { NetBearType }
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    type: NetBearType;
+  export interface NetStatsInfoSequenceItem {
     /**
      * Start time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 23 static
      */
     startTime: int;
     /**
@@ -727,8 +839,95 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 23 static
+     */
+    endTime: int;
+    /**
+     * Detailed information of statistics.
+     * @type { NetStatsInfo }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    info: NetStatsInfo;
+  }
+
+  /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12 dynamic
+   */
+  export type UidNetStatsInfo = {
+    [uid: int]: NetStatsInfo;
+  };
+
+  /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  export type UidNetStatsInfo = Record<int, NetStatsInfo>;
+
+  /**
+   * Parameters for obtaining detailed information on specified network traffic usage.
+   * @interface NetworkInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12 dynamic
+   */
+  /**
+   * Parameters for obtaining detailed information on specified network traffic usage.
+   * @interface NetworkInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  export interface NetworkInfo {
+    /**
+     * Network type for querying traffic.
+     * @type { NetBearType }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12 dynamic
+     */
+    /**
+     * Network type for querying traffic.
+     * @type { NetBearType }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    type: NetBearType;
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12 dynamic
+     */
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    startTime: int;
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12 dynamic
+     */
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
      */
     endTime: int;
     /**
@@ -736,8 +935,14 @@ declare namespace statistics {
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     */
+    /**
+     * SIM card id for querying traffic.
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic
+     * @since 23 static
      */
     simId?: int;
   }
@@ -756,7 +961,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
   /**
@@ -774,9 +980,43 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   function getTrafficStatsByUidNetwork(uid: int, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
+
+  /**
+   * Get the traffic usage details of the specified network of the calling application
+   *     in the specified time period and the specified networktype.
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<NetStatsInfo> } The statistics of the calling application.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
+   * @throws { BusinessError } 2103019 - The timestamp in param is invalid.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic
+   * @since 26.0.0 static
+   */
+  function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
+
+  /**
+   * Get this month traffic data of the cellular network.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The id of the specified sim card.
+   * @returns { Promise<long> } The statistics of the simId in this month.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getMonthTrafficStats(simId: int): Promise<long>;
 }
 
 export default statistics;

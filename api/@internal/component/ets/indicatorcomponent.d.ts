@@ -22,20 +22,22 @@
  * Provides methods for switching components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare class IndicatorComponentController {
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   constructor();
 
@@ -43,10 +45,11 @@ declare class IndicatorComponentController {
    * Called when the next child component is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   showNext():void;
 
@@ -54,10 +57,11 @@ declare class IndicatorComponentController {
    * Called when the previous subcomponent is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   showPrevious():void;
 
@@ -68,10 +72,11 @@ declare class IndicatorComponentController {
    * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation. 
    *      The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   changeIndex(index: number, useAnimation?: boolean):void;
 }
@@ -81,10 +86,11 @@ declare class IndicatorComponentController {
  *
  * @interface IndicatorComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 interface IndicatorComponentInterface {
    
@@ -94,10 +100,11 @@ interface IndicatorComponentInterface {
    * @param { IndicatorComponentController } controller - indicator component controller.
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   (controller?: IndicatorComponentController): IndicatorComponentAttribute;
 }
@@ -107,10 +114,11 @@ interface IndicatorComponentInterface {
  *
  * @extends CommonMethod<IndicatorComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
@@ -119,10 +127,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @param { number } index
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   initialIndex(index: number): IndicatorComponentAttribute;
 
@@ -132,10 +141,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @param { number } totalCount
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   count(totalCount: number): IndicatorComponentAttribute;
 
@@ -145,10 +155,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @param { DotIndicator | DigitIndicator } indicatorStyle - the style value
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   style(indicatorStyle: DotIndicator | DigitIndicator): IndicatorComponentAttribute;
 
@@ -158,10 +169,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @param { boolean } isLoop
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   loop(isLoop: boolean): IndicatorComponentAttribute;
 
@@ -171,10 +183,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @param { boolean } isVertical
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   vertical(isVertical: boolean): IndicatorComponentAttribute;
 
@@ -184,10 +197,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @param { Callback<number> } event
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   onChange(event: Callback<number>): IndicatorComponentAttribute;
 }
@@ -196,10 +210,11 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
  * Defines IndicatorComponent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare const IndicatorComponent: IndicatorComponentInterface;
 
@@ -207,9 +222,10 @@ declare const IndicatorComponent: IndicatorComponentInterface;
  * Defines IndicatorComponent instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare const IndicatorComponentInstance: IndicatorComponentAttribute;

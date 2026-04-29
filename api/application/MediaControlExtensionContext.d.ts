@@ -27,7 +27,8 @@ import UIExtensionContext from './UIExtensionContext';
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since 10 dynamic
+ * @since 23 static
  */
 export default class MediaControlExtensionContext extends UIExtensionContext {
 }

@@ -27,6 +27,7 @@
  * @extends DatePickerAttribute
  * @implements AttributeModifier<DatePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends DatePickerAttribute
  * @implements AttributeModifier<DatePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {
 
@@ -47,9 +49,10 @@ export declare class DatePickerModifier extends DatePickerAttribute implements A
    * 
    * @param { DatePickerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: DatePickerAttribute): void;
 }

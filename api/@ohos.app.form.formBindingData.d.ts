@@ -16,8 +16,12 @@
 /**
  * @file
  * @kit FormKit
- * @arkts 1.1&1.2
  */
+
+import { BusinessError } from './@ohos.base';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Interface of formBindingData.
@@ -32,8 +36,8 @@
  * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace formBindingData {
   /**
@@ -55,10 +59,19 @@ declare namespace formBindingData {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
+
+  /**
+   * Create an FormBindingData instance.
+   *
+   * @param { RecordData } [obj] - Indicates the FormBindingData instance data.
+   * @returns { FormBindingData } Returns the FormBindingData.
+   * @syscap SystemCapability.Ability.Form
+   * @since 23 static
+   */
+  function createFormBindingData(obj?: RecordData): FormBindingData;
 
   /**
    * Defines the createFormBindingData result interface.
@@ -73,8 +86,8 @@ declare namespace formBindingData {
    * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface FormBindingData {
     /**
@@ -90,10 +103,18 @@ declare namespace formBindingData {
      * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     data: Object;
+
+    /**
+     * Data for updating.
+     *
+     * @type { RecordData }
+     * @syscap SystemCapability.Ability.Form
+     * @since 23 static
+     */
+    data: RecordData;
 
     /**
      * proxies for updating.
@@ -110,8 +131,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     proxies?: Array<ProxyData>;
   }
@@ -131,8 +152,8 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface ProxyData {
     /**
@@ -150,8 +171,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     key: string;
 
@@ -170,8 +191,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     subscriberId?: string;
   }

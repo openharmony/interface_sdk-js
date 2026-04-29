@@ -29,23 +29,23 @@
  * @namespace drm
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace drm {
 /**
- * Enumerates drm error code.
+ * Enumerates DRM error codes.
  * @enum { number }
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  */
 /**
- * Enumerates drm error code.
+ * Enumerates DRM error codes.
  * @enum { number }
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 23 static
  */
   enum DrmErrorCode {
     /**
@@ -57,8 +57,8 @@ declare namespace drm {
      * All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     ERROR_UNKNOWN = 24700101,
     /**
@@ -70,8 +70,8 @@ declare namespace drm {
      * Meet max MediaKeySystem num limit.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     MAX_SYSTEM_NUM_REACHED = 24700103,
     /**
@@ -83,8 +83,8 @@ declare namespace drm {
      * Meet max MediaKeySession num limit.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     MAX_SESSION_NUM_REACHED = 24700104,
     /**
@@ -96,25 +96,25 @@ declare namespace drm {
      * Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     SERVICE_FATAL_ERROR = 24700201
   }
 
   /**
-   * Enumerates which config name we can get.
+   * Enumerates the config names that can be obtained.
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Enumerates which config name we can get.
+   * Enumerates the config names that can be obtained.
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   enum PreDefinedConfigName {
     /**
@@ -126,8 +126,8 @@ declare namespace drm {
      * Config name vendor
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_DEVICE_VENDOR = 'vendor',
     /**
@@ -139,8 +139,8 @@ declare namespace drm {
      * Config name version
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_DEVICE_VERSION = 'version',
     /**
@@ -152,8 +152,8 @@ declare namespace drm {
      * Config name description
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_DEVICE_DESCRIPTION = 'description',
     /**
@@ -165,8 +165,8 @@ declare namespace drm {
      * Config name algorithms
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_DEVICE_ALGORITHMS = 'algorithms',
     /**
@@ -178,8 +178,8 @@ declare namespace drm {
      * Config name deviceUniqueId
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_DEVICE_UNIQUE_ID = 'deviceUniqueId',
     /**
@@ -191,8 +191,8 @@ declare namespace drm {
      * Config name maxSessionNum
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_SESSION_MAX = 'maxSessionNum',
     /**
@@ -204,8 +204,8 @@ declare namespace drm {
      * Config name currentSessionNum
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CONFIG_SESSION_CURRENT = 'currentSessionNum',
   }
@@ -221,8 +221,8 @@ declare namespace drm {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   enum MediaKeyType {
     /**
@@ -234,8 +234,8 @@ declare namespace drm {
      * Offline media key type.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_TYPE_OFFLINE = 0,
     /**
@@ -247,8 +247,8 @@ declare namespace drm {
      * Online media key type.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_TYPE_ONLINE,
   }
@@ -264,8 +264,8 @@ declare namespace drm {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   enum OfflineMediaKeyStatus {
     /**
@@ -277,8 +277,8 @@ declare namespace drm {
      * Offline media key status unknown.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_UNKNOWN = 0,
     /**
@@ -290,8 +290,8 @@ declare namespace drm {
      * Offline media key status usable.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_USABLE = 1,
     /**
@@ -303,8 +303,8 @@ declare namespace drm {
      * Offline media key status inactive.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_INACTIVE = 2,
   }
@@ -320,8 +320,8 @@ declare namespace drm {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   enum CertificateStatus {
     /**
@@ -333,8 +333,8 @@ declare namespace drm {
      * Device already provisioned.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CERT_STATUS_PROVISIONED = 0,
     /**
@@ -346,8 +346,8 @@ declare namespace drm {
      * Device not provisioned.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CERT_STATUS_NOT_PROVISIONED,
     /**
@@ -359,8 +359,8 @@ declare namespace drm {
      * Cert already expired.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CERT_STATUS_EXPIRED,
     /**
@@ -372,8 +372,8 @@ declare namespace drm {
      * Certs are invalid.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CERT_STATUS_INVALID,
     /**
@@ -385,8 +385,8 @@ declare namespace drm {
      * Get certs status failed.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     CERT_STATUS_UNAVAILABLE,
   }
@@ -402,8 +402,8 @@ declare namespace drm {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum MediaKeyRequestType {
     /**
@@ -415,8 +415,8 @@ declare namespace drm {
      * Media key request type unknown.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_UNKNOWN = 0,
     /**
@@ -428,8 +428,8 @@ declare namespace drm {
      * Media key request type initial.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_INITIAL = 1,
     /**
@@ -441,8 +441,8 @@ declare namespace drm {
      * Media key request type renewal.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_RENEWAL = 2,
     /**
@@ -454,8 +454,8 @@ declare namespace drm {
      * Media key request type release.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_RELEASE = 3,
     /**
@@ -467,8 +467,8 @@ declare namespace drm {
      * Media key request type none.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_NONE = 4,
     /**
@@ -480,8 +480,8 @@ declare namespace drm {
      * Media key request type update.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_UPDATE = 5,
   }
@@ -497,8 +497,8 @@ declare namespace drm {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum ContentProtectionLevel {
     /**
@@ -510,8 +510,8 @@ declare namespace drm {
      * Device decrypt and decode type unknown.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_UNKNOWN = 0,
     /**
@@ -523,8 +523,8 @@ declare namespace drm {
      * Device using software level.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_SW_CRYPTO,
     /**
@@ -536,8 +536,8 @@ declare namespace drm {
      * Device using hardware level.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_HW_CRYPTO,
     /**
@@ -549,8 +549,8 @@ declare namespace drm {
      * Device using enhanced hardware level.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_ENHANCED_HW,
     /**
@@ -562,8 +562,8 @@ declare namespace drm {
      * Max mode.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_MAX,
   }
@@ -579,8 +579,8 @@ declare namespace drm {
    * @interface ProvisionRequest
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   interface ProvisionRequest {
     /**
@@ -594,8 +594,8 @@ declare namespace drm {
      * @type { Uint8Array }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     data: Uint8Array;
     /**
@@ -609,8 +609,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     defaultURL: string;
   }
@@ -626,8 +626,8 @@ declare namespace drm {
    * @interface OptionsData
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface OptionsData {
     /**
@@ -641,8 +641,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     name: string;
     /**
@@ -656,8 +656,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     value: string;
   }
@@ -673,8 +673,8 @@ declare namespace drm {
    * @interface MediaKeyRequest
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface MediaKeyRequest {
     /**
@@ -688,8 +688,8 @@ declare namespace drm {
      * @type { MediaKeyRequestType }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     mediaKeyRequestType: MediaKeyRequestType;
     /**
@@ -703,8 +703,8 @@ declare namespace drm {
      * @type { Uint8Array }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     data: Uint8Array;
     /**
@@ -718,25 +718,25 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     defaultURL: string;
   }
 
   /**
-   * Used to indicates the event info attached to specific event type.
+   * Used to indicate the event info attached to specific event type.
    * @interface EventInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the event info attached to specific event type.
+   * Used to indicate the event info attached to specific event type.
    * @interface EventInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface EventInfo {
     /**
@@ -750,8 +750,8 @@ declare namespace drm {
      * @type { Uint8Array }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     info: Uint8Array;
     /**
@@ -765,25 +765,25 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     extraInfo: string;
   }
 
   /**
-   * Used to indicates the statistic info.
+   * Used to indicate the statistic info.
    * @interface StatisticKeyValue
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the statistic info.
+   * Used to indicate the statistic info.
    * @interface StatisticKeyValue
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   interface StatisticKeyValue {
     /**
@@ -797,8 +797,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     name: string;
     /**
@@ -812,25 +812,25 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Used to indicates the media key status.
+   * Used to indicate the media key status.
    * @interface MediaKeyStatus
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the media key status.
+   * Used to indicate the media key status.
    * @interface MediaKeyStatus
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface MediaKeyStatus {
     /**
@@ -844,8 +844,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     name: string;
     /**
@@ -859,25 +859,25 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Used to indicates the media key status with a key and its value.
+   * Used to indicate the media key status with a key and its value.
    * @interface KeysInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the media key status with a key and its value.
+   * Used to indicate the media key status with a key and its value.
    * @interface KeysInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface KeysInfo {
     /**
@@ -891,8 +891,8 @@ declare namespace drm {
      * @type { Uint8Array }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     keyId: Uint8Array;
     /**
@@ -906,25 +906,25 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Used to indicates the media key system info of media source.
+   * Used to indicate the media key system info of media source.
    * @interface MediaKeySystemInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the media key system info of media source.
+   * Used to indicate the media key system info of media source.
    * @interface MediaKeySystemInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface MediaKeySystemInfo {
     /**
@@ -938,8 +938,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     uuid: string;
     /**
@@ -953,8 +953,8 @@ declare namespace drm {
      * @type { Uint8Array }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     pssh: Uint8Array;
   }
@@ -970,8 +970,8 @@ declare namespace drm {
    * @interface MediaKeySystemDescription
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   interface MediaKeySystemDescription {
     /**
@@ -985,8 +985,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     name: string;
     /**
@@ -1000,8 +1000,8 @@ declare namespace drm {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     uuid: string;
   }
@@ -1027,8 +1027,8 @@ declare namespace drm {
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   function getMediaKeySystemUuid(name: string): string;
 
@@ -1047,8 +1047,8 @@ declare namespace drm {
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   function getMediaKeySystems(): MediaKeySystemDescription[];
 
@@ -1089,8 +1089,7 @@ declare namespace drm {
    * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   function createMediaKeySystem(name: string): MediaKeySystem | undefined;
 
@@ -1121,8 +1120,8 @@ declare namespace drm {
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   function isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtectionLevel): boolean;
 
@@ -1151,8 +1150,8 @@ declare namespace drm {
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   function isMediaKeySystemSupported(name: string, mimeType: string): boolean;
 
@@ -1179,8 +1178,8 @@ declare namespace drm {
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   function isMediaKeySystemSupported(name: string): boolean;
 
@@ -1197,8 +1196,8 @@ declare namespace drm {
    * @interface MediaKeySystem
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 23 static
    */
   interface MediaKeySystem {
     /**
@@ -1224,8 +1223,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getConfigurationString(configName: string): string;
 
@@ -1252,8 +1251,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     setConfigurationString(configName: string, value: string): void;
 
@@ -1278,8 +1277,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getConfigurationByteArray(configName: string): Uint8Array;
 
@@ -1306,8 +1305,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     setConfigurationByteArray(configName: string, value: Uint8Array): void;
 
@@ -1328,8 +1327,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getStatistics(): StatisticKeyValue[];
 
@@ -1348,8 +1347,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getMaxContentProtectionLevel(): ContentProtectionLevel;
 
@@ -1368,8 +1367,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     generateKeySystemRequest(): Promise<ProvisionRequest>;
 
@@ -1396,8 +1395,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     processKeySystemResponse(response: Uint8Array): Promise<void>;
 
@@ -1416,8 +1415,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getCertificateStatus(): CertificateStatus;
 
@@ -1440,10 +1439,19 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Register keySystemRequired events.
+     * 
+     * @param { function } callback - Used to listen for the key system required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeySystemRequired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keySystemRequired events.
@@ -1464,10 +1472,19 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Unregister keySystemRequired events.
+     * 
+     * @param { function } callback - Used to listen for the key system required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeySystemRequired(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Create a MediaKeySession instance with level.
@@ -1509,8 +1526,7 @@ declare namespace drm {
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     createMediaKeySession(level: ContentProtectionLevel): MediaKeySession | undefined;
 
@@ -1542,8 +1558,7 @@ declare namespace drm {
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 20
-     * @arkts 1.2
+     * @since 23 static
      */
     createMediaKeySession(): MediaKeySession | undefined;
 
@@ -1562,8 +1577,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getOfflineMediaKeyIds(): Uint8Array[];
 
@@ -1590,14 +1605,14 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     getOfflineMediaKeyStatus(mediaKeyId: Uint8Array): OfflineMediaKeyStatus;
 
     /**
-     * Remove media key corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be clear.
+     * Remove media keys corresponding to the mediaKeyId.
+     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be cleared.
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -1606,16 +1621,16 @@ declare namespace drm {
      * @since 11
      */
     /**
-     * Remove media key corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be clear.
+     * Remove media keys corresponding to the mediaKeyId.
+     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be cleared.
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     clearOfflineMediaKeys(mediaKeyId: Uint8Array): void;
     /**
@@ -1631,8 +1646,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 23 static
      */
     destroy(): void;
   }
@@ -1650,8 +1665,8 @@ declare namespace drm {
    * @interface MediaKeySession
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   interface MediaKeySession {
 
@@ -1684,15 +1699,15 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: int, options?: OptionsData[]): Promise<MediaKeyRequest>;
 
     /**
      * Process the response corresponding to the media key request obtained by the application.
      * @param { Uint8Array } response - The response.
-     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8ARRY used to return the result.
+     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8Array used to return the result.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
@@ -1704,7 +1719,7 @@ declare namespace drm {
     /**
      * Process the response corresponding to the media key request obtained by the application.
      * @param { Uint8Array } response - The response.
-     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8ARRY used to return the result.
+     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8Array used to return the result.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
@@ -1712,8 +1727,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     processMediaKeyResponse(response: Uint8Array): Promise<Uint8Array>;
 
@@ -1732,8 +1747,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     checkMediaKeyStatus(): MediaKeyStatus[];
 
@@ -1750,8 +1765,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     clearMediaKeys(): void;
 
@@ -1780,8 +1795,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise<Uint8Array>;
 
@@ -1810,8 +1825,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Promise<void>;
 
@@ -1838,8 +1853,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise<void>;
 
@@ -1858,8 +1873,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     getContentProtectionLevel(): ContentProtectionLevel;
 
@@ -1886,8 +1901,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     requireSecureDecoderModule(mimeType: string): boolean;
 
@@ -1912,12 +1927,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Register keyRequired event.
+     * 
+     * @param { function } callback used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeyRequired(callback: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Unregister keyRequired event.
      * @param { 'keyRequired' } type - Type of the drm event to listen for.
      * @param { function } callback used to listen for the key required event.
@@ -1938,12 +1962,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister keyRequired event.
+     *
+     * @param { function } callback used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeyRequired(callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Register keyExpired event.
      * @param { 'keyExpired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key required event.
@@ -1964,12 +1997,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Register keyExpired event.
+     * 
+     * @param { function } callback - Used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeyExpired(callback: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Unregister keyExpired event.
      * @param { 'keyExpired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key required event.
@@ -1990,12 +2032,22 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister keyExpired event.
+     * 
+     * @param { function } callback - Used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeyExpired(callback?: (eventInfo: EventInfo) => void): void;
+
+
+    /**
      * Register vendorDefined event.
      * @param { 'vendorDefined' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the vendor defined event.
@@ -2016,12 +2068,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Register vendorDefined event.
+     * 
+     * @param { function } callback - Used to listen for the vendor defined event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onVendorDefined(callback: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Unregister vendorDefined event.
      * @param { 'vendorDefined' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the vendor defined event.
@@ -2042,12 +2103,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister vendorDefined event.
+     * 
+     * @param { function } callback - Used to listen for the vendor defined event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offVendorDefined(callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Register expirationUpdate event.
      * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for expiration update event.
@@ -2068,12 +2138,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Register expirationUpdate event.
+     * 
+     * @param { function } callback - Used to listen for expiration update event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onExpirationUpdate(callback: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Unregister expirationUpdate event.
      * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for expiration update event.
@@ -2094,12 +2173,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister expirationUpdate event.
+     *             
+     * @param { function } callback - Used to listen for expiration update event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offExpirationUpdate(callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Register keysChange event.
      * @param { 'keysChange' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for keys change event.
@@ -2120,12 +2208,21 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
+     * Register keysChange event.
+     * 
+     * @param { function } callback - Used to listen for keys change event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeysChange(callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
+
+    /**
      * Unregister keysChange event.
      * @param { 'keysChange' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for keys change event.
@@ -2146,10 +2243,19 @@ declare namespace drm {
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
+
+    /**
+     * Unregister keysChange event.
+     * 
+     * @param { function } callback - Used to listen for keys change event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeysChange(callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
      * Release the resource before the session gonna be unused.
@@ -2164,8 +2270,8 @@ declare namespace drm {
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     destroy(): void;
 

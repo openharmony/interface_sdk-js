@@ -17,12 +17,11 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { NodeController } from '../../@ohos.arkui.node';
 import { CommonMethod, AttributeModifier } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * The NodeContainerAttribute.
@@ -30,7 +29,8 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  * @extends CommonMethod
  * @interface TabsAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface NodeContainerAttribute extends CommonMethod {
     /**
@@ -40,25 +40,24 @@ export declare interface NodeContainerAttribute extends CommonMethod {
      *     instance of NodeController
      * @return { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @stagemodelonly
+     * @since 23 static
      */
     attributeModifier(
         modifier: AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
- * Defines NodeContainer Component.
+ * Defines NodeContainer Component
  *
- * @param { NodeController } controller - instance of NodeController
- * @param { function } [content_ ] - container
- * @return { NodeContainerAttribute }
+ * @param { NodeController } controller - instance of NodeController.
+ * @returns { NodeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function NodeContainer(
-    controller: NodeController, 
-    @memo
-    content_?: () => void,
-): NodeContainerAttribute
+    controller: NodeController
+): NodeContainerAttribute;

@@ -27,6 +27,7 @@
  * @extends DataPanelAttribute
  * @implements AttributeModifier<DataPanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends DataPanelAttribute
  * @implements AttributeModifier<DataPanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class DataPanelModifier extends DataPanelAttribute implements AttributeModifier<DataPanelAttribute> {
 
@@ -47,9 +49,10 @@ export declare class DataPanelModifier extends DataPanelAttribute implements Att
    * 
    * @param { DataPanelAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: DataPanelAttribute): void;
 }

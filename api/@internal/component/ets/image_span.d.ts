@@ -23,6 +23,7 @@
  *
  * @interface ImageSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -31,9 +32,10 @@
  *
  * @interface ImageSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ImageSpanInterface {
   /**
@@ -42,6 +44,7 @@ interface ImageSpanInterface {
    * @param { ResourceStr | PixelMap } value - The image resource.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -51,9 +54,10 @@ interface ImageSpanInterface {
    * @param { ResourceStr | PixelMap } value - The image resource.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: ResourceStr | PixelMap): ImageSpanAttribute;
 }
@@ -63,6 +67,7 @@ interface ImageSpanInterface {
  *
  * @extends CommonMethod<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -71,9 +76,10 @@ interface ImageSpanInterface {
  *
  * @extends BaseSpan<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
@@ -82,6 +88,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ImageSpanAlignment } value - The alignment type of image span.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -91,9 +98,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ImageSpanAlignment } value - The alignment type of image span.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
 
@@ -103,9 +111,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ColorFilter | DrawingColorFilter } filter ColorFilter object.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 
@@ -115,6 +124,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ImageFit } value - Image display mode.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -124,9 +134,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ImageFit } value - Image display mode.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   objectFit(value: ImageFit): ImageSpanAttribute;
   
@@ -137,9 +148,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ImageCompleteCallback } callback - Triggered when the image is successfully loaded.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
@@ -149,9 +161,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { Optional<boolean> } enable - Enable color filter support svg or not, the default value is false.
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   supportSvg2(enable: Optional<boolean>): ImageSpanAttribute;
 
@@ -162,9 +175,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { ImageErrorCallback } callback - Triggered when an exception occurs during image loading.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onError(callback: ImageErrorCallback): ImageSpanAttribute;
 
@@ -174,8 +188,20 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @param { PixelMap } value
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   */
+  /**
+   * Placeholder displayed on load
+   *
+   * @param { PixelMap } value
+   * @returns { ImageSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   alt(value: PixelMap): ImageSpanAttribute;
 }
@@ -184,6 +210,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
  * Defines ImageSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -191,9 +218,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
  * Defines ImageSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ImageSpan: ImageSpanInterface;
 
@@ -201,6 +229,7 @@ declare const ImageSpan: ImageSpanInterface;
  * Defines ImageSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -208,9 +237,10 @@ declare const ImageSpan: ImageSpanInterface;
  * Defines ImageSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ImageSpanInstance: ImageSpanAttribute;
 
@@ -220,9 +250,10 @@ declare const ImageSpanInstance: ImageSpanAttribute;
  * @typedef { function } ImageCompleteCallback
  * @param { ImageLoadResult } result - the information about the successfully loaded image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 type ImageCompleteCallback = (result: ImageLoadResult) => void;
 
@@ -231,9 +262,10 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void;
  * 
  * @interface ImageLoadResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ImageLoadResult {
   /**
@@ -241,9 +273,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width: number;
   /**
@@ -251,9 +284,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height: number;
   /**
@@ -261,9 +295,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   componentWidth: number;
   /**
@@ -271,9 +306,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   componentHeight: number;
   /**
@@ -283,9 +319,10 @@ declare interface ImageLoadResult {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   loadingStatus: number;
   /**
@@ -293,9 +330,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentWidth: number;
   /**
@@ -303,9 +341,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentHeight: number;
   /**
@@ -313,9 +352,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentOffsetX: number;
   /**
@@ -323,9 +363,10 @@ declare interface ImageLoadResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentOffsetY: number;
 }

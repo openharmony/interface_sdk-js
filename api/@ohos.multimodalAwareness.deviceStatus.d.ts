@@ -21,113 +21,155 @@
 import type { Callback } from "./@ohos.base";
 
 /**
- * This module provides the capability to subscribe to report the device status.
+ * The **deviceStatus** module provides the device status awareness functionality.
  *
- * @namespace deviceStatus
  * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
- * @since 18
+ * @since 18 dynamic
+ * @since 23 static
  */
 
 declare namespace deviceStatus {
   /**
-   * Enum for steady standing status.
+   * Defines the steady standing state (that is, stand mode).
+   * 
+   * A device enters stand mode when it is stationary, and its screen is at an angle between 45 and 135 degrees relative
+   * to the horizontal plane. For foldable smartphones, the device must be in a folded state or fully unfolded state.
    *
-   * @enum { number } SteadyStandingStatus
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   export enum SteadyStandingStatus {
     /**
-     * indicates exit status
+     * Exit of the stand mode.
      *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
     STATUS_EXIT = 0,
     /**
-     * indicates enter status
+     * Entry to the stand mode.
      *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
     STATUS_ENTER = 1
   }
 
   /**
    * Interface for device rotation radian
-   * @interface DeviceRotationRadian
+   *
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface DeviceRotationRadian {
     /**
      * indicates X-RotationRadian
-     * @type { number }
+     *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    x: number;
+    x: double;
     /**
      * indicates Y-RotationRadian
-     * @type { number }
+     *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    y: number;
+    y: double;
     /**
      * indicates Z-RotationRadian
-     * @type { number }
+     *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    z: number;
+    z: double;
   }
 
   /**
-   * Subscribe to detect the steady standing status
-   * @param { 'steadyStandingDetect' } type - Indicates the event type.
-   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
+   * Subscribes to steady standing state events.
+   *
+   * @param { 'steadyStandingDetect' } type - Event type. This field has a fixed value of **steadyStandingDetect**.
+   * @param { Callback<SteadyStandingStatus> } callback - Callback used to return the steady standing state of the
+   *     device.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
+   *     <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500002 - Subscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'steadyStandingDetect', callback: Callback<SteadyStandingStatus>): void;
 
   /**
-   * Unsubscribe to detect the steady standing status
-   * @param { 'steadyStandingDetect' } type - Indicates the event type.
-   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
+   * Unsubscribes from steady standing state events.
+   *
+   * @param { 'steadyStandingDetect' } type - Event type. This field has a fixed value of **steadyStandingDetect**.
+   * @param { Callback<SteadyStandingStatus> } [callback] - Callback used to return the steady standing state of the
+   *     device.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
+   *     <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500003 - Unsubscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'steadyStandingDetect', callback?: Callback<SteadyStandingStatus>): void;
 
   /**
-   * Get the device rotation radian
-   * @returns { Promise<DeviceRotationRadian> } The result of device roatation radian.
+   * Obtains the device posture data.
+   * 
+   * The posture data contains the rotation angles of the x, y, and z axes, that is, the Euler angles of the three axes.
+   * The definitions of the three axes are the same as those of the device sensor, and the right-handed coordinate 
+   * system is used. Posture rotation angles are calculated under the z-x-y intrinsic rotation order, and derived by 
+   * converting quaternions obtained via sensor fusion.
+   *
+   * @returns { Promise<DeviceRotationRadian> } The result of device rotation radian.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
+   *     <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function getDeviceRotationRadian(): Promise<DeviceRotationRadian>;
+
+  /**
+   * Subscribe to detect the steady standing status
+   *
+   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 32500001 - Service exception.
+   * @throws { BusinessError } 32500002 - Subscription failed.
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @since 23 static
+   */
+  function onSteadyStandingDetect(callback: Callback<SteadyStandingStatus>): void;
+
+  /**
+   * Unsubscribe to detect the steady standing status
+   *
+   * @param { Callback<SteadyStandingStatus> } [callback] - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 32500001 - Service exception.
+   * @throws { BusinessError } 32500003 - Unsubscription failed.
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @since 23 static
+   */
+  function offSteadyStandingDetect(callback?: Callback<SteadyStandingStatus>): void;
 }
 export default deviceStatus;

@@ -28,7 +28,8 @@
  * @implements AttributeModifier<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @stagemodelonly
+ * @since 12 dynamic
 */
 export declare class FormComponentModifier extends FormComponentAttribute implements AttributeModifier<FormComponentAttribute> {
 
@@ -38,7 +39,8 @@ export declare class FormComponentModifier extends FormComponentAttribute implem
    * @param { FormComponentAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: FormComponentAttribute): void;
 }

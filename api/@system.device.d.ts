@@ -19,99 +19,100 @@
  */
 
 /**
- * @interface DeviceResponse
+ *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface DeviceResponse {
   /**
    * Brand.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   brand: string;
 
   /**
    * Manufacturer.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   manufacturer: string;
 
   /**
    * Model.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   model: string;
 
   /**
    * Product number.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   product: string;
 
   /**
    * System language.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 4
+   * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   language: string;
 
   /**
    * System region.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 4
+   * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   region: string;
 
   /**
-   * Window width.
+   * Window width, unit px.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   windowWidth: number;
 
   /**
-   * Window Height.
+   * Window Height, unit px.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   windowHeight: number;
 
   /**
-   * Screen density.
+   * Screen density, unit dpi.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 4
+   * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   screenDensity: number;
 
@@ -120,20 +121,20 @@ export interface DeviceResponse {
    * rect: Rectangle screen.
    * circle: Circle screen.
    *
-   * @type { 'rect' | 'circle' }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 4
+   * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   screenShape: 'rect' | 'circle';
 
   /**
    * API version.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 4
+   * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   apiVersion: number;
 
@@ -152,48 +153,49 @@ export interface DeviceResponse {
    * smartVision: smart visual device
    * linkIoT: connection module
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 4
+   * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   deviceType: string;
 }
 
 /**
- * @interface GetDeviceOptions
+ *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface GetDeviceOptions {
   /**
    * Called when the device information is obtained.
    *
-   * @type  { ?function } 
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   success?: (data: DeviceResponse) => void;
 
   /**
    * Called when the device information fails to be obtained.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   fail?: (data: any, code: number) => void;
 
   /**
    * Called when the execution is completed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -202,8 +204,9 @@ export interface GetDeviceOptions {
  * getInfo interface
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export default class Device {
   /**
@@ -211,8 +214,9 @@ export default class Device {
    *
    * @param { GetDeviceOptions } options - Options
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   static getInfo(options?: GetDeviceOptions): void;
 }

@@ -40,8 +40,9 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare enum NavigationType {
   /**
@@ -63,8 +64,9 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead NavPathStack#pushPath
    */
   Push,
 
@@ -87,8 +89,9 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead NavPathStack#pop
    */
   Back,
 
@@ -111,8 +114,9 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead NavPathStack.replacePath
    */
   Replace,
 }
@@ -139,8 +143,9 @@ declare enum NavigationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 interface NavigatorInterface {
   /**
@@ -168,8 +173,9 @@ interface NavigatorInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead NavPathInfo
    */
   (value?: { target: string; type?: NavigationType }): NavigatorAttribute;
 
@@ -195,8 +201,9 @@ interface NavigatorInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead NavigationAttribute
    */
   (): NavigatorAttribute;
 }
@@ -223,8 +230,9 @@ interface NavigatorInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
@@ -252,8 +260,9 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead Navigation
    */
   active(value: boolean): NavigatorAttribute;
 
@@ -282,8 +291,9 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead Navigation
    */
   type(value: NavigationType): NavigatorAttribute;
 
@@ -312,8 +322,9 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead Navigation
    */
   target(value: string): NavigatorAttribute;
 
@@ -342,8 +353,9 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 13
+   * @useinstead NavPathInfo#param
    */
   params(value: object): NavigatorAttribute;
 }
@@ -367,8 +379,9 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare const Navigator: NavigatorInterface;
 
@@ -391,7 +404,8 @@ declare const Navigator: NavigatorInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare const NavigatorInstance: NavigatorAttribute;

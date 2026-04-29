@@ -26,7 +26,7 @@ import type constant from './@ohos.bluetooth.constant';
  *
  * @namespace map
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace map {
   /**
@@ -34,7 +34,7 @@ declare namespace map {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -44,7 +44,7 @@ declare namespace map {
    * @typedef { constant.AccessAuthorization } AccessAuthorization
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   type AccessAuthorization = constant.AccessAuthorization;
 
@@ -56,7 +56,7 @@ declare namespace map {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   function createMapMseProfile(): MapMseProfile;
 
@@ -66,7 +66,7 @@ declare namespace map {
    * @extends BaseProfile
    * @typedef MapMseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   interface MapMseProfile extends BaseProfile {
     /**
@@ -85,7 +85,7 @@ declare namespace map {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     disconnect(deviceId: string): void;
 
@@ -107,7 +107,7 @@ declare namespace map {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     setMessageAccessAuthorization(deviceId: string, authorization: AccessAuthorization): Promise<void>;
 
@@ -128,7 +128,7 @@ declare namespace map {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getMessageAccessAuthorization(deviceId: string): Promise<AccessAuthorization>;
   }

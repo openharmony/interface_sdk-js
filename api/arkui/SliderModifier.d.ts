@@ -27,6 +27,7 @@
  * @extends SliderAttribute
  * @implements AttributeModifier<SliderAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends SliderAttribute
  * @implements AttributeModifier<SliderAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class SliderModifier extends SliderAttribute implements AttributeModifier<SliderAttribute> {
 
@@ -47,9 +49,10 @@ export declare class SliderModifier extends SliderAttribute implements Attribute
    * 
    * @param { SliderAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: SliderAttribute): void;
 }

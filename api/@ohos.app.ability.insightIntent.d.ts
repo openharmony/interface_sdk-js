@@ -20,190 +20,346 @@
 
 import Want from './@ohos.app.ability.Want';
 import type wantConstant from './@ohos.app.ability.wantConstant';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
- * interface of insightIntent.
+ * This module provides basic definitions of the
+ * [InsightIntent framework](docroot://application-models/insight-intent-overview.md).
  *
- * @namespace insightIntent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace insightIntent {
   /**
-   * Enum for supported execute mode.
+   * Enumerates the intent execution modes. It specifies the mode of execution passed when the intent is triggered by a
+   * system entry point. The supported execution modes for each intent are defined during intent development.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   enum ExecuteMode {
     /**
-     * UIAbility foreground.
+     * Display a UIAbility in the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UI_ABILITY_FOREGROUND = 0,
 
     /**
-     * UIAbility background.
+     * Start a UIAbility in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UI_ABILITY_BACKGROUND = 1,
 
     /**
-     * UIExtensionAbility.
+     * Start a UIExtensionAbility.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly
+     * @since 11 dynamic
+     * @since 23 static
      */
     UI_EXTENSION_ABILITY = 2,
 
     /**
-     * ServiceExtensionAbility.
+     * Starts a ServiceExtensionAbility.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @stagemodelonly
+     * @since 11 dynamic
+     * @since 23 static
      */
-    SERVICE_EXTENSION_ABILITY = 3,
+    SERVICE_EXTENSION_ABILITY = 3
   }
 
   /**
-   * Result of intent execution.
+   * Enumerates the return results of intent execution.
    *
-   * @typedef ExecuteResult
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface ExecuteResult {
     /**
-     * Indicates result code.
+     * Error code returned by the intent execution, defined by the developer.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     code: int;
 
     /**
-     * Indicates execute result.
+     * Result data returned by the intent execution, typically containing information to be passed back to the system
+     * entry point.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     result?: Record<string, Object>;
 
     /**
-     * Indicates the URIs will be authorized to the insight intent driver.
+     * Indicates execute result.
      *
-     * @type { ?Array<string> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    result?: Record<string, RecordData>;
+
+    /**
+     * List of URIs returned by the intent execution. This field must be used together with the **flags** field to grant
+     * the corresponding permissions for the URI list to the system entry point.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     uris?: Array<string>;
 
     /**
-     * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
-     * flags must be one of {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION},
-     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION},
-     * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
-     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
+     * Permissions to be granted to the system entry point for the URI list returned by the intent execution.
      *
-     * @type { ?int }
+     * **NOTE**
+     *
+     * This parameter supports only FLAG_AUTH_READ_URI_PERMISSION, FLAG_AUTH_WRITE_URI_PERMISSION, and
+     * FLAG_AUTH_READ_URI_PERMISSION|FLAG_AUTH_WRITE_URI_PERMISSION. For details about the permissions, see
+     * [Flags]{@link @ohos.app.ability.wantConstant:wantConstant.Flags}.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     flags?: int;
   }
 
   /**
-   * Define IntentEntity.
+   * Defines the struct of an intent entity. It represents key information objects involved during intent execution,
+   * including intent parameters and execution results.
    *
-   * @interface IntentEntity
+   * You can define intent entities by inheriting this class. The child class must be decorated with
+   * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+   * .
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   interface IntentEntity {
     /**
-     * The entity Id.
+     * ID of the intent entity.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 26.0.0 static
      */
     entityId: string;
   }
-  
+
   /**
-   * The class of insight intent result.
+   * Enum for query entity mode.
    *
-   * @interface IntentResult<T>
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum QueryType {
+    /**
+     * Query all entities.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ALL = 'all',
+
+    /**
+     * Query entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    BY_PROPERTY = 'byProperty'
+  }
+
+  /**
+   * Parameter for query entity.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface QueryEntityParam {
+    /**
+     * The query type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    queryType: QueryType;
+
+    /**
+     * Indicates the parameters when querying entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    parameters?: Record<string, Object>;
+
+    /**
+     * Indicates the parameters when querying entities by property.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    parameters?: Record<string, RecordData>;
+  }
+
+  /**
+   * Define AppIntentEntity.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 26.0.0 dynamic&static
+   */
+  abstract class AppIntentEntity<T> implements IntentEntity {
+    /**
+     * Called when query entity execute.
+     *
+     * @param { QueryEntityParam } params - The params of query entity.
+     * @returns { Promise<Array<T>> } - Returns an array of subclasses of the AppIntentEntity class, support promise.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    abstract onQueryEntity(params: QueryEntityParam): Promise<Array<T>>;
+
+    /**
+     * The display name of entity.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    displayName: string;
+  }
+
+  /**
+   * Defines the return result of intent execution. The
+   * [generic type](docroot://quick-start/introduction-to-arkts.md#generic-class-and-interface) is supported.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   * @since 26.0.0 static
    */
   interface IntentResult<T> {
     /**
-     * The result code.
+     * Error code returned by the intent execution, defined by the developer.
      *
-     * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 26.0.0 static
      */
-    code: number;
+    code: int;
 
     /**
-     * The insight intent result.
+     * Result data returned by the intent execution, typically containing information to be passed
+     * back to the system entry point.
      *
-     * @type { ?T }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 26.0.0 static
      */
     result?: T;
+  }
+
+  /**
+   * Enumerates the modes that define how the execution result of an intent is returned to the intent initiator.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  enum ReturnMode {
+    /**
+     * The intent execution result is returned through the
+     * [onExecuteInUIAbilityForegroundMode]{@link @ohos.app.ability.InsightIntentExecutor:InsightIntentExecutor#onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage)}
+     * or
+     * [onExecuteInUIExtensionAbility]{@link @ohos.app.ability.InsightIntentExecutor:InsightIntentExecutor#onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession)}
+     * API in the [intent execution base class]{@link @ohos.app.ability.InsightIntentExecutor:InsightIntentExecutor}.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    CALLBACK = 0,
+
+    /**
+     * The intent execution result is returned after the
+     * [sendExecuteResult]{@link @ohos.app.ability.insightIntentProvider:insightIntentProvider.sendExecuteResult} or
+     * [sendIntentResult]{@link @ohos.app.ability.insightIntentProvider:insightIntentProvider.sendIntentResult} API in
+     * [intent provider management]{@link @ohos.app.ability.insightIntentProvider:insightIntentProvider} is called.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    FUNCTION = 1
   }
 }
 

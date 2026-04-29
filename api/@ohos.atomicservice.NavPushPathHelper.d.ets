@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 export declare class NavPushPathHelper {
   /**
@@ -32,7 +32,7 @@ export declare class NavPushPathHelper {
    * @param { NavPathStack } navPathStack - The stack of the route table.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   constructor(navPathStack: NavPathStack);
 
@@ -46,7 +46,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<void>;
 
@@ -60,7 +60,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -81,7 +81,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<void>;
 
@@ -102,7 +102,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -117,7 +117,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushPathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise<void>;
 
@@ -133,7 +133,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushPathByName(moduleName: string, name: string, param: Object,
     onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
@@ -156,7 +156,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushDestinationByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise<void>;
 
@@ -179,7 +179,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   pushDestinationByName(moduleName: string, name: string, param: Object,
     onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
@@ -194,7 +194,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<void>;
 
@@ -208,7 +208,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -223,7 +223,7 @@ export declare class NavPushPathHelper {
    * @throws { BusinessError } 300001 - hsp silent install fail.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   replacePathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise<void>;
 }

@@ -23,6 +23,7 @@
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -30,6 +31,7 @@
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -38,9 +40,10 @@
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class AppStorage {
   /**
@@ -52,7 +55,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static ref<T>(propName: string): AbstractProperty<T> | undefined;
 
@@ -68,7 +71,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
@@ -79,7 +82,8 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#link
    */
@@ -106,7 +110,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static link<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -118,7 +122,8 @@ declare class AppStorage {
    * @param { T } defaultValue
    * @returns { SubscribedAbstractProperty<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#setAndLink
    * @see setAndLink
@@ -161,7 +166,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
@@ -172,9 +177,11 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#prop
+   * @see prop
    */
   static Prop(propName: string): any;
 
@@ -199,7 +206,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static prop<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -211,7 +218,8 @@ declare class AppStorage {
    * @param { S } defaultValue
    * @returns { SubscribedAbstractProperty<S> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#setAndProp
    * @see setAndProp
@@ -260,7 +268,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
@@ -273,7 +281,8 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#has
    * @see has
@@ -303,17 +312,19 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static has(propName: string): boolean;
 
   /**
    * Same as see LocalStorage.get()
    * Obtain the value of property with given name, returns undefined if the property does not exist in AppStorage.
+   *
    * @param { string } propName
    * @returns { T | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#get
    * @see get
@@ -339,7 +350,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static get<T>(propName: string): T | undefined;
 
@@ -353,7 +364,8 @@ declare class AppStorage {
    * @param { T } newValue
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#set
    * @see set
@@ -399,7 +411,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static set<T>(propName: string, newValue: T): boolean;
 
@@ -412,7 +424,8 @@ declare class AppStorage {
    * @param { string } propName
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#setOrCreate
    * @see setOrCreate
@@ -455,7 +468,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static setOrCreate<T>(propName: string, newValue: T): void;
 
@@ -477,7 +490,8 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#delete
    * @see delete
@@ -525,7 +539,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static delete(propName: string): boolean;
 
@@ -536,7 +550,8 @@ declare class AppStorage {
    *
    * @returns { IterableIterator<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#keys
    * @see keys
@@ -562,7 +577,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static keys(): IterableIterator<string>;
 
@@ -571,7 +586,8 @@ declare class AppStorage {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead AppStorage.Clear
    */
@@ -583,7 +599,8 @@ declare class AppStorage {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @FaAndStageModel
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#clear
    * @see clear
@@ -609,7 +626,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static clear(): boolean;
 
@@ -619,7 +636,8 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    */
   static IsMutable(propName: string): boolean;
@@ -629,7 +647,8 @@ declare class AppStorage {
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead AppStorage#size
    * @see size
@@ -651,7 +670,7 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static size(): number;
 }
@@ -674,7 +693,7 @@ declare class AppStorage {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface AbstractProperty<T> {
   /**
@@ -684,7 +703,7 @@ declare interface AbstractProperty<T> {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since 12 dynamic
   */
   get(): T;
 
@@ -696,7 +715,7 @@ declare interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set(newValue: T): void;
 
@@ -707,7 +726,7 @@ declare interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   info(): string;
 }
@@ -717,21 +736,23 @@ declare interface AbstractProperty<T> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
- *   SubscribedAbstractProperty<T> is the return value of
- *   - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
- *   - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
- *   'T' can be boolean, string, number or custom class.
+ * SubscribedAbstractProperty<T> is the return value of
+ * - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
+ * - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
+ * 'T' can be boolean, string, number or custom class.
  * Main functions
- *   see get() reads the linked AppStorage/LocalStorage property value,
- *   see set(newValue) write a new value to the synched AppStorage/LocalStorage property
- *   see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
- *        The app must call this function before the SubscribedAbstractProperty<T> object
- *        goes out of scope.
+ * see get() reads the linked AppStorage/LocalStorage property value,
+ * see set(newValue) write a new value to the synched AppStorage/LocalStorage property
+ * see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
+ * The app must call this function before the SubscribedAbstractProperty<T> object
+ * goes out of scope.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -748,6 +769,7 @@ declare interface AbstractProperty<T> {
  *        goes out of scope.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -765,10 +787,11 @@ declare interface AbstractProperty<T> {
  *        goes out of scope.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare abstract class SubscribedAbstractProperty<T> {
   /**
@@ -777,7 +800,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @type { Set<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   protected subscribers_: Set<number>;
 
@@ -787,7 +811,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   private id_;
 
@@ -797,7 +822,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   private info_?;
 
@@ -806,7 +832,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @param { string } info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor(
     /**
@@ -835,7 +862,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   id(): number;
 
@@ -856,7 +884,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   info(): string;
 
@@ -867,6 +895,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -877,6 +906,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -888,10 +918,11 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   abstract get(): T;
 
@@ -903,6 +934,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -914,6 +946,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -926,6 +959,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -939,10 +973,11 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   abstract set(newValue: T): void;
 
@@ -954,7 +989,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @returns { SyncedPropertyTwoWay<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   createTwoWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyTwoWay<T>;
 
@@ -966,7 +1002,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @returns { SyncedPropertyOneWay<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   createOneWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyOneWay<T>;
 
@@ -976,7 +1013,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @param { number } subscriberId
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   unlinkSuscriber(subscriberId: number): void;
 
@@ -986,7 +1024,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   protected notifyHasChanged(newValue: T): void;
 
@@ -995,7 +1034,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   protected notifyPropertyRead(): void;
 
@@ -1005,7 +1045,8 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   numberOfSubscrbers(): number;
 
@@ -1028,7 +1069,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   abstract aboutToBeDeleted(): void;
 }
@@ -1039,7 +1080,8 @@ declare abstract class SubscribedAbstractProperty<T> {
  * @interface IPropertySubscriber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 interface IPropertySubscriber {
   /**
@@ -1048,7 +1090,8 @@ interface IPropertySubscriber {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   id(): number;
 
@@ -1058,7 +1101,8 @@ interface IPropertySubscriber {
    * @param { IPropertySubscriber } owningView
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   aboutToBeDeleted(owningView?: IPropertySubscriber): void;
 }
@@ -1070,7 +1114,8 @@ interface IPropertySubscriber {
  * @implements ISinglePropertyChangeSubscriber<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 declare class SyncedPropertyTwoWay<T>
   extends SubscribedAbstractProperty<T>
@@ -1082,7 +1127,8 @@ declare class SyncedPropertyTwoWay<T>
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   private source_;
 
@@ -1094,7 +1140,8 @@ declare class SyncedPropertyTwoWay<T>
    * @param { string } info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor(source: SubscribedAbstractProperty<T>, subscribeMe?: IPropertySubscriber, info?: string);
 
@@ -1104,7 +1151,8 @@ declare class SyncedPropertyTwoWay<T>
    * @param { IPropertySubscriber } unsubscribeMe
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   aboutToBeDeleted(unsubscribeMe?: IPropertySubscriber): void;
 
@@ -1114,7 +1162,8 @@ declare class SyncedPropertyTwoWay<T>
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   hasChanged(newValue: T): void;
 
@@ -1124,7 +1173,8 @@ declare class SyncedPropertyTwoWay<T>
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   get(): T;
 
@@ -1134,7 +1184,8 @@ declare class SyncedPropertyTwoWay<T>
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   set(newValue: T): void;
 }
@@ -1146,7 +1197,8 @@ declare class SyncedPropertyTwoWay<T>
  * @implements ISinglePropertyChangeSubscriber<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 declare class SyncedPropertyOneWay<T>
   extends SubscribedAbstractProperty<T>
@@ -1158,7 +1210,8 @@ declare class SyncedPropertyOneWay<T>
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   private wrappedValue_;
 
@@ -1168,7 +1221,8 @@ declare class SyncedPropertyOneWay<T>
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   private source_;
 
@@ -1180,7 +1234,8 @@ declare class SyncedPropertyOneWay<T>
    * @param { string } info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor(source: SubscribedAbstractProperty<T>, subscribeMe?: IPropertySubscriber, info?: string);
 
@@ -1190,7 +1245,8 @@ declare class SyncedPropertyOneWay<T>
    * @param { IPropertySubscriber } unsubscribeMe
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   aboutToBeDeleted(unsubscribeMe?: IPropertySubscriber): void;
 
@@ -1200,7 +1256,8 @@ declare class SyncedPropertyOneWay<T>
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   hasChanged(newValue: T): void;
 
@@ -1210,7 +1267,8 @@ declare class SyncedPropertyOneWay<T>
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   get(): T;
 
@@ -1220,7 +1278,8 @@ declare class SyncedPropertyOneWay<T>
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   set(newValue: T): void;
 }
@@ -1232,7 +1291,8 @@ declare class SyncedPropertyOneWay<T>
  * @interface ISinglePropertyChangeSubscriber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
   /**
@@ -1241,7 +1301,8 @@ interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   hasChanged(newValue: T): void;
 }
@@ -1251,7 +1312,8 @@ interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 declare abstract class SubscribaleAbstract {
   /**
@@ -1260,7 +1322,8 @@ declare abstract class SubscribaleAbstract {
    * @type { Set<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   private owningProperties_: Set<number>;
 
@@ -1269,7 +1332,8 @@ declare abstract class SubscribaleAbstract {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor();
 
@@ -1280,7 +1344,8 @@ declare abstract class SubscribaleAbstract {
    * @param { any } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   protected notifyPropertyHasChanged(propName: string, newValue: any): void;
 
@@ -1290,7 +1355,8 @@ declare abstract class SubscribaleAbstract {
    * @param { IPropertySubscriber } subscriber
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   public addOwningProperty(subscriber: IPropertySubscriber): void;
 
@@ -1300,7 +1366,8 @@ declare abstract class SubscribaleAbstract {
    * @param { IPropertySubscriber } property
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   public removeOwningProperty(property: IPropertySubscriber): void;
 
@@ -1310,7 +1377,8 @@ declare abstract class SubscribaleAbstract {
    * @param { number } subscriberId
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   public removeOwningPropertyById(subscriberId: number): void;
 }
@@ -1330,7 +1398,7 @@ declare abstract class SubscribaleAbstract {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface EnvPropsOptions {
   /**
@@ -1348,7 +1416,7 @@ declare interface EnvPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   key: string;
 
@@ -1367,7 +1435,7 @@ declare interface EnvPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   defaultValue: number | string | boolean;
 }
@@ -1376,12 +1444,14 @@ declare interface EnvPropsOptions {
  * Defines the Environment interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines the Environment interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1389,9 +1459,10 @@ declare interface EnvPropsOptions {
  * Defines the Environment interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class Environment {
   /**
@@ -1399,7 +1470,8 @@ declare class Environment {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor();
 
@@ -1410,7 +1482,8 @@ declare class Environment {
    * @param { S } value
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead Environment#envProp
    */
@@ -1441,7 +1514,7 @@ declare class Environment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static envProp<S>(key: string, value: S): boolean;
 
@@ -1450,7 +1523,8 @@ declare class Environment {
    *
    * @param { {key: string;defaultValue: any;}[] } props
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead Environment#envProps
    */
@@ -1476,7 +1550,7 @@ declare class Environment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static envProps(props: EnvPropsOptions[]): void;
 
@@ -1485,7 +1559,8 @@ declare class Environment {
    *
    * @returns { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead Environment#keys
    */
@@ -1506,7 +1581,7 @@ declare class Environment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static keys(): Array<string>;
 }
@@ -1526,7 +1601,7 @@ declare class Environment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface PersistPropsOptions {
   /**
@@ -1544,7 +1619,7 @@ declare interface PersistPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   key: string;
 
@@ -1563,7 +1638,7 @@ declare interface PersistPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   defaultValue: number | string | boolean | Object;
 }
@@ -1572,12 +1647,14 @@ declare interface PersistPropsOptions {
  * Defines the PersistentStorage interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines the PersistentStorage interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1585,9 +1662,10 @@ declare interface PersistPropsOptions {
  * Defines the PersistentStorage interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class PersistentStorage {
   /**
@@ -1597,7 +1675,8 @@ declare class PersistentStorage {
    * @param { Storage } storage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamic
    */
   constructor(appStorage: AppStorage, storage: Storage);
 
@@ -1607,7 +1686,8 @@ declare class PersistentStorage {
    * @param { string } key
    * @param { T } defaultValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead PersistentStorage#persistProp
    */
@@ -1636,7 +1716,7 @@ declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static persistProp<T>(key: string, defaultValue: T): void;
 
@@ -1645,7 +1725,8 @@ declare class PersistentStorage {
    *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead PersistentStorage#deleteProp
    */
@@ -1666,7 +1747,7 @@ declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static deleteProp(key: string): void;
 
@@ -1675,7 +1756,8 @@ declare class PersistentStorage {
    *
    * @param { {key: string;defaultValue: any;}[] } properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead PersistentStorage#PersistProps
    */
@@ -1705,7 +1787,7 @@ declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static persistProps(props: PersistPropsOptions[]): void;
 
@@ -1715,7 +1797,8 @@ declare class PersistentStorage {
    *
    * @returns { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 10
    * @useinstead PersistentStorage#keys
    */
@@ -1737,7 +1820,7 @@ declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static keys(): Array<string>;
 }
@@ -1747,7 +1830,8 @@ declare class PersistentStorage {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamic
  */
 declare const appStorage: AppStorage;
 
@@ -1760,6 +1844,7 @@ declare const appStorage: AppStorage;
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1772,6 +1857,7 @@ declare const appStorage: AppStorage;
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1785,10 +1871,11 @@ declare const appStorage: AppStorage;
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class LocalStorage {
   /**
@@ -1798,6 +1885,7 @@ declare class LocalStorage {
    *
    * @param { Object } [initializingProperties] - Object containing keys and values. see set() for valid values
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1808,6 +1896,7 @@ declare class LocalStorage {
    *
    * @param { Object } [initializingProperties] - Object containing keys and values. see set() for valid values
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1819,10 +1908,11 @@ declare class LocalStorage {
    *
    * @param { Object } [initializingProperties] - Object containing keys and values. see set() for valid values
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(initializingProperties?: Object);
 
@@ -1833,7 +1923,7 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @StageModelOnly
    * @form
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead LocalStorage#getShared
    */
@@ -1858,7 +1948,7 @@ declare class LocalStorage {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#getSharedLocalStorage
    */
@@ -1873,7 +1963,7 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
    public ref<T>(propName: string): AbstractProperty<T> | undefined;
 
@@ -1889,7 +1979,7 @@ declare class LocalStorage {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamic
     */
    public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
@@ -1901,6 +1991,7 @@ declare class LocalStorage {
    * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1912,6 +2003,7 @@ declare class LocalStorage {
    * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1924,10 +2016,11 @@ declare class LocalStorage {
    * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   has(propName: string): boolean;
 
@@ -1937,6 +2030,7 @@ declare class LocalStorage {
    *
    * @returns { IterableIterator<string> } return a Map Iterator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1946,6 +2040,7 @@ declare class LocalStorage {
    *
    * @returns { IterableIterator<string> } return a Map Iterator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1956,10 +2051,11 @@ declare class LocalStorage {
    *
    * @returns { IterableIterator<string> } return a Map Iterator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   keys(): IterableIterator<string>;
 
@@ -1969,6 +2065,7 @@ declare class LocalStorage {
    *
    * @returns { number } return number of properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -1978,6 +2075,7 @@ declare class LocalStorage {
    *
    * @returns { number } return number of properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -1988,10 +2086,11 @@ declare class LocalStorage {
    *
    * @returns { number } return number of properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   size(): number;
 
@@ -2002,6 +2101,7 @@ declare class LocalStorage {
    * @param { string } propName
    * @returns { T | undefined } property value if found or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2012,6 +2112,7 @@ declare class LocalStorage {
    * @param { string } propName
    * @returns { T | undefined } property value if found or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2023,10 +2124,11 @@ declare class LocalStorage {
    * @param { string } propName
    * @returns { T | undefined } property value if found or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   get<T>(propName: string): T | undefined;
 
@@ -2039,6 +2141,7 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2051,6 +2154,7 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2064,6 +2168,7 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2078,10 +2183,11 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T, can be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set<T>(propName: string, newValue: T): boolean;
 
@@ -2095,6 +2201,7 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2108,6 +2215,7 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2122,6 +2230,7 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2136,10 +2245,11 @@ declare class LocalStorage {
    * @param { T } newValue - must be of type T, can be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setOrCreate<T>(propName: string, newValue: T): boolean;
 
@@ -2151,6 +2261,7 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2162,6 +2273,7 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2174,10 +2286,11 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   link<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -2190,6 +2303,7 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2202,6 +2316,7 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2215,6 +2330,7 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2229,10 +2345,11 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
@@ -2244,6 +2361,7 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2255,6 +2373,7 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2267,10 +2386,11 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   prop<S>(propName: string): SubscribedAbstractProperty<S>;
 
@@ -2295,6 +2415,7 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2308,6 +2429,7 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2322,10 +2444,11 @@ declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
@@ -2346,6 +2469,7 @@ declare class LocalStorage {
    * @param { string } propName
    * @returns { boolean } false if method failed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2366,6 +2490,7 @@ declare class LocalStorage {
    * @param { string } propName
    * @returns { boolean } false if method failed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2387,10 +2512,11 @@ declare class LocalStorage {
    * @param { string } propName
    * @returns { boolean } false if method failed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   delete(propName: string): boolean;
 
@@ -2402,6 +2528,7 @@ declare class LocalStorage {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2413,6 +2540,7 @@ declare class LocalStorage {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2425,10 +2553,11 @@ declare class LocalStorage {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   clear(): boolean;
 }

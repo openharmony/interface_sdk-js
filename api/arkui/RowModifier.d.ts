@@ -27,6 +27,7 @@
  * @extends RowAttribute
  * @implements AttributeModifier<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends RowAttribute
  * @implements AttributeModifier<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class RowModifier extends RowAttribute implements AttributeModifier<RowAttribute> {
 
@@ -47,9 +49,10 @@ export declare class RowModifier extends RowAttribute implements AttributeModifi
    * 
    * @param { RowAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: RowAttribute): void;
 }

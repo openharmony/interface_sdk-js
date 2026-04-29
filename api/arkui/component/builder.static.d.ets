@@ -16,26 +16,35 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
 import { Callback } from '@ohos.base';
 
 /**
  * Defines Builder Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 23 static
+ * @noninterop
  */
 @Retention({policy: "SOURCE"})
+@Target([
+  AnnotationTargets.FUNCTION,
+  AnnotationTargets.CLASS_METHOD,
+  AnnotationTargets.CLASS_FIELD,
+  AnnotationTargets.TYPE,
+  AnnotationTargets.PARAMETER,
+  AnnotationTargets.TYPE_ALIAS,
+  AnnotationTargets.LAMBDA
+])
 export declare @interface Builder {}
 
 /**
  * Defines BuilderParam Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface BuilderParam {}
@@ -43,18 +52,22 @@ export declare @interface BuilderParam {}
 /**
  * Defines the CustomBuilder Type.
  *
- * @typedef { function }
+ * @typedef { @Builder (() => void) } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export type CustomBuilder = @Builder (() => void);
 
 /**
  * Defines the CustomBuilder Type.
  *
- * @typedef { function }
+ * @typedef { @Builder ((t:T) => void) } CustomBuilderT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export type CustomBuilderT<T> = @Builder ((t: T) => void);
 
@@ -63,7 +76,9 @@ export type CustomBuilderT<T> = @Builder ((t: T) => void);
  *
  * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void);
 
@@ -72,32 +87,36 @@ export type PageMapBuilder = @Builder ((name: string, param: Object | null | und
  * @param { T } builder
  * @returns { WrappedBuilder<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 
 /**
  * Defines the WrappedBuilder class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare class WrappedBuilder<T> {
 
   /**
    * Builder function.
-   *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   @Builder public builder: T;
 
   /**
-   *  Initialize builder.
-   *
+   * Initialize builder.
    * @param { T } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @stagemodelonly
+   * @since 23 static
    */
   public constructor(builder: T);
 }
@@ -108,7 +127,8 @@ export declare class WrappedBuilder<T> {
  * @typedef { function } BuilderParameterCallback
  * @returns { Any } parameter value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @stagemodelonly
+ * @since 23 static
  */
 export type BuilderParameterCallback = () => Any;
 
@@ -116,10 +136,21 @@ export type BuilderParameterCallback = () => Any;
  * Make proxy for Builder parameter.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @param { T } instance initial literal instance
  * @param { Map<string, BuilderParameterCallback> } propertyGetters override property getters
  * @param { Callback<T> } initializer update proxied instance with literal's initial values
  * @returns { T } proxied literal instance
- * @since 20
+ * @since 23 static
  */
-export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
+export declare function makeBuilderParameterProxy<T>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
+
+/**
+ * Defines ComponentBuilder Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+@Retention({policy: "SOURCE"})
+export @interface ComponentBuilder {}

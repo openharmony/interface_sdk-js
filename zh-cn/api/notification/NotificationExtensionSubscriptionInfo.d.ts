@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file Describes a notification extension subscription info
+ * @kit NotificationKit
+ */
+
+import type notificationExtensionSubscription from '../@ohos.notificationExtensionSubscription';
+
+/**
+ * 用于描述通知扩展订阅的信息。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @since 22 dynamic
+ * @since 23 static
+ */
+export interface NotificationExtensionSubscriptionInfo {
+  /**
+   * 表示设备的唯一标识符。例如："11:22:33:AA:BB:FF"
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  addr: string;
+
+  /**
+   * 表示订阅的类型，包括通过蓝牙订阅通知。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  type: notificationExtensionSubscription.SubscribeType;
+}

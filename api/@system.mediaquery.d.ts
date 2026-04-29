@@ -31,7 +31,7 @@
  * @interface MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface MediaQueryEvent {
   /**
@@ -47,7 +47,7 @@ export interface MediaQueryEvent {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   matches: boolean;
 }
@@ -65,7 +65,7 @@ export interface MediaQueryEvent {
  * @interface MediaQueryList
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface MediaQueryList {
   /**
@@ -83,7 +83,7 @@ export interface MediaQueryList {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   media?: string;
 
@@ -102,7 +102,7 @@ export interface MediaQueryList {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   matches?: boolean;
 
@@ -119,7 +119,7 @@ export interface MediaQueryList {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onchange?: (matches: boolean) => void;
 
@@ -138,7 +138,7 @@ export interface MediaQueryList {
    * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   addListener(callback: (event: MediaQueryEvent) => void): void;
 
@@ -155,7 +155,7 @@ export interface MediaQueryList {
    * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   removeListener(callback: (event: MediaQueryEvent) => void): void;
 }
@@ -171,7 +171,7 @@ export interface MediaQueryList {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export default class MediaQuery {
   /**
@@ -189,7 +189,7 @@ export default class MediaQuery {
    * @returns { MediaQueryList }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static matchMedia(condition: string): MediaQueryList;
 }

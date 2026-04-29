@@ -18,30 +18,60 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
- * UI service host proxy.
+ * UIServiceHostProxy functions as a proxy to send data from the
+ * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} server
+ * to the client.
  *
- * @interface UIServiceHostProxy
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 23 static
  */
 export default interface UIServiceHostProxy {
   /**
-   * Send data to a ui service host.
+   * Sends data from the
+   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}
+   * server to the client.
    *
-   * @param { Record<string, Object> } data - Indicates the data to send.
+   * @param { Record<string, Object> } data - Data to be sent to the
+   *     [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}
+   *     client.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   sendData(data: Record<string, Object>): void;
+
+  /**
+   * Sends data from the
+   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}
+   * server to the client.
+   *
+   * @param { Record<string, RecordData> } data - Data to be sent to the
+   *     [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}
+   *     client.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  sendData(data: Record<string, RecordData>): void;
 }

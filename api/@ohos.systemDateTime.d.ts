@@ -33,8 +33,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace systemDateTime
  * @syscap SystemCapability.MiscServices.Time
  * @crossplatform
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 23 static
  */
 declare namespace systemDateTime {
   /**
@@ -45,12 +45,32 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<void> } callback - The callback of setTime
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
+  /** 
+    * Sets the system time. 
+    * 
+    * @permission ohos.permission.SET_TIME 
+    * @param { long } time - Indicates the target timestamp(in milliseconds) 
+    * @param { AsyncCallback<void> } callback - The callback of setTime 
+    * @throws { BusinessError } 201 - Permission denied 
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API. 
+    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+    *     1. The operation is restricted by the OS-account constraint. 
+    *     2. The required privilege for the operation has not been granted. 
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    *     1. Mandatory parameters are left unspecified; 
+    *     2. Incorrect parameter types; 
+    * @syscap SystemCapability.MiscServices.Time 
+    * @systemapi Hide this for inner system use 
+    * @since 24 dynamic&static 
+    */
   function setTime(time: long, callback: AsyncCallback<void>): void;
   /**
    * Sets the system time.
@@ -60,22 +80,42 @@ declare namespace systemDateTime {
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
+  /** 
+    * Sets the system time. 
+    * 
+    * @permission ohos.permission.SET_TIME 
+    * @param { long } time - Indicates the target timestamp(in milliseconds) 
+    * @returns { Promise<void> } The promise returned by the function 
+    * @throws { BusinessError } 201 - Permission denied 
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API. 
+    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+    *     1. The operation is restricted by the OS-account constraint. 
+    *     2. The required privilege for the operation has not been granted. 
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    *     1. Mandatory parameters are left unspecified; 
+    *     2. Incorrect parameter types; 
+    * @syscap SystemCapability.MiscServices.Time 
+    * @systemapi Hide this for inner system use 
+    * @since 24 dynamic&static 
+    */
   function setTime(time: long): Promise<void>;
 
   /**
-   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   * Obtains the time elapsed since the Unix epoch.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback - The callback of getCurrentTime
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getTime
    */
@@ -87,20 +127,20 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<number> } callback - The callback of getCurrentTime
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   * Obtains the time elapsed since the Unix epoch.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> } The promise returned by the function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getTime
    */
@@ -121,19 +161,19 @@ declare namespace systemDateTime {
    * @returns { long } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   function getTime(isNanoseconds?: boolean): long;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+   * Obtains the time elapsed since the system was booted, not including deep sleep time.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds., otherwise in milliseconds
    * @param { AsyncCallback<number> } callback - The callback of getRealActiveTime
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getUptime
    */
@@ -145,33 +185,33 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<number> } callback - The callback of getRealActiveTime
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+   * Obtains the time elapsed since the system was booted, not including deep sleep time.
    *
    * @param { boolean } [isNano] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> } The promise returned by the function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+   * Obtains the time elapsed since the system was booted, including deep sleep time.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback - The callback of getRealTime
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getUptime
    */
@@ -183,20 +223,20 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<number> } callback - The callback of getRealTime
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getUptime
    */
   function getRealTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+   * Obtains the time elapsed since the system was booted, including deep sleep time.
    *
    * @param { boolean } [isNano] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> } The promise returned by the function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead systemDateTime.getUptime
    */
@@ -215,8 +255,8 @@ declare namespace systemDateTime {
    * @enum { int } TimeType
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   enum TimeType {
     /**
@@ -230,8 +270,8 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     STARTUP = 0,
 
@@ -246,8 +286,8 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     ACTIVE = 1
   }
@@ -274,7 +314,7 @@ declare namespace systemDateTime {
    * @since 12
    */
   /**
-   * Obtains the number of milliseconds since the system has been running.
+   * Obtains the time elapsed since the system has been running.
    *
    * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
@@ -284,8 +324,8 @@ declare namespace systemDateTime {
    *     issues.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   function getUptime(timeType: TimeType, isNanoseconds?: boolean): long;
 
@@ -301,7 +341,7 @@ declare namespace systemDateTime {
    *     3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead systemDateTime.setTime
    */
@@ -319,7 +359,7 @@ declare namespace systemDateTime {
    *     3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead systemDateTime.setTime
    */
@@ -331,7 +371,7 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<Date> } callback - The callback of getDate
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.System error;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead new Date()
    */
@@ -343,7 +383,7 @@ declare namespace systemDateTime {
    * @returns { Promise<Date> } The promise returned by the function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.System error;
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead new Date()
    */
@@ -357,11 +397,32 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<void> } callback - The callback of setTimezone
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
+  /** 
+    * Sets the system time zone. 
+    * 
+    * @permission ohos.permission.SET_TIME_ZONE 
+    * @param { string } timezone - The system time zone 
+    * @param { AsyncCallback<void> } callback - The callback of setTimezone 
+    * @throws { BusinessError } 201 - Permission denied 
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API. 
+    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+    *     1. The operation is restricted by the OS-account constraint. 
+    *     2. The required privilege for the operation has not been granted. 
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    *     1. Mandatory parameters are left unspecified; 
+    *     2. Incorrect parameter types; 
+    * @syscap SystemCapability.MiscServices.Time 
+    * @systemapi Hide this for inner system use 
+    * @since 24 dynamic&static 
+    */
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -372,11 +433,32 @@ declare namespace systemDateTime {
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
+  /** 
+    * Sets the system time zone. 
+    * 
+    * @permission ohos.permission.SET_TIME_ZONE 
+    * @param { string } timezone -  The system time zone 
+    * @returns { Promise<void> } The promise returned by the function 
+    * @throws { BusinessError } 201 - Permission denied 
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API. 
+    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+    *     1. The operation is restricted by the OS-account constraint. 
+    *     2. The required privilege for the operation has not been granted. 
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    *     1.Mandatory parameters are left unspecified; 
+    *     2.Incorrect parameter types; 
+    * @syscap SystemCapability.MiscServices.Time 
+    * @systemapi Hide this for inner system use 
+    * @since 24 dynamic&static 
+    */
   function setTimezone(timezone: string): Promise<void>;
 
   /**
@@ -400,8 +482,8 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<string> } callback - The callback of getTimezone
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   function getTimezone(callback: AsyncCallback<string>): void;
 
@@ -426,8 +508,8 @@ declare namespace systemDateTime {
    * @returns { Promise<string> } The promise returned by the function
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   function getTimezone(): Promise<string>;
 
@@ -444,8 +526,8 @@ declare namespace systemDateTime {
    * @returns { string } The timezone returned of getTimezoneSync.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   function getTimezoneSync(): string;
 
@@ -457,7 +539,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 13000001 - Network connection error or OS error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 14
+   * @since 14 dynamic
+   * @since 23 static
    */
   function updateNtpTime(): Promise<void>;
 
@@ -469,7 +552,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 13000002 - updateNtpTime() is not called successfully.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 14
+   * @since 14 dynamic
+   * @since 23 static
    */
   function getNtpTime(): long;
 
@@ -481,7 +565,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes: 1.System memory is
    *     insufficient; 2.Calls the underlying system interface failed.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   function getAutoTimeStatus(): boolean;
 
@@ -498,8 +583,28 @@ declare namespace systemDateTime {
    *     insufficient; 2.Calls the underlying system interface failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
+  /** 
+    * Sets the status of automatic system time update switch. 
+    * 
+    * @permission ohos.permission.SET_TIME 
+    * @param { boolean } status - True indicates the automatic system time update is enabled and false indicates the 
+    *     automatic time update is disabled. 
+    * @returns { Promise<void> } The promise returned by the function. 
+    * @throws { BusinessError } 201 - Permission denied 
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API. 
+    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+    *     1. The operation is restricted by the OS-account constraint. 
+    *     2. The required privilege for the operation has not been granted. 
+    * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes: 
+    *     1. System memory is insufficient; 
+    *     2. Calls the underlying system interface failed. 
+    * @syscap SystemCapability.MiscServices.Time 
+    * @systemapi 
+    * @since 24 dynamic&static 
+    */
   function setAutoTimeStatus(status: boolean): Promise<void>;
 }
 

@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface BlankInterface {
   /**
@@ -90,7 +90,7 @@ interface BlankInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (min?: number | string): BlankAttribute;
 }
@@ -127,7 +127,7 @@ interface BlankInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
@@ -167,7 +167,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color(value: ResourceColor): BlankAttribute;
 }
@@ -200,7 +200,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Blank: BlankInterface;
 
@@ -232,6 +232,6 @@ declare const Blank: BlankInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const BlankInstance: BlankAttribute;

@@ -27,6 +27,7 @@
  * @extends LoadingProgressAttribute
  * @implements AttributeModifier<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,9 +37,10 @@
  * @extends LoadingProgressAttribute
  * @implements AttributeModifier<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class LoadingProgressModifier extends LoadingProgressAttribute implements AttributeModifier<LoadingProgressAttribute> {
 
@@ -47,9 +49,10 @@ export declare class LoadingProgressModifier extends LoadingProgressAttribute im
    * 
    * @param { LoadingProgressAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: LoadingProgressAttribute): void;
 }

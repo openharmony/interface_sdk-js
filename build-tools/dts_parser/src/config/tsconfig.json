@@ -29,6 +29,7 @@
         "Counter",
         "DataPanel",
         "DatePicker",
+        "DepthComponent",
         "Divider",
         "Ellipse",
         "Flex",
@@ -62,7 +63,6 @@
         "Particle",        
         "Path",
         "PatternLock",
-        "Picker",
         "Piece",
         "PluginComponent",
         "Polygon",
@@ -108,7 +108,8 @@
         "GridRow",
         "GridCol",
         "ArcAlphabetIndexer",
-        "ArcSwiper"
+        "ArcSwiper",
+        "UIPickerComponent"
       ],
       "extend": {
         "decorator": "Extend",
@@ -222,6 +223,11 @@
             "name": "DatePicker",
             "type": "DatePickerAttribute",
             "instance": "DatePickerInstance"
+          },
+          {
+            "name": "DepthComponent",
+            "type": "DepthComponentAttribute",
+            "instance": "DepthComponentInstance"
           },
           {
             "name": "Divider",
@@ -389,9 +395,9 @@
             "instance": "PatternLockInstance"
           },
           {
-            "name": "Picker",
-            "type": "PickerAttribute",
-            "instance": "PickerInterface"
+            "name": "UIPickerComponent",
+            "type": "UIPickerComponentAttribute",
+            "instance": "UIPickerComponentInstance"
           },
           {
             "name": "Piece",
