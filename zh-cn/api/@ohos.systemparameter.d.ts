@@ -39,7 +39,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @systemapi Hide this for inner system use.
  * @since 6 dynamiconly
  * @deprecated since 9
- * @useinstead null
+ * @useinstead @ohos.systemParameterEnhance:systemParameterEnhance
  */
 declare namespace systemParameter {
   /**
@@ -54,7 +54,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.getSync
    */
   function getSync(key: string, def?: string): string;
 
@@ -67,7 +67,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.get
    */
   function get(key: string, callback: AsyncCallback<string>): void;
 
@@ -81,7 +81,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.get
    */
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
 
@@ -95,7 +95,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.get
    */
   function get(key: string, def?: string): Promise<string>;
 
@@ -108,7 +108,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.etSync
    */
   function setSync(key: string, value: string): void;
 
@@ -122,7 +122,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.set
    */
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -136,7 +136,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead ohos.systemParameterEnhance.set
    */
   function set(key: string, value: string): Promise<void>;
 }
