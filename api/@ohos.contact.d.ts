@@ -70,9 +70,8 @@ declare namespace contact {
    * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
    * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 10
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
@@ -103,9 +102,8 @@ declare namespace contact {
    * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
    * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 10
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
 
