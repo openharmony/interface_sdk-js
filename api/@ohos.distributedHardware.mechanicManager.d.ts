@@ -1104,6 +1104,24 @@ declare namespace mechanicManager {
     TIMEOUT = 3,
 
     /**
+     * Termination caused by an obstacle.
+     * 
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    TERMINATE_OBSTACLE  = 4,
+
+    /**
+     * Termination caused by a cliff.
+     * 
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    TERMINATE_CLIFF = 5,
+
+    /**
      * Rotation failed due to system error.
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1139,7 +1157,7 @@ declare namespace mechanicManager {
     DESKTOP_GIMBAL_DEVICE = 1,
 
     /**
-     * Wheeled‑mounted base device.
+     * Wheeled?mounted base device.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
