@@ -28,6 +28,8 @@ import { EnabledSilentReminderCallbackData as _EnabledSilentReminderCallbackData
 import { EnabledSilentReminderChangedCallback as _EnabledSilentReminderChangedCallback } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
+import { VoiceContent as _VoiceContent } from './notification/notificationSubscriber';
+import { VoiceContentOptions as _VoiceContentOptions } from './notification/notificationSubscribeInfo';
 /*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
@@ -720,6 +722,25 @@ declare namespace notificationSubscribe {
    * @since 23 static
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
+
+  /**
+   * Describes the properties of the voice content options for notification subscription.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContentOptions = _VoiceContentOptions;
+  /**
+   * Describes the properties of the voice content of the received notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContent = _VoiceContent;
 }
 
 export default notificationSubscribe;
