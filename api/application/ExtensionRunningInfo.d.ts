@@ -22,7 +22,7 @@ import { ElementName } from '../bundleManager/ElementName';
 import bundle from '../@ohos.bundle.bundleManager';
 
 /**
- * The ExtensionRunningInfo module encapsulates ExtensionAbility running information, which can be obtained through 
+ * The ExtensionRunningInfo module encapsulates ExtensionAbility running information, which can be obtained through
  * [getExtensionRunningInfos]{@link @ohos.app.ability.abilityManager:abilityManager.getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>)}
  * .
  *
@@ -33,6 +33,7 @@ import bundle from '../@ohos.bundle.bundleManager';
  */
 export interface ExtensionRunningInfo {
   /**
+   * ExtensionAbility information.
    *
    * @default Indicates the extension of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -43,6 +44,7 @@ export interface ExtensionRunningInfo {
   extension: ElementName;
 
   /**
+   * Process ID.
    *
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -53,6 +55,7 @@ export interface ExtensionRunningInfo {
   pid: int;
 
   /**
+   * UID of the application.
    *
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -63,6 +66,7 @@ export interface ExtensionRunningInfo {
   uid: int;
 
   /**
+   * Process name.
    *
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -73,6 +77,7 @@ export interface ExtensionRunningInfo {
   processName: string;
 
   /**
+   * Timestamp when the ExtensionAbility is started.
    *
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -83,6 +88,7 @@ export interface ExtensionRunningInfo {
   startTime: long;
 
   /**
+   * Names of all packages in the process.
    *
    * @default All package names under the current process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -93,6 +99,7 @@ export interface ExtensionRunningInfo {
   clientPackage: Array<String>;
 
   /**
+   * ExtensionAbility type.
    *
    * @default Enumerates types of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

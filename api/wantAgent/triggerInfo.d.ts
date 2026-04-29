@@ -25,7 +25,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The module defines the information required for triggering the WantAgent. The information is used as an input 
+ * The module defines the information required for triggering the WantAgent. The information is used as an input
  * parameter of [trigger](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#wantagenttrigger).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -35,12 +35,12 @@ import { RecordData } from '../@ohos.base';
  */
 export interface TriggerInfo {
   /**
-   * Common event code. This field is valid only when 
-   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the 
-   * WantAgent instance is **'SEND_COMMON_EVENT'**. The meaning of this field is the same as that of the **code** field 
-   * set in 
+   * Common event code. This field is valid only when
+   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the
+   * WantAgent instance is **'SEND_COMMON_EVENT'**. The meaning of this field is the same as that of the **code** field
+   * set in
    * [CommonEventPublishData](docroot://reference/apis-basic-services-kit/js-apis-inner-commonEvent-commonEventPublishData.md#properties)
-   *  when the publisher uses 
+   *  when the publisher uses
    * [commonEventManager.publish]{@link @ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    *  to publish common events.
    *
@@ -62,8 +62,8 @@ export interface TriggerInfo {
   want?: Want;
 
   /**
-   * Permission required for a subscriber to receive the common event. This field is valid only when 
-   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the 
+   * Permission required for a subscriber to receive the common event. This field is valid only when
+   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the
    * WantAgent instance is **'SEND_COMMON_EVENT'**.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -91,7 +91,7 @@ export interface TriggerInfo {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set, 
+   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set,
    * **extraInfo** does not take effect.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -101,7 +101,7 @@ export interface TriggerInfo {
   extraInfos?: Record<string, Object>;
 
   /**
-   * Extra information. You are advised to use this property to replace extraInfo. 
+   * Extra information. You are advised to use this property to replace extraInfo.
    * When this property is set, extraInfo does not take effect.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

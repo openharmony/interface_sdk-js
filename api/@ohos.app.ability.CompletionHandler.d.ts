@@ -47,9 +47,9 @@ type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
 type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
 
 /**
- * CompletionHandler provides two callback functions, 
- * [onRequestSuccess]{@link CompletionHandler.onRequestSuccess(elementName: ElementName, message: string)} and 
- * [onRequestFailure]{@link CompletionHandler.onRequestFailure(elementName: ElementName, message: string)}, to handle 
+ * CompletionHandler provides two callback functions,
+ * [onRequestSuccess]{@link CompletionHandler.onRequestSuccess(elementName: ElementName, message: string)} and
+ * [onRequestFailure]{@link CompletionHandler.onRequestFailure(elementName: ElementName, message: string)}, to handle
  * the results of successful and failed application launch requests, respectively.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -62,16 +62,16 @@ declare class CompletionHandler {
   /**
    * Called when the application is successfully launched.
    *
-   * @param { ElementName } elementName - **ElementName** information used to identify the target application. Typically, 
-   *     **ElementName** includes only **abilityName** and **bundleName**. The presence of **moduleName** and **deviceId** 
+   * @param { ElementName } elementName - **ElementName** information used to identify the target application. Typically,
+   *     **ElementName** includes only **abilityName** and **bundleName**. The presence of **moduleName** and **deviceId**
    *     depends on whether the caller provides them. **shortName** and **uri** are empty.
-   * @param { string } message - Message displayed when the application is successfully launched. This message is in JSON 
+   * @param { string } message - Message displayed when the application is successfully launched. This message is in JSON
    *     format, as follows:
-   *     
+   *
    *     {
-   *     
-   *      "errMsg": "Succeeded."
-   *     
+   *
+   *     ?"errMsg": "Succeeded."
+   *
    *     }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -84,32 +84,32 @@ declare class CompletionHandler {
    * Called when the application fails to be launched.
    *
    * @param { ElementName } elementName - **ElementName** information used to identify the target application.
-   *     
-   *     - Typically, **ElementName** includes only **abilityName** and **bundleName**. The presence of **moduleName** and 
+   *
+   *     - Typically, **ElementName** includes only **abilityName** and **bundleName**. The presence of **moduleName** and
    *     **deviceId** depends on whether the caller provides them. **shortName** and **uri** are empty.
-   *     
+   *
    *     - **ElementName** information cannot be obtained if the implicit startup fails.
    * @param { string } message - Message displayed when the application fails to be launched. This message is in JSON format,
    *     as follows:
-   *     
+   *
    *     {
-   *     
-   *      "errMsg": "xxx"
-   *     
+   *
+   *     ?"errMsg": "xxx"
+   *
    *     }
-   *     
+   *
    *     The value of *xxx* is described as follows:
-   *     
-   *     Failed to call <api-name>: An error occurs when calling the API. <api-name> is the specific API name, for example, 
+   *
+   *     Failed to call <api-name>: An error occurs when calling the API. <api-name> is the specific API name, for example,
    *     **startAbility**.
-   *     
+   *
    *     User refused redirection: The user has closed the application redirection dialog box.
-   *     
-   *     User closed the implicit startup picker: The user has closed the dialog box for selecting an application for 
+   *
+   *     User closed the implicit startup picker: The user has closed the dialog box for selecting an application for
    *     implicit startup.
-   *     
+   *
    *     User closed the app clone picker: The user has closed the dialog box for selecting a cloned application.
-   *     
+   *
    *     Free installation failed: The free installation fails.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

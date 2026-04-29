@@ -23,10 +23,10 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * UIServiceHostProxy functions as a proxy to send data from the 
- * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} server 
+ * UIServiceHostProxy functions as a proxy to send data from the
+ * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} server
  * to the client.
- * 
+ *
  * > **NOTE**
  * >
  * > - The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
@@ -39,8 +39,8 @@ import { RecordData } from '../@ohos.base';
  */
 export default interface UIServiceHostProxy {
   /**
-   * Sends data from the 
-   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} 
+   * Sends data from the
+   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}
    * server to the client.
    *
    * @param { Record<string, Object> } data - Data to be sent to the
@@ -58,8 +58,8 @@ export default interface UIServiceHostProxy {
   sendData(data: Record<string, Object>): void;
 
   /**
-   * Sends data from the 
-   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} 
+   * Sends data from the
+   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}
    * server to the client.
    *
    * @param { Record<string, RecordData> } data - Data to be sent to the

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -80,9 +80,9 @@ export interface FillRequest {
 
   /**
    * Whether a dialog box is displayed for the auto-fill request.
-   * 
+   *
    * **true**: A dialog box is displayed
-   * 
+   *
    * **false**: A modal window is displayed
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -171,7 +171,7 @@ export interface FillResponse {
 }
 
 /**
- * Implements callbacks for an auto-fill request, which is used to automatically fill in or generate a password. The 
+ * Implements callbacks for an auto-fill request, which is used to automatically fill in or generate a password. The
  * callbacks can be used to notify the client of the success or failure of the request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

@@ -21,11 +21,11 @@
 import UIAbility from './@ohos.app.ability.UIAbility';
 import type EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
 /**
- * EmbeddableUIAbility is an embeddable UIAbility component provided for atomic services. It inherits from 
+ * EmbeddableUIAbility is an embeddable UIAbility component provided for atomic services. It inherits from
  * [UIAbility]{@link @ohos.app.ability.UIAbility}.
- * You can implement EmbeddableUIAbility to enable atomic services to be launched by other applications either as a 
+ * You can implement EmbeddableUIAbility to enable atomic services to be launched by other applications either as a
  * standalone window or embedded within the host application's UI.
- * For details about the inheritance relationship of each ability, see 
+ * For details about the inheritance relationship of each ability, see
  * [Inheritance Relationship](docroot://reference/apis-ability-kit/js-apis-app-ability-ability.md#ability-inheritance-relationship)
  * .
  *
@@ -35,13 +35,13 @@ import type EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityCo
  * @since 12 dynamiconly
  */
 export default class EmbeddableUIAbility extends UIAbility {
-    /**
-     * Context of the EmbeddableUIAbility.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 12 dynamiconly
-     */
-    context: EmbeddableUIAbilityContext;
+  /**
+   * Context of the EmbeddableUIAbility.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamiconly
+   */
+  context: EmbeddableUIAbilityContext;
 }

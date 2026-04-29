@@ -27,8 +27,8 @@ import appManager from '../@ohos.app.ability.appManager';
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
- * The module defines the process information. The information can be obtained through 
- * [getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()} of 
+ * The module defines the process information. The information can be obtained through
+ * [getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()} of
  * appManager.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -117,7 +117,7 @@ export interface ProcessInformation {
 
   /**
    * Indicates whether the process is in the preload state.
-   * 
+   *
    * - `true`: The process is currently in the preload state.
    * - `false`: The process is either not a preload process, or its preload state has been consumed.
    *

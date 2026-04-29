@@ -61,7 +61,7 @@ declare namespace application {
     TYPE_CREATE_PROCESS = 1,
 
     /**
-     * Preloads the process up to the point of [AbilityStage]{@link @ohos.app.ability.AbilityStage:AbilityStage} 
+     * Preloads the process up to the point of [AbilityStage]{@link @ohos.app.ability.AbilityStage:AbilityStage}
      * creation completion.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -82,7 +82,7 @@ declare namespace application {
     TYPE_CREATE_WINDOW_STAGE = 3,
 
     /**
-     * Preloads the process up to the point of [onBackground]{@link @ohos.app.ability.UIAbility:UIAbility#onBackground} 
+     * Preloads the process up to the point of [onBackground]{@link @ohos.app.ability.UIAbility:UIAbility#onBackground}
      * execution completion.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -93,16 +93,16 @@ declare namespace application {
   }
 
   /**
-   * Creates the context for a module. The 
-   * [resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration} in the created module 
-   * context inherits from the input context, making it convenient for you to access 
+   * Creates the context for a module. The
+   * [resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration} in the created module
+   * context inherits from the input context, making it convenient for you to access
    * [application resources across HAP/HSP packages](docroot://quick-start/resource-categories-and-access.md#cross-haphsp-resources)
    * . This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > Creating a module context involves resource querying and initialization, which can be time-consuming. In 
-   * > scenarios where application fluidity is critical, avoid frequently or repeatedly calling the 
+   * > Creating a module context involves resource querying and initialization, which can be time-consuming. In
+   * > scenarios where application fluidity is critical, avoid frequently or repeatedly calling the
    * > **createModuleContext** API to create multiple context instances, as this may negatively impact user experience.
    *
    * @param { Context } context - Application context.
@@ -120,22 +120,22 @@ declare namespace application {
 
   /**
    * Creates the context for a module. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > - Starting from API version 18, the context can obtain the 
-   * > [process name](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context) of the current 
-   * > application. The **processName** property in the context created by **createModuleContext** is the same as the 
+   * > - Starting from API version 18, the context can obtain the
+   * > [process name](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context) of the current
+   * > application. The **processName** property in the context created by **createModuleContext** is the same as the
    * > **processName** property in the input parameter **Context**. The values of other properties are obtained based on
    * >  the input parameters **Context**, **bundleName**, and **moduleName**.
    * >
-   * > - Creating a module context involves resource querying and initialization, which can be time-consuming. In 
-   * > scenarios where application fluidity is critical, avoid frequently or repeatedly calling the 
+   * > - Creating a module context involves resource querying and initialization, which can be time-consuming. In
+   * > scenarios where application fluidity is critical, avoid frequently or repeatedly calling the
    * > **createModuleContext** API to create multiple context instances, as this may negatively impact user experience.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Context } context - Application context.
-   * @param { string } bundleName - Bundle name of the application. If an empty string is passed in, the current application 
+   * @param { string } bundleName - Bundle name of the application. If an empty string is passed in, the current application
    *     is used by default.
    * @param { string } moduleName - Module name.
    * @returns { Promise<Context> } Promise used to return the context created.
@@ -152,7 +152,7 @@ declare namespace application {
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
   /**
-   * Creates the context of a plugin under the current application based on the context, plugin bundle name, and plugin 
+   * Creates the context of a plugin under the current application based on the context, plugin bundle name, and plugin
    * module name, so as to obtain the basic information about the plugin. This API uses a promise to return the result.
    *
    * @param { Context } context - Application context.
@@ -167,7 +167,7 @@ declare namespace application {
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
   /**
-   * Creates the context for a plugin based on a given context, plugin bundle name, plugin module name, and application 
+   * Creates the context for a plugin based on a given context, plugin bundle name, plugin module name, and application
    * bundle name to obtain the basic information about the plugin. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -175,7 +175,7 @@ declare namespace application {
    * @param { string } pluginBundleName - Bundle name of the plugin.
    * @param { string } pluginModuleName - Module name of the plugin.
    * @param { string } hostBundleName - Bundle name of the application for which the plugin is installed.
-   * @returns { Promise<Context> } Promise used to return the context created, in which the **processName** and **config** 
+   * @returns { Promise<Context> } Promise used to return the context created, in which the **processName** and **config**
    *     properties are the same as those of the input context.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -190,12 +190,12 @@ declare namespace application {
 
   /**
    * Creates the context for an application. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > Starting from API version 18, the context can obtain the 
-   * > [process name](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context) of the current 
-   * > application. The **processName** property in the context created by **createBundleContext** is the same as the 
+   * > Starting from API version 18, the context can obtain the
+   * > [process name](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context) of the current
+   * > application. The **processName** property in the context created by **createBundleContext** is the same as the
    * > **processName** property in the input parameter **Context**. The values of other properties are obtained based on
    * >  the input parameters **Context**, **bundleName**, and **moduleName**.
    *
@@ -242,40 +242,40 @@ declare namespace application {
   export function getApplicationContextInstance(): ApplicationContext;
 
   /**
-   * Adds the current process into the 
+   * Adds the current process into the
    * [candidate master process](docroot://application-models/ability-terminology.md#candidate-master-process) list. This
    *  API uses a promise to return the result.
-   * When the [master process](docroot://application-models/ability-terminology.md#master-process) is destroyed and a 
-   * UIAbility or UIExtensionAbility with **isolationProcess** set to **true** is restarted, the system takes 
+   * When the [master process](docroot://application-models/ability-terminology.md#master-process) is destroyed and a
+   * UIAbility or UIExtensionAbility with **isolationProcess** set to **true** is restarted, the system takes
    * corresponding actions based on whether there is a candidate master process.
-   * 
-   * - If a candidate master process exists, the system sets the process at the head of the candidate master process 
-   * list as the new master process and triggers the 
+   *
+   * - If a candidate master process exists, the system sets the process at the head of the candidate master process
+   * list as the new master process and triggers the
    * [onNewProcessRequest]{@link @ohos.app.ability.AbilityStage:AbilityStage#onNewProcessRequest} callback.
    * - If no candidate master process exists, the system performs the following operations based on the component type:
    *   - For a UIAbility, the system creates an empty process as the master process.
-   *   - For a UIExtensionAbility, the system first tries to reuse an existing UIExtensionAbility process as the new 
+   *   - For a UIExtensionAbility, the system first tries to reuse an existing UIExtensionAbility process as the new
    * master process. If no available process exists, it creates an empty process as the master process.
    * This API can be properly called on PCs/2-in-1 devices and tablets. If it is called on other devices, error code 801
    *  is returned.
-   * 
+   *
    * > **NOTE**
    * >
-   * > If the current process is already the 
-   * > [master process](docroot://application-models/ability-terminology.md#master-process), calling this API has no 
+   * > If the current process is already the
+   * > [master process](docroot://application-models/ability-terminology.md#master-process), calling this API has no
    * > effect and does not generate an error code.
    * >
-   * > A process can be set as a candidate master process only if it is currently running a component with 
+   * > A process can be set as a candidate master process only if it is currently running a component with
    * > **isolationProcess** set to **true** or has previously as the main process.
    * >
    * >
-   * > The **isolationProcess** field can be set to **true** in the 
-   * > [module.json5](docroot://quick-start/module-configuration-file.md) file, but only for the UIExtensionAbility of 
+   * > The **isolationProcess** field can be set to **true** in the
+   * > [module.json5](docroot://quick-start/module-configuration-file.md) file, but only for the UIExtensionAbility of
    * > the sys/commonUI type.
-   * 
+   *
    * <!--DelEnd-->
    *
-   * @param { boolean } insertToHead - Whether to add the current process to the head of the candidate master process list. 
+   * @param { boolean } insertToHead - Whether to add the current process to the head of the candidate master process list.
    *     **true** to add the current process to the head of the list, **false** to add the current process to the tail of the
    *     list.
    * @returns { Promise<void> } Promise that returns no result.
@@ -309,7 +309,7 @@ declare namespace application {
   /**
    * Relinquishes the [master-process](docroot://application-models/ability-terminology.md#master-process) role from the
    *  current process. This API uses a promise to return the result.
-   * This API can be properly called only on 2-in-1 devices and tablets. If it is called on other device types, error 
+   * This API can be properly called only on 2-in-1 devices and tablets. If it is called on other device types, error
    * code 801 is returned.
    * **System capability**: SystemCapability.Ability.AbilityRuntime.Core
    *
@@ -322,14 +322,14 @@ declare namespace application {
    * @since 21 dynamic
    * @since 23 static
    */
-  export function exitMasterProcessRole(): Promise<void>
+  export function exitMasterProcessRole(): Promise<void>;
 
   /**
    * Obtains the preloading type of the current application process.
-   * 
+   *
    * > **NOTE**
    * >
-   * > - This API can return the actual preloading type only if it is called before the first execution of 
+   * > - This API can return the actual preloading type only if it is called before the first execution of
    * > [AbilityStage.onCreate]{@link @ohos.app.ability.AbilityStage:AbilityStage#onCreate}.
    * >
    * > - Once the AbilityStage creation finishes, the preloaded data of the application is cleared. Any subsequent calls

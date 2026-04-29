@@ -19,11 +19,11 @@
  */
 
 /**
- * The module defines process data. If a lifecycle change listener is registered by calling 
+ * The module defines process data. If a lifecycle change listener is registered by calling
  * [appManager.on('applicationState')]{@link @ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
- * , the 
+ * , the
  * [onProcessCreated](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocesscreated)
- *  callback in [ApplicationStateObserver]{@link ./application/ApplicationStateObserver} is invoked when the lifecycle of 
+ *  callback in [ApplicationStateObserver]{@link ./application/ApplicationStateObserver} is invoked when the lifecycle of
  * an application or ability changes.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -60,15 +60,15 @@ declare class ProcessData {
 
   /**
    * Application state. The options are as follows:
-   * 
+   *
    * **0**: The application process is being initialized.
-   * 
+   *
    * **1**: The application process has been initialized and is ready.
-   * 
+   *
    * **2**: The application is running in the foreground.
-   * 
+   *
    * **4**: The application is running in the background.
-   * 
+   *
    * **5**: The application process is terminated.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

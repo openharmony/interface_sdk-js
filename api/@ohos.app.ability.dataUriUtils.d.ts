@@ -19,7 +19,7 @@
  */
 
 /**
- * The DataUriUtils module provides APIs to process URI objects. You can use the APIs to attach an ID to the end of a 
+ * The DataUriUtils module provides APIs to process URI objects. You can use the APIs to attach an ID to the end of a
  * given URI and obtain, delete, or update the ID attached to the end of a given URI.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -81,4 +81,5 @@ declare namespace dataUriUtils {
    */
   function updateId(uri: string, id: double): string;
 }
+
 export default dataUriUtils;

@@ -21,15 +21,15 @@
 import { BusinessError } from '../@ohos.base';
 
 /**
- * EventHub is an event communication mechanism based on the publish-subscribe pattern. It decouples senders and 
- * subscribers through event names, supporting efficient data transfer and state synchronization between different 
+ * EventHub is an event communication mechanism based on the publish-subscribe pattern. It decouples senders and
+ * subscribers through event names, supporting efficient data transfer and state synchronization between different
  * service modules.
- * It is primarily used for 
+ * It is primarily used for
  * [data communication between UIAbility components and UI pages](docroot://application-models/uiability-data-sync-with-ui.md)
  * .
  * Different Context objects have different EventHub objects, and different EventHub objects cannot communicate directly
  *  with each other. Event subscription, unsubscription, and triggering all take place on a specific EventHub object.
- * Since Worker and TaskPool implement 
+ * Since Worker and TaskPool implement
  * [multithreaded concurrency](docroot://arkts-utils/multi-thread-concurrency-overview.md#multithreaded-concurrency-models)
  *  through the actor model, where different virtual machine instances have exclusive memory, EventHub objects cannot be
  *  used for inter-thread data communication.
@@ -44,10 +44,10 @@ import { BusinessError } from '../@ohos.base';
 declare class EventHub {
   /**
    * Subscribes to an event.
-   * 
+   *
    * > **NOTE**
    * >
-   * > When the callback is triggered by **emit**, the invoker is the EventHub object. To change the direction of 
+   * > When the callback is triggered by **emit**, the invoker is the EventHub object. To change the direction of
    * > **this** in **callback**, use an arrow function.
    *
    * @param { string } event - Event name.
@@ -65,12 +65,12 @@ declare class EventHub {
 
   /**
    * Unsubscribes from an event.
-   * 
+   *
    * - If **callback** is specified, this API unsubscribes from the given event with the specified callback.
    * - If **callback** is not specified, this API unsubscribes from the given event with all callbacks.
    *
    * @param { string } event - Event name.
-   * @param { Function } [callback] - Callback for the event. If **callback** is unspecified, the given event with all 
+   * @param { Function } [callback] - Callback for the event. If **callback** is unspecified, the given event with all
    *     callbacks is unsubscribed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -97,7 +97,7 @@ declare class EventHub {
    * @since 9 dynamic
    */
   emit(event: string, ...args: Object[]): void;
- 
+
   /**
    * Trigger the event callbacks.
    *

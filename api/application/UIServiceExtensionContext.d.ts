@@ -28,9 +28,18 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The context of UI service extension. It allows access to UIServiceExtension-specific resources.
+ * The UIServiceExtensionContext module provides the context environment for a
+ * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. It
+ * inherits from [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
+ * UIServiceExtensionContext provides access to a
+ * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility} and
+ * APIs for operating the ability, for example, starting, terminating, connecting, and disconnecting ability.
+ *
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used on the main thread, but not on child threads such as Worker and TaskPool.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
@@ -39,19 +48,19 @@ import { RecordData } from '../@ohos.base';
  */
 declare class UIServiceExtensionContext extends ExtensionContext {
   /**
-   * UI service extension uses this method to start a specific ability.If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
+   *
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { StartOptions } [options] - Parameters used for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -77,9 +86,11 @@ declare class UIServiceExtensionContext extends ExtensionContext {
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Destroys the UI service extension.
+   * Terminates this
+   * [UIServiceExtensionAbility]{@link ./../@ohos.app.ability.UIServiceExtensionAbility:UIServiceExtensionAbility}. This
+   * API uses a promise to return the result.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -89,17 +100,23 @@ declare class UIServiceExtensionContext extends ExtensionContext {
   terminateSelf(): Promise<void>;
 
   /**
-   * Starts the UIAbility or UIExtensionAbility by type.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the caller application is in the background, it is not allowed to call this interface.
+   * Starts a [UIAbility]{@link ./../@ohos.app.ability.UIAbility} or
+   * [UIExtensionAbility]{@link ./../@ohos.app.ability.UIExtensionAbility:UIExtensionAbility} based on the type of the
+   * target ability. This API can be called only by applications running in the foreground. This API uses a promise to
+   * return the result.
    *
-   * @param { string } type - The type of target ability.
-   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
-   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
-   * @returns { Promise<void> } The promise returned by the function.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
+   *
+   * @param { string } type - Type of the target ability.
+   * @param { Record<string, Object> } wantParam - Want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Callback invoked to return the UIExtensionAbility startup
+   *     result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     . Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -110,15 +127,21 @@ declare class UIServiceExtensionContext extends ExtensionContext {
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
-   * Starts the UIAbility or UIExtensionAbility by type.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the caller application is in the background, it is not allowed to call this interface.
+   * Starts a [UIAbility]{@link ./../@ohos.app.ability.UIAbility} or
+   * [UIExtensionAbility]{@link ./../@ohos.app.ability.UIExtensionAbility:UIExtensionAbility} based on the type of the
+   * target ability. This API can be called only by applications running in the foreground. This API uses a promise to
+   * return the result.
    *
-   * @param { string } type - The type of target ability.
-   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
-   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
-   * @returns { Promise<void> } The promise returned by the function.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
+   *
+   * @param { string } type - Type of the target ability.
+   * @param { Record<string, RecordData> } wantParam - Want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Callback invoked to return the UIExtensionAbility startup
+   *     result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
@@ -131,21 +154,20 @@ declare class UIServiceExtensionContext extends ExtensionContext {
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
-   * Connects to a service extension ability.
-   * If the target service extension ability is visible, you can connect the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-   * service extension when the Service extension is connected.</p>
+   * Connects to a [UIExtensionAbility]{@link ./../@ohos.app.ability.UIExtensionAbility:UIExtensionAbility} and returns
+   * the connection ID.
    *
-   * @param { Want } want - Indicates the service extension to connect.
-   * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { long } Returns the connection id.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
+   *
+   * @param { Want } want - Want parameter.
+   * @param { ConnectOptions } options - Connection options.
+   * @returns { long } Connection ID.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -167,12 +189,15 @@ declare class UIServiceExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
-   * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
+   * Disconnects from a [UIExtensionAbility]{@link ./../@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}. This
+   * API is opposite to [connectServiceExtensionAbility]{@link UIServiceExtensionContext.connectServiceExtensionAbility}
+   * . This API uses a promise to return the result.
    *
-   * @param { long } connectionId - the connection id returned from connectServiceExtensionAbility api.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { long } connectionId - Connection ID returned by
+   *     [connectServiceExtensionAbility]{@link UIServiceExtensionContext.connectServiceExtensionAbility}.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

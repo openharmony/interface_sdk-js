@@ -19,7 +19,7 @@
  */
 
 /**
- * The ConfigurationConstant module provides preset enumerated values related to 
+ * The ConfigurationConstant module provides preset enumerated values related to
  * [Configuration]{@link @ohos.app.ability.Configuration:Configuration} operations.
  *
  * @syscap SystemCapability.Ability.AbilityBase
@@ -30,8 +30,8 @@
  */
 declare namespace ConfigurationConstant {
   /**
-   * Enumerates the dark/light color modes, which are used in the 
-   * [Configuration.colorMode]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these predefined 
+   * Enumerates the dark/light color modes, which are used in the
+   * [Configuration.colorMode]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these predefined
    * enumerated values to set or obtain the dark/light color mode of the system or application.
    *
    * @syscap SystemCapability.Ability.AbilityBase
@@ -76,8 +76,8 @@ declare namespace ConfigurationConstant {
   }
 
   /**
-   * Enumerates the screen directions, which are used in the 
-   * [Configuration.direction]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these predefined 
+   * Enumerates the screen directions, which are used in the
+   * [Configuration.direction]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these predefined
    * enumerated values to set or obtain the screen direction of the system or application.
    *
    * @syscap SystemCapability.Ability.AbilityBase
@@ -122,12 +122,12 @@ declare namespace ConfigurationConstant {
   }
 
   /**
-   * Enumerates the pixel densities of the screen, which are used in the 
-   * [Configuration.screenDensity]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these 
+   * Enumerates the pixel densities of the screen, which are used in the
+   * [Configuration.screenDensity]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these
    * predefined enumerated values to set or obtain the pixel density of the screen.
-   * 
-   * The font size is positively correlated with the screen pixel density. By monitoring changes in the screen pixel 
-   * density, you can detect adjustments in the font size. Typically, for the same physical size, the higher the screen 
+   *
+   * The font size is positively correlated with the screen pixel density. By monitoring changes in the screen pixel
+   * density, you can detect adjustments in the font size. Typically, for the same physical size, the higher the screen
    * pixel density, the larger the font display effect.
    *
    * @syscap SystemCapability.Ability.AbilityBase
