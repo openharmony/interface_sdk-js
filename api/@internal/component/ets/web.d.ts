@@ -955,156 +955,100 @@ declare enum MixedMode {
 type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
 
 /**
- * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+ * Enumerates the test result types of the click event.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 21
- * @useinstead ohos.web.webview.webview.WebHitTestType
+ * @useinstead @ohos.web.webview:webview.WebHitTestType
  */
 declare enum HitTestType {
   /**
-   * The edit text.
+   * Editable area.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The edit text.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#EditText
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.EditText
    */
   EditText = 0,
 
   /**
-   * The email address.
+   * Email address.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The email address.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#Email
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.Email
    */
   Email = 1,
 
   /**
-   * The HTML::a tag with src=http.
+   * Hyperlink whose **src** is **http**.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The HTML::a tag with src=http.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchor
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.HttpAnchor
    */
   HttpAnchor = 2,
 
   /**
-   * The HTML::a tag with src=http + HTML::img.
+   * Image with a hyperlink, where **src** is **http**.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The HTML::a tag with src=http + HTML::img.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchorImg
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.HttpAnchorImg
    */
   HttpAnchorImg = 3,
 
   /**
-   * The HTML::img tag.
+   * HTML::img tag.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The HTML::img tag.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#Img
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.Img
    */
   Img = 4,
 
   /**
-   * The map address.
+   * Geographical address.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The map address.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#Map
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.Map
    */
   Map = 5,
 
   /**
-   * The phone number.
+   * Phone number.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * The phone number.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#Phone
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.Phone
    */
   Phone = 6,
 
   /**
-   * Other unknown HitTest.
+   * Unknown content.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Other unknown HitTest.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 21
-   * @useinstead ohos.web.webview.webview.WebHitTestType#Unknown
+   * @useinstead @ohos.web.webview:webview.WebHitTestType.Unknown
    */
   Unknown = 7
 }
@@ -1228,16 +1172,15 @@ declare enum CacheMode {
 }
 
 /**
- * Enum type supplied to {@link overScrollMode} for setting the web overScroll mode.
+ * Enumerates whether to enable overscroll mode.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
  */
 declare enum OverScrollMode {
   /**
-   * Disable the web over-scroll mode.
+   * The overscroll mode is disabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1246,7 +1189,7 @@ declare enum OverScrollMode {
   NEVER = 0,
 
   /**
-   * Enable the web over-scroll mode.
+   * The overscroll mode is enabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1757,9 +1700,8 @@ declare enum RenderExitReason {
 }
 
 /**
- * The callback of custom hide of the context menu.
+ * Defines a callback invoked when the context menu is hidden.
  *
- * @typedef { function } OnContextMenuHideCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
@@ -1877,83 +1819,51 @@ declare enum SslError {
 }
 
 /**
- * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
+ * Enumerates the modes of the file selector.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum FileSelectorMode {
   /**
-   * Allows single file to be selected.
+   * Open and upload a file.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Allows single file to be selected.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   FileOpenMode = 0,
 
   /**
-   * Allows multiple files to be selected.
+   * Open and upload multiple files.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Allows multiple files to be selected.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   FileOpenMultipleMode = 1,
 
   /**
-   * Allows file folders to be selected.
+   * Open and upload a folder.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Allows file folders to be selected.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   FileOpenFolderMode = 2,
 
   /**
-   * Allows select files to save.
+   * Save a file.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Allows select files to save.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   FileSaveMode = 3
 }
@@ -2015,78 +1925,51 @@ declare enum RenderProcessNotRespondingReason {
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Encompassed message information as parameters to {@link onFileSelectorShow} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class FileSelectorParam {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
    * Gets the title of this file selector.
+   *
    * @returns { string } Return the title of this file selector.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets the title of this file selector.
-   * @returns { string } Return the title of this file selector.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getTitle(): string;
 
   /**
    * Gets the FileSelectorMode of this file selector.
+   *
    * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets the FileSelectorMode of this file selector.
-   * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getMode(): FileSelectorMode;
 
   /**
    * Gets an array of acceptable MIME type.
+   *
    * @returns { Array<string> } Return an array of acceptable MIME type.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets an array of acceptable MIME type.
-   * @returns { Array<string> } Return an array of acceptable MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getAcceptType(): Array<string>;
 
@@ -2095,21 +1978,15 @@ declare class FileSelectorParam {
    *
    * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets whether this file selector use a live media captured value.
-   *
-   * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   isCapture(): boolean;
 
   /**
    * Gets an array of raw acceptable MIME type.
+   *
    * @returns { Array<string> } Return an array of raw acceptable MIME type.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
@@ -2166,30 +2043,18 @@ declare class FileSelectorParam {
  * Defines the js result.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the js result.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class JsResult {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
@@ -2197,15 +2062,9 @@ declare class JsResult {
    * Handle the user's JavaScript result if cancel the dialog.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Handle the user's JavaScript result if cancel the dialog.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   handleCancel(): void;
 
@@ -2213,33 +2072,20 @@ declare class JsResult {
    * Handle the user's JavaScript result if confirm the dialog.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Handle the user's JavaScript result if confirm the dialog.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   handleConfirm(): void;
 
   /**
    * Handle the user's JavaScript result if confirm the prompt dialog.
    *
-   * @param { string } result
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Handle the user's JavaScript result if confirm the prompt dialog.
-   *
    * @param { string } result - The content of the dialog box entered by the user.
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   handlePromptConfirm(result: string): void;
 }
@@ -2248,48 +2094,29 @@ declare class JsResult {
  * Defines the file selector result, related to {@link onFileSelectorShow} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the file selector result, related to {@link onFileSelectorShow} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class FileSelectorResult {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
    * select a list of files.
    *
-   * @param { Array<string> } fileList
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * select a list of files.
-   *
    * @param { Array<string> } fileList - List of files that need to be operated.
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   handleFileList(fileList: Array<string>): void;
 }
@@ -2919,95 +2746,55 @@ declare class ControllerHandler {
 }
 
 /**
- * Defines the context menu source type, related to {@link onContextMenuShow} method.
+ * Enumerates the event source types that trigger the context menu.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the context menu source type, related to {@link onContextMenuShow} method.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ContextMenuSourceType {
   /**
-   * Other source types.
+   * Other event sources.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Other source types.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   None = 0,
 
   /**
-   * Mouse.
+   * Mouse event.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Mouse.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Mouse = 1,
 
   /**
-   * Long press.
+   * Long press event.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Long press.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   LongPress = 2
 }
 
 /**
- * Defines the context menu media type, related to {@link onContextMenuShow} method.
+ * Enumerates the media types that trigger the context menu.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the context menu media type, related to {@link onContextMenuShow} method.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ContextMenuMediaType {
   /**
-   * Not a special node or other media types.
+   * Other non-image media types.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Not a special node or other media types.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   None = 0,
 
@@ -3015,28 +2802,22 @@ declare enum ContextMenuMediaType {
    * Image.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Image.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Image = 1
 }
 
 /**
- * Defines the context menu media type, related to {@link onContextMenuShow} method.
+ * Enumerates the media types that trigger the context menu (enhanced type obtaining capability).
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
  */
 declare enum ContextMenuDataMediaType {
   /**
-   * Not a special node or other media types.
+   * Default value, indicating that the current context menu is not associated with any media type (for
+   * example, right-click text or blank area).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -3077,108 +2858,64 @@ declare enum ContextMenuDataMediaType {
 }
 
 /**
- * Defines the context menu input field type, related to {@link onContextMenuShow} method.
+ * Enumerates the input field types.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the context menu input field type, related to {@link onContextMenuShow} method.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ContextMenuInputFieldType {
   /**
-   * Not an input field.
+   * Non-input field.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Not an input field.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   None = 0,
 
   /**
-   * The plain text type.
+   * Plain text field, such as the text, search, or email field.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The plain text type.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   PlainText = 1,
 
   /**
-   * The password type.
+   * Password field.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The password type.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Password = 2,
 
   /**
-   * The number type.
+   * Number field.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The number type.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Number = 3,
 
   /**
-   * The telephone type.
+   * Phone number field.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The telephone type.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Telephone = 4,
 
   /**
-   * Other types.
+   * Field of any other type.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Other types.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Other = 5
 }
@@ -3240,93 +2977,56 @@ declare enum NativeEmbedStatus {
 }
 
 /**
- * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
+ * Enumerates the context menu edit state flags. This enum can be used in bitwise OR mode. For example, to support
+ * **CAN_CUT**, **CAN_COPY**, and **CAN_SELECT_ALL** at the same time, use **CAN_CUT | CAN_COPY | CAN_SELECT_ALL**.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ContextMenuEditStateFlags {
   /**
-   * Not editable.
+   * Editing is not allowed.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Not editable.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   NONE = 0,
 
   /**
-   * Clipping is supported.
+   * Cutting is supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Clipping is supported.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   CAN_CUT = 1 << 0,
 
   /**
-   * Copies are supported.
+   * Copying is supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Copies are supported.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   CAN_COPY = 1 << 1,
 
   /**
-   * Support for pasting.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
    * Pasting is supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   CAN_PASTE = 1 << 2,
 
   /**
-   * Select all is supported.
+   * Selecting all is supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Select all is supported.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   CAN_SELECT_ALL = 1 << 3
 }
@@ -3466,28 +3166,16 @@ declare enum ViewportFit {
  * Defines the context menu param, related to {@link WebContextMenuParam} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the context menu param, related to {@link WebContextMenuParam} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class WebContextMenuParam {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -3495,19 +3183,11 @@ declare class WebContextMenuParam {
    * Horizontal offset coordinates of the menu within the Web component.
    *
    * @returns { number } The context menu x coordinate.
+   *     Returns a non-negative integer if normal, otherwise returns -1.
+   *     Unit: px.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Horizontal offset coordinates of the menu within the Web component.
-   * The unit is vp.
-   *
-   * @returns { number } The context menu x coordinate.
-   *                     Returns a non-negative integer if normal, otherwise returns -1.
-   *                     Unit: vp.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   x(): number;
 
@@ -3515,19 +3195,11 @@ declare class WebContextMenuParam {
    * Vertical offset coordinates for the menu within the Web component.
    *
    * @returns { number } The context menu y coordinate.
+   *     Returns a non-negative integer if normal, otherwise returns -1.
+   *     Unit: px.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Vertical offset coordinates for the menu within the Web component.
-   * The unit is vp.
-   *
-   * @returns { number } The context menu y coordinate.
-   *                     Returns a non-negative integer if normal, otherwise returns -1.
-   *                     Unit: vp.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   y(): number;
 
@@ -3536,15 +3208,8 @@ declare class WebContextMenuParam {
    *
    * @returns { string } If relate to a link return link url, else return null.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * If the long-press location is the link returns the link's security-checked URL.
-   *
-   * @returns { string } If relate to a link return link url, else return null.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getLinkUrl(): string;
 
@@ -3553,15 +3218,8 @@ declare class WebContextMenuParam {
    *
    * @returns { string } If relate to a link return unfiltered link url, else return null.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * If the long-press location is the link returns the link's original URL.
-   *
-   * @returns { string } If relate to a link return unfiltered link url, else return null.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getUnfilteredLinkUrl(): string;
 
@@ -3570,15 +3228,8 @@ declare class WebContextMenuParam {
    *
    * @returns { string } If this context menu is "src" attribute, return link url, else return null.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns the SRC URL if the selected element has a SRC attribute.
-   *
-   * @returns { string } If this context menu is "src" attribute, return link url, else return null.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getSourceUrl(): string;
 
@@ -3587,15 +3238,8 @@ declare class WebContextMenuParam {
    *
    * @returns { boolean } Return whether this context menu has image content.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Long press menu location has image content.
-   *
-   * @returns { boolean } Return whether this context menu has image content.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   existsImageContents(): boolean;
 
@@ -3604,32 +3248,18 @@ declare class WebContextMenuParam {
    *
    * @returns { ContextMenuMediaType } Returns the type of context node.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns the type of context node.
-   *
-   * @returns { ContextMenuMediaType } Returns the type of context node.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getMediaType(): ContextMenuMediaType;
 
   /**
    * Returns the text of the selection.
    *
-   * @returns { string } Returns the text of the selection.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns the text of the selection.
-   *
    * @returns { string } Returns the text of the selection, or return null if no text is selected.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getSelectionText(): string;
 
@@ -3638,15 +3268,8 @@ declare class WebContextMenuParam {
    *
    * @returns { ContextMenuSourceType }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns the context menu source type.
-   *
-   * @returns { ContextMenuSourceType }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getSourceType(): ContextMenuSourceType;
 
@@ -3655,15 +3278,8 @@ declare class WebContextMenuParam {
    *
    * @returns { ContextMenuInputFieldType } Input field type if the context menu was invoked on an input field.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns input field type if the context menu was invoked on an input field.
-   *
-   * @returns { ContextMenuInputFieldType } Input field type if the context menu was invoked on an input field.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getInputFieldType(): ContextMenuInputFieldType;
 
@@ -3672,15 +3288,8 @@ declare class WebContextMenuParam {
    *
    * @returns { boolean }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns whether the context is editable.
-   *
-   * @returns { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   isEditable(): boolean;
 
@@ -3689,31 +3298,24 @@ declare class WebContextMenuParam {
    *
    * @returns { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Returns the context editable flags {@link ContextMenuEditStateFlags}.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getEditStateFlags(): number;
 
   /**
-   * Returns the selection menu preview width. The unit is vp.
+   * Returns the selection menu preview width.
    *
-   * @returns { number } The preview menu width.
+   * @returns { number } The preview menu width. Unit: px.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   getPreviewWidth(): number;
 
   /**
-   * Returns the selection menu preview height. The unit is vp.
+   * Returns the selection menu preview height.
    *
-   * @returns { number } The preview menu height.
+   * @returns { number } The preview menu height. Unit: px.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
@@ -3733,28 +3335,16 @@ declare class WebContextMenuParam {
  * Defines the context menu result, related to {@link WebContextMenuResult} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the context menu result, related to {@link WebContextMenuResult} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class WebContextMenuResult {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -3763,15 +3353,8 @@ declare class WebContextMenuResult {
    * User should call this function to close menu
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * When close context menu without other call in WebContextMenuResult,
-   * User should call this function to close menu
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   closeContextMenu(): void;
 
@@ -3780,15 +3363,8 @@ declare class WebContextMenuResult {
    * If WebContextMenuParam has no image content, this function will do nothing.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * If WebContextMenuParam has image content, this function will copy image related to this context menu.
-   * If WebContextMenuParam has no image content, this function will do nothing.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   copyImage(): void;
 
@@ -3796,23 +3372,11 @@ declare class WebContextMenuResult {
    * Executes the copy operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Executes the copy operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   copy(): void;
 
-  /**
-   * Executes the paste operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
   /**
    * Executes the paste operation related to this context menu.
    *
@@ -3821,8 +3385,8 @@ declare class WebContextMenuResult {
    * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   paste(): void;
 
@@ -3830,14 +3394,8 @@ declare class WebContextMenuResult {
    * Executes the cut operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Executes the cut operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cut(): void;
 
@@ -3845,14 +3403,8 @@ declare class WebContextMenuResult {
    * Executes the selectAll operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Executes the selectAll operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   selectAll(): void;
 
@@ -5102,7 +4654,7 @@ declare class WebController {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.web.webview.webview.WebviewController#zoom
+   * @useinstead @ohos.web.webview:webview.WebviewController#zoom
    */
   zoom(factor: number): void;
 
@@ -5205,7 +4757,7 @@ declare class WebController {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.web.webview.webview.WebviewController#getHitTest
+   * @useinstead @ohos.web.webview:webview.WebviewController#getHitTest
    */
   getHitTest(): HitTestType;
 
@@ -6118,9 +5670,8 @@ declare interface OnGeolocationShowEvent {
 }
 
 /**
- * Defines the triggered function when the web page wants to display a JavaScript alert() dialog.
+ * Defines the callback used when a web page triggers **alert()**.
  *
- * @typedef OnAlertEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6128,9 +5679,8 @@ declare interface OnGeolocationShowEvent {
  */
 declare interface OnAlertEvent {
   /**
-   * The url of the page.
+   * URL of the web page where the dialog box is displayed.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6139,9 +5689,8 @@ declare interface OnAlertEvent {
   url: string;
 
   /**
-   * The message of alert dialog.
+   * Information displayed in the dialog box.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6150,9 +5699,8 @@ declare interface OnAlertEvent {
   message: string;
 
   /**
-   *  Handle the user's JavaScript result.
+   * User operation result that is notified to the **Web** component.
    *
-   * @type { JsResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6248,9 +5796,8 @@ declare interface OnBeforeUnloadEvent {
 }
 
 /**
- * Defines callback triggered when confirm() is invoked by the web page.
+ * Defines the callback used when a web page triggers **confirm()**.
  *
- * @typedef OnConfirmEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6258,9 +5805,8 @@ declare interface OnBeforeUnloadEvent {
  */
 declare interface OnConfirmEvent {
   /**
-   * The url of the page.
+   * URL of the web page where the dialog box is displayed.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6269,9 +5815,8 @@ declare interface OnConfirmEvent {
   url: string;
 
   /**
-   * The message of confirm dialog.
+   * Information displayed in the dialog box.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6280,9 +5825,8 @@ declare interface OnConfirmEvent {
   message: string;
 
   /**
-   *  Handle the user's JavaScript result.
+   * User operation result that is notified to the **Web** component.
    *
-   * @type { JsResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6292,9 +5836,8 @@ declare interface OnConfirmEvent {
 }
 
 /**
- * Defines the triggered function when the web page wants to display a JavaScript prompt() dialog.
+ * Defines the callback used when a web page triggers **prompt()**.
  *
- * @typedef OnPromptEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6302,9 +5845,8 @@ declare interface OnConfirmEvent {
  */
 declare interface OnPromptEvent {
   /**
-   * The url of the page.
+   * URL of the web page where the dialog box is displayed.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6313,9 +5855,8 @@ declare interface OnPromptEvent {
   url: string;
 
   /**
-   * The message of prompt dialog.
+   * Information displayed in the dialog box.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6324,9 +5865,8 @@ declare interface OnPromptEvent {
   message: string;
 
   /**
-   * The value of prompt dialog.
+   * Default information returned by the dialog box.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6335,9 +5875,8 @@ declare interface OnPromptEvent {
   value: string;
 
   /**
-   *  Handle the user's JavaScript result.
+   * User operation result that is notified to the **Web** component.
    *
-   * @type { JsResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6595,9 +6134,8 @@ declare interface OnRenderExitedEvent {
 }
 
 /**
- * Defines the triggered when the file selector shows.
+ * Represents the callback invoked to notify the file selector result.
  *
- * @typedef OnShowFileSelectorEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6605,9 +6143,8 @@ declare interface OnRenderExitedEvent {
  */
 declare interface OnShowFileSelectorEvent {
   /**
-   * Defines the file selector result.
+   * File selection result to be sent to the **Web** component.
    *
-   * @type { FileSelectorResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6616,9 +6153,8 @@ declare interface OnShowFileSelectorEvent {
   result: FileSelectorResult;
 
   /**
-   * Encompassed message information as parameters to fileSelector.
+   * Information about the file selector.
    *
-   * @type { FileSelectorParam }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6648,9 +6184,8 @@ declare interface OnResourceLoadEvent {
 }
 
 /**
- * Defines the triggered when the scale of WebView changed.
+ * Represents the callback invoked when the display scale of this page changes.
  *
- * @typedef OnScaleChangeEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6658,9 +6193,8 @@ declare interface OnResourceLoadEvent {
  */
 declare interface OnScaleChangeEvent {
   /**
-   * Old scale of the page.
+   * Display scale of the page before the change.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6669,9 +6203,8 @@ declare interface OnScaleChangeEvent {
   oldScale: number;
 
   /**
-   * New scale of the page.
+   * Display scale of the page after the change.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6807,18 +6340,16 @@ declare interface OnScreenCaptureRequestEvent {
 }
 
 /**
- * Defines the triggered callback when called to allow custom display of the context menu.
+ * Represents the callback invoked during a call to allow for the display of a custom context menu.
  *
- * @typedef OnContextMenuShowEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnContextMenuShowEvent {
   /**
-   * The menu-related parameters.
+   * Parameters related to the context menu.
    *
-   * @type { WebContextMenuParam }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6826,9 +6357,8 @@ declare interface OnContextMenuShowEvent {
   param: WebContextMenuParam;
 
   /**
-   * The menu corresponding event is passed to the kernel.
+   * Result of the context menu.
    *
-   * @type { WebContextMenuResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6877,9 +6407,8 @@ declare interface OnSearchResultReceiveEvent {
 }
 
 /**
- * Defines function Triggered when the scroll bar slides to the specified position.
+ * Represents the callback invoked when the scrollbar scrolls to a specified position.
  *
- * @typedef OnScrollEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6887,9 +6416,10 @@ declare interface OnSearchResultReceiveEvent {
  */
 declare interface OnScrollEvent {
   /**
-   * The X offset of the scroll. The unit is vp.
+   * Position of the scrollbar on the x-axis relative to the leftmost of the web page.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6898,9 +6428,10 @@ declare interface OnScrollEvent {
   xOffset: number;
 
   /**
-   * The Y offset of the scroll. The unit is vp.
+   * Position of the scrollbar on the y-axis relative to the top of the web page.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -7419,19 +6950,18 @@ declare interface OnLoadInterceptEvent {
 }
 
 /**
- * Defines the function Triggered when the over scrolling.
+ * Represents the callback invoked when the web page is overscrolled.
  *
- * @typedef OnOverScrollEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnOverScrollEvent {
   /**
-   * Based on the leftmost part of the page, the horizontal scroll offset is over.
-   * The unit is vp.
+   * Horizontal overscroll offset based on the leftmost edge of the web page.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -7439,10 +6969,10 @@ declare interface OnOverScrollEvent {
   xOffset: number;
 
   /**
-   * Based on the top of the page, the vertical scroll offset is over.
-   * The unit is vp.
+   * Vertical overscroll offset based on the top edge of the web page.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -7673,15 +7203,14 @@ declare enum WebKeyboardAvoidMode {
 }
 
 /**
- * Defines Web Elements type.
+ * Enumerates the web element types.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 13 dynamic
  */
 declare enum WebElementType {
   /**
-   * Image,corresponding HTML image type.
+   * Image.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
@@ -7689,7 +7218,7 @@ declare enum WebElementType {
   IMAGE = 1,
 
   /**
-   * Link,corresponding link type.
+   * Hyperlink.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7697,7 +7226,7 @@ declare enum WebElementType {
   LINK = 2,
 
   /**
-   * Text,corresponding textSpan type.
+   * Text or editable area.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -7706,15 +7235,14 @@ declare enum WebElementType {
 }
 
 /**
- * ResponseType for contextMenu
+ * Enumerates the response types of the menu.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 13 dynamic
  */
 declare enum WebResponseType {
   /**
-   * Long press.
+   * The menu is displayed when the component is long-pressed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
@@ -7722,7 +7250,7 @@ declare enum WebResponseType {
   LONG_PRESS = 1,
 
   /**
-   * Right click.
+   * The menu is displayed when the component is right-clicked.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -7824,18 +7352,17 @@ declare enum WebBypassVsyncCondition {
 }
 
 /**
- * Defines the options of preview menu
+ * Represents the options of the preview menu.
  *
- * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamiconly
  */
 declare interface PreviewMenuOptions {
   /**
-   * Defines the haptic feedback mode of preview menu.
-   * To enable haptic feedback, you must declare the ohos.permission.VIBRATE permission.
+   * Vibration effect when the menu is displayed. The **ohos.permission.VIBRATE** permission is required.
    *
-   * @type { ?HapticFeedbackMode }
+   * Default value: **HapticFeedbackMode.DISABLED**, indicating no vibration when the menu is displayed.
+   *
    * @default HapticFeedbackMode.DISABLED
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamiconly
@@ -7844,71 +7371,67 @@ declare interface PreviewMenuOptions {
 }
 
 /**
- * Defines the selection menu options.
+ * Represents the selection menu option extension.
  *
- * @typedef SelectionMenuOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
  * @since 13 dynamic
  */
 declare interface SelectionMenuOptionsExt {
   /**
-   * Callback function when the selection menu appears.
+   * Callback invoked when the custom selection menu appears.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   onAppear?: Callback<void>;
 
   /**
-   * Callback function when the selection menu disappears.
+   * Callback invoked when the custom selection menu disappears.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   onDisappear?: Callback<void>;
 
   /**
-   * The preview content of selection menu.
+   * Preview content style of the custom selection menu. If this parameter is not set, there is no preview content.
    *
-   * @type { ?CustomBuilder }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   preview?: CustomBuilder;
 
   /**
-   * Menu type, default value is MenuType.SELECTION_MENU.
+   * Type of the custom selection menu.
    *
-   * @type { ?MenuType }
+   * Default value: **MenuType.SELECTION_MENU**
+   *
+   * Since API version 20, **MenuType.PREVIEW_MENU** supports hyperlink preview.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   menuType?: MenuType;
 
   /**
-   * Defines the options of preview menu.
+   * Custom preview menu options.
    *
-   * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   previewMenuOptions?: PreviewMenuOptions;
 
   /**
-   * Callback function when the selection is displayed.
+   * Callback invoked when the custom context menu on selection is shown.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
   onMenuShow?: Callback<void>;
 
   /**
-   * Callback function when the selection menu is hidden.
+   * Callback invoked when the custom context menu on selection is hidden.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
@@ -8005,10 +7528,9 @@ declare interface BlankScreenDetectionEventInfo {
 type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => void;
 
 /**
- * Callback with the selected text after the text selection content changes.
+ * Defines a callback triggered when the text selection changes.
  *
- * @typedef { function } TextSelectionChangeCallback
- * @param { string } selectionText - the selected text after the text selection content changes.
+ * @param { string } selectionText - Selected text.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
@@ -8374,31 +7896,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web supports zooming using gestures.
    *
    * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
-   *    The default value is true.
+   *     The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether the Web supports zooming using gestures.
-   *
-   * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether the Web supports zooming using gestures.
-   *
-   * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
@@ -8626,11 +8129,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the over-scroll mode for web
-   * When the scrolling mode is enabled, when the user slides to the edge on the web root page, the web will bounce back
-   * the interface through elastic animation, and the internal pages on the root page will not trigger the bounce back.
    *
    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
-   *    The default value is OverScrollMode.NEVER.
+   *     The default value is OverScrollMode.NEVER.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8703,20 +8204,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets the initial scale for the Web.
    *
    * @param { number } percent the initial scale for the Web.
+   *     Value range: (0, 1000].
+   *     Default value: 100.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the initial scale for the Web.
-   *
-   * @param { number } percent the initial scale for the Web.
-   *                           Value range: (0, 1000].
-   *                           Default value: 100.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   initialScale(percent: number): WebAttribute;
 
@@ -8978,50 +8471,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered function when the Web gets the focus.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the Web gets the focus.
-   *
-   * @param { function } callback The triggered function when the Web gets the focus.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onRequestSelected(callback: () => void): WebAttribute;
 
   /**
    * Triggered when alert() is invoked to display an alert dialog box on the web page.
    *
-   * @param { function } callback Callback used when alert() is invoked to display an alert dialog box on the web page.
+   * @param { function } callback Callback used when alert() is invoked to display an alert dialog box on the web
+   *     page. [since 8 - 11]
+   * @param {  Callback<OnAlertEvent, boolean> } callback Callback used when alert() is invoked to display an alert
+   *     dialog box on the web page.
+   *     {@code true} means the application can invoke custom pop-up dialog capabilities (with confirmation and
+   *     cancellation buttons).
+   *     Developers need to use the JsResult interface to notify the web component whether to leave the current page
+   *     according to the user's choice.
+   *     {@code false} means the pop-up processing result is considered as cancelled. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when alert() is invoked to display an alert dialog box on the web page.
-   *
-   * @param { function } callback Callback used when alert() is invoked to display an alert dialog box on the web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when alert() is invoked to display an alert dialog box on the web page.
-   *
-   * @param {  Callback<OnAlertEvent, boolean> } callback Callback used when alert() is invoked to display an alert dialog box on the web page.
-   *     {@code true} means the application can invoke custom pop-up dialog capabilities (with confirmation and cancellation buttons).
-   *                  Developers need to use the JsResult interface to notify the web component whether to leave the current page
-   *                  according to the user's choice.
-   *     {@code false} means the pop-up processing result is considered as cancelled.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onAlert(callback: Callback<OnAlertEvent, boolean>): WebAttribute;
 
@@ -9066,66 +8537,36 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when confirm() is invoked by the web page.
    *
-   * @param { function } callback Callback triggered when confirm() is invoked by the web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when confirm() is invoked by the web page.
-   *
-   * @param { function } callback Callback triggered when confirm() is invoked by the web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when confirm() is invoked by the web page.
-   *
+   * @param { function } callback Callback triggered when confirm() is invoked by the web page. [since 8 - 11]
    * @param { Callback<OnConfirmEvent, boolean> } callback Callback triggered when confirm() is invoked by the web page.
-   *     {@code true} means the application can call the custom pop-up capability (including confirmation and cancellation), and needs to call JsResult
-   *                  to notify the Web component whether to leave the current page based on the user's confirmation or cancellation operation.
-   *     {@code false} means the custom pop-up drawn in the function is invalid.
+   *     {@code true} means the application can call the custom pop-up capability (including confirmation and
+   *     cancellation), and needs to call JsResult
+   *     to notify the Web component whether to leave the current page based on the user's confirmation or cancellation
+   *     operation.
+   *     {@code false} means the custom pop-up drawn in the function is invalid. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onConfirm(callback: Callback<OnConfirmEvent, boolean>): WebAttribute;
 
   /**
    * Triggered when prompt() is invoked by the web page.
    *
-   * @param { function } callback Callback used when prompt() is invoked by the web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when prompt() is invoked by the web page.
-   *
-   * @param { function } callback Callback used when prompt() is invoked by the web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when prompt() is invoked by the web page.
-   *
+   * @param { function } callback Callback used when prompt() is invoked by the web page. [since 9 - 11]
    * @param { Callback<OnPromptEvent, boolean> } callback Callback used when prompt() is invoked by the web page.
-   *     {@code true} means the application can call the custom pop-up window capability (including confirmation, cancellation, and input),and needs to
-   *                   call JsResult to notify the Web component of the final processing result based on the user's confirmation or cancellation operation.
-   *     {@code false} means the pop-up window processing result is considered as a cancellation.
+   *     {@code true} means the application can call the custom pop-up window capability (including confirmation,
+   *     cancellation, and input),and needs to
+   *     call JsResult to notify the Web component of the final processing result based on the user's confirmation or
+   *     cancellation operation.
+   *     {@code false} means the pop-up window processing result is considered as a cancellation. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onPrompt(callback: Callback<OnPromptEvent, boolean>): WebAttribute;
 
@@ -9340,36 +8781,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the file selector shows.
-   *
-   * @param { function } callback The triggered when the file selector shows.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the file selector shows.
-   *
-   * @param { function } callback The triggered when the file selector shows.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the file selector shows.
    * Call this function to handle HTML forms with a "file" input type. If this function is not called or returns false,
-   * the web component provides the default "select file" handling interface. If it returns true, the application can customize
+   * the web component provides the default "select file" handling interface. If it returns true, the application can
+   * customize
    * the "select file" response behavior.
    *
+   * @param { function } callback The triggered when the file selector shows. [since 9 - 11]
    * @param { Callback<OnShowFileSelectorEvent, boolean> } callback The triggered when the file selector shows.
    *     {@code true} means the user can call the system-provided pop-up window capability.
-   *     {@code false} means the custom pop-up window drawn in the function is invalid.
+   *     {@code false} means the custom pop-up window drawn in the function is invalid. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onShowFileSelector(callback: Callback<OnShowFileSelectorEvent, boolean>): WebAttribute;
 
@@ -9495,30 +8920,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the scale of WebView changed.
    *
-   * @param { function } callback The triggered when the scale of WebView changed.
+   * @param { function } callback The triggered when the scale of WebView changed. [since 9 - 11]
+   * @param { Callback<OnScaleChangeEvent> } callback The triggered when the scale of WebView changed. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the scale of WebView changed.
-   *
-   * @param { function } callback The triggered when the scale of WebView changed.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the scale of WebView changed.
-   *
-   * @param { Callback<OnScaleChangeEvent> } callback The triggered when the scale of WebView changed.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onScaleChange(callback: Callback<OnScaleChangeEvent>): WebAttribute;
 
@@ -9634,37 +9042,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when called to allow custom display of the context menu.
    *
-   * @param { function } callback The triggered callback when called to allow custom display of the context menu.
-   * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when called to allow custom display of the context menu.
-   *
-   * @param { function } callback The triggered callback when called to allow custom display of the context menu.
-   * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when called to allow custom display of the context menu.
-   *
-   * @param { Callback<OnContextMenuShowEvent, boolean> } callback The triggered callback when called to allow custom display of the context menu.
+   * @param { function } callback The triggered callback when called to allow custom display of the context
+   *     menu. [since 9 - 11]
+   * @param { Callback<OnContextMenuShowEvent, boolean> } callback The triggered callback when called to allow custom
+   *     display of the context menu.
    *     {@code true} means the custom menu is triggered.
-   *     {@code false} means the custom menu is invalid.
+   *     {@code false} means the custom menu is invalid. [since 12]
    * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onContextMenuShow(callback: Callback<OnContextMenuShowEvent, boolean>): WebAttribute;
 
   /**
    * Triggered when called to allow custom hide of the context menu.
    *
-   * @param { OnContextMenuHideCallback } callback The triggered function when called to allow custom hide of the context menu.
+   * @param { OnContextMenuHideCallback } callback The triggered function when called to allow custom hide of the
+   *     context menu.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9740,52 +9135,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { function } callback Function triggered when the web page scroll to the specified position.
+   * @param { function } callback Function triggered when the web page scroll to the specified position. [since 9 - 11]
+   * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified
+   *     position. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Notify the global scroll position of the web page
-   *
-   * Description:
-   *
-   * What is notified is the global scroll position of the page.
-   * Changes in the local scroll position cannot trigger this callback.
-   *
-   * Determine whether the page is globally scrolled and print window.pagYOffset
-   * or window.pagXOffset before and after scrolling.
-   *
-   * If it is global scrolling, the value of window.pagYOffset
-   * or window.pagXOffset will change before and after scrolling, and vice versa.
-   *
-   * @param { function } callback Function triggered when the web page scroll to the specified position.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Notify the global scroll position of the web page
-   *
-   * Description:
-   *
-   * What is notified is the global scroll position of the page.
-   * Changes in the local scroll position cannot trigger this callback.
-   *
-   * Determine whether the page is globally scrolled and print window.pagYOffset
-   * or window.pagXOffset before and after scrolling.
-   *
-   * If it is global scrolling, the value of window.pagYOffset
-   * or window.pagXOffset will change before and after scrolling, and vice versa.
-   *
-   * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified position.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
@@ -10205,39 +9562,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set whether paint horizontal scroll bar.
    *
-   * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Set whether paint horizontal scroll bar.
-   *
    * <p><strong>API Note</strong>:<br>
    * After controlling the horizontal scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
    * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
    * </p>
    *
    * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
-   *    The default value is true.
+   *     The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
 
-  /**
-   * Set whether paint vertical scroll bar.
-   *
-   * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
   /**
    * Set whether paint vertical scroll bar, including the system default scrollbar and user-defined scrollbar.
    *
@@ -10247,12 +9586,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
-   *    The default value is true.
+   *     The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
 
@@ -10511,28 +9850,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10 dynamic
    */
   onControllerAttached(callback: () => void): WebAttribute;
+
   /**
    * Triggered when the overscroll occurs.
-   * @param { function } callback Function triggered when the overscroll occurs.
+   *
+   * @param { function } callback Function triggered when the overscroll occurs. [since 10 - 11]
+   * @param { Callback<OnOverScrollEvent> } callback Function triggered when the overscroll occurs. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Triggered when the overscroll occurs.
-   * @param { function } callback Function triggered when the overscroll occurs.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the overscroll occurs.
-   * @param { Callback<OnOverScrollEvent> } callback Function triggered when the overscroll occurs.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onOverScroll(callback: Callback<OnOverScrollEvent>): WebAttribute;
 
@@ -10682,15 +10009,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Called to setting the nested scroll options.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
-   * @returns { WebAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called to setting the nested scroll options.
-   *
    * <p><strong>API Note</strong>:<br>
    * You can set four directions: up, down, left, and right, or set nested scrolling modes for forward and backward directions
    * to achieve scrolling linkage with the parent component.<br>
@@ -10704,36 +10022,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * it is recommended to set overScrollMode to OverScrollMode.NEVER to avoid affecting the user experience in this scenario.
    * </p>
    *
+   * @param { NestedScrollOptions } value - options for nested scrolling. [since 11 - 13]
    * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
-   *     nested scrolling.
+   *     nested scrolling. [since 14]
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 14
-   */
-  /**
-   * Called to setting the nested scroll options.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * You can set four directions: up, down, left, and right, or set nested scrolling modes for forward and backward directions
-   * to achieve scrolling linkage with the parent component.<br>
-   * When value is of type NestedScrollOptionsExt (four directions: up, down, left, and right), the default scrolling options
-   * for scrollUp, scrollDown, scrollLeft, and scrollRight are NestedScrollMode.SELF_FIRST.<br>
-   * When value is of type NestedScrollOptions (two directions: forward and backward), the default scrolling options for scrollForward
-   * and scrollBackward are NestedScrollMode.SELF_FIRST.<br>
-   * Supported nested scrolling containers: Grid, List, Scroll, Swiper, Tabs, WaterFlow, Refresh, bindSheet.<br>
-   * Supported nested scrolling input events: gestures, mouse, and trackpad.<br>
-   * In nested scrolling scenarios, since web scrolling to the edge will prioritize triggering the overscroll bounce effect,
-   * it is recommended to set overScrollMode to OverScrollMode.NEVER to avoid affecting the user experience in this scenario.
-   * </p>
-   *
-   * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
-   *     nested scrolling.
-   * @returns { WebAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 11 dynamic
    */
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
@@ -10938,7 +10234,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Set the custom text menu.
-   * The Web component custom menu extension item interface allows users to set the extension item's text content, icon, and callback method.
+   * The Web component custom menu extension item interface allows users to set the extension item's text content, icon,
+   * and callback method.
    *
    * <p><strong>API Note</strong>:<br>
    * This interface only supports selecting plain text. When the selected content contains images and other non-text content,
@@ -10946,8 +10243,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
-   *                                                                 The number of menu items, the content size of the menu, and the startIcon
-   *                                                                 icon size are consistent with the ArkUI Menu component.
+   *     The number of menu items, the content size of the menu, and the startIcon
+   *     icon size are consistent with the ArkUI Menu component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamiconly
@@ -11025,12 +10322,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { EditMenuOptions } editMenu - Customize text menu options.
-   *                                       The number of menu items, as well as the content size and icon size of the menu,
-   *                                       should be consistent with the ArkUI Menu component.
-   *                                       The system-provided id enumeration values (TextMenuItemId) in the menu are only
-   *                                       supported for CUT, COPY, PASTE, SELECT_ALL, TRANSLATE, SEARCH and some AI menu in the web.
-   *                                       The textRange parameter in the onMenuItemClick function is meaningless in the web,
-   *                                       and the input value is -1.
+   *     The number of menu items, as well as the content size and icon size of the menu,
+   *     should be consistent with the ArkUI Menu component.
+   *     The system-provided id enumeration values (TextMenuItemId) in the menu are only
+   *     supported for CUT, COPY, PASTE, SELECT_ALL, TRANSLATE, SEARCH and some AI menu in the web.
+   *     The textRange parameter in the onMenuItemClick function is meaningless in the web,
+   *     and the input value is -1.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -11732,9 +11029,8 @@ declare interface VerifyPinEvent {
  */
 declare interface ExpandedMenuItemOptions {
   /**
-   * Customize what the menu displays.
+   * Display content.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamiconly
@@ -11744,9 +11040,8 @@ declare interface ExpandedMenuItemOptions {
   content: ResourceStr;
 
   /**
-   * Customize the icon before the menu displays content.
+   * Display icon. The default value is empty, and no icon is displayed.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamiconly
@@ -11756,9 +11051,8 @@ declare interface ExpandedMenuItemOptions {
   startIcon?: ResourceStr;
 
   /**
-   * Get the selected text information.
+   * Selected text.
    *
-   * @type { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamiconly
@@ -11769,86 +11063,54 @@ declare interface ExpandedMenuItemOptions {
 }
 
 /**
- * Define nested scroll options
+ * Implements a **NestedScrollOptionsExt** object to set up, down, left, and right nested scrolling options.
  *
- * @interface NestedScrollOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
- * @since 14
- */
-/**
- * Define nested scroll options
- *
- * @interface NestedScrollOptionsExt
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 23 dynamic
+ * @crossplatform [since 23]
+ * @since 14 dynamic
  */
 declare interface NestedScrollOptionsExt {
   /**
-   * Set NestedScrollMode when the scrollable component scrolls up
+   * Nested scrolling options when the component scrolls up.
    *
-   * @type { ?NestedScrollMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
-   */
-  /**
-   * Set NestedScrollMode when the scrollable component scrolls up
+   * Default value: **NestedScrollMode.SELF_FIRST**.
    *
-   * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 14 dynamic
    */
   scrollUp?: NestedScrollMode;
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls down
+   * Nested scrolling options when the component scrolls down.
    *
-   * @type { ?NestedScrollMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
-   */
-  /**
-   * Set NestedScrollMode when the scrollable component scrolls down
+   * Default value: **NestedScrollMode.SELF_FIRST**.
    *
-   * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 14 dynamic
    */
   scrollDown?: NestedScrollMode;
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls right
+   * Nested scrolling options when the component scrolls right.
    *
-   * @type { ?NestedScrollMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
-   */
-  /**
-   * Set NestedScrollMode when the scrollable component scrolls right
+   * Default value: **NestedScrollMode.SELF_FIRST**.
    *
-   * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 14 dynamic
    */
   scrollRight?: NestedScrollMode;
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls left
+   * Nested scrolling options when the component scrolls left.
    *
-   * @type { ?NestedScrollMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
-   */
-  /**
-   * Set NestedScrollMode when the scrollable component scrolls left
+   * Default value: **NestedScrollMode.SELF_FIRST**.
    *
-   * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 14 dynamic
    */
   scrollLeft?: NestedScrollMode;
 }
@@ -11898,7 +11160,7 @@ declare interface EmbedOptions {
 }
 
 /**
- * Enum type supplied to {@link gestureFocusMode} for setting the web gesture focus mode.
+ * Enumerates the focus modes.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -11906,8 +11168,7 @@ declare interface EmbedOptions {
  */
 declare enum GestureFocusMode {
   /**
-   * Any action on a web component, such as tapping, long-pressing, scrolling, zooming, etc.,
-   * will cause the web component to acquire focus on touch down.
+   * The **Web** component applies for the focus when it is touched, long-pressed, swiped, or zoomed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -11915,8 +11176,8 @@ declare enum GestureFocusMode {
   DEFAULT = 0,
 
   /**
-   * Tap and long-press gestures will cause the web component to acquire focus after touch up,
-   * while gestures such as scrolling, zooming, etc., do not request focus.
+   * The **Web** component applies for the focus only when it is touched and long-
+   * pressed. The swipe and zoom gestures do not apply for the focus.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -11925,29 +11186,26 @@ declare enum GestureFocusMode {
 }
 
 /**
-* Define file selection type.
-*
-* @typedef AcceptableFileType
-* @syscap SystemCapability.Web.Webview.Core
-* @since 23 dynamic
-*/
+ * Defines the file types recommended by the web page when the file selector pulls files.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
 declare interface AcceptableFileType {
   /**
-    * A annotated file type identifier used to describe the format and content type of a file.
-    *
-    * @type { string }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 23 dynamic
-    */
+   * MIME type of the file.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
   mimeType: string;
 
   /**
-    * Array of file types accepted by web pages.
-    *
-    * @type { Array<string> }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 23 dynamic
-    */
+   * Array of acceptable file types.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
   acceptableType: Array<string>;
 }
 
@@ -12116,7 +11374,6 @@ declare enum MicrophoneCaptureState {
 /**
  * Defines the layout policy for scrollbars, used with {@link scrollbarLayoutPolicy}.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -12144,7 +11401,6 @@ declare enum ScrollbarLayoutPolicy {
 /**
  * Enum defining the scope of directional lock behavior in the WebView, used with {@link enableScrollDirectionalLock}.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -12177,7 +11433,6 @@ declare enum ScrollDirectionalLockType {
  * Return `true` to bypass the default system behavior;
  * return `false` to proceed with the default logic.
  *
- * @typedef { function }
  * @param { string } id - The session task ID.
  * @param { string } params - Contextual data passed during creation.
  * @param { OnAISessionCallback } result - Callback function to notify the system of the creation result.
@@ -12192,7 +11447,6 @@ type OnCreateAISession = (id: string, params: string, result: OnAISessionCallbac
  * Triggered when executing an AI session action.
  * Enables custom implementation of AI model execution.
  *
- * @typedef { function }
  * @param { string } id - The session task ID.
  * @param { string } params - Contextual data passed during execution (in JSON string format).
  * @param { OnAISessionCallback } result - Callback function to notify the system of the execution result.
@@ -12206,7 +11460,6 @@ type OnExecuteAIAction = (id: string, params: string, result: OnAISessionCallbac
  * Triggered when an AI session is destroyed.
  * Used for cleaning up resources associated with custom AI models.
  *
- * @typedef { function }
  * @param { string } id - The session task ID.
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -12218,7 +11471,6 @@ type OnDestroyAISession = (id: string) => void;
  * Custom AI session model integration for Web components.
  * Users can define custom AI session behaviors via this interface.
  *
- * @typedef AISessionEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -12227,7 +11479,6 @@ declare interface AISessionEvent {
   /**
    * The type of AI session.
    *
-   * @type { AISessionType }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -12240,7 +11491,6 @@ declare interface AISessionEvent {
    * Return `true` to bypass the default system behavior;
    * return `false` to proceed with the default logic.
    *
-   * @type { OnCreateAISession }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -12251,7 +11501,6 @@ declare interface AISessionEvent {
    * Triggered when executing an AI session action.
    * Enables custom implementation of AI model execution.
    *
-   * @type { OnExecuteAIAction }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -12262,7 +11511,6 @@ declare interface AISessionEvent {
    * Triggered when an AI session is destroyed.
    * Used for cleaning up resources associated with custom AI models.
    *
-   * @type { OnDestroyAISession }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -12273,7 +11521,6 @@ declare interface AISessionEvent {
 /**
  * Enum representing the supported types of AI sessions.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -12346,7 +11593,6 @@ declare enum AISessionType {
 /**
  * Enum representing the result states for AI session operations.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -12384,7 +11630,6 @@ declare enum AISessionResultType {
  * Callback type for AI session operations.
  * Used to report the result of session creation or execution.
  *
- * @typedef { function } OnAISessionCallback
  * @param { AISessionResultType } state - The current result state.
  * @param { string } content - The detailed result or response content.
  * @syscap SystemCapability.Web.Webview.Core

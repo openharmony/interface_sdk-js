@@ -130,120 +130,82 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
-   * @enum {number}
+   * [getLastHitTest]{@link @ohos.web.webview:webview.WebviewController#getLastHitTest}接口用于指示光标节点。
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
-   * @enum {number}
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   enum WebHitTestType {
     /**
-     * The edit text.
+     * 可编辑的区域。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The edit text.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     EditText = 0,
 
     /**
-     * The email address.
+     * 电子邮件地址。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The email address.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     Email = 1,
 
     /**
-     * The HTML::a tag with src=http.
+     * 超链接，其中src为http。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The HTML::a tag with src=http.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     HttpAnchor = 2,
 
     /**
-     * The HTML::a tag with src=http + HTML::img.
+     * 带有超链接的图片，其中src为http + HTML::img。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The HTML::a tag with src=http + HTML::img.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     HttpAnchorImg = 3,
 
     /**
-     * The HTML::img tag.
+     * HTML::img标签。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The HTML::img tag.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     Img = 4,
 
     /**
-     * The map address.
+     * 地理地址。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The map address.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     Map = 5,
 
     /**
-     * The phone number.
+     * 电话号码。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * The phone number.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     Phone = 6,
 
     /**
-     * Other unknown HitTest.
+     * 未知内容。
+     *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Other unknown HitTest.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     Unknown = 7
   }
@@ -834,60 +796,30 @@ declare namespace webview {
   }
 
   /**
-   * Defines the hit test value, related to {@link getHitTestValue} method.
+   * 提供点击区域的元素信息。示例代码参考
+   * [getLastHitTest]{@link @ohos.web.webview:webview.WebviewController#getLastHitTest}.
    *
-   * @interface HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Defines the hit test value, related to {@link getHitTestValue} method.
-   *
-   * @interface HitTestValue
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Provides element information of the click area. related to {@link getLastHitTest} method.
-   *
-   * @typedef HitTestValue
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   interface HitTestValue {
 
     /**
-     * Get the hit test type.
+     * 当前被点击区域的元素类型。
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the hit test type.
-     *
-     * @type { WebHitTestType }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     type: WebHitTestType;
 
     /**
-     * Get the hit test extra data.
+     * 点击区域的附加参数信息。若被点击区域为图片或链接，则附加参数信息为其url地址。
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the hit test extra data.
-     * If the clicked area is an image or a link, the additional parameter information is it's URL address.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     extra: string;
   }
@@ -1275,18 +1207,22 @@ declare namespace webview {
   }
 
   /**
-   * Defines the scroll offset of the webpage in view port, the unit is virtual pixel.
-   * Related to {@link getScrollOffset} method.
+   * 网页当前的滚动偏移量。
    *
-   * @typedef ScrollOffset
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 13 dynamic
    */
   interface ScrollOffset {
     /**
-     * Get the horizontal offset.
-     * @type { number }
+     * 网页在水平方向的滚动偏移量。取值为网页左边界x坐标与Web组件左边界x坐标的差值。
+     *
+     * 当网页向右过滚动时，取值范围为负值。
+     *
+     * 当网页没有过滚动或者网页向左过滚动时，取值为0或正值。
+     *
+     * 单位：vp。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 13 dynamic
@@ -1294,8 +1230,14 @@ declare namespace webview {
     x: number;
 
     /**
-     * Get the vertical offset.
-     * @type { number }
+     * 网页在垂直方向的滚动偏移量。取值为网页上边界y坐标与Web组件上边界y坐标的差值。
+     *
+     * 当网页向下过滚动时，取值范围为负值。
+     *
+     * 当网页没有过滚动或者网页向上过滚动时，取值为0或正值。
+     *
+     * 单位：vp。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 13 dynamic
@@ -3933,15 +3875,14 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link setScrollable} for indicating the type of scroll.
+   * Scroll滚动类型，用于[setScrollable]{@link setScrollable}。
    *
-   * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   enum ScrollType {
     /**
-     * Indicates scrolling the web page through scroll event, include touch screen, touch pad, and mouse wheel.
+     * 滚动事件，表示通过触摸屏、触摸板、鼠标滚轮生成的网页滚动。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
@@ -4875,23 +4816,20 @@ declare namespace webview {
     loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
     /**
-     * Gets the type of HitTest.
-     * @returns { WebHitTestType } The type of HitTest.
+     * 获取当前被点击区域的元素类型。
+     *
+     * > **说明：**
+     * >
+     * > 从API version11开始支持，从API version 18开始废弃。建议使用[getLastHitTest]{@link webview.WebviewController#getLastHitTest}替代。
+     *
+     * @returns { WebHitTestType } 被点击区域的元素类型。
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Gets the type of HitTest.
-     * @returns { WebHitTestType } The type of HitTest.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.web.webview.WebviewController#getLastHitTest
+     * @useinstead webview.WebviewController#getLastHitTest
      */
     getHitTest(): WebHitTestType;
 
@@ -4976,121 +4914,64 @@ declare namespace webview {
     storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
 
     /**
-     * Let the Web zoom by.
+     * 调整当前网页的缩放比例，[zoomAccess]{@link @ohos.web.WebAttribute#zoomAccess}需为true.
      *
-     * @param { number } factor - The zoom factor.
-     *                            Reduced when the input parameter is less than 1. Enlarged when the input parameter is greater than 1.Value range: (0, 100].
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enabled.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Let the Web zoom by.
-     *
-     * <p><strong>API Note</strong>:<br>
-     * zoomAccess must be true.
-     * </p>
-     *
-     * @param { number } factor - The zoom factor.
+     * @param { number } factor - 基于当前网页所需调整的相对缩放比例，入参要求大于0，
+     *     当入参为1时为默认加载网页的缩放比例，入参小于1为缩小，入参大于1为放大。
+     *     <br>取值范围：(0，100]。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     zoom(factor: number): void;
 
     /**
-     * Let the Web zoom in.
+     * 调用此接口将当前网页进行放大，比例为25%。
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Let the Web zoom in.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enabled.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Let the Web zoom in.
-     * Call this interface to enlarge the current page by 25%.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enabled.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     zoomIn(): void;
 
     /**
-     * Let the Web zoom out.
+     * 调用此接口将当前网页进行缩小，比例为20%。
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enabled.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Let the Web zoom out.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enabled.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Let the Web zoom out.
-     * Call this interface to shrink the current page by 20%.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100004 - Function not enabled.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     zoomOut(): void;
 
     /**
-     * Gets the hit test value of HitTest.
-     * @returns { HitTestValue } Return the element information of the clicked area.
+     * 获取当前被点击区域的元素信息。
+     *
+     * > **说明：**
+     * >
+     * > 从API version11开始支持，从API version 18开始废弃。建议使用[getLastHitTest]{@link webview.WebviewController#getLastHitTest}替代。
+     *
+     * @returns { HitTestValue } 点击区域的元素信息。
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Gets the hit test value of HitTest.
-     * @returns { HitTestValue } Return the element information of the clicked area.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
-     * @useinstead ohos.web.webview.WebviewController#getLastHitTest
+     * @useinstead webview.WebviewController#getLastHitTest
      */
     getHitTestValue(): HitTestValue;
 
@@ -5212,21 +5093,13 @@ declare namespace webview {
     backOrForward(step: number): void;
 
     /**
-     * Gets the request focus.
+     * 使当前Web页面获取焦点。
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Gets the request focus.
-     *
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     requestFocus(): void;
 
@@ -5799,88 +5672,32 @@ declare namespace webview {
     getUrl(): string;
 
     /**
-     * Scroll the contents of this Webview up by half the view size.
+     * 将Webview的内容向上滚动半个视框大小或者跳转到页面最顶部，通过top入参控制。
      *
-     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
-     *                          and when set to true, it will jump to the top of the page.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Scroll the contents of this Webview up by half the view size.
-     *
-     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
-     *                          and when set to true, it will jump to the top of the page.
+     * @param { boolean } top - 是否跳转到页面最顶部。<br>false表示将页面内容向上滚动半个视框大小，true表示跳转到页面最顶部。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Scroll the contents of this Webview up by half the view size.
-     *
-     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
-     *                          and when set to true, it will jump to the top of the page.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     pageUp(top: boolean): void;
 
     /**
-     * Scroll the contents of this Webview down by half the view size.
+     * 将Webview的内容向下滚动半个视框大小或者跳转到页面最底部，通过bottom入参控制。
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Scroll the contents of this Webview down by half the view size.
-     *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - 是否跳转到页面最底部。<br>false时表示将页面内容向下滚动半个视框大小，true表示跳转到页面最底部。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Scroll the contents of this Webview down by half the view size.
-     *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     pageDown(bottom: boolean): void;
 
@@ -6071,120 +5888,58 @@ declare namespace webview {
     static removeAllCache(clearRom: boolean): void;
 
     /**
-     * Scroll to the position.
+     * Scrolls the page to the specified absolute position within a specified period.
      *
-     * @param { number } x - the x of the position.
-     * @param { number } y - the y of the position.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Scroll to the position.
+     * 在指定时间内，将页面滚动到指定的绝对位置。
      *
-     * @param { number } x - the x of the position.
-     * @param { number } y - the y of the position.
+     * @param { number } x - 绝对位置的水平坐标，当传入数值为负数时，按照传入0处理。<br>单位：vp。
+     * @param { number } y - 绝对位置的垂直坐标，当传入数值为负数时，按照传入0处理。<br>单位：vp。
+     * @param { number } [duration] - 滚动动画时间。<br>单位：ms。<br>不传入为无动画，当传入数值为负数或传入0时，按照不传入处理。
+     *     <br>传入null或undefined时会抛出异常错误码401。 [since 14]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Scroll to the position.
-     *
-     * @param { number } x - the x of the position.Unit: vp.
-     * @param { number } y - the y of the position.Unit: vp.
-     * @param { number } duration - the scroll animation duration. Unit: millisecond.
-     *                              If the value is not passed, or is negative or 0, there is no animation.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     scrollTo(x: number, y: number, duration?: number): void;
 
     /**
-     * Scroll by the delta position.
+     * 在指定时间内将页面滚动指定的偏移量。
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Scroll by the delta position.
-     *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * @param { number } deltaX - 水平偏移量，其中水平向右为正方向。<br>单位：vp。
+     * @param { number } deltaY - 垂直偏移量，其中垂直向下为正方向。<br>单位：vp。
+     * @param { number } duration - 滚动动画时间。<br>单位：ms。
+     *     <br>不传入为无动画，当传入数值为负数或传入0时，按照不传入处理。
+     *     <br>传入null或undefined时会抛出异常错误码401。 [since 14]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Scroll by the delta position.
-     *
-     * <p><strong>API Note</strong>:<br>
-     * In nested scroll scenarios, calling scrollBy does not trigger nested scrolling in the parent component.
-     * </p>
-     *
-     * @param { number } deltaX - the delta x of the position.Unit: vp.
-     * @param { number } deltaY - the delta y of the position.Unit: vp.
-     * @param { number } duration - the scroll animation duration. Unit: millisecond.
-     *                              If the value is not passed, or is negative or 0, there is no animation.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
     /**
-     * Slide by the speed.
+     * 按照指定速度模拟对页面的轻扫滚动动作。
      *
-     * @param { number } vx - the x speed of the speed.
-     * @param { number } vy - the y speed of the speed.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Slide by the speed.
-     *
-     * @param { number } vx - the x speed of the speed. The unit is vp/s.
-     * @param { number } vy - the y speed of the speed. The unit is vp/s.
+     * @param { number } vx - 轻扫滚动的水平速度分量，其中水平向右为速度正方向。<br>单位：vp/s。
+     * @param { number } vy - 轻扫滚动的垂直速度分量，其中垂直向下为速度正方向。<br>单位：vp/s。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
-    slideScroll(vx:number, vy:number): void;
+    slideScroll(vx: number, vy: number): void;
 
     /**
      * Serialize the access stack of the web, that is, the history of access.
@@ -6750,20 +6505,17 @@ declare namespace webview {
     isIncognitoMode(): boolean;
 
     /**
-     * Set whether scroll is allowed
+     * 设置网页是否允许滚动。
      *
-     * @param { boolean } enable - Set whether scrolling is allowed
-     *                             {@code true} means scrolling is allowed.
-     *                             {@code false} means scrolling is disabled.
-     * @param { ScrollType } type - Enable scrolling type
-     *                              When the input parameter enable is false, it indicates that scrolling of the ScrollType type is prohibited.When ScrollType
-     *                              is not specified,it indicates that all types of webpage scrolling are prohibited.
-     *                              When the input parameter enable is true, regardless of whether ScrollType is specified, it indicates that all types
-     *                              of webpage scrolling are allowed.
+     * @param { boolean } enable - 表示是否将网页设置为允许滚动。<br>true表示设置为允许滚动，false表示禁止滚动。<br>默认值：true。
+     * @param { ScrollType } type - 网页可触发的滚动类型，支持缺省配置。
+     *     <br> - enable为false时，表示禁止ScrollType类型的滚动，当ScrollType缺省时表示禁止所有类型网页滚动。
+     *     <br> - enable为true时，ScrollType缺省与否，都表示允许所有类型的网页滚动。
+     *     <br>传入null或undefined时会抛出异常错误码401。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6771,10 +6523,12 @@ declare namespace webview {
     setScrollable(enable: boolean, type?: ScrollType): void;
 
     /**
-     * Get whether scrolling is allowed.
-     * @returns { boolean } Get scrolling is allowed information.
+     * 获取当前网页是否允许滚动。
+     *
+     * @returns { boolean } 当前网页是否允许滚动。
+     *     <br>true为允许滚动，false为禁止滚动。
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -7599,10 +7353,9 @@ declare namespace webview {
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
 
     /**
-     * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
-     * And the unit is virtual pixel.
+     * 获取网页当前的滚动偏移量（包含过滚动偏移量）。
      *
-     * @returns { ScrollOffset } scroll offset
+     * @returns { ScrollOffset } 网页当前的滚动偏移量（包含过滚动偏移量）。
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 13 dynamic
@@ -7610,25 +7363,27 @@ declare namespace webview {
     getScrollOffset(): ScrollOffset;
 
     /**
-     * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
+     * 将页面滚动指定的偏移量，返回值表示此次滚动是否执行成功。
      *
-     * @param { number } deltaX - the delta x of the position. The unit is vp.
-     * @param { number } deltaY - the delta y of the position. The unit is vp.
-     * @returns { boolean } true if the scroll operation is successful, otherwise false.
+     * @param { number } deltaX - 水平偏移量，其中水平向右为正方向。 <br>单位：vp。
+     * @param { number } deltaY - 垂直偏移量，其中垂直向下为正方向。 <br>单位：vp。
+     * @returns { boolean } true表示当前网页可以滑动，false表示当前网页不可以滑动。
+     *     <br>默认为false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     scrollByWithResult(deltaX: number, deltaY: number): boolean;
 
     /**
-     * Gets the last hit test value of HitTest.
-     * @returns { HitTestValue } Return the element information of the clicked area.
+     * 获取上一次被点击区域的元素信息。
+     *
+     * @returns { HitTestValue } 点击区域的元素信息。
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 18 dynamic
      */
@@ -7673,10 +7428,10 @@ declare namespace webview {
     waitForAttached(timeout: number): Promise<ControllerAttachState>;
 
     /**
-     * Get the page offset. And the unit is virtual pixel.
+     * 获取网页当前的滚动偏移量（不包含过滚动偏移量）。
      *
-     * @returns { ScrollOffset } page offset
-     * @throws { BusinessError } 801 This functionality is not supported.
+     * @returns { ScrollOffset } 网页当前的滚动偏移量（不包含过滚动偏移量）。
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -7856,10 +7611,19 @@ declare namespace webview {
     setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
 
     /**
-     * Sets whether to switch web scrollbar mode.
+     * 在Web页面场景，设置全局滚动条模式。不显式调用时，默认为
+     * [ScrollbarMode.OVERLAY_LAYOUT_SCROLLBAR]{@link @ohos.web.webview:webview.ScrollbarMode}（非常驻滚动条）。
      *
-     * @param { ScrollbarMode } scrollbarMode - web scrollbar mode, default OVERLAY_LAYOUT_SCROLLBAR.
-     * @static
+     * > **说明：**
+     * >
+     * > - 根据滚动条模式，改变当前应用所有web滚动条模式为常驻滚动条或非常驻滚动条。
+     * >
+     * > - 若[forceDisplayScrollBar]{@link @ohos.web.WebAttribute#forcedisplayscrollbar}
+     * > 接口与当前接口同时设置，forceDisplayScrollBar接口设置不生效。
+     * >
+     * > - 该接口需要在WebViewController绑定Web组件之前调用。
+     *
+     * @param { ScrollbarMode } scrollbarMode - 滚动条模式。
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
@@ -11067,27 +10831,35 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link setScrollbarMode} for indicating the web component scrollbar mode.
-   * @enum { number }
+   * Web页面场景下，全局滚动条模式。
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   enum ScrollbarMode {
     /**
-     * The normal scrollbar mode, A scrollbar suspended above the content,
-     * appearing when scrolling and automatically hiding when stationary.
-     * Draw using layout viewport, which can be dragged and dropped.
+     * 非常驻滚动条。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
     OVERLAY_LAYOUT_SCROLLBAR = 0,
 
     /**
-     * The Resident scrollbar mode, Always display a fixed position scrollbar in the content area.
+     * 常驻滚动条。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
-    FORCE_DISPLAY_SCROLLBAR = 1
+    FORCE_DISPLAY_SCROLLBAR = 1,
+
+    /**
+     * 覆盖视觉视口滚动条。
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    OVERLAY_VISUAL_SCROLLBAR = 2
   }
 }
 
