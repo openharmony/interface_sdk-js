@@ -21906,6 +21906,19 @@ declare interface ContextMenuOptions {
    * @atomicservice
    * @since 23 dynamic
    */
+  /**
+    * Set system-styled materials for menu. The material effect behaves differently on devices with different
+    * level of computing powers. On devices with lower computing power, it affects attributes such as the
+    * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
+    * at the system material layer, which can produce an effect similar to glass.
+    *
+    * @type { ?SystemUiMaterial }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
   systemMaterial?: SystemUiMaterial;
   /**
    * Defines the scroll bar state of menu.
