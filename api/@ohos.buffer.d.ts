@@ -1243,6 +1243,18 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
+     * @returns { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 static
+     */
+    toString(): string;
+
+    /**
+     * Decodes buf to a string according to the specified character encoding in encoding
+     *
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The character encoding to use
      * @param { int } [start] - start [start = 0] The byte offset to start decoding at
      *     The value should be an integer.
