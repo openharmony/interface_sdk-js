@@ -320,13 +320,14 @@ declare class List<T> {
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { ListForEachCb } callbackFn - callbackFn
+   * @param { ListForEachCb<T> } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
    */
-  forEach(callbackfn: ListForEachCb<T>): void;
+  forEach(callbackFn: ListForEachCb<T>): void;
 
   /**
    * Sorts elements in this List.
@@ -398,13 +399,14 @@ declare class List<T> {
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { ListReplaceCb } callbackFn - callbackFn
+   * @param { ListReplaceCb<T> } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
    */
-  replaceAllElements(callbackfn: ListReplaceCb<T>): void;
+  replaceAllElements(callbackFn: ListReplaceCb<T>): void;
 
   /**
    * Converts this List into an array and returns the array.
