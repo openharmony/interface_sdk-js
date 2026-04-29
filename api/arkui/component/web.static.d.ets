@@ -4962,9 +4962,8 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the over-scroll mode for web
      * When the scrolling mode is enabled, when the user slides to the edge on the web root page, the web will bounce
-     * back
-     * the interface through elastic animation, and the internal pages on the root page will not trigger the bounce
-     * back.
+     * back the interface through elastic animation, and the internal pages on the root page will not trigger the
+     * bounce back.
      *
      * @param { OverScrollMode | undefined } mode - The over-scroll mode, which can be {@link OverScrollMode}.
      *     The default value is OverScrollMode.NEVER.
