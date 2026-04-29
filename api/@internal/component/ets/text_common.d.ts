@@ -2597,6 +2597,53 @@ declare enum TextContentAlign {
 }
 
 /**
+ * An enumeration that defines the line corner style, i.e.,
+ * the style of the brush when drawing a polyline at the corners of the line segments.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+enum StrokeJoinStyle {
+ 
+  /**
+   * The corner type is an acute angle. If the angle of the polyline is relatively small,
+   * the acute angle will be very long and needs to be restricted using a limiting value (miter limit).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MITER_JOIN = 0,
+ 
+  /**
+   * The corner type is round.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ROUND_JOIN = 1,
+ 
+  /**
+   * The corner type is flat.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  BEVEL_JOIN = 2
+}
+
+/**
  * Defines text layout options. Use this to set constraints for measure text.
  *
  * @interface TextLayoutOptions
