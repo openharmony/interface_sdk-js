@@ -21,10 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
- * The **linkEnhance** module delivers highly efficient Bluetooth connectivity and data transmission capabilities,
- * significantly enhancing the cross-device connection stability. By employing a multi-channel merging algorithm, it not
- * only increases the number of available cross-device connections but also strengthens cross-device data transmission
- * capabilities, thereby improving the overall user experience.
+ * linkEnhance模块提供高效的蓝牙连接和数据传输功能，增强设备间连接的稳定性。使用多通道合并算法，增加设备间连接数，提升跨设备数据传输能力，改善用户使用体验。
  *
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
@@ -34,7 +31,7 @@ import { Callback } from './@ohos.base';
 declare namespace linkEnhance {
 
   /**
-   * Represents the connection result, which is returned after the client calls **connect()**.
+   * 客户端调用connect()后，返回的连接结果。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
@@ -43,8 +40,7 @@ declare namespace linkEnhance {
    */
   interface ConnectResult {
     /**
-     * ID of the peer device. If the connection is successful, the device ID of the peer device is returned. If the
-     * connection fails, an empty string is returned.
+     * 对端设备ID，成功返回对端设备的deviceId，失败返回空字符串。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -54,8 +50,7 @@ declare namespace linkEnhance {
     deviceId: string;
 
     /**
-     * Connection result. The value **true** indicates that the connection is successful, and the value **false**
-     * indicates the opposite.
+     * 连接结果，true表示连接成功，false表示连接失败。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -65,15 +60,13 @@ declare namespace linkEnhance {
     success: boolean;
 
     /**
-     * Number indicating the result code. If the connection is successful, **0** is returned. If the connection fails,
-     * an error code is returned:
-     *
-     * - 32390200: The client connection times out.
-     * - 32390201: The server service is not started.
-     * - 32390300: Internal error.
-     *
-     * For details about the error codes, see
-     * [Link Enhancement Error Codes](docroot://reference/apis-distributedservice-kit/errorcode-link-enhance.md).
+     * 连接成功返回0，连接失败返回错误码：
+     * 
+     * - 32390200：表示客户端连接超时。
+     * - 32390201：表示服务端服务未启动。
+     * - 32390300：表示内部错误。
+     * 
+     * 更多关于错误码的详细介绍请参考[增强连接错误码](docroot://reference/apis-distributedservice-kit/errorcode-link-enhance.md)。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -84,8 +77,7 @@ declare namespace linkEnhance {
   }
 
   /**
-   * Represents a **Server** object, which provides methods for starting, stopping, and closing the server, and
-   * registering or unregistering event callbacks.
+   * 服务对象，提供启动服务、停止服务、关闭服务、注册/取消注册服务端回调等方法。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
@@ -94,7 +86,7 @@ declare namespace linkEnhance {
    */
   interface Server {
     /**
-     * Starts a server so that it can be connected by the client. A maximum of 10 servers are supported.
+     * 创建服务成功后，需要调用start()开启该服务，方可被客户端连接，最大服务个数为10。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -108,7 +100,7 @@ declare namespace linkEnhance {
     start(): void;
 
     /**
-     * Stops the server. After the server is stopped, you can call `start` to start it again.
+     * 使用完服务时，调用`stop`停止服务，停止后可以调用`start`重新开启服务。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -120,8 +112,7 @@ declare namespace linkEnhance {
     stop(): void;
 
     /**
-     * Destroys the **Server** object to release related resources. To interact with the peer device again, create a new
-     * **Server** object.
+     * 当业务执行完毕，服务端清理资源时，调用close()方法，销毁Server对象，释放相关资源。之后如果再次与对端设备交互，需要重新创建Server对象。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -133,12 +124,11 @@ declare namespace linkEnhance {
     close(): void;
 
     /**
-     * Registers a callback listener for **connectionAccepted** events. This API uses an asynchronous callback to return
-     * the result.
+     * 创建服务成功后，注册connectionAccepted事件的回调监听，等待对端连接。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectionAccepted' } type - Type of the server is connected event to listen for.
-     * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
+     * @param { 'connectionAccepted' } type - 事件回调类型，支持的事件为'connectionAccepted'，收到对端连接，触发该事件。
+     * @param { Callback<Connection> } callback - 注册的回调函数。[Connection]{@link linkEnhance.Connection}返回的连接对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -148,14 +138,11 @@ declare namespace linkEnhance {
     on(type: 'connectionAccepted', callback: Callback<Connection>): void;
 
     /**
-     * Unregisters the callback listener for **connectionAccepted** events. This API uses an asynchronous callback to
-     * return the result.
+     * 取消注册connectionAccepted事件的回调监听。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectionAccepted' } type - Event type, which is **connectionAccepted**. This event is triggered when
-     *     a connection from the peer end is received.
-     * @param { Callback<Connection> } [callback] - Registered callback, which is used to return the
-     *     [Connection]{@link linkEnhance.Connection} object.
+     * @param { 'connectionAccepted' } type - 事件回调类型，支持的事件为'connectionAccepted'，收到对端连接，触发该事件。
+     * @param { Callback<Connection> } [callback] - 注册的回调函数。[Connection]{@link linkEnhance.Connection}返回的连接对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -165,11 +152,10 @@ declare namespace linkEnhance {
     off(type: 'connectionAccepted', callback?: Callback<Connection>): void;
 
     /**
-     * Registers a callback listener for **connectionAccepted** events. This API uses an asynchronous callback to return
-     * the result.
+     * 创建服务成功后，注册connectionAccepted事件的回调监听，等待对端连接。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
+     * @param { Callback<Connection> } callback - 注册的回调函数。[Connection]{@link linkEnhance.Connection}返回的连接对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -179,12 +165,10 @@ declare namespace linkEnhance {
     onConnectionAccepted(callback: Callback<Connection>): void;
 
     /**
-     * Unregisters the callback listener for **connectionAccepted** events. This API uses an asynchronous callback to
-     * return the result.
+     * 取消注册connectionAccepted事件的回调监听。使用callback异步回调。
+     *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<Connection> } [callback] - Registered callback, which is used to return the
-     * [Connection]{@link linkEnhance.Connection} object.
-     * 
+     * @param { Callback<Connection> } [callback] - 注册的回调函数。[Connection]{@link linkEnhance.Connection}返回的连接对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -194,13 +178,11 @@ declare namespace linkEnhance {
     offConnectionAccepted(callback?: Callback<Connection>): void;
 
     /**
-     * Registers a callback listener for **serverStopped** events. This API uses an asynchronous callback to return the
-     * result.
+     * 在创建服务成功后，注册serverStopped回调，监听服务异常停止。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serverStopped' } type - Event type, which is **serverStopped**. This event is triggered when the server
-     *     is stopped abnormally.
-     * @param { Callback<number> } callback - Registered callback, where **number** indicates the returned error code.
+     * @param { 'serverStopped' } type - 事件回调类型，支持的事件为'serverStopped'，底层服务异常时，触发该事件。
+     * @param { Callback<number> } callback - 注册的回调函数，number为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -210,13 +192,11 @@ declare namespace linkEnhance {
     on(type: 'serverStopped', callback: Callback<number>): void;
 
     /**
-     * Unregisters the callback listener for **serverStopped** events. This API uses an asynchronous callback to return
-     * the result.
+     * 取消注册serverStopped事件的回调监听。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serverStopped' } type - Event type, which is **serverStopped**. This event is triggered when the server
-     *     is stopped abnormally.
-     * @param { Callback<number> } [callback] - Registered callback, where **number** indicates the returned error code.
+     * @param { 'serverStopped' } type - 事件回调类型，支持的事件为'serverStopped'，底层服务异常时触发。
+     * @param { Callback<number> } [callback] - 注册的回调函数，number为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -226,11 +206,10 @@ declare namespace linkEnhance {
     off(type: 'serverStopped', callback?: Callback<number>): void;
 
     /**
-     * Registers a callback listener for **serverStopped** events. This API uses an asynchronous callback to return the
-     * result.
+     * 在创建服务成功后，注册serverStopped回调，监听服务异常停止。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } callback - Registered callback, where **int** indicates the returned error code.
+     * @param { Callback<int> } callback - 注册的回调函数，int为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -240,11 +219,10 @@ declare namespace linkEnhance {
     onServerStopped(callback: Callback<int>): void;
 
     /**
-     * Unregisters the callback listener for **serverStopped** events. This API uses an asynchronous callback to return
-     * the result.
+     * 取消注册serverStopped事件的回调监听。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } [callback] - Registered callback, where **int** indicates the returned error code.
+     * @param { Callback<int> } [callback] - 注册的回调函数，int为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -256,11 +234,11 @@ declare namespace linkEnhance {
   }
 
   /**
-   * Creates a **Server** object. After **start()** is called, the device can be connected to other devices as a server.
+   * 在服务端设备上，应用创建服务。通过start()开启后，该设备可作为服务端被其他设备连接。
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } name - **Server** object name. The value is a string of up to 255 bytes. It cannot be empty.
-   * @returns { Server } **Server** object created.
+   * @param { string } name - 自定义的非空字符串，标识应用的服务名，最大长度255字节。
+   * @returns { Server } 创建成功的服务对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported
    *     because the linkEnhance function has been trimmed. [since 26.0.0]
@@ -274,8 +252,7 @@ declare namespace linkEnhance {
   function createServer(name: string): Server;
 
   /**
-   * Represents a **Connection** object, which provides methods for connecting to and disconnecting from a peer device,
-   * obtaining the device's ID, sending data, and registering or unregistering event callbacks.
+   * 连接对象，提供连接、断连、获取对端设备ID、发送数据、注册/取消注册回调等方法。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
@@ -284,7 +261,7 @@ declare namespace linkEnhance {
    */
   interface Connection {
     /**
-     * Connects to the server on the client. A maximum number of 10 connections are supported.
+     * 在客户端执行，向服务端设备发起连接，最大连接个数限制为10。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -298,8 +275,7 @@ declare namespace linkEnhance {
     connect(): void;
 
     /**
-     * Disconnects from the peer device. The created **Connection** object remains valid after this API is called. You
-     * can call **connect()** to reconnect to the peer device if necessary.
+     * 业务执行完毕后，双端任意设备可调用该接口断开连接。创建的connection对象仍有效，需要时可调用connect()重新连接。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -311,8 +287,7 @@ declare namespace linkEnhance {
     disconnect(): void;
 
     /**
-     * Destroys the **Connection** object to release resources. If the device needs to interact with the peer device
-     * again, create a **Connection** object again and call `connect()` to initiate a connection.
+     * 业务执行完毕后，任意设备可调用该接口销毁connection对象，释放资源。若需再次与对端设备交互，必须重新创建connection对象并调用`connect()`发起连接。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -324,12 +299,10 @@ declare namespace linkEnhance {
     close(): void;
 
     /**
-     * Obtains the device ID of the peer device. This API is called when the connection is established successfully
-     * either by initiating a connection or accepting an incoming connection.
+     * 获取对端设备的deviceId，作为对端设备的标识符，连接成功后或者被连接成功后调用。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } Device ID of the peer device, that is, the BLE MAC address of the peer device. An empty
-     *     string is returned if no device ID is obtained.
+     * @returns { string } 对端设备的deviceId，即对端设备的BLE MAC地址。如果获取失败返回空字符串。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -339,11 +312,10 @@ declare namespace linkEnhance {
     getPeerDeviceId(): string;
 
     /**
-     * Sends data to the server after a connection is established successfully. When the server receives the connection
-     * callback, it can also send data to the client.
+     * 客户端连接成功后，可以向服务端发送数据。服务端接收到连接回调时，也可以向客户端发送数据。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { ArrayBuffer } data - Data to send. The maximum length is 1024 bytes.
+     * @param { ArrayBuffer } data - 需要发送的数据，最大发送长度为1024字节。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @throws { BusinessError } 32390205 - Connection is not ready.
@@ -356,12 +328,11 @@ declare namespace linkEnhance {
     sendData(data: ArrayBuffer): void;
 
     /**
-     * Registers a listener for **connectResult** events. This API uses an asynchronous callback to return the result.
+     * 注册connect事件的回调监听，通过回调函数获取连接结果。使用callback进行异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectResult' } type - Event type, which is **connectResult**. This event is triggered when `connect()
-     *     ` is called.
-     * @param { Callback<ConnectResult> } callback - Registered callback.
+     * @param { 'connectResult' } type - 事件回调类型，支持的事件为'connectResult'，完成`connect()`调用，触发该事件。
+     * @param { Callback<ConnectResult> } callback - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -371,12 +342,11 @@ declare namespace linkEnhance {
     on(type: 'connectResult', callback: Callback<ConnectResult>): void;
 
     /**
-     * Unregisters the listener for **connectResult** events.
+     * 取消connect事件的回调监听，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectResult' } type - Event type, which is **connectResult**. This event is triggered when `connect()
-     *     ` is called.
-     * @param { Callback<ConnectResult> } [callback] - Registered callback.
+     * @param { 'connectResult' } type - 事件回调类型，支持的事件为'connectResult'，完成`connect()`调用，触发该事件。
+     * @param { Callback<ConnectResult> } [callback] - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -386,11 +356,11 @@ declare namespace linkEnhance {
     off(type: 'connectResult', callback?: Callback<ConnectResult>): void;
 
     /**
-     * Registers a listener for **connectResult** events. This API uses an asynchronous callback to return the result.
+     * 注册connect事件的回调监听，通过回调函数获取连接结果。使用callback进行异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ConnectResult> } callback - Registered callback.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @param { Callback<ConnectResult> } callback - 注册的回调函数。
+     * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -399,10 +369,10 @@ declare namespace linkEnhance {
     onConnectResult(callback: Callback<ConnectResult>): void;
 
     /**
-     * Unregisters the listener for **connectResult** events.
+     * 取消connect事件的回调监听，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ConnectResult> } [callback] - Registered callback.
+     * @param { Callback<ConnectResult> } [callback] - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -412,12 +382,11 @@ declare namespace linkEnhance {
     offConnectResult(callback?: Callback<ConnectResult>): void;
 
     /**
-     * Registers a listener for **disconnected** events. This API uses an asynchronous callback to return the result.
+     * 注册disconnected事件的回调监听，连接被动断开或者底层异常断开时触发该事件。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'disconnected' } type - Event type, which is **disconnected**. This event is triggered when the
-     *     connection is passively terminated or encounters an exception.
-     * @param { Callback<number> } callback - Registered callback, where **number** indicates the returned error code.
+     * @param { 'disconnected' } type - 事件回调类型，支持的事件为'disconnected'，连接被动断开或底层异常断开时，触发该事件。
+     * @param { Callback<number> } callback - 注册的回调函数，number为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -427,13 +396,11 @@ declare namespace linkEnhance {
     on(type: 'disconnected', callback: Callback<number>): void;
 
     /**
-     * Unregisters the listener for **disconnected** events. This API uses an asynchronous callback to return the
-     * result.
+     * 取消注册disconnected事件的回调监听。连接被动断开或底层异常断开时触发该事件，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'disconnected' } type - Event type, which is **disconnected**. This event is triggered when the
-     *     connection is passively terminated or encounters an exception.
-     * @param { Callback<number> } [callback] - Registered callback, where **number** indicates the returned error code.
+     * @param { 'disconnected' } type - 事件回调类型，支持的事件为'disconnected'，连接被动断开或底层异常断开时，触发该事件。
+     * @param { Callback<number> } [callback] - 注册的回调函数，number为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -443,10 +410,10 @@ declare namespace linkEnhance {
     off(type: 'disconnected', callback?: Callback<number>): void;
 
     /**
-     * Registers a listener for **disconnected** events. This API uses an asynchronous callback to return the result.
+     * 注册disconnected事件的回调监听，连接被动断开或者底层异常断开时触发该事件。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } callback - Registered callback, where **int** indicates the returned error code.
+     * @param { Callback<int> } callback - 注册的回调函数，int为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -456,11 +423,10 @@ declare namespace linkEnhance {
     onDisconnected(callback: Callback<int>): void;
 
     /**
-     * Unregisters the listener for **disconnected** events. This API uses an asynchronous callback to return the
-     * result.
+     * 取消注册disconnected事件的回调监听。连接被动断开或底层异常断开时触发该事件，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } [callback] - Registered callback, where **int** indicates the returned error code.
+     * @param { Callback<int> } [callback] - 注册的回调函数，int为返回的错误码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -470,13 +436,11 @@ declare namespace linkEnhance {
     offDisconnected(callback?: Callback<int>): void;
 
     /**
-     * Registers a listener for the **dataReceived** events. This API uses an asynchronous callback to return the
-     * result.
+     * 注册dataReceived事件的回调监听。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'dataReceived' } type - Event type, which is **dataReceived**. This event is triggered when data is
-     *     received.
-     * @param { Callback<ArrayBuffer> } callback - Registered callback.
+     * @param { 'dataReceived' } type - 事件回调类型，支持的事件为'dataReceived'，收到数据时，触发该事件。
+     * @param { Callback<ArrayBuffer> } callback - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -486,12 +450,11 @@ declare namespace linkEnhance {
     on(type: 'dataReceived', callback: Callback<ArrayBuffer>): void;
 
     /**
-     * Unregisters the listener for **dataReceived** events.
+     * 取消dataReceived事件的回调监听，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'dataReceived' } type - Event type, which is **dataReceived**. This event is triggered when data is
-     *     received.
-     * @param { Callback<ArrayBuffer> } [callback] - Registered callback.
+     * @param { 'dataReceived' } type - 事件回调类型，支持的事件为'dataReceived'，收到数据时，触发该事件。
+     * @param { Callback<ArrayBuffer> } [callback] - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -501,11 +464,10 @@ declare namespace linkEnhance {
     off(type: 'dataReceived', callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Registers a listener for the **dataReceived** events. This API uses an asynchronous callback to return the
-     * result.
+     * 注册dataReceived事件的回调监听。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ArrayBuffer> } callback - Registered callback.
+     * @param { Callback<ArrayBuffer> } callback - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -515,10 +477,10 @@ declare namespace linkEnhance {
     onDataReceived(callback: Callback<ArrayBuffer>): void;
 
     /**
-     * Unregisters the listener for **dataReceived** events.
+     * 取消dataReceived事件的回调监听，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ArrayBuffer> } [callback] - Registered callback.
+     * @param { Callback<ArrayBuffer> } [callback] - 注册的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -529,19 +491,16 @@ declare namespace linkEnhance {
   }
 
   /**
-   * Creates a **Connection** object on the device that functions as the client. The device can then initiate connection
-   * requests to the device that functions as the server.
+   * 作为客户端的设备创建连接对象，以便后续向服务端设备发起连接。
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } deviceId - Device ID of the peer device, that is, the BLE MAC address of the peer device. For
-   *     details about how to obtain the BLE MAC address, see
-   *     [BLE Advertising and Scanning](docroot://connectivity/bluetooth/ble-development-guide.md).
-   * @param { string } name - Server name of the device to be connected. The value is a string of up to 255 bytes. It
-   *     cannot be empty.
-   * @returns { Connection } **Connection** object created.
+   * @param { string } deviceId - 连接的目标设备的deviceId，即对端设备的BLE MAC地址。BLE MAC的获取方法，请参考
+   *     [查找设备](docroot://connectivity/bluetooth/ble-development-guide.md)。
+   * @param { string } name - 连接的目标设备的服务名，非空字符串，最大长度255字节。
+   * @returns { Connection } 创建成功的连接对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported
-   *     because the linkEnhance function has been trimmed. [since 26.0.0]
+   *     because the linkEnhance function has been trimmed [since 26.0.0]
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
