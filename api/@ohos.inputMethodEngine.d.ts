@@ -3813,6 +3813,15 @@ declare namespace inputMethodEngine {
      * @since 23 static
      */
     readonly extraConfig?: InputMethodExtraConfig;
+
+    /**
+     * Whether the editor supports consuming key events.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly consumeKeyEvents?: boolean;
   }
 
   /**
