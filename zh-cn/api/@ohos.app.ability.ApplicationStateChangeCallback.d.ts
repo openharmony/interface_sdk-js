@@ -19,14 +19,10 @@
  */
 
 /**
- * The module is used to listen for state changes of the current application process. For ease of description, the term 
- * "application process" will be referred to as "process" in the following sections.
- * You can call 
+ * 本模块用于监听当前应用进程的状态变化。为了便于表述，下文中将“应用进程”简称为“进程”。
+ * 开发者可调用
  * [ApplicationContext.on('applicationStateChange')]{@link ./application/ApplicationContext:ApplicationContext.on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback)}
- *  and pass in a custom ApplicationStateChangeCallback to listen for foreground/background state changes of the current
- *  process. This allows you to perform certain actions based on the process state changes, for example, tracking the 
- * duration of the process in the foreground and background, or clearing memory caches when the process moves to the 
- * background.
+ * 方法传入自定义ApplicationStateChangeCallback来监听当前进程的前后台状态变化，从而根据进程前后台状态变化来执行某些操作。例如，统计进程前后台时长、或者当进程退到后台时清理内存缓存。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
@@ -36,10 +32,7 @@
  */
 export default class ApplicationStateChangeCallback {
   /**
-   * Called when the current process switches from the background to the foreground. When this callback is triggered, 
-   * it does not mean that the process is already fully in the foreground state, but rather that it is about to enter 
-   * the foreground state. At this point, operations that depend on the foreground state (such as launching another 
-   * UIAbility) cannot be performed.
+   * 当前进程从后台切换到前台时触发回调。当该回调触发时，并不表示进程已完全处于前台状态，而是即将进入前台状态，此时无法执行需要依赖前台状态的操作（例如启动其他UIAbility）。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -50,9 +43,7 @@ export default class ApplicationStateChangeCallback {
   onApplicationForeground(): void;
 
   /**
-   * Called when the current process switches from the foreground to the background. When this callback is triggered, 
-   * the process is fully in the background state, and you can perform operations suitable for the background state 
-   * (for example, clearing memory caches).
+   * 当前进程从前台切换到后台时触发回调。当该回调触发时，表示进程已完全处于后台状态，可以执行适合在后台状态下完成的操作（例如清理内存缓存）。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly

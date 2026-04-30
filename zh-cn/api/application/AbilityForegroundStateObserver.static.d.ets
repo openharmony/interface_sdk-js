@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,21 +22,23 @@
 import AbilityStateData from './AbilityStateData';
 
 /**
- * The module defines the listener used to listen for ability foreground and background state changes.
+ * 定义应用前后台状态监听。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11 dynamic
+ * @since 23 static
  */
-export default class AbilityForegroundStateObserver {
+declare interface AbilityForegroundStateObserver {
 
   /**
-   * Called when the ability is switched between foreground and background.
+   * 当Ability前后台状态发生变化时，系统会触发该回调。
    *
-   * @param { AbilityStateData } abilityStateData - Ability state data.
+   * @param { AbilityStateData } abilityStateData - Ability状态信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11 dynamic
+   * @since 23 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }
+
+export default AbilityForegroundStateObserver;

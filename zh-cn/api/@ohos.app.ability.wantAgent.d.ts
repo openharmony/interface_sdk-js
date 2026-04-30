@@ -14,16 +14,11 @@
  */
 
 /**
- * The WantAgent module encapsulates a [Want]{@link ./@ohos.app.ability.Want:Want} object, enabling an application to 
- * trigger a WantAgent object to perform specified operations (such as starting an ability or publishing a common event)
- * at a future time.
+ * WantAgent模块封装了[Want]{@link ./@ohos.app.ability.Want:Want}对象，允许应用程序在未来的某个时间点触发WantAgent实例执行指定操作（如启动Ability、发送公共事件等）。
  * 
- * The module provides the APIs for creating a WantAgent object, obtaining the bundle name and UID of the application to
- * which a WantAgent object belongs, proactively triggering a WantAgent object, and checking whether two WantAgent 
- * objects are the same. A typical use scenario of WantAgent is notification processing. For example, when a user 
- * touches a notification, the [trigger]{@link wantAgent.trigger} API of WantAgent is triggered and the target 
- * application is started. For details, see 
- * [Notification](docroot://notification/notification-with-wantagent.md).
+ * 该模块提供了创建WantAgent实例、获取WantAgent实例所属应用的包名、获取WantAgent实例所属应用的UID、主动触发WantAgent实例、判断两个WantAgent实例是否相等等功能。WantAgent的一个典型应
+ * 用场景是通知处理。例如，当用户点击通知时，会触发WantAgent的[trigger]{@link trigger}接口，并拉起目标应用。具体使用请参考
+ * [通知模块](docroot://notification/notification-with-wantagent.md)。
  *
  * @file
  * @kit AbilityKit
@@ -35,20 +30,16 @@ import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
 import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
+/*** endif */
 /*** if arkts static */
 import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * The WantAgent module encapsulates a [Want]{@link ./@ohos.app.ability.Want:Want} object, enabling an application to 
- * trigger a WantAgent object to perform specified operations (such as starting an ability or publishing a common event)
- * at a future time.
+ * WantAgent模块封装了[Want]{@link ./@ohos.app.ability.Want:Want}对象，允许应用程序在未来的某个时间点触发WantAgent实例执行指定操作（如启动Ability、发送公共事件等）。
  * 
- * The module provides the APIs for creating a WantAgent object, obtaining the bundle name and UID of the application to
- * which a WantAgent object belongs, proactively triggering a WantAgent object, and checking whether two WantAgent 
- * objects are the same. A typical use scenario of WantAgent is notification processing. For example, when a user 
- * touches a notification, the [trigger]{@link trigger} API of WantAgent is triggered and the target application is 
- * started. For details, see [Notification](docroot://notification/notification-with-wantagent.md).
+ * 该模块提供了创建WantAgent实例、获取WantAgent实例所属应用的包名、获取WantAgent实例所属应用的UID、主动触发WantAgent实例、判断两个WantAgent实例是否相等等功能。WantAgent的一个典型应
+ * 用场景是通知处理。例如，当用户点击通知时，会触发WantAgent的[trigger]{@link trigger}接口，并拉起目标应用。具体使用请参考[Notification](docroot://notification/notification-with-wantagent.md)。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 12]
@@ -57,11 +48,10 @@ import { RecordData } from './@ohos.base';
  */
 declare namespace wantAgent {
   /**
-   * Obtains the bundle name of a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
+   * 获取WantAgent实例所属应用的包名，使用callback异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<string> } callback - Callback used to return the bundle name.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取包名成功，err为undefined，data为创建的WantAgent；否则err会返回对应的错误码和错误信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -74,11 +64,10 @@ declare namespace wantAgent {
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the bundle name of a WantAgent object.
-   * This API uses a promise to return the result.
+   * 获取WantAgent实例所属应用的包名。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @returns { Promise<string> } Promise used to return the bundle name.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<string> } Promise对象，返回获取WantAgent实例的包名。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -91,11 +80,10 @@ declare namespace wantAgent {
   function getBundleName(agent: WantAgent): Promise<string>;
 
   /**
-   * Obtains the user ID of a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
+   * 获取WantAgent实例所属应用的UID，使用callback异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<int> } callback - Callback used to return the user ID.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<int> } callback - 获取WantAgent实例所属应用的UID的回调方法。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -108,11 +96,10 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent, callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the user ID of a WantAgent object.
-   * This API uses a promise to return the result.
+   * 获取WantAgent实例所属应用的UID。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @returns { Promise<int> } Promise used to return the user ID.
+   * @param { WantAgent } agent - 	WantAgent对象。
+   * @returns { Promise<int> } Promise对象，返回获取WantAgent实例所属应用的UID。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -125,11 +112,10 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent): Promise<int>;
 
   /**
-   * Obtains the Want in a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
+   * 获取WantAgent对象的want。使用callback异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<Want> } callback - Callback used to return the Want.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<Want> } callback - 回调函数。当获取WantAgent对象want成功，err中code为0，data为获取到的Want数据；否则err会返回对应的错误码和错误信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -143,11 +129,10 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtains the Want in a WantAgent object.
-   * This API uses a promise to return the result.
+   * 获取WantAgent对象的want。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @returns { Promise<Want> } Promise used to return the Want.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<Want> } Promise对象，返回WantAgent对象的want。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -161,11 +146,10 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
-   * Cancels a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
+   * 取消WantAgent实例，使用callback异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<void> } callback - 取消WantAgent实例的回调方法。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -178,11 +162,10 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a WantAgent object.
-   * This API uses a promise to return the result.
+   * 取消WantAgent实例。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -195,12 +178,11 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent): Promise<void>;
 
   /**
-   * Proactively triggers a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
+   * 触发WantAgent实例，执行指定的操作（启动Ability、发送公共事件等）。使用callback异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @param { TriggerInfo } triggerInfo - {@link TriggerInfo} object.
-   * @param { AsyncCallback<CompleteData> } [callback] - Callback used to return the result.
+   * @param { WantAgent } agent - 	WantAgent对象。
+   * @param { TriggerInfo } triggerInfo - 表示触发WantAgent实例时携带的信息，如自定义的extraInfos。
+   * @param { AsyncCallback<CompleteData> } [callback] - 主动激发WantAgent实例的回调方法。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -211,15 +193,13 @@ declare namespace wantAgent {
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
   /**
-   * Asynchronously triggers a predefined operation encration encapsulated in a Wantagent with specified trigger
-   * information.
-   * If the specified wantAgent is local, you need to apply for permission:
-   * ohos.permission.TRIGGER_LOCAL_WANTAGENT permission.
+   * 主动触发WantAgent实例，即按照WantAgent实例中已封装的指定操作和参数等信息执行。使用Promise异步回调。
+   * 仅当入参agent为本地WantAgent实例时需要申请: ohos.permission.TRIGGER_LOCAL_WANTAGENT permission.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
-   * @param { Context } context - Indicates current context.
-   * @returns { Promise<CompleteData> } Returns the CompleteData.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { TriggerInfo } triggerInfo - TriggerInfo对象。
+   * @param { Context } context - 请求触发WantAgent的UIAbility/ExtensionAbility的Context。
+   * @returns { Promise<CompleteData> } Promise对象，返回主动激发WantAgent获得的数据。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 16000020 - The context is not ability context.
@@ -234,14 +214,13 @@ declare namespace wantAgent {
   function triggerAsync(agent: WantAgent, triggerInfo: TriggerInfo, context: Context): Promise<CompleteData>;
 
   /**
-   * Checks whether two WantAgent objects are equal, so as to determine whether the same operation is from the
-   * same application.
-   * This API uses an asynchronous callback to return the result.
+   * 判断两个WantAgent实例是否相等，使用callback异步回调，以此来确定是否是来自同一应用的相同操作。
+   * 当两个WantAgent实例由当前用户下的同一应用使用相同的WantAgentInfo信息创建，并且实例未被cancel取消，这两个实例相等。在通知（携带WantAgent实例）场景，通知更新时会比较2个通知中的
+   * WantAgent实例，不相等时会把旧通知的WantAgent实例删除。
    *
-   * @param { WantAgent } agent - The first WantAgent object.
-   * @param { WantAgent } otherAgent - The second WantAgent object.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value <code>true</code> means
-   *     that the two WantAgent objects are equal, and <code>false</code> means the opposite.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { WantAgent } otherAgent - WantAgent对象。
+   * @param { AsyncCallback<boolean> } callback - 判断两个WantAgent实例是否相等的回调方法。返回true表示两个WantAgent实例相等，false表示两个WantAgent实例不相等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -252,14 +231,13 @@ declare namespace wantAgent {
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether two WantAgent objects are equal, so as to determine whether the same operation is from the
-   * same application.
-   * This API uses a promise to return the result.
+   * 判断两个WantAgent实例是否相等，使用Promise异步回调，以此来确定是否是来自同一应用的相同操作。
+   * 当两个WantAgent实例由当前用户下的同一应用使用相同的WantAgentInfo信息创建，并且实例未被cancel取消，这两个实例相等。在通知（携带WantAgent实例）场景，通知更新时会比较2个通知中的
+   * WantAgent实例，不相等时会把旧通知的WantAgent实例删除。
    *
-   * @param { WantAgent } agent - The first WantAgent object.
-   * @param { WantAgent } otherAgent - The second WantAgent object.
-   * @returns { Promise<boolean> } Promise used to return the result. The value <code>true</code> means that the two
-   *     WantAgent objects are equal, and <code>false</code> means the opposite.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { WantAgent } otherAgent - WantAgent对象。
+   * @returns { Promise<boolean> } Promise对象，返回获取判断两个WantAgent实例是否相等的结果。返回true表示两个WantAgent实例相等，false表示两个WantAgent实例不相等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -270,16 +248,10 @@ declare namespace wantAgent {
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
   /**
-   * Obtains a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
-   * If the creation fails, a null WantAgent object is returned.
-   * 
-   * <p>**NOTE**:
-   * <br>Third-party applications can set only their own abilities.
-   * </p>
+   * 创建WantAgent，使用callback异步回调。创建成功返回WantAgent对象，创建失败返回空值。
    *
-   * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
-   * @param { AsyncCallback<WantAgent> } callback - Callback used to return the WantAgent object.
+   * @param { WantAgentInfo } info - 表示创建WantAgent所需的配置信息，包括目标UIAbility、操作类型、请求码等。三方应用在WantAgentInfo中只能设置本应用的UIAbility。
+   * @param { AsyncCallback<WantAgent> } callback - 	回调函数。当创建WantAgent成功，err中code为0，data为创建的WantAgent；否则err会返回对应的错误码和错误信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -292,16 +264,10 @@ declare namespace wantAgent {
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
   /**
-   * Obtains a WantAgent object.
-   * This API uses a promise to return the result.
-   * If the creation fails, a null WantAgent object is returned.
-   * 
-   * <p>**NOTE**:
-   * <br>Third-party applications can set only their own abilities.
-   * </p>
+   * 创建WantAgent。使用Promise异步回调。创建成功返回WantAgent对象，创建失败返回空值。
    *
-   * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
-   * @returns { Promise<WantAgent> } Promise used to return the WantAgent object.
+   * @param { WantAgentInfo } info - 表示创建WantAgent所需的配置信息，包括目标UIAbility、操作类型、请求码等。三方应用在WantAgentInfo中只能设置本应用的UIAbility。
+   * @returns { Promise<WantAgent> } Promise对象，返回创建的WantAgent。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -314,11 +280,10 @@ declare namespace wantAgent {
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
   /**
-   * Obtains the operation type of a WantAgent object.
-   * This API uses an asynchronous callback to return the result.
+   * 获取一个WantAgent实例的OperationType信息，使用callback异步回调。
    *
-   * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<int> } callback - Callback used to return the operation type.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @param { AsyncCallback<int> } callback - 获取一个WantAgent的OperationType信息的回调方法。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -332,11 +297,10 @@ declare namespace wantAgent {
   function getOperationType(agent: WantAgent, callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the operation type of a WantAgent object.
-   * This API uses a promise to return the result.
+   * 获取一个WantAgent实例的OperationType信息。使用Promise异步回调。
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<int> } Returns the OperationType of the WantAgent.
+   * @param { WantAgent } agent - WantAgent对象。
+   * @returns { Promise<int> } Promise对象，返回OperationType的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -350,10 +314,9 @@ declare namespace wantAgent {
   function getOperationType(agent: WantAgent): Promise<int>;
 
   /**
-   * Enables or disables the WantAgent multithreading feature.
+   * 开启或者关闭WantAgent多线程传递功能。
    *
-   * @param { boolean } isMultithreadingSupported - Whether to enable the multithreading feature. The value
-   *     <code>true</code> means to enable multithreading, and <code>false</code> means the opposite.
+   * @param { boolean } isMultithreadingSupported - 	表示是否开启多线程传递功能。true表示开启，false表示关闭。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -366,11 +329,11 @@ declare namespace wantAgent {
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 
   /**
-   * Create a local WantAgent object.
-   * The WantAgent created by this interface stores data on the client side
-   * and is not managed by the WantAgent servcer.
-   * If this WantAgent object is passed across processes,
-   * its contained data will be serialized and transmitted to the target process.
+   * 创建本地WantAgent实例。
+   * 
+   * > **说明：**
+   * > 本接口创建的本地WantAgent实例仅存储于WantAgent客户端，不受WantAgent服务端管理。使用该本地实例时，需要校验实例，以保证安全性。
+   * > 本地WantAgent实例创建后，触发方法参见[wantAgent.triggerAsync]{@link triggerAsync}接口说明。
    *
    * @param { LocalWantAgentInfo } info - Information about the local WantAgent object to create.
    * @returns { WantAgent } Returns the created WantAgent.
@@ -384,7 +347,7 @@ declare namespace wantAgent {
   function createLocalWantAgent(info: LocalWantAgentInfo): WantAgent;
 
   /**
-   * Checks whether the specified WantAgent is local.
+   * 判断WantAgent实例是否为本地实例。
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { boolean } Returns true if the WantAgent is local.
@@ -398,7 +361,7 @@ declare namespace wantAgent {
   function isLocalWantAgent(agent: WantAgent): boolean;
 
   /**
-   * Enumerates the flags used by the WantAgent objects.
+   * 表示WantAgent行为控制标志，用于配置WantAgent的创建和触发行为。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -407,7 +370,7 @@ declare namespace wantAgent {
    */
   export enum WantAgentFlags {
     /**
-     * The WantAgent object can be used only once.
+     * WantAgent仅能使用一次，trigger触发后自动cancel取消。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -417,7 +380,7 @@ declare namespace wantAgent {
     ONE_TIME_FLAG = 0,
 
     /**
-     * The WantAgent object does not exist and hence it is not created. In this case, <code>null</code> is returned.
+     * 如果描述WantAgent对象不存在，则不创建它，直接返回null。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -427,7 +390,7 @@ declare namespace wantAgent {
     NO_BUILD_FLAG,
 
     /**
-     * The existing WantAgent object should be canceled before a new object is generated.
+     * 在生成一个新的WantAgent对象前取消已存在的一个WantAgent对象。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -437,7 +400,7 @@ declare namespace wantAgent {
     CANCEL_PRESENT_FLAG,
 
     /**
-     * Extra information of the existing WantAgent object is replaced with that of the new object.
+     * 使用新的WantAgent的额外数据替换已存在的WantAgent中的额外数据。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -447,7 +410,7 @@ declare namespace wantAgent {
     UPDATE_PRESENT_FLAG,
 
     /**
-     * The WantAgent object is immutable.
+     * WantAgent是不可变的。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -457,8 +420,7 @@ declare namespace wantAgent {
     CONSTANT_FLAG,
 
     /**
-     * The element property in the current Want can be replaced by the element property in the Want passed in
-     * WantAgent.trigger().This processing is not supported yet.
+     * 当前Want中的element属性可被WantAgent.trigger()中Want的element属性取代。当前版本暂不支持。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -468,8 +430,7 @@ declare namespace wantAgent {
     REPLACE_ELEMENT,
 
     /**
-     * The action property in the current Want can be replaced by the action property in the Want passed in
-     * WantAgent.trigger().This processing is not supported yet.
+     * 当前Want中的action属性可被WantAgent.trigger()中Want的action属性取代。当前版本暂不支持。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -479,8 +440,7 @@ declare namespace wantAgent {
     REPLACE_ACTION,
 
     /**
-     * The uri property in the current Want can be replaced by the uri property in the Want passed in
-     * WantAgent.trigger().This processing is not supported yet.
+     * 当前Want中的uri属性可被WantAgent.trigger()中Want的uri属性取代。当前版本暂不支持。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -490,8 +450,7 @@ declare namespace wantAgent {
     REPLACE_URI,
 
     /**
-     * The <code>entities</code> property in the current Want can be replaced by the <code>entities</code> property in
-     * the Want passed in WantAgent.trigger().This processing is not supported yet.
+     * 	当前Want中的entities属性可被WantAgent.trigger()中Want的entities属性取代。当前版本暂不支持。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -501,8 +460,7 @@ declare namespace wantAgent {
     REPLACE_ENTITIES,
 
     /**
-     * The <code>bundleName</code> property in the current Want can be replaced by the <code>bundleName</code> property
-     * in the Want passed in WantAgent.trigger().This processing is not supported yet.
+     * 当前Want中的bundleName属性可被WantAgent.trigger()中Want的bundleName属性取代。当前版本暂不支持。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -513,7 +471,7 @@ declare namespace wantAgent {
   }
 
   /**
-   * Enumerates the operation types of the WantAgent objects.
+   * 表示WantAgent支持的操作类型。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -522,7 +480,7 @@ declare namespace wantAgent {
    */
   export enum OperationType {
     /**
-     * Unknown operation type.
+     * 不识别的类型。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -532,7 +490,7 @@ declare namespace wantAgent {
     UNKNOWN_TYPE = 0,
 
     /**
-     * Starts an ability with a UI.
+     * 	开启一个有页面的Ability。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -542,7 +500,7 @@ declare namespace wantAgent {
     START_ABILITY,
 
     /**
-     * Starts multiple abilities with a UI.
+     * 开启多个有页面的Ability。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -552,7 +510,7 @@ declare namespace wantAgent {
     START_ABILITIES,
 
     /**
-     * Starts an ability without a UI (valid only in the FA model).
+     * 开启一个无页面的Ability（仅在FA模型下生效）。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -562,7 +520,7 @@ declare namespace wantAgent {
     START_SERVICE,
 
     /**
-     * Sends a common event.
+     * 发送一个公共事件。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -572,7 +530,7 @@ declare namespace wantAgent {
     SEND_COMMON_EVENT,
 
     /**
-     * Starts a service extension.
+     * 开启一个ServiceExtension。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -584,7 +542,7 @@ declare namespace wantAgent {
   }
 
   /**
-   * Describes the data returned by the operation of proactive triggering a WantAgent object.
+   * 表示主动触发WantAgent返回的数据。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -593,7 +551,7 @@ declare namespace wantAgent {
    */
   export interface CompleteData {
     /**
-     * WantAgent object that is triggered.
+     * 触发的wantAgent。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -603,7 +561,7 @@ declare namespace wantAgent {
     info: WantAgent;
 
     /**
-     * Existing Want that is triggered.
+     * 触发wantAgent时实际使用的want信息。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -613,7 +571,7 @@ declare namespace wantAgent {
     want: Want;
 
     /**
-     * Request code that triggers the WantAgent object.
+     * 触发wantAgent的返回码。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -623,7 +581,7 @@ declare namespace wantAgent {
     finalCode: int;
 
     /**
-     * Final data collected by the common event.
+     * 触发wantAgent的返回数据。返回**canceled**时表示触发失败，WantAgent实例已经被取消。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -633,7 +591,7 @@ declare namespace wantAgent {
     finalData: string;
 
     /**
-     * Extra information.
+     * 额外数据。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -642,7 +600,7 @@ declare namespace wantAgent {
     extraInfo?: Record<string, Object>;
 
     /**
-     * Extra information.
+     * 额外数据。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 23 static
@@ -651,7 +609,7 @@ declare namespace wantAgent {
   }
 
   /**
-   * Defines the TriggerInfo object.
+   * TriggerInfo对象。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -661,7 +619,7 @@ declare namespace wantAgent {
   export type TriggerInfo = _TriggerInfo;
 
   /**
-   * Defines the WantAgentInfo object.
+   * WantAgentInfo对象。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -671,7 +629,7 @@ declare namespace wantAgent {
   export type WantAgentInfo = _WantAgentInfo;
 
   /**
-   * Provides the information required to create a local WantAgent.
+   * LocalWantAgentInfo对象。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -683,7 +641,7 @@ declare namespace wantAgent {
 }
 
 /**
- * Target WantAgent object.
+ * WantAgent对象。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9 dynamic

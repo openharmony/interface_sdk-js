@@ -14,14 +14,10 @@
  */
 
 /**
- * UIExtensionContentSession is the UI operation class for the 
- * [UIExtensionAbility]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}. It provides control over page 
- * loading and allows configuration of the window privacy mode of the host application (application that starts the 
- * UIExtensionAbility). When the host application starts a specific UIExtensionAbility, the system creates a 
- * UIExtensionContentSession object and passes it back via the 
- * [onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate} callback. Each 
- * UIExtensionAbility corresponds to one UIExtensionContentSession object, and these objects operate independently 
- * without interfering with each other.
+ * UIExtensionContentSession是[UIExtensionAbility]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}组件的界面
+ * 操作类，提供页面加载、设置宿主应用（UIExtensionAbility组件的拉起方）窗口隐私模式等功能。当宿主应用拉起指定的UIExtensionAbility组件时，系统创建UIExtensionContentSession对象
+ * ，并通过[onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate}回调传递给开发者。一个
+ * UIExtensionAbility组件对应一个UIExtensionContentSession对象，每个UIExtensionAbility组件的UIExtensionContentSession对象之间互不影响。
  *
  * @file
  * @kit AbilityKit
@@ -43,9 +39,9 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * Sets the callback for the ui extension to receive data from an ui extension component.
+ * 从UIExtensionComponent控件接收数据的回调方法。
  *
- * @param { Record<string, RecordData> } data - Indicates the receive data callback to set.
+ * @param { Record<string, RecordData> } data - 回调函数，返回接收的数据。
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
@@ -54,10 +50,10 @@ import { RecordData } from './@ohos.base';
 export type OnReceiveDataCallback = (data: Record<string, RecordData>) => void;
 
 /**
- * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+ * 从UIExtensionComponent控件接收数据带返回值的回调方法。
  *
- * @param { Record<string, RecordData> } data - Indicates the receive data callback to set.
- * @returns { Record<string, RecordData> } Returns the custom data.
+ * @param { Record<string, RecordData> } data - 回调函数，返回带返回值的接收的数据。
+ * @returns { Record<string, RecordData> } 	返回的数据对象。
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
@@ -66,8 +62,7 @@ export type OnReceiveDataCallback = (data: Record<string, RecordData>) => void;
 export type OnReceiveDataForResultCallback = (data: Record<string, RecordData>) => Record<string, RecordData>;
 
 /**
- * UIExtensionContentSession is the UI operation class for the UIExtensionAbility. It provides control over page loading
- *  and allows configuration of the window privacy mode of the host application.
+ * UIExtensionAbility组件的界面操作类，提供页面加载、设置宿主应用窗口隐私模式等功能。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -76,9 +71,9 @@ export type OnReceiveDataForResultCallback = (data: Record<string, RecordData>) 
  */
 declare class UIExtensionContentSession {
   /**
-   * Sends data to the UIExtensionComponent.
+   * 发送数据给UIExtensionComponent控件。
    *
-   * @param { Record<string, Object> } data - Data to send.
+   * @param { Record<string, Object> } data - 发送给UIExtensionComponent控件的数据参数。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -91,9 +86,9 @@ declare class UIExtensionContentSession {
   sendData(data: Record<string, Object>): void;
 
   /**
-   * Send data from an ui extension to an ui extension component.
+   * 发送数据给UIExtensionComponent控件。
    *
-   * @param { Record<string, RecordData> } data - Indicates the data send to ui extension component.
+   * @param { Record<string, RecordData> } data - 	发送给UIExtensionComponent控件的数据参数。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -104,10 +99,9 @@ declare class UIExtensionContentSession {
   sendData(data: Record<string, RecordData>): void;
 
   /**
-   * Sets a callback to receive data from the UIExtensionComponent. This API uses an asynchronous callback to return the
-   *  result.
+   * 设置从UIExtensionComponent控件接收数据的回调方法。使用callback异步回调。
    *
-   * @param { function } callback - Callback used to return the received data.
+   * @param { function } callback - 回调函数，返回接收的数据。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -120,9 +114,9 @@ declare class UIExtensionContentSession {
   setReceiveDataCallback(callback: (data: Record<string, Object>) => void): void;
 
   /**
-   * Sets the callback for the ui extension to receive data from an ui extension component.
+   * 设置从UIExtensionComponent控件接收数据的回调方法。使用callback异步回调。
    *
-   * @param { OnReceiveDataCallback } callback - Indicates the receive data callback to set.
+   * @param { OnReceiveDataCallback } callback - 回调函数，返回接收的数据。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: Failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -131,12 +125,11 @@ declare class UIExtensionContentSession {
    * @since 23 static
    */
   setReceiveDataCallback(callback: OnReceiveDataCallback): void;
-
+  
   /**
-   * Sets a callback with a return value to receive data from the UIExtensionComponent. This API uses an asynchronous 
-   * callback to return the result.
+   * 设置从UIExtensionComponent控件接收数据带返回值的回调方法。使用callback异步回调。
    *
-   * @param { function } callback - Callback used to return the received data with a return value.
+   * @param { function } callback - 回调函数，返回带返回值的接收的数据。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -149,9 +142,9 @@ declare class UIExtensionContentSession {
   setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>): void;
 
   /**
-   * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+   * 设置从UIExtensionComponent控件接收数据带返回值的回调方法。使用callback异步回调。
    *
-   * @param { OnReceiveDataForResultCallback } callback - Indicates the receive data callback to set.
+   * @param { OnReceiveDataForResultCallback } callback - 回调函数，返回带返回值的接收的数据。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: Failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -162,17 +155,13 @@ declare class UIExtensionContentSession {
   setReceiveDataForResultCallback(callback: OnReceiveDataForResultCallback): void;
 
   /**
-   * Loads a page for the [UIExtensionAbility]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, with 
-   * state properties passed to the page through [LocalStorage](docroot://ui/state-management/arkts-localstorage.md). 
-   * This API is used to load a page in the 
-   * [onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate} lifecycle of the 
-   * UIExtensionAbility.
+   * 为[UIExtensionAbility]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}组件加载页面，支持通过
+   * [LocalStorage](docroot://ui/state-management/arkts-localstorage.md)传递状态属性给被加载的页面。该接口用于开发者在UIExtensionAbility组件的
+   * [onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate}生命周期中加载页面。
    *
-   * @param { string } path - Path of the page to load. The path is configured using the 
-   *     [pages](docroot://quick-start/module-configuration-file.md#pages) tag in the 
-   *     [module.json5](docroot://quick-start/module-configuration-file.md) file.
-   * @param { LocalStorage } [storage] - A page-level UI state storage unit, which is used to pass state properties to the 
-   *     page.
+   * @param { string } path - 要加载的页面所在的路径，该路径通过[module.json5配置文件](docroot://quick-start/module-configuration-file.md)中的
+   *     [pages标签](docroot://quick-start/module-configuration-file.md#pages标签)配置。
+   * @param { LocalStorage } [storage] - 页面级UI状态存储单元，开发者可通过该参数为加载的页面传递状态属性。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -184,16 +173,13 @@ declare class UIExtensionContentSession {
   loadContent(path: string, storage?: LocalStorage): void;
 
   /**
-   * Loads a [named route](docroot://ui/arkts-routing.md#named-route) page for a 
-   * [UIExtensionAbility]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, with state properties passed 
-   * to the page through [LocalStorage](docroot://ui/state-management/arkts-localstorage.md). This API is used to load a
-   *  named route page in the 
-   * [onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate} lifecycle of the 
-   * UIExtensionAbility.
+   * 为[UIExtensionAbility]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility}组件加载
+   * [命名路由](docroot://ui/arkts-routing.md#命名路由)页面，支持通过
+   * [LocalStorage](docroot://ui/state-management/arkts-localstorage.md)传递状态属性给被加载的页面。该接口用于开发者在UIExtensionAbility组件的
+   * [onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate}生命周期中加载命名路由页面。
    *
-   * @param { string } name - Name of the named route page.
-   * @param { LocalStorage } [storage] - A page-level UI state storage unit, which is used to pass state properties to the 
-   *     page.
+   * @param { string } name - 命名路由页面的名称。
+   * @param { LocalStorage } [storage] - 页面级UI状态存储单元，开发者可通过该参数为加载的页面传递状态属性。
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -203,23 +189,15 @@ declare class UIExtensionContentSession {
   loadContentByName(name: string, storage?: LocalStorage): void;
 
   /**
-   * Starts an ability. This API uses an asynchronous callback to return the result.
-   * UI extension uses this method to start a specific ability.If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 启动Ability。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
-   * > > The application where the UIExtensionComponent is located must be running in the foreground and gain focus.
+   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > > 对应UIExtensionComponent控件所在的应用需要处于前台获焦状态。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is 
-   *     **undefined**; otherwise, **err** is an error object.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当启动成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -248,24 +226,16 @@ declare class UIExtensionContentSession {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability with **options** specified. This API uses an asynchronous callback to return the result.
-   * UI extension uses this method to start a specific ability.If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 启动Ability。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
-   * > > The application where the UIExtensionComponent is located must be running in the foreground and gain focus.
+   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > > 对应UIExtensionComponent控件所在的应用需要处于前台获焦状态。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } options - Parameters used for starting the ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is 
-   *     **undefined**; otherwise, **err** is an error object.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } options - 启动Ability所携带的参数。
+   * @param { AsyncCallback<void> } callback - 回调函数。当启动成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -292,23 +262,16 @@ declare class UIExtensionContentSession {
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. This API uses a promise to return the result.
-   * UI extension uses this method to start a specific ability.If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 启动Ability。使用Promise异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
-   * > > The application where the UIExtensionComponent is located must be running in the foreground and gain focus.
+   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > > 对应UIExtensionComponent控件所在的应用需要处于前台获焦状态。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } [options] - Parameters used for starting the ability.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } [options] - 启动Ability所携带的参数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -337,20 +300,11 @@ declare class UIExtensionContentSession {
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts an ability as the caller. The initial ability places its caller information (such as the bundle name and 
-   * ability name) in the **want** parameter and transfers the information to an ExtensionAbility at the middle layer. 
-   * When the ExtensionAbility starts another ability by calling this API, the started ability can obtain the caller 
-   * information of the initial ability from the **onCreate** lifecycle. This API uses an asynchronous callback to 
-   * return the result.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is 
-   * in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 初始Ability将自己的caller信息（如BundleName、AbilityName等）置于want参数中，传递给中间层的ExtensionAbility。当ExtensionAbility通过该接口拉起另外一个
+   * Ability，被拉起的Ability可以从onCreate生命周期获取到初始Ability的caller信息。使用callback异步回调。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
-   *     **undefined**; otherwise, **err** is an error object.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当启动Ability成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -379,21 +333,12 @@ declare class UIExtensionContentSession {
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability as the caller, with **options** specified. The initial ability places its caller information (
-   * such as the bundle name and ability name) in the **want** parameter and transfers the information to an 
-   * ExtensionAbility at the middle layer. When the ExtensionAbility starts another ability by calling this API, the 
-   * started ability can obtain the caller information of the initial ability from the **onCreate** lifecycle. This API 
-   * uses an asynchronous callback to return the result.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is 
-   * in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 初始Ability将自己的caller信息（如BundleName、AbilityName等）置于want参数中，传递给中间层的ExtensionAbility。当ExtensionAbility通过该接口拉起另外一个
+   * Ability，被拉起的Ability可以从onCreate生命周期获取到初始Ability的caller信息。使用callback异步回调。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } options - Parameters used for starting the ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
-   *     **undefined**; otherwise, **err** is an error object.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } options - 启动Ability所携带的参数。
+   * @param { AsyncCallback<void> } callback - 回调函数。当启动Ability成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -420,19 +365,12 @@ declare class UIExtensionContentSession {
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability as the caller. The initial ability places its caller information (such as the bundle name and 
-   * ability name) in the **want** parameter and transfers the information to an ExtensionAbility at the middle layer. 
-   * When the ExtensionAbility starts another ability by calling this API, the started ability can obtain the caller 
-   * information of the initial ability from the **onCreate** lifecycle. This API uses a promise to return the result.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application is 
-   * in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 初始Ability将自己的caller信息（如BundleName、AbilityName等）置于want参数中，传递给中间层的ExtensionAbility。当ExtensionAbility通过该接口拉起另外一个
+   * Ability，被拉起的Ability可以从onCreate生命周期获取到初始Ability的caller信息。使用Promise异步回调。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } [options] - Parameters used for starting the ability.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } [options] - 启动Ability所携带的参数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -461,36 +399,24 @@ declare class UIExtensionContentSession {
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts an ability and returns the result to the caller after the ability is terminated. This API uses an 
-   * asynchronous callback to return the result.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application
-   * is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 启动一个Ability，在Ability终止后返回结果给调用方。使用callback异步回调。
+   * Ability的终止方式包括以下几种情况：
    * 
-   * An ability can be terminated in the following ways:
-   * 
-   * - Normally, you can call 
+   * - 正常情况下可通过调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   *  to terminate the ability. The result is returned to the caller.
-   * - If an exception occurs, for example, the ability is killed, an error message, in which **resultCode** is **-1**, 
-   * is returned to the caller.
-   * - If different applications call this API to start an ability that uses the singleton mode and then call 
+   * 接口使之终止并且返回结果给调用方。
+   * - 异常情况下比如杀死Ability会返回异常信息给调用方，异常信息中resultCode为-1。
+   * - 如果被启动的Ability模式是单实例模式，不同应用多次调用该接口启动这个Ability，当这个Ability调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   *  to terminate the ability, the normal result is returned to the last caller, and an exception message, in which 
-   * **resultCode** is **-1**, is returned to others.
+   * 接口使之终止时，只将正常结果返回给最后一个调用方，其他调用方返回异常信息，异常信息中resultCode为-1。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
-   * > > The application where the UIExtensionComponent is located must be running in the foreground and gain focus.
+   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > > 对应UIExtensionComponent控件所在的应用需要处于前台获焦状态。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { AsyncCallback<AbilityResult> } callback - Callback used to return the result. If the ability is started and 
-   *     terminated, **err** is **undefined** and **data** is the obtained result code and data; otherwise, **err** is an 
-   *     error object.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { AsyncCallback<AbilityResult> } callback - 回调函数。当Ability启动并终止成功，err为undefined，data为获取到的结果码和数据；否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -519,37 +445,25 @@ declare class UIExtensionContentSession {
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
   /**
-   * Starts an ability with **options** specified and returns the result to the caller after the ability is terminated. 
-   * This API uses an asynchronous callback to return the result.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application
-   * is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 启动一个Ability，在Ability终止后返回结果给调用方。使用callback异步回调。
+   * Ability的终止方式包括以下几种情况：
    * 
-   * An ability can be terminated in the following ways:
-   * 
-   * - Normally, you can call 
+   * - 正常情况下可通过调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   *  to terminate the ability. The result is returned to the caller.
-   * - If an exception occurs, for example, the ability is killed, an error message, in which **resultCode** is **-1**, 
-   * is returned to the caller.
-   * - If different applications call this API to start an ability that uses the singleton mode and then call 
+   * 接口使之终止并且返回结果给调用方。
+   * - 异常情况下比如杀死Ability会返回异常信息给调用方，异常信息中resultCode为-1。
+   * - 如果被启动的Ability模式是单实例模式，不同应用多次调用该接口启动这个Ability，当这个Ability调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   *  to terminate the ability, the normal result is returned to the last caller, and an exception message, in which 
-   * **resultCode** is **-1**, is returned to others.
+   * 接口使之终止时，只将正常结果返回给最后一个调用方，其他调用方返回异常信息，异常信息中resultCode为-1。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
-   * > The application where the UIExtensionComponent is located must be running in the foreground and gain focus.
+   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > > 对应UIExtensionComponent控件所在的应用需要处于前台获焦状态。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } options - Parameters used for starting the ability.
-   * @param { AsyncCallback<AbilityResult> } callback - Callback used to return the result. If the ability is started and 
-   *     terminated, **err** is **undefined** and **data** is the obtained result code and data; otherwise, **err** is an 
-   *     error object.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } options - 启动Ability所携带的参数。
+   * @param { AsyncCallback<AbilityResult> } callback - 回调函数。当Ability启动并终止成功，err为undefined，data为获取到的结果码和数据；否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -576,35 +490,25 @@ declare class UIExtensionContentSession {
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
   /**
-   * Starts an ability and returns the result to the caller after the ability is terminated. This API uses a promise to 
-   * return the result.
-   * If the caller application is in foreground, you can use this method to start ability; If the caller application
-   * is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * 启动一个Ability，在Ability终止后返回结果给调用方。使用Promise异步回调。
+   * Ability的终止方式包括以下几种情况：
    * 
-   * An ability can be terminated in the following ways:
-   * 
-   * - Normally, you can call 
+   * - 正常情况下可通过调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   *  to terminate the ability. The result is returned to the caller.
-   * - If an exception occurs, for example, the ability is killed, an error message, in which **resultCode** is **-1**, 
-   * is returned to the caller.
-   * - If different applications call this API to start an ability that uses the singleton mode and then call 
+   * 接口使之终止并且返回结果给调用方。
+   * - 异常情况下比如杀死Ability会返回异常信息给调用方，异常信息中resultCode为-1。
+   * - 如果被启动的Ability模式是单实例模式，不同应用多次调用该接口启动这个Ability，当这个Ability调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   *  to terminate the ability, the normal result is returned to the last caller, and an exception message, in which 
-   * **resultCode** is **-1**, is returned to others.
+   * 接口使之终止时，只将正常结果返回给最后一个调用方，其他调用方返回异常信息，异常信息中resultCode为-1。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the startup rules for the components in the stage model, see 
-   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
-   * > The application where the UIExtensionComponent is located must be running in the foreground and gain focus.
+   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > > 对应UIExtensionComponent控件所在的应用需要处于前台获焦状态。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } [options] - Parameters used for starting the ability.
-   * @returns { Promise<AbilityResult> } Promise used to return the result code and data.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } [options] - 启动Ability所携带的参数。
+   * @returns { Promise<AbilityResult> } Promise对象，返回结果码和数据。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -633,11 +537,9 @@ declare class UIExtensionContentSession {
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
   /**
-   * Destroys this UIExtensionAbility and closes the corresponding window of the host application. This API uses an 
-   * asynchronous callback to return the result.
+   * 销毁UIExtensionAbility组件自身，同时关闭对应的宿主应用窗口界面。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当接口调用成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -648,10 +550,9 @@ declare class UIExtensionContentSession {
   terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this UIExtensionAbility and closes the corresponding window of the host application. This API uses a 
-   * promise to return the result.
+   * 销毁UIExtensionAbility组件自身，同时关闭对应的宿主应用窗口界面。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
@@ -660,12 +561,10 @@ declare class UIExtensionContentSession {
   terminateSelf(): Promise<void>;
 
   /**
-   * Destroys this UIExtensionAbility, closes the corresponding window of the host application, and returns the result 
-   * to the host application. This API uses an asynchronous callback to return the result.
+   * 销毁UIExtensionAbility组件自身，关闭对应的宿主应用窗口界面，并将结果返回给宿主应用。使用callback异步回调。
    *
-   * @param { AbilityResult } parameter - Information returned to the host application.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { AbilityResult } parameter - 返回给宿主应用的信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当接口调用成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -676,11 +575,10 @@ declare class UIExtensionContentSession {
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this UIExtensionAbility, closes the corresponding window of the host application, and returns the result 
-   * to the host application. This API uses a promise to return the result.
+   * 销毁UIExtensionAbility组件自身，关闭对应的宿主应用窗口界面，并将结果返回给宿主应用。使用Promise异步回调。
    *
-   * @param { AbilityResult } parameter - Information returned to the host application.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { AbilityResult } parameter - 返回给宿主应用的信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -691,12 +589,10 @@ declare class UIExtensionContentSession {
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
   /**
-   * Sets the background color for the loading page of the UIExtensionAbility. This API can be used only after 
-   * [loadContent()]{@link ./@ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.loadContent} is called 
-   * and takes effect.
+   * 设置UIExtensionAbility加载界面的背景色。该接口需要在
+   * [loadContent()]{@link ./@ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.loadContent}调用生效后使用。
    *
-   * @param { string } color - Background color to set. The value is a hexadecimal RGB or ARGB color code and is case 
-   *     insensitive, for example, **#00FF00** or **#FF00FF00**.
+   * @param { string } color - 需要设置的背景色，为十六进制RGB或ARGB颜色，不区分大小写，例如`#00FF00`或`#FF00FF00`。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -710,12 +606,11 @@ declare class UIExtensionContentSession {
   setWindowBackgroundColor(color: string): void;
 
   /**
-   * Enables or disables the window privacy mode of the host application. A window in privacy mode cannot be captured or
-   *  recorded. This API uses a promise to return the result.
+   * 设置宿主应用窗口的隐私模式开启或关闭。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。使用Promise异步回调。
    *
    * @permission ohos.permission.PRIVACY_WINDOW
-   * @param { boolean } isPrivacyMode - Whether to enable the privacy mode. **true** to enable, **false** otherwise.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } isPrivacyMode - 表示是否开启隐私模式。true表示开启；false表示关闭。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -727,13 +622,11 @@ declare class UIExtensionContentSession {
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
   /**
-   * Enables or disables the window privacy mode of the host application. A window in privacy mode cannot be captured or
-   *  recorded. This API uses an asynchronous callback to return the result.
+   * 设置宿主应用窗口的隐私模式开启或关闭。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。使用callback异步回调。
    *
    * @permission ohos.permission.PRIVACY_WINDOW
-   * @param { boolean } isPrivacyMode - Whether to enable the privacy mode. **true** to enable, **false** otherwise.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the setting is successful, **err** is 
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { boolean } isPrivacyMode - 表示是否开启隐私模式。true表示开启；false表示关闭。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -745,17 +638,13 @@ declare class UIExtensionContentSession {
   setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Implicitly starts a given type of UIExtensionAbility. This API uses an asynchronous callback to return the result. 
-   * It can be called only by applications running in the foreground.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * 通过type隐式启动UIExtensionAbility。使用callback异步回调。仅支持处于前台的应用调用。
    *
-   * @param { string } type - Type of the UIExtensionAbility. For details, see 
-   *     [Starting an Application of the Specified Type](docroot://application-models/start-intent-panel.md#matching-rules).
-   * @param { Record<string, Object> } wantParam - Parameters passed for starting the UIExtensionAbility.
-   * @param { AbilityStartCallback } abilityStartCallback - Execution result of starting the UIExtensionAbility.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
-   *     **undefined**. Otherwise, **err** is an error object.
+   * @param { string } type - UIExtensionAbility组件类型，取值详见
+   *     [通过startAbilityByType接口拉起垂类面板](docroot://application-models/start-intent-panel.md#匹配规则)。
+   * @param { Record<string, Object> } wantParam - 表示启动UIExtensionAbility组件时传递的参数。
+   * @param { AbilityStartCallback } abilityStartCallback - 表示启动UIExtensionAbility组件的执行结果。
+   * @param { AsyncCallback<void> } callback - 回调函数。当接口调用成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 11 - 11]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
@@ -772,15 +661,13 @@ declare class UIExtensionContentSession {
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts the UIAbility or UIExtensionAbility by type.
-   * If the caller application is in the background, it is not allowed to call this interface.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * 通过type隐式启动UIExtensionAbility。使用callback异步回调。仅支持处于前台的应用调用。
    *
-   * @param { string } type - The type of target ability.
-   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
-   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { string } type - 显示拉起的UIExtensionAbility类型，取值详见
+   *     [通过startAbilityByType接口拉起垂类面板](docroot://application-models/start-intent-panel.md#匹配规则)。
+   * @param { Record<string, RecordData> } wantParam - 	表示扩展参数。
+   * @param { AbilityStartCallback } abilityStartCallback - 回调函数，返回启动失败后的详细错误信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当启动Ability成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -790,14 +677,13 @@ declare class UIExtensionContentSession {
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
-   * Implicitly starts a given type of UIExtensionAbility. This API uses a promise to return the result. It can be 
-   * called only by applications running in the foreground.
+   * 通过type隐式启动UIExtensionAbility组件。使用Promise异步回调。仅支持处于前台的应用调用。
    *
-   * @param { string } type - Type of the UIExtensionAbility. For details, see 
-   *     [Starting an Application of the Specified Type](docroot://application-models/start-intent-panel.md#matching-rules).
-   * @param { Record<string, Object> } wantParam - Parameters passed for starting the UIExtensionAbility.
-   * @param { AbilityStartCallback } abilityStartCallback - Execution result of starting the UIExtensionAbility.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } type - UIExtensionAbility组件类型，取值详见
+   *     [通过startAbilityByType接口拉起垂类面板](docroot://application-models/start-intent-panel.md#匹配规则)。
+   * @param { Record<string, Object> } wantParam - 表示启动UIExtensionAbility组件时传递的参数。
+   * @param { AbilityStartCallback } abilityStartCallback - 表示启动UIExtensionAbility组件的执行结果。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface. [since 11 - 11]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
@@ -814,13 +700,13 @@ declare class UIExtensionContentSession {
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
-   * Starts the UIAbility or UIExtensionAbility by type.
-   * If the caller application is in the background, it is not allowed to call this interface.
+   * 通过type隐式启动UIExtensionAbility。使用callback异步回调。仅支持处于前台的应用调用。
    *
-   * @param { string } type - The type of target ability.
-   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
-   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } type - 显示拉起的UIExtensionAbility类型，取值详见
+   *     [通过startAbilityByType接口拉起垂类面板](docroot://application-models/start-intent-panel.md#匹配规则)。
+   * @param { Record<string, RecordData> } wantParam - 	表示扩展参数。
+   * @param { AbilityStartCallback } abilityStartCallback - 	回调函数，返回启动失败后的详细错误信息。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -830,10 +716,9 @@ declare class UIExtensionContentSession {
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
-   * Obtains the window object corresponding to the current UIExtension to notify the width, height, position, and 
-   * avoided area.
+   * 获取当前UIExtension对应的窗口对象，用于通知宽高、位置、避让信息等。
    *
-   * @returns { uiExtensionHost.UIExtensionHostWindowProxy } Window information of the host application.
+   * @returns { uiExtensionHost.UIExtensionHostWindowProxy } 宿主应用窗口信息。
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -845,9 +730,9 @@ declare class UIExtensionContentSession {
   getUIExtensionHostWindowProxy(): uiExtensionHost.UIExtensionHostWindowProxy;
 
   /**
-   * Obtains the window proxy of this UIExtensionAbility.
+   * 获取UIExtension窗口代理。
    *
-   * @returns { uiExtension.WindowProxy } Window proxy of the host application.
+   * @returns { uiExtension.WindowProxy } UIExtensionAbility组件的宿主应用窗口代理。
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
