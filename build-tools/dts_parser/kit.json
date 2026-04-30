@@ -351,6 +351,7 @@
     { "filePath": "@ohos.bundle.bundleManager.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "@ohos.bundle.bundleMonitor.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "@ohos.bundle.bundleResourceManager.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
+    { "filePath": "@ohos.bundle.skillManager.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "@ohos.bundle.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "@ohos.bundle.defaultAppManager.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "@ohos.bundle.distributedBundleManager.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
