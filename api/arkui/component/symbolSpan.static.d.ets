@@ -18,11 +18,12 @@
  * @kit ArkUI
  */
 import { Resource } from './../../../api/global/resource';
-import { CommonMethod, AttributeModifier } from "./common";
+import { CommonMethod, ResourceStr, AttributeModifier } from "./common";
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { FontWeightConfigs } from "./textCommon";
 
 /**
  * Provides attribute for SymbolSpan.
@@ -63,6 +64,17 @@ export declare interface SymbolSpanAttribute {
      * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
+    /**
+     * Used to set the font weight of SymbolSpan.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - the SymbolSpan font weight.
+     * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     * @returns { SymbolSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
     /**
      * Called when the SymbolSpan effect is set.
      *
