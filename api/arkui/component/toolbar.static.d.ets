@@ -89,6 +89,7 @@ export declare interface ToolBarItemAttribute {
  * @param { CustomBuilder } [content_] - container
  * @returns { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

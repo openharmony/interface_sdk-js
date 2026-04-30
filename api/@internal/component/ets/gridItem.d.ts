@@ -24,6 +24,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -32,6 +33,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -41,6 +43,7 @@ declare enum GridItemStyle {
    * Show none style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -48,6 +51,7 @@ declare enum GridItemStyle {
    * Show none style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -58,6 +62,7 @@ declare enum GridItemStyle {
    * Show plain style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -65,6 +70,7 @@ declare enum GridItemStyle {
    * Show plain style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -77,6 +83,7 @@ declare enum GridItemStyle {
  *
  * @interface GridItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -85,6 +92,7 @@ declare enum GridItemStyle {
  *
  * @interface GridItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -95,6 +103,7 @@ declare interface GridItemOptions {
    *
    * @type { ?GridItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -103,6 +112,7 @@ declare interface GridItemOptions {
    *
    * @type { ?GridItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -356,6 +366,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value - if the gridItem is selected.
    * @returns { GridItemAttribute } the attribute of the gridItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -366,6 +377,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value - if the gridItem is selected.
    * @returns { GridItemAttribute } the attribute of the gridItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

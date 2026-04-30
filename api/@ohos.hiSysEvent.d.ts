@@ -21,11 +21,9 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides the system event logging function for applications to log the fault, statistical, security,
- * and user behavior events reported during running. Based on event information,
- * you will be able to analyze the running status of applications.
+ * The **hiSysEvent** module provides the system event logging functions, such as configuring trace points, subscribing
+ * to system events, and querying system events written to the event file.
  *
- * @namespace hiSysEvent
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
  * @since 9 dynamic
@@ -35,7 +33,6 @@ declare namespace hiSysEvent {
   /**
    * Enumerate system event types.
    *
-   * @enum {int}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -43,7 +40,7 @@ declare namespace hiSysEvent {
    */
   enum EventType {
     /**
-     * Fault event
+     * Error event.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -53,7 +50,7 @@ declare namespace hiSysEvent {
     FAULT = 1,
 
     /**
-     * Statistic event
+     * Statistic event.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -63,7 +60,7 @@ declare namespace hiSysEvent {
     STATISTIC = 2,
 
     /**
-     * Security event
+     * Security event.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -73,7 +70,7 @@ declare namespace hiSysEvent {
     SECURITY = 3,
 
     /**
-     * System behavior event
+     * User behavior event.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -84,9 +81,8 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition of written system event information.
+   * Defines a system event.
    *
-   * @interface SysEventInfo
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -94,9 +90,8 @@ declare namespace hiSysEvent {
    */
   interface SysEventInfo {
     /**
-     * The domain of the event.
+     * Event domain.
      *
-     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -105,9 +100,8 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * The name of the event.
+     * Event name.
      *
-     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -116,9 +110,8 @@ declare namespace hiSysEvent {
     name: string;
 
     /**
-     * The type of the event.
+     * Event type.
      *
-     * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -127,27 +120,19 @@ declare namespace hiSysEvent {
     eventType: EventType;
 
     /**
-     * The params of the event.
+     * Event parameters.
      *
-     * @type { object }
+     * @type { object } [since 9 - 11]
+     * @type { ?object } [since 12]
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
-     */
-    /**
-     * The params of the event.
-     *
-     * @type { ?object }
-     * @syscap SystemCapability.HiviewDFX.HiSysEvent
-     * @systemapi hide for inner use
-     * @since 12 dynamic
+     * @since 9 dynamic
      */
     params?: object;
 
     /**
-     * The params of the event.
+     * Event parameters.
      *
-     * @type { ?(Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 23 static
@@ -156,14 +141,15 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Write system event.
+   * Writes event information to the event file. This API uses a promise to return the result.
    *
-   * @param {SysEventInfo} info - system event information to be written.
-   * @returns {Promise<void>} - Return Promise
+   * @param {SysEventInfo} info - System event information.
+   * @returns {Promise<void>} - Promise used to return the result. Depending on whether event writing is successful, you
+   *     can use the **then()** or **catch()** method to process the callback.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
    * @throws {BusinessError} 11200003 - Abnormal environment.
@@ -180,14 +166,17 @@ declare namespace hiSysEvent {
   function write(info: SysEventInfo): Promise<void>;
 
   /**
-   * Write system event.
+   * Writes event information to the event file. This API uses an asynchronous callback to return the result.
    *
-   * @param {SysEventInfo} info - system event information to be written.
-   * @param {AsyncCallback<void>} callback - callback function.
+   * @param {SysEventInfo} info - System event information.
+   * @param {AsyncCallback<void>} callback - Callback used to process the received return value.
+   *     <br/>- Value **0**: The event verification is successful, and the event will be written to the event file asynchronously. 
+   *     <br/>- A value greater than **0**: Invalid parameters are present in the event, and the event will be written to the event file asynchronously after the invalid parameters are ignored.
+   *     <br/>- A value smaller than **0**: The event parameter verification fails, and the event will not be written to the event file.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
    * @throws {BusinessError} 11200003 - Abnormal environment.
@@ -204,9 +193,8 @@ declare namespace hiSysEvent {
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Enumerate search system event rule type.
+   * Enumerates matching rule types.
    *
-   * @enum {int}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -214,7 +202,7 @@ declare namespace hiSysEvent {
    */
   enum RuleType {
     /**
-     * Whole word match
+     * Whole word matching.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -224,7 +212,7 @@ declare namespace hiSysEvent {
     WHOLE_WORD = 1,
 
     /**
-     * Prefix match
+     * Prefix matching.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -234,7 +222,7 @@ declare namespace hiSysEvent {
     PREFIX = 2,
 
     /**
-     * Regular match
+     * Regular expression matching.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -245,9 +233,8 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition listener rule for system event information.
+   * Defines event subscription rules.
    *
-   * @interface WatchRule
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -255,9 +242,8 @@ declare namespace hiSysEvent {
    */
   interface WatchRule {
     /**
-     * The domain of the event.
+     * Event domain.
      *
-     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -266,9 +252,8 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * The name of the event.
+     * Event name.
      *
-     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -277,27 +262,19 @@ declare namespace hiSysEvent {
     name: string;
 
     /**
-     * The tag of the event.
+     * Event tag.
      *
-     * @type { string }
+     * @type { string } [since 9 - 11]
+     * @type { ?string } [since 12]
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
-     */
-    /**
-     * The tag of the event.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.HiviewDFX.HiSysEvent
-     * @systemapi hide for inner use
-     * @since 12 dynamic
+     * @since 9 dynamic
      */
     tag?: string;
 
     /**
-     * The tag of the event.
+     * Event tag.
      *
-     * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 23 static
@@ -305,9 +282,8 @@ declare namespace hiSysEvent {
     tag?: string | null | undefined;
 
     /**
-     * The rule of match system event
+     * Matching rule type.
      *
-     * @type { RuleType }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -317,9 +293,8 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition watcher for system event information.
+   * Defines a watcher for event subscription.
    *
-   * @interface Watcher
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -327,9 +302,8 @@ declare namespace hiSysEvent {
    */
   interface Watcher {
     /**
-     * Rule of filter system event
+     * Array of matching event subscription rules.
      *
-     * @type { WatchRule[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -338,9 +312,8 @@ declare namespace hiSysEvent {
     rules: WatchRule[];
 
     /**
-    * Receive system event.
+    * Callback for event subscription: (info: [SysEventInfo]{@link SysEventInfo}) => void
     *
-    * @type { function }
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
     * @since 9 dynamic
@@ -349,9 +322,8 @@ declare namespace hiSysEvent {
     onEvent: (info: SysEventInfo) => void;
 
     /**
-     * Hisysevent service shutdown.
+     * Callback for disabling of event subscription: () => void
      *
-     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -361,9 +333,8 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition arguments for query system event information.
+   * Defines arguments for an event query.
    *
-   * @interface QueryArg
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -371,9 +342,9 @@ declare namespace hiSysEvent {
    */
   interface QueryArg {
     /**
-     * Begin time
+     * Start time of the system event to be queried. The value is a 13-digit timestamp, indicating the number of
+     * milliseconds elapsed since 00:00:00:00 on January 1, 1970.
      *
-     * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -382,9 +353,9 @@ declare namespace hiSysEvent {
     beginTime: long;
 
     /**
-     * End time
+     * End time of the system event to be queried. The value is a 13-digit timestamp, indicating the number of
+     * milliseconds elapsed since 00:00:00:00 on January 1, 1970.
      *
-     * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -393,9 +364,8 @@ declare namespace hiSysEvent {
     endTime: long;
 
     /**
-     * Max number of receive system event
+     * Maximum number of events that can be queried.
      *
-     * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -404,9 +374,8 @@ declare namespace hiSysEvent {
     maxEvents: long;
 
     /**
-     * Begin sequence
+     * Start SN of the events to be queried. The default value is **-1**
      *
-     * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 10 dynamic
@@ -414,9 +383,8 @@ declare namespace hiSysEvent {
     fromSeq?: long;
 
     /**
-     * Begin sequence
+     * Start SN of the events to be queried. The default value is **-1**
      *
-     * @type { ?(long | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 23 static
@@ -424,9 +392,8 @@ declare namespace hiSysEvent {
     fromSeq?: long | null | undefined;
 
     /**
-     * End sequence
+     * End SN of the system events to be queried. The default value is **-1**.
      *
-     * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 10 dynamic
@@ -434,9 +401,8 @@ declare namespace hiSysEvent {
     toSeq?: long;
 
     /**
-     * End sequence
+     * End SN of the system events to be queried. The default value is **-1**.
      *
-     * @type { ?(long | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 23 static
@@ -445,9 +411,8 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition event for query system event information
+   * Defines event query rules.
    *
-   * @interface QueryRule
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -455,9 +420,8 @@ declare namespace hiSysEvent {
    */
   interface QueryRule {
     /**
-     * The domain of the event
+     * Event domain.
      *
-     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -466,9 +430,8 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * List of event name
+     * Array of event names. A **QueryRule** object contains multiple system event names.
      *
-     * @type { string[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -477,9 +440,15 @@ declare namespace hiSysEvent {
     names: string[];
 
     /**
-     * Extra parameter condition of event
+     * Additional event conditions. The value of this parameter is in the format of
+     * **{"version":"V1","condition":{"and":[{"param":"*Parameter*","op":"*Operator*","value":"*Comparison value*"}]}}**.
      *
-     * @type { ?string }
+     * Parameter: key value of the specified event parameter.
+     *
+     * Supported operators: **=**, **!=**, **<**, **<=**, **>** and **>=**.
+     *
+     * Multiple conditions can be configured in the **"and"** array, and the intersection of the query results is used.
+     *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 10 dynamic
@@ -487,9 +456,15 @@ declare namespace hiSysEvent {
     condition?: string;
 
     /**
-     * Extra parameter condition of event
+     * Additional event conditions. The value of this parameter is in the format of
+     * **{"version":"V1","condition":{"and":[{"param":"*Parameter*","op":"*Operator*","value":"*Comparison value*"}]}}**.
      *
-     * @type { ?(string | null | undefined) }
+     * Parameter: key value of the specified event parameter.
+     *
+     * Supported operators: **=**, **!=**, **<**, **<=**, **>** and **>=**.
+     * 
+     * Multiple conditions can be configured in the **"and"** array, and the intersection of the query results is used.
+     *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 23 static
@@ -498,9 +473,8 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition query result handler
+   * Defines an event query instance.
    *
-   * @interface Querier
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
@@ -508,9 +482,9 @@ declare namespace hiSysEvent {
    */
   interface Querier {
     /**
-     * Handle query result, the query result will be send in several times.
+     * Callback used to return the queried system events: (infos: [SysEventInfo]{@link SysEventInfo}[]) =>
+     * void.
      *
-     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -519,9 +493,8 @@ declare namespace hiSysEvent {
     onQuery: (infos: SysEventInfo[]) => void;
 
     /**
-     * Notify querier execute query has finished.
+     * Callback used to return the query result statistics: (reason: int, total: int) => void
      *
-     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
@@ -531,16 +504,17 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Add watcher to watch system event
+   * Adds a watcher for event subscription.
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Watcher} watcher watch system event
-   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @param {Watcher} watcher - Watcher for event subscription.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
+   *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200101 - The number of watchers exceeds the limit.
    * @throws {BusinessError} 11200102 - The number of watch rules exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
@@ -551,16 +525,17 @@ declare namespace hiSysEvent {
   function addWatcher(watcher: Watcher): void;
 
   /**
-   * Remove watcher
+   * Removes a watcher used for event subscription.
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Watcher} watcher watch system event
-   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @param {Watcher} watcher - Watcher for event subscription.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
+   *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200201 - The watcher does not exist.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -570,18 +545,19 @@ declare namespace hiSysEvent {
   function removeWatcher(watcher: Watcher): void;
 
   /**
-   * Query system event
+   * Queries system events.
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {QueryArg} queryArg common arguments of query system event
-   * @param {QueryRule[]} rules rule of query system event
-   * @param {Querier} querier receive query result
-   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @param {QueryArg} queryArg - Arguments for event query.
+   * @param {QueryRule[]} rules - Array of event query rules.
+   * @param {Querier} querier - Event query instance.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
+   *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200301 - The number of query rules exceeds the limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @throws {BusinessError} 11200303 - The number of concurrent queriers exceeds the limit.
@@ -594,18 +570,20 @@ declare namespace hiSysEvent {
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 
   /**
-   * Export system event
+   * Exports system events in batches and writes them as a file to the fixed directory of the application sandbox (that
+   * is, /data/storage/el2/base/cache/hiview/event/).
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {QueryArg} queryArg common arguments of query system event
-   * @param {QueryRule[]} rules rule of query system event
-   * @returns {long} return hiview receive task time.
-   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @param {QueryArg} queryArg - Event query parameters for the export.
+   * @param {QueryRule[]} rules - Array of event query rules for the export.
+   * @returns {long} API call timestamp.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
+   *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200301 - The number of query rules exceeds the limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @throws {BusinessError} 11200304 – The query frequency exceeds the limit.
@@ -617,17 +595,20 @@ declare namespace hiSysEvent {
   function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): long;
 
   /**
-   * Subscribe system event
+   * Subscribes to real-time system events that occur occasionally or occur in a low frequency. These events are written
+   * as a file to the fixed directory of the application sandbox (that is,
+   * /data/storage/el2/base/cache/hiview/event/).
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {QueryRule[]} rules rule of subscribe system event
-   * @returns {long} return hiview receive task time.
-   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @param {QueryRule[]} rules - Array of event query rules for the subscription.
+   * @returns {long} API call timestamp.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
+   *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200301 - The number of query rules exceeds the limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
@@ -638,15 +619,16 @@ declare namespace hiSysEvent {
   function subscribe(rules: QueryRule[]): long;
 
   /**
-   * Unsubscribe system event
+   * Unsubscribes from system events.
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission:
+   *     ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
-   *                         1. Mandatory parameters are left unspecified.
-   *                         2. Incorrect parameter types.
-   *                         3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws {BusinessError} 11200305 – Unsubscription failed.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use

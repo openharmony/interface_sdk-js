@@ -19,82 +19,59 @@
  */
 
 /**
- * The context of an application. It allows access to application-specific resources.
+ * The ContextConstant module defines context-related enums, including the file encryption partition level and process
+ * mode of the UIAbility after it is started.
  *
- * @namespace contextConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 9
- */
-/**
- * The context of an application. It allows access to application-specific resources.
- *
- * @namespace contextConstant
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @atomicservice
- * @since 11 dynamic
+ * @stagemodelonly
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace contextConstant {
   /**
-   * File area mode
+   * Enumerates the file encryption levels, which are used to ensure data security for applications across different
+   * scenarios. You can select the appropriate encryption level based on the application requirements to protect user
+   * data.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * File area mode
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum AreaMode {
     /**
-     * System level device encryption area
+     * Device-level encryption. Directories with this encryption level are accessible after the device is powered on.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * System level device encryption area
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @atomicservice
-     * @since 11 dynamic
+     * @stagemodelonly
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     EL1 = 0,
 
     /**
-     * User credential encryption area
+     * User-level encryption. Directories with this encryption level are accessible only after the device is powered on
+     * and the password is entered (for the first time).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * User credential encryption area
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @atomicservice
-     * @since 11 dynamic
+     * @stagemodelonly
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     EL2 = 1,
 
     /**
-     * User credential encryption area
-     * when screen locked, can read/write, and create file
+     * User-level encryption. The file permissions vary according to their scenarios.
+     *
+     * - An open file is always readable and writable regardless of whether the screen is locked.
+     * - When the screen is locked, a closed file cannot be opened, read, or written. When the screen is unlocked, such
+     * a file can be opened, read, and written.
+     * - When the screen is locked, a file can be created and then opened and written but not read. When the screen is
+     * unlocked, a file can be created and then opened, read, and written.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -105,9 +82,14 @@ declare namespace contextConstant {
     EL3 = 2,
 
     /**
-     * User credential encryption area
-     * when screen locked, FEB2.0 can read/write, FEB3.0 can't
-     * read/write, and all can't create file
+     * User-level encryption. The file permissions vary according to their scenarios.
+     *
+     * - When the screen is locked, an open file is not readable or writable. When the screen is unlocked, such a file
+     * is readable and writable.
+     * - When the screen is locked, a closed file cannot be opened, read, or written. When the screen is unlocked, such
+     * a file can be opened, read, and written.
+     * - When the screen is locked, a file cannot be created. When the screen is unlocked, a file can be created and
+     * then opened, read, and written.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -118,9 +100,15 @@ declare namespace contextConstant {
     EL4 = 3,
 
     /**
-     * User privacy sensitive encryption area
-     * when the screen locked, a closed file cannot be opened, read, or written,
-     * a file can be created and then opened, read, or written.
+     * Application-level encryption. The file permissions vary according to their scenarios.
+     *
+     * - An open file is always readable and writable regardless of whether the screen is locked.
+     *
+     * When the screen is locked, a closed file can be opened, read, and written only if the reserved key is obtained by
+     *  calling [Access](js-apis-screenLockFileManager.md#screenlockfilemanageracquireaccess). When the screen is
+     * unlocked, such a file can be opened, read, and written.
+     *
+     * A file can be created and then opened, read, and written regardless of whether the screen is locked.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -132,9 +120,14 @@ declare namespace contextConstant {
   }
 
   /**
-   * Process mode
+   * Enumerates the process modes of the UIAbility after it is started.
+   * As a property of [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}, **ProcessMode** takes effect
+   * only in
+   * [UIAbilityContext.startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>)}
+   *  and is used to specify the process mode of the target UIAbility.
+   * This value takes effect only on 2-in-1 devices and tablets. If it is used on other devices, error code 801 is
+   * returned.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
@@ -142,8 +135,12 @@ declare namespace contextConstant {
    */
   export enum ProcessMode {
     /**
-     * Indicates the ability started in a new process, and the process lifecycle follows the parent process.
-     * When using this mode, the target ability needs to have the same bundle name as the caller.
+     * A new process is created, the UIAbility is started on the process, and the process exits along with the parent
+     * process.
+     *
+     * **Constraints**:
+     *
+     * In this mode, the target UIAbility and caller must be in the same application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -153,9 +150,13 @@ declare namespace contextConstant {
     NEW_PROCESS_ATTACH_TO_PARENT = 1,
 
     /**
-     * Indicates the ability started in a new process.
-     * When using this mode, the caller needs to add item to status bar first,
-     * and the target ability needs to have the same bundle name as the caller.
+     * A new process is created, the UIAbility is started on the process, and the process is bound to the status bar
+     * icon.
+     *
+     * **Constraints**:
+     *
+     * In this mode, the target UIAbility and caller must be in the same application, and the application must have an
+     * icon in the status bar.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -165,9 +166,12 @@ declare namespace contextConstant {
     NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2,
 
     /**
-     * Indicates the ability started without forcing the creation of a new process.
-     * When using this mode, the caller needs to add item to status bar first,
-     * and the target ability needs to have the same bundle name as the caller.
+     * The UIAbility is started, and the process of the UIAbility is bound to the status bar icon.
+     *
+     * **Constraints**:
+     *
+     * In this mode, the target UIAbility and caller must be in the same application, and the application must have an
+     * icon in the status bar.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -178,9 +182,16 @@ declare namespace contextConstant {
   }
 
   /**
-   * Startup visibility
+   * Enumerates the visibility statuses of the UIAbility after it is started.
+   * If the target UIAbility is set to invisible, the window of the target UIAbility is not displayed in the foreground,
+   *  there is no icon in the dock, and the **onForeground** lifecycle of the target UIAbility is not triggered.
+   * As a property of [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}, **StartupVisibility** takes
+   * effect only in
+   * [UIAbilityContext.startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>)}
+   *  and specifies the visibility of the target UIAbility after it is started.
+   * This value takes effect only on 2-in-1 devices and tablets. If it is used on other devices, error code 801 is
+   * returned.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
@@ -188,7 +199,8 @@ declare namespace contextConstant {
    */
   export enum StartupVisibility {
     /**
-     * Indicates that the ability will hide after process startup.
+     * The target UIAbility is hidden after it is started in the new process. The **onForeground** lifecycle of the
+     * UIAbility is not invoked.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -198,7 +210,7 @@ declare namespace contextConstant {
     STARTUP_HIDE = 0,
 
     /**
-     * Indicates that the ability will show after process startup.
+     * The target UIAbility is displayed normally after it is started in the new process.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -209,9 +221,10 @@ declare namespace contextConstant {
   }
 
   /**
-   * Scenario values for disabling the onNewWant lifecycle callback.
+   * Enumerates the scenarios where the [onNewWant]{@link @ohos.app.ability.UIAbility:UIAbility#onNewWant} lifecycle
+   * callback is not triggered. It is used in the
+   * [setOnNewWantSkipScenarios]{@link ./application/UIAbilityContext:UIAbilityContext.setOnNewWantSkipScenarios} API.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -220,8 +233,7 @@ declare namespace contextConstant {
    */
   export enum Scenarios {
     /**
-     * Indicates the scenario where a UIAbility is brought to the foreground through
-     * the missionManager.moveMissionToFront invocation.
+     * <!--RP1-->A scenario where the system API [missionManager.moveMissionToFront](./js-apis-app-ability-missionManager-sys.md#missionmanagermovemissiontofront-2) is called to move the UIAbility to the foreground.<!--RP1End-->
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -232,8 +244,8 @@ declare namespace contextConstant {
     SCENARIO_MOVE_MISSION_TO_FRONT = 0x00000001,
 
     /**
-     * Indicates the scenario where a UIAbility is brought to the foreground through
-     * the UIAbilityContext.showAbility invocation.
+     * A scenario where the [showAbility]{@link ./application/UIAbilityContext:UIAbilityContext.showAbility} API is called
+     *  to move the UIAbility to the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -244,8 +256,9 @@ declare namespace contextConstant {
     SCENARIO_SHOW_ABILITY = 0x00000002,
 
     /**
-     * Indicates the scenario where a UIAbility is brought to the foreground through
-     * the UIAbilityContext.backToCallerAbilityWithResult invocation.
+     * A scenario where the
+     * [backToCallerAbilityWithResult]{@link ./application/UIAbilityContext:UIAbilityContext.backToCallerAbilityWithResult}
+     *  API is called to move the UIAbility to the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -253,7 +266,7 @@ declare namespace contextConstant {
      * @since 20 dynamic
      * @since 23 static
      */
-    SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT = 0x00000004
+    SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT = 0x00000004,
   }
 
   /**
@@ -329,7 +342,7 @@ declare namespace contextConstant {
     /**
      * UI service extension context type.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core\
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @atomicservice

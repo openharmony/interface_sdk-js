@@ -159,6 +159,7 @@ declare enum ToggleType {
  *
  * @interface SwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -169,6 +170,7 @@ declare interface SwitchStyle {
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -180,6 +182,7 @@ declare interface SwitchStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -191,6 +194,7 @@ declare interface SwitchStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -202,6 +206,7 @@ declare interface SwitchStyle {
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -215,6 +220,7 @@ declare interface SwitchStyle {
  * @extends CommonConfiguration<ToggleConfiguration>
  * @interface ToggleConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -226,6 +232,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -237,6 +244,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -248,6 +256,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    *
    * @type { Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -260,6 +269,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
  *
  * @interface ToggleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -538,6 +548,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @param { ContentModifier<ToggleConfiguration> } modifier - The content modifier of toggle.
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -632,6 +643,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @param { SwitchStyle } value
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

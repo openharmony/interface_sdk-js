@@ -54,6 +54,7 @@ interface PluginComponentTemplate {
  * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 18 dynamic
  */
 declare interface PluginComponentOptions {
@@ -99,6 +100,7 @@ declare interface PluginComponentOptions {
  * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 18 dynamic
  */
 declare interface PluginErrorData {
@@ -145,6 +147,7 @@ declare interface PluginErrorData {
  * @param { PluginErrorData } info - Plugin error data
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 18 dynamic
  */
 declare type PluginErrorCallback = (info: PluginErrorData) => void;

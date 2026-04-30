@@ -23,9 +23,10 @@ import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
 /**
- * Indicates an array of data operations that can contain several different operations on the database.
+ * The module defines the operation on DataAbilities. It can be used as an input parameter of
+ * [executeBatch](docroot://reference/apis-ability-kit/js-apis-inner-ability-dataAbilityHelper.md#dataabilityhelperexecutebatch)
+ *  to specify the database operation information.
  *
- * @typedef DataAbilityOperation
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 7 dynamiconly
  */
@@ -33,9 +34,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the path of data to operate.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   uri: string;
@@ -43,9 +43,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates a operation type.
    *
-   * @type { featureAbility.DataAbilityOperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   type: featureAbility.DataAbilityOperationType;
@@ -53,9 +52,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the data values to be set.
    *
-   * @type { ?rdb.ValuesBucket }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   valuesBucket?: rdb.ValuesBucket;
@@ -63,9 +61,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the valuesBucket object containing a set of key-value pairs.
    *
-   * @type { ?rdb.ValuesBucket }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   valueBackReferences?: rdb.ValuesBucket;
@@ -74,9 +71,8 @@ export interface DataAbilityOperation {
    * Indicates the filter criteria to set. If this parameter is null, all data records
    * will be operated by default.
    *
-   * @type { ?dataAbility.DataAbilityPredicates }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   predicates?: dataAbility.DataAbilityPredicates;
@@ -84,9 +80,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the back reference to be used as a filter criterion in predicates.
    *
-   * @type { ?Map<number, number> }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   predicatesBackReferences?: Map<number, number>;
@@ -94,9 +89,8 @@ export interface DataAbilityOperation {
   /**
    * Specifies whether a batch operation can be interrupted.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   interrupted?: boolean;
@@ -104,9 +98,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the expected number of rows to update or delete.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   expectedCount?: number;

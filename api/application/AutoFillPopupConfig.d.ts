@@ -14,25 +14,25 @@
  */
 
 /**
+ * The module describes the size and position information of an auto-fill pop-up.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Auto Fill Popup config.
+ * The module describes the size and position information of an auto-fill pop-up.
  *
- * @interface AutoFillPopupConfig
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
  * @since 23 static
  */
- export default interface AutoFillPopupConfig {
+export default interface AutoFillPopupConfig {
   /**
-   * The size of the popup.
+   * Width and height of the auto-fill pop-up. If this parameter is not set, the width and height are not updated.
    *
-   * @type { ?PopupSize }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -42,9 +42,8 @@
   popupSize?: PopupSize;
 
   /**
-   * The placement of the popup.
+   * Position of the auto-fill pop-up. If this parameter is not set, the position is not updated.
    *
-   * @type { ?PopupPlacement }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -55,20 +54,18 @@
 }
 
 /**
- * Popup size.
+ * Describes the width and height of the auto-fill pop-up.
  *
- * @interface PopupSize
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
  * @since 23 static
  */
- export interface PopupSize {
+export interface PopupSize {
   /**
-   * The width of the popup, in px.
+   * Width of the auto-fill pop-up.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -78,9 +75,8 @@
   width: double;
 
   /**
-   * The height of the popup, in px.
+   * Height of the auto-fill pop-up.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -91,9 +87,8 @@
 }
 
 /**
- * Popup placement.
+ * Enumerates the positions of an auto-fill pop-up.
  *
- * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
@@ -102,7 +97,7 @@
  */
 export declare enum PopupPlacement {
   /**
-   * The left of the popup.
+   * The popup is on the left of the component and aligned with the left center of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -113,7 +108,7 @@ export declare enum PopupPlacement {
   LEFT = 0,
 
   /**
-   * The right of the popup.
+   * The popup is on the right of the component and aligned with the right center of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -124,7 +119,7 @@ export declare enum PopupPlacement {
   RIGHT = 1,
 
   /**
-   * The top of the popup.
+   * The popup is at the top of the component and aligned with the top center of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -135,7 +130,7 @@ export declare enum PopupPlacement {
   TOP = 2,
 
   /**
-   * The bottom of the popup.
+   * The popup is at the bottom of the component and aligned with the bottom center of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -146,7 +141,7 @@ export declare enum PopupPlacement {
   BOTTOM = 3,
 
   /**
-   * The top_left of the popup.
+   * The popup is at the top of the component and aligned with the left edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -157,7 +152,7 @@ export declare enum PopupPlacement {
   TOP_LEFT = 4,
 
   /**
-   * The top_right of the popup.
+   * The popup is at the top of the component and aligned with the right edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -168,7 +163,7 @@ export declare enum PopupPlacement {
   TOP_RIGHT = 5,
 
   /**
-   * The bottom_left of the popup.
+   * The popup is at the bottom of the component and aligned with the left edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -179,7 +174,7 @@ export declare enum PopupPlacement {
   BOTTOM_LEFT = 6,
 
   /**
-   * The bottom_right of the popup.
+   * The popup is at the bottom of the component and aligned with the right edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -190,7 +185,7 @@ export declare enum PopupPlacement {
   BOTTOM_RIGHT = 7,
 
   /**
-   * The left_top of the popup.
+   * The popup is on the left of the component and aligned with the top edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -201,7 +196,7 @@ export declare enum PopupPlacement {
   LEFT_TOP = 8,
 
   /**
-   * The left_bottom of the popup.
+   * The popup is on the left of the component and aligned with the bottom edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -212,7 +207,7 @@ export declare enum PopupPlacement {
   LEFT_BOTTOM = 9,
 
   /**
-   * The right_top of the popup.
+   * The popup is on the right of the component and aligned with the top edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -223,7 +218,7 @@ export declare enum PopupPlacement {
   RIGHT_TOP = 10,
 
   /**
-   * The right_bottom of the popup.
+   * The popup is on the right of the component and aligned with the bottom edge of the component.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -234,7 +229,7 @@ export declare enum PopupPlacement {
   RIGHT_BOTTOM = 11,
 
   /**
-   * Not set placement of the popup.
+   * The position is unspecified.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

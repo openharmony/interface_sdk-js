@@ -32,104 +32,74 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 
 /**
- * The class of an ability.
+ * The module provides all level-2 module APIs for developers to export.
  *
- * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @FAModelOnly
- * @since 9
- */
-/**
- * The class of an ability.
- *
- * @namespace ability
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 11 dynamic
+ * @famodelonly [since 9 - 10]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace ability {
   /**
-   * DataAbilityHelper
+   * Defines the level-2 module DataAbilityHelper.
    *
-   * @typedef { _DataAbilityHelper }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type DataAbilityHelper = _DataAbilityHelper;
 
   /**
-   * Defines a PacMap object for storing a series of values.
+   * Defines the level-2 module PacMap.
    *
-   * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   * @since 9
-   */
-  /**
-   * Defines a PacMap object for storing a series of values.
-   *
-   * @typedef { _PacMap }
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @since 11 dynamic
+   * @famodelonly [since 9 - 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type PacMap = _PacMap;
 
   /**
-   * DataAbilityOperation secondary module.Define the DataAbility data operation method,
-   * which can be used as an input parameter for [executeBatch] to manipulate database information.
+   * Defines the level-2 module DataAbilityOperation.
    *
-   * @typedef { _DataAbilityOperation }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type DataAbilityOperation = _DataAbilityOperation;
 
   /**
-   * DataAbilityResult secondary module.Define the DataAbility data operation result.
-   * When operating the database through [executeBatch], the operation result is returned
-   * using the DataAbility Result object.
+   * Defines the level-2 module DataAbilityResult.
    *
-   * @typedef { _DataAbilityResult }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type DataAbilityResult = _DataAbilityResult;
 
   /**
-   * AbilityResult secondary module.The result code and data returned after the ability is pulled
-   * up and exited can be defined. The ability result object returned after the ability is pulled
-   * up and exited can be obtained through [startAbilityForResult], and the ability object pulled up
-   * by startAbilityForResult can be returned through [terminateSelfWithResult].
+   * Defines the level-2 module AbilityResult.
    *
-   * @typedef { _AbilityResult }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type AbilityResult = _AbilityResult;
 
   /**
-   * ConnectOptions secondary module.As an input parameter when connecting to a specified backend service,
-   * used to receive state changes during the connection process
+   * Defines the level-2 module ConnectOptions.
    *
-   * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type ConnectOptions = _ConnectOptions;
 
   /**
-   * StartAbilityParameter secondary module.Define the Start Ability parameter, which can be used as
-   * an input parameter to call [startAbility] to start the specified Ability.
+   * Defines the level-2 module StartAbilityParameter.
    *
-   * @typedef { _StartAbilityParameter }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type StartAbilityParameter = _StartAbilityParameter;

@@ -28,6 +28,7 @@ import { Resource } from '../global/resource';
  *
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -38,6 +39,7 @@ import { Resource } from '../global/resource';
  *
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -50,6 +52,7 @@ export interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -60,6 +63,7 @@ export interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -73,6 +77,7 @@ export interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -83,6 +88,7 @@ export interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -94,6 +100,7 @@ export interface Size {
  * Defines DrawContext.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -102,6 +109,7 @@ export interface Size {
  * Graphics drawing context, which provides the canvas width and height required for drawing.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -113,6 +121,7 @@ export class DrawContext {
    *
    * @returns { Size } The size of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -121,6 +130,7 @@ export class DrawContext {
    *
    * @returns { Size } The size of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -132,6 +142,7 @@ export class DrawContext {
    *
    * @returns { Size } The size of the DrawContext with pixel unit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -143,6 +154,7 @@ export class DrawContext {
    *
    * @returns { drawing.Canvas } The canvas of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -151,6 +163,7 @@ export class DrawContext {
    *
    * @returns { drawing.Canvas } The canvas of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -163,6 +176,7 @@ export class DrawContext {
   *
   * @interface Vector2
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @since 11
   */
@@ -171,6 +185,7 @@ export class DrawContext {
   *
   * @interface Vector2
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -182,6 +197,7 @@ interface Vector2 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -191,6 +207,7 @@ interface Vector2 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -203,6 +220,7 @@ interface Vector2 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -212,6 +230,7 @@ interface Vector2 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -224,6 +243,7 @@ interface Vector2 {
   *
   * @interface Vector2T
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -235,6 +255,7 @@ interface Vector2T<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -246,6 +267,7 @@ interface Vector2T<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -258,6 +280,7 @@ interface Vector2T<T> {
  *
  * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -266,6 +289,7 @@ interface Vector2T<T> {
  *
  * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -277,6 +301,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -286,6 +311,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -298,6 +324,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -307,6 +334,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -319,6 +347,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -328,6 +357,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -400,6 +430,7 @@ interface Vector4 {
  *
  * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -409,6 +440,7 @@ interface Vector4 {
  *
  * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -438,6 +470,7 @@ export type Matrix4 = [
  *
  * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -447,6 +480,7 @@ export type Matrix4 = [
  *
  * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -459,6 +493,7 @@ export type Offset = Vector2;
  *
  * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -468,6 +503,7 @@ export type Offset = Vector2;
  *
  * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -479,6 +515,7 @@ export type Position = Vector2;
  * Unit: vp.
  * @typedef {Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -492,6 +529,7 @@ export type PositionT<T> = Vector2T<T>;
  *
  * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -502,6 +540,7 @@ export type PositionT<T> = Vector2T<T>;
  *
  * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -514,6 +553,7 @@ export type Pivot = Vector2;
  *
  * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -523,6 +563,7 @@ export type Pivot = Vector2;
  *
  * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -535,6 +576,7 @@ export type Scale = Vector2;
  *
  * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -544,6 +586,7 @@ export type Scale = Vector2;
  *
  * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -556,6 +599,7 @@ export type Translation = Vector2;
  *
  * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -565,6 +609,7 @@ export type Translation = Vector2;
  *
  * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -576,6 +621,7 @@ export type Rotation = Vector3;
  *
  * @interface Frame
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -584,6 +630,7 @@ export type Rotation = Vector3;
  *
  * @interface Frame
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -596,6 +643,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -606,6 +654,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -619,6 +668,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -629,6 +679,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -642,6 +693,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -652,6 +704,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -665,6 +718,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -675,6 +729,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -687,6 +742,7 @@ export declare interface Frame {
  *
  * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -697,6 +753,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -708,6 +765,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -719,6 +777,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -730,6 +789,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -742,6 +802,7 @@ export interface Edges<T> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -753,6 +814,7 @@ declare enum LengthUnit {
    * device with 1080 pixels width, 1px represents 1.44 pixels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -763,6 +825,7 @@ declare enum LengthUnit {
    * Density independent pixels, one vp is one pixel on a 160 dpi screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -774,6 +837,7 @@ declare enum LengthUnit {
    * user's font size preference.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -785,6 +849,7 @@ declare enum LengthUnit {
    * another property of the element itself.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -795,6 +860,7 @@ declare enum LengthUnit {
    * Logic pixels used in ACE2.0 instead of PX, and PX is the physical pixels in ACE2.0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -807,6 +873,7 @@ declare enum LengthUnit {
  *
  * @interface SizeT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -817,6 +884,7 @@ export interface SizeT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -828,6 +896,7 @@ export interface SizeT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -840,6 +909,7 @@ export interface SizeT<T> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -850,6 +920,7 @@ export enum LengthMetricsUnit {
    * The default length metrics unit, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -860,6 +931,7 @@ export enum LengthMetricsUnit {
    * The pixel length metrics unit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -872,6 +944,7 @@ export enum LengthMetricsUnit {
  * When the length unit is PERCENT, the value 1 indicates 100%.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -886,6 +959,7 @@ declare class LengthMetrics {
    * @param { LengthUnit } [unit] - The length unit.
    * The default value is VP.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -900,6 +974,7 @@ declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -914,6 +989,7 @@ declare class LengthMetrics {
    * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -928,6 +1004,7 @@ declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -943,6 +1020,7 @@ declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -957,6 +1035,7 @@ declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -970,6 +1049,7 @@ declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit Resource.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -982,6 +1062,7 @@ declare class LengthMetrics {
    * @type { LengthUnit }
    * @default VP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -993,6 +1074,7 @@ declare class LengthMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1004,6 +1086,7 @@ declare class LengthMetrics {
  * Defines the ColorMetrics class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1016,6 +1099,7 @@ declare class ColorMetrics {
    * RGB and ARGB color values are supported.
    * @returns { ColorMetrics } ColorMetrics class
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1035,6 +1119,7 @@ declare class ColorMetrics {
    * The value is a floating point number ranging from 0.0 to 1.0. The default value is 1.0 (fully opaque).
    * @returns { ColorMetrics } ColorMetrics class
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1053,6 +1138,7 @@ declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1069,6 +1155,7 @@ declare class ColorMetrics {
    * 1. The type of the input color parameter is not ResourceColor.
    * 2. The format of the input color string is not RGB or RGBA.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1238,6 +1325,7 @@ declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @throws { BusinessError } 401 - Parameter error. The type of the input parameter is not ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1251,6 +1339,7 @@ declare class ColorMetrics {
    * @returns { string } The color of the ColorMetrics.
    * String indicating an RGBA color value. Example: 'rgba(255, 100, 255, 0.5)'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1263,6 +1352,7 @@ declare class ColorMetrics {
    * @returns { number } The red value of the ColorMetrics.
    * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1275,6 +1365,7 @@ declare class ColorMetrics {
    * @returns { number } The green value of the ColorMetrics.
    * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1287,6 +1378,7 @@ declare class ColorMetrics {
    * @returns { number } The blue value of the ColorMetrics.
    * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1299,6 +1391,7 @@ declare class ColorMetrics {
    * @returns { number } The opacity value of the ColorMetrics.
    * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1311,6 +1404,7 @@ declare class ColorMetrics {
  *
  * @interface Corners
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1321,6 +1415,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1332,6 +1427,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1343,6 +1439,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1354,6 +1451,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1366,6 +1464,7 @@ interface Corners<T> {
  *
  * @typedef { Corners<Vector2> } CornerRadius
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1377,6 +1476,7 @@ export type CornerRadius = Corners<Vector2>;
  *
  * @typedef { Corners<number> } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1388,6 +1488,7 @@ export type BorderRadiuses = Corners<number>;
  *
  * @typedef { common2D.Rect } Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1399,6 +1500,7 @@ export type Rect = common2D.Rect;
  *
  * @interface RoundRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1409,6 +1511,7 @@ export interface RoundRect {
    *
    * @type { Rect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1420,6 +1523,7 @@ export interface RoundRect {
    *
    * @type { CornerRadius }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1432,6 +1536,7 @@ export interface RoundRect {
  *
  * @interface Circle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1442,6 +1547,7 @@ export interface Circle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1453,6 +1559,7 @@ export interface Circle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1465,6 +1572,7 @@ export interface Circle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1477,6 +1585,7 @@ export interface Circle {
  *
  * @interface CommandPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1489,6 +1598,7 @@ export interface CommandPath {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1500,6 +1610,7 @@ export interface CommandPath {
  * Defines ShapeMask.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1509,6 +1620,7 @@ export declare class ShapeMask {
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1520,6 +1632,7 @@ export declare class ShapeMask {
    *
    * @param { Rect } rect - The rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1531,6 +1644,7 @@ export declare class ShapeMask {
    *
    * @param { RoundRect } roundRect - The round rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1542,6 +1656,7 @@ export declare class ShapeMask {
    *
    * @param { Circle } circle - The circle shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1553,6 +1668,7 @@ export declare class ShapeMask {
    *
    * @param { Rect } oval - The oval shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1564,6 +1680,7 @@ export declare class ShapeMask {
    *
    * @param { CommandPath } path - The command path will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1577,6 +1694,7 @@ export declare class ShapeMask {
    * @type { number }
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1590,6 +1708,7 @@ export declare class ShapeMask {
    * @type { number }
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1603,6 +1722,7 @@ export declare class ShapeMask {
    * @type { number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1615,6 +1735,7 @@ export declare class ShapeMask {
  * Define ShapeClip. Record the type and parameters of the shape used for clipping.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1624,6 +1745,7 @@ export declare class ShapeClip {
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1635,6 +1757,7 @@ export declare class ShapeClip {
    *
    * @param { Rect } rect - The rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1646,6 +1769,7 @@ export declare class ShapeClip {
    *
    * @param { RoundRect } roundRect - The round rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1657,6 +1781,7 @@ export declare class ShapeClip {
    *
    * @param { Circle } circle - The circle shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1668,6 +1793,7 @@ export declare class ShapeClip {
    *
    * @param { Rect } oval - The oval shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1679,6 +1805,7 @@ export declare class ShapeClip {
    *
    * @param { CommandPath } path - The command path will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1693,6 +1820,7 @@ export declare class ShapeClip {
  * Value range: [0, 0xffffffff]
  * @returns { Edges<number> } - The object with all edges are set to the same color.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1706,6 +1834,7 @@ export function edgeColors(all: number): Edges<number>;
  * Value range: [0, +∞).
  * @returns { Edges<number> } - The object with all edges are set to the same width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1718,6 +1847,7 @@ export function edgeWidths(all: number): Edges<number>;
  * @param { BorderStyle } all - The edge style will be set.
  * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1732,8 +1862,94 @@ export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * Value range: [0, +∞).
  * @returns { BorderRadiuses } - The BorderRadiuses object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 export function borderRadiuses(all: number): BorderRadiuses;
+
+/**
+ * Defines the background blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface BackgroundBlur {
+  /**
+   * Blur radius for background blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  radius: double;
+
+  /**
+   * Grayscale parameters for the blur effect.
+   * Value range for each parameter: [0, 127].
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  grayscale?: [int, int];
+}
+
+/**
+ * Defines the content blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface ContentBlur {
+  /**
+   * Blur radius for content blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  radius: double;
+
+  /**
+   * Grayscale parameters for the blur effect.
+   * Value range for each parameter: [0, 127].
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  grayscale?: [int, int];
+}
+
+/**
+ * Defines the foreground blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface ForegroundBlur {
+  /**
+   * Blur radius for foreground blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the foreground.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  radius: double;
+}

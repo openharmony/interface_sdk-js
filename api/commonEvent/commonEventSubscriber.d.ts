@@ -14,308 +14,231 @@
  */
 
 /**
- * @file The subscriber of common event
- * @kit BasicServicesKit
+ * # How to Use
+ * 
+ * Before using the **CommonEventSubscriber** module, you must obtain a **subscriber** object by calling 
+ * **commonEventManager.createSubscriber**.
+ * 
+ * <!--code_no_check-->
+ * 
+ * ```ts
+ * import { commonEventManager } from '@kit.BasicServicesKit';
+ * import { BusinessError } from '@kit.BasicServicesKit';
+ * 
+ * // Define a subscriber to save the created subscriber object for subsequent subscription and unsubscription.
+ * let subscriber: commonEventManager.CommonEventSubscriber | null = null;
+ * // Subscriber information.
+ * let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
+ * 	events: ['event']
+ * };
+ * // Create a subscriber.
+ * subscriber = commonEventManager.createSubscriberSync(subscribeInfo);
+ * ```
  */
 
 import { AsyncCallback } from './../@ohos.base';
 import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
-
 /**
- * The CommonEventSubscriber module provides APIs for describing the common event subscriber.
+ * # How to Use
  *
- * @interface CommonEventSubscriber
- * @syscap SystemCapability.Notification.CommonEvent
- * @since 7
+ * Before using the **CommonEventSubscriber** module, you must obtain a **subscriber** object by calling
+ * **commonEventManager.createSubscriber**.
+ *
+ * <!--code_no_check-->
+ *
+ * ```ts
+ * import { commonEventManager } from '@kit.BasicServicesKit';
+ * import { BusinessError } from '@kit.BasicServicesKit';
+ *
+ * // Define a subscriber to save the created subscriber object for subsequent subscription and unsubscription.
+ * let subscriber: commonEventManager.CommonEventSubscriber | null = null;
+ * // Subscriber information.
+ * let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
+ * 	events: ['event']
+ * };
+ * // Create a subscriber.
+ * subscriber = commonEventManager.createSubscriberSync(subscribeInfo);
+ * ```
  */
 /**
- * The CommonEventSubscriber module provides APIs for describing the common event subscriber.
  *
- * @interface CommonEventSubscriber
  * @syscap SystemCapability.Notification.CommonEvent
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @since 23 static
  */
 export interface CommonEventSubscriber {
   /**
-   * Obtains the result code of an ordered common event. This API uses an asynchronous callback to return the result.
-   *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Obtains the result code of an ordered common event. This API uses an asynchronous callback to return the result.
+   * Obtains the result code (number type) of an ordered common event. This API uses an asynchronous callback to return
+   * the result.
    *
    * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   getCode(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the result code of an ordered common event. This API uses a promise to return the result.
-   *
-   * @returns { Promise<number> } Promise used to return the result.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Obtains the result code of an ordered common event. This API uses a promise to return the result.
+   * Obtains the result code (number type) of an ordered common event. This API uses a promise to return the result.
    *
    * @returns { Promise<int> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   getCode(): Promise<int>;
 
   /**
-   * Obtains the result code of an ordered common event.
+   * Obtains the result code (number type) of an ordered common event.
    *
-   * @returns { number } Common event code.
+   * @returns { int } Result code of an ordered common event.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 10
-   */
-  /**
-   * Obtains the result code of an ordered common event.
-   *
-   * @returns { int } Common event code.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   getCodeSync(): int;
 
   /**
-   * Sets the result code of an ordered common event. This API uses an asynchronous callback to return the result.
+   * Sets the result code (number type) of an ordered common event. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { number } code - Common event code.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } code - Result code of an ordered common event.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Sets the result code of an ordered common event. This API uses an asynchronous callback to return the result.
-   *
-   * @param { int } code - Common event code.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   setCode(code: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result code of an ordered common event. This API uses a promise to return the result.
+   * Sets the result code (number type) of an ordered common event. This API uses a promise to return the result.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Result code of an ordered common event.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Sets the result code of an ordered common event. This API uses a promise to return the result.
-   *
-   * @param { int } code - Common event code.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   setCode(code: int): Promise<void>;
 
   /**
-   * Sets the result code of an ordered common event.
+   * Sets the result code (number type) of an ordered common event.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Result code of an ordered common event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 10
-   */
-  /**
-   * Sets the result code of an ordered common event.
-   *
-   * @param { int } code - Common event code.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   setCodeSync(code: int): void;
 
   /**
-   * Obtains the result data of an ordered common event. This API uses an asynchronous callback to return the result.
+   * Obtains the result data (string type) of an ordered common event. This API uses an asynchronous callback to return
+   * the result.
    *
    * @param { AsyncCallback<string> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Obtains the result data of an ordered common event. This API uses an asynchronous callback to return the result.
-   *
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   getData(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the result data of an ordered common event. This API uses a promise to return the result.
+   * Obtains the result data (string type) of an ordered common event. This API uses a promise to return the result.
    *
    * @returns { Promise<string> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Obtains the result data of an ordered common event. This API uses a promise to return the result.
-   *
-   * @returns { Promise<string> } Promise used to return the result.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   getData(): Promise<string>;
 
   /**
-   * Obtains the result data of an ordered common event.
+   * Obtains the result data (string type) of an ordered common event.
    *
-   * @returns { string } Common event data.
+   * @returns { string } Result data of an ordered common event.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 10
-   */
-  /**
-   * Obtains the result data of an ordered common event.
-   *
-   * @returns { string } Common event data.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   getDataSync(): string;
 
   /**
-   * Sets the result data for an ordered common event. This API uses an asynchronous callback to return the result.
+   * Sets the result data (string type) of an ordered common event. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } data - Common event data.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } data - Result data of an ordered common event.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Sets the result data for an ordered common event. This API uses an asynchronous callback to return the result.
-   *
-   * @param { string } data - Common event data.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   setData(data: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result data for an ordered common event. This API uses a promise to return the result.
+   * Sets the result data (string type) of an ordered common event. This API uses a promise to return the result.
    *
-   * @param { string } data - Common event data.
+   * @param { string } data - Result data of an ordered common event.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Sets the result data for an ordered common event. This API uses a promise to return the result.
-   *
-   * @param { string } data - Common event data.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   setData(data: string): Promise<void>;
 
   /**
-   * Sets the result data for an ordered common event.
+   * Sets the result data (string type) of an ordered common event.
    *
-   * @param { string } data - Common event data.
+   * @param { string } data - Result data of an ordered common event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 10
-   */
-  /**
-   * Sets the result data for an ordered common event.
-   *
-   * @param { string } data - Common event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   setDataSync(data: string): void;
 
   /**
-   * Sets the result code and data of an ordered common event. This API uses an asynchronous callback to return the result.
+   * Sets the result code and data of an ordered common event. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { number } code - Common event code.
-   * @param { string } data - Common event data.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } code - Result code of an ordered common event.
+   * @param { string } data - Result data of an ordered common event.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Sets the result code and data of an ordered common event. This API uses an asynchronous callback to return the result.
-   *
-   * @param { int } code - Common event code.
-   * @param { string } data - Common event data.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   setCodeAndData(code: int, data: string, callback: AsyncCallback<void>): void;
@@ -323,25 +246,14 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code and data of an ordered common event. This API uses a promise to return the result.
    *
-   * @param { number } code - Common event code.
-   * @param { string } data - Common event data.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } code - Result code of an ordered common event.
+   * @param { string } data - Result data of an ordered common event.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Sets the result code and data of an ordered common event. This API uses a promise to return the result.
-   *
-   * @param { int } code - Common event code.
-   * @param { string } data - Common event data.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   setCodeAndData(code: int, data: string): Promise<void>;
@@ -349,34 +261,25 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code and data of an ordered common event.
    *
-   * @param { number } code - Common event code.
-   * @param { string } data - Common event data.
+   * @param { int } code - Result code of an ordered common event.
+   * @param { string } data - Result data of an ordered common event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 10
-   */
-  /**
-   * Sets the result code and data of an ordered common event.
-   *
-   * @param { int } code - Common event code.
-   * @param { string } data - Common event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   setCodeAndDataSync(code: int, data: string): void;
 
   /**
-   * Checks whether the current common event is an ordered common event. This API uses an asynchronous callback to return the result.
+   * Checks whether the current common event is an ordered common event. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the common event is an ordered one;
-   *                                              returns false otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the common
+   *     event is an ordered one; returns **false** if the common event is an unordered one.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -386,7 +289,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether the current common event is an ordered common event. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Promise used to return the result. Returns true if the common event is an ordered one; returns false otherwise.
+   * @returns { Promise<boolean> } Promise used to return the result. Returns **true** if the common event is an ordered
+   *     one; returns **false** if the common event is an unordered one.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -396,7 +300,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether the current common event is an ordered common event.
    *
-   * @returns { boolean } Returns true if the common event is an ordered one; returns false otherwise.
+   * @returns { boolean } Returns **true** if the common event is an ordered one; returns **false** if the common event
+   *     is an unordered one.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -406,9 +311,10 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether a common event is a sticky one. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the common event is a sticky one; returns false otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the common
+   *     event is a sticky one; returns **false** otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -418,7 +324,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether a common event is a sticky one. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Promise used to return the result. Returns true if the common event is a sticky one; returns false otherwise.
+   * @returns { Promise<boolean> } Promise used to return the result. Returns **true** if the common event is a sticky
+   *     one; returns **false** otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -428,7 +335,7 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether a common event is a sticky one.
    *
-   * @returns { boolean } Returns true if the common event is a sticky one; returns false otherwise.
+   * @returns { boolean } Returns **true** if the common event is a sticky one; returns **false** otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -436,12 +343,14 @@ export interface CommonEventSubscriber {
   isStickyCommonEventSync(): boolean;
 
   /**
-   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the
-   * next subscriber. This API uses an asynchronous callback to return the result.
+   * Aborts an ordered common event. This API is used with
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
+   * the common event is not sent to the next subscriber. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -449,8 +358,9 @@ export interface CommonEventSubscriber {
   abortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the
-   * next subscriber. This API uses a promise to return the result.
+   * Aborts this ordered common event. This API is used with
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
+   * the common event is not sent to the next subscriber. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -460,7 +370,9 @@ export interface CommonEventSubscriber {
   abortCommonEvent(): Promise<void>;
 
   /**
-   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the next subscriber.
+   * Aborts this ordered common event synchronously. This API is used with
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
+   * the common event is not sent to the next subscriber.
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
@@ -469,12 +381,14 @@ export interface CommonEventSubscriber {
   abortCommonEventSync(): void;
 
   /**
-   * Clears the aborted state of an ordered common event when used with finishCommonEvent.
-   * After the clearance, the common event is sent to the next subscriber. This API uses an asynchronous callback to return the result.
+   * Clears the abort state of an ordered common event. Use this API together with
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common
+   * event can be passed to the next subscriber. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -482,8 +396,9 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Clears the aborted state of an ordered common event when used with finishCommonEvent.
-   * After the clearance, the common event is sent to the next subscriber. This API uses a promise to return the result.
+   * Clears the abort state of this ordered common event. Use this API together with
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common
+   * event can be passed to the next subscriber. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -493,7 +408,9 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(): Promise<void>;
 
   /**
-   * Clears the aborted state of an ordered common event when used with finishCommonEvent.After the clearance, the common event is sent to the next subscriber.
+   * Clears the abort state of this ordered common event. Use this API together with
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common
+   * event can be passed to the next subscriber.
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
@@ -502,12 +419,13 @@ export interface CommonEventSubscriber {
   clearAbortCommonEventSync(): void;
 
   /**
-   * Checks whether this ordered common event should be aborted. This API uses an asynchronous callback to return the result.
+   * Checks whether this ordered common event should be aborted. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the ordered common event
-   *                                              is in the aborted state; returns false otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the ordered
+   *     common event is in the abort state; returns **false** otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -517,7 +435,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether this ordered common event should be aborted. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Checks whether this ordered common event should be aborted. This API uses a promise to return the result.
+   * @returns { Promise<boolean> } Promise used to return the result. Returns **true** if the ordered common event is in
+   *     the abort state; returns **false** otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -527,7 +446,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether this ordered common event should be aborted.
    *
-   * @returns { boolean } Returns true if the ordered common event is in the aborted state; returns false otherwise.
+   * @returns { boolean } Returns **true** if the ordered common event is in the abort state; returns **false**
+   *     otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -539,20 +459,11 @@ export interface CommonEventSubscriber {
    *
    * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Obtains the subscriber information. This API uses an asynchronous callback to return the result.
-   *
-   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
 
@@ -561,7 +472,7 @@ export interface CommonEventSubscriber {
    *
    * @param { AsyncCallback<CommonEventSubscribeInfo|null> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @since 23 static
@@ -573,16 +484,9 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<CommonEventSubscribeInfo> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
-   */
-  /**
-   * Obtains the subscriber information. This API uses a promise to return the result.
-   *
-   * @returns { Promise<CommonEventSubscribeInfo> } Promise used to return the result.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
 
@@ -601,15 +505,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { CommonEventSubscribeInfo } Subscriber information.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 10
-   */
-  /**
-   * Obtains the subscriber information.
-   *
-   * @returns { CommonEventSubscribeInfo } Subscriber information.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getSubscribeInfoSync(): CommonEventSubscribeInfo;
 
@@ -625,9 +522,10 @@ export interface CommonEventSubscriber {
   /**
    * Finishes this ordered common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9 dynamic
    * @since 23 static

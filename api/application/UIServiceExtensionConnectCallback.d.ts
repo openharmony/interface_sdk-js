@@ -23,9 +23,12 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * UI service extension connect callback.
+ * UIServiceExtensionConnectCallback provides callbacks for the connection to a UIServiceExtensionAbility.
  *
- * @interface UIServiceExtensionConnectCallback
+ * > **NOTE**
+ * >
+ * > - The APIs of this module must be used in the main thread, but not in child threads such as Worker and TaskPool.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
@@ -34,9 +37,14 @@ import { RecordData } from '../@ohos.base';
  */
 export default interface UIServiceExtensionConnectCallback {
   /**
-   * Called back when data is sent.
+   * Called to receive data when a connection to the UIServiceExtensionAbility is established.
    *
-   * @param { Record<string, Object> } data - Indicates the received data.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
+   *
+   * @param { Record<string, Object> } data - Data about the UIServiceExtensionAbility connection.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -55,7 +63,12 @@ export default interface UIServiceExtensionConnectCallback {
   onData(data: Record<string, RecordData>): void;
 
   /**
-   * The callback interface was disconnected successfully.
+   * Called when the connection to the UIServiceExtensionAbility is interrupted.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

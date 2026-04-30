@@ -23,6 +23,7 @@
  *
  * @typedef {import('../api/@ohos.arkui.node').Content} Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -33,6 +34,7 @@ declare type Content = import('../api/@ohos.arkui.node').Content;
  * Define ContentSlot attribute, to prevent improper recursive usage of ContentSlot
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -45,6 +47,7 @@ declare class ContentSlotAttribute {
  *
  * @interface ContentSlotInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -56,6 +59,7 @@ interface ContentSlotInterface {
    * @param { Content } content - Indicates the class object of ComponentContent or NodeContent
    * @returns { ContentSlotAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -67,6 +71,7 @@ interface ContentSlotInterface {
  * Defines the ContentSlot Component
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic

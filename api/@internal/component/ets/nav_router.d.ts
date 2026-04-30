@@ -23,6 +23,7 @@
  *
  * @interface RouteInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -31,6 +32,7 @@
  *
  * @interface RouteInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -43,6 +45,7 @@ declare interface RouteInfo {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -51,6 +54,7 @@ declare interface RouteInfo {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -64,6 +68,7 @@ declare interface RouteInfo {
    *
    * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -72,6 +77,7 @@ declare interface RouteInfo {
    *
    * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -142,6 +148,7 @@ declare interface NavRouterInterface {
    * @param { RouteInfo } value - Indicates the information of route page.
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -151,6 +158,7 @@ declare interface NavRouterInterface {
    * @param { RouteInfo } value - Indicates the information of route page.
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -165,6 +173,7 @@ declare interface NavRouterInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -173,6 +182,7 @@ declare interface NavRouterInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -184,6 +194,7 @@ declare enum NavRouteMode {
    * Create a new page to replace the current. The old page is destroyed but kept in the stack for recreating. 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -191,6 +202,7 @@ declare enum NavRouteMode {
    * Create a new page to replace the current. The old page is destroyed but kept in the stack for recreating. 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -203,6 +215,7 @@ declare enum NavRouteMode {
    * Create a new page to cover the current. The old page is remained and kept in the stack. 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -210,6 +223,7 @@ declare enum NavRouteMode {
    * Create a new page to cover the current. The old page is remained and kept in the stack. 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -222,6 +236,7 @@ declare enum NavRouteMode {
    * Create a new page to replace the current. The old page is destroyed and removed out of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -229,6 +244,7 @@ declare enum NavRouteMode {
    * Create a new page to replace the current. The old page is destroyed and removed out of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -302,6 +318,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @param { NavRouteMode } mode - The route mode of the NavRouter.
    * @returns { NavRouterAttribute } Returns the instance of the NavRouterAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -311,6 +328,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @param { NavRouteMode } mode - The route mode of the NavRouter.
    * @returns { NavRouterAttribute } Returns the instance of the NavRouterAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly

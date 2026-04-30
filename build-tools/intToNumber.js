@@ -267,8 +267,16 @@ function parseJSDocVisitEachChild1(context, node) {
       if (/(long|double|int)/g.test(doc.getText())) {
         jsDocNodeForeach(doc.tags);
       }
+      const commentText = doc.getText();
+      const globalPosStart = doc.pos;
+      const regex = /\{@link\s+([\s\S]*?)\}/gi;
+      let match;
+      while ((match = regex.exec(commentText)) !== null) {
+        handleLinkMatch(match, globalPosStart);
+      }
     });
   }
+  
   function parseTypeExpr(typeExpr) {
     let newTypeExpr = typeExpr;
     if (typeExpr.type.kind === ts.SyntaxKind.JSDocNullableType) {
@@ -292,6 +300,75 @@ function parseJSDocVisitEachChild1(context, node) {
     return ts.visitEachChild(node, parseTypeExpression, context);
   }
 }
+
+/**
+ * 处理单个 {@link} 匹配项，仅处理带函数签名 () 的场景
+ * 严格保留原始文本格式，不修改空格、换行、缩进
+ * @param {Array} match - 正则匹配结果
+ * @param {number} globalPosStart - 全局起始偏移位置
+ */
+function handleLinkMatch(match, globalPosStart) {
+  const fullMatch = match[0];
+  const linkContent = match[1];
+  let convertedText = fullMatch;
+  if (!/\(.*\)/.test(linkContent)) {
+    return;
+  }
+  const processedContent = processSignatureContent(linkContent);
+  convertedText = fullMatch.replace(linkContent, processedContent);
+  if (convertedText !== fullMatch) {
+    tagDataList.push({
+      pos: globalPosStart + match.index,
+      end: globalPosStart + match.index + fullMatch.length,
+      convertedText: convertedText
+    });
+  }
+}
+
+/**
+ * 处理函数签名内容，替换类型并合并number
+ * 【核心：不修改原始空格、换行、缩进、括号格式】
+ * @param {string} content - 原始 {@link} 内部内容
+ * @returns {string} 处理后内容，格式完全保留
+ */
+function processSignatureContent(content) {
+  let result = content.replace(/\b(int|long|double)\b/g, 'number');
+  return result.replace(/(\()([\s\S]*?)(\))/g, (originalMatch, openBracket, paramStr, closeBracket) => {
+    const params = paramStr.split(',');
+    const processedParams = params.map(param => processSingleParameter(param));
+    return openBracket + processedParams.join(',') + closeBracket;
+  });
+}
+
+/**
+ * 处理单个参数，合并number，保留原始空格/换行
+ * @param {string} param - 原始单个参数字符串（含空白符）
+ * @returns {string} 处理后参数，格式不变
+ */
+function processSingleParameter(param) {
+  if (!param.includes(':')){
+    return param;
+  }
+  const colonIndex = param.indexOf(':');
+  const paramNamePart = param.substring(0, colonIndex);
+  const typePart = param.substring(colonIndex + 1);
+  const typeItems = typePart.split(/\s*\|\s*/);
+  const newTypeItems = [];
+  let hasNumber = false;
+  for (const type of typeItems) {
+    const trimmedType = type.trim();
+    if (trimmedType === 'number') {
+      if (!hasNumber) {
+        newTypeItems.push(type);
+        hasNumber = true;
+      }
+    } else {
+      newTypeItems.push(type);
+    }
+  }
+  return paramNamePart + ':' + newTypeItems.join(' | ');
+}
+
 
 /**
  * 

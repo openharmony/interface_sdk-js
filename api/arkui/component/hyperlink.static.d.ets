@@ -27,6 +27,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -37,6 +38,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default color(value: Color | int | string | Resource | undefined): this;
@@ -46,6 +48,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { HyperlinkAttribute } the attribute of the HyperlinkAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -61,6 +64,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

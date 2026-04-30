@@ -55,6 +55,15 @@ declare class StartOptions {
   windowMode?: int;
 
   /**
+   * The type of split ratio preference
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  splitRatio?: window.SplitRatioPreference;
+
+  /**
    * The type of displayId
    *
    * @type { ?number }

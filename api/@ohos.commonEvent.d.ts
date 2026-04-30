@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit API10LessDeprecatedModules
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
@@ -20,68 +25,67 @@ import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo
 import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * Common event definition
+ * The **CommonEvent** module provides capabilities to publish, subscribe to, and unsubscribe from common events,
+ * as well as obtain and modify the common event result code and result data.
  *
- * @namespace commonEvent
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.commonEventManager/commonEventManager
+ * @useinstead @ohos.commonEventManager:commonEventManager
  */
 declare namespace commonEvent {
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @param { string } event - Name of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#publish
+   * @useinstead @ohos.commonEventManager:commonEventManager.publish(event: string, callback: AsyncCallback<void>)
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event with given properties. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content
-   *                                             and attributes.
-   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @param { string } event - Name of the common event to publish.
+   * @param { CommonEventPublishData } options - Properties of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#publish
+   * @useinstead @ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes an ordered, sticky, or standard common event to a specified user.
+   * Publishes a common event to a specific user. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - Specified the names of the common events.
-   * @param { number } userId - Specified the user to receive the common events.
-   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @param { string } event - Name of the common event to publish.
+   * @param { number } userId - User ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#publishAsUser
+   * @useinstead @ohos.commonEventManager:commonEventManager.publishAsUser(event: string, userId: int, callback: AsyncCallback<void>)
    */
   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes an ordered, sticky, or standard common event to a specified user.
+   * Publishes a common event with given properties to a specific user. This API uses an asynchronous callback to return
+   * the result.
    *
-   * @param { string } event - Specified the names of the common events.
-   * @param { number } userId - Specified the user to receive the common events.
-   * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content
-   *                                           	 and attributes.
-   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @param { string } event - Name of the common event to publish.
+   * @param { number } userId - User ID.
+   * @param { CommonEventPublishData } options - Properties of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#publishAsUser
+   * @useinstead @ohos.commonEventManager:commonEventManager.publishAsUser( event: string, userId: int, options: CommonEventPublishData, callback: AsyncCallback<void> )
    */
   function publishAsUser(
     event: string,
@@ -91,14 +95,14 @@ declare namespace commonEvent {
   ): void;
 
   /**
-   * creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @param { AsyncCallback<CommonEventSubscriber> } callback - Specified callback method.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#createSubscriber
+   * @useinstead @ohos.commonEventManager:commonEventManager.createSubscriber( subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber> )
    */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
@@ -106,406 +110,411 @@ declare namespace commonEvent {
   ): void;
 
   /**
-   * create the CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. This API uses a promise to return the result.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
    * @returns { Promise<CommonEventSubscriber> } Returns common event subscriber object
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#createSubscriber
+   * @useinstead @ohos.commonEventManager:commonEventManager.createSubscriber(subscribeInfo: CommonEventSubscribeInfo)
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
-   * subscribe an ordered, sticky, or standard common event.
+   * Subscribes to common events. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<CommonEventData> } callback - Specified callback method.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<CommonEventData> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#subscribe
+   * @useinstead @ohos.commonEventManager:commonEventManager.subscribe
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
-   * unsubscribe from an ordered, sticky, or standard common event.
+   * Unsubscribes from common events. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<void> } [callback] - Specified callback method.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#unsubscribe
+   * @useinstead @ohos.commonEventManager:commonEventManager.unsubscribe
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
-   * the event type that the commonEvent supported
+   * A system common event is an event that is published by a system service or system application and requires specific
+   * permissions to subscribe to. To publish or subscribe to this type of event, you must follow the event-specific
+   * definitions.
    *
-   * @enum { string }
+   * For details about the definitions of all system common events, see
+   * [System Common Events]{@link @ohos.commonEvent:commonEvent}.
+   *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.commonEventManager/commonEventManager#Support
+   * @useinstead @ohos.commonEventManager:commonEventManager.Support
    */
   export enum Support {
     /**
-     * This commonEvent means when the device is booted or system upgrade completed, and only be sent by system.
+     * The boot is complete and the system is loaded.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVER_STARTUP_COMPLETED
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BOOT_COMPLETED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BOOT_COMPLETED
      */
     COMMON_EVENT_BOOT_COMPLETED = 'usual.event.BOOT_COMPLETED',
 
     /**
-     * This commonEvent means when the device finnish booting, but still in the locked state.
+     * The guidance is complete and the system is loaded, but the screen is still locked.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_LOCKED_BOOT_COMPLETED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_LOCKED_BOOT_COMPLETED
      */
     COMMON_EVENT_LOCKED_BOOT_COMPLETED = 'usual.event.LOCKED_BOOT_COMPLETED',
 
     /**
-     * This commonEvent means when the device is shutting down, note: turn off, not sleeping.
+     * The device is being shut down and will continue until it is finally shut down.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_SHUTDOWN
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_SHUTDOWN
      */
     COMMON_EVENT_SHUTDOWN = 'usual.event.SHUTDOWN',
 
     /**
-     * This commonEvent means when the charging state, level and so on about the battery.
+     * The battery charging status, battery level, and other information has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BATTERY_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BATTERY_CHANGED
      */
     COMMON_EVENT_BATTERY_CHANGED = 'usual.event.BATTERY_CHANGED',
 
     /**
-     * This commonEvent means when the device in low battery state..
+     * The battery level is low.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BATTERY_LOW
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BATTERY_LOW
      */
     COMMON_EVENT_BATTERY_LOW = 'usual.event.BATTERY_LOW',
 
     /**
-     * This commonEvent means when the battery level is an ok state.
+     * The battery level is normal.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BATTERY_OKAY
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BATTERY_OKAY
      */
     COMMON_EVENT_BATTERY_OKAY = 'usual.event.BATTERY_OKAY',
 
     /**
-     * This commonEvent means when the other power is connected to the device.
+     * The device is connected to an external power supply.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_POWER_CONNECTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_POWER_CONNECTED
      */
     COMMON_EVENT_POWER_CONNECTED = 'usual.event.POWER_CONNECTED',
 
     /**
-     * This commonEvent means when the other power is removed from the device.
+     * The device is disconnected from the external power supply.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_POWER_DISCONNECTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_POWER_DISCONNECTED
      */
     COMMON_EVENT_POWER_DISCONNECTED = 'usual.event.POWER_DISCONNECTED',
 
     /**
-     * This commonEvent means when the screen is turned off.
+     * The device screen is off and the device is in sleep mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_SCREEN_OFF
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_SCREEN_OFF
      */
     COMMON_EVENT_SCREEN_OFF = 'usual.event.SCREEN_OFF',
 
     /**
-     * This commonEvent means when the device is awakened and interactive.
+     * The device screen is on and the device is in interactive state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_SCREEN_ON
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_SCREEN_ON
      */
     COMMON_EVENT_SCREEN_ON = 'usual.event.SCREEN_ON',
 
     /**
-     * This commonEvent means when the thermal state level change
+     * The device thermal level has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_THERMAL_LEVEL_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_THERMAL_LEVEL_CHANGED
      */
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
     /**
-     * This commonEvent means when the user is present after the device is awakened.
+     * The user unlocks the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_PRESENT
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_PRESENT
      */
     COMMON_EVENT_USER_PRESENT = 'usual.event.USER_PRESENT',
 
     /**
-     * This commonEvent means when the current time is changed.
+     * The system time has changed as time ticks by.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_TIME_TICK
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_TIME_TICK
      */
     COMMON_EVENT_TIME_TICK = 'usual.event.TIME_TICK',
 
     /**
-     * This commonEvent means when the time is set.
+     * The system time is set.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_TIME_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_TIME_CHANGED
      */
     COMMON_EVENT_TIME_CHANGED = 'usual.event.TIME_CHANGED',
 
     /**
-     * This commonEvent means when the current date is changed.
+     * The system date has been changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DATE_CHANGED
      */
     COMMON_EVENT_DATE_CHANGED = 'usual.event.DATE_CHANGED',
 
     /**
-     * This commonEvent means when the time zone is changed.
+     * The system time zone is changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_TIMEZONE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_TIMEZONE_CHANGED
      */
     COMMON_EVENT_TIMEZONE_CHANGED = 'usual.event.TIMEZONE_CHANGED',
 
     /**
-     * This commonEvent means when the dialog to dismiss.
+     * The user closes a temporary system dialog box.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_CLOSE_SYSTEM_DIALOGS
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_CLOSE_SYSTEM_DIALOGS
      */
     COMMON_EVENT_CLOSE_SYSTEM_DIALOGS = 'usual.event.CLOSE_SYSTEM_DIALOGS',
 
     /**
-     * This commonEvent means when a new application package is installed on the device.
+     * A new application package has been installed on the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_ADDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_ADDED
      */
     COMMON_EVENT_PACKAGE_ADDED = 'usual.event.PACKAGE_ADDED',
 
     /**
-     * This commonEvent means when a new version application package is installed on the device and
-     * replace the old version.the data contains the name of the package.
+     * A later version of an installed application package has replaced the previous one on the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_REPLACED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_REPLACED
      */
     COMMON_EVENT_PACKAGE_REPLACED = 'usual.event.PACKAGE_REPLACED',
 
     /**
-     * This commonEvent means when a new version application package is installed on the device and
-     * replace the old version, it does not contain additional data and only be sent to the replaced application.
+     * The new version of the application package has replaced the previous version.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_MY_PACKAGE_REPLACED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_MY_PACKAGE_REPLACED
      */
     COMMON_EVENT_MY_PACKAGE_REPLACED = 'usual.event.MY_PACKAGE_REPLACED',
 
     /**
-     * This commonEvent means when an existing application package is removed from the device.
+     * An installed application has been uninstalled from the device with the application data retained.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_REMOVED
      */
     COMMON_EVENT_PACKAGE_REMOVED = 'usual.event.PACKAGE_REMOVED',
 
     /**
-     * This commonEvent means when an existing application package is removed from the device.
+     * An installed bundle has been uninstalled from the device with the application data retained.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BUNDLE_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BUNDLE_REMOVED
      */
     COMMON_EVENT_BUNDLE_REMOVED = 'usual.event.BUNDLE_REMOVED',
 
     /**
-     * This commonEvent means when an existing application package is completely removed from the device.
+     * An installed application, including both the application data and code, has been completely uninstalled from the
+     * device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_FULLY_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_FULLY_REMOVED
      */
     COMMON_EVENT_PACKAGE_FULLY_REMOVED = 'usual.event.PACKAGE_FULLY_REMOVED',
 
     /**
-     * This commonEvent means when an existing application package has been changed.
+     * An application package has been changed (for example, an ability in the package has been enabled or disabled).
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_CHANGED
      */
     COMMON_EVENT_PACKAGE_CHANGED = 'usual.event.PACKAGE_CHANGED',
 
     /**
-     * This commonEvent means the user has restarted a package, and all of its processes have been killed.
+     * The user closed all processes of the application and restarted the application.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_RESTARTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_RESTARTED
      */
     COMMON_EVENT_PACKAGE_RESTARTED = 'usual.event.PACKAGE_RESTARTED',
 
     /**
-     * This commonEvent means the user has cleared the package data.
+     * The user cleared the application package data.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_DATA_CLEARED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_DATA_CLEARED
      */
     COMMON_EVENT_PACKAGE_DATA_CLEARED = 'usual.event.PACKAGE_DATA_CLEARED',
 
     /**
-     * This commonEvent means the packages have been suspended.
+     * Application packages have been suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGES_SUSPENDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGES_SUSPENDED
      */
     COMMON_EVENT_PACKAGES_SUSPENDED = 'usual.event.PACKAGES_SUSPENDED',
 
     /**
-     * This commonEvent means the packages have been un-suspended.
+     * The application HAP package is not suspended (resumed from the suspended state).
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGES_UNSUSPENDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGES_UNSUSPENDED
      */
     COMMON_EVENT_PACKAGES_UNSUSPENDED = 'usual.event.PACKAGES_UNSUSPENDED',
 
     /**
-     * This commonEvent Sent to a package that has been suspended by the system.
+     * The application HAP package is suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_MY_PACKAGE_SUSPENDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_MY_PACKAGE_SUSPENDED
      */
     COMMON_EVENT_MY_PACKAGE_SUSPENDED = 'usual.event.MY_PACKAGE_SUSPENDED',
 
     /**
-     * Sent to a package that has been un-suspended.
+     * The application package is not suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_MY_PACKAGE_UNSUSPENDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_MY_PACKAGE_UNSUSPENDED
      */
     COMMON_EVENT_MY_PACKAGE_UNSUSPENDED = 'usual.event.MY_PACKAGE_UNSUSPENDED',
 
     /**
-     * A user id has been removed from the system.
+     * A user ID has been removed from the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_UID_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_UID_REMOVED
      */
     COMMON_EVENT_UID_REMOVED = 'usual.event.UID_REMOVED',
 
     /**
-     * The application is first launched after installed.
+     * An installed application is started for the first time.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_FIRST_LAUNCH
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_FIRST_LAUNCH
      */
     COMMON_EVENT_PACKAGE_FIRST_LAUNCH = 'usual.event.PACKAGE_FIRST_LAUNCH',
 
     /**
-     * Sent by system package verifier when a package need to be verified.
+     * An application requires system verification.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION
      */
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION = 'usual.event.PACKAGE_NEEDS_VERIFICATION',
 
     /**
-     * Sent by system package verifier when a package is verified.
+     * An application has been verified by the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_PACKAGE_VERIFIED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_PACKAGE_VERIFIED
      */
     COMMON_EVENT_PACKAGE_VERIFIED = 'usual.event.PACKAGE_VERIFIED',
 
     /**
-     * Resources for a set of packages (which were previously unavailable) are currently
-     * available since the media on which they exist is available.
+     * Applications installed on the external storage are available for the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_AVAILABLE',
 
     /**
-     * Resources for a set of packages are currently unavailable since the media on which they exist is unavailable.
+     * Applications installed on the external storage are not available for the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
@@ -515,142 +524,151 @@ declare namespace commonEvent {
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE',
 
     /**
-     * The device configuration such as orientation,locale have been changed.
+     * The device state (for example, orientation and locale) has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_CONFIGURATION_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_CONFIGURATION_CHANGED
      */
     COMMON_EVENT_CONFIGURATION_CHANGED = 'usual.event.CONFIGURATION_CHANGED',
 
     /**
-     * The current device's locale has changed.
+     * The device locale has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_LOCALE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_LOCALE_CHANGED
      */
     COMMON_EVENT_LOCALE_CHANGED = 'usual.event.LOCALE_CHANGED',
 
     /**
-     *  Indicates low memory condition notification acknowledged by user and package management should be started.
+     * The device storage is insufficient.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_MANAGE_PACKAGE_STORAGE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_MANAGE_PACKAGE_STORAGE
      */
     COMMON_EVENT_MANAGE_PACKAGE_STORAGE = 'usual.event.MANAGE_PACKAGE_STORAGE',
 
     /**
-     * Sent by the smart function when the system in drive mode.
+     * The system is in driving mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DRIVE_MODE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DRIVE_MODE
      */
     COMMON_EVENT_DRIVE_MODE = 'common.event.DRIVE_MODE',
 
     /**
-     * Sent by the smart function when the system in home mode.
+     * The system is in home mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_HOME_MODE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_HOME_MODE
      */
     COMMON_EVENT_HOME_MODE = 'common.event.HOME_MODE',
 
     /**
-     * Sent by the smart function when the system in office mode.
+     * The system is in office mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_OFFICE_MODE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_OFFICE_MODE
      */
     COMMON_EVENT_OFFICE_MODE = 'common.event.OFFICE_MODE',
 
     /**
-     * Remind new user of preparing to start.
+     * The user has been started.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_STARTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_STARTED
      */
     COMMON_EVENT_USER_STARTED = 'usual.event.USER_STARTED',
 
     /**
-     * Remind previous user of that the service has been the background.
+     * The user has been brought to the background.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_BACKGROUND
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_BACKGROUND
      */
     COMMON_EVENT_USER_BACKGROUND = 'usual.event.USER_BACKGROUND',
 
     /**
-     * Remind new user of that the service has been the foreground.
+     * The user has been brought to the foreground.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_FOREGROUND
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_FOREGROUND
      */
     COMMON_EVENT_USER_FOREGROUND = 'usual.event.USER_FOREGROUND',
 
     /**
-     * Remind new user of that the service has been switched to new user.
+     * User switching is in progress.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_SWITCHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_SWITCHED
      */
     COMMON_EVENT_USER_SWITCHED = 'usual.event.USER_SWITCHED',
 
     /**
-     * Remind new user of that the service has been starting.
+     * User starting is in progress.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_STARTING
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_STARTING
      */
     COMMON_EVENT_USER_STARTING = 'usual.event.USER_STARTING',
 
     /**
-     * Remind new user of that the service has been unlocked.
+     * The credential encryption storage of the current user has been unlocked upon restart.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_UNLOCKED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_UNLOCKED
      */
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
     /**
-     * Remind new user of that the service has been stopping.
+     * The user to be stopped.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_STOPPING
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_STOPPING
      */
     COMMON_EVENT_USER_STOPPING = 'usual.event.USER_STOPPING',
 
     /**
-     * Remind new user of that the service has stopped.
+     * The user has been stopped.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_STOPPED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_STOPPED
      */
     COMMON_EVENT_USER_STOPPED = 'usual.event.USER_STOPPED',
 
@@ -660,7 +678,7 @@ declare namespace commonEvent {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_HWID_LOGIN
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN
      */
     COMMON_EVENT_HWID_LOGIN = 'common.event.HWID_LOGIN',
 
@@ -670,7 +688,7 @@ declare namespace commonEvent {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_HWID_LOGOUT
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT
      */
     COMMON_EVENT_HWID_LOGOUT = 'common.event.HWID_LOGOUT',
 
@@ -680,7 +698,7 @@ declare namespace commonEvent {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_HWID_TOKEN_INVALID
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID
      */
     COMMON_EVENT_HWID_TOKEN_INVALID = 'common.event.HWID_TOKEN_INVALID',
 
@@ -690,934 +708,1037 @@ declare namespace commonEvent {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_HWID_LOGOFF
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF
      */
     COMMON_EVENT_HWID_LOGOFF = 'common.event.HWID_LOGOFF',
 
     /**
-     * WIFI state.
+     * A change in the Wi-Fi state (enabled or disabled).
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_POWER_STATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_POWER_STATE
      */
     COMMON_EVENT_WIFI_POWER_STATE = 'usual.event.wifi.POWER_STATE',
 
     /**
-     * WIFI scan results.
+     * The Wi-Fi access point has been scanned and proved available.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.LOCATION permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_SCAN_FINISHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_SCAN_FINISHED
      */
     COMMON_EVENT_WIFI_SCAN_FINISHED = 'usual.event.wifi.SCAN_FINISHED',
 
     /**
-     * WIFI RSSI change.
+     * The Wi-Fi signal strength (RSSI) has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_RSSI_VALUE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_RSSI_VALUE
      */
     COMMON_EVENT_WIFI_RSSI_VALUE = 'usual.event.wifi.RSSI_VALUE',
 
     /**
-     * WIFI connect state.
+     * The Wi-Fi connection state has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_CONN_STATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_CONN_STATE
      */
     COMMON_EVENT_WIFI_CONN_STATE = 'usual.event.wifi.CONN_STATE',
 
     /**
-     * WIFI hotspot state.
+     * A change in the Wi-Fi hotspot state (enabled or disabled).
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_HOTSPOT_STATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_HOTSPOT_STATE
      */
     COMMON_EVENT_WIFI_HOTSPOT_STATE = 'usual.event.wifi.HOTSPOT_STATE',
 
     /**
-     * WIFI ap sta join.
+     * A client has joined the Wi-Fi hotspot of the current device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_AP_STA_JOIN
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_AP_STA_JOIN
      */
     COMMON_EVENT_WIFI_AP_STA_JOIN = 'usual.event.wifi.WIFI_HS_STA_JOIN',
 
     /**
-     * WIFI ap sta join.
+     * The client is disconnected from the Wi-Fi hotspot of the current device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_AP_STA_LEAVE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_AP_STA_LEAVE
      */
     COMMON_EVENT_WIFI_AP_STA_LEAVE = 'usual.event.wifi.WIFI_HS_STA_LEAVE',
 
     /**
-     * Indicates Wi-Fi MpLink state notification acknowledged by binding or unbinding MpLink.
+     * The state of MPLINK (an enhanced Wi-Fi feature) has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE
      */
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = 'usual.event.wifi.mplink.STATE_CHANGE',
 
     /**
-     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnected P2P.
+     * The Wi-Fi P2P connection state has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO and
+     * ohos.permission.LOCATION permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_P2P_CONN_STATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_P2P_CONN_STATE
      */
     COMMON_EVENT_WIFI_P2P_CONN_STATE = 'usual.event.wifi.p2p.CONN_STATE_CHANGE',
 
     /**
-     * Indicates that the Wi-Fi P2P state change.
+     * A change in the Wi-Fi P2P state (enabled or disabled).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_P2P_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_P2P_STATE_CHANGED
      */
     COMMON_EVENT_WIFI_P2P_STATE_CHANGED = 'usual.event.wifi.p2p.STATE_CHANGE',
 
     /**
-     * Indicates that the Wi-Fi P2P peers state change.
+     * The state of the Wi-Fi P2P peer device has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED
      */
     COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED = 'usual.event.wifi.p2p.DEVICES_CHANGE',
 
     /**
-     * Indicates that the Wi-Fi P2P discovery state change.
+     * The Wi-Fi P2P discovery state has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED
      */
     COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED = 'usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE',
 
     /**
-     * Indicates that the Wi-Fi P2P current device state change.
+     * The state of the Wi-Fi P2P local device has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED
      */
     COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED = 'usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE',
 
     /**
-     * Indicates that the Wi-Fi P2P group info is changed.
+     * The Wi-Fi P2P group information has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_WIFI_INFO permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED
      */
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED = 'usual.event.wifi.p2p.GROUP_STATE_CHANGED',
 
     /**
-     * bluetooth.handsfree.ag.connect.state.update.
+     * The connection state of Bluetooth handsfree communication.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE =
+      'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE',
 
     /**
-     * bluetooth.handsfree.ag.current.device.update.
+     * The device connected to the Bluetooth handsfree function is active.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE =
+      'usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE',
 
     /**
-     * bluetooth.handsfree.ag.audio.state.update.
+     * The connection state of Bluetooth A2DP has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE',
 
     /**
-     * bluetooth.a2dpsource.connect.state.update.
+     * The connection state of Bluetooth A2DP.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE',
 
     /**
-     * bluetooth.a2dpsource.current.device.update.
+     * The device connected using Bluetooth A2DP is active.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE',
 
     /**
-     * bluetooth.a2dpsource.playing.state.update.
+     * The playing state of Bluetooth A2DP has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE',
 
     /**
-     * bluetooth.a2dpsource.avrcp.connect.state.update.
+     * The AVRCP connection state of Bluetooth A2DP has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE =
+      'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE',
 
     /**
-     * bluetooth.a2dpsource.codec.value.update.
+     * The audio codec state of Bluetooth A2DP has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE = 'usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE',
 
     /**
-     * bluetooth.remotedevice.discovered.
+     * A remote Bluetooth device is discovered.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.LOCATION and
+     * ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED = 'usual.event.bluetooth.remotedevice.DISCOVERED',
 
     /**
-     * bluetooth.remotedevice.class.value.update.
+     * The Bluetooth class of a remote Bluetooth device has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE',
 
     /**
-     * bluetooth.remotedevice.acl.connected.
+     * A low-level (ACL) connection has been established with the remote Bluetooth device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED = 'usual.event.bluetooth.remotedevice.ACL_CONNECTED',
 
     /**
-     * bluetooth.remotedevice.acl.disconnected.
+     * The low-level (ACL) connection has been disconnected from the remote Bluetooth device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED = 'usual.event.bluetooth.remotedevice.ACL_DISCONNECTED',
 
     /**
-     * bluetooth.remotedevice.name.update.
+     * The friendly name of a remote Bluetooth device is retrieved for the first time or has changed since the last
+     * retrieval.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE = 'usual.event.bluetooth.remotedevice.NAME_UPDATE',
 
     /**
-     * bluetooth.remotedevice.pair.state.
+     * The connection state with a remote Bluetooth device is changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE = 'usual.event.bluetooth.remotedevice.PAIR_STATE',
 
     /**
-     * bluetooth.remotedevice.battery.value.update.
+     * The battery level of a remote Bluetooth device is retrieved for the first time or has changed since the last
+     * retrieval.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE',
 
     /**
-     * bluetooth.remotedevice.sdp.result.
+     * The SDP state of a remote Bluetooth device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT = 'usual.event.bluetooth.remotedevice.SDP_RESULT',
 
     /**
-     * bluetooth.remotedevice.uuid.value.
+     * The UUID connection state with a remote Bluetooth device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.DISCOVER_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE = 'usual.event.bluetooth.remotedevice.UUID_VALUE',
 
     /**
-     * bluetooth.remotedevice.pairing.req.
+     * The pairing request from a remote Bluetooth device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.DISCOVER_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ = 'usual.event.bluetooth.remotedevice.PAIRING_REQ',
 
     /**
-     * bluetooth.remotedevice.pairing.cancel.
+     * Bluetooth pairing has been canceled.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL = 'usual.event.bluetooth.remotedevice.PAIRING_CANCEL',
 
     /**
-     * bluetooth.remotedevice.connect.req.
+     * The connection request from a remote Bluetooth device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ = 'usual.event.bluetooth.remotedevice.CONNECT_REQ',
 
     /**
-     * bluetooth.remotedevice.connect.reply.
+     * The response to the connection request from a remote Bluetooth device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY = 'usual.event.bluetooth.remotedevice.CONNECT_REPLY',
 
     /**
-     * bluetooth.remotedevice.connect.cancel.
+     * The connection to a remote Bluetooth device has been canceled.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL = 'usual.event.bluetooth.remotedevice.CONNECT_CANCEL',
 
     /**
-     * bluetooth.handsfreeunit.connect.state.update.
+     * The connection state with a Bluetooth handsfree has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE',
 
     /**
-     * bluetooth.handsfreeunit.audio.state.update.
+     * The audio state of a Bluetooth handsfree has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE',
 
     /**
-     * bluetooth.handsfreeunit.ag.common.event.
+     * The audio gateway state of a Bluetooth handsfree has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT = 'usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT',
 
     /**
-     * bluetooth.handsfreeunit.ag.call.state.update.
+     * The calling state of a Bluetooth handsfree has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE',
 
     /**
-     * bluetooth.host.state.update.
+     * A change in the Bluetooth adapter state (enabled or disabled).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE = 'usual.event.bluetooth.host.STATE_UPDATE',
 
     /**
-     * bluetooth.host.req.discoverable.
+     * Bluetooth is discoverable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE = 'usual.event.bluetooth.host.REQ_DISCOVERABLE',
 
     /**
-     * bluetooth.host.req.enable.
+     * Bluetooth is enabled.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = 'usual.event.bluetooth.host.REQ_ENABLE',
 
     /**
-     * bluetooth.host.req.disable.
+     * Bluetooth is disabled.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE = 'usual.event.bluetooth.host.REQ_DISABLE',
 
     /**
-     * bluetooth.host.scan.mode.update.
+     * The Bluetooth scan mode of the device is changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE = 'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
     /**
-     * bluetooth.host.discovery.stated.
+     * Bluetooth discovery is started on the device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED = 'usual.event.bluetooth.host.DISCOVERY_STARTED',
 
     /**
-     * bluetooth.host.discovery.finished.
+     * Bluetooth discovery is finished on the device.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED = 'usual.event.bluetooth.host.DISCOVERY_FINISHED',
 
     /**
-     * bluetooth.host.name.update.
+     * The name of the device Bluetooth adapter has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE = 'usual.event.bluetooth.host.NAME_UPDATE',
 
     /**
-     * bluetooth.a2dp.connect.state.update.
+     * The connection state of Bluetooth A2DP Sink has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE',
 
     /**
-     * bluetooth.a2dp.playing.state.update.
+     * The playing state of Bluetooth A2DP Sink has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE',
 
     /**
-     * bluetooth.a2dp.audio.state.update.
+     * The audio state of Bluetooth A2DP Sink has changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.USE_BLUETOOTH permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
 
     /**
-     * Nfc state change.
+     * The state of the device NFC adapter has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED
      */
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED = 'usual.event.nfc.action.ADAPTER_STATE_CHANGED',
 
     /**
-     * Nfc field on detected.
+     * The NFC RF field is detected to be in the enabled state.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_SECURE_SETTINGS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED = 'usual.event.nfc.action.RF_FIELD_ON_DETECTED',
 
     /**
-     * Nfc field off detected.
+     * The NFC RF field is detected to be in the disabled state.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_SECURE_SETTINGS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED = 'usual.event.nfc.action.RF_FIELD_OFF_DETECTED',
 
     /**
-     * Sent when stop charging battery.
+     * The system stops charging the battery.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISCHARGING
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISCHARGING
      */
     COMMON_EVENT_DISCHARGING = 'usual.event.DISCHARGING',
 
     /**
-     * Sent when start charging battery.
+     * The system starts charging the battery.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_CHARGING
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_CHARGING
      */
     COMMON_EVENT_CHARGING = 'usual.event.CHARGING',
 
     /**
-     * Sent when device's idle mode changed
+     * The system idle mode has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
     /**
-     * Sent when device's power save mode changed
+     * The system power-saving mode has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_POWER_SAVE_MODE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_POWER_SAVE_MODE_CHANGED
      */
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = 'usual.event.POWER_SAVE_MODE_CHANGED',
 
     /**
-     * User added.
+     * A user has been added to the system.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_ADDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_ADDED
      */
     COMMON_EVENT_USER_ADDED = 'usual.event.USER_ADDED',
 
     /**
-     * User removed.
+     * A user has been removed from the system.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USER_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USER_REMOVED
      */
     COMMON_EVENT_USER_REMOVED = 'usual.event.USER_REMOVED',
 
     /**
-     * Sent when ability is added.
+     * An ability has been added.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.LISTEN_BUNDLE_CHANGE
+     * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_ABILITY_ADDED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_ABILITY_ADDED
      */
     COMMON_EVENT_ABILITY_ADDED = 'common.event.ABILITY_ADDED',
 
     /**
-     * Sent when ability is removed.
+     * An ability has been removed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.LISTEN_BUNDLE_CHANGE
+     * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_ABILITY_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_ABILITY_REMOVED
      */
     COMMON_EVENT_ABILITY_REMOVED = 'common.event.ABILITY_REMOVED',
 
     /**
-     * Sent when ability is updated.
+     * An ability has been updated.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.LISTEN_BUNDLE_CHANGE
+     * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_ABILITY_UPDATED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_ABILITY_UPDATED
      */
     COMMON_EVENT_ABILITY_UPDATED = 'common.event.ABILITY_UPDATED',
 
     /**
-     * Gps mode state changed.
+     * The location mode of the system has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_LOCATION_MODE_STATE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_LOCATION_MODE_STATE_CHANGED
      */
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED = 'usual.event.location.MODE_STATE_CHANGED',
 
     /**
-     * The ivi is about to go into sleep state when the ivi is turned off power.
-     * This is a protected common event that can only be sent by system.
+     * The in-vehicle infotainment (IVI) system of the vehicle is sleeping.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_SLEEP
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_SLEEP
      */
     COMMON_EVENT_IVI_SLEEP = 'common.event.IVI_SLEEP',
 
     /**
-     * The ivi is slept and notify the app stop playing.
-     * This is a protected common event that can only be sent by system.
+     * The IVI system of the vehicle is in sleep mode and notifies the application to stop playing.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_PAUSE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_PAUSE
      */
     COMMON_EVENT_IVI_PAUSE = 'common.event.IVI_PAUSE',
 
     /**
-     * The ivi is standby and notify the app stop playing.
-     * This is a protected common event that can only be sent by system.
+     * A third-party application in the IVI system of a vehicle is suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_STANDBY
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_STANDBY
      */
     COMMON_EVENT_IVI_STANDBY = 'common.event.IVI_STANDBY',
 
     /**
-     * The app stop playing and save state.
-     * This is a protected common event that can only be sent by system.
+     * The third-party application in the IVI system of the vehicle saves the last mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_LASTMODE_SAVE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_LASTMODE_SAVE
      */
     COMMON_EVENT_IVI_LASTMODE_SAVE = 'common.event.IVI_LASTMODE_SAVE',
 
     /**
-     * The ivi is voltage abnormal.
-     * This is a protected common event that can only be sent by system.
+     * The voltage of the vehicle's power system is abnormal.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_VOLTAGE_ABNORMAL
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_VOLTAGE_ABNORMAL
      */
     COMMON_EVENT_IVI_VOLTAGE_ABNORMAL = 'common.event.IVI_VOLTAGE_ABNORMAL',
 
     /**
-     * The ivi temperature is too high.
-     * This is a protected common event that can only be sent by system.this common event will be delete later,
-     * please use COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL.
+     * The temperature of the IVI system of the vehicle is too high.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_HIGH_TEMPERATURE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_HIGH_TEMPERATURE
      */
     COMMON_EVENT_IVI_HIGH_TEMPERATURE = 'common.event.IVI_HIGH_TEMPERATURE',
 
     /**
-     * The ivi temperature is extreme high.
-     * This is a protected common event that can only be sent by system.this common event will be delete later,
-     * please use COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL.
+     * The temperature of the IVI system of the vehicle is extremely high.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_EXTREME_TEMPERATURE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_EXTREME_TEMPERATURE
      */
     COMMON_EVENT_IVI_EXTREME_TEMPERATURE = 'common.event.IVI_EXTREME_TEMPERATURE',
 
     /**
-     * The ivi temperature is abnormal.
-     * This is a protected common event that can only be sent by system.
+     * The IVI system of the vehicle has an extreme temperature.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL
      */
     COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL = 'common.event.IVI_TEMPERATURE_ABNORMAL',
 
     /**
-     * The ivi voltage is recovery.
-     * This is a protected common event that can only be sent by system.
+     * The voltage of the vehicle's power system is restored to normal.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_VOLTAGE_RECOVERY
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_VOLTAGE_RECOVERY
      */
     COMMON_EVENT_IVI_VOLTAGE_RECOVERY = 'common.event.IVI_VOLTAGE_RECOVERY',
 
     /**
-     * The ivi temperature is recovery.
-     * This is a protected common event that can only be sent by system.
+     * The temperature of the IVI system is restored to normal.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_TEMPERATURE_RECOVERY
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_TEMPERATURE_RECOVERY
      */
     COMMON_EVENT_IVI_TEMPERATURE_RECOVERY = 'common.event.IVI_TEMPERATURE_RECOVERY',
 
     /**
-     * The battery service is active.
-     * This is a protected common event that can only be sent by system.
+     * The battery service of the vehicle-mounted system is active.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_IVI_ACTIVE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_IVI_ACTIVE
      */
     COMMON_EVENT_IVI_ACTIVE = 'common.event.IVI_ACTIVE',
 
     /**
-     * The usb device attached.
-     * This is a protected common event that can only be sent by system.
+     * A USB device has been attached to the device functioning as a USB host.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USB_DEVICE_ATTACHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USB_DEVICE_ATTACHED
      */
     COMMON_EVENT_USB_DEVICE_ATTACHED = 'usual.event.hardware.usb.action.USB_DEVICE_ATTACHED',
 
     /**
-     * The usb device detached.
-     * This is a protected common event that can only be sent by system.
+     * A USB device has been detached from the device functioning as a USB host.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USB_DEVICE_DETACHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USB_DEVICE_DETACHED
      */
     COMMON_EVENT_USB_DEVICE_DETACHED = 'usual.event.hardware.usb.action.USB_DEVICE_DETACHED',
 
     /**
-     * The usb accessory attached.
-     * This is a protected common event that can only be sent by system.
+     * A USB accessory was attached.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USB_ACCESSORY_ATTACHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USB_ACCESSORY_ATTACHED
      */
     COMMON_EVENT_USB_ACCESSORY_ATTACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED',
 
     /**
-     * The usb accessory detached.
-     * This is a protected common event that can only be sent by system.
+     * The USB attachment is uninstalled.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USB_ACCESSORY_DETACHED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_USB_ACCESSORY_DETACHED
      */
     COMMON_EVENT_USB_ACCESSORY_DETACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED',
 
     /**
-     * The external storage was removed.
-     * This is a protected common event that can only be sent by system.
+     * An external storage device was removed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISK_REMOVED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISK_REMOVED
      */
     COMMON_EVENT_DISK_REMOVED = 'usual.event.data.DISK_REMOVED',
 
     /**
-     * The external storage was unmounted.
-     * This is a protected common event that can only be sent by system.
+     * An external storage device was unmounted.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISK_UNMOUNTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISK_UNMOUNTED
      */
     COMMON_EVENT_DISK_UNMOUNTED = 'usual.event.data.DISK_UNMOUNTED',
 
     /**
-     * The external storage was mounted.
-     * This is a protected common event that can only be sent by system.
+     * An external storage device was mounted.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISK_MOUNTED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISK_MOUNTED
      */
     COMMON_EVENT_DISK_MOUNTED = 'usual.event.data.DISK_MOUNTED',
 
     /**
-     * The external storage was bad removal.
-     * This is a protected common event that can only be sent by system.
+     * An external storage device was removed without being unmounted.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISK_BAD_REMOVAL
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISK_BAD_REMOVAL
      */
     COMMON_EVENT_DISK_BAD_REMOVAL = 'usual.event.data.DISK_BAD_REMOVAL',
 
     /**
-     * The external storage was unmountable.
-     * This is a protected common event that can only be sent by system.
+     * The external storage device cannot be mounted when a card is inserted.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISK_UNMOUNTABLE
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISK_UNMOUNTABLE
      */
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
     /**
-     * The external storage was eject.
-     * This is a protected common event that can only be sent by system.
+     * The external storage medium has been ejected (interactive operation at the system software layer, not directly
+     * ejected physically).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_DISK_EJECT
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_DISK_EJECT
      */
     COMMON_EVENT_DISK_EJECT = 'usual.event.data.DISK_EJECT',
 
     /**
-     * The visible of account was updated.
-     * This is a protected common event that can only be sent by system.
+     * The account visibility changed.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_APP_ACCOUNTS permission. (
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED
      */
     COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED = 'usual.event.data.VISIBLE_ACCOUNTS_UPDATED',
 
     /**
-     * Account was deleted.
-     * This is a protected common event that can only be sent by system.
+     * An account was deleted.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_ACCOUNT_DELETED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_ACCOUNT_DELETED
      */
     COMMON_EVENT_ACCOUNT_DELETED = 'usual.event.data.ACCOUNT_DELETED',
 
     /**
-     * Foundation was ready.
-     * This is a protected common event that can only be sent by system.
+     * The foundation is ready.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVER_STARTUP_COMPLETED
+     * permission. (This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_FOUNDATION_READY
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_FOUNDATION_READY
      */
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
     /**
-     * Indicates the common event Action indicating that the airplane mode status of the device changes.
-     * Users can register this event to listen to the change of the airplane mode status of the device.
+     * The airplane mode of the device has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_AIRPLANE_MODE_CHANGED
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_AIRPLANE_MODE_CHANGED
      */
     COMMON_EVENT_AIRPLANE_MODE_CHANGED = 'usual.event.AIRPLANE_MODE',
 
     /**
-     * sent by the window manager service when the window mode is split.
+     * The screen has been split.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_SPLIT_SCREEN
+     * @useinstead ohos.commonEventManager:commonEventManager.Support#COMMON_EVENT_SPLIT_SCREEN
      */
     COMMON_EVENT_SPLIT_SCREEN = 'common.event.SPLIT_SCREEN'
   }

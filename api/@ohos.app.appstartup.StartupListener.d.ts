@@ -14,6 +14,8 @@
  */
 
 /**
+ * The module defines the task listener used in [App Startup](docroot://application-models/app-startup.md).
+ *
  * @file
  * @kit AbilityKit
  */
@@ -23,7 +25,6 @@ import { BusinessError } from './@ohos.base';
 /**
  * Defines a onCompleted function.
  *
- * @typedef {function} OnCompletedFn
  * @param { BusinessError<void> } error - Indicates the error during execution.
  * @syscap SystemCapability.Ability.AppStartup
  * @since 23 staticonly
@@ -31,7 +32,7 @@ import { BusinessError } from './@ohos.base';
 type OnCompletedFn = (error: BusinessError<void>) => void;
 
 /**
- * The listener for running startup tasks, which will be called when all tasks complete.
+ * The module defines the task listener used in [App Startup](docroot://application-models/app-startup.md).
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
@@ -52,7 +53,6 @@ declare class StartupListener {
   /**
    * Called when all startup tasks complete.
    *
-   * @type { ?OnCompletedFn }
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 23 static

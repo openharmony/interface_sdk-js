@@ -51,7 +51,7 @@ declare namespace fastbuffer {
     /**
      * Allocates a new FastBuffer for a fixed size bytes. If fill is undefined, the FastBuffer will be zero-filled.
      *
-     * @param { number } size - size size The desired length of the new FastBuffer
+     * @param { number } size - The desired size (in bytes) of the new FastBuffer
      * @param { string | FastBuffer | number } [fill] - fill [fill=0] A value to pre-fill the new FastBuffer with
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
      * @returns { FastBuffer } Return a new allocated FastBuffer
@@ -64,7 +64,7 @@ declare namespace fastbuffer {
     /**
      * Allocates a new FastBuffer for a fixed size bytes. The FastBuffer will not be initially filled.
      *
-     * @param { number } size - size size The desired length of the new FastBuffer
+     * @param { number } size - The desired size (in bytes) of the new FastBuffer
      * @returns { FastBuffer } Return a new allocated FastBuffer
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -75,7 +75,7 @@ declare namespace fastbuffer {
     /**
      * Allocates a new un-pooled FastBuffer for a fixed size bytes. The FastBuffer will not be initially filled.
      *
-     * @param { number } size - size size The desired length of the new FastBuffer
+     * @param { number } size - The desired size (in bytes) of the new FastBuffer
      * @returns { FastBuffer } Return a new allocated FastBuffer
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -100,8 +100,8 @@ declare namespace fastbuffer {
     /**
      * Returns a new `FastBuffer` which is the result of concatenating all the `FastBuffer`instances in the `list` together.
      *
-     * @param { FastBuffer[] | Uint8Array[] } list - list list List of `FastBuffer` or Uint8Array instances to concatenate
-     * @param { number } [totalLength] - totalLength totalLength Total length of the `FastBuffer` instances in `list` when concatenated
+     * @param { FastBuffer[] | Uint8Array[] } list - Array of FastBuffer or Uint8Array instances to concatenate
+     * @param { number } [totalLength] - Total length of the FastBuffer instances when concatenated
      * @returns { FastBuffer } Return a new allocated FastBuffer
      * @throws { BusinessError } 10200001 - Range error. Possible causes:
      * The value of the parameter is not within the specified range.
@@ -114,7 +114,7 @@ declare namespace fastbuffer {
     /**
      * Allocates a new FastBuffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
      *
-     * @param { number[] } array - array array an array of bytes in the range 0 – 255
+     * @param { number[] } array - An array of bytes (integers in 0-255 range)
      * @returns { FastBuffer } Return a new allocated FastBuffer
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -125,8 +125,7 @@ declare namespace fastbuffer {
     /**
      * This creates a view of the ArrayBuffer without copying the underlying memory.
      *
-     * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
-     * SharedArrayBuffer, for example the .buffer property of a TypedArray.
+     * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - The ArrayBuffer or SharedArrayBuffer to create a view from
      * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
      * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
      * @returns { FastBuffer } Return a view of the ArrayBuffer
@@ -142,7 +141,7 @@ declare namespace fastbuffer {
     /**
      * Copies the passed buffer data onto a new FastBuffer instance.
      *
-     * @param { FastBuffer | Uint8Array } buffer - buffer buffer An existing FastBuffer or Uint8Array from which to copy data
+     * @param { FastBuffer | Uint8Array } buffer - The buffer to copy data from
      * @returns { FastBuffer } Return a new allocated FastBuffer
      * @throws { BusinessError } 10200068 - The underlying ArrayBuffer is null or detach.
      * @syscap SystemCapability.Utils.Lang
@@ -155,7 +154,7 @@ declare namespace fastbuffer {
      * Creates a new FastBuffer containing string. The encoding parameter identifies the character encoding
      * to be used when converting string into bytes.
      *
-     * @param { string } value - value string  A string to encode
+     * @param { string } value - The string to encode into a FastBuffer
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
      * @returns { FastBuffer } Return a new FastBuffer containing string
      * @syscap SystemCapability.Utils.Lang
@@ -167,7 +166,7 @@ declare namespace fastbuffer {
     /**
      * Returns true if obj is a FastBuffer, false otherwise
      *
-     * @param { Object } obj - obj obj Objects to be judged
+     * @param { Object } obj - The object to check if it's a FastBuffer
      * @returns { boolean } true or false
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -178,7 +177,8 @@ declare namespace fastbuffer {
     /**
      * Returns true if encoding is the name of a supported character encoding, or false otherwise.
      *
-     * @param { string } encoding - encoding encoding A character encoding name to check
+     * @param { string } encoding - The character encoding name to validate
+     * 
      * @returns { boolean } true or false
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -189,8 +189,8 @@ declare namespace fastbuffer {
     /**
      * Compares buf1 to buf2
      *
-     * @param { FastBuffer | Uint8Array } buf1 - buf1 buf1 A FastBuffer or Uint8Array instance.
-     * @param { FastBuffer | Uint8Array } buf2 - buf2 buf2 A FastBuffer or Uint8Array instance.
+     * @param { FastBuffer | Uint8Array } buf1 - First buffer for comparison
+     * @param { FastBuffer | Uint8Array } buf2 - Second buffer for comparison
      * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
@@ -204,9 +204,9 @@ declare namespace fastbuffer {
     /**
      * Re-encodes the given FastBuffer or Uint8Array instance from one character encoding to another.
      *
-     * @param { FastBuffer | Uint8Array } source - source source A FastBuffer or Uint8Array instance.
-     * @param { string } fromEnc - fromEnc fromEnc The current encoding
-     * @param { string } toEnc - toEnc toEnc To target encoding
+     * @param { FastBuffer | Uint8Array } source - The buffer to re-encode
+     * @param { string } fromEnc - The source character encoding
+     * @param { string } toEnc - The target character encoding
      * @returns { FastBuffer } Returns a new FastBuffer instance
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -256,7 +256,7 @@ declare namespace fastbuffer {
         /**
          * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
          *
-         * @param { string | FastBuffer | Uint8Array | number } value - value value The value with which to fill buf
+         * @param { string | FastBuffer | Uint8Array | number } value - The value to fill into the buffer
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to fill buf
          * @param { number } [end] - end [end = buf.length] Where to stop filling buf (not inclusive)
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding for value if value is a string
@@ -274,7 +274,7 @@ declare namespace fastbuffer {
          * Compares buf with target and returns a number indicating whether buf comes before, after,
          * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each FastBuffer.
          *
-         * @param { FastBuffer | Uint8Array } target - target target A FastBuffer or Uint8Array with which to compare buf
+         * @param { FastBuffer | Uint8Array } target - The buffer to compare with this buffer
          * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin comparison
          * @param { number } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
          * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
@@ -295,7 +295,7 @@ declare namespace fastbuffer {
          * Copies data from a region of buf to a region in target, even if the target memory region overlaps with buf.
          * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
          *
-         * @param { FastBuffer | Uint8Array } target - target target A FastBuffer or Uint8Array to copy into
+         * @param { FastBuffer | Uint8Array } target - The buffer to copy data into
          * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin writing
          * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
          * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
@@ -312,7 +312,7 @@ declare namespace fastbuffer {
         /**
          * Returns true if both buf and otherBuffer have exactly the same bytes, false otherwise
          *
-         * @param { Uint8Array | FastBuffer } otherBuffer - otherBuffer otherBuffer A FastBuffer or Uint8Array with which to compare buf
+         * @param { Uint8Array | FastBuffer } otherBuffer - The buffer to compare with this buffer for equality
          * @returns { boolean } true or false
          * @throws { BusinessError } 10200068 - The underlying ArrayBuffer is null or detach.
          * @syscap SystemCapability.Utils.Lang
@@ -324,7 +324,7 @@ declare namespace fastbuffer {
         /**
          * Returns true if value was found in buf, false otherwise
          *
-         * @param { string | number | FastBuffer | Uint8Array } value - value value What to search for
+         * @param { string | number | FastBuffer | Uint8Array } value - The value to search for in the buffer
          * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string, this is its encoding
          * @returns { boolean } true or false
@@ -337,7 +337,7 @@ declare namespace fastbuffer {
         /**
          * The index of the first occurrence of value in buf
          *
-         * @param { string | number | FastBuffer | Uint8Array } value - value value What to search for
+         * @param { string | number | FastBuffer | Uint8Array } value - The value to find the index for in the buffer
          * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
          * this is the encoding used to determine the binary representation of the string that will be searched for in buf
@@ -384,7 +384,7 @@ declare namespace fastbuffer {
         /**
          * The index of the last occurrence of value in buf
          *
-         * @param { string | number | FastBuffer | Uint8Array } value - value value What to search for
+         * @param { string | number | FastBuffer | Uint8Array } value - The value to find the last index for in the buffer
          * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
          * this is the encoding used to determine the binary representation of the string that will be searched for in buf
@@ -555,8 +555,8 @@ declare namespace fastbuffer {
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a big-endian,
          * two's complement signed value supporting up to 48 bits of accuracy
          *
-         * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
+         * @param { number } offset - Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @returns { number }
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -569,8 +569,8 @@ declare namespace fastbuffer {
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a little-endian,
          * two's complement signed value supporting up to 48 bits of accuracy.
          *
-         * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
+         * @param { number } offset - Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @returns { number }
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -643,8 +643,8 @@ declare namespace fastbuffer {
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as
          * an unsigned big-endian integer supporting up to 48 bits of accuracy.
          *
-         * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
+         * @param { number } offset - Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @returns { number }
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -657,8 +657,8 @@ declare namespace fastbuffer {
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as an unsigned,
          * little-endian integer supporting up to 48 bits of accuracy.
          *
-         * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
+         * @param { number } offset - Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @returns { number }
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -739,7 +739,7 @@ declare namespace fastbuffer {
         /**
          * Writes string to buf at offset according to the character encoding in encoding
          *
-         * @param { string } str - str str Writes string to buf at offset according to the character encoding in encoding
+         * @param { string } str - The string to write into the buffer
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write string
          * @param { number } [length] - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
          * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding of string.
@@ -756,7 +756,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian.
          *
-         * @param { bigint } value - value value Number to be written to buf
+         * @param { bigint } value - The 64-bit big-endian integer value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -769,7 +769,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian.
          *
-         * @param { bigint } value - value value Number to be written to buf
+         * @param { bigint } value - The 64-bit little-endian integer value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -782,7 +782,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian.
          *
-         * @param { bigint } value - value value Number to be written to buf
+         * @param { bigint } value - The unsigned 64-bit big-endian integer value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -795,7 +795,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian.
          *
-         * @param { bigint } value - value value Number to be written to buf
+         * @param { bigint } value - The unsigned 64-bit little-endian integer value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -808,7 +808,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The 64-bit big-endian double value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -821,7 +821,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The 64-bit little-endian double value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -834,7 +834,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The 32-bit big-endian float value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -847,7 +847,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The 32-bit little-endian float value to write
          * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -860,7 +860,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The signed 8-bit integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -873,7 +873,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The signed 16-bit big-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -886,7 +886,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The signed 16-bit little-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -899,7 +899,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The signed 32-bit big-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -912,7 +912,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The signed 32-bit little-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -925,9 +925,9 @@ declare namespace fastbuffer {
         /**
          * Writes byteLength bytes of value to buf at the specified offset as big-endian
          *
-         * @param { number } value - value value Number to be written to buf
-         * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
+         * @param { number } value - The big-endian integer value to write
+         * @param { number } offset - Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -939,9 +939,9 @@ declare namespace fastbuffer {
         /**
          * Writes byteLength bytes of value to buf at the specified offset as little-endian
          *
-         * @param { number } value - value value Number to be written to buf
-         * @param { number } offset - offset offset  Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
+         * @param { number } value - The little-endian integer value to write
+         * @param { number } offset - Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -953,7 +953,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The unsigned 8-bit integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -966,7 +966,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The unsigned 16-bit big-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -979,7 +979,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The unsigned 16-bit little-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -992,7 +992,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The unsigned 32-bit big-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -1005,7 +1005,7 @@ declare namespace fastbuffer {
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
          *
-         * @param { number } value - value value Number to be written to buf
+         * @param { number } value - The unsigned 32-bit little-endian integer value to write
          * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -1018,9 +1018,9 @@ declare namespace fastbuffer {
         /**
          * Writes byteLength bytes of value to buf at the specified offset as big-endian
          *
-         * @param { number } value - value value Number to be written to buf
-         * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
+         * @param { number } value - The unsigned big-endian integer value to write
+         * @param { number } offset - Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -1032,9 +1032,9 @@ declare namespace fastbuffer {
         /**
          * Writes byteLength bytes of value to buf at the specified offset as little-endian
          *
-         * @param { number } value - value value Number to be written to buf
-         * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
-         * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
+         * @param { number } value - The unsigned little-endian integer value to write
+         * @param { number } offset - Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - byteLength
+         * @param { number } byteLength - Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @returns { number } offset plus the number of bytes written
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang

@@ -28,18 +28,16 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The NotificationActionButton module provides APIs for describing the button displayed in the notification.
+ * The **NotificationActionButton** module provides APIs for describing the button displayed in the notification.
  *
- * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
  * @since 23 static
  */
 export interface NotificationActionButton {
   /**
-   * Button title.
+   * Button title. It cannot be an empty string or exceed 200 bytes. Excess content will be truncated.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -47,9 +45,8 @@ export interface NotificationActionButton {
   title: string;
 
   /**
-   * WantAgent of the button.
+   * **WantAgent** of the button.
    *
-   * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -57,9 +54,8 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * Extra information of the button.
+   * **WantAgent** of the button.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    */
@@ -68,16 +64,14 @@ export interface NotificationActionButton {
   /**
    * Extra information of the button.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
    */
   extras?: Record<string, RecordData>;
 
   /**
-   * User input object. ID entered by a subscriber.
+   * User input object. This parameter is left empty by default. ID entered by a subscriber.
    *
-   * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static

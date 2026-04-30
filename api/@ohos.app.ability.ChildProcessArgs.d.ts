@@ -19,9 +19,10 @@
  */
 
 /**
- * Define args to pass to child process.
+ * The module describes the parameters transferred to the child process. When starting a child process through
+ * [childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}, you can transfer parameters
+ * to the child process through **ChildProcessArgs**.
  *
- * @interface ChildProcessArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 12 dynamic
@@ -29,10 +30,10 @@
  */
 export interface ChildProcessArgs {
   /**
-   * Custom parameters define by developer.
-   * The parameters will be passed to child process entry function onStart(args).
+   * Custom parameters to be transparently transmitted to the child process. The parameters can be obtained through
+   * **args.entryParams** in [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess.onStart}. The
+   * maximum data volume supported by **entryParams** is 150 KB.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
@@ -41,9 +42,16 @@ export interface ChildProcessArgs {
   entryParams?: string;
 
   /**
-   * Indicates file descriptors that use to communicate between two processes.
+   * File Descriptor (FD) handles, which are used for communication between the main process and child process. They are
+   * passed to the child process in the form of key-value pairs, where **key** is a custom string and **value** is a DF
+   * handle. The FD handles can be obtained through **args.fds** in
+   * [ChildProcess.onStart]{@link @ohos.app.ability.ChildProcess:ChildProcess.onStart}.
    *
-   * @type { ?Record<string, int> }
+   * <b>NOTE</b>
+   *
+   * - **fds** supports a maximum of 16 groups. In each group, **key** contains a maximum of 20 characters.
+   * - The ID of a handle passed to the child process may change, but the handle always points to the same file.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic

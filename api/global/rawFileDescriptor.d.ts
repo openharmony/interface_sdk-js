@@ -19,102 +19,44 @@
  */
 
 /**
- * Contains rawFile descriptor information.
+ * Provides the descriptor of the HAP where the rawfile is located.
  *
- * @interface RawFileDescriptor
  * @syscap SystemCapability.Global.ResourceManager
- * @since 8
- */
-/**
- * Contains rawFile descriptor information.
- *
- * @interface RawFileDescriptor
- * @syscap SystemCapability.Global.ResourceManager
- * @atomicservice
- * @since 11
- */
-/**
- * Contains rawFile descriptor information.
- *
- * @interface RawFileDescriptor
- * @syscap SystemCapability.Global.ResourceManager
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @since 23 static
  */
 export interface RawFileDescriptor {
   /**
-   * rawfile descriptor
+   * Pointer to the file descriptor.
    *
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 8
-   */
-  /**
-   * rawfile descriptor
-   *
-   * @syscap SystemCapability.Global.ResourceManager
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * rawfile descriptor
-   * 
-   * @type { int }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   fd: int;
 
   /**
-   * the offset from where the raw file starts in the HAP
+   * Start offset.
    *
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 8
-   */
-  /**
-   * the offset from where the raw file starts in the HAP
-   *
-   * @syscap SystemCapability.Global.ResourceManager
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * the offset from where the raw file starts in the HAP
-   *
-   * @type { long }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   offset: long;
 
   /**
-   * the length of the raw file in the HAP
+   * File length.
    *
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 8
-   */
-  /**
-   * the length of the raw file in the HAP
-   *
-   * @syscap SystemCapability.Global.ResourceManager
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * the length of the raw file in the HAP
-   *
-   * @type { long }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   length: long;

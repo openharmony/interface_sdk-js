@@ -19,111 +19,107 @@
  */
 
 /**
- * Want is the basic communication component of the system.
+ * Want is a carrier for information transfer between objects (application components). Want can be used as a parameter
+ * of
+ * [startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, callback: AsyncCallback<void>)}
+ *  to specify a startup target and information that needs to be carried during startup, for example, **bundleName** and
+ *  **abilityName**, which respectively indicate the bundle name of the target ability and the ability name in the
+ * bundle. When ability A needs to start ability B and transfer some data to ability B, it can use Want a carrier to
+ * transfer the data.
  *
- * @typedef Want
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 6 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.app.ability.Want/Want
+ * @useinstead @ohos.app.ability.Want:Want
  */
 export declare interface Want {
   /**
-   * Device Id
+   * device id
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#deviceId
+   * @useinstead @ohos.app.ability.Want:Want.deviceId
    */
   deviceId?: string;
 
   /**
-   * Bundle name
+   * bundle name
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#bundleName
+   * @useinstead @ohos.app.ability.Want:Want.bundleName
    */
   bundleName?: string;
 
   /**
-   * Ability name
+   * ability name
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#abilityName
+   * @useinstead @ohos.app.ability.Want:Want.abilityName
    */
   abilityName?: string;
 
   /**
    * The description of a URI in a Want.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#uri
+   * @useinstead @ohos.app.ability.Want:Want.uri
    */
   uri?: string;
 
   /**
    * The description of the type in this Want.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#type
+   * @useinstead @ohos.app.ability.Want:Want.type
    */
   type?: string;
 
   /**
    * The options of the flags in this Want.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#flags
+   * @useinstead @ohos.app.ability.Want:Want.flags
    */
   flags?: number;
 
   /**
-   * The description of an action in a Want.
+   * The description of an action in an want.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#action
+   * @useinstead @ohos.app.ability.Want:Want.action
    */
   action?: string;
 
   /**
-   * The description of the WantParams object in a Want
+   * The description of the WantParams object in an Want
    *
-   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#parameters
+   * @useinstead @ohos.app.ability.Want:Want.parameters
    */
   parameters?: { [key: string]: any };
 
   /**
-   * The description of entities in a Want.
+   * The description of a entities in a Want.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want/Want#entities
+   * @useinstead @ohos.app.ability.Want:Want.entities
    */
   entities?: Array<string>;
 }

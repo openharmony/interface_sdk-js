@@ -23,6 +23,7 @@
  *
  * @interface RatingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -130,6 +131,7 @@ declare interface RatingOptions {
  *
  * @interface StarStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -378,6 +380,7 @@ interface RatingInterface {
  * @extends CommonConfiguration<RatingConfiguration>
  * @interface RatingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -388,6 +391,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -399,6 +403,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -410,6 +415,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -421,6 +427,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -432,6 +439,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    *
    * @type { Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -445,6 +453,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @typedef {function} OnRatingChangeCallback
  * @param {number} rating - The rating of the rating bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -535,6 +544,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { Optional<number> } starCount
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -589,6 +599,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { Optional<number> } size
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -655,6 +666,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { Optional<StarStyleOptions> } options - star style options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -709,6 +721,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { Optional<OnRatingChangeCallback> } callback
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -722,6 +735,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { ContentModifier<RatingConfiguration> } modifier - The content modifier of rating.
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -734,6 +748,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { Optional<ContentModifier<RatingConfiguration>> } modifier - The content modifier of rating.
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic

@@ -23,6 +23,7 @@
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice

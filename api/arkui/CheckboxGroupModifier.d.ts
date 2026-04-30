@@ -26,6 +26,7 @@
  * @extends CheckboxGroupAttribute
  * @implements AttributeModifier<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -35,6 +36,7 @@
  * @extends CheckboxGroupAttribute
  * @implements AttributeModifier<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -46,6 +48,7 @@ export declare class CheckboxGroupModifier extends CheckboxGroupAttribute implem
    * 
    * @param { CheckboxGroupAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

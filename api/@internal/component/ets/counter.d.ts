@@ -235,6 +235,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -244,6 +245,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -256,6 +258,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -265,6 +268,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

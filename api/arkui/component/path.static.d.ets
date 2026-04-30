@@ -25,6 +25,7 @@ import { Length, ResourceStr } from './units';
  *
  * @interface PathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PathOptions {
@@ -32,6 +33,7 @@ export declare interface PathOptions {
      * Width option.
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width?: Length;
@@ -39,6 +41,7 @@ export declare interface PathOptions {
      * Height option.
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height?: Length;
@@ -46,6 +49,7 @@ export declare interface PathOptions {
      * Commands option.
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     commands?: ResourceStr;
@@ -57,6 +61,7 @@ export declare interface PathOptions {
  * @extends CommonShapeMethod
  * @interface PathAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PathAttribute extends CommonShapeMethod {
@@ -66,6 +71,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @param { ResourceStr | undefined } value
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default commands(value: ResourceStr | undefined): this;
@@ -75,6 +81,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined): this;

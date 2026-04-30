@@ -34,12 +34,14 @@ import {
 } from './@ohos.arkui.component';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 import { PropRef, Require } from './arkui/stateManagement/decorator';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Enum for ChipSize
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -49,6 +51,7 @@ export declare enum ChipSize {
    * Normal type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -58,6 +61,7 @@ export declare enum ChipSize {
    * Small type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -69,6 +73,7 @@ export declare enum ChipSize {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -77,6 +82,7 @@ export declare enum AccessibilitySelectedType {
    * Default type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -86,6 +92,7 @@ export declare enum AccessibilitySelectedType {
    * Checked type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -95,6 +102,7 @@ export declare enum AccessibilitySelectedType {
    * Selected type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -106,6 +114,7 @@ export declare enum AccessibilitySelectedType {
  *
  * @interface IconCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -116,6 +125,7 @@ export interface IconCommonOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -126,6 +136,7 @@ export interface IconCommonOptions {
    *
    * @type { ?SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -136,6 +147,7 @@ export interface IconCommonOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -146,6 +158,7 @@ export interface IconCommonOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -158,6 +171,7 @@ export interface IconCommonOptions {
  * @extends IconCommonOptions
  * @interface SuffixIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -168,6 +182,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -178,6 +193,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -188,6 +204,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -199,6 +216,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -211,6 +229,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
  * @extends IconCommonOptions
  * @interface PrefixIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -221,6 +240,7 @@ export interface PrefixIconOptions extends IconCommonOptions {}
  *
  * @interface AccessibilityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -231,6 +251,7 @@ export interface AccessibilityOptions {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -241,6 +262,7 @@ export interface AccessibilityOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -251,6 +273,7 @@ export interface AccessibilityOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -263,6 +286,7 @@ export interface AccessibilityOptions {
  * @extends AccessibilityOptions
  * @interface CloseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -283,6 +307,7 @@ export interface CloseOptions extends AccessibilityOptions {
  *
  * @interface ChipSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -293,6 +318,7 @@ export interface ChipSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -303,6 +329,7 @@ export interface ChipSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -314,6 +341,7 @@ export interface ChipSymbolGlyphOptions {
  *
  * @interface ChipSuffixSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -323,6 +351,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    *
    * @type { ?AccessibilityOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -333,6 +362,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    *
    * @type { ?AccessibilityOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -343,6 +373,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -354,6 +385,7 @@ export interface ChipSuffixSymbolGlyphOptions {
  *
  * @interface LabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -364,6 +396,7 @@ export interface LabelMarginOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -374,6 +407,7 @@ export interface LabelMarginOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -385,6 +419,7 @@ export interface LabelMarginOptions {
  *
  * @interface LocalizedLabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -395,6 +430,7 @@ export interface LocalizedLabelMarginOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -405,6 +441,7 @@ export interface LocalizedLabelMarginOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -416,6 +453,7 @@ export interface LocalizedLabelMarginOptions {
  *
  * @interface LabelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -426,6 +464,7 @@ export interface LabelOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -436,6 +475,7 @@ export interface LabelOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -446,6 +486,7 @@ export interface LabelOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -456,6 +497,7 @@ export interface LabelOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -466,6 +508,7 @@ export interface LabelOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -476,6 +519,7 @@ export interface LabelOptions {
    *
    * @type { ?LabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -486,6 +530,7 @@ export interface LabelOptions {
    *
    * @type { ?LocalizedLabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -497,6 +542,7 @@ export interface LabelOptions {
  *
  * @interface ChipOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -506,6 +552,7 @@ export interface ChipOptions {
    *
    * @type { ?PrefixIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -516,6 +563,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -526,6 +574,7 @@ export interface ChipOptions {
    *
    * @type { LabelOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -536,6 +585,7 @@ export interface ChipOptions {
    *
    * @type { ?SuffixIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -546,6 +596,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -556,6 +607,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSuffixSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -566,6 +618,7 @@ export interface ChipOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -576,6 +629,7 @@ export interface ChipOptions {
    *
    * @type { ?CloseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -586,6 +640,7 @@ export interface ChipOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -596,36 +651,64 @@ export interface ChipOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
   activated?: boolean;
 
    /**
-   * Chip background color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   * @noninterop
-   */
-  backgroundColor?: ResourceColor;
+    * Chip background color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    * @noninterop
+    */
+   backgroundColor?: ResourceColor;
 
-  /**
-   * Chip background color when chip is activated.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   * @noninterop
-   */
-  activatedBackgroundColor?: ResourceColor;
+   /**
+    * Set system-styled materials for the component. Different materials have different effects, which can influence
+    * the backgroundColor, border, shadow, and other visual attributes of the component.
+    *
+    * @type { ?uiMaterial.Material }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    * @noninterop
+    */
+   backgroundSystemMaterial?: uiMaterial.Material;
+
+   /**
+    * Chip background color when chip is activated.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    * @noninterop
+    */
+   activatedBackgroundColor?: ResourceColor;
+
+   /**
+    * Set system-styled materials for the component which is activated. Different materials have different effects, which can influence
+    * the backgroundColor, border, shadow, and other visual attributes of the component.
+    *
+    * @type { ?uiMaterial.Material }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    * @noninterop
+    */
+   activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
    /**
    * Chip radius.
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -636,6 +719,7 @@ export interface ChipOptions {
    *
    * @type { ?(ChipSize | SizeOptions) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -646,6 +730,7 @@ export interface ChipOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -656,6 +741,7 @@ export interface ChipOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -666,6 +752,7 @@ export interface ChipOptions {
    *
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -676,6 +763,7 @@ export interface ChipOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -687,6 +775,7 @@ export interface ChipOptions {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -697,6 +786,7 @@ export interface ChipOptions {
    *
    * @type { ?AccessibilitySelectedType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -748,6 +838,7 @@ export interface ChipOptions {
  *
  * @param { ChipOptions } options - chip option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

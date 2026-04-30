@@ -24,6 +24,7 @@
  * @interface ScreenInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -35,6 +36,7 @@ interface ScreenInterface {
    * @returns { ScreenAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   (screenId: long): ScreenAttribute;
@@ -46,6 +48,7 @@ interface ScreenInterface {
  * @extends CommonMethod<ScreenAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -57,6 +60,7 @@ declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -67,6 +71,7 @@ declare const Screen: ScreenInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */

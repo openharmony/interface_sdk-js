@@ -26,6 +26,7 @@ import { SliderAttribute } from './component/slider';
  *
  * @implements { SliderAttribute, AttributeModifier<SliderAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class SliderModifier implements SliderAttribute, AttributeModifier<SliderAttribute> {}

@@ -28,6 +28,7 @@ import { Callback } from '@ohos.base';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -36,6 +37,7 @@ import { Callback } from '@ohos.base';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -45,6 +47,7 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -52,6 +55,7 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -61,6 +65,7 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -68,6 +73,7 @@ export declare enum ExtraRegionPosition {
      * The extra region position is in the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -79,6 +85,7 @@ export declare enum ExtraRegionPosition {
  *
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -87,6 +94,7 @@ export declare enum ExtraRegionPosition {
  *
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -97,6 +105,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -105,6 +114,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -115,6 +125,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -123,6 +134,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -133,6 +145,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -141,6 +154,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -151,6 +165,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -159,6 +174,7 @@ export interface ExpandedRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -170,6 +186,7 @@ export interface ExpandedRegionLayoutOptions {
  *
  * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -178,6 +195,7 @@ export interface ExpandedRegionLayoutOptions {
  *
  * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -188,6 +206,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -196,6 +215,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -206,6 +226,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -214,6 +235,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -224,6 +246,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -232,6 +255,7 @@ export interface HoverModeRegionLayoutOptions {
      *
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -243,6 +267,7 @@ export interface HoverModeRegionLayoutOptions {
  *
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -251,6 +276,7 @@ export interface HoverModeRegionLayoutOptions {
  *
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -261,6 +287,7 @@ export interface FoldedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -269,6 +296,7 @@ export interface FoldedRegionLayoutOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -280,6 +308,7 @@ export interface FoldedRegionLayoutOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -288,6 +317,7 @@ export interface FoldedRegionLayoutOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -297,6 +327,7 @@ export declare enum PresetSplitRatio {
      * 1:1
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -304,6 +335,7 @@ export declare enum PresetSplitRatio {
      * 1:1
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -313,6 +345,7 @@ export declare enum PresetSplitRatio {
      * 2:3
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -320,6 +353,7 @@ export declare enum PresetSplitRatio {
      * 2:3
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -329,6 +363,7 @@ export declare enum PresetSplitRatio {
      * 3:2
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -336,6 +371,7 @@ export declare enum PresetSplitRatio {
      * 3:2
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -347,6 +383,7 @@ export declare enum PresetSplitRatio {
  *
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -355,6 +392,7 @@ export declare enum PresetSplitRatio {
  *
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -365,6 +403,7 @@ export interface HoverModeStatus {
      *
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -373,6 +412,7 @@ export interface HoverModeStatus {
      *
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -384,6 +424,7 @@ export interface HoverModeStatus {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -393,6 +434,7 @@ export interface HoverModeStatus {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -403,6 +445,7 @@ export interface HoverModeStatus {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -411,6 +454,7 @@ export interface HoverModeStatus {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -421,6 +465,7 @@ export interface HoverModeStatus {
      *
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -429,6 +474,7 @@ export interface HoverModeStatus {
      *
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -441,6 +487,7 @@ export interface HoverModeStatus {
  * @typedef { function } OnHoverStatusChangeHandler
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -450,6 +497,7 @@ export interface HoverModeStatus {
  * @typedef { function } OnHoverStatusChangeHandler
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -460,6 +508,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  *
  * @struct { FoldSplitContainer }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -468,6 +517,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  *
  * @struct { FoldSplitContainer }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -479,6 +529,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -487,6 +538,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -498,6 +550,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -506,6 +559,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -517,6 +571,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -525,6 +580,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -536,6 +592,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -544,6 +601,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -555,6 +613,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -563,6 +622,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -574,6 +634,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -582,6 +643,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -593,6 +655,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -601,6 +664,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -613,6 +677,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
@@ -622,6 +687,7 @@ export declare struct FoldSplitContainer {
      *
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic

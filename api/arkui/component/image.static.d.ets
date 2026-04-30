@@ -37,6 +37,7 @@ import { AttributeModifier } from "./common";
  *
  * @typedef { drawing.ColorFilter } DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type DrawingColorFilter = drawing.ColorFilter;
@@ -46,6 +47,7 @@ export type DrawingColorFilter = drawing.ColorFilter;
  * @typedef { image.ResolutionQuality } ResolutionQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export type ResolutionQuality = image.ResolutionQuality;
@@ -54,6 +56,7 @@ export type ResolutionQuality = image.ResolutionQuality;
  *
  * @typedef { drawing.Lattice } DrawingLattice
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type DrawingLattice = drawing.Lattice;
@@ -62,6 +65,7 @@ export type DrawingLattice = drawing.Lattice;
  *
  * @typedef { matrix4.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ImageMatrix = matrix4.Matrix4Transit;
@@ -70,6 +74,7 @@ export type ImageMatrix = matrix4.Matrix4Transit;
  *
  * @typedef { cacheDownload.DownloadInfo } RequestDownloadInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type RequestDownloadInfo = cacheDownload.DownloadInfo;
@@ -77,6 +82,7 @@ export type RequestDownloadInfo = cacheDownload.DownloadInfo;
 /**
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 23 static
@@ -86,6 +92,7 @@ export declare enum ImageRenderMode {
      * Render according to the original image, including colors.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Original,
@@ -93,6 +100,7 @@ export declare enum ImageRenderMode {
      * Render the image as a template image, ignoring the color information of the image.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Template
@@ -102,6 +110,7 @@ export declare enum ImageRenderMode {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ImageContent {
@@ -109,6 +118,7 @@ export declare enum ImageContent {
      * Make image empty.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     EMPTY = 0
@@ -116,6 +126,7 @@ export declare enum ImageContent {
 /**
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum DynamicRangeMode {
@@ -123,6 +134,7 @@ export declare enum DynamicRangeMode {
      * Allow image content to use an unrestricted extended range.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     HIGH = 0,
@@ -130,6 +142,7 @@ export declare enum DynamicRangeMode {
      * Allow image content to use some extended range.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     CONSTRAINT = 1,
@@ -137,6 +150,7 @@ export declare enum DynamicRangeMode {
      * Restrict the image content dynamic range to the standard range.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     STANDARD = 2
@@ -144,6 +158,7 @@ export declare enum DynamicRangeMode {
 /**
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ImageInterpolation {
@@ -151,6 +166,7 @@ export declare enum ImageInterpolation {
      * Do not use interpolated image data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     None,
@@ -158,6 +174,7 @@ export declare enum ImageInterpolation {
      * Low usage of interpolated image data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Low,
@@ -165,6 +182,7 @@ export declare enum ImageInterpolation {
      * Interpolated image data is used moderately.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Medium,
@@ -172,6 +190,7 @@ export declare enum ImageInterpolation {
      * High usage of interpolated image data may affect the speed of image rendering.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     High
@@ -179,6 +198,7 @@ export declare enum ImageInterpolation {
 /**
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ImageRotateOrientation {
@@ -186,6 +206,7 @@ export declare enum ImageRotateOrientation {
      * Rotate according to the image rotation
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     AUTO = 0,
@@ -193,6 +214,7 @@ export declare enum ImageRotateOrientation {
      * Ignore the rotation of the image
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     UP = 1,
@@ -200,6 +222,7 @@ export declare enum ImageRotateOrientation {
      * Based on image rotation, rotate clockwise 90 degrees
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RIGHT = 2,
@@ -207,6 +230,7 @@ export declare enum ImageRotateOrientation {
      * Based on image rotation, rotate clockwise 180 degrees
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DOWN = 3,
@@ -214,6 +238,7 @@ export declare enum ImageRotateOrientation {
      * Based on image rotation, rotate clockwise 270 degrees
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     LEFT = 4,
@@ -221,6 +246,7 @@ export declare enum ImageRotateOrientation {
      * Flip the orignial image horizontally
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     UP_MIRRORED = 5,
@@ -228,6 +254,7 @@ export declare enum ImageRotateOrientation {
      * Flip the orignial image horizontally and rotate clockwise 90 degrees
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RIGHT_MIRRORED = 6,
@@ -235,6 +262,7 @@ export declare enum ImageRotateOrientation {
      * Flip the orignial image vertically
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DOWN_MIRRORED = 7,
@@ -242,6 +270,7 @@ export declare enum ImageRotateOrientation {
      * Flip the orignial image horizontally and rotate clockwise 270 degrees
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     LEFT_MIRRORED = 8
@@ -251,6 +280,7 @@ export declare enum ImageRotateOrientation {
  *
  * @interface ImageCompleteEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ImageCompleteEvent {
@@ -259,6 +289,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width: int;
@@ -267,6 +298,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height: int;
@@ -275,6 +307,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     componentWidth: int;
@@ -283,6 +316,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     componentHeight: int;
@@ -293,6 +327,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     loadingStatus: int;
@@ -301,6 +336,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentWidth: int;
@@ -309,6 +345,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentHeight: int;
@@ -317,6 +354,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentOffsetX: int;
@@ -325,6 +363,7 @@ export interface ImageCompleteEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentOffsetY: int;
@@ -334,6 +373,7 @@ export interface ImageCompleteEvent {
  *
  * @interface ImageSourceSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ImageSourceSize {
@@ -343,6 +383,7 @@ export interface ImageSourceSize {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width: double;
@@ -352,6 +393,7 @@ export interface ImageSourceSize {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height: double;
@@ -360,6 +402,7 @@ export interface ImageSourceSize {
  * Set the placeholder image.
  * @interface ImageAlt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface ImageAlt {
@@ -367,6 +410,7 @@ export interface ImageAlt {
    * Set the placeholder image during the loading process.
    * @type { ?(ResourceStr | PixelMap) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   placeholder?: ResourceStr | PixelMap;
@@ -375,6 +419,7 @@ export interface ImageAlt {
    * Set the placeholder image when loading fails .
    * @type { ?(ResourceStr | PixelMap) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   error?: ResourceStr | PixelMap;
@@ -383,6 +428,7 @@ export interface ImageAlt {
  * Defines the ColorContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ColorContent {
@@ -393,6 +439,7 @@ export declare class ColorContent {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     static readonly ORIGIN: ColorContent;
@@ -403,6 +450,7 @@ export declare class ColorContent {
  * @extends CommonMethod
  * @interface ImageAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -417,6 +465,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     during loading, Default value is null.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default alt(value: string | Resource | PixelMap | ImageAlt | undefined): this;
@@ -431,6 +480,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     language direction, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default matchTextDirection(value: boolean | undefined): this;
@@ -445,6 +495,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     of the image source, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fitOriginalSize(value: boolean | undefined): this;
@@ -461,6 +512,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ResourceColor | ColorContent | ColorMetrics | undefined } color
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fillColor(color: ResourceColor | ColorContent | ColorMetrics | undefined): this;
@@ -471,6 +523,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     fit its container, Default value is ImageFit.Cover.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default objectFit(value: ImageFit | undefined): this;
@@ -480,6 +533,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ImageMatrix | undefined } matrix
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default imageMatrix(matrix: ImageMatrix | undefined): this;
@@ -494,6 +548,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ImageRepeat | undefined } value - How the image is repeated, Default value is ImageRepeat.NoRepeat.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default objectRepeat(value: ImageRepeat | undefined): this;
@@ -509,6 +564,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * during image decoding, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default autoResize(value: boolean | undefined): this;
@@ -525,6 +581,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     Default value is ImageRenderMode.Original.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default renderMode(value: ImageRenderMode | undefined): this;
@@ -539,6 +596,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @returns { ImageAttribute } Returns the instance of the ImageAttribute, Default value is
      * dynamicRangeMode.Standard.
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
+     * @stagemodelonly
      * @since 23 static
      */
     default dynamicRangeMode(value: DynamicRangeMode | undefined): this;
@@ -548,6 +606,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { double | undefined } brightness - Control the brightness of HDR Image, Default value is 1.0.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hdrBrightness(brightness: double | undefined): this;
@@ -563,6 +622,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     Default value is ImageInterpolation.Low.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default interpolation(value: ImageInterpolation | undefined): this;
@@ -580,6 +640,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ImageSourceSize | undefined } value - Decoding size of the image.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default sourceSize(value: ImageSourceSize | undefined): this;
@@ -593,6 +654,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Whether to load the image synchronously, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default syncLoad(value: boolean | undefined): this;
@@ -606,9 +668,23 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ColorFilter | DrawingColorFilter | undefined } value -  Color filter of the image.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default colorFilter(value: ColorFilter | DrawingColorFilter | undefined): this;
+    /**
+     * Sets the color filter for the image.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>When this attribute is set, renderMode is not effective.
+     * </p>
+     *
+     * @param { ColorFilter | DrawingColorFilter | ResourceColor | undefined } value - Color filter of the image.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default colorFilter(value: ColorFilter | DrawingColorFilter | ResourceColor | undefined): this;
     /**
      * Whether the image can be copied.
      *
@@ -621,6 +697,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     copied, Default value is CopyOptions.None.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default copyOption(value: CopyOptions | undefined): this;
@@ -634,6 +711,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Whether the image is draggable, Default value is true.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default draggable(value: boolean | undefined): this;
@@ -644,6 +722,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @returns { ImageAttribute } The attribute of the image.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     default pointLight(value: PointLightStyle | undefined): this;
@@ -656,6 +735,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @returns { ImageAttribute } The attribute of the image.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     default edgeAntialiasing(value: double | undefined): this;
@@ -666,6 +746,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ImageOnCompleteCallback | undefined } callback
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onComplete(callback: ImageOnCompleteCallback | undefined): this;
@@ -680,6 +761,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ImageErrorCallback | undefined } callback
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onError(callback: ImageErrorCallback | undefined): this;
@@ -696,6 +778,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onFinish(event: VoidCallback | undefined): this;
@@ -720,6 +803,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { boolean | undefined} enable - Whether to enable the AI analyzer, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
+     * @stagemodelonly
      * @since 23 static
      */
     default enableAnalyzer(enable: boolean | undefined): this;
@@ -730,6 +814,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     default analyzerConfig(config: ImageAnalyzerConfig | undefined): this;
@@ -749,6 +834,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ResizableOptions | undefined } value - 	Resizable image options.
      * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default resizable(value: ResizableOptions | undefined): this;
@@ -758,6 +844,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { boolean | undefined } supported - Whether to support sensitive privacy information.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default privacySensitive(supported: boolean | undefined): this;
@@ -768,6 +855,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     default enhancedImageQuality(imageQuality: ResolutionQuality | undefined): this;
@@ -778,6 +866,7 @@ export declare interface ImageAttribute extends CommonMethod {
      *     image content, Default value is ImageRotateOrientation.UP.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default orientation(orientation: ImageRotateOrientation | undefined): this;
@@ -786,6 +875,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - switch
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default supportSvg2(enable: boolean | undefined): this;
@@ -794,6 +884,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { ContentTransitionEffect | undefined } transition - Animation effect
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentTransition(transition: ContentTransitionEffect | undefined): this;
@@ -803,6 +894,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { boolean | undefined } isAntialiased 
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default antialiased(isAntialiased: boolean | undefined): this;
@@ -812,6 +904,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * @param { AttributeModifier<ImageAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ImageAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -822,6 +915,7 @@ export declare interface ImageAttribute extends CommonMethod {
  * @typedef { function } ImageErrorCallback
  * @param { ImageError } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ImageErrorCallback = (error: ImageError) => void;
@@ -831,12 +925,14 @@ export type ImageErrorCallback = (error: ImageError) => void;
  * @typedef { function } ImageOnCompleteCallback
  * @param { ImageCompleteEvent } [loadEvent]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ImageOnCompleteCallback = (loadEvent?: ImageCompleteEvent) => void;
 /**
  * @interface ImageError
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ImageError {
@@ -845,6 +941,7 @@ export declare interface ImageError {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     componentWidth: int;
@@ -853,6 +950,7 @@ export declare interface ImageError {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     componentHeight: int;
@@ -861,6 +959,7 @@ export declare interface ImageError {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     message: string;
@@ -869,6 +968,7 @@ export declare interface ImageError {
      *
      * @type { ?BusinessError<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     error?: BusinessError<void>;
@@ -877,6 +977,7 @@ export declare interface ImageError {
      *
      * @type { ?RequestDownloadInfo }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     downloadInfo?: RequestDownloadInfo;
@@ -886,6 +987,7 @@ export declare interface ImageError {
  *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ResizableOptions {
@@ -894,6 +996,7 @@ export declare interface ResizableOptions {
      *
      * @type { ?EdgeWidths }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     slice?: EdgeWidths;
@@ -902,6 +1005,7 @@ export declare interface ResizableOptions {
      *
      * @type { ?DrawingLattice }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     lattice?: DrawingLattice;

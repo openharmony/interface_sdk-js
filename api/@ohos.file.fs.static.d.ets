@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -2356,7 +2357,8 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>This option is supported starting from API version 26.0.0.
  * @returns { Promise<File> } Promise used to return the File object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2386,7 +2388,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 26.0.0 static
+ * @since 23 static
  */
 function open(path: string, mode?: int): Promise<File>;
 
@@ -2447,7 +2449,8 @@ function open(path: string, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>This option is supported starting from API version 26.0.0.
  * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
  *     <br>the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2477,7 +2480,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 26.0.0 static
+ * @since 23 static
  */
 function open(path: string, mode: int, callback: AsyncCallback<File>): void;
 
@@ -2500,7 +2503,8 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>This option is supported starting from API version 26.0.0.
  * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2530,7 +2534,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 26.0.0 static
+ * @since 23 static
  */
 function openSync(path: string, mode?: int): File;
 
@@ -3356,8 +3360,8 @@ function unlinkSync(path: string): void;
  * Changes the time when the file was last modified.
  *
  * @param { string } path - Application sandbox path of the file.
- * @param { double } mtime - New timestamp. The value is the number of milliseconds elapsed since
- *     <br>the Epoch time (00:00:00 UTC on January 1, 1970). Only the last access time of a file can be modified.
+ * @param { double } mtime - New timestamp. The value is the number of milliseconds elapsed since the Epoch
+ *     time (00:00:00 UTC on January 1, 1970). Only the time when the file was last modified can be changed.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -5807,7 +5811,7 @@ export interface ListFileOptions {
   /**
    * Whether to list all files in the subdirectories recursively. This parameter is optional.
    * The default value is false. If recursion is false, the names of files and directories that meet the filtering
-   * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
+   * requirements in the current directory are returned. If recursion is true, relative paths (starting with"/")
    * of all files that meet the specified conditions in the current directory are returned.
    *
    * @type { ?boolean }
@@ -5836,7 +5840,7 @@ export interface ListFileOptions {
 }
 
 /**
- * Defines the file name filtering interface used by listFile().
+ * Defines the file name filtering interface used by listFileExt().
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -5844,7 +5848,7 @@ export interface ListFileOptions {
  */
 export interface FileFilter {
   /**
-   * Filter function, which is used to determine whether the specified file name should be included in the file list.
+   * Filtering function, which determines whether the specified file name should be included in the file list.
    *
    * Note: This function is frequently invoked. Avoid time-consuming operations, such as file I/O and network requests.
    *
@@ -5868,7 +5872,7 @@ export interface ListFileExtOptions {
   /**
    * Whether to list all files in the subdirectories recursively. This parameter is optional.
    * The default value is false. If recursion is false, the names of files and directories that meet the filtering
-   * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
+   * requirements in the current directory are returned. If recursion is true, relative paths (starting with"/")
    * of all files that meet the specified conditions in the current directory are returned.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
