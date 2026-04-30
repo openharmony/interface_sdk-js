@@ -92,7 +92,7 @@ declare namespace commonType {
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
-     * @since 23 static上
+     * @since 23 static
      */
     ASSET_DOWNLOADING
   }
