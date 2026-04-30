@@ -22,7 +22,15 @@ import UIAbilityContext from './application/UIAbilityContext';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * The appRecovery module provides APIs for recovering faulty applications.
+ * appRecovery模块提供了应用在故障状态下的恢复能力。
+ * 
+ * > **说明：**
+ * >
+ * > API9仅支持单进程中单Ability的应用恢复。
+ * >
+ * > API10支持进程中包含多个Ability的场景。
+ * >
+ * > API24支持发生CPP_CRASH时应用恢复。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 11]
@@ -31,8 +39,7 @@ import Want from './@ohos.app.ability.Want';
  */
 declare namespace appRecovery {
   /**
-   * Enumerates the application restart flags. This enum is used as an input parameter of 
-   * [enableAppRecovery]{@link appRecovery.enableAppRecovery}.
+   * 应用重启标志，[enableAppRecovery]{@link appRecovery.enableAppRecovery}接口重启选项参数，该类型为枚举。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -41,7 +48,7 @@ declare namespace appRecovery {
    */
   enum RestartFlag {
     /**
-     * The application is restarted in all cases.
+     * 总是重启应用。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -51,7 +58,7 @@ declare namespace appRecovery {
     ALWAYS_RESTART = 0,
 
     /**
-     * The application is restarted in the case of JS_CRASH.
+     * 发生JS_CRASH时重启应用。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -61,7 +68,7 @@ declare namespace appRecovery {
     RESTART_WHEN_JS_CRASH = 0x0001,
 
     /**
-     * The application is restarted in the case of APP_FREEZE.
+     * 发生APP_FREEZE时重启应用。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -71,7 +78,7 @@ declare namespace appRecovery {
     RESTART_WHEN_APP_FREEZE = 0x0002,
 
     /**
-     * The application is not restarted in any case.
+     * 总是不重启应用。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -81,7 +88,9 @@ declare namespace appRecovery {
     NO_RESTART = 0xFFFF,
   
     /**
-     * Restart if the current app process encounters a cppcrash
+     * 发生CPP_CRASH时重启应用。
+     * 
+     * **模型约束**：此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -92,8 +101,7 @@ declare namespace appRecovery {
   }
 
   /**
-   * Enumerates the scenarios for saving the application state. This enum is used as an input parameter of 
-   * [enableAppRecovery]{@link appRecovery.enableAppRecovery}.
+   * 保存条件标志，[enableAppRecovery]{@link appRecovery.enableAppRecovery}接口状态保存时的选项参数，该类型为枚举。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -102,7 +110,7 @@ declare namespace appRecovery {
    */
   enum SaveOccasionFlag {
     /**
-     * Saving the application state when an application fault occurs.
+     * 当发生应用故障时保存。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -112,7 +120,7 @@ declare namespace appRecovery {
     SAVE_WHEN_ERROR = 0x0001,
 
     /**
-     * Saving the application state when the application is switched to the background.
+     * 当应用切入后台时保存。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -123,8 +131,7 @@ declare namespace appRecovery {
   }
 
   /**
-   * Enumerates the application state saving modes. This enum is used as an input parameter of 
-   * [enableAppRecovery]{@link appRecovery.enableAppRecovery}.
+   * 状态保存标志，[enableAppRecovery]{@link appRecovery.enableAppRecovery}接口状态保存方式的参数，该类型为枚举。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
@@ -133,7 +140,7 @@ declare namespace appRecovery {
    */
   enum SaveModeFlag {
     /**
-     * The application state is saved and written to the local file cache.
+     * 每次状态保存都会写入到本地文件缓存。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -143,8 +150,7 @@ declare namespace appRecovery {
     SAVE_WITH_FILE = 0x0001,
 
     /**
-     * The application state is saved in the memory. When the application exits due to a fault, it is written to the 
-     * local file cache.
+     * 状态先保存在内存中，应用故障退出时写入到本地文件缓存。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 11]
@@ -155,15 +161,11 @@ declare namespace appRecovery {
   }
 
   /**
-   * Enables application recovery. After this API is called, the first ability that is displayed when the application is
-   * started from the initiator can be restored.
+   * 使能应用恢复功能，参数按顺序填入。该接口调用后，应用从启动器启动时第一个Ability支持恢复。
    *
-   * @param { RestartFlag } [restart] - Whether the application is restarted upon a fault. By default, the application
-   *     is restarted.
-   * @param { SaveOccasionFlag } [saveOccasion] - Scenario for saving the application state. By default, the state is
-   *     saved when a fault occurs.
-   * @param { SaveModeFlag } [saveMode] - Application state saving mode. By default, the application state is written to
-   *     the local file cache.
+   * @param { RestartFlag } [restart] - 枚举类型，发生对应故障时是否重启，默认为重启。
+   * @param { SaveOccasionFlag } [saveOccasion] - 枚举类型，状态保存时机，默认为故障时保存。
+   * @param { SaveModeFlag } [saveMode] - 枚举类型，状态保存方式， 默认为文件缓存。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice [since 11]
@@ -173,23 +175,18 @@ declare namespace appRecovery {
   function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag) : void;
 
   /**
-   * Restarts the current process and starts the first ability that is displayed when the application is started. If the
-   * state of this ability is saved, the saved state data is passed into the **wantParam** property in the **want** 
-   * parameter of the **onCreate** lifecycle callback of the ability.
+   * 重启当前进程，并拉起应用启动时第一个Ability，如果该Ability存在已经保存的状态，这些状态数据会在Ability的onCreate生命周期回调的want参数中作为wantParam属性传入。
    * 
-   * In API version 10, the ability specified by [setRestartWant]{@link appRecovery.setRestartWant} is started. If no 
-   * ability is specified, the following rules are used:
+   * API10时将启动由[setRestartWant]{@link appRecovery.setRestartWant}指定的Ability。如果没有指定则按以下规则启动：
    * 
-   * If the ability of the current application running in the foreground supports recovery, that ability is started.
+   * 如果当前应用前台的Ability支持恢复，则重新拉起该Ability。
    * 
-   * If multiple abilities that support recovery is running in the foreground, only the last ability is started.
+   * 如果存在多个支持恢复的Ability处于前台，则只拉起最后一个。
    * 
-   * If no ability is running in the foreground, none of them is started.
+   * 如果没有Ability处于前台，则不拉起。
    * 
-   * This API can be used together with the APIs of [errorManager]{@link @ohos.app.ability.errorManager:errorManager}. 
-   * The interval between two restarts must be greater than one minute. If this API is called repeatedly within one 
-   * minute, the application exits but does not restart. The behavior of automatic restart is the same as that of 
-   * proactive restart.
+   * 可以配合[errorManager]{@link @ohos.app.ability.errorManager:errorManager}相关接口使用。两次重启的间隔应大于一分钟，一分钟之内重复调用此接口只会退出应用不会重启应用。
+   * 自动重启的行为与主动重启一致。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -200,10 +197,9 @@ declare namespace appRecovery {
   function restartApp(): void;
 
   /**
-   * Sets an ability that will be recovered. The ability must be a UIAbility in the current bundle.
+   * 设置下次恢复主动拉起场景下的Ability。该Ability必须为当前包下的UIAbility。
    *
-   * @param { Want } want - Want of the target ability. You can set the **bundleName** and **abilityName** fields in
-   *     **Want** to specify the ability.
+   * @param { Want } want - 通过设置Want中"bundleName"和"abilityName"字段来指定恢复重启的Ability。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice [since 11]
@@ -213,10 +209,9 @@ declare namespace appRecovery {
   function setRestartWant(want: Want): void;
 
   /**
-   * Saves the application state. This API can be used together with the APIs of 
-   * [errorManager]{@link @ohos.app.ability.errorManager:errorManager}.
+   * 保存当前App状态，可以配合[errorManager]{@link @ohos.app.ability.errorManager:errorManager}相关接口使用。
    *
-   * @returns { boolean } Whether the application state is saved. **true** if saved, **false** otherwise.
+   * @returns { boolean } 保存成功与否。true：保存成功，false：保存失败。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice [since 11]
@@ -225,11 +220,10 @@ declare namespace appRecovery {
    */
   function saveAppState(): boolean;
   /**
-   * Saves the ability state, which will be used for recovery. This API can be used together with the APIs of 
-   * [errorManager]{@link @ohos.app.ability.errorManager:errorManager}.
+   * 主动保存Ability的状态，这个状态将在下次恢复启动时使用。可以配合[errorManager]{@link @ohos.app.ability.errorManager:errorManager}相关接口使用。
    *
-   * @param { UIAbilityContext } [context] - Context of the target ability.
-   * @returns { boolean } Whether the application state is saved. **true** if saved, **false** otherwise.
+   * @param { UIAbilityContext } [context] - 需要保存状态的UIAbility所对应的context。
+   * @returns { boolean } 保存成功与否。true：保存成功，false：保存失败。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice [since 11]
