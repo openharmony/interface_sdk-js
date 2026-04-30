@@ -26,6 +26,7 @@ import { Vec3, Quaternion } from './SceneTypes';
  * Boids simulation parameters bound per-boid.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
@@ -34,6 +35,7 @@ export interface BoidsSimParameters {
    * Initial velocity of the boid. Default: (0, 0, 0).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -44,6 +46,7 @@ export interface BoidsSimParameters {
    * Default: (NaN, NaN, NaN).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -54,6 +57,7 @@ export interface BoidsSimParameters {
    * Default: (NaN, NaN, NaN, NaN).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -65,6 +69,7 @@ export interface BoidsSimParameters {
    * boundaryMaxPos, this boid is considered unbounded. Default: (0, 0, 0).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -74,24 +79,27 @@ export interface BoidsSimParameters {
    * Upper corner of the axis-aligned bounding box constraining boid movement. Default: (0, 0, 0).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   boundaryMaxPos?: Vec3;
 
   /**
-   * Maximum speed the boid can reach per simulation frame. Range: [0, +inf).
+   * Maximum speed the boid can reach per simulation frame. Range: [0, +inf). Default: approximately 0.625.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   maxVelocityMag?: double;
 
   /**
-   * Maximum acceleration the boid can reach per simulation frame. Range: [0, +inf).
+   * Maximum acceleration the boid can reach per simulation frame. Range: [0, +inf). Default: approximately 39.06.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -99,17 +107,20 @@ export interface BoidsSimParameters {
 
   /**
    * Per-axis rotation limit in radians per simulation frame. Range: [0, +inf) per axis.
+   * Default: approximately 0.0377 per axis.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   maxTurnRate?: Vec3;
 
   /**
-   * How strongly the boid steers away from nearby neighbours within separationDistance. Range: [0, +inf).
+   * How strongly the boid steers away from nearby neighbours within separationDistance. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -117,9 +128,10 @@ export interface BoidsSimParameters {
 
   /**
    * Perception radius for the separation rule. Only boids strictly within this distance contribute
-   * to separation force (force is zero at the boundary). Range: [0, +inf).
+   * to separation force (force is zero at the boundary). Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -127,9 +139,10 @@ export interface BoidsSimParameters {
 
   /**
    * How strongly the boid steers to match the average heading of neighbours within alignmentDistance.
-   * Range: [0, +inf).
+   * Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -137,9 +150,10 @@ export interface BoidsSimParameters {
 
   /**
    * Perception radius for the alignment rule. Boids within this distance (inclusive) contribute
-   * to alignment force. Range: [0, +inf).
+   * to alignment force. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -147,9 +161,10 @@ export interface BoidsSimParameters {
 
   /**
    * How strongly the boid steers toward the average position of neighbours within cohesionDistance.
-   * Range: [0, +inf).
+   * Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -157,45 +172,50 @@ export interface BoidsSimParameters {
 
   /**
    * Perception radius for the cohesion rule. Boids within this distance (inclusive) contribute
-   * to cohesion force. Range: [0, +inf).
+   * to cohesion force. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   cohesionDistance?: double;
 
   /**
-   * How strongly the boid is pushed back when within boundaryDistance of the boundary box edges. Range: [0, +inf).
+   * How strongly the boid is pushed back when within boundaryDistance of the boundary box edges. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   boundaryWeight?: double;
 
   /**
-   * Distance from boundary walls within which the boundary repulsion force takes effect. Range: [0, +inf).
+   * Distance from boundary walls within which the boundary repulsion force takes effect. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   boundaryDistance?: double;
 
   /**
-   * How strongly gravity field entities attract this boid. Range: [0, +inf).
+   * How strongly gravity field entities attract this boid. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   gravityWeight?: double;
 
   /**
-   * How strongly repulsion field entities push this boid away. Range: [0, +inf).
+   * How strongly repulsion field entities push this boid away. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -206,24 +226,27 @@ export interface BoidsSimParameters {
  * Boids simulation gravity field parameters.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
 export interface BoidsSimGravityParameters {
   /**
    * Radius of influence. Boids strictly within this distance from the entity are attracted
-   * (force is zero at the boundary). Range: [0, +inf).
+   * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   radius?: double;
 
   /**
-   * Magnitude of gravitational acceleration applied toward the entity. Range: [0, +inf).
+   * Magnitude of gravitational acceleration applied toward the entity. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -234,24 +257,27 @@ export interface BoidsSimGravityParameters {
  * Boids simulation repulsion field parameters.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
 export interface BoidsSimRepulsionParameters {
   /**
    * Radius of influence. Boids strictly within this distance from the entity are pushed away
-   * (force is zero at the boundary). Range: [0, +inf).
+   * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   radius?: double;
 
   /**
-   * Magnitude of repulsion acceleration applied away from the entity. Range: [0, +inf).
+   * Magnitude of repulsion acceleration applied away from the entity. Range: [0, +inf). Default: 0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -262,6 +288,7 @@ export interface BoidsSimRepulsionParameters {
  * Boids simulation world interface. Provides playback control and component management for boids simulation.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
@@ -270,6 +297,7 @@ export declare class BoidsSimWorld {
    * Start or resume the simulation.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -279,6 +307,7 @@ export declare class BoidsSimWorld {
    * Pause the simulation.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -288,6 +317,7 @@ export declare class BoidsSimWorld {
    * Stop the simulation and reset all boids to their initial state.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -296,7 +326,9 @@ export declare class BoidsSimWorld {
   /**
    * Whether the simulation is currently playing.
    *
+   * @returns { boolean } whether the simulation is currently playing.
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -308,6 +340,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to add the component to
    * @param { BoidsSimParameters } param - boids simulation parameters
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -319,6 +352,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to add the component to
    * @param { BoidsSimGravityParameters } param - gravity field parameters
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -330,6 +364,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to add the component to
    * @param { BoidsSimRepulsionParameters } param - repulsion field parameters
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -341,6 +376,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to update
    * @param { BoidsSimParameters } param - boids simulation parameters
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -352,6 +388,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to update
    * @param { BoidsSimGravityParameters } param - gravity field parameters
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -363,6 +400,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to update
    * @param { BoidsSimRepulsionParameters } param - repulsion field parameters
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -374,6 +412,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to query
    * @returns { BoidsSimParameters | null } boids simulation parameters, or null if not found
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -385,6 +424,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to query
    * @returns { BoidsSimGravityParameters | null } gravity field parameters, or null if not found
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -396,6 +436,7 @@ export declare class BoidsSimWorld {
    * @param { Node } node - the node to query
    * @returns { BoidsSimRepulsionParameters | null } repulsion field parameters, or null if not found
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -406,6 +447,7 @@ export declare class BoidsSimWorld {
    *
    * @param { Node } node - the node to remove the component from
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -416,6 +458,7 @@ export declare class BoidsSimWorld {
    *
    * @param { Node } node - the node to remove the component from
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -426,6 +469,7 @@ export declare class BoidsSimWorld {
    *
    * @param { Node } node - the node to remove the component from
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -436,6 +480,7 @@ export declare class BoidsSimWorld {
  * Boids simulation plugin. Provides static methods to manage boids simulation components.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
@@ -446,6 +491,7 @@ export declare class BoidsSimPlugin {
    * @param { Scene } scene - the scene to get the boids simulation world from
    * @returns { BoidsSimWorld | null } boids simulation world, or null if the plugin is not loaded
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
