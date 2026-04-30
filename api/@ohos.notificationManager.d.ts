@@ -3765,6 +3765,27 @@ declare namespace notificationManager {
   function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
+   * Delays a notification to remind again after a specified time interval.
+   * This API allows to snooze a notification and be alerted again after a given time.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - The hashCode of the notification to snooze.
+   * @param { long } delayTime - The time interval in seconds to delay the reminder.
+   * @returns { Promise<void> } Returns the promise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600028 - This notification is not supported.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
+
+  /**
    * Describes the switch state of notifications.
    *
    * @syscap SystemCapability.Notification.Notification
