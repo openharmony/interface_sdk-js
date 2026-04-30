@@ -1238,6 +1238,27 @@ declare namespace call {
   function setCallWaiting(slotId: int, activate: boolean): Promise<void>;
 
   /**
+   * Get call forwarding information with phone number.
+   *
+   * @permission ohos.permission.GET_CALL_TRANSFER_INFO
+   * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
+   * @param { string } number - Indicates which number for getting the call forwarding status.
+   *     and we will check the crad is present
+   * @returns { Promise<CallTransferResult> } Returns the call forwarding status.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8401002 - Invalid input call number.
+   * @throws { BusinessError } 8401003 - Operation too frequent.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function getCallTransferInfo(type: CallTransferType, number: string): Promise<CallTransferResult>;
+
+  /**
    * Start DTMF(Dual Tone Multi Frequency).
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
@@ -5173,6 +5194,12 @@ declare namespace call {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Indicates the start time hours of call forwarding.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 26.0.0 dynamic&static
+     */
     startHour: int;
 
     /**
@@ -5183,6 +5210,12 @@ declare namespace call {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Indicates the start time minutes of call forwarding.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 26.0.0 dynamic&static
      */
     startMinute: int;
 
@@ -5195,6 +5228,12 @@ declare namespace call {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Indicates the end time hours of call forwarding.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 26.0.0 dynamic&static
+     */
     endHour: int;
 
     /**
@@ -5205,6 +5244,12 @@ declare namespace call {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Indicates the end time minutes of call forwarding.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 26.0.0 dynamic&static
      */
     endMinute: int;
   }
