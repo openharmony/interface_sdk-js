@@ -1,5 +1,6 @@
+'use static'
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,26 +19,31 @@
  * @kit AbilityKit
  */
 
-import type AppStateData from './AppStateData';
+import AppStateData from './AppStateData';
 
 /**
- * The module defines the listener used to listen for application startup and exit state changes. It can be used as an 
- * input parameter of 
- * [appManager.on('appForegroundState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'appForegroundState', observer: AppForegroundStateObserver)}
+ * The module defines the listener used to listen for application startup and exit state changes. It can be used as an
+ * input parameter of
+ * [appManager.on('appForegroundState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type:
+ * 'appForegroundState', observer: AppForegroundStateObserver)}
  * to listen for the state changes of all applications.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11 dynamic
+ * @FaAndStageModel
+ * @since 23 static
  */
-export default class AppForegroundStateObserver {
+declare interface AppForegroundStateObserver {
   /**
    * Called when the application launch or exit state changes.
    *
    * @param { AppStateData } appStateData - Application state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onAppStateChanged(appStateData: AppStateData): void;
 }
+
+export default AppForegroundStateObserver;
