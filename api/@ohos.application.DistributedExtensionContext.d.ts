@@ -66,7 +66,9 @@ declare class DistributedExtensionContext extends ExtensionContext {
    *
    * @param { long } connection - the connection id returned from connectServiceExtensionAbility
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000003 - The connection id does not exist.
+   * @throws { BusinessError } 16000011 - The ability has been destroyed. The context is no longer valid, 
+   *     meaning the context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
