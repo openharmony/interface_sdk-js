@@ -7708,6 +7708,17 @@ declare namespace text {
      * @since 23 static
      */
     getAdvances(range: Range): Array<common2D.Point> | undefined;
+
+    /**
+     * Obtains the text style of this run.
+     *
+     * @returns { TextStyle } Text style of this run.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getTextStyle(): TextStyle;
   }
 
   /**
