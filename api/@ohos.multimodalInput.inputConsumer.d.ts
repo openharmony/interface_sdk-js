@@ -41,7 +41,7 @@ declare namespace inputConsumer {
   export enum KeyCommandTriggerType {
 
     /**
-     * Triggered when pressed
+     * Triggered when pressed.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -51,7 +51,7 @@ declare namespace inputConsumer {
     PRESSED = 1,
 
     /**
-     * Triggered when pressed repeatedly
+     * Triggered when pressed repeatedly.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -61,7 +61,7 @@ declare namespace inputConsumer {
     REPEAT_PRESSED = 2,
 
     /**
-     * Continuous triggering, from pressing until all keys are released
+     * Continuous triggering, from pressing until all keys are released.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -147,7 +147,8 @@ declare namespace inputConsumer {
 
     /**
      * Trigger type, which indicates that the conditions for triggering the callback expected by the
-     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored.
+     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored. This property
+     * is only for use in APIs that take KeyCommandCallback as the callback function and must be specified.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -281,8 +282,8 @@ declare namespace inputConsumer {
   /**
    * Callback function when the shortcut key registered by the system application meets the conditions.
    *
-   * @param { KeyOptions } keyOptions. - Options for registering shortcut keys when the system applies
-   * @param { KeyEvent } keyEvent - Key event when a shortcut key is triggered
+   * @param { KeyOptions } keyOptions - Options for registering shortcut keys when the system applies.
+   * @param { KeyEvent } keyEvent - Key event when a shortcut key is triggered.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
