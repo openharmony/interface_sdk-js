@@ -12990,6 +12990,31 @@ declare namespace window {
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
     /**
+     *  Set the window mask using a per-pixel alpha array
+     *
+     * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparency values.
+     *     Valid range: 0(full transparent) to 255(full opaque), size must equal (maskWidth * maskHeight).
+     * @param { int } maskWidth - Mask width in pixels. Must equal the target window width.
+     * @param { int } maskHeight - Mask height in pixels. Must equal the target window height.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: 1. The window is not created or destroyed;
+     *                     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. The maskWidth is not equal to the window width or the maskHeight is not equal to the window height.
+     *     2. The length of windowMask is not equal to maskWidth multiplied by maskHeight.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setWindowMaskWithAlpha(windowMask: Uint8Array, maskWidth: int, maskHeight: int): Promise<void>;
+
+    /**
      *  Clear the window mask of window
      *
      * @returns { Promise<void> } Promise that returns no value.
