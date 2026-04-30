@@ -521,6 +521,7 @@ export type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum MessageLevel {
@@ -528,6 +529,7 @@ export declare enum MessageLevel {
      * Debug level.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
      * @since 23 static
      */
     DEBUG = 1,
@@ -535,6 +537,7 @@ export declare enum MessageLevel {
      * Info level.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
      * @since 23 static
      */
     INFO = 2,
@@ -542,6 +545,7 @@ export declare enum MessageLevel {
      * Warn level.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
      * @since 23 static
      */
     WARN = 3,
@@ -549,6 +553,7 @@ export declare enum MessageLevel {
      * Error level.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
      * @since 23 static
      */
     ERROR = 4,
@@ -556,10 +561,11 @@ export declare enum MessageLevel {
      * Log level.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
      * @since 23 static
-     * @deprecated since 26.0.0 static
+     * @deprecated since 26.0.0
      */
-    LOG
+    LOG = 5
 }
 /**
  * The source of console message.
