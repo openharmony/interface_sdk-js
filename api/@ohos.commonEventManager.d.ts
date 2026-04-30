@@ -1857,6 +1857,17 @@ declare namespace commonEventManager {
     COMMON_EVENT_USB_ACCESSORY_DETACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED',
 
     /**
+     * Indicates that the local host receives a user-defined control transmission request from the USB host.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+	 * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_USB_CONTROL_DATA = 'usual.event.hardware.usb.action.USB_CONTROL_DATA',
+
+    /**
      * (Reserved, not supported yet) Indicates that an external storage device was removed.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.STORAGE_MANAGER** permission.
