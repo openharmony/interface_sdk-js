@@ -146,6 +146,14 @@ export interface PlayParameters {
    */
   rightVolume?: double;
   /**
+   * Pitch of the sound. The value ranges from 0.25 to 4.0 with a step size of 0.001. The Deault pitch is 1.0.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pitch?: double;
+  /**
    * Playback priority. The value **0** means the lowest priority. A larger value indicates a higher priority.
    * The value is an integer greater than or equal to 0. Default value: **0**.
    *
