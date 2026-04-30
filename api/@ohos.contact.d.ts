@@ -66,24 +66,12 @@ declare namespace contact {
    * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
    * creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 12]
    * @since 10
-   */
-  /**
-   * Creates a contact.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
-   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
-   * creation fails.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 12
    */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
@@ -110,23 +98,12 @@ declare namespace contact {
    * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
    * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 12]
    * @since 10
-   */
-  /**
-   * Creates a contact.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 12
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
 
@@ -782,7 +759,8 @@ declare namespace contact {
    * Only full match is supported, and wildcards are not supported.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty. 
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -815,7 +793,8 @@ declare namespace contact {
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty. 
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -848,7 +827,8 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty. 
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -885,7 +865,8 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty. 
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -923,7 +904,8 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty. 
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1255,7 +1237,9 @@ declare namespace contact {
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1286,7 +1270,9 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1317,7 +1303,9 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 
+   * 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 
+   * 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1499,6 +1487,18 @@ declare namespace contact {
      * @since 15
      */
     isDisplayedByName?: boolean;
+
+    /**
+     * Indicates whether the contact picker is automatically closed when page routing is performed,for example, when the application is in the background.
+     * 
+     * The default value is false
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    isAutoDismissOnNavigation?: boolean;
   }
 
   /**

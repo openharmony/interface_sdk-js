@@ -23,6 +23,7 @@
  *
  * @interface SurfaceRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
  */
@@ -31,6 +32,7 @@
  *
  * @interface SurfaceRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -43,6 +45,7 @@ declare interface SurfaceRect {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -51,6 +54,7 @@ declare interface SurfaceRect {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -64,6 +68,7 @@ declare interface SurfaceRect {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -72,6 +77,7 @@ declare interface SurfaceRect {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -84,6 +90,7 @@ declare interface SurfaceRect {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -92,6 +99,7 @@ declare interface SurfaceRect {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -104,6 +112,7 @@ declare interface SurfaceRect {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -112,6 +121,7 @@ declare interface SurfaceRect {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -124,6 +134,7 @@ declare interface SurfaceRect {
  *
  * @interface SurfaceRotationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
  */
@@ -132,6 +143,7 @@ declare interface SurfaceRect {
  *
  * @interface SurfaceRotationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -143,6 +155,7 @@ declare interface SurfaceRotationOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -151,6 +164,7 @@ declare interface SurfaceRotationOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -163,6 +177,7 @@ declare interface SurfaceRotationOptions {
  *
  * @interface SurfaceConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 22 dynamic
  */
@@ -175,6 +190,7 @@ declare interface SurfaceConfig {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -277,6 +293,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRect } rect - Rectangle of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -285,6 +302,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRect } rect - The surface rectangle information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -297,6 +315,7 @@ declare class XComponentController {
    *
    * @returns { SurfaceRect } Rectangle of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -305,6 +324,7 @@ declare class XComponentController {
    *
    * @returns { SurfaceRect } The surface rectangle information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -317,6 +337,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRotationOptions } rotationOptions - Whether to lock the orientation of the surface held by the current XComponent when the screen rotates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -325,6 +346,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -337,6 +359,7 @@ declare class XComponentController {
    *
    * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -345,6 +368,7 @@ declare class XComponentController {
    *
    * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -357,6 +381,7 @@ declare class XComponentController {
    *
    * @param { string } surfaceId - ID of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -365,6 +390,7 @@ declare class XComponentController {
    *
    * @param { string } surfaceId - The id of the surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -378,6 +404,7 @@ declare class XComponentController {
    * @param { string } surfaceId - ID of the surface held by the XComponent.
    * @param { SurfaceRect } rect - Rectangle for displaying the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -387,6 +414,7 @@ declare class XComponentController {
    * @param { string } surfaceId - The id of the surface created by XComponent.
    * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -399,6 +427,7 @@ declare class XComponentController {
    *
    * @param { string } surfaceId - ID of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -407,6 +436,7 @@ declare class XComponentController {
    *
    * @param { string } surfaceId - The id of the surface created by XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -425,6 +455,7 @@ declare class XComponentController {
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -435,6 +466,7 @@ declare class XComponentController {
    * The content displayed by the AI image analyzer will be destroyed.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -446,6 +478,7 @@ declare class XComponentController {
    * @returns { DrawingCanvas | null} Returns a Canvas for drawing into the surface created by XComponent.
    *    Returns null if the surface is not available.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -456,6 +489,7 @@ declare class XComponentController {
    *
    * @param { DrawingCanvas } canvas - The canvas previously obtained from lockCanvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -466,6 +500,7 @@ declare class XComponentController {
    *
    * @param { SurfaceConfig } config - surface config
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -477,6 +512,7 @@ declare class XComponentController {
  *
  * @interface XComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
  */
@@ -485,6 +521,7 @@ declare class XComponentController {
  *
  * @interface XComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -495,6 +532,7 @@ declare interface XComponentOptions {
    *
    * @type { XComponentType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -503,6 +541,7 @@ declare interface XComponentOptions {
    *
    * @type { XComponentType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -515,6 +554,7 @@ declare interface XComponentOptions {
    *
    * @type { XComponentController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -523,6 +563,7 @@ declare interface XComponentOptions {
    *
    * @type { XComponentController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -535,6 +576,7 @@ declare interface XComponentOptions {
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -546,6 +588,7 @@ declare interface XComponentOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 17 dynamic
    */
   screenId?: number;
@@ -556,6 +599,7 @@ declare interface XComponentOptions {
  *
  * @interface NativeXComponentParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 19 dynamic
  */
@@ -565,6 +609,7 @@ declare interface NativeXComponentParameters {
    *
    * @type { XComponentType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 19 dynamic
    */
@@ -575,6 +620,7 @@ declare interface NativeXComponentParameters {
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 19 dynamic
    */
@@ -655,6 +701,7 @@ interface XComponentInterface {
    * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -663,6 +710,7 @@ interface XComponentInterface {
    * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -675,6 +723,7 @@ interface XComponentInterface {
    * @param { XComponentOptions } options - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -684,6 +733,7 @@ interface XComponentInterface {
    * @param { XComponentOptions } options - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -696,6 +746,7 @@ interface XComponentInterface {
    * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the xcomponent for native developing.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 19 dynamic
    */
@@ -709,6 +760,7 @@ interface XComponentInterface {
  * @param { object } [event] - Context of the XComponent object.
  *                             The APIs contained in the context are defined at the native layer by developers.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -803,6 +855,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @param { boolean } enable - Whether to enable the AI image analyzer.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -814,6 +867,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @param { boolean } isSecure - Whether to enable the secure surface.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 13 dynamic
    */
@@ -826,6 +880,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 14
    */
   /**
@@ -834,6 +889,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @param { number } brightness - control the brightness of HDR video
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -859,6 +915,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 18 dynamic
    */
   enableTransparentLayer(enabled: boolean): XComponentAttribute;

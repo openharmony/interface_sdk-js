@@ -245,6 +245,7 @@ declare interface FlexOptions {
    * @type { ?FlexSpaceOptions }
    * @default {main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -257,6 +258,7 @@ declare interface FlexOptions {
  *
  * @interface FlexSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -268,6 +270,7 @@ declare interface FlexSpaceOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -279,6 +282,7 @@ declare interface FlexSpaceOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -404,6 +408,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
    * @returns { FlexAttribute } The attribute of the flex.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): FlexAttribute;

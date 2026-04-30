@@ -28,9 +28,10 @@ import {
 import { NotificationInfo as _NotificationInfo } from './notification/NotificationInfo';
 
 /**
- * Manages notifications extension subscription.
- * 
- * @namespace notificationExtensionSubscription
+ * The **notificationExtensionSubscription** module provides capabilities for managing notification extension, including
+ * opening the extension settings screen, subscribing to/unsubscribing from notification extension, and obtaining/
+ * setting the notification authorization status.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
@@ -38,9 +39,9 @@ import { NotificationInfo as _NotificationInfo } from './notification/Notificati
 declare namespace notificationExtensionSubscription {
   
   /**
-   * Opens the notification extension subscription settings page of the application, which is displayed in
-   * semi-modal mode and can be used to set the notification enabling and notification mode.
-   * This API uses a promise to return the result.
+   * Opens the settings screen of notification extension subscription in a semi-modal dialog box. On this screen, the 
+   * user can toggle on the **Allow access to notifications on this device** switch and grant access to notifications 
+   * for specified applications. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
@@ -56,9 +57,10 @@ declare namespace notificationExtensionSubscription {
   function openSubscriptionSettings(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Opens the notification extension subscription settings page of the application, which is displayed in
-   * semi-modal mode and can be used to set the notification enabling and notification mode.
-   * This API uses a promise to return the result.
+   * Opens the settings screen of notification extension subscription in a semi-modal dialog box. On this screen, the 
+   * user can toggle on the **Allow access to notifications on this device** switch and grant access to notifications 
+   * for specified applications. This API uses a promise to return the result. When the semi-modal window is closed, the
+   * user-defined authorization result is returned.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
@@ -74,10 +76,13 @@ declare namespace notificationExtensionSubscription {
   function openSubscriptionSettingsWithResult(context: UIAbilityContext): Promise<UserGrantSetting>;
 
   /**
-   * Subscribe the notification extension when the bluetooth addr is connected.
+   * Subscribes to the notification extension. You can subscribe to the notification extension only after obtaining the 
+   * unique address of the Bluetooth device by calling the APIs related to the 
+   * [Bluetooth modules](docroot://connectivity/connectivity-kit-intro.md#bluetooth). This API uses a promise to return 
+   * the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @param { NotificationExtensionSubscriptionInfo[] } info - The info to be subscribe.
+   * @param { NotificationExtensionSubscriptionInfo[] } info - List of subscribed notifications (in array).
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -90,7 +95,7 @@ declare namespace notificationExtensionSubscription {
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
   /**
-   * Unsubscribe the notification extension.
+   * Unsubscribes from the notification extension. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<void> } The promise returned by the function.
@@ -104,10 +109,13 @@ declare namespace notificationExtensionSubscription {
   function unsubscribe(): Promise<void>;
 
   /**
-   * Obtains the subscribe info.
+   * Obtains the subscription information about the notification extension of this application. This API uses a promise 
+   * to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<NotificationExtensionSubscriptionInfo[]> } The promise returned by the function.
+   * @returns { Promise<NotificationExtensionSubscriptionInfo[]> } Promise used to return the
+   *     [NotificationExtensionSubscriptionInfo[]]{@link ./notification/NotificationExtensionSubscriptionInfo:NotificationExtensionSubscriptionInfo}
+   *     array.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -118,10 +126,13 @@ declare namespace notificationExtensionSubscription {
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 
   /**
-   * Obtains the list of is third-party wearable application.
+   * Obtains all applications that have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented
+   *     [NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}.
+   *     This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<BundleOption[]> } Returns all enabled notification extension subscription applications.
+   * @returns { Promise<BundleOption[]> } Promise used to return the applications that have requested the
+   *     ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented NotificationSubscriberExtensionAbility.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -134,10 +145,12 @@ declare namespace notificationExtensionSubscription {
   function getAllSubscriptionBundles(): Promise<BundleOption[]>;
 
   /**
-   * Obtains whether the notification extension subscription is granted by user.
+   * Checks whether the **Allow access to notifications on this device** switch is toggled on. This API uses a promise 
+   * to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that this feature is
+   *     enabled, and **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -148,11 +161,16 @@ declare namespace notificationExtensionSubscription {
   function isUserGranted(): Promise<boolean>;
 
   /**
-   * Obtains whether the notification extension subscription of targetBundle is granted by user.
+   * Obtains the enabling state of the **Allow access to notifications on this device** switch
+   * of a specified application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } targetBundle - The bundle option to be query.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @param { BundleOption } targetBundle - Information about the target application. The application must have
+   *     requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented
+   *     [NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}.
+   *     Otherwise, error code 1600022 is returned.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that
+   *     the device notification access is enabled, and **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -166,12 +184,17 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedState(targetBundle: BundleOption): Promise<boolean>;
 
   /**
-   * Set the notification extension subscription state for targetBundle by user.
+   * Sets the enabling state of the **Allow access to notifications on this device** switch for a specified application.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } targetBundle - The bundle option.
-   * @param { boolean } enabled - Set enable or not.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { BundleOption } targetBundle - Information about the target application. The application must have
+   *     requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented
+   *     [NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}.
+   *     Otherwise, error code 1600022 is returned.
+   * @param { boolean } enabled - Whether to enable the device notification access. The value **true** indicates that
+   *     this functionality is enabled, and **false** indicates the opposite.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -185,11 +208,15 @@ declare namespace notificationExtensionSubscription {
   function setUserGrantedState(targetBundle: BundleOption, enabled: boolean): Promise<void>;
 
   /**
-   * Obtains the list of bundleOptions that have been granted by the user to targetBundle.
+   * Obtains the applications that are allowed to access device notifications.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } targetBundle -  The bundle option to be queried.
-   * @returns { Promise<BundleOption[]> } Return the list of bundle option which is enabled.
+   * @param { BundleOption } targetBundle -  Information about the target application.
+   *     The application must have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented
+   *     [NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}.
+   *     Otherwise, error code 1600022 is returned.
+   * @returns { Promise<BundleOption[]> } Promise used to return the applications obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -203,10 +230,11 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedEnabledBundles(targetBundle: BundleOption): Promise<BundleOption[]>;
 
   /**
-   * Obtains the list of grantedBundleInfo that have been granted by the user.
+   * Obtains the applications that are allowed to access device notifications. This API uses a promise to return the 
+   * result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<GrantedBundleInfo[]> } Return the list of bundleInfo which is enabled.
+   * @returns { Promise<GrantedBundleInfo[]> } Promise used to return the applications obtained.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -217,12 +245,17 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedEnabledBundles(): Promise<GrantedBundleInfo[]>;
 
   /**
-   * Set the state of BundleOptions that granted to targetBundle by user.
+   * Sets the enabling state of device notification access for the specified application.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } targetBundle - The bundle option to be set.
-   * @param { BundleOption[] } enabledBundles - The bundle option to be config.
-   * @param { boolean } enabled - Set enable or not.
+   * @param { BundleOption } targetBundle - Information about the target application.
+   *     The application must have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented
+   *     [NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}.
+   *     Otherwise, error code 1600022 is returned.
+   * @param { BundleOption[] } enabledBundles - Authorized applications.
+   * @param { boolean } enabled - Whether the device notification access for the specified application is enabled.
+   *     The value **true** indicates that this functionality is enabled, and **false** indicates the opposite.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -238,16 +271,15 @@ declare namespace notificationExtensionSubscription {
     enabledBundles: BundleOption[], enabled: boolean): Promise<void>;
 
   /**
-   * Enum for notification extension subscribe type.
+   * Describes the type that enables notification extension subscription.
    *
-   * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
    */
   export enum SubscribeType {
     /**
-     * Subscribe notification extension by bluetooth.
+     * Bluetooth.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 22 dynamic
@@ -257,9 +289,8 @@ declare namespace notificationExtensionSubscription {
   }
 
   /**
-   * Describes a bundleOption.
+   * Describes the bundle information of an application.
    *
-   * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -267,9 +298,8 @@ declare namespace notificationExtensionSubscription {
   export type BundleOption = _BundleOption;
 
   /**
-   * Describes a grantedBundleInfo.
+   * Describes the bundle information of the authorized application.
    *
-   * @typedef { _GrantedBundleInfo } GrantedBundleInfo
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -277,9 +307,8 @@ declare namespace notificationExtensionSubscription {
   export type GrantedBundleInfo = _GrantedBundleInfo;
 
   /**
-   * Describes a userGrantSetting.
+   * Describes the user authorization settings.
    *
-   * @typedef { _UserGrantSetting }
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -287,9 +316,8 @@ declare namespace notificationExtensionSubscription {
   export type UserGrantSetting = _UserGrantSetting;
 
   /**
-   * the notification extension subscription info.
+   * Describes the information about the notification extension subscription.
    *
-   * @typedef { _NotificationExtensionSubscriptionInfo } NotificationExtensionSubscriptionInfo
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -297,9 +325,10 @@ declare namespace notificationExtensionSubscription {
   export type NotificationExtensionSubscriptionInfo = _NotificationExtensionSubscriptionInfo;
 
   /**
-   * Describes the notification info.
+   * Describes the notification information delivered to the 
+   * [onReceiveMessage]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility.onReceiveMessage}
+   * callback of ExtensionAbility for notification subscriptions.
    *
-   * @typedef { _NotificationInfo } NotificationInfo
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static

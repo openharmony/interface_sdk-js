@@ -26,14 +26,6 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * The missionManager module provides APIs to lock, unlock, and clear missions, and switch a mission to the foreground.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.missionManager]{@link @ohos.app.ability.missionManager:missionManager} instead. Newly added 
- * > APIs will be marked with a superscript to indicate their earliest API version.
- * >
- * > The APIs of this module are system APIs and cannot be called by third-party applications.
  *
  * @permission ohos.permission.MANAGE_MISSIONS
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -62,7 +54,7 @@ declare namespace missionManager {
    * Unregisters a mission status listener. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } listenerId - Index of the mission status listener to unregister. It is returned by 
+   * @param { number } listenerId - Index of the mission status listener to unregister. It is returned by
    *     **registerMissionListener()**.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -77,7 +69,7 @@ declare namespace missionManager {
    * Unregisters a mission status listener. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } listenerId - Index of the mission status listener to unregister. It is returned by 
+   * @param { number } listenerId - Index of the mission status listener to unregister. It is returned by
    *     **registerMissionListener()**.
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -124,7 +116,7 @@ declare namespace missionManager {
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Device ID. It is a null string by default for the local device.
    * @param { number } numMax - Maximum number of missions whose information can be obtained.
-   * @param { AsyncCallback<Array<MissionInfo>> } callback - Callback used to return the array of mission information 
+   * @param { AsyncCallback<Array<MissionInfo>> } callback - Callback used to return the array of mission information
    *     obtained.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -184,7 +176,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is locked, **err** is 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is locked, **err** is
    *     **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -213,7 +205,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is unlocked, **err** is 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is unlocked, **err** is
    *     **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -227,7 +219,7 @@ declare namespace missionManager {
    * Unlocks a given mission. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId - 	Mission ID.
+   * @param { number } missionId - Mission ID.
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -238,12 +230,12 @@ declare namespace missionManager {
   function unlockMission(missionId: number): Promise<void>;
 
   /**
-   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the 
+   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is cleared, **err** is 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is cleared, **err** is
    *     **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -271,7 +263,7 @@ declare namespace missionManager {
    * Clears all unlocked missions. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the unlocked missions are cleared, 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the unlocked missions are cleared,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -299,7 +291,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId - Mission ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is switched to the 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is switched to the
    *     foreground, **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -310,14 +302,14 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
    * an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId - Mission ID.
-   * @param { StartOptions } options - Startup parameters, which are used to specify the window mode and device ID for 
+   * @param { StartOptions } options - Startup parameters, which are used to specify the window mode and device ID for
    *     switching the mission to the foreground.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is switched to the 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mission is switched to the
    *     foreground, **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -328,12 +320,12 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
    * a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId - Mission ID.
-   * @param { StartOptions } [options] - Startup parameters, which are used to specify the window mode and device ID for 
+   * @param { StartOptions } [options] - Startup parameters, which are used to specify the window mode and device ID for
    *     switching the mission to the foreground.
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission

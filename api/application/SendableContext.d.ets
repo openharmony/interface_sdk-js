@@ -21,16 +21,12 @@
 import lang from '../../arkts/@arkts.lang';
 
 /**
- * The sendable context. SendableContext is sendable data that supports the sendable protocol.
- * It's used to convert a Context object to SendableContext object for inter-thread transfer and
- * convert a SendableContext object into a Context object for in-thread use.
+ * SendableContext complies with the [Sendable protocol](docroot://arkts-utils/arkts-sendable.md#sendable-protocol) and
+ * inherits from [lang.ISendable](docroot://reference/apis-arkts/js-apis-arkts-lang.md#langisendable).
  *
- * @typedef SendableContext
- * @extends lang.ISendable
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamiconly
  */
-interface SendableContext extends lang.ISendable {
-}
+interface SendableContext extends lang.ISendable {}

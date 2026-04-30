@@ -25,6 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @typedef { window.WindowStatusType } WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type WindowStatusType = window.WindowStatusType;
@@ -33,6 +34,7 @@ export type WindowStatusType = window.WindowStatusType;
  *
  * @interface FolderStackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface FolderStackOptions {
@@ -42,6 +44,7 @@ export interface FolderStackOptions {
      * Anonymous Object Rectification
      * @type { ?Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     upperItems?: Array<string>;
@@ -51,6 +54,7 @@ export interface FolderStackOptions {
  *
  * @interface OnFoldStatusChangeInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface OnFoldStatusChangeInfo {
@@ -60,6 +64,7 @@ export interface OnFoldStatusChangeInfo {
      * Anonymous Object Rectification
      * @type { FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     foldStatus: FoldStatus;
@@ -71,6 +76,7 @@ export interface OnFoldStatusChangeInfo {
  * @typedef { function } OnFoldStatusChangeCallback
  * @param { OnFoldStatusChangeInfo } event - the folding information of the current device
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
@@ -81,6 +87,7 @@ export type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
  * @typedef { function } OnHoverStatusChangeCallback
  * @param { HoverEventParam } param - hover event param
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
@@ -91,6 +98,7 @@ export type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
  * @extends CommonMethod
  * @interface FolderStackAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -101,6 +109,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { Alignment } value - align of children
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default alignContent(value: Alignment | undefined): this;
@@ -111,6 +120,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
     * @param { OnFoldStatusChangeCallback } callback - executed when folderStatus changed
     * @returns { FolderStackAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     default onFolderStateChange(callback: OnFoldStatusChangeCallback | undefined): this;
@@ -121,6 +131,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { OnHoverStatusChangeCallback } handler - executed when hoverStatus changed
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onHoverStatusChange(handler: OnHoverStatusChangeCallback | undefined): this;
@@ -130,6 +141,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { boolean } value - enable the animation of folderStatus changed
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableAnimation(value: boolean | undefined): this;
@@ -139,6 +151,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { boolean } value - enable auto halfFold
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default autoHalfFold(value: boolean | undefined): this;
@@ -148,6 +161,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { AttributeModifier<FolderStackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<FolderStackAttribute>
@@ -158,6 +172,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
  *
  * @interface HoverEventParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface HoverEventParam {
@@ -166,6 +181,7 @@ export declare interface HoverEventParam {
      *
      * @type { FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     foldStatus: FoldStatus;
@@ -174,6 +190,7 @@ export declare interface HoverEventParam {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isHoverMode: boolean;
@@ -182,6 +199,7 @@ export declare interface HoverEventParam {
      *
      * @type { AppRotation }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     appRotation: AppRotation;
@@ -190,6 +208,7 @@ export declare interface HoverEventParam {
      *
      * @type { WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     windowStatusType: WindowStatusType;
@@ -202,6 +221,7 @@ export declare interface HoverEventParam {
  * @param { CustomBuilder } [content_] - container
  * @returns { FolderStackAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

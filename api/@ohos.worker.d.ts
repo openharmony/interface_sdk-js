@@ -424,7 +424,7 @@ export interface EventTarget {
   /**
    * Adds an event listener to the worker.
    *
-   * @param { string } type - type Type of the event to listen for.
+   * @param { string } type - Type of the event to listen for.
    * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -436,7 +436,7 @@ export interface EventTarget {
   /**
    * Dispatches the event defined for the worker.
    *
-   * @param { Event } event - event Event to dispatch.
+   * @param { Event } event - Event to dispatch.
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -448,8 +448,8 @@ export interface EventTarget {
   /**
    * Removes an event defined for the worker.
    *
-   * @param { string } type - type Type of the event for which the event listener is removed.
-   * @param { EventListener } callback - callback Callback of the event listener to remove.
+   * @param { string } type - Type of the event for which the event listener is removed.
+   * @param { EventListener } callback - Callback of the event listener to remove.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -480,7 +480,7 @@ export interface WorkerEventTarget {
   /**
    * Adds an event listener for the Worker thread. This API provides the same functionality as on9+.
    *
-   * @param { string } type - type Type of the event to listen for.
+   * @param { string } type - Type of the event to listen for.
    * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified;
@@ -497,7 +497,7 @@ export interface WorkerEventTarget {
   /**
    * Dispatches the event defined for the Worker thread.
    *
-   * @param { Event } event - event Event to dispatch.
+   * @param { Event } event - Event to dispatch.
    * @returns { boolean }
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified;
@@ -513,8 +513,8 @@ export interface WorkerEventTarget {
   /**
    * Removes an event listener for the Worker thread. This API provides the same functionality as off9+.
    *
-   * @param { string } type - type Type of the event for which the event listener is to be removed.
-   * @param { WorkerEventListener } [callback] - callback Callback to invoke when the listener is removed.
+   * @param { string } type - Type of the event for which the event listener is to be removed.
+   * @param { WorkerEventListener } [callback] - Callback to invoke when the listener is removed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
@@ -680,7 +680,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * Send a message to be host thread from the worker
    *
    * @param { Object } messageObject - messageObject Data to be sent to the worker
-   * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
+   * @param { PostMessageOptions } [options] - Option can be set for postmessage.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -929,7 +929,7 @@ declare namespace worker {
     constructor(scriptURL: string, options?: WorkerOptions);
     /**
      * Called when the Worker thread exits. The event handler is executed in the host thread. In the callback function,
-     * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.
+     * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.The default value is undefined.
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
@@ -1093,7 +1093,7 @@ declare namespace worker {
     /**
      * Adds an event listener for the Worker thread and removes the event listener after it is invoked once.
      *
-     * @param { string } type - type Type of the event to listen for
+     * @param { string } type - Type of the event to listen for
      * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -1111,7 +1111,7 @@ declare namespace worker {
      * Removes an event listener for the Worker thread. This API provides the same functionality as removeEventListener9
      * +.
      *
-     * @param { string } type - type Type of the event for which the event listener is removed.
+     * @param { string } type - Type of the event for which the event listener is removed.
      * @param { WorkerEventListener } [listener] - listener Callback of the event listener to remove.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -1138,7 +1138,7 @@ declare namespace worker {
     /**
      * Adds an event listener for the Worker thread. This API provides the same functionality as on9+.
      *
-     * @param { string } type - type Type of the event to listen for.
+     * @param { string } type - Type of the event to listen for.
      * @param { WorkerEventListener } listener Callback to invoke when an event of the specified type occurs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -1155,7 +1155,7 @@ declare namespace worker {
     /**
      * Dispatches the event defined for the Worker thread.
      *
-     * @param { Event } event - event Event to dispatch.
+     * @param { Event } event - Event to dispatch.
      * @returns { boolean }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -1171,8 +1171,8 @@ declare namespace worker {
     /**
      * Removes an event listener for the Worker thread. This API provides the same functionality as off9+.
      *
-     * @param { string } type - type Type of the event for which the event listener is to be removed.
-     * @param { WorkerEventListener } [callback] - callback Callback to invoke when the listener is removed.
+     * @param { string } type - Type of the event for which the event listener is to be removed.
+     * @param { WorkerEventListener } [callback] - Callback to invoke when the listener is removed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -1246,7 +1246,7 @@ declare namespace worker {
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } [options] - options Options that can be set for the worker
+     * @param { WorkerOptions } [options] - Options that can be set for the worker
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -1273,7 +1273,7 @@ declare namespace worker {
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } options - options Options that can be set for the worker
+     * @param { WorkerOptions } options - Options that can be set for the worker
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1282,8 +1282,8 @@ declare namespace worker {
     constructor(scriptURL: string, options?: WorkerOptions);
 
     /**
-     * The onexit attribute of the worker specifies the event handler to be called
-     * when the worker exits. The handler is executed in the host thread.
+     * Called when the Worker thread exits. The event handler is executed in the host thread. In the callback function,
+     * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.The default value is undefined.
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1333,7 +1333,7 @@ declare namespace worker {
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
      *
-     * @param { Object } message - message - message Data to be sent to the worker
+     * @param { Object } message - Data to be sent to the worker
      * @param { ArrayBuffer[] } transfer - transfer ArrayBuffer instance that can be transferred.
      *     The transferList array cannot contain null.
      * @syscap SystemCapability.Utils.Lang
@@ -1347,8 +1347,8 @@ declare namespace worker {
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
      *
-     * @param { Object } message - message - message Data to be sent to the worker
-     * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
+     * @param { Object } message - Data to be sent to the worker
+     * @param { PostMessageOptions } [options] - Option can be set for postmessage.
      *     The transferList array cannot contain null.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1373,7 +1373,7 @@ declare namespace worker {
      * Adds an event listener to the worker
      * and removes the event listener automatically after it is invoked once.
      *
-     * @param { string } type - type Type of the event to listen for
+     * @param { string } type - Type of the event to listen for
      * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1385,7 +1385,7 @@ declare namespace worker {
     /**
      * Removes an event listener to the worker.
      *
-     * @param { string } type - type Type of the event for which the event listener is removed.
+     * @param { string } type - Type of the event for which the event listener is removed.
      * @param { EventListener } listener - listener Callback of the event listener to remove.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly

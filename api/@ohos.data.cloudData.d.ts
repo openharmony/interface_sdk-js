@@ -23,18 +23,22 @@ import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
 
 /**
- * Provides methods for cloud capabilities.
+ * The **cloudData** module provides APIs for implementing device-cloud synergy and device-cloud sharing, and setting 
+ * the device-cloud sync strategy.
+ * 
+ * Device-cloud synergy enables sync of the structured data (in RDB stores) between devices and the cloud. The cloud 
+ * serves as a data hub to implement data backup in the cloud and data consistency between the devices with the same 
+ * account.
+ * This module also provides the capability of setting the device-cloud sync strategy.
  *
- * @namespace cloudData
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
  * @since 10 dynamic
  * @since 23 static
  */
 declare namespace cloudData {
   /**
-   * Describes the clear action type.
+   * Enumerates the operations for clearing the downloaded cloud data locally.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10 dynamic
@@ -42,39 +46,38 @@ declare namespace cloudData {
    */
   enum ClearAction {
     /**
-     * Indicates clearing cloud-related data only, which includes cloud meta data and cloud-related local data.
+     * Clear the cloud identifier of the data downloaded from the cloud and retain the data locally.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    CLEAR_CLOUD_INFO,
+    CLEAR_CLOUD_INFO = 0,
 
     /**
-     * Indicates clearing all cloud-related file data,which synchronized with the cloud.
+     * Clear the data downloaded from the cloud, excluding the cloud data that has been modified locally.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    CLEAR_CLOUD_DATA_AND_INFO,
+    CLEAR_CLOUD_DATA_AND_INFO = 1,
 
     /**
-     * Indicates clearing nothing.
+     * Does not clear any data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 23 dynamic&static
      */
-    CLEAR_CLOUD_NONE
+    CLEAR_CLOUD_NONE = 2
   }
 
   /**
    * ID of the event, which indicates the change of the data in the cloud.
    *
-   * @constant
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 11 dynamic
@@ -83,9 +86,8 @@ declare namespace cloudData {
   const DATA_CHANGE_EVENT_ID = 'cloud_data_change';
 
   /**
-   * Extra data for data change notification.
+   * Represents the transparently transmitted data, which contains information required for a data change notification.
    *
-   * @interface ExtraData
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 11 dynamic
@@ -93,9 +95,8 @@ declare namespace cloudData {
    */
   interface ExtraData {
     /**
-     * Event ID.
+     * Event ID. The value **cloud_data_change** indicates cloud data changes.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -104,19 +105,10 @@ declare namespace cloudData {
     eventId: string;
 
     /**
-     * Extra data, which contains the following fields.
-     * '{
-     *   "data": "{
-     *     "accountId": "aaa",
-     *     "bundleName": "com.bbb.xxx",
-     *     "containerName": "alias",
-     *     "databaseScopes": ["private", "shared"],
-     *     "recordTypes": ["xxx", "yyy", "zzz"]
-     *   }"
-     * }'
-     * All fields are mandatory.
+     * Data to be transmitted transparently. **extraData** is a JSON string that must contain the **data** field. The 
+     * **data** field contains information required for a change notification, including the account ID, application 
+     * name, database name, database type, and database table name. All the fields cannot be empty.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -126,9 +118,8 @@ declare namespace cloudData {
   }
 
   /**
-   * Additional data for querying data statistics information.
+   * Represents the device-cloud sync statistics.
    *
-   * @interface StatisticInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 12 dynamic
@@ -136,9 +127,9 @@ declare namespace cloudData {
    */
   interface StatisticInfo {
     /**
-     * Cloud table name.
+     * Name of the table queried. For example, the value **cloud_notes** indicates that the sync information of the 
+     * **cloud_notes** table is queried.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -147,9 +138,9 @@ declare namespace cloudData {
     table: string;
 
     /**
-     * Number of records to be inserted to the cloud.
+     * Number of data records that are added locally and have not been synced to the cloud. For example, the value **2**
+     * indicates that the table has two data records that are added locally but not synced to the cloud.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -158,9 +149,9 @@ declare namespace cloudData {
     inserted: int;
 
     /**
-     * Number of inconsistent records between the local device and the cloud.
+     * Number of data records that are modified locally or on the cloud but have not been synced. For example, the value
+     * **2** indicates that the table has two data records that are updated locally or on the cloud but not synced.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -169,9 +160,9 @@ declare namespace cloudData {
     updated: int;
 
     /**
-     * Number of consistent records between the local device and the cloud.
+     * Number of consistent data records between the device and the cloud. For example, the value **2** indicates that 
+     * table has two data records that are consistent between the device and the cloud.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -181,9 +172,8 @@ declare namespace cloudData {
   }
 
   /**
-   * Describes sync status.
+   * Enumerates the device-cloud sync task statuses.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 18 dynamic
@@ -191,7 +181,7 @@ declare namespace cloudData {
    */
   enum SyncStatus {
     /**
-     * Indicates cloud sync status is running.
+     * The device-cloud sync task is running.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -201,7 +191,7 @@ declare namespace cloudData {
     RUNNING = 0,
 
     /**
-     * Indicates cloud sync status was finished.
+     * The device-cloud sync task is completed.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -212,9 +202,8 @@ declare namespace cloudData {
   }
 
   /**
-   * Sync information.
+   * Represents information about the last device-cloud sync.
    *
-   * @interface SyncInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 12 dynamic
@@ -222,9 +211,8 @@ declare namespace cloudData {
    */
   interface SyncInfo {
     /**
-     * Sync start time.
+     * Start time of the last device-cloud sync.
      *
-     * @type { Date }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -233,9 +221,8 @@ declare namespace cloudData {
     startTime: Date;
 
     /**
-     * Sync finish time.
+     * End time of the last device-cloud sync.
      *
-     * @type { Date }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -244,9 +231,8 @@ declare namespace cloudData {
     finishTime: Date;
 
     /**
-     * Sync progress.
+     * Result of the last device-cloud sync.
      *
-     * @type { relationalStore.ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -255,9 +241,8 @@ declare namespace cloudData {
     code: relationalStore.ProgressCode;
 
     /**
-     * Sync status.
+     * Status of the last device-cloud sync. The default value is **cloudData.SyncStatus.RUNNING**.
      *
-     * @type { ?SyncStatus }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 18 dynamic
@@ -267,18 +252,17 @@ declare namespace cloudData {
   }
 
   /**
-   * Switches information of database.
+   * Defines the switch information of a device-cloud synergy database.
    *
-   * @interface DBSwitchInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 23 dynamic&static
    */
   interface DBSwitchInfo {
     /**
-     * Indicates switches information of database.
+     * Whether to enable device-cloud synergy for the database. The value **true** indicates that device-cloud synergy 
+     * is enabled, and the value **false** indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 23 dynamic&static
@@ -286,9 +270,11 @@ declare namespace cloudData {
     enable: boolean;
 
     /**
-     * Indicates switches information of tables.
+     * Device-cloud synergy configuration of a table. The key is the table name, and the value is the switch status of
+     * the table. The value **true** indicates that device-cloud synergy is enabled for the table, and the value
+     * **false** indicates the opposite. If this parameter is not set, the device-cloud synergy is enabled for the
+     * database by default.
      *
-     * @type { ?Record<string, boolean> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 23 dynamic&static
@@ -297,38 +283,35 @@ declare namespace cloudData {
   }
 
   /**
-   * Switch configuration.
+   * Defines the switch configuration of a device-cloud synergy database.
    *
-   * @interface SwitchConfig
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 23 dynamic&static
    */
   interface SwitchConfig {
     /**
-     * Switch configuration of database.
-     *
-     * @type { Record<string, DBSwitchInfo> }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 23 dynamic&static
-     */
+      * Switch configuration information of a database. The key is the database name, and the value is the configuration
+      * information of the database.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+      * @systemapi
+      * @since 23 dynamic&static
+      */
      dbInfo: Record<string, DBSwitchInfo>;
   }
 
   /**
-   * Action information of database.
+   * Defines the clearance information of a device-cloud synergy database.
    *
-   * @interface DBActionInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 23 dynamic&static
    */
   interface DBActionInfo {
     /**
-     * Indicates the way in which the database is to be cleared.
+     * Default data clearance mode of the database.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 23 dynamic&static
@@ -336,9 +319,10 @@ declare namespace cloudData {
     action: ClearAction;
 
     /**
-     * Indicates actions information of tables.
+     * Information about the table whose data is to be cleared and the clearance rules. The key is the table name, and
+     * the value is the clearance mode of the table. If this parameter is not set, the data clearance mode of database
+     * is used by default.
      *
-     * @type { ?Record<string, ClearAction> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 23 dynamic&static
@@ -347,23 +331,22 @@ declare namespace cloudData {
   }
 
   /**
-   * Cleanup configuration.
+   * Defines the clearance configuration of a device-cloud synergy database.
    *
-   * @interface ClearConfig
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 23 dynamic&static
    */
   interface ClearConfig {
     /**
-     * Cleanup action of database.
-     *
-     * @type { Record<string, DBActionInfo> }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
+      * Information about the database whose data is to be cleared and the clearance rules. The key is the database name
+      * , and the value is the clearance configuration of the database.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+      * @systemapi
+      * @stagemodelonly
+      * @since 23 dynamic&static
+      */
      dbInfo: Record<string, DBActionInfo>;
   }
 
@@ -398,7 +381,8 @@ declare namespace cloudData {
   }
 
   /**
-   * Provides methods to set CloudSync config.
+   * Provides APIs for setting device-cloud synergy, including enabling and disabling device-cloud synergy, clearing 
+   * data, and notifying data changes.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
@@ -407,40 +391,25 @@ declare namespace cloudData {
    */
   class Config {
     /**
-     * Enables the cloud function.
+     * Enables device-cloud synergy. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { object } switches - Indicates switches information of all applications.
-     * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
-     * @param { AsyncCallback<void> } callback - the callback of enableCloud.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { object } switches - Device-cloud synergy settings for applications. The value **true** means to enable
+     *     device-cloud synergy; the value **false** means the opposite. [since 10 - 10]
+     * @param { Record<string, boolean> } switches - Device-cloud synergy settings for applications. The value **true**
+     *     means to enable device-cloud synergy; the value **false** means the opposite. [since 11]
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
-     */
-    /**
-     * Enables the cloud function.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { Record<string, boolean> } switches - Indicates switches information of all applications.
-     * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
-     * @param { AsyncCallback<void> } callback - the callback of enableCloud.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     static enableCloud(
@@ -450,54 +419,42 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Enables the cloud function.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { object } switches - Indicates switches information of all applications.
-     * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * Enables the cloud function.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { Record<string, boolean> } switches - Indicates switches information of all applications.
-     * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11 dynamic
-     * @since 23 static
-     */
+      * Enables device-cloud synergy. This API uses a promise to return the result.
+      *
+      * @permission ohos.permission.CLOUDDATA_CONFIG
+      * @param { string } accountId - ID of the cloud account.
+      * @param { object } switches - Device-cloud synergy settings for applications. The value **true** means to enable
+      *     device-cloud synergy; the value **false** means the opposite. [since 10 - 10]
+      * @param { Record<string, boolean> } switches - Device-cloud synergy settings for applications. The value **true**
+      *     means to enable device-cloud synergy; the value **false** means the opposite. [since 11]
+      * @returns { Promise<void> } Promise that returns no value.
+      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
+      *     VerifyAccessToken.
+      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+      *     uses system API.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      *     2. Incorrect parameter types;
+      *     3. Parameter verification failed.
+      * @throws { BusinessError } 801 - Capability not supported.
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+      * @systemapi
+      * @since 10 dynamic
+      * @since 23 static
+      */
      static enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
     /**
-     * Disables the cloud function.
+     * Disables device-cloud synergy. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { AsyncCallback<void> } callback - the callback of disableCloud.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -507,15 +464,17 @@ declare namespace cloudData {
     static disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Disables the cloud function.
+     * Disables device-cloud synergy. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } accountId - ID of the cloud account.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -525,17 +484,21 @@ declare namespace cloudData {
     static disableCloud(accountId: string): Promise<void>;
 
     /**
-     * Changes the cloud switch of a single application.
+     * Changes the device-cloud synergy setting for an application. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName -  Indicates the name of application.
-     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @param { AsyncCallback<void> } callback - the callback of changeAppCloudSwitch.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @param { boolean } status - New device-cloud synergy setting. The value **true** means to enable device-cloud
+     *     synergy; the value **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -550,17 +513,20 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Changes the cloud switch of a single application.
+     * Changes the device-cloud synergy setting for an application. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName -  Indicates the name of application.
-     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @param { boolean } status - New device-cloud synergy setting. The value **true** means to enable device-cloud
+     *     synergy; the value **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -570,18 +536,21 @@ declare namespace cloudData {
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
     /**
-     * Changes the cloud switch of a single application.
+     * Changes the device-cloud synergy setting for an application. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName -  Indicates the name of application.
-     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @param { SwitchConfig } [config] - Indicates the configuration of cloud sync switch.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @param { boolean } status - New device-cloud synergy setting. The value **true** means to enable device-cloud
+     *     synergy; the value **false** means the opposite.
+     * @param { SwitchConfig } [config] - Switch configuration of a device-cloud synergy database. Device-cloud synergy
+     *     priority: application > database > table. If this parameter is not set, the application-level device-cloud
+     *     synergy is used by default.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @stagemodelonly
@@ -595,18 +564,22 @@ declare namespace cloudData {
     ): Promise<void>;
 
     /**
-     * Notifies changes of the cloud records.
+     * Notifies the data changes in the cloud. This API uses a promise to return the result. You can specify the 
+     * database and tables with data changes in the **extraData** field in **extInfo**, and specify the user ID.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Indicates the extra data for
-     * notification {@link ExtraData}.
-     * @param { int } [userId] - Indicates the user ID.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { ExtraData } extInfo - Transparently transmitted data, including information about the application that
+     *     has data changes.
+     * @param { int } [userId] - User ID. This parameter is optional. The default value is the current user ID. If this
+     *     parameter is specified, the value must be an existing user ID in the system.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -616,18 +589,22 @@ declare namespace cloudData {
     static notifyDataChange(extInfo: ExtraData, userId?: int): Promise<void>;
 
     /**
-     * Notifies changes of the cloud records.
+     * Notifies the data changes in the cloud with the specified information, such as the database and table names (
+     * specified by the **extraData** field in **extInfo**). This API uses an asynchronous callback to return the 
+     * result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Indicates the extra data for
-     * notification {@link ExtraData}.
-     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
-     * to return the data changes.
+     * @param { ExtraData } extInfo - Transparently transmitted data, including information about the application that
+     *     has data changes.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -637,19 +614,23 @@ declare namespace cloudData {
     static notifyDataChange(extInfo: ExtraData, callback: AsyncCallback<void>): void;
 
     /**
-     * Notifies changes of the cloud records.
+     * Notifies the data changes of a user in the cloud. This API uses an asynchronous callback to return the result. 
+     * You can also specify the database and tables with data changes in the **extraData** field in **extInfo**, and 
+     * specify the user ID.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Indicates the extra data for
-     * notification {@link ExtraData}.
-     * @param { int } userId - Indicates the user ID.
-     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
-     * to return the data changes.
+     * @param { ExtraData } extInfo - Transparently transmitted data, including information about the application that
+     *     has data changes.
+     * @param { int } userId - User ID in the system.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -659,16 +640,18 @@ declare namespace cloudData {
     static notifyDataChange(extInfo: ExtraData, userId: int, callback: AsyncCallback<void>): void;
 
     /**
-     * notifies changes of the cloud records
+     * Notifies the data changes in the cloud. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName - Indicates the name of application.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -678,16 +661,18 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
     /**
-     * notifies changes of the cloud records
+     * Notifies the data changes in the cloud. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName - Indicates the name of application.
-     * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -697,17 +682,21 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Queries statistics of the cloud records.
+     * Queries device-cloud data statistics, which include the data not synced, data synced and consistent, and data 
+     * synced but inconsistent between the device and the cloud. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName - Indicates the name of application.
-     * @param { string } [storeId] - Indicates the store ID.
-     * @returns { Promise<Record<string, Array<StatisticInfo>>> } Promise used to return the result.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @param { string } [storeId] - Name of the RDB store. If this parameter is not specified, all local databases of
+     *     this application are queried by default.
+     * @returns { Promise<Record<string, Array<StatisticInfo>>> } Promise used to return the table name and statistics.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -721,17 +710,21 @@ declare namespace cloudData {
     ): Promise<Record<string, Array<StatisticInfo>>>;
 
     /**
-     * Queries last sync information.
+     * Queries information about the last device-cloud sync. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName - Indicates the name of application.
-     * @param { string } [storeId] - Indicates the store ID.
-     * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the result.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { string } bundleName - Bundle name of the application.
+     * @param { string } [storeId] - Name of the RDB store. The default value is an empty string. If the default value
+     *     is used, this API queries the last device-cloud sync information of all databases of this application.
+     * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the database name and the result set of the
+     *     last device-cloud sync.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -819,36 +812,25 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * deletes cloud information from local data.
+     * Clears the cloud data locally. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { object } appActions - Indicates the way in which the application data is to be cleared.
-     * @param { AsyncCallback<void> } callback - the callback of clear.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { Record<string, ClearAction> } appActions - Information about the application whose data is to be cleared and the operation to
+     *     perform. [since 10 - 10]
+     * @param { Record<string, ClearAction> } appActions - Information about the application whose data is to be cleared
+     *     and the operation to perform. [since 11]
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
-     */
-    /**
-     * deletes cloud information from local data.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { Record<string, ClearAction> } appActions - Indicates the way in which the application data is to be cleared.
-     * @param { AsyncCallback<void> } callback - the callback of clear.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     static clear(
@@ -858,52 +840,46 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * deletes cloud information from local data.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { object } appActions - Indicates the way in which the application data is to be cleared.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 10
-     */
-    /**
-     * deletes cloud information from local data.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { Record<string, ClearAction> } appActions - Indicates the way in which the application data is to be cleared.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11 dynamic
-     * @since 23 static
-     */
+      * Clears the cloud data locally. This API uses a promise to return the result.
+      *
+      * @permission ohos.permission.CLOUDDATA_CONFIG
+      * @param { string } accountId - ID of the cloud account.
+      * @param { object } appActions - Information about the application whose data is to be cleared and the operation
+      *     to perform. [since 10 - 10]
+      * @param { Record<string, ClearAction> } appActions - Information about the application whose data is to be
+      *     cleared and the operation to perform. [since 11]
+      * @returns { Promise<void> } Promise that returns no value.
+      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
+      *     VerifyAccessToken.
+      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+      *     uses system API.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      *     2. Incorrect parameter types;
+      *     3. Parameter verification failed.
+      * @throws { BusinessError } 801 - Capability not supported.
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+      * @systemapi
+      * @since 10 dynamic
+      * @since 23 static
+      */
      static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
 
     /**
-     * deletes cloud information from local data.
+     * Clears the cloud data locally. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { Record<string, ClearAction> } appActions - Indicates the way in which the application data is to be cleared.
-     * @param { Record<string, ClearConfig> } [config] - Indicates configuration in which the database or table data is to be cleared.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string } accountId - ID of the cloud account.
+     * @param { Record<string, ClearAction> } appActions - Information about the application whose data is to be cleared
+     *     and the operation to perform.
+     * @param { Record<string, ClearConfig> } [config] - Clearance information of a device-cloud synergy database. The
+     *     key is the application name, and the value is the database clearance rules of the application. Clearance
+     *     priority: table > database > application. If this parameter is not set, the application-level data clearance
+     *     mode is used by default.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @stagemodelonly
@@ -916,16 +892,19 @@ declare namespace cloudData {
     ): Promise<void>;
 
     /**
-     * Sets global cloud strategy.
+     * Sets a global device-cloud sync strategy. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { StrategyType } strategy - Indicates the strategy type of the cloud sync.
-     * @param { Array<commonType.ValueType> } param - Indicates specific strategy of the cloud sync.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { StrategyType } strategy - Type of the strategy to set.
+     * @param { Array<commonType.ValueType> } param - Strategy parameters to set. If this parameter is not specified,
+     *     the strategy configuration is deleted by default.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -935,23 +914,22 @@ declare namespace cloudData {
     static setGlobalCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
 
     /**
-     * Sync data to cloud.
+     * Synchronizes data of a specified application on the device to the cloud. This API uses a promise to return the 
+     * result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } bundleName - Indicates the name of application.
-     * @param { string } storeId - Indicates the store ID.
-     * @param { relationalStore.SyncMode } mode - indicates the database synchronization mode.
-     * @param { Callback<relationalStore.ProgressDetails> } progress - the specified sync condition by
-     * <br>the instance object of {@link ProgressDetails}.
-     * @returns { Promise<void> } : The promise returned by the function.
+     * @param { string } bundleName - Name of the application to sync.
+     * @param { string } storeId - Name of the database to sync.
+     * @param { relationalStore.SyncMode } mode - Device-cloud sync mode.
+     * @param { Callback<relationalStore.ProgressDetails> } progress - Callback used to return the sync progress.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed,
-     * <br>usually the result returned by VerifyAccessToken.
+     *     <br>usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed,
-     * <br>application which is not a system application uses system API.
+     *     <br>application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause.
-     * @static
+     *     <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 20 dynamic
@@ -969,9 +947,9 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { BundleInfo } bundleInfo -  BundleInfo configuration.
-     * <br>the instance object of {@link BundleInfo}
+     *     <br>the instance object of {@link BundleInfo}
      * @param { relationalStore.CloudSyncConfig } config -  Indicates cloud sync configuration.
-     * <br>the instance object of {@link relationalStore.CloudSyncConfig}
+     *     <br>the instance object of {@link relationalStore.CloudSyncConfig}
      * @param { Callback<relationalStore.ProgressDetails> } progress - the specified sync condition by
      *     <br>the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : The promise returned by the function.
@@ -1015,9 +993,8 @@ declare namespace cloudData {
   }
 
   /**
-   * Enumerates the strategy types of cloud sync.
+   * Enumerates the types of the cloud-device sync strategy.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12 dynamic
    * @since 23 static
@@ -1025,7 +1002,7 @@ declare namespace cloudData {
   enum StrategyType {
 
     /**
-     * Sync via the network.
+     * Sync over the network.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
@@ -1035,9 +1012,8 @@ declare namespace cloudData {
   }
 
   /**
-   * Enumerates the types of cloud sync via the network.
+   * Enumerates the network sync options.
    *
-   * @enum { long }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12 dynamic
    * @since 23 static
@@ -1045,7 +1021,7 @@ declare namespace cloudData {
   enum NetWorkStrategy {
 
     /**
-     * Sync using WiFi.
+     * Sync over Wi-Fi.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
@@ -1054,7 +1030,7 @@ declare namespace cloudData {
     WIFI = 1,
 
     /**
-     * Sync using the cellular network.
+     * Sync over the cellular network.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
@@ -1069,8 +1045,9 @@ declare namespace cloudData {
    * @param { StrategyType } strategy - Indicates the strategy type of the cloud sync.
    * @param { Array<commonType.ValueType> } param - Indicates specific strategy of the cloud sync.
    * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types;
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12 dynamic
@@ -1079,9 +1056,10 @@ declare namespace cloudData {
   function setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
 
   /**
-   * Provides methods to implement cloud sharing.
+   * Provides APIs for device-cloud data sharing, including sharing or unsharing data, exiting a share, changing the 
+   * privilege on the shared data, querying participants, confirming an invitation, changing the invitation confirmation
+   * state, and querying the shared resource.
    *
-   * @namespace sharing
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @systemapi
    * @since 11 dynamic
@@ -1089,9 +1067,8 @@ declare namespace cloudData {
    */
   export namespace sharing {
     /**
-     * Enumerates the roles.
+     * Enumerates the roles of the participants in a device-cloud share.
      *
-     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1099,7 +1076,7 @@ declare namespace cloudData {
      */
     enum Role {
       /**
-       * ROLE_INVITER: means inviter of cloud sharing.
+       * Inviter, the one who shares data. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1109,7 +1086,7 @@ declare namespace cloudData {
       ROLE_INVITER = 0,
 
       /**
-       * ROLE_INVITEE: means invitee of cloud sharing.
+       * Invitee, the one who can use the shared data. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1120,9 +1097,8 @@ declare namespace cloudData {
     }
 
     /**
-     * Enumerates the states of sharing invitation.
+     * Enumerates the device-cloud sharing states.
      *
-     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1130,7 +1106,7 @@ declare namespace cloudData {
      */
     enum State {
       /**
-       * STATE_UNKNOWN: Unknown state.
+       * Unknown state. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1140,7 +1116,7 @@ declare namespace cloudData {
       STATE_UNKNOWN = 0,
 
       /**
-       * STATE_ACCEPTED: Accept the sharing invitation.
+       * The device-cloud sharing invitation is accepted. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1150,7 +1126,7 @@ declare namespace cloudData {
       STATE_ACCEPTED = 1,
 
       /**
-       * STATE_REJECTED: Reject the sharing invitation.
+       * The device-cloud sharing invitation is rejected. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1160,7 +1136,7 @@ declare namespace cloudData {
       STATE_REJECTED = 2,
 
       /**
-       * STATE_SUSPENDED: Suspend the sharing process.
+       * The device-cloud sharing is suspended temporarily. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1170,7 +1146,7 @@ declare namespace cloudData {
       STATE_SUSPENDED = 3,
 
       /**
-       * STATE_UNAVAILABLE: The sharing process unavailable.
+       * The device-cloud sharing is unavailable. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1181,9 +1157,8 @@ declare namespace cloudData {
     }
 
     /**
-     * Enumerates the error code of sharing invitation.
+     * Enumerates the error codes for device-cloud sharing.
      *
-     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1191,7 +1166,7 @@ declare namespace cloudData {
      */
     enum SharingCode {
       /**
-       * SUCCESS: means sharing success.
+       * Operation successful. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1201,7 +1176,8 @@ declare namespace cloudData {
       SUCCESS = 0,
 
       /**
-       * REPEATED_REQUEST: means the user has been invited.
+       * Repeated invitation, which means the participant has been invited. Use the enum name rather than the enum 
+       * value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1211,7 +1187,7 @@ declare namespace cloudData {
       REPEATED_REQUEST = 1,
 
       /**
-       * NOT_INVITER: means the participant is not inviter.
+       * The participant is not the inviter of this share. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1221,7 +1197,8 @@ declare namespace cloudData {
       NOT_INVITER = 2,
 
       /**
-       * NOT_INVITER_OR_INVITEE: means the participant is not inviter or invitee.
+       * Invalid participant, which means the participant is neither the inviter nor the invitee. Use the enum name 
+       * rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1231,7 +1208,8 @@ declare namespace cloudData {
       NOT_INVITER_OR_INVITEE = 3,
 
       /**
-       * OVER_QUOTA: means the number of sharing times today of current user has reached maximum.
+       * The number of device-cloud sharing times has reached the limit for the current account. Use the enum name 
+       * rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1241,7 +1219,8 @@ declare namespace cloudData {
       OVER_QUOTA = 4,
 
       /**
-       * TOO_MANY_PARTICIPANTS: means the number of participants reaches the maximum.
+       * The number of device-cloud sharing participants has reached the limit. Use the enum name rather than the enum 
+       * value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1251,7 +1230,7 @@ declare namespace cloudData {
       TOO_MANY_PARTICIPANTS = 5,
 
       /**
-       * INVALID_ARGS: means invalid arguments.
+       * Invalid parameter. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1261,7 +1240,7 @@ declare namespace cloudData {
       INVALID_ARGS = 6,
 
       /**
-       * NETWORK_ERROR: means the network is unavailable.
+       * Network error. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1271,7 +1250,7 @@ declare namespace cloudData {
       NETWORK_ERROR = 7,
 
       /**
-       * CLOUD_DISABLED: means cloud is disabled.
+       * Cloud is disabled. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1281,7 +1260,7 @@ declare namespace cloudData {
       CLOUD_DISABLED = 8,
 
       /**
-       * SERVER_ERROR: means invoke cloud space failed.
+       * Server error. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1291,7 +1270,7 @@ declare namespace cloudData {
       SERVER_ERROR = 9,
 
       /**
-       * INNER_ERROR: means an unknown error has occurred.
+       * System internal error. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1301,7 +1280,8 @@ declare namespace cloudData {
       INNER_ERROR = 10,
 
       /**
-       * INVALID_INVITATION: means the invitation has expired or does not exist.
+       * Invalid invitation, which means the current invitation has expired or does not exist. Use the enum name rather 
+       * than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1311,7 +1291,7 @@ declare namespace cloudData {
       INVALID_INVITATION = 11,
 
       /**
-       * RATE_LIMIT: means the data transfer is rate-limited.
+       * The amount of data to be synced at a time has reached the limit. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1321,7 +1301,8 @@ declare namespace cloudData {
       RATE_LIMIT = 12,
 
       /**
-       * CUSTOM_ERROR: means error codes that exceed this enumerated value are custom error codes.
+       * Customized error. Error codes smaller than **1000** are used to define internal error codes, and error codes 
+       * greater than **1000** are used to customize error codes. Use the enum name rather than the enum value.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1334,7 +1315,6 @@ declare namespace cloudData {
     /**
      * Result interface.
      *
-     * @interface Result
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1344,7 +1324,6 @@ declare namespace cloudData {
       /**
        * Error code.
        *
-       * @type { int }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1355,7 +1334,6 @@ declare namespace cloudData {
       /**
        * Error code description.
        *
-       * @type { ?string }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1366,7 +1344,6 @@ declare namespace cloudData {
       /**
        * The result value.
        *
-       * @type { ?T }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1376,9 +1353,8 @@ declare namespace cloudData {
     }
 
     /**
-     * Privilege for the shared data.
+     * Defines the privilege (permissions) on the shared data.
      *
-     * @interface Privilege
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1386,11 +1362,9 @@ declare namespace cloudData {
      */
     interface Privilege {
       /**
-       * Whether the participants can write the shared data. The value <b>true</b>
-       * means the participants can write the shared data; the value <b>false</b>
-       * means the opposite.
+       * Whether the participant can modify the shared data. The value **true** means the participant can modify the 
+       * data; the value **false** means the opposite. The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1399,11 +1373,9 @@ declare namespace cloudData {
       writable?: boolean;
 
       /**
-       * Whether the participants can read the shared data. The value <b>true</b>
-       * means the participants can read the shared data; the value <b>false</b>
-       * means the opposite.
+       * Whether the participant can read the shared data. The value **true** means the participant can read the data; 
+       * the value **false** means the opposite. The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1412,11 +1384,9 @@ declare namespace cloudData {
       readable?: boolean;
 
       /**
-       * Whether the participants can create data. The value <b>true</b>
-       * means the participants can create data; the value <b>false</b>
-       * means the opposite.
+       * Whether the participant can create data to share. The value **true** means the participant can create data; the
+       * value **false** means the opposite. The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1425,11 +1395,9 @@ declare namespace cloudData {
       creatable?: boolean;
 
       /**
-       * Whether the participants can delete the shared data. The value <b>true</b>
-       * means the participants can delete the shared data; the value <b>false</b>
-       * means the opposite.
+       * Whether the participant can delete the shared data. The value **true** means the participant can delete the 
+       * data; the value **false** means the opposite. The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1438,11 +1406,9 @@ declare namespace cloudData {
       deletable?: boolean;
 
       /**
-       * Whether the participants can share the data. The value <b>true</b>
-       * means the participants can share the data; the value <b>false</b>
-       * means the opposite.
+       * Whether the participant can share the data to others. The value **true** means the participant can share the 
+       * data; the value **false** means the opposite. The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1454,7 +1420,6 @@ declare namespace cloudData {
     /**
      * Participants in cloud sharing.
      *
-     * @interface Participant
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1464,7 +1429,6 @@ declare namespace cloudData {
       /**
        * Identity of participant.
        *
-       * @type { string }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1475,7 +1439,6 @@ declare namespace cloudData {
       /**
        * Role of the participant, which can be inviter or invitee.
        *
-       * @type { ?Role }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1486,7 +1449,6 @@ declare namespace cloudData {
       /**
        * State of the sharing invitation.
        *
-       * @type { ?State }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1497,7 +1459,6 @@ declare namespace cloudData {
       /**
        * Permissions for the shared data.
        *
-       * @type { ?Privilege }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1508,7 +1469,6 @@ declare namespace cloudData {
       /**
        * Attach information.
        *
-       * @type { ?string }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11 dynamic
@@ -1526,9 +1486,11 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Participants to share.
      * @param { Array<string> } [columns] - Columns to be shared.
      * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1550,10 +1512,12 @@ declare namespace cloudData {
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
-     * callback invoked to return the {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     callback invoked to return the {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1576,10 +1540,12 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Participants to share.
      * @param { Array<string> } columns - Columns to be shared.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
-     * callback invoked to return the {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     callback invoked to return the {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1599,12 +1565,14 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
-     * involved in the data sharing.
+     *     involved in the data sharing.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
-     * callback invoked to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     callback invoked to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1622,11 +1590,13 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
-     * involved in the data sharing.
+     *     involved in the data sharing.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1643,12 +1613,14 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
-     * involved.
+     *     involved.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the callback invoked
-     * to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1666,11 +1638,13 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
-     * involved.
+     *     involved.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1687,9 +1661,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { AsyncCallback<Result<void>> } callback - The callback of exit.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1703,9 +1679,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<void>> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1719,12 +1697,14 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
-     * whose permissions are to be changed.
+     *     whose permissions are to be changed.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
-     * callback invoked to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     callback invoked to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1742,11 +1722,13 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
-     * whose permissions are to be changed.
+     *     whose permissions are to be changed.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1763,10 +1745,12 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
-     * callback invoked to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     callback invoked to return the participants obtained.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1780,9 +1764,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1796,10 +1782,12 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
-     * callback invoked to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     callback invoked to return the participants obtained.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1816,9 +1804,11 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Indicates the invitation code.
      * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1833,10 +1823,12 @@ declare namespace cloudData {
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { State } state - Indicates the state of invitation.
      * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
-     * invoked to return the sharing resource.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     *     invoked to return the sharing resource.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1851,9 +1843,11 @@ declare namespace cloudData {
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { State } state - Indicates the state of invitation.
      * @returns { Promise<Result<string>> } - Promise used to return the sharing resource.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1868,9 +1862,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { State } state - Indicates the state of invitation.
      * @param { AsyncCallback<Result<void>> } callback - Indicates the callback.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1885,9 +1881,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { State } state - Indicates the state of invitation.
      * @returns { Promise<Result<void>> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
+     *     . Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi

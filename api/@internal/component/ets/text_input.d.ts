@@ -175,6 +175,7 @@ declare enum InputType {
    * Number Password entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -189,6 +190,7 @@ declare enum InputType {
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -200,6 +202,7 @@ declare enum InputType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   SCREEN_LOCK_PASSWORD = 9,
@@ -208,6 +211,7 @@ declare enum InputType {
    * UserName entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -218,6 +222,7 @@ declare enum InputType {
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -227,6 +232,7 @@ declare enum InputType {
    * NewPassword entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -240,6 +246,7 @@ declare enum InputType {
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -253,6 +260,7 @@ declare enum InputType {
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -263,6 +271,7 @@ declare enum InputType {
    * URL entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -273,6 +282,7 @@ declare enum InputType {
    * One time code mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -284,6 +294,7 @@ declare enum InputType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -293,6 +304,7 @@ declare enum ContentType {
    * Password Vault, when enabled, can automatically save and fill in usernames.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -303,6 +315,7 @@ declare enum ContentType {
    * Password Vault, when enabled, can automatically save and fill in passwords.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -313,6 +326,7 @@ declare enum ContentType {
    * Password Vault, when enabled, can automatically generate a new password.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -324,6 +338,7 @@ declare enum ContentType {
    * can automatically save and fill in full street addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -335,6 +350,7 @@ declare enum ContentType {
    * can automatically save and fill in house numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -346,6 +362,7 @@ declare enum ContentType {
    * can automatically save and fill in districts and counties.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -357,6 +374,7 @@ declare enum ContentType {
    * can automatically save and fill in cities.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -368,6 +386,7 @@ declare enum ContentType {
    * can automatically save and fill in provinces.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -379,6 +398,7 @@ declare enum ContentType {
    * can automatically save and fill in countries.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -390,6 +410,7 @@ declare enum ContentType {
    * can automatically save and fill in full names.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -401,6 +422,7 @@ declare enum ContentType {
    * can automatically save and fill in last names.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -412,6 +434,7 @@ declare enum ContentType {
    * can automatically save and fill in first names.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -423,6 +446,7 @@ declare enum ContentType {
    * can automatically save and fill in phone numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -434,6 +458,7 @@ declare enum ContentType {
    * can automatically save and fill in country codes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -445,6 +470,7 @@ declare enum ContentType {
    * can automatically save and fill in phone numbers with country codes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -456,6 +482,7 @@ declare enum ContentType {
    * can automatically save and fill in email addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -467,6 +494,7 @@ declare enum ContentType {
    * can automatically save and fill in bank card numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -478,6 +506,7 @@ declare enum ContentType {
    * can automatically save and fill in ID card numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -489,6 +518,7 @@ declare enum ContentType {
    * can automatically save and fill in nicknames.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -500,6 +530,7 @@ declare enum ContentType {
    * can automatically save and fill in address information without street addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -511,6 +542,7 @@ declare enum ContentType {
    * can automatically save and fill in standard addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -522,6 +554,7 @@ declare enum ContentType {
    * can automatically save and fill in passport numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -533,6 +566,7 @@ declare enum ContentType {
    * can automatically save and fill in passport validity periods.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -544,6 +578,7 @@ declare enum ContentType {
    * can automatically save and fill in the place of issue for passports.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -555,6 +590,7 @@ declare enum ContentType {
    * can automatically save and fill in invoice titles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -566,6 +602,7 @@ declare enum ContentType {
    * can automatically save and fill in tax IDs.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -577,6 +614,7 @@ declare enum ContentType {
    * can automatically save and fill in locations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -587,6 +625,7 @@ declare enum ContentType {
    * Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -597,6 +636,7 @@ declare enum ContentType {
    * Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -607,6 +647,7 @@ declare enum ContentType {
    * Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -618,6 +659,7 @@ declare enum ContentType {
    * can automatically save and fill in license plate numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -628,6 +670,7 @@ declare enum ContentType {
    * Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -638,6 +681,7 @@ declare enum ContentType {
    * Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -788,6 +832,7 @@ declare enum EnterKeyType {
    * Showed as 'previous' pattern.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -795,6 +840,7 @@ declare enum EnterKeyType {
    * Showed as 'previous' pattern.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -805,6 +851,7 @@ declare enum EnterKeyType {
    * Showed as 'new line' pattern.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -812,6 +859,7 @@ declare enum EnterKeyType {
    * Showed as 'new line' pattern.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -824,6 +872,7 @@ declare enum EnterKeyType {
   *
   * @interface UnderlineColor
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -839,6 +888,7 @@ declare interface UnderlineColor {
     *
     * @type { ?(ResourceColor | undefined) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -854,6 +904,7 @@ declare interface UnderlineColor {
     *
     * @type { ?(ResourceColor | undefined) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -871,6 +922,7 @@ declare interface UnderlineColor {
     *
     * @type { ?(ResourceColor | undefined) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -886,6 +938,7 @@ declare interface UnderlineColor {
     *
     * @type { ?(ResourceColor | undefined) }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -898,6 +951,7 @@ declare interface UnderlineColor {
  *
  * @interface SubmitEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -907,6 +961,7 @@ declare interface SubmitEvent {
    * Keeps TextInput editable state when submitted
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -918,6 +973,7 @@ declare interface SubmitEvent {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -936,6 +992,7 @@ declare interface SubmitEvent {
  *
  * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -944,6 +1001,7 @@ declare interface SubmitEvent {
  *
  * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1010,6 +1068,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1019,6 +1078,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1038,6 +1098,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @param { number } selectionEnd - The end position of the selected text.
    * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1048,6 +1109,7 @@ declare class TextInputController extends TextContentControllerBase {
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1055,6 +1117,7 @@ declare class TextInputController extends TextContentControllerBase {
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1318,6 +1381,7 @@ interface TextInputInterface {
  *
  * @interface PasswordIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -1325,6 +1389,7 @@ interface TextInputInterface {
  *
  * @interface PasswordIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1335,6 +1400,7 @@ interface PasswordIcon {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1347,6 +1413,7 @@ interface PasswordIcon {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1358,6 +1425,7 @@ interface PasswordIcon {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1370,6 +1438,7 @@ interface PasswordIcon {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1385,6 +1454,7 @@ interface PasswordIcon {
  * @param { EnterKeyType } enterKey - Input method Enter key type.
  * @param { SubmitEvent } event - The event submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1399,6 +1469,7 @@ declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => 
  * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
  * @param { number } selectionEnd - The end location of the selected text.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1413,6 +1484,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
  * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1428,6 +1500,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  * @param { string } content - The text content of the paste.
  * @param { PasteEvent } event - User-defined paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1494,6 +1567,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { ContentType } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1505,6 +1579,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean | undefined } enable - whether to enable the selected data detector.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -1558,6 +1633,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { TextOverflow } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1570,6 +1646,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Dimension } value - The length of text indent.Default value is 0.
    * @returns { TextInputAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1826,6 +1903,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1835,6 +1913,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1846,6 +1925,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1858,6 +1938,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1867,6 +1948,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1878,6 +1960,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { OnContentScrollCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2447,6 +2530,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CaretStyle } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2456,6 +2540,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CaretStyle } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2468,6 +2553,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { ResourceColor } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2481,6 +2567,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { ResourceColor } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2493,6 +2580,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2502,6 +2590,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2514,6 +2603,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2528,6 +2618,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Default value is true.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2540,6 +2631,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { PasswordIcon } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2554,6 +2646,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { PasswordIcon } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2566,6 +2659,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { string | undefined } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2574,6 +2668,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { string | undefined } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -2592,6 +2687,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { ResourceStr | undefined } [value]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2604,6 +2700,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CustomBuilder } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2616,6 +2713,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CustomBuilder } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2628,6 +2726,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2641,6 +2740,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Default value is false.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2660,6 +2760,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { ResourceColor | UnderlineColor | undefined } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2672,6 +2773,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2692,6 +2794,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Default value is false.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2704,6 +2807,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { BarState } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2712,6 +2816,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { BarState } value - Default value is BarState.Auto.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
    */
@@ -2721,6 +2826,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { BarState } value - Default value is BarState.Auto.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2733,6 +2839,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2742,6 +2849,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number } value - Default value is 3.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2761,6 +2869,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { WordBreak } value - The word break type.Default value is WordBreak.BREAK_WORD.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2779,6 +2888,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { LineBreakStrategy } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
    * @returns { TextInputAttribute } The attribute of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2791,6 +2901,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CustomBuilder } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2799,6 +2910,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CustomBuilder } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -2824,6 +2936,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2849,6 +2962,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -2877,6 +2991,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { InputCounterOptions } options - Set the percentage of counter.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2889,6 +3004,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { object } value - indicates the style of the cancel button.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2898,6 +3014,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { object } value - indicates the style of the cancel button.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -2915,6 +3032,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CancelButtonOptions } options - Indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2931,6 +3049,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -2944,6 +3063,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2956,6 +3076,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Sets selection or not.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2969,6 +3090,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Sets selection or not.Default value is false.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2989,6 +3111,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number | string | Resource } value -  The unit is fp.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3009,6 +3132,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number | string | Resource } value -  The unit is fp.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3021,6 +3145,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -3030,6 +3155,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3042,6 +3168,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -3051,6 +3178,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3081,6 +3209,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3093,6 +3222,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Indicates the flag whether autofill is enabled.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -3101,6 +3231,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } value - Indicates the flag whether autofill is enabled.Default value is true.true: enable, false: disable.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -3116,6 +3247,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { TextDecorationOptions } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3137,6 +3269,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number | string | Resource } value -  The unit is fp.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3155,6 +3288,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { number | string | Resource } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3167,6 +3301,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { string } value - Indicates the password rules. 
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -3179,6 +3314,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { string } value - Indicates the password rules. 
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -3199,6 +3335,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3220,6 +3357,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } visible - Indicates the password visible mode. Default value is false.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3232,6 +3370,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<boolean> } callback - callback of the password visible mode change event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3250,6 +3389,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3266,6 +3406,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3284,6 +3425,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3300,6 +3442,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3312,6 +3455,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3326,6 +3470,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3343,6 +3488,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } enable - Indicates the preview text mode.Default value is true.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3355,6 +3501,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -3367,6 +3514,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3379,6 +3527,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } halfLeading
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3391,6 +3540,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<EllipsisMode> } mode - The ellipsis mode.
    * @returns { TextInputAttribute } The attribute of TextInput.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3403,6 +3553,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */
@@ -3412,6 +3563,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3424,6 +3576,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -3436,6 +3589,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
 
@@ -3448,6 +3602,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<LengthMetrics> } width - indicates the stroke width.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3460,6 +3615,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<ResourceColor> } color - indicates the stroke color.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3472,6 +3628,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } enabled - Indicates the flag whether auto fill animation effect is enabled.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3483,6 +3640,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3495,6 +3653,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3507,6 +3666,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3519,6 +3679,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3532,6 +3693,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    *     If set undefined will reset the style.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3545,6 +3707,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic

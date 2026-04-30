@@ -19,37 +19,17 @@
  */
 
 /**
- * The process is mainly used to obtain the relevant ID of the process, obtain and modify
- * the working directory of the process, exit and close the process.
+ * The **process** module provides process management APIs, for example, APIs for obtaining process information.
  *
- * @namespace process
  * @syscap SystemCapability.Utils.Lang
- * @since 7
- */
-/**
- * The process is mainly used to obtain the relevant ID of the process, obtain and modify
- * the working directory of the process, exit and close the process.
- *
- * @namespace process
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * The process is mainly used to obtain the relevant ID of the process, obtain and modify
- * the working directory of the process, exit and close the process.
- *
- * @namespace process
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  */
 declare namespace process {
   /**
    * The childprocess object can be used to create a new process.
    *
-   * @typedef ChildProcess
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
@@ -59,8 +39,6 @@ declare namespace process {
     /**
      * Return pid is the pid of the current process
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7 dynamiconly
@@ -71,8 +49,6 @@ declare namespace process {
     /**
      * Return ppid is the pid of the current child process
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7 dynamiconly
@@ -83,8 +59,6 @@ declare namespace process {
     /**
      * Return exitCode is the exit code of the current child process
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7 dynamiconly
@@ -95,8 +69,6 @@ declare namespace process {
     /**
      * Return boolean is whether the current process signal is sent successfully
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7 dynamiconly
@@ -157,302 +129,135 @@ declare namespace process {
      * @test
      */
     kill(signal: number | string): void;
-  }
+    }
 
   /**
-   * Process is mainly used to obtain the relevant ID of the process, obtain and modify the
-   * working directory of the process, exit and close the process.
+   * Provides APIs for throwing exceptions during the addition of a process.
+   *
+   * Construct a **ProcessManager** object.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   * @name ProcessManager
-   */
-  /**
-   * Process is mainly used to obtain the relevant ID of the process, obtain and modify the
-   * working directory of the process, exit and close the process.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   * @name ProcessManager
-   */
-  /**
-   * Process is mainly used to obtain the relevant ID of the process, obtain and modify the
-   * working directory of the process, exit and close the process.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @name ProcessManager
    */
   export class ProcessManager {
     /**
-     * Returns a boolean whether the specified uid belongs to a particular application.
-     *
-     * @param { number } v - An id.
-     * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns a boolean whether the specified uid belongs to a particular application.
-     *
-     * @param { number } v - An id.
-     * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Checks whether a UID belongs to this application.
      *
-     * @param { number } v - UID. which can be obtained by running process.uid.
-     * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
+     * @param { number } v - UID. which can be obtained by running **process.uid**.
+     * @returns { boolean } Check result. The value **true** is returned if the UID belongs to the application;
+     *     otherwise, **false** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     isAppUid(v: number): boolean;
 
     /**
-     * Returns the uid based on the specified user name.
-     *
-     * @param { string } v - Process name.
-     * @returns { number } Return the uid based on the specified user name.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns the uid based on the specified user name.
-     *
-     * @param { string } v - Process name.
-     * @returns { number } Return the uid based on the specified user name.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the UID of a user from the user database of the system based on the specified user name.
      *
      * @param { string } v - User name.
-     * @returns { number } Return the uid based on the specified user name.
+     * @returns { number } UID of the user. If the user does not exist, **-1** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     getUidForName(v: string): number;
 
     /**
-     * Returns the thread priority based on the specified tid.
-     *
-     * @param { number } v - The tid of the process.
-     * @returns { number } Return the thread priority based on the specified tid.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns the thread priority based on the specified tid.
-     *
-     * @param { number } v - The tid of the process.
-     * @returns { number } Return the thread priority based on the specified tid.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the thread priority based on the specified TID.
      *
      * @param { number } v - TID.
-     * @returns { number } Return the thread priority based on the specified tid.
+     * @returns { number } Priority of the thread. The priority depends on the operating system.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     getThreadPriority(v: number): number;
 
     /**
-     * Returns the system configuration at runtime.
-     *
-     * @param { number } name - Parameters defined by the system configuration.
-     * @returns { number } Return the system configuration at runtime.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns the system configuration at runtime.
-     *
-     * @param { number } name - Parameters defined by the system configuration.
-     * @returns { number } Return the system configuration at runtime.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the system configuration.
      *
      * @param { number } name - System configuration parameter name.
-     * @returns { number } Return the system configuration at runtime.
+     * @returns { number } System configuration obtained. If the configuration does not exist, **-1** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     getSystemConfig(name: number): number;
 
     /**
-     * Returns the system value for environment variables.
-     *
-     * @param { string } name - Parameters defined by the system environment variables.
-     * @returns { string } Return the system value for environment variables.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns the system value for environment variables.
-     *
-     * @param { string } name - Parameters defined by the system environment variables.
-     * @returns { string } Return the system value for environment variables.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the value of an environment variable.
      *
+     * > **NOTE**
+     * >
+     * > Obtains the value of an environment variable. If the environment variable does not exist, **undefined** is
+     * > returned.
+     *
      * @param { string } name - Environment variable name.
-     * @returns { string } Return the system value for environment variables.
+     * @returns { string } Value of the environment variable.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     getEnvironmentVar(name: string): string;
 
     /**
-     * Process exit
-     *
-     * @param { number } code - Process exit code.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Process exit
-     *
-     * @param { number } code - Process exit code.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Terminates this process.
+     *
+     * Exercise caution when using this API. After this API is called, the application exits. If the input parameter
+     * is not 0, data loss or exceptions may occur.
      *
      * @param { number } code - Exit code of the process.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     exit(code: number): void;
 
     /**
-     * Return whether the signal was sent successfully
+     * Sends a signal to the specified process to terminate it. Only the current process can be terminated.
      *
-     * @param { number } signal - Signal sent.
-     * @param { number } pid - Send signal to target pid.
-     * @returns { boolean } Return the result of the signal.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Return whether the signal was sent successfully
-     *
-     * @param { number } signal - Signal sent.
-     * @param { number } pid - Send signal to target pid.
-     * @returns { boolean } Return the result of the signal.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends a signal to the specified process to terminate it.
-     *
-     * @param { number } signal - Signal to send.
+     * @param { number } signal - Signal to send. Value range: 1 <= signal <= 64.
      * @param { number } pid - PID of the process, to which the signal will be sent.
-     * @returns { boolean } Return the result of the signal.
+     * @returns { boolean } Signal sending result. The value **true** is returned if the signal is sent successfully;
+     *     otherwise, **false** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      */
     kill(signal: number, pid: number): boolean;
-  }
+    }
 
   /**
    * Returns the numeric valid group ID of the process
@@ -485,25 +290,12 @@ declare namespace process {
   const gid: number;
 
   /**
-   * Returns the digital user id of the process
+   * User identifier (UID) of the process.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * Returns the digital user id of the process
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the digital user id of the process
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   const uid: number;
 
@@ -518,25 +310,12 @@ declare namespace process {
   const groups: number[];
 
   /**
-   * Return pid is The pid of the current process
+   * Process ID (PID) of the process.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * Return pid is The pid of the current process
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Return pid is The pid of the current process
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   const pid: number;
 
@@ -551,260 +330,173 @@ declare namespace process {
   const ppid: number;
 
   /**
-   * Returns the tid of the current thread.
+   * Thread ID (TID) of the thread.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the tid of the current thread.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the tid of the current thread.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    */
   const tid: number;
 
   /**
-   * Returns a boolean whether the process is isolated.
-   *
-   * @returns { boolean } Return boolean whether the process is isolated.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
    * Checks whether this process is isolated.
    *
-   * @returns { boolean } Return boolean whether the process is isolated.
+   * @returns { boolean } Check result. The value **true** is returned if the process is isolated; otherwise,
+   *     **false** is returned.
    * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    */
   function isIsolatedProcess(): boolean;
 
   /**
-   * Returns a boolean whether the specified uid belongs to a particular application.
+   * Checks whether a UID belongs to this application.
    *
-   * @param { number } v - An id.
-   * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
+   * @param { number } v - UID.
+   * @returns { boolean } Check result. The value **true** is returned if the UID belongs to the application;
+   *     otherwise, **false** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.isAppUid
+   * @useinstead process.ProcessManager.isAppUid
    */
   function isAppUid(v: number): boolean;
 
   /**
-   * Returns a boolean whether the process is running in a 64-bit environment.
-   *
-   * @returns { boolean } Return a boolean whether the process is running in a 64-bit environment.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns a boolean whether the process is running in a 64-bit environment.
-   *
-   * @returns { boolean } Return a boolean whether the process is running in a 64-bit environment.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Checks whether this process is running in a 64-bit environment.
    *
-   * @returns { boolean } Return a boolean whether the process is running in a 64-bit environment.
+   * @returns { boolean } Check result. The value **true** is returned if the process is running in a 64-bit
+   *     environment; otherwise, **false** is returned.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    */
   function is64Bit(): boolean;
 
   /**
-   * Returns the uid based on the specified user name.
+   * Obtains the UID of a user from the user database of the system based on the specified user name.
    *
-   * @param { string } v - Process name.
-   * @returns { number } Return the uid based on the specified user name.
+   * @param { string } v - User name.
+   * @returns { number } UID of the user.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.getUidForName
+   * @useinstead process.ProcessManager.getUidForName
    */
   function getUidForName(v: string): number;
 
   /**
-   * Returns the thread priority based on the specified tid.
+   * Obtains the thread priority based on the specified TID.
    *
-   * @param { number } v - The tid of the process.
-   * @returns { number } Return the thread priority based on the specified tid.
+   * @param { number } v - TID.
+   * @returns { number } Priority of the thread. The priority depends on the operating system.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.getThreadPriority
+   * @useinstead process.ProcessManager.getThreadPriority
    */
   function getThreadPriority(v: number): number;
 
   /**
-   * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
+   * Obtains the duration (excluding the system sleep time), in milliseconds, from the time the system starts to the
+   * time the process starts.
    *
-   * @returns { number } Return the start of the system to the start of the process.
+   * @returns { number } Duration obtained, in milliseconds.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
-   *
-   * @returns { number } Return the start of the system to the start of the process.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the duration, in milliseconds, from the time the system starts to the time the process starts.
-   *
-   * @returns { number } Return the start of the system to the start of the process (ms).
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    */
   function getStartRealtime(): number;
 
   /**
-   * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
-   *
-   * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
-   *
-   * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Obtains the CPU time (in milliseconds) from the time the process starts to the current time.
    *
-   * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
+   * @returns { number } CPU time obtained, in milliseconds.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    */
   function getPastCpuTime(): number;
 
   /**
-   * Returns the system configuration at runtime.
+   * Obtains the system configuration.
    *
-   * @param { number } name - Parameters defined by the system configuration.
-   * @returns { number } Return the system configuration at runtime.
+   * @param { number } name - System configuration parameter name.
+   * @returns { number } System configuration obtained.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.getSystemConfig
+   * @useinstead process.ProcessManager.getSystemConfig
    */
   function getSystemConfig(name: number): number;
 
   /**
-   * Returns the system value for environment variables.
+   * Obtains the value of an environment variable.
    *
-   * @param { string } name - Parameters defined by the system environment variables.
-   * @returns { string } Return the system value for environment variables.
+   * @param { string } name - Environment variable name.
+   * @returns { string } Value of the environment variable.
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.getEnvironmentVar
+   * @useinstead process.ProcessManager.getEnvironmentVar
    */
   function getEnvironmentVar(name: string): string;
-  
+
   /**
-   * User Stored Events
+   * Event to store.
    *
+   * @param { Object } evt - Event. [since 12]
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * User Stored Events
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * User Stored Events
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * User Stored Events
-   *
-   * @typedef { function } EventListener
-   * @param { Object } evt - User events
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   type EventListener = (evt: Object) => void;
-  
+
   /**
    * Provides the ConditionType type,including timeout, killSignal, maxBuffer.
    *
-   * @typedef ConditionType
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 10 dynamiconly
    * @test
    */
   interface ConditionType {
-	  
+
     /**
      * Maximum running time (in ms) of the child process.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 10 dynamiconly
      * @test
      */
     timeout?: number;
-	  
+
     /**
      * Signal sent to the child process when the running time of a child process exceeds the timeout period.
      *
-     * @type { ?(number | string) }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 10 dynamiconly
      * @test
      */
     killSignal?: number | string;
-	  
+
     /**
      * Maximum buffer size for the standard input and output of the child process.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 10 dynamiconly
      * @test
      */
     maxBuffer?: number;
-  }
+    }
   /**
    * Returns a child process object and spawns a new ChildProcess to run the command.
    *
@@ -824,26 +516,13 @@ declare namespace process {
   ): ChildProcess;
 
   /**
-   * Abort current process
+   * Aborts a process and generates a core file. This method will cause a process to exit immediately. Exercise
+   * caution when using this method.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * Abort current process
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Aborts a process and generates a core file. This method will cause a process to exit immediately. Exercise caution
-   * when using this method.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   function abort(): void;
 
@@ -872,13 +551,16 @@ declare namespace process {
   function off(type: string): boolean;
 
   /**
-   * Process exit
+   * Terminates this process.
    *
-   * @param { number } code - Process exit code.
+   * Exercise caution when using this API. After this API is called, the application exits. If the input parameter is
+   * not 0, data loss or exceptions may occur.
+   *
+   * @param { number } code - Exit code of the process.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.exit
+   * @useinstead process.ProcessManager.exit
    */
   function exit(code: number): void;
 
@@ -905,42 +587,28 @@ declare namespace process {
   function chdir(dir: string): void;
 
   /**
-   * Returns the running time of the system
+   * Obtains the running time of the current system, in seconds.
    *
-   * @returns { number } Return the running time of the system.
+   * @returns { number } Running time of the system, in seconds.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * Returns the running time of the system
-   *
-   * @returns { number } Return the running time of the system.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the running time of this process.
-   *
-   * @returns { number } Return the running time of the system (s).
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   function uptime(): number;
 
   /**
-   * Return whether the signal was sent successfully
+   * Sends a signal to a specified process to terminate it.
    *
-   * @param { number } signal - Signal sent.
-   * @param { number } pid - Send signal to target pid.
-   * @returns { boolean } Return the result of the signal.
+   * @param { number } signal - Signal to send.
+   * @param { number } pid - PID of the process, to which the signal will be sent.
+   * @returns { boolean } If the signal is sent successfully, **true** is returned. Other, **false** is returned.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.process.ProcessManager.kill
+   * @useinstead process.ProcessManager.kill
    */
   function kill(signal: number, pid: number): boolean;
-}
+  }
+
 export default process;

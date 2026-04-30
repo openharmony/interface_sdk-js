@@ -312,6 +312,7 @@ declare enum PlaybackSpeed {
    * 0.50x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -320,6 +321,7 @@ declare enum PlaybackSpeed {
    * 1.50x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -328,6 +330,7 @@ declare enum PlaybackSpeed {
    * 3.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -336,6 +339,7 @@ declare enum PlaybackSpeed {
    * 0.25x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -344,6 +348,7 @@ declare enum PlaybackSpeed {
    * 0.125x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -355,6 +360,7 @@ declare enum PlaybackSpeed {
  *
  * @typedef FullscreenInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -364,6 +370,7 @@ interface FullscreenInfo {
    * The flag whether play in full screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * 
    * @crossplatform
    * @since 10
@@ -373,6 +380,7 @@ interface FullscreenInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -383,6 +391,7 @@ interface FullscreenInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -395,6 +404,7 @@ interface FullscreenInfo {
  *
  * @typedef PreparedInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -404,6 +414,7 @@ interface PreparedInfo {
    * The duration of the current video, in seconds.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -412,6 +423,7 @@ interface PreparedInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -422,6 +434,7 @@ interface PreparedInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -434,6 +447,7 @@ interface PreparedInfo {
  *
  * @typedef PlaybackInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -443,6 +457,7 @@ interface PlaybackInfo {
    * The current video playback progress, expressed in seconds.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -451,6 +466,7 @@ interface PlaybackInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -461,6 +477,7 @@ interface PlaybackInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -473,6 +490,7 @@ interface PlaybackInfo {
  *
  * @interface PosterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 18 dynamic
  */
@@ -483,6 +501,7 @@ declare interface PosterOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -494,6 +513,7 @@ declare interface PosterOptions {
    * @type { ?ContentTransitionEffect }
    * @default ContentTransitionEffect.IDENTITY
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -660,6 +680,7 @@ declare interface VideoOptions {
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -670,6 +691,7 @@ declare interface VideoOptions {
    *
    * @type { ?PosterOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -925,6 +947,7 @@ declare class VideoController {
    * Provide the reset method of video playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1581,6 +1604,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { Callback<void> } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1593,6 +1617,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } enable
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1604,6 +1629,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { ImageAnalyzerConfig } config
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1616,6 +1642,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    */
   surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
@@ -1630,6 +1657,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } enabled
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */

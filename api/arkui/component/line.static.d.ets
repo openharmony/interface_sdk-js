@@ -38,6 +38,7 @@ export type ShapePoint = [
  *
  * @interface LineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface LineOptions {
@@ -46,6 +47,7 @@ export interface LineOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width?: Length;
@@ -54,6 +56,7 @@ export interface LineOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height?: Length;
@@ -65,6 +68,7 @@ export interface LineOptions {
  * @extends CommonShapeMethod
  * @interface LineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface LineAttribute extends CommonShapeMethod {
@@ -74,6 +78,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @param { ShapePoint | undefined } value
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default startPoint(value: ShapePoint | undefined): this;
@@ -83,6 +88,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @param { ShapePoint | undefined } value
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default endPoint(value: ShapePoint | undefined): this;
@@ -92,6 +98,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined): this;

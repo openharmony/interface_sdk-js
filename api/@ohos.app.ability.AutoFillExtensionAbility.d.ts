@@ -31,126 +31,126 @@ import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveReque
 /*** endif */
 
 /**
- * The class of auto fill extension ability.
+ * The AutoFillExtensionAbility module provides APIs for automatically filling in and saving accounts and passwords. It
+ * inherits from [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
  *
- * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11 dynamic
  * @since 23 static
  */
 declare class AutoFillExtensionAbility extends ExtensionAbility {
   /**
-   * Indicates configuration information about an auto fill extension ability context.
+   * Context of the AutoFillExtensionAbility. This context inherits from **ExtensionContext**.
    *
-   * @type { AutoFillExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   context: AutoFillExtensionContext;
 
   /**
-   * Called back when an auto fill extension is started for initialization.
+   * Called when an AutoFillExtensionAbility is created.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onCreate(): void;
 
   /**
-   * Called back when a fill request is coming.
+   * Called when an auto-fill request is initiated or a password is generated.
    *
-   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
-   * @param { FillRequest } request - Indicates the fill request.
-   * @param { FillRequestCallback } callback - Indicates the fill request callback.
+   * @param { UIExtensionContentSession } session - UI content information related to the AutoFillExtensionAbility.
+   * @param { FillRequest } request - Data to be automatically filled in.
+   * @param { FillRequestCallback } callback - Callback used for the auto-fill request.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onFillRequest(session: UIExtensionContentSession, request: FillRequest, callback: FillRequestCallback): void;
 
   /**
-   * Called back when a save request is coming.
+   * Called when automatic or manual saving is initiated.
    *
-   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
-   * @param { SaveRequest } request - Indicates the fill request.
-   * @param { SaveRequestCallback } callback - Indicates the fill request callback.
+   * @param { UIExtensionContentSession } session - UI content information related to the AutoFillExtensionAbility.
+   * @param { SaveRequest } request - Data to be saved.
+   * @param { SaveRequestCallback } callback - Callback used for the saving request.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
   /**
-   * Called back when an update request is coming.
+   * Called when an update request is received.
    *
-   * @param { UpdateRequest } request - Indicates the update request.
+   * @param { UpdateRequest } request - Update request.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
   onUpdateRequest(request: UpdateRequest): void;
 
   /**
-   * Called back when an auto fill extension session is destroyed.
+   * Called when a UIExtensionContentSession instance is destroyed for this AutoFillExtensionAbility.
    *
-   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @param { UIExtensionContentSession } session - UI content information related to the AutoFillExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
   /**
-   * Called back when the state of an auto fill extension changes to foreground.
+   * Called when this AutoFillExtensionAbility is switched from the background to the foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onForeground(): void;
 
   /**
-   * Called back when the state of an auto fill extension changes to background.
+   * Called when this AutoFillExtensionAbility is switched from the foreground to the background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
   onBackground(): void;
 
   /**
-   * Called back before an auto fill extension is destroyed.
+   * Called to clear resources when this AutoFillExtensionAbility is destroyed. This API either returns the result
+   * directly or uses a promise to return the result.
    *
-   * @returns { void | Promise<void> } the promise returned by the function.
+   * @returns { void | Promise<void> } Returns no value or returns a Promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11 dynamic
    */
   onDestroy(): void | Promise<void>;
 
   /**
-   * Called back before an auto fill extension is destroyed.
+   * Called to clear resources when this AutoFillExtensionAbility is destroyed.
    *
    * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

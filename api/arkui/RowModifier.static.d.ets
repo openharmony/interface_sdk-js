@@ -26,6 +26,7 @@ import { RowAttribute } from '@ohos.arkui.component';
  *
  * @implements RowAttribute, AttributeModifier<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 */
 export declare class RowModifier implements RowAttribute, AttributeModifier<RowAttribute> {}

@@ -19,9 +19,9 @@
  */
 
 /**
- * The class of an process running information.
+ * The module defines the running information of a process. The information can be obtained through
+ * [getProcessRunningInfos]{@link @ohos.application.appManager:appManager.getProcessRunningInfos()} of appManager.
  *
- * @typedef ProcessRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @since 8 dynamiconly
  * @deprecated since 9
@@ -29,42 +29,46 @@
  */
 export interface ProcessRunningInfo {
   /**
-   * @type { number }
+   * Process ID.
+   *
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#pid
+   * @useinstead ProcessInformation:ProcessInformation.pid
    */
   pid: number;
 
   /**
-   * @type { number }
+   * UID of the application.
+   *
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#uid
+   * @useinstead ProcessInformation:ProcessInformation.uid
    */
   uid: number;
 
   /**
-   * @type { string }
+   * Process name.
+   *
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#processName
+   * @useinstead ProcessInformation:ProcessInformation.processName
    */
   processName: string;
 
   /**
-   * @type { Array<string> }
+   * Names of all running bundles in the process.
+   *
    * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#bundleNames
+   * @useinstead ProcessInformation:ProcessInformation.bundleNames
    */
   bundleNames: Array<string>;
 }

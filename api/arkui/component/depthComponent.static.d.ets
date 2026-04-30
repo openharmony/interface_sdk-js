@@ -44,6 +44,7 @@ export declare enum DepthSpaceType {
    * Global mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -240,7 +241,7 @@ export declare interface DepthComponentAttribute extends CommonMethod {
 /**
  * Defines DepthComponent.
  *
- * @param { ResourceStr } background - Background resource.
+ * @param { ResourceStr | PixelMap } background - Background resource.
  * @param { DepthComponentOptions } [options] - DepthComponent options.
  * @returns { DepthComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -249,7 +250,7 @@ export declare interface DepthComponentAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function DepthComponent(
-  background: ResourceStr,
+  background: ResourceStr | PixelMap,
   options?: DepthComponentOptions,
   content_?: CustomBuilder,
 ): DepthComponentAttribute

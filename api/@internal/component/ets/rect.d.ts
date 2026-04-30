@@ -23,6 +23,7 @@
  *
  * @interface RectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -224,6 +225,7 @@ declare interface RectOptions {
  *
  * @interface RoundedRectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice

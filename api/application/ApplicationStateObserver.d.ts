@@ -14,6 +14,10 @@
  */
 
 /**
+ * The module defines an observer to listen for application state changes. It can be used as an input parameter in 
+ * [on('applicationState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
+ * to listen for lifecycle changes of the application.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -119,7 +123,7 @@ declare interface ApplicationStateObserver {
 
 /**
  * The process data.
- * @typedef { _ProcessData.default }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
  */
@@ -127,7 +131,7 @@ export type ProcessData = _ProcessData.default;
 
 /**
  * The process data.
- * @typedef { _ProcessData }
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 23 static
  */

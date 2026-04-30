@@ -25,154 +25,98 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Provides the information required for triggering a WantAgent.
+ * The module defines the information required for triggering the WantAgent. The information is used as an input
+ * parameter of [trigger](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#wantagenttrigger).
  *
- * @typedef TriggerInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 7
- */
-/**
- * Provides the information required for triggering a WantAgent.
- *
- * @typedef TriggerInfo
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 7 dynamic
  * @since 23 static
  */
 export interface TriggerInfo {
   /**
-   * Result code.
+   * Common event code. This field is valid only when
+   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the
+   * WantAgent instance is **'SEND_COMMON_EVENT'**. The meaning of this field is the same as that of the **code** field
+   * set in
+   * [CommonEventPublishData](docroot://reference/apis-basic-services-kit/js-apis-inner-commonEvent-commonEventPublishData.md#properties)
+   *  when the publisher uses
+   * [commonEventManager.publish]{@link @ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   *  to publish common events.
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Result code.
-   *
-   * @type { int }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   code: int;
 
   /**
-   * Extra Want.
-   * If flags in WantAgentInfo contain CONSTANT_FLAG, this parameter is invalid.
-   * If flags contain REPLACE_ELEMENT, REPLACE_ACTION, REPLACE_URI, REPLACE_ENTITIES, and REPLACE_BUNDLE,
-   * the element, action, uri, entities, and bundleName attributes of the Want specified in this parameter
-   * will be used to replace the corresponding attributes in the original Want, respectively.
-   * If this parameter is null, the original Want remains unchanged.
+   * Carrier for information transfer between objects (application components).
    *
-   * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Extra Want.
-   * If flags in WantAgentInfo contain CONSTANT_FLAG, this parameter is invalid.
-   * If flags contain REPLACE_ELEMENT, REPLACE_ACTION, REPLACE_URI, REPLACE_ENTITIES, and REPLACE_BUNDLE,
-   * the element, action, uri, entities, and bundleName attributes of the Want specified in this parameter
-   * will be used to replace the corresponding attributes in the original Want, respectively.
-   * If this parameter is null, the original Want remains unchanged.
-   *
-   * @type { ?Want }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   want?: Want;
 
   /**
-   * Permission required for a WantAgent recipient.
-   * This parameter is valid only when the WantAgent is triggered to send common events.
-   * If permission is null, no permission is required on the recipient.
+   * Permission required for a subscriber to receive the common event. This field is valid only when
+   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the
+   * WantAgent instance is **'SEND_COMMON_EVENT'**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Permission required for a WantAgent recipient.
-   * This parameter is valid only when the WantAgent is triggered to send common events.
-   * If permission is null, no permission is required on the recipient.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   permission?: string;
 
   /**
-   * Custom extra data you want to add for triggering a WantAgent.
+   * Extra information.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  /**
-   * Custom extra data you want to add for triggering a WantAgent.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   extraInfo?: { [key: string]: any };
 
   /**
-   * Custom extra data you want to add for triggering a WantAgent.
+   * Extra information.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 23 static
    */
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Custom extra data you want to add for triggering a WantAgent.
-   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set,
+   * **extraInfo** does not take effect.
    *
-   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 11
-   */
-  /**
-   * Custom extra data you want to add for triggering a WantAgent.
-   * The ability of this property is same as extraInfo. If both are set, this property will be used.
-   *
-   * @type { ?Record<string, Object> }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   extraInfos?: Record<string, Object>;
 
   /**
-   * Custom extra data you want to add for triggering a WantAgent.
-   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   * Extra information. You are advised to use this property to replace extraInfo.
+   * When this property is set, extraInfo does not take effect.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 23 static
    */
   extraInfos?: Record<string, RecordData>;
 
   /**
-   * Specific options for triggering a wantagent which is used for starting an ability.
+   * Start options in wantAgent used to start an ability.
    *
-   * @type { ?StartOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
-   startOptions?: StartOptions;
+  startOptions?: StartOptions;
 }

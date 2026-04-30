@@ -358,7 +358,7 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * Register a callback function and call it when a task fails to be executed.
+     * Register a callback function and call it when a task fails to be executed(Periodic tasks are not supported).
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunctionWithError } [callback] - Callback function to register.
@@ -1395,7 +1395,12 @@ declare namespace taskpool {
     priority?: Priority;
 
     /**
-     * The timeout for the task in ms. The default value is Infinity.
+     * The timeout for the task in ms. Suggest passing in integers. If decimals are passed in, they will be rounded down.
+     * If this parameter is omitted, timeout will take the default value of 0 and no timeout logic will be executed.
+     * **NOTE**
+     * 1. The timeout period is not a precise time, and the actual timeout period may differ from the expected time.
+     * 2. If the value is less than 1, it will be defaulted to **0**.
+     * 3. The value is subject to system limitations. If it exceeds 2^31 �C 1, the value will be **0**.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

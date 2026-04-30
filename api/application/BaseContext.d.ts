@@ -19,54 +19,23 @@
  */
 
 /**
- * The base context of 'app.Context' for FA Mode or
- * 'application.Context' for Stage Mode.
+ * BaseContext is an abstract class that specifies whether a child class Context is used for the stage model or FA
+ * model. It is the parent class for all types of Context.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 8
- */
-/**
- * The base context of 'app.Context' for FA Mode or
- * 'application.Context' for Stage Mode.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @since 10
- */
-/**
- * The base context of 'app.Context' for FA Mode or
- * 'application.Context' for Stage Mode.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @since 23 static
  */
 export default abstract class BaseContext {
   /**
    * Indicates the context is FA Mode or Stage Mode.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Indicates the context is FA Mode or Stage Mode.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the context is FA Mode or Stage Mode.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   stageMode: boolean;

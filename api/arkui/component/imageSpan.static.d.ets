@@ -30,6 +30,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -40,6 +41,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageSpanAlignment | undefined } value - The alignment type of image span.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default verticalAlign(value: ImageSpanAlignment | undefined): this;
@@ -49,6 +51,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ColorFilter | DrawingColorFilter | undefined } filter ColorFilter object.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default colorFilter(filter: ColorFilter | DrawingColorFilter | undefined): this;
@@ -58,6 +61,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageFit | undefined } value - Image display mode.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default objectFit(value: ImageFit | undefined): this;
@@ -68,6 +72,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageCompleteCallback | undefined } callback - Triggered when the image is successfully loaded.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onComplete(callback: ImageCompleteCallback | undefined): this;
@@ -78,6 +83,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageErrorCallback | undefined } callback - Triggered when an exception occurs during image loading.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onError(callback: ImageErrorCallback | undefined): this;
@@ -87,6 +93,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { PixelMap | undefined } value
      * @returns { ImageSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default alt(value: PixelMap | undefined): this;
@@ -97,6 +104,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      *     The default value is false. Passing `undefined` resets it to the default value.
      * @returns { ImageSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default supportSvg2(enable: boolean | undefined) : this;
@@ -106,6 +114,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { ImageSpanAttribute } the attribute of the ImageSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -116,6 +125,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
  * @typedef { function } ImageCompleteCallback
  * @param { ImageLoadResult } result - the information about the successfully loaded image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type ImageCompleteCallback = (result: ImageLoadResult) => void;
@@ -124,6 +134,7 @@ export type ImageCompleteCallback = (result: ImageLoadResult) => void;
  *
  * @interface ImageLoadResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ImageLoadResult {
@@ -132,6 +143,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width: double;
@@ -140,6 +152,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height: double;
@@ -148,6 +161,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     componentWidth: double;
@@ -156,6 +170,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     componentHeight: double;
@@ -166,6 +181,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     loadingStatus: double;
@@ -174,6 +190,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentWidth: double;
@@ -182,6 +199,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentHeight: double;
@@ -190,6 +208,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentOffsetX: double;
@@ -198,6 +217,7 @@ export declare interface ImageLoadResult {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentOffsetY: double;

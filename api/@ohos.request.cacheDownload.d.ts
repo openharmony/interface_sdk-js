@@ -131,6 +131,65 @@ declare namespace cacheDownload {
     }
 
     /**
+     * Task timeout configuration.
+     *
+     * @typedef TimeoutOptions
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    interface TimeoutOptions {  
+      /**
+       * Network availability check timeout, in seconds.
+       * The default value is 20.
+       * The minimum value is 0.
+       * The maximum value is 20.
+       * When set to 0, no check will be performed. 
+       * 
+       * @type { ?int }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @stagemodelonly
+       * @since 26.0.0 dynamic&static
+       */
+      networkCheckTimeout?: int;
+      /**
+       * Complete HTTP request-response cycle timeout, in seconds.
+       * The default value is 60.
+       * The minimum value is 1.
+       *
+       * @type { ?int }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @stagemodelonly
+       * @since 26.0.0 dynamic&static
+       */
+      httpTotalTimeout?: int;
+    }
+   
+    /**
+     * Task retry configuration.
+     *
+     * @typedef RetryOptions
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    interface RetryOptions {
+      /**
+       * Maximum number of retry attempts.
+       * The default value is 3.
+       * The minimum value is 0.
+       * The maximum value is 10.
+       * When set to 0, no retries will be performed.
+       * 
+       * @type { ?int }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @stagemodelonly
+       * @since 26.0.0 dynamic&static
+       */
+      maxRetryCount?: int;
+    }
+
+    /**
      * Options of the cache download task.
      *
      * @typedef CacheDownloadOptions
@@ -177,6 +236,24 @@ declare namespace cacheDownload {
          * @since 23 dynamic&static
          */
         cacheStrategy?: CacheStrategy;
+        /**
+         * Task retry configuration.
+         * 
+         * @type { ?RetryOptions }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @stagemodelonly
+         * @since 26.0.0 dynamic&static
+         */
+        retry?: RetryOptions;
+        /**
+         * Task timeout configuration.
+         * 
+         * @type { ?TimeoutOptions }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @stagemodelonly
+         * @since 26.0.0 dynamic&static
+         */
+        timeout?: TimeoutOptions;
     }
 
     /**
@@ -533,6 +610,30 @@ declare namespace cacheDownload {
      * @since 23 dynamic&static
      */
     function offDownloadError(url: string, callback?: Callback<DownloadError>): void;
+
+    /**
+     * Sets retry options for all tasks.
+     * Used when task-specific retry configuration is not configured.
+     *
+     * @param { RetryOptions } [options] - Task retry configurations.
+     *     <br>Default value: Refer to the default value of RetryOptions.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    function setGlobalRetryOptions(options?: RetryOptions): void;
+   
+    /**
+     * Sets timeout configuration for all tasks.
+     * Used when task-specific timeout configuration is not configured.
+     *
+     * @param { TimeoutOptions } [options] - Task timeout configuration.
+     *     <br>Default value: Refer to the default value of TimeoutOptions.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    function setGlobalTimeoutOptions(options?: TimeoutOptions): void;
 }
 
 export default cacheDownload;

@@ -77,64 +77,30 @@ import { AgentExtensionConnectCallback as _AgentExtensionConnectCallback } from 
 import _AgentExtensionContext from './application/AgentExtensionContext';
 
 /**
- * This module provides application context classes and common data structures.
+ * You can use this module to reference the ability public module class.
  *
- * @namespace common
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 9
- */
-/**
- * This module provides application context classes and common data structures.
- *
- * @namespace common
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * This module provides application context classes and common data structures.
- *
- * @namespace common
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace common {
   /**
-   * The context of an ability. It allows access to ability-specific resources.
+   * Defines the context environment for the [UIAbility]{@link @ohos.app.ability.UIAbility}. It inherits from Context.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The context of an ability. It allows access to ability-specific resources.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The context of an ability. It allows access to ability-specific resources.
-   *
-   * @typedef { _UIAbilityContext.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type UIAbilityContext = _UIAbilityContext.default;
 
   /**
-   * The context of an ability. It allows access to ability-specific resources.
+   * Defines the context environment for the [UIAbility]{@link @ohos.app.ability.UIAbility}. It inherits from Context.
    *
-   * @typedef { _UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -144,36 +110,21 @@ declare namespace common {
   export type UIAbilityContext = _UIAbilityContext;
 
   /**
-   * The context of an abilityStage. It allows access to abilityStage-specific resources.
+   * Defines the context environment for the [AbilityStage]{@link @ohos.app.ability.AbilityStage:AbilityStage}. It
+   * inherits from Context.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The context of an abilityStage. It allows access to abilityStage-specific resources.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The context of an abilityStage. It allows access to abilityStage-specific resources.
-   *
-   * @typedef { _AbilityStageContext.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type AbilityStageContext = _AbilityStageContext.default;
 
   /**
-   * The context of an abilityStage. It allows access to abilityStage-specific resources.
+   * Defines the context environment for the [AbilityStage]{@link @ohos.app.ability.AbilityStage:AbilityStage}. It
+   * inherits from Context.
    *
-   * @typedef { _AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -183,36 +134,19 @@ declare namespace common {
   export type AbilityStageContext = _AbilityStageContext;
 
   /**
-   * The context of an application. It allows access to application-specific resources.
+   * Defines the application context. It inherits from Context.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The context of an application. It allows access to application-specific resources.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The context of an application. It allows access to application-specific resources.
-   *
-   * @typedef { _ApplicationContext.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type ApplicationContext = _ApplicationContext.default;
 
   /**
-   * The context of an application. It allows access to application-specific resources.
+   * Defines the application context. It inherits from Context.
    *
-   * @typedef { _ApplicationContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -222,35 +156,19 @@ declare namespace common {
   export type ApplicationContext = _ApplicationContext;
 
   /**
-   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
+   * Defines the parent class of all context types.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
-   *
-   * @typedef { _BaseContext.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type BaseContext = _BaseContext.default;
+
   /**
-   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
+   * Defines the parent class of all context types.
    *
-   * @typedef { _BaseContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -259,40 +177,21 @@ declare namespace common {
   export type BaseContext = _BaseContext;
 
   /**
-   * The base context of an ability or an application. It allows access to
-   * application-specific resources.
+   * Defines the context base class for the
+   * [stage model](docroot://application-models/ability-terminology.md#stage-model).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The base context of an ability or an application. It allows access to
-   * application-specific resources.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The base context of an ability or an application. It allows access to
-   * application-specific resources.
-   *
-   * @typedef { _Context.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type Context = _Context.default;
 
   /**
-   * The base context of an ability or an application. It allows access to
-   * application-specific resources.
+   * Defines the context base class for the
+   * [stage model](docroot://application-models/ability-terminology.md#stage-model).
    *
-   * @typedef { _Context }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -302,27 +201,20 @@ declare namespace common {
   export type Context = _Context;
 
   /**
-   * The context of an extension. It allows access to extension-specific resources.
+   * Defines the context environment for the
+   * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}. It inherits from Context.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The context of an extension. It allows access to extension-specific resources.
-   *
-   * @typedef { _ExtensionContext.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type ExtensionContext = _ExtensionContext.default;
 
   /**
-   * The context of an extension. It allows access to extension-specific resources.
+   * Defines the context environment for the
+   * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}. It inherits from Context.
    *
-   * @typedef { _ExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -409,10 +301,8 @@ declare namespace common {
   export type LiveFormExtensionContext = _LiveFormExtensionContext;
 
   /**
-   * The context of service extension. It allows access to
-   * serviceExtension-specific resources.
+   * Level-2 module ServiceExtensionContext.
    *
-   * @typedef { _ServiceExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -421,10 +311,8 @@ declare namespace common {
   export type ServiceExtensionContext = _ServiceExtensionContext.default;
 
   /**
-   * The context of service extension. It allows access to
-   * serviceExtension-specific resources.
+   * Level-2 module ServiceExtensionContext.
    *
-   * @typedef { _ServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -433,36 +321,19 @@ declare namespace common {
   export type ServiceExtensionContext = _ServiceExtensionContext;
 
   /**
-   * The event center of a context, support the subscription and publication of events.
+   * Defines EventHub, which is an event communication mechanism based on the publish-subscribe pattern.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The event center of a context, support the subscription and publication of events.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The event center of a context, support the subscription and publication of events.
-   *
-   * @typedef { _EventHub.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export type EventHub = _EventHub.default;
 
   /**
-   * The event center of a context, support the subscription and publication of events.
+   * Defines EventHub, which is an event communication mechanism based on the publish-subscribe pattern.
    *
-   * @typedef { _EventHub }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -471,46 +342,30 @@ declare namespace common {
   export type EventHub = _EventHub;
 
   /**
-   * Defines a PacMap object for storing a series of values.
+   * Defines the container of basic data types.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Defines a PacMap object for storing a series of values.
-   *
-   * @typedef { _PacMap }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type PacMap = _PacMap;
 
   /**
-   * Indicates the result of startAbility.
+   * Defines the result code and data returned when a started ability is terminated.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates the result of startAbility.
-   *
-   * @typedef { _AbilityResult }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type AbilityResult = _AbilityResult;
 
   /**
-   * Indicates the callback of connection
+   * Defines the connection options. It is used as an input parameter for connection to a background service, to receive
+   *  the connection status with the background service.
    *
-   * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
@@ -519,10 +374,9 @@ declare namespace common {
   export type ConnectOptions = _ConnectOptions;
 
   /**
-   * The context of UI extension. It allows access to
-   * UIExtension-specific resources.
+   * Defines the context environment for the
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}. It inherits from Context.
    *
-   * @typedef { _UIExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
@@ -530,10 +384,9 @@ declare namespace common {
   export type UIExtensionContext = _UIExtensionContext.default;
 
   /**
-   * The context of UI extension. It allows access to
-   * UIExtension-specific resources.
+   * Defines the context environment for the
+   * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}. It inherits from Context.
    *
-   * @typedef { _UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -541,10 +394,8 @@ declare namespace common {
   export type UIExtensionContext = _UIExtensionContext;
 
   /**
-   * The context of auto fill extension. It allows access to
-   * AutoFillExtension-specific resources.
+   * Level-2 module AutoFillExtensionContext.
    *
-   * @typedef { _AutoFillExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -553,10 +404,8 @@ declare namespace common {
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
   /**
-   * The context of auto fill extension. It allows access to
-   * AutoFillExtension-specific resources.
+   * Level-2 module AutoFillExtensionContext.
    *
-   * @typedef { _AutoFillExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -565,9 +414,13 @@ declare namespace common {
   export type AutoFillExtensionContext = _AutoFillExtensionContext;
 
   /**
-   * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
+   * Defines the callback invoked to return the UIExtensionAbility startup result. It is usually used as an input
+   * parameter in
+   * [UIAbilityContext.startAbilityByType]{@link ./application/UIAbilityContext:UIAbilityContext.startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>)}
+   *  or
+   * [UIExtensionContext.startAbilityByType]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession.startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>)}
+   * .
    *
-   * @typedef { _AbilityStartCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -577,9 +430,8 @@ declare namespace common {
   export type AbilityStartCallback = _AbilityStartCallback;
 
   /**
-   * The class of auto startup info.
+   * Level-2 module AutoStartupInfo.
    *
-   * @typedef { _AutoStartupInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -589,9 +441,8 @@ declare namespace common {
   export type AutoStartupInfo = _AutoStartupInfo;
 
   /**
-   * The class of auto startup callback.
+   * Level-2 module AutoStartupCallback.
    *
-   * @typedef { _AutoStartupCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -613,9 +464,9 @@ declare namespace common {
   export type VpnExtensionContext = _VpnExtensionContext.default;
 
   /**
-   * The context of an embeddable UIAbility.
+   * Defines the context environment for the
+   * [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. It inherits from Context.
    *
-   * @typedef { _EmbeddableUIAbilityContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -644,9 +495,8 @@ declare namespace common {
   export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext;
 
   /**
-   * The context of a UI service ability.
+   * Level-2 module UIServiceExtensionContext.
    *
-   * @typedef { _UIServiceExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -655,9 +505,8 @@ declare namespace common {
   export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
 
   /**
-   * The context of a UI service ability.
+   * Level-2 module UIServiceExtensionContext.
    *
-   * @typedef { _UIServiceExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -666,9 +515,10 @@ declare namespace common {
   export type UIServiceExtensionContext = _UIServiceExtensionContext;
 
   /**
-   * The UI service proxy.
+   * Defines the capability for data communication with the UIServiceExtensionAbility. UIServiceExtensionAbility is a
+   * special type of ExtensionAbility provided by the system and is used to provide extended capabilities related to
+   * floating windows.
    *
-   * @typedef { _UIServiceProxy.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -677,9 +527,10 @@ declare namespace common {
   export type UIServiceProxy = _UIServiceProxy.default;
 
   /**
-   * The UI service proxy.
+   * Defines the capability for data communication with the UIServiceExtensionAbility. UIServiceExtensionAbility is a
+   * special type of ExtensionAbility provided by the system and is used to provide extended capabilities related to
+   * floating windows.
    *
-   * @typedef { _UIServiceProxy }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -687,9 +538,8 @@ declare namespace common {
   export type UIServiceProxy = _UIServiceProxy;
 
   /**
-   * The UI service host proxy.
+   * Level-2 module UIServiceHostProxy.
    *
-   * @typedef { _UIServiceHostProxy.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -698,9 +548,8 @@ declare namespace common {
   export type UIServiceHostProxy = _UIServiceHostProxy.default;
 
   /**
-   * The UI service host proxy.
+   * Level-2 module UIServiceHostProxy.
    *
-   * @typedef { _UIServiceHostProxy }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -709,9 +558,9 @@ declare namespace common {
   export type UIServiceHostProxy = _UIServiceHostProxy;
 
   /**
-   * The UI service extension connect callback.
+   * Defines the connection callback. It is used as an input parameter for connection to a UIServiceExtensionAbility, to
+   *  provide the callback for the connection.
    *
-   * @typedef { _UIServiceExtensionConnectCallback.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -720,9 +569,9 @@ declare namespace common {
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
 
   /**
-   * The UI service extension connect callback.
+   * Defines the connection callback. It is used as an input parameter for connection to a UIServiceExtensionAbility, to
+   *  provide the callback for the connection.
    *
-   * @typedef { _UIServiceExtensionConnectCallback}
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -730,10 +579,10 @@ declare namespace common {
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
 
   /**
-   * The context of app service extension. It allows access to
-   * appServiceExtension-specific resources.
+   * Defines the context environment for the
+   * [AppServiceExtensionAbility](docroot://reference/apis-ability-kit/js-apis-app-ability-appServiceExtensionAbility.md)
+   * . It inherits from Context.
    *
-   * @typedef { _AppServiceExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
@@ -741,10 +590,10 @@ declare namespace common {
   export type AppServiceExtensionContext = _AppServiceExtensionContext.default;
 
   /**
-   * The context of app service extension. It allows access to
-   * appServiceExtension-specific resources.
+   * Defines the context environment for the
+   * [AppServiceExtensionAbility](docroot://reference/apis-ability-kit/js-apis-app-ability-appServiceExtensionAbility.md)
+   * . It inherits from Context.
    *
-   * @typedef { _AppServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -754,7 +603,6 @@ declare namespace common {
   /**
    * The AgentCard information describes the basic information and capabilities provided by an Agent.
    *
-   * @typedef { _AgentCard }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -766,7 +614,6 @@ declare namespace common {
    * The Provider in an AgentCard refers to the organization or platform that issues and
    * manages the agent's credentials.
    *
-   * @typedef { _AgentProvider }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -778,7 +625,6 @@ declare namespace common {
    * Capabilities in an AgentCard represent the specific skills, services, and functions that
    * an agent can perform or provide within the system.
    *
-   * @typedef { _AgentCapabilities }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -790,7 +636,6 @@ declare namespace common {
    * Skills in an AgentCard represent the specific abilities, expertise, and proficiencies that an
    * agent possesses for performing tasks or solving problems.
    *
-   * @typedef { _AgentSkill }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -801,7 +646,6 @@ declare namespace common {
   /**
    * Application-related information for the agent.
    *
-   * @typedef { _AgentAppInfo }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -813,7 +657,6 @@ declare namespace common {
    * The AgentHostProxy is a proxy object for the client connected to the Agent, through which it
    * can communicate with the Agent's connection counterpart.
    *
-   * @typedef { _AgentHostProxy }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -824,7 +667,6 @@ declare namespace common {
   /**
    * Represents the AgentProxy type.
    *
-   * @typedef { _AgentProxy }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -835,7 +677,6 @@ declare namespace common {
   /**
    * Represents the AgentExtensionConnectCallback type.
    *
-   * @typedef { _AgentExtensionConnectCallback }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -847,7 +688,7 @@ declare namespace common {
    * The context of the agent service ability.
    *
    * @typedef { _AgentExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static

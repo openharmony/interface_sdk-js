@@ -14,6 +14,10 @@
  */
 
 /**
+ * **CompletionHandler** is an optional parameter of [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions} 
+ * and [OpenLinkOptions]{@link @ohos.app.ability.OpenLinkOptions:OpenLinkOptions}. It is used to process the result of 
+ * an application launch request.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -23,7 +27,6 @@ import { ElementName } from './bundleManager/ElementName';
 /**
  * Notify the success result of startAbility.
  *
- * @typedef { function }
  * @param { ElementName } elementName - Indicates the component to start.
  * @param { string } message - Indicates the message of the request result.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -31,10 +34,10 @@ import { ElementName } from './bundleManager/ElementName';
  * @since 23 static
  */
 type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
+
 /**
  * Notify the failure result of startAbility.
  *
- * @typedef { function }
  * @param { ElementName } elementName - Indicates the component to start.
  * @param { string } message - Indicates the message of the request result.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -44,7 +47,10 @@ type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
 type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
 
 /**
- * CompletionHandler is a handler to handle the completion events of start ability.
+ * CompletionHandler provides two callback functions,
+ * [onRequestSuccess]{@link CompletionHandler.onRequestSuccess(elementName: ElementName, message: string)} and
+ * [onRequestFailure]{@link CompletionHandler.onRequestFailure(elementName: ElementName, message: string)}, to handle
+ * the results of successful and failed application launch requests, respectively.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -54,10 +60,19 @@ type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
  */
 declare class CompletionHandler {
   /**
-   * Notify the success result of startAbility.
+   * Called when the application is successfully launched.
    *
-   * @param { ElementName } elementName - Indicates the component to start.
-   * @param { string } message - Indicates the message of the request result.
+   * @param { ElementName } elementName - **ElementName** information used to identify the target application. Typically,
+   *     **ElementName** includes only **abilityName** and **bundleName**. The presence of **moduleName** and **deviceId**
+   *     depends on whether the caller provides them. **shortName** and **uri** are empty.
+   * @param { string } message - Message displayed when the application is successfully launched. This message is in JSON
+   *     format, as follows:
+   *
+   *     {
+   *
+   *     ?"errMsg": "Succeeded."
+   *
+   *     }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -66,12 +81,36 @@ declare class CompletionHandler {
   onRequestSuccess(elementName: ElementName, message: string): void;
 
   /**
-   * Notify the failure result of startAbility.
+   * Called when the application fails to be launched.
    *
-   * @param { ElementName } elementName - Indicates the component to start.
-   * Returns an empty value if the target application cannot be found.
-   * @param { string } message - The message is a JSON string.
-   * The key represents the failureCode, and the value represents the detailed description of the failureCode.
+   * @param { ElementName } elementName - **ElementName** information used to identify the target application.
+   *
+   *     - Typically, **ElementName** includes only **abilityName** and **bundleName**. The presence of **moduleName** and
+   *     **deviceId** depends on whether the caller provides them. **shortName** and **uri** are empty.
+   *
+   *     - **ElementName** information cannot be obtained if the implicit startup fails.
+   * @param { string } message - Message displayed when the application fails to be launched. This message is in JSON format,
+   *     as follows:
+   *
+   *     {
+   *
+   *     ?"errMsg": "xxx"
+   *
+   *     }
+   *
+   *     The value of *xxx* is described as follows:
+   *
+   *     Failed to call <api-name>: An error occurs when calling the API. <api-name> is the specific API name, for example,
+   *     **startAbility**.
+   *
+   *     User refused redirection: The user has closed the application redirection dialog box.
+   *
+   *     User closed the implicit startup picker: The user has closed the dialog box for selecting an application for
+   *     implicit startup.
+   *
+   *     User closed the app clone picker: The user has closed the dialog box for selecting a cloned application.
+   *
+   *     Free installation failed: The free installation fails.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -82,7 +121,6 @@ declare class CompletionHandler {
   /**
    * Notify the success result of startAbility.
    *
-   * @type { OnRequestSuccessFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -92,7 +130,6 @@ declare class CompletionHandler {
   /**
    * Notify the failure result of startAbility.
    *
-   * @type { OnRequestFailureFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static

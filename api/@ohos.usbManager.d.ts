@@ -145,29 +145,6 @@ declare namespace usbManager {
   function removeRight(deviceName: string): boolean;
 
   /**
-   * Adds the device access permission for the application. System applications are granted the device access permission
-   *  by default, and calling this API will not revoke the permission.
-   * [usbManager.requestRight]{(@link usbManager.requestRight)} triggers a dialog box to request for user authorization, whereas addRight adds the access
-   * permission directly without displaying a dialog box.
-   *
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } deviceName - Device name.
-   * @returns { boolean } Permission addition result. The value **true** indicates that the access permission is added
-   *     successfully; and the value **false** indicates the opposite.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *
-   *     <br>1.Mandatory parameters are left unspecified.
-   *
-   *     <br>2.Incorrect parameter types.
-   * @syscap SystemCapability.USB.USBManager
-   * @systemapi
-   * @since 9 dynamiconly
-   * @deprecated since 12
-   * @useinstead usbManager.addDeviceAccessRight(tokenId: string, deviceName: string)
-   */
-  function addRight(bundleName: string, deviceName: string): boolean;
-
-  /**
    * Converts the USB function list in the string format to a numeric mask in Device mode.
    *
    * @param { string } funcs - Function list in string format.

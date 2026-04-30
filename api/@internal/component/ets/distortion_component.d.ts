@@ -60,7 +60,7 @@ declare interface DistortionParam {
   /**
    * Coordinate of top-right corner.
    *
-   * @default [0, 0]
+   * @default [1, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -70,7 +70,7 @@ declare interface DistortionParam {
   /**
    * Coordinate of bottom-left corner.
    *
-   * @default [0, 0]
+   * @default [0, 1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -80,7 +80,7 @@ declare interface DistortionParam {
   /**
    * Coordinate of bottom-right corner.
    *
-   * @default [0, 0]
+   * @default [1, 1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -131,7 +131,6 @@ interface DistortionComponentInterface {
   /**
    * Creates a DistortionComponent with content.
    *
-   * @param { ComponentContent } content - Content builder function.
    * @param { DistortionComponentOptions } [options] - DistortionComponent Options.
    * @returns { DistortionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -139,7 +138,7 @@ interface DistortionComponentInterface {
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  (content: ComponentContent, options?: DistortionComponentOptions): DistortionComponentAttribute;
+  (options?: DistortionComponentOptions): DistortionComponentAttribute;
 }
 
 /**

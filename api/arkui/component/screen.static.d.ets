@@ -28,6 +28,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  * @typedef ScreenAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -40,6 +41,7 @@ export declare interface ScreenAttribute extends CommonMethod {
     * @returns { ScreenAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
+    * @stagemodelonly
     * @since 23 static
     */
    default attributeModifier(
@@ -54,6 +56,7 @@ export declare interface ScreenAttribute extends CommonMethod {
  * @returns { ScreenAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

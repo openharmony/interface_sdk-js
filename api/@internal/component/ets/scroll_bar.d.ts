@@ -293,6 +293,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @param { Optional<boolean> } enabled - Whether to enable nested scroll.
      * @returns { ScrollBarAttribute } The attribute of the scroll bar
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
@@ -305,6 +306,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @param { Optional<ColorMetrics> } color - Color of the scrollbar.
      * @returns { ScrollBarAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
