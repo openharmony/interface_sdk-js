@@ -19,6 +19,128 @@
  */
 
 /**
+ * Enumeration of different types of EmbeddedDpiFollowStrategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum EmbeddedDpiFollowStrategy {
+    /**
+     * Followed the host DPI.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    FOLLOW_HOST_DPI = 0,
+
+    /**
+     * Followed the EmbeddedUIExtensionAbility.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
+}
+
+/**
+* Enumeration of different types of EmbeddedWindowModeFollowStrategy.
+*
+* @enum { number }
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @atomicservice
+* @since 26.0.0 dynamic
+*/
+declare enum EmbeddedWindowModeFollowStrategy {
+    /**
+     * Followed the host Window Mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    FOLLOW_HOST_WINDOW_MODE = 0,
+
+    /**
+     * Followed the EmbeddedUIExtensionAbility.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
+}
+
+/**
+* This interface is used to set the options for EmbeddedComponentAttribute during construction
+*
+* @interface EmbeddedOptions
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @atomicservice
+* @since 26.0.0 dynamic
+*/
+declare interface EmbeddedOptions {
+    /**
+     * Set placeholder.
+     * If set placeholder ComponentContent, show placeholder node when connection is not established.
+     *
+     * @type { ?ComponentContent }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    placeholder?: ComponentContent;
+
+    /**
+     * Set Areachange placeholder.
+     * If the Areachange placeholder ComponentContent is set, the placeholder node is displayed until
+     * the EmbeddedComponent size change is complete.
+     *
+     * @type { ?Record<string, ComponentContent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    areaChangePlaceholder?: Record<string, ComponentContent>;
+
+    /**
+     * Set EmbeddedComponent Content Dpi Follow Strategy.
+     *
+     * @type { ?EmbeddedDpiFollowStrategy }
+     * @default EmbeddedDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    dpiFollowStrategy?: EmbeddedDpiFollowStrategy;
+
+    /**
+     * Set EmbeddedComponent Content Window Mode Follow Strategy.
+     *
+     * @type { ?EmbeddedWindowModeFollowStrategy }
+     * @default EmbeddedWindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    windowModeFollowStrategy?: EmbeddedWindowModeFollowStrategy;
+}
+
+/**
  * Provide an interface for the EmbeddedComponent, which is used
  * <br/>to render UI asynchronously
  *
@@ -27,6 +149,7 @@
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 interface EmbeddedComponentInterface {
   /**
@@ -37,13 +160,32 @@ interface EmbeddedComponentInterface {
    * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @stageModelOnly
    * @atomicservice
    * @since 12 dynamic
    */
   (
     loader: import('../api/@ohos.app.ability.Want').default,
     type: EmbeddedType
+  ): EmbeddedComponentAttribute;
+
+  /**
+   * Construct the EmbeddedComponent.<br/>
+   * Called when the EmbeddedComponent is used.
+   *
+   * @param { import('../api/@ohos.app.ability.Want').default } loader - indicates initialization parameter
+   * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
+   * @param { EmbeddedOptions } options - construction configuration of EmbeddedComponent
+   * @returns { EmbeddedComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stageModelOnly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (
+    loader: import('../api/@ohos.app.ability.Want').default,
+    type: EmbeddedType,
+    options: EmbeddedOptions
   ): EmbeddedComponentAttribute;
 }
 
@@ -88,6 +230,7 @@ declare interface TerminationInfo {
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
   /**
@@ -113,6 +256,18 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 12 dynamic
    */
   onError(callback: import('../api/@ohos.base').ErrorCallback): EmbeddedComponentAttribute;
+
+  /**
+   * Callback called when the EmbeddedUIExtensionAbility draw the first frame.
+   *
+   * @param { Callback<void> } callback
+   * @returns { EmbeddedComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onDrawReady(callback: Callback<void>): EmbeddedComponentAttribute;
 }
 
 /**
@@ -122,6 +277,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const EmbeddedComponent: EmbeddedComponentInterface;
 
@@ -132,5 +288,6 @@ declare const EmbeddedComponent: EmbeddedComponentInterface;
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const EmbeddedComponentInstance: EmbeddedComponentAttribute;
