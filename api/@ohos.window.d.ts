@@ -2309,8 +2309,21 @@ declare namespace window {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
+     * @useinstead WindowProperties#windowType
      */
     type: WindowType;
+
+    /**
+     * Window type
+     *
+     * @type { ?WindowType }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    windowType?: WindowType;
 
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
