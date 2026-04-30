@@ -2622,6 +2622,18 @@ export declare class DragController {
   cancelDataLoading(key: string): void;
 
   /**
+   * Interrupt the pending follow-hand morph drop animation and trigger the finish sequence immediately.
+   *
+   * @returns { boolean } Returns true if interrupted successfully; false if there is no pending
+   *     follow-hand morph drop animation to interrupt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  interruptFollowHandMorphDropAnimation(): boolean;
+
+  /**
    * Sets whether to enable the disallow badge icon show.
    *
    * Typically, when a component can receive or process data dragged by the user, or when it declares to the
