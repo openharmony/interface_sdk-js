@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -25,34 +26,35 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The EnvironmentCallback module provides capabilities to listen for system environment changes.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice [since 11]
- * @since 9 dynamic
+ * @stagemodelonly
+ * @since 23 static
  */
-export default class EnvironmentCallback {
-
+declare interface EnvironmentCallback {
   /**
-   * Called when the system configuration changes, after 
-   * [a listener has been registered for such events]{@link ./application/ApplicationContext:ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)}
+   * Called when the system configuration changes, after
+   * [a listener has been registered for such events]{@link ./application/ApplicationContext:ApplicationContext#on(type:
+   *  'environment', callback: EnvironmentCallback)}
    * .
    *
    * @param { Configuration } config - Configuration object after the change.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice [since 11]
-   * @since 9 dynamic
+   * @since 23 static
    */
   onConfigurationUpdated(config: Configuration): void;
 
   /**
-   * Called when the system memory level changes, after 
-   * [a listener has been registered for such events]{@link ./application/ApplicationContext:ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)}
+   * Called when the system memory level changes, after
+   * [a listener has been registered for such events]{@link ./application/ApplicationContext:ApplicationContext#on(type:
+   *  'environment', callback: EnvironmentCallback)}
    * .
    *
    * @param { AbilityConstant.MemoryLevel } level - Memory level, indicating the available memory of the entire device.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice [since 11]
-   * @since 9 dynamic
+   * @since 23 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
+
+export default EnvironmentCallback;

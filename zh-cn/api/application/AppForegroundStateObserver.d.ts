@@ -21,10 +21,9 @@
 import type AppStateData from './AppStateData';
 
 /**
- * The module defines the listener used to listen for application startup and exit state changes. It can be used as an 
- * input parameter of 
+ * 定义应用启动和退出的状态监听，可以作为
  * [appManager.on('appForegroundState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'appForegroundState', observer: AppForegroundStateObserver)}
- * to listen for the state changes of all applications.
+ * 的入参监听所有应用的启动和退出的变化。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -32,9 +31,9 @@ import type AppStateData from './AppStateData';
  */
 export default class AppForegroundStateObserver {
   /**
-   * Called when the application launch or exit state changes.
+   * 应用启动和退出状态发生变化时，系统会触发该回调。
    *
-   * @param { AppStateData } appStateData - Application state data.
+   * @param { AppStateData } appStateData - 应用状态信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic

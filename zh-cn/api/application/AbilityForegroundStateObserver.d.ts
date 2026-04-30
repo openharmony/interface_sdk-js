@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,26 +18,23 @@
  * @kit AbilityKit
  */
 
-import type AppStateData from './AppStateData';
+import AbilityStateData from './AbilityStateData';
 
 /**
- * The module defines the listener used to listen for application startup and exit state changes. It can be used as an 
- * input parameter of 
- * [appManager.on('appForegroundState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'appForegroundState', observer: AppForegroundStateObserver)}
- * to listen for the state changes of all applications.
+ * 定义应用前后台状态监听。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 11 dynamic
  */
-export default class AppForegroundStateObserver {
+export default class AbilityForegroundStateObserver {
   /**
-   * Called when the application launch or exit state changes.
+   * 当Ability前后台状态发生变化时，系统会触发该回调。
    *
-   * @param { AppStateData } appStateData - Application state data.
+   * @param { AbilityStateData } abilityStateData - Ability状态信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
    */
-  onAppStateChanged(appStateData: AppStateData): void;
+  onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }

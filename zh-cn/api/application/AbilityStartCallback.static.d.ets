@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,51 +19,60 @@
  * @kit AbilityKit
  */
 
-import type { AbilityResult } from '../ability/abilityResult';
+import { AbilityResult } from '../ability/abilityResult';
 import { CompletionHandlerForAbilityStartCallback } from '../@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 
 /**
- * The module describes the callback invoked to return the UIExtensionAbility startup result.
+ * 拉起UIExtensionAbility终止时的回调。
+ *
+ * @param { AbilityResult } parameter -  当调用
+   *     [terminateSelfWithResult]{@link ./UIExtensionContext:UIExtensionContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   *     方法终止UIExtensionAbility时返回的结果。
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 23 static
+ */
+type OnResultFn = (parameter: AbilityResult) => void;
+
+/**
+ * 定义拉起UIExtensionAbility执行结果的回调。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 11 dynamic
+ * @since 23 static
  */
-export default class AbilityStartCallback {
+declare interface AbilityStartCallback {
   /**
-   * Called when the UIExtensionAbility fails to start.
+   * 拉起UIExtensionAbility执行失败的回调。
    *
-   * @param { int } code - Result code returned when the UIExtensionAbility fails to start.
-   * @param { string } name - Name returned when the UIExtensionAbility fails to start.
-   * @param { string } message - Error information returned when the UIExtensionAbility fails to start.
+   * @param { int } code - 拉起UIExtensionAbility执行失败时返回的结果码。
+   * @param { string } name - 拉起UIExtensionAbility执行失败时返回的名称。
+   * @param { string } message - 拉起UIExtensionAbility执行失败时返回的错误信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11 dynamic
+   * @since 23 static
    */
   onError(code: int, name: string, message: string): void;
-
+  
   /**
-   * Called when the UIExtensionAbility is terminated.
+   * 拉起UIExtensionAbility终止时的回调。
    *
-   * @param { AbilityResult } parameter - Result returned when 
- *     [terminateSelfWithResult]{@link ./UIExtensionContext:UIExtensionContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
- *      is called to terminate the UIExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 23 static
    */
-  onResult?(parameter: AbilityResult): void;
+  onResult?: OnResultFn;
 
   /**
-   * Callback invoked when the ability of a specified type is started.
+   * 用于返回拉起指定类型的Ability组件的回调结果。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 static
    */
   completionHandler?: CompletionHandlerForAbilityStartCallback;
 }
+
+export default AbilityStartCallback;
