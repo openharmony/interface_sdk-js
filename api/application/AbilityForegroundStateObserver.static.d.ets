@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,9 +26,10 @@ import AbilityStateData from './AbilityStateData';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11 dynamic
+ * @stagemodelonly
+ * @since 23 static
  */
-export default class AbilityForegroundStateObserver {
+declare interface AbilityForegroundStateObserver {
 
   /**
    * Called when the ability is switched between foreground and background.
@@ -35,7 +37,10 @@ export default class AbilityForegroundStateObserver {
    * @param { AbilityStateData } abilityStateData - Ability state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }
+
+export default AbilityForegroundStateObserver;

@@ -1,5 +1,6 @@
+'use static'
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,22 +20,23 @@
  */
 
 /**
- * The module is used to listen for state changes of the current application process. For ease of description, the term 
+ * The module is used to listen for state changes of the current application process. For ease of description, the term
  * "application process" will be referred to as "process" in the following sections.
- * You can call 
- * [ApplicationContext.on('applicationStateChange')]{@link ./application/ApplicationContext:ApplicationContext.on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback)}
+ * You can call
+ * [ApplicationContext.on('applicationStateChange')]{@link ./application/ApplicationContext:ApplicationContext.on(type:
+ * 'applicationStateChange', callback: ApplicationStateChangeCallback)}
  *  and pass in a custom ApplicationStateChangeCallback to listen for foreground/background state changes of the current
- *  process. This allows you to perform certain actions based on the process state changes, for example, tracking the 
- * duration of the process in the foreground and background, or clearing memory caches when the process moves to the 
+ *  process. This allows you to perform certain actions based on the process state changes, for example, tracking the
+ * duration of the process in the foreground and background, or clearing memory caches when the process moves to the
  * background.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @crossplatform [since 18]
- * @atomicservice [since 11]
- * @since 10 dynamic
+ * @crossplatform
+ * @atomicservice
+ * @since 23 static
  */
-export default class ApplicationStateChangeCallback {
+declare interface ApplicationStateChangeCallback {
   /**
    * Called when the current process switches from the background to the foreground. When this callback is triggered, 
    * it does not mean that the process is already fully in the foreground state, but rather that it is about to enter 
@@ -43,9 +45,9 @@ export default class ApplicationStateChangeCallback {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform [since 18]
-   * @atomicservice [since 11]
-   * @since 10 dynamic
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
    */
   onApplicationForeground(): void;
 
@@ -56,9 +58,11 @@ export default class ApplicationStateChangeCallback {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform [since 18]
-   * @atomicservice [since 11]
-   * @since 10 dynamic
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
    */
   onApplicationBackground(): void;
 }
+
+export default ApplicationStateChangeCallback;

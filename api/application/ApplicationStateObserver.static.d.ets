@@ -1,5 +1,6 @@
+'use static'
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,24 +21,26 @@
 
 import AppStateData from './AppStateData';
 import AbilityStateData from './AbilityStateData';
-import type * as _ProcessData from './ProcessData';
+import _ProcessData from './ProcessData';
 
 /**
- * The module defines an observer to listen for application state changes. It can be used as an input parameter in 
- * [on('applicationState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer: ApplicationStateObserver)}
+ * The module defines an observer to listen for application state changes. It can be used as an input parameter in
+ * [on('applicationState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'applicationState', observer:
+ * ApplicationStateObserver)}
  * to listen for lifecycle changes of the application.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14 dynamic
+ * @FaAndStageModel
+ * @since 23 static
  */
-export default class ApplicationStateObserver {
-
+declare interface ApplicationStateObserver {
   /**
    * Called when the foreground or background state of an application changes.
    *
    * @param { AppStateData } appStateData - Application state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onForegroundApplicationChanged(appStateData: AppStateData): void;
 
@@ -46,7 +49,8 @@ export default class ApplicationStateObserver {
    *
    * @param { AbilityStateData } abilityStateData - Ability state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
@@ -55,7 +59,8 @@ export default class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onProcessCreated(processData: ProcessData): void;
 
@@ -64,7 +69,8 @@ export default class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onProcessDied(processData: ProcessData): void;
 
@@ -73,7 +79,8 @@ export default class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onProcessStateChanged(processData: ProcessData): void;
 
@@ -82,7 +89,8 @@ export default class ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - Application state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onAppStarted(appStateData: AppStateData): void;
 
@@ -91,7 +99,8 @@ export default class ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - Application state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14 dynamic
+   * @FaAndStageModel
+   * @since 23 static
    */
   onAppStopped(appStateData: AppStateData): void;
 }
@@ -100,6 +109,9 @@ export default class ApplicationStateObserver {
  * The process data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14 dynamic
+ * @FaAndStageModel
+ * @since 23 static
  */
-export type ProcessData = _ProcessData.default;
+export type ProcessData = _ProcessData;
+
+export default ApplicationStateObserver;
