@@ -26,7 +26,7 @@ import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { TextModifier } from '../TextModifier';
 import { OptionWidthMode } from './enums';
 import { ComponentBuilder,  CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
+import { AttributeModifier, CommonMethod, SystemUiMaterial, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 /**
  * The declare of selectOption.
  *
@@ -567,6 +567,28 @@ export declare interface SelectAttribute extends CommonMethod {
      * @since 23 static
      */
     default menuSystemMaterial(material: SystemUiMaterial | undefined): this;
+    /**
+     * Defines the select menu's background blur style options.
+     *
+     * @param { BackgroundBlurStyleOptions | undefined } blurStyle - The background blur style options of menu.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuBackgroundBlurStyleOptions(blurStyle: BackgroundBlurStyleOptions | undefined): this;
+    /**
+     * Defines the select menu's background effect with options
+     *
+     * @param { BackgroundEffectOptions | undefined } effect - Background effect, including saturation,
+     *     brightness, and color.
+     *     <br>The configuration does not take effect when it is undefined.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuBackgroundEffect(effect: BackgroundEffectOptions | undefined): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.
