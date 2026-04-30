@@ -33,7 +33,7 @@ import Want from '../@ohos.app.ability.Want';
 declare class DistributedExtensionContext extends ExtensionContext {
   /**
    * Connects to a remote Service extension ability.
-   * 
+   *
    * This method connects to a Service extension ability on a remote device.
    * You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
    * service extension when connected.
@@ -64,10 +64,8 @@ declare class DistributedExtensionContext extends ExtensionContext {
   /**
    * Disconnects from a remote Service extension ability.
    *
-   * @param { long } connection - the connection id returned from connectServiceExtensionAbility.
+   * @param { long } connection - the connection id returned from connectServiceExtensionAbility
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
