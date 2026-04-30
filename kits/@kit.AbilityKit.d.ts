@@ -110,6 +110,7 @@ import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
 import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import skillManager from '@ohos.bundle.skillManager';
 import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
@@ -140,7 +141,7 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
+  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, skillManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
@@ -159,6 +160,7 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import skillManager from '@ohos.bundle.skillManager';
 import common from '@ohos.app.ability.common';
 import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
 import { Configuration } from '@ohos.app.ability.Configuration';
@@ -236,7 +238,7 @@ import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
-  freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager, skillManager,
   common, ConfigurationConstant, Configuration, ErrorCode, Want, StartOptions, contextConstant,
   AbilityConstant, UIExtensionContentSession, wantConstant, AbilityStage, UIExtensionAbility,
   uriPermissionManager, ServiceExtensionAbility, AtomicServiceOptions, InsightIntentContext,
