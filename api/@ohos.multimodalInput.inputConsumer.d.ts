@@ -31,6 +31,47 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
  */
 declare namespace inputConsumer {
   /**
+   * KeyCommandTriggerType
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum KeyCommandTriggerType {
+
+    /**
+     * Triggered when pressed.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PRESSED = 1,
+
+    /**
+     * Triggered when pressed repeatedly.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    REPEAT_PRESSED = 2,
+
+    /**
+     * Continuous triggering, from pressing until all keys are released.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALL_RELEASED = 3
+  }
+
+  /**
    * Represents combination key options.
    *
    * @interface KeyOptions
@@ -103,6 +144,18 @@ declare namespace inputConsumer {
      * @since 23 static
      */
     isRepeat?: boolean;
+
+    /**
+     * Trigger type, which indicates that the conditions for triggering the callback expected by the
+     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored. This property
+     * is only for use in APIs that take KeyCommandCallback as the callback function and must be specified.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    triggerType?: KeyCommandTriggerType;
   }
 
   /**
@@ -234,6 +287,18 @@ declare namespace inputConsumer {
   }
 
   /**
+   * Callback function when the shortcut key registered by the system application meets the conditions.
+   *
+   * @param { KeyOptions } keyOptions - Options for registering shortcut keys when the system applies.
+   * @param { KeyEvent } keyEvent - Key event when a shortcut key is triggered.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type KeyCommandCallback = (keyOptions: KeyOptions, keyEvent: KeyEvent) => void;
+
+  /**
    * Enables listening for combination key events.
    * This API uses an asynchronous callback to return the combination key data when a combination key event that meets the specified condition occurs.
    * 
@@ -279,6 +344,19 @@ declare namespace inputConsumer {
   function onKey(keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
   /**
+   * Subscribe system keys.
+   *
+   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
+   * @param { KeyCommandCallback } callback - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onKey(keyOptions: KeyOptions, callback:KeyCommandCallback): void;
+
+  /**
    * Disables listening for combination key events.
    *
    * @param { 'key' } type - Event type. Currently, only key is supported.
@@ -320,6 +398,19 @@ declare namespace inputConsumer {
    * @since 23 static
    */
   function offKey(keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
+
+  /**
+   * Unsubscribe system keys.
+   *
+   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
+   * @param { KeyCommandCallback } [callback] - Callback function that receives reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offKey(keyOptions: KeyOptions, callback?: KeyCommandCallback): void;
 
   /**
    * Sets the shortcut key shield status.
