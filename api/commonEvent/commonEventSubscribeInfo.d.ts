@@ -20,11 +20,11 @@
 
 /**
  * The **CommonEventSubscribeInfo** module provides APIs for providing subscriber information.
- *
+ * 
  * > **NOTE**
  * >
- * > After users subscribing to custom common events, any application can send potential malicious common events to
- * > subscribers. Use the **publisherPermission** and **publisherBundleName** parameters of this module to restrict the
+ * > After users subscribing to custom common events, any application can send potential malicious common events to 
+ * > subscribers. Use the **publisherPermission** and **publisherBundleName** parameters of this module to restrict the 
  * > publishing scope of common events.
  *
  * @syscap SystemCapability.Notification.CommonEvent
@@ -56,7 +56,7 @@ export interface CommonEventSubscribeInfo {
   publisherPermission?: string;
 
   /**
-   * Device ID. Use [@ohos.deviceInfo]{@link ./../@ohos.deviceInfo:deviceInfo} to obtain the UDID as the device ID of
+   * Device ID. Use [@ohos.deviceInfo]{@link ./../@ohos.deviceInfo:deviceInfo} to obtain the UDID as the device ID of 
    * the subscriber. Not supported currently.
    *
    * @syscap SystemCapability.Notification.CommonEvent
@@ -67,13 +67,11 @@ export interface CommonEventSubscribeInfo {
   publisherDeviceId?: string;
 
   /**
-   * User ID. If this parameter is not specified, the default value, which is the ID of the current user, will be used.
-   * The value must be an existing user ID in the system. Use
+   * User ID. If this parameter is not specified, the default value, which is the ID of the current user, will be used. 
+   * The value must be an existing user ID in the system. Use 
    * [getOsAccountLocalId]{@link ./../@ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    * to obtain the system account ID and use it as the user ID of the subscriber.
    *
-   * @type { ?number } [since 7 - 10]
-   * @type { ?int } [since 11]
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -82,11 +80,9 @@ export interface CommonEventSubscribeInfo {
   userId?: int;
 
   /**
-   * Subscriber priority. The value ranges from ¨C100 to +1000. If the value exceeds the upper or lower limit, the upper
+   * Subscriber priority. The value ranges from â€“100 to +1000. If the value exceeds the upper or lower limit, the upper 
    * or lower limit is used.
    *
-   * @type { ?number } [since 7 - 10]
-   * @type { ?int } [since 11]
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 7 dynamic

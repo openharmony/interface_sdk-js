@@ -24,11 +24,11 @@ import { RecordData } from '../@ohos.base';
 
 /**
  * The **CommonEventPublishData** module provides APIs for defining common event content and attributes.
- *
+ * 
  * > **NOTE**
  * >
- * > If there is no restriction, any application can subscribe to common events and read related information. In this
- * > case, sensitive information should not be carried in common events. The **subscriberPermissions** and
+ * > If there is no restriction, any application can subscribe to common events and read related information. In this 
+ * > case, sensitive information should not be carried in common events. The **subscriberPermissions** and 
  * > **bundleName** parameters of this module can be used to restrict the receiving scope of common events.
  *
  * @syscap SystemCapability.Notification.CommonEvent
@@ -51,8 +51,6 @@ export interface CommonEventPublishData {
   /**
    * Common event data transferred by the publisher. The default value is **0**.
    *
-   * @type { ?number } [since 7 - 10]
-   * @type { ?int } [since 11]
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -89,7 +87,7 @@ export interface CommonEventPublishData {
    * preferentially sent to the subscriber with a higher priority. After the subscriber successfully receives the event,
    * the public event is sent to the subscriber with a lower priority. Subscribers with the same priority receive common
    * events in a random order.
-   * - **false**: This event is an unordered common event. Whether subscribers receive the event is not considered, and
+   * - **false**: This event is an unordered common event. Whether subscribers receive the event is not considered, and 
    * the common event which subscribers receive may not comply with the subscription sequence.
    *
    * @default false
@@ -102,14 +100,14 @@ export interface CommonEventPublishData {
   /**
    * Whether the common event is a sticky one. The default value is **false**.
    *
-   * - **true**: This event is a sticky common event, which allows subscribers to receive common events that have been
+   * - **true**: This event is a sticky common event, which allows subscribers to receive common events that have been 
    * sent before subscription.
-   * - **false**: This event is not a sticky common event, which allows subscribers to receive common events sent after
+   * - **false**: This event is not a sticky common event, which allows subscribers to receive common events sent after 
    * subscription.
    *
    * Only system applications and system services are allowed to send sticky events.
    *
-   * **Required Permissions**:
+   * **Required Permissions**: 
    * [ohos.permission.COMMONEVENT_STICKY](docroot://security/AccessToken/permissions-for-all.md#ohospermissioncommonevent_sticky)
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
