@@ -8356,6 +8356,24 @@ export declare interface PopupCommonOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Defines the popup's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
+     * Defines the popup's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    backgroundEffect?: BackgroundEffectOptions;
 
   /**
    * Callback function when the popup disappears.
@@ -8852,6 +8870,24 @@ export declare interface PopupOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Defines the popup's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
+     * Defines the popup's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    backgroundEffect?: BackgroundEffectOptions;
 
   /**
    * Callback function before the popup closeAnimation starts.
@@ -9239,6 +9275,24 @@ export declare interface CustomPopupOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Defines the popup's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
+     * Defines the popup's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    backgroundEffect?: BackgroundEffectOptions;
 
   /**
    * Callback function when the popup appears.
