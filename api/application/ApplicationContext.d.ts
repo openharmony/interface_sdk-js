@@ -787,6 +787,139 @@ declare class ApplicationContext extends Context {
    * @since 24 dynamic&static
    */
   offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void;
+
+  /**
+   * Registers a listener to monitor the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { AbilityLifecycleCallback } abilityLifecycleCallback - Callback used to return the ID of the registered listener.
+   * @returns { number } Returns the number code of the callbackId.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)
+   */
+  registerAbilityLifecycleCallback(abilityLifecycleCallback: AbilityLifecycleCallback): number;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { number } callbackId - Event type.
+   * @param { AsyncCallback<void> } callback - Callback used to return the ID of the registered listener.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters a listener for the lifecycle of a UIAbility within the application. This API uses a promise to return
+   * the result. It can be called only on the main thread.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { number } callbackId - Event type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
+
+  /**
+   * Register environment callback.
+   *
+   * @param { EnvironmentCallback } environmentCallback - Callback used to return the ID of the registered listener.
+   * @returns { number } Returns the number code of the callbackId.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)
+   */
+  registerEnvironmentCallback(environmentCallback: EnvironmentCallback): number;
+
+  /**
+   * Unregisters the listener for system environment changes. This API uses an asynchronous callback to return the
+   * result. It can be called only on the main thread.
+   *
+   * @param { number } callbackId - Event type.
+   * @param { AsyncCallback<void> } envcallback - Callback used to return the ID of the registered listener.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterEnvironmentCallback(callbackId: number, envcallback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters the listener for system environment changes. This API uses a promise to return the result. It can be
+   * called only on the main thread.
+   *
+   * @param { number } callbackId - Event type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number): Promise<void>;
+   */
+  unregisterEnvironmentCallback(callbackId: number): Promise<void>;
+
+  /**
+   * Obtains information about the running processes.
+   * This API uses a promise to return the result.
+   *
+   * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running
+   * information. You can perform error handling or custom processing in this callback.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(): Promise<Array<ProcessInformation>>;
+
+  /**
+   * Obtains information about the running processes.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the information about the
+   * running processes.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 }
 
 export default ApplicationContext;
